@@ -1,0 +1,31 @@
+{
+  "case_id": "T6-N05-full",
+  "scenario": "N05",
+  "domain": "network",
+  "split": "dev",
+  "variant": "full",
+  "change_type": null,
+  "expected_primary_kind": "TOTAL_EFFECT",
+  "expected_operation": "FIRST_MINUS_SECOND",
+  "expected_query_count": 1,
+  "reference_review_status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW",
+  "source_note": "下列参考是作者自拟测试口径，不是项目数学认证或独立审读结果。",
+  "manual_checks": [
+    "评价甲乙而非全部四店",
+    "背景是高客流条件",
+    "不自造跨组权重"
+  ],
+  "expected_fact_warning": null,
+  "must_not_claim_point_from_a0": true,
+  "reference_semantics": {
+    "query_kinds": [
+      "TOTAL_EFFECT"
+    ],
+    "first": "全员启用",
+    "second": "全员不启用",
+    "evaluation": "东区甲乙等权",
+    "time": "第4周",
+    "background": "基线客流高组；不是跨组标准化"
+  },
+  "evaluation_scope": "A0目标+字段/引用；A4/A5与全链路需额外真实事实读取和审核"
+}

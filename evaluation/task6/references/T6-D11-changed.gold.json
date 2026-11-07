@@ -1,0 +1,31 @@
+{
+  "case_id": "T6-D11-changed",
+  "scenario": "D11",
+  "domain": "dag",
+  "split": "holdout",
+  "variant": "changed",
+  "change_type": "conflicting_graph_and_sample",
+  "expected_primary_kind": "INTERVENTIONAL_DISTRIBUTION",
+  "expected_operation": "NOT_APPLICABLE",
+  "expected_query_count": 1,
+  "reference_review_status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW",
+  "source_note": "下列参考是作者自拟测试口径，不是项目数学认证或独立审读结果。",
+  "manual_checks": [
+    "区分do分布与条件分布",
+    "变量因果图与门店网络分开",
+    "变体图有冲突且样本不冒充总体"
+  ],
+  "expected_fact_warning": "不能把样本行当总体P(V)，也不能把变量图当门店网络。",
+  "must_not_claim_point_from_a0": true,
+  "reference_semantics": {
+    "query_kinds": [
+      "INTERVENTIONAL_DISTRIBUTION"
+    ],
+    "first": "do(A=1)",
+    "second": "不适用",
+    "evaluation": "销量Y总体分布",
+    "time": "下一月",
+    "background": "变量因果图，C是共同原因"
+  },
+  "evaluation_scope": "A0目标+字段/引用；A4/A5与全链路需额外真实事实读取和审核"
+}

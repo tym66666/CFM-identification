@@ -1,0 +1,2326 @@
+[
+  {
+    "path": "outputs/task6_dev_final_002/manifest.json",
+    "sha256": "8553b96aa922a21bf1205456b931b8fcca6b5d32c077836fc6200bc9d6300e51"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/runs.json",
+    "sha256": "18644781f9b69e75b06a99694d9f719dafa0948eed17c49d83fa2d04ffc34ec3"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/review_assisted.csv",
+    "sha256": "14bcf49d2fe1e83df2ead9a13b3409a156b6ae4917f91f93fd5bb9c03d056d9c"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0001_T6-N01-changed_prompt_plus_skill_r1/a0_inspection.json",
+    "sha256": "08bdecd8c0e14b8b9bddedfce8246536e01f4b34d16a6159af8deb22296e5746"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0001_T6-N01-changed_prompt_plus_skill_r1/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0001_T6-N01-changed_prompt_plus_skill_r1/intake_snapshot.json",
+    "sha256": "cb19970c7c710560d1ccacea406187a8d5f011c0a7f94eb8a6eec3f0e4fc6252"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0001_T6-N01-changed_prompt_plus_skill_r1/raw_response.json",
+    "sha256": "4b73bb11ed559278850a558855fd930473a73213e33c1c577c2b52e4c666da1d"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0001_T6-N01-changed_prompt_plus_skill_r1/request.json",
+    "sha256": "91c7938bc933259dbc05abf7cba2afba18a0a286a9e4bf2b35f12eb4aea03b7a"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0001_T6-N01-changed_prompt_plus_skill_r1/result.json",
+    "sha256": "cd0ae0ee214adbd1e6d72f873aff4a61e404d8a810bb9ad130c69664518aeb3e"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0002_T6-N01-changed_prompt_only_r1/a0_inspection.json",
+    "sha256": "930e1a52cee8fab8bf37d27df568a8e3704cd64c3a10f42057689b30d69d50dc"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0002_T6-N01-changed_prompt_only_r1/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0002_T6-N01-changed_prompt_only_r1/intake_snapshot.json",
+    "sha256": "07a9a4ffa1f23d09b0169a82af630c9d7035168c211463c88dbff973a7aba18b"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0002_T6-N01-changed_prompt_only_r1/raw_response.json",
+    "sha256": "2f4d950ad66024d46b64eab56cc750c4b1badc02eef80e00c97c88e631c85bd8"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0002_T6-N01-changed_prompt_only_r1/request.json",
+    "sha256": "df3d79635230b95cd2320c8be9cbecd628aa26c0ddd740da48879fc54b6713fb"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0002_T6-N01-changed_prompt_only_r1/result.json",
+    "sha256": "76bdcbca04a22dfcb60dacc1f9614f36e9d6a05a4c6950c3ff237a64880205aa"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0003_T6-N08-full_prompt_only_r1/a0_inspection.json",
+    "sha256": "c9c1359bd083a2f4b5f7e40c4b2f2345eb34380db7b716efeae7fdb3ebc5679e"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0003_T6-N08-full_prompt_only_r1/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0003_T6-N08-full_prompt_only_r1/intake_snapshot.json",
+    "sha256": "0debcfc8307dac6b55d225cd00d7a193d0ad563d4214fe7a19c17833f6dbc934"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0003_T6-N08-full_prompt_only_r1/raw_response.json",
+    "sha256": "9fb3c34e3d7df9aa9168e410fd1db77acbb53e80a2dab76cad044cd46d3c6dfc"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0003_T6-N08-full_prompt_only_r1/request.json",
+    "sha256": "5a56a33bc484d49f1d6ea2ab099a39294bd1474072b936dc756ee5c1f7a17138"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0003_T6-N08-full_prompt_only_r1/result.json",
+    "sha256": "6284d5fbba5b78f936cb2d49b20b8c582247487b0cd2bf19f8cb6c56bec69d5d"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0004_T6-N08-full_prompt_plus_skill_r1/a0_inspection.json",
+    "sha256": "b5b48b98dc373db45bd34c13a7722d6e670f0ba5abc6475e08590c293a1e00ed"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0004_T6-N08-full_prompt_plus_skill_r1/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0004_T6-N08-full_prompt_plus_skill_r1/intake_snapshot.json",
+    "sha256": "7edc4d7dd5a4294c561fdeeb310c460acd714d05ab9b48ca09b1e16235591889"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0004_T6-N08-full_prompt_plus_skill_r1/raw_response.json",
+    "sha256": "3d9b43453cebf20f775d8c0f5ed5993cf49d526283c0c82eb005e7bda94e9ab1"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0004_T6-N08-full_prompt_plus_skill_r1/request.json",
+    "sha256": "cbe5ba81a93fd4d6fbc6cc20d880c82cb3a9d16a416bfd896ef2eca18e8846ec"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0004_T6-N08-full_prompt_plus_skill_r1/result.json",
+    "sha256": "f967941da37e872649658c63eded4c1d08da8517d6965d831ff2258263a66107"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0005_T6-N03-full_prompt_plus_skill_r1/a0_inspection.json",
+    "sha256": "d9c25a09be2ce18741e2cbb55c6bd12dbc216f790c26f344b82f8a03bc6c3515"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0005_T6-N03-full_prompt_plus_skill_r1/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0005_T6-N03-full_prompt_plus_skill_r1/intake_snapshot.json",
+    "sha256": "7390b96431224dfe71018b6f07fb4fba783e6c105b4f1feed2c20ac53a06ceaf"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0005_T6-N03-full_prompt_plus_skill_r1/raw_response.json",
+    "sha256": "d7a99b2f4c70b54b8280040b8e570f069cd650171c050778f91b3bceb01f51d9"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0005_T6-N03-full_prompt_plus_skill_r1/request.json",
+    "sha256": "fd800c142c6c2516d1a11929361742e33f19fb87810e40f66f6ca80652568c74"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0005_T6-N03-full_prompt_plus_skill_r1/result.json",
+    "sha256": "3abb8d025ebca3892b64d417970f2006ad38b2a8051d2c73a1f85316ef774ace"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0006_T6-N03-full_prompt_only_r1/a0_inspection.json",
+    "sha256": "61f746763e658f3ad62c1cb526ecacd6d73bd07b88a399b7924709f7cbab85f3"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0006_T6-N03-full_prompt_only_r1/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0006_T6-N03-full_prompt_only_r1/intake_snapshot.json",
+    "sha256": "a7fcbb56c2f6b2086c64c0b0c5e24713d16c9da2c5ea62cf622e668e114ae8e5"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0006_T6-N03-full_prompt_only_r1/raw_response.json",
+    "sha256": "e845f265f3d4fe59698afcf8d8014a60f00b33152f5496a65da6af2696f1017b"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0006_T6-N03-full_prompt_only_r1/request.json",
+    "sha256": "0bc39ebfeeefb76c45e3779841f4031f559bde8b1263a23aa2222f65508498a7"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0006_T6-N03-full_prompt_only_r1/result.json",
+    "sha256": "43ffa3870b6d3fb93127644af9e7756797ab93bdf1b2c943dc79b9bf4c85494e"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0007_T6-N05-changed_prompt_only_r1/a0_inspection.json",
+    "sha256": "b81ac951bab2ab80728a0d63b79cab2e68a334e2cf6b1b71b43ace5229c68a03"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0007_T6-N05-changed_prompt_only_r1/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0007_T6-N05-changed_prompt_only_r1/intake_snapshot.json",
+    "sha256": "0e65fb4d37f5fc80cc92bedfcf2efce679a61cb028b7e77a12a77f2fcd042ba2"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0007_T6-N05-changed_prompt_only_r1/request.json",
+    "sha256": "4ef9e2b3da5d5a8b59422daddb27b1fec84e2ffe21166d31fbf381ce13c32b42"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0007_T6-N05-changed_prompt_only_r1/result.json",
+    "sha256": "cd47fd796fad703a9c5acc40481f504ef3b8468200f10fc0bb98f0a80f3c971b"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0008_T6-N05-changed_prompt_plus_skill_r1/a0_inspection.json",
+    "sha256": "30ffb242c27f90afdebb595da211751c6a8c57f7795ced4916b2984eba95c4d7"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0008_T6-N05-changed_prompt_plus_skill_r1/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0008_T6-N05-changed_prompt_plus_skill_r1/intake_snapshot.json",
+    "sha256": "c576f791fd345532c07a47e9da28d40181ddac6fdecf112e09d61fe92f596548"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0008_T6-N05-changed_prompt_plus_skill_r1/raw_response.json",
+    "sha256": "a3d4900ee8f15518e34650a985f68c0dbbf9bbbd9a819ab69241902634238ddc"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0008_T6-N05-changed_prompt_plus_skill_r1/request.json",
+    "sha256": "8022fcc0118b4867402f7bc6d77a22eccc2f55b6cf83cf658d18cc024039666c"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0008_T6-N05-changed_prompt_plus_skill_r1/result.json",
+    "sha256": "914b8b12d29c5f730fb017a8878ff79e63232acadf99e24e03240fe99d627506"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0009_T6-N07-full_prompt_plus_skill_r1/a0_inspection.json",
+    "sha256": "69196e8f0ac2762f73e6423ea9aa8419e4bdb86683c530e4d18d8a323af1aa9e"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0009_T6-N07-full_prompt_plus_skill_r1/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0009_T6-N07-full_prompt_plus_skill_r1/intake_snapshot.json",
+    "sha256": "6c189d27397d24d5ac46c6846f249c40200629f8d3b34db16df34bbb046070b3"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0009_T6-N07-full_prompt_plus_skill_r1/raw_response.json",
+    "sha256": "6c6fd02b433a67817aeb2061a928d68cc8cd449f34ab0321b53fc2b064df499c"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0009_T6-N07-full_prompt_plus_skill_r1/request.json",
+    "sha256": "d958a60cd48f188d03048dfa2cbee8feea753b2c74c8a5e91502031d105ef55f"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0009_T6-N07-full_prompt_plus_skill_r1/result.json",
+    "sha256": "8e7972f82e4ccb5c8fdc92e0e94df646b51fdd8991e4cdc710182eabdefc15ef"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0010_T6-N07-full_prompt_only_r1/a0_inspection.json",
+    "sha256": "696919afa4f396c2dfa50cfc3d76378f29767925f94ee54cd0e1e0197469320e"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0010_T6-N07-full_prompt_only_r1/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0010_T6-N07-full_prompt_only_r1/intake_snapshot.json",
+    "sha256": "18aca057c216ac5e09f5e26c87e3998f33b41e2e92877cb43e2770883426006d"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0010_T6-N07-full_prompt_only_r1/raw_response.json",
+    "sha256": "9ad26482b327013058d363ec12269abfb3fcdb876e9e58d7638cc0374cf12cfc"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0010_T6-N07-full_prompt_only_r1/request.json",
+    "sha256": "419c4d2113ad77f8091b1e6f36678d9ad854784551112da967625a39d3207c21"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0010_T6-N07-full_prompt_only_r1/result.json",
+    "sha256": "865d525ca22fb94d43629a2f023eea6cab5e92a2263db0085848ff916a9a75b4"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0011_T6-N04-full_prompt_only_r1/a0_inspection.json",
+    "sha256": "c3865abca3c574dbef3e831efdd3542527a2e0b0566d4653b4286f0cdd4306db"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0011_T6-N04-full_prompt_only_r1/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0011_T6-N04-full_prompt_only_r1/intake_snapshot.json",
+    "sha256": "b0ed1adada1dd0fa6ad8ebf91da804fbb5699036e3747b15ba798b5985971ef4"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0011_T6-N04-full_prompt_only_r1/raw_response.json",
+    "sha256": "dd367cfff5b7d907c752a93205e578db18bf5e47fca8cac8166e0b44e5d21481"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0011_T6-N04-full_prompt_only_r1/request.json",
+    "sha256": "c26b5dcef21373442cd6c35f494ffeb40ca94e16afd67b44cfb36a96f10e9326"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0011_T6-N04-full_prompt_only_r1/result.json",
+    "sha256": "98676c5252581e550e4a3ace707efd07d751911f1d4e0da434e8d04a53f1d002"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0012_T6-N04-full_prompt_plus_skill_r1/a0_inspection.json",
+    "sha256": "26e2eb6d72d9e38cec9a2c4d3268fa2967336968e51980f0bc91b22822412a98"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0012_T6-N04-full_prompt_plus_skill_r1/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0012_T6-N04-full_prompt_plus_skill_r1/intake_snapshot.json",
+    "sha256": "8546cc7b5acf7861042aa7a6845d44a6a0401eec7b7e8551ed6668c15479f312"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0012_T6-N04-full_prompt_plus_skill_r1/raw_response.json",
+    "sha256": "d2669d90394190afbdeacdfc76893373ab34a7e360f7e144aa66784d2fd22559"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0012_T6-N04-full_prompt_plus_skill_r1/request.json",
+    "sha256": "88d2789fcb4c1a7ebdb93445fb07a2899c29af18c46da49be269ec6cf3774046"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0012_T6-N04-full_prompt_plus_skill_r1/result.json",
+    "sha256": "86f03f52a09abb43e226b5fff8bcf3686e3304f9aae0d83dbab707aaa8418ccd"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0013_T6-N02-full_prompt_plus_skill_r1/a0_inspection.json",
+    "sha256": "6df6d339a9eb39a84d228010b5d219b9d4f3245bafe0247436bf4ba12cdec3b8"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0013_T6-N02-full_prompt_plus_skill_r1/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0013_T6-N02-full_prompt_plus_skill_r1/intake_snapshot.json",
+    "sha256": "2693d5782f9d4455a57a3c7070c18a82437dc0ae6548db4f9225b900a976824f"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0013_T6-N02-full_prompt_plus_skill_r1/raw_response.json",
+    "sha256": "d29d97a45b6247d151fd27f71c0748548e1818635ee54c37fb3204186fd3b461"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0013_T6-N02-full_prompt_plus_skill_r1/request.json",
+    "sha256": "27c3188d8d3a22ef4b536cea338db9f8902ed79eed4dc2ec120ea9fb6a4c093d"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0013_T6-N02-full_prompt_plus_skill_r1/result.json",
+    "sha256": "c972ad334d9af280bbd6c12f31cb161b1e04549507b661748f3aead1802b1795"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0014_T6-N02-full_prompt_only_r1/a0_inspection.json",
+    "sha256": "7057af1046c873a778e956ff45b3ba7c376d4c429a01e305b22d5381f14e8e27"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0014_T6-N02-full_prompt_only_r1/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0014_T6-N02-full_prompt_only_r1/intake_snapshot.json",
+    "sha256": "b66a045425df60267f0fcd2785c32038b2d941b2d91cbfc3579d2cc590db6b3d"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0014_T6-N02-full_prompt_only_r1/raw_response.json",
+    "sha256": "2e23e239a0b7acb86e043f7fcfd22b9454ec602b0d31c4fcf05572aeb44c91b8"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0014_T6-N02-full_prompt_only_r1/request.json",
+    "sha256": "2d213d836430a8fc0e135e9702fb3c080f9e0a1fc9dd3e8a5cf443aabe1fe6df"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0014_T6-N02-full_prompt_only_r1/result.json",
+    "sha256": "a54b7db4ea552ebda3f0bd4ca979609d404165907847254ddee3d60ab7500997"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0015_T6-N06-full_prompt_only_r1/a0_inspection.json",
+    "sha256": "016ec4bdcc12612e05beb60dfec0a43472f6aa7800b62c4e6a453712b263b149"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0015_T6-N06-full_prompt_only_r1/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0015_T6-N06-full_prompt_only_r1/intake_snapshot.json",
+    "sha256": "e91921958eff1fe52c8d9c083eba8787631d6706bc3de22421fed3787aee5050"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0015_T6-N06-full_prompt_only_r1/raw_response.json",
+    "sha256": "e77edf35ef20269c3d364cabf31e7350379b17557b0b1d3f45b7aec85c17c59f"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0015_T6-N06-full_prompt_only_r1/request.json",
+    "sha256": "2f6fb07ee6308cf16721b9a315ba74dd5f5e1160a3599296fe0056aea86b1d04"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0015_T6-N06-full_prompt_only_r1/result.json",
+    "sha256": "c4bfe7b63887cdc119b0fed6c038e05332dc415a41abeff5086ff67c732ca381"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0016_T6-N06-full_prompt_plus_skill_r1/a0_inspection.json",
+    "sha256": "d25501c11c65e8bcf6df4be35cb12d7fc08483d2637417423b68ea1b5b7fc0c7"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0016_T6-N06-full_prompt_plus_skill_r1/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0016_T6-N06-full_prompt_plus_skill_r1/intake_snapshot.json",
+    "sha256": "32d8025c8a69c3bc4be61fe8b08a1f34ad511116237dd495ed7b0b859d0b2b59"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0016_T6-N06-full_prompt_plus_skill_r1/raw_response.json",
+    "sha256": "6aab8fbf9bb891b3f2f80b99c9ae3fdd9a0dbe409526f483706a82e47d568238"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0016_T6-N06-full_prompt_plus_skill_r1/request.json",
+    "sha256": "95fd4b67969e085429a584cda05c0bd218d15e50b16c29955d953ba86f5b66b9"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0016_T6-N06-full_prompt_plus_skill_r1/result.json",
+    "sha256": "805fbb9f0a8a19c50781a5d8c5444ca61f3262cafaa1ed5e60eb3c4fdd28ab5c"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0017_T6-N04-changed_prompt_plus_skill_r1/a0_inspection.json",
+    "sha256": "dd50529bda04e5da2aaf10fddf38c41758cfa7b8155901d1193ab90c89cff1c1"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0017_T6-N04-changed_prompt_plus_skill_r1/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0017_T6-N04-changed_prompt_plus_skill_r1/intake_snapshot.json",
+    "sha256": "5a12be43a96da1cc22296ff2f902725bde7c95cb26277298b42908af70c67ff4"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0017_T6-N04-changed_prompt_plus_skill_r1/raw_response.json",
+    "sha256": "e5f69ebf2d6ed1fca46eb9408a5ae9c3036c38eaf48a749aaf5b8c83a80e4216"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0017_T6-N04-changed_prompt_plus_skill_r1/request.json",
+    "sha256": "8aa0ebffd048b047a84bd25528ae6a67143e61fdfb0bcf14d65da318a5784527"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0017_T6-N04-changed_prompt_plus_skill_r1/result.json",
+    "sha256": "4025ffcd70ebd0b1f21a22181fac6cdbada94f2b1ece64065feb23752b9c599b"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0018_T6-N04-changed_prompt_only_r1/a0_inspection.json",
+    "sha256": "26ca1b5635fffa9a4a12619c3dab993cf01da38d1b0a83f1a42f3a7cf788b0e9"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0018_T6-N04-changed_prompt_only_r1/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0018_T6-N04-changed_prompt_only_r1/intake_snapshot.json",
+    "sha256": "a773cb6c322ec2a2590e6061a6688dcfe2f04fe7698d797f7e5a6a2737e2cf74"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0018_T6-N04-changed_prompt_only_r1/raw_response.json",
+    "sha256": "5fd0bf5e0379f7d914ffa6025f50f1a07fdf76c26090f1287d4fc8e806927eed"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0018_T6-N04-changed_prompt_only_r1/request.json",
+    "sha256": "adfe9c132ae7b107a256cba53148f111bd96050e59ee15d80e705830e12cc633"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0018_T6-N04-changed_prompt_only_r1/result.json",
+    "sha256": "043f4005837cc2bfb97ba3532786bb05f517aaba6be86196e8d63235d6baff21"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0019_T6-N01-full_prompt_only_r1/a0_inspection.json",
+    "sha256": "166faeb980a92f652c1b04d7dedbc5d9b568fb32c6ce06d4b1ec105f990a66e3"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0019_T6-N01-full_prompt_only_r1/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0019_T6-N01-full_prompt_only_r1/intake_snapshot.json",
+    "sha256": "1c0edd436e1d1f34642bde49ff0b2b371845230e307811f4ce234a12211d28ab"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0019_T6-N01-full_prompt_only_r1/raw_response.json",
+    "sha256": "e4fe12f9f8d7fcfc17945c20414478e4894d93d78d795d9ae60a012819cddd3f"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0019_T6-N01-full_prompt_only_r1/request.json",
+    "sha256": "da0b8d72955ce5951db8f4422128ccdd5415068515e3bebc3096217df3bc4b31"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0019_T6-N01-full_prompt_only_r1/result.json",
+    "sha256": "b9348f176b7a747eafceeff2c3bcc05b75aa54f538bbca2284f9a07536234707"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0020_T6-N01-full_prompt_plus_skill_r1/a0_inspection.json",
+    "sha256": "42d078012ec0f4c98301bb41bf3a51bf7cda3ea9fcf0436e6ed0affa553c4d6a"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0020_T6-N01-full_prompt_plus_skill_r1/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0020_T6-N01-full_prompt_plus_skill_r1/intake_snapshot.json",
+    "sha256": "1686c47f4d1d3b59070ca2a17197edde5e687af56f2677fbb483aae41d0e3187"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0020_T6-N01-full_prompt_plus_skill_r1/raw_response.json",
+    "sha256": "2a2c8d613c46600b58fdb64c8eb04646986faea20de170a16268a3d836c85baf"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0020_T6-N01-full_prompt_plus_skill_r1/request.json",
+    "sha256": "3498e35d62fa5d5b2acd20a62b65b4e57834c55ec08f4f5ca06012d6d1cefb47"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0020_T6-N01-full_prompt_plus_skill_r1/result.json",
+    "sha256": "fe0f330d3751a5efb08d8bc0cbf17c11a8020e5b0aaad945c7e40731d70bf1b3"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0021_T6-N05-full_prompt_plus_skill_r1/a0_inspection.json",
+    "sha256": "7ca7b675ca2ce3f67b4244552647d389dc7cab288dc7c1576347343e75ea07da"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0021_T6-N05-full_prompt_plus_skill_r1/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0021_T6-N05-full_prompt_plus_skill_r1/intake_snapshot.json",
+    "sha256": "2c82d123e0e6dfa6f2f77d85fad57ee37d23ff5d5ebb84fc733f73faf48485b0"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0021_T6-N05-full_prompt_plus_skill_r1/raw_response.json",
+    "sha256": "f5c6eb01a4f0a6dbe3018f8d97d9c59d9d85b94af8306a2fbd668dcb627dc0cd"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0021_T6-N05-full_prompt_plus_skill_r1/request.json",
+    "sha256": "7f64825ee84fae1be5a01f7cf7fa97651cd61b2d6753e249193bc456f101b196"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0021_T6-N05-full_prompt_plus_skill_r1/result.json",
+    "sha256": "de1b06f1a898021b2cbc552b60b2f2db92e34cd07634eb21430f6723614056cd"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0022_T6-N05-full_prompt_only_r1/a0_inspection.json",
+    "sha256": "411eb3649c6dc16c99bedc7f3a84e15a44fb58d3ff902ad83d843a38432b6dd0"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0022_T6-N05-full_prompt_only_r1/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0022_T6-N05-full_prompt_only_r1/intake_snapshot.json",
+    "sha256": "15cbd6540ef7643b430adbd488acf29c379c46422cfdf4f5c22e3a153ae50884"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0022_T6-N05-full_prompt_only_r1/raw_response.json",
+    "sha256": "7699953a315f25ba720c5a36b683a92df66330e96f53e350d7aef70a7810ac1c"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0022_T6-N05-full_prompt_only_r1/request.json",
+    "sha256": "91fab65ac538d05937b758d5a6ad2740dc11f62d916d8085bf42124684d76ad7"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0022_T6-N05-full_prompt_only_r1/result.json",
+    "sha256": "cc88825c688d56fc41f5d52a3ebf2536b21eef9220a86f4048e954bd1a49f1b5"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0023_T6-N02-changed_prompt_only_r1/a0_inspection.json",
+    "sha256": "d398068b7ff03b915f6287ea0d20b8fa441d74606b0a19c1f8d91caf3ee2fe87"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0023_T6-N02-changed_prompt_only_r1/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0023_T6-N02-changed_prompt_only_r1/intake_snapshot.json",
+    "sha256": "c925bf972d92bd466b9d10e403b98fe53d80517cde05a082151ee321f751d697"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0023_T6-N02-changed_prompt_only_r1/raw_response.json",
+    "sha256": "e13d416f1b386ab49003b471be6b730e93c5421f2e6786095fa81a1337c30e7a"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0023_T6-N02-changed_prompt_only_r1/request.json",
+    "sha256": "6d7ae864769ab50d32444b6d04077a44edbb72b4687b8569c4444d7a1013e589"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0023_T6-N02-changed_prompt_only_r1/result.json",
+    "sha256": "d02b1560ceeccc27bbcc815a005c6a0e64aa95c76e5b71c6951d99b695bbe200"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0024_T6-N02-changed_prompt_plus_skill_r1/a0_inspection.json",
+    "sha256": "8327a03f8e7810486a53e0f3e4e0a1d4b0e16b0ed96497bbc21308dba2ca87ef"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0024_T6-N02-changed_prompt_plus_skill_r1/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0024_T6-N02-changed_prompt_plus_skill_r1/intake_snapshot.json",
+    "sha256": "7e8c819395ca9550d0c379b95615240805f20ff1a1000940fd51e80040174d89"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0024_T6-N02-changed_prompt_plus_skill_r1/raw_response.json",
+    "sha256": "d1fabbeb90687792b016e9442a172f58e2ab19b6fa1737e1a0e8ad10ce13fa35"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0024_T6-N02-changed_prompt_plus_skill_r1/request.json",
+    "sha256": "a771ee02e859d8c109c116b5e61f194afddf163c54ef8e3372c632fa3581c2d1"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0024_T6-N02-changed_prompt_plus_skill_r1/result.json",
+    "sha256": "2d6f8e60880fc0b3fb4c8fc0f567417499e7e73e9b3a792e9d16f3d99a6e5b16"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0025_T6-N08-changed_prompt_plus_skill_r1/a0_inspection.json",
+    "sha256": "1eaebda75189505cbe8ccdfcfb7774ae6c39f05b60da9a23205a3a4a3a8c544b"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0025_T6-N08-changed_prompt_plus_skill_r1/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0025_T6-N08-changed_prompt_plus_skill_r1/intake_snapshot.json",
+    "sha256": "fc01ed70e77fbc754a8249da4f8a5f2750ccbce00a06edc79a531d25ee5d092a"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0025_T6-N08-changed_prompt_plus_skill_r1/raw_response.json",
+    "sha256": "fcbc41139b1bddb8d72a5249a9fbbc85143e828b502ad736af672880c7e60da6"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0025_T6-N08-changed_prompt_plus_skill_r1/request.json",
+    "sha256": "c40210493872017aa2cb73d648ea8ba165eb46d311ac80cc855b75a21c063f49"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0025_T6-N08-changed_prompt_plus_skill_r1/result.json",
+    "sha256": "6e4d3a79f3c675189f9e0d8b069938ae066f5af8879f002b7c559d249292e820"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0026_T6-N08-changed_prompt_only_r1/a0_inspection.json",
+    "sha256": "cd83d271af05d5a738283713aeb48fc7ce172fb16601ade0f5afb460d2941850"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0026_T6-N08-changed_prompt_only_r1/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0026_T6-N08-changed_prompt_only_r1/intake_snapshot.json",
+    "sha256": "8581f6ffb2c35bbe73a22097d73b1e89d30a4f8136776b33ebdfaec5b62ba826"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0026_T6-N08-changed_prompt_only_r1/raw_response.json",
+    "sha256": "0b0e8ad4edf450b1dd3ee647c4e4e88f9d01a565bc7a857c8c3e2d5f42c3aefc"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0026_T6-N08-changed_prompt_only_r1/request.json",
+    "sha256": "8845204a955fc06f4f6be9c4596c75a785f39e72c9d3443c9a42540bb2502b9a"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0026_T6-N08-changed_prompt_only_r1/result.json",
+    "sha256": "a2a3c6d65388ea041de503dc52934b65b31510a5c47d09035e8cea002e3db551"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0027_T6-N06-changed_prompt_only_r1/a0_inspection.json",
+    "sha256": "e5d5e75c01d2c101871a8009cc81d6ddfc92409b38589924d5cb8462c727c7c0"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0027_T6-N06-changed_prompt_only_r1/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0027_T6-N06-changed_prompt_only_r1/intake_snapshot.json",
+    "sha256": "c654c4c158a941b531cec07340d3fccb5b4c4807e87db5507676b1aa4b489521"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0027_T6-N06-changed_prompt_only_r1/raw_response.json",
+    "sha256": "17ba2f2e488729f04146265a22654f9b888e3884dc278d1056023935da958b46"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0027_T6-N06-changed_prompt_only_r1/request.json",
+    "sha256": "ddf6af0a57808e7aa5388782280b503fde1f961e750d0efee0444e9524eebc39"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0027_T6-N06-changed_prompt_only_r1/result.json",
+    "sha256": "8e5f25d7372567c4a7ee1b945e06d365a5f9171a920d2d50b5cf7c842597057c"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0028_T6-N06-changed_prompt_plus_skill_r1/a0_inspection.json",
+    "sha256": "9dbe826ad8c5a640f6f7514cada83f89bd84d3051db699a4dd81ee263d2b7e5f"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0028_T6-N06-changed_prompt_plus_skill_r1/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0028_T6-N06-changed_prompt_plus_skill_r1/intake_snapshot.json",
+    "sha256": "cbf5554661c3b067a4ddd8afef2de54e5542a48ca453d6e6e0605f3a92bff8ac"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0028_T6-N06-changed_prompt_plus_skill_r1/raw_response.json",
+    "sha256": "8dd36572d2bb6ac18799faf15e3a7a61cfb593edd0b9eac4cd78e2fda2798331"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0028_T6-N06-changed_prompt_plus_skill_r1/request.json",
+    "sha256": "4bf02a11edf3cd4802daeff027089b760185f4458e4552e39d22f7383ad3adf8"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0028_T6-N06-changed_prompt_plus_skill_r1/result.json",
+    "sha256": "8a3f301e77311fc7c59ffc1d352fece29ee9b0658bd826095b4ee170f1246a1c"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0029_T6-N07-changed_prompt_plus_skill_r1/a0_inspection.json",
+    "sha256": "724348eb9d889b2f3bc6582ca11779acbc2ae716decce3021f87f5dce64508fc"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0029_T6-N07-changed_prompt_plus_skill_r1/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0029_T6-N07-changed_prompt_plus_skill_r1/intake_snapshot.json",
+    "sha256": "729f34af7c28224161647dfe844c1dfb3ff7ff95f757328e68d4e91e949cfe39"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0029_T6-N07-changed_prompt_plus_skill_r1/raw_response.json",
+    "sha256": "2352f139a30ca8fa6fa4e18827d77d6776e52b4591152d418bdd8c4ca21f655f"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0029_T6-N07-changed_prompt_plus_skill_r1/request.json",
+    "sha256": "131792b95c8710b79cd09b0a759de01a4934b4258efe7e69b6ca62fa14e4f8e5"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0029_T6-N07-changed_prompt_plus_skill_r1/result.json",
+    "sha256": "95b122fea2e7dd0aff4916ebb166b3cd426fb745caa4ca8584013cd41f0e7108"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0030_T6-N07-changed_prompt_only_r1/a0_inspection.json",
+    "sha256": "a650442cae63ddc16f4cb79616b1f68d4efc7190a389c13c6984d2e77336ceb9"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0030_T6-N07-changed_prompt_only_r1/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0030_T6-N07-changed_prompt_only_r1/intake_snapshot.json",
+    "sha256": "1a3b56ef3be2a0cb48fbc71f1ce55b29f5f5a731888911763e45fb6ddfed8652"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0030_T6-N07-changed_prompt_only_r1/raw_response.json",
+    "sha256": "027b5467d68f2aa7fac625507bf5f5dd99153aff7c3a20df65097970f6967ab6"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0030_T6-N07-changed_prompt_only_r1/request.json",
+    "sha256": "6cf6bd103b5bda6fad17a5f14ecf939f2cae74899d13deac115d87834a4fc89f"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0030_T6-N07-changed_prompt_only_r1/result.json",
+    "sha256": "cc7ff243c6bba4a9760054b85e8d041ef837507793bdcf0dd4d4fbd512c94b96"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0031_T6-N03-changed_prompt_only_r1/a0_inspection.json",
+    "sha256": "2724d47a5849befe512ff19f4e62e6e9c8ef6496d12c841495f83fcdcf8a89cc"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0031_T6-N03-changed_prompt_only_r1/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0031_T6-N03-changed_prompt_only_r1/intake_snapshot.json",
+    "sha256": "7e6097ece901edecfdec9cc1760a1399d0a076ebfc38da195b7e45457c38dbbd"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0031_T6-N03-changed_prompt_only_r1/raw_response.json",
+    "sha256": "cb02d4d41aec0a62639474ba77304617e08317be5156dd330890168ed5665bcc"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0031_T6-N03-changed_prompt_only_r1/request.json",
+    "sha256": "11379346f530ddba3a69a024323ce352a23b162c1148402103ddcc870682449e"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0031_T6-N03-changed_prompt_only_r1/result.json",
+    "sha256": "dc8c94a2e7eea887dad3ae6e311729c3bd432fe8a59709d3d5a15fd9fa6f9dbd"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0032_T6-N03-changed_prompt_plus_skill_r1/a0_inspection.json",
+    "sha256": "c05b20cc2966b3e6e3b1bf8061fa431c5251b10301e1214092882deec4237cbc"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0032_T6-N03-changed_prompt_plus_skill_r1/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0032_T6-N03-changed_prompt_plus_skill_r1/intake_snapshot.json",
+    "sha256": "d92ec4b085c7d7791aab8aa216697f57e10018474d81fca4f55cabf9293a8508"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0032_T6-N03-changed_prompt_plus_skill_r1/raw_response.json",
+    "sha256": "c5ad570824fcf8810e4c567215e072b6f3bd5b5e0dfc7d15458d2fdf15ae9b69"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0032_T6-N03-changed_prompt_plus_skill_r1/request.json",
+    "sha256": "36a419365a1f53c138a244ac8fa26e413efa5d4ca1a39fd0ed18420c6d3e6ec6"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0032_T6-N03-changed_prompt_plus_skill_r1/result.json",
+    "sha256": "58e56446739d737dad31a2a8e0c1daee0b16d740739b1af054d6e405d63c43b1"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0033_T6-N07-full_prompt_only_r2/a0_inspection.json",
+    "sha256": "4080f37b4cd7a38684a3a1e8a88cdc9955d279f95b6199bae4972dccb3be4f78"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0033_T6-N07-full_prompt_only_r2/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0033_T6-N07-full_prompt_only_r2/intake_snapshot.json",
+    "sha256": "fe8aa4134dd3cc475fad45b1223e03afd739b95e851ec242281087840336f621"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0033_T6-N07-full_prompt_only_r2/raw_response.json",
+    "sha256": "9b08dc86933078f257d92fae1295701fd38b0b2855663b1167e352b6ead2f993"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0033_T6-N07-full_prompt_only_r2/request.json",
+    "sha256": "d4c882e0ce0c57559e4bddc757968e742b8332a0fc16f297b79a526251b18713"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0033_T6-N07-full_prompt_only_r2/result.json",
+    "sha256": "573e9518583bd46e65261d588c475b9349778635be58cdaef80ef7cf45e23d98"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0034_T6-N07-full_prompt_plus_skill_r2/a0_inspection.json",
+    "sha256": "461e01efc84b8a66c09cb8ae8648a559a80f8c9b816c0f997e80bce2124dced1"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0034_T6-N07-full_prompt_plus_skill_r2/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0034_T6-N07-full_prompt_plus_skill_r2/intake_snapshot.json",
+    "sha256": "b7ef164687f96bb95e5de25448e962f8499fb9a263b7d0e91af99814e5d0a224"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0034_T6-N07-full_prompt_plus_skill_r2/raw_response.json",
+    "sha256": "4e997775d2bfdf2521ffac18cf15a3d110957727becc31e73184d59c85a3ae31"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0034_T6-N07-full_prompt_plus_skill_r2/request.json",
+    "sha256": "81e3191fa52dee85d0259b666cd7c7260d8556d3301d5011bf78002da9781741"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0034_T6-N07-full_prompt_plus_skill_r2/result.json",
+    "sha256": "f24b32e963f540288e8ac9198bdfe35827acc95d2f434d28692e6e8febc2ee75"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0035_T6-N08-changed_prompt_plus_skill_r2/a0_inspection.json",
+    "sha256": "1636df466729fbc36c9c89c5c59f15425e9733acff9a631a19f9fd4ddd056105"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0035_T6-N08-changed_prompt_plus_skill_r2/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0035_T6-N08-changed_prompt_plus_skill_r2/intake_snapshot.json",
+    "sha256": "58c3f90da97284bcdd883c540deb344ed18759b52a81f5685a914981f3cf698e"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0035_T6-N08-changed_prompt_plus_skill_r2/raw_response.json",
+    "sha256": "a06c98a676382ebf1ed2514340ce5a19e4897d3642e9bea0a53f24db1e2bc21b"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0035_T6-N08-changed_prompt_plus_skill_r2/request.json",
+    "sha256": "00968395b9f203c81c41a5df95da52df5289ee188dde018fa4ce109668720914"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0035_T6-N08-changed_prompt_plus_skill_r2/result.json",
+    "sha256": "56c630b322d11babf7e8ea8af32a0bfef6a4d582c0055a938b983fe574360493"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0036_T6-N08-changed_prompt_only_r2/a0_inspection.json",
+    "sha256": "be7b43526e87d73894d438e0c39aeab7146dd8853ff286b951d0e88ddff783bb"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0036_T6-N08-changed_prompt_only_r2/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0036_T6-N08-changed_prompt_only_r2/intake_snapshot.json",
+    "sha256": "fc824c278bce53921470456248e42e8b3287a9edf2dd7476bd1a24a354bffbdc"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0036_T6-N08-changed_prompt_only_r2/raw_response.json",
+    "sha256": "76735ae102e63bbe176d4f9841fb6cb476d4f8fdb7ed3839986d636a8ce53f8f"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0036_T6-N08-changed_prompt_only_r2/request.json",
+    "sha256": "527cd09252ab12c84b2b5c2c864160ad30afff62a51da1cb3f52b8036d971f72"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0036_T6-N08-changed_prompt_only_r2/result.json",
+    "sha256": "34069a77b7e3b1e2ff55a19a05cec551fbf9ac391ffd44352d704791d87b0c6d"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0037_T6-N07-changed_prompt_only_r2/a0_inspection.json",
+    "sha256": "30e40a50743bd5061f15f26fd8793551780ee0b4c10bd5c9b05d27c93ea97d34"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0037_T6-N07-changed_prompt_only_r2/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0037_T6-N07-changed_prompt_only_r2/intake_snapshot.json",
+    "sha256": "ea41de7dde3c8a7f7ae5a902a328a6fff891160588453cd85dbcd7d1ecc46f4c"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0037_T6-N07-changed_prompt_only_r2/raw_response.json",
+    "sha256": "e457ade02310a150996586d33e8b47fd8350944498b02169951cf05715a9864e"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0037_T6-N07-changed_prompt_only_r2/request.json",
+    "sha256": "5b87aa91d95daa4f6d1f88517ae0d36652ad22a7c661ff59ac829e7f4b658703"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0037_T6-N07-changed_prompt_only_r2/result.json",
+    "sha256": "2de255a495b7aed89bb231d2034f4579b48586e8c93dbcd1ae77b56ba4c34c73"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0038_T6-N07-changed_prompt_plus_skill_r2/a0_inspection.json",
+    "sha256": "f79f3b28715b4cff85f91b1facaa97c9cd84a79c0c96c8f55e9ad99d8156d2bb"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0038_T6-N07-changed_prompt_plus_skill_r2/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0038_T6-N07-changed_prompt_plus_skill_r2/intake_snapshot.json",
+    "sha256": "3d2d0db00ba9c7bb7c625df321866b1941b401cf1d77dedafb69851a09be587c"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0038_T6-N07-changed_prompt_plus_skill_r2/raw_response.json",
+    "sha256": "c9d81bc58acf977ab8751207031a48a16b85fe28f0800aa492f2f5993727064f"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0038_T6-N07-changed_prompt_plus_skill_r2/request.json",
+    "sha256": "be0355ad8da75ce6ad0f9d613ae13e52ea5061b6c0a93d7592cc22d3727041fd"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0038_T6-N07-changed_prompt_plus_skill_r2/result.json",
+    "sha256": "b500c9ccf04ac7186337831c0fe0836e5d80bb71a39fcaf4ec073eada3e6af97"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0039_T6-N04-full_prompt_plus_skill_r2/a0_inspection.json",
+    "sha256": "4022ed3ec44612145a9c9373ad4c451f0bad84474bc01813dac98de5e12ef78a"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0039_T6-N04-full_prompt_plus_skill_r2/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0039_T6-N04-full_prompt_plus_skill_r2/intake_snapshot.json",
+    "sha256": "86480276b44a839b260161843938585b47e01bcb6fd5c7d2aef7e21e907ff49f"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0039_T6-N04-full_prompt_plus_skill_r2/raw_response.json",
+    "sha256": "63834883b55b75ec2eb75278905e4189ba70f45b52eda3c78188fca6c5c4266b"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0039_T6-N04-full_prompt_plus_skill_r2/request.json",
+    "sha256": "963e84c9e1f644e1fee921df796d78fc05895916126a048ec14804e592a6d978"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0039_T6-N04-full_prompt_plus_skill_r2/result.json",
+    "sha256": "7c5c547643861ea72c78b8b167069734a33ede5e24240be0e28cb58dc00d2ff4"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0040_T6-N04-full_prompt_only_r2/a0_inspection.json",
+    "sha256": "bd0d5a2f6833470d0ba71c4f908fcf7a83a31d3441e0c8b07c616c68c16ccbe5"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0040_T6-N04-full_prompt_only_r2/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0040_T6-N04-full_prompt_only_r2/intake_snapshot.json",
+    "sha256": "2bc44c895dc9ba27c13caa0fc547475385273a4e43e5dd09d69541146d3727cf"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0040_T6-N04-full_prompt_only_r2/raw_response.json",
+    "sha256": "1693c4e395f5e3f75897e47c73220a41dcf503e5c4e1319e745c1e73a4e5be35"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0040_T6-N04-full_prompt_only_r2/request.json",
+    "sha256": "6243cad7df8f4e17e223c9b91cccb275a456f598fb28524ae4a783db2353f057"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0040_T6-N04-full_prompt_only_r2/result.json",
+    "sha256": "f7d1c682dadea5145405647d83b447320c07cb66decd64faecf00a3c72b8ab24"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0041_T6-N05-changed_prompt_only_r2/a0_inspection.json",
+    "sha256": "7db547299385bc6a583e12f0c3ffefab89eb8a3c20ff852cc7c9b32fc2fa299d"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0041_T6-N05-changed_prompt_only_r2/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0041_T6-N05-changed_prompt_only_r2/intake_snapshot.json",
+    "sha256": "da92a1852c6099ed37859ee1e388917afae2b478e0de8b8927de3b0000fda9b4"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0041_T6-N05-changed_prompt_only_r2/raw_response.json",
+    "sha256": "17c4fdf54127b3effec2b6771a939dd592382287f7c783360834114198cc65ac"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0041_T6-N05-changed_prompt_only_r2/request.json",
+    "sha256": "81ede52ad3afb4a3e1969eab2538653901971be8aecbe75090f2e719fdd43168"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0041_T6-N05-changed_prompt_only_r2/result.json",
+    "sha256": "72591658de4209fd4293a955a8701801eea523b40033c60af12adcc70c61acd3"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0042_T6-N05-changed_prompt_plus_skill_r2/a0_inspection.json",
+    "sha256": "ee2133e22b95f7e417f3566dd60998af686a5ee185bd9349268812c6a5870575"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0042_T6-N05-changed_prompt_plus_skill_r2/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0042_T6-N05-changed_prompt_plus_skill_r2/intake_snapshot.json",
+    "sha256": "f9be388b4a8eb43a23a54253ae9a03c452d462e85f082e09618cc3155524c1ae"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0042_T6-N05-changed_prompt_plus_skill_r2/raw_response.json",
+    "sha256": "84b808f769d0924361c395c245fdad82861811ea238975445c6e7c79c1e94027"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0042_T6-N05-changed_prompt_plus_skill_r2/request.json",
+    "sha256": "237a590397b90d34f7f34702fb68ba6a7abc59cbae2c689b477549f23a5aeed4"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0042_T6-N05-changed_prompt_plus_skill_r2/result.json",
+    "sha256": "a06076cff326fcdc5dd3c28947651ae857abc479bfdeba715679ed7b3860e8cb"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0043_T6-N06-full_prompt_plus_skill_r2/a0_inspection.json",
+    "sha256": "ed75ff901c34a8408d3005b847c3d939d38cc7b28cca5af1a81702df97aa242b"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0043_T6-N06-full_prompt_plus_skill_r2/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0043_T6-N06-full_prompt_plus_skill_r2/intake_snapshot.json",
+    "sha256": "647644a016b7f0f5dcaf33a99c38fd06398a8d45c749ea78434fe648d2aa958b"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0043_T6-N06-full_prompt_plus_skill_r2/raw_response.json",
+    "sha256": "96e4bd050fd61dbbc5b8cc70c318257aab244b181a797779a2d5ed4fa2bbaee3"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0043_T6-N06-full_prompt_plus_skill_r2/request.json",
+    "sha256": "e7f7f93a46dc845a6ee02c6c46849a0319f70bd811f13d016c62c79132c89d68"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0043_T6-N06-full_prompt_plus_skill_r2/result.json",
+    "sha256": "63751e65fd665aa53e0115aeba606e1b82012f9acbd2819ba5c6602558a3b702"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0044_T6-N06-full_prompt_only_r2/a0_inspection.json",
+    "sha256": "916443a6d52605c412fafcdd0f05501283a8dc5a5827842274ac636dc51590c6"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0044_T6-N06-full_prompt_only_r2/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0044_T6-N06-full_prompt_only_r2/intake_snapshot.json",
+    "sha256": "52b330c150d64e7ef69625d91327d811404f42564f36eff6632615fdaa6fb509"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0044_T6-N06-full_prompt_only_r2/raw_response.json",
+    "sha256": "a9161b5712fa9d7e8ca73d5c46bb89ce5d7ff28dadb7f1b64d5553f92ace9118"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0044_T6-N06-full_prompt_only_r2/request.json",
+    "sha256": "a587a9eb1749b1954f814e5f9a2ffd31e6b0a5757dc84d362a49c37d03014f06"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0044_T6-N06-full_prompt_only_r2/result.json",
+    "sha256": "79983576d75f8728f8f14ddc0844bfb5e00eaef2a9603c0af8ca356df6e4520d"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0045_T6-N06-changed_prompt_only_r2/a0_inspection.json",
+    "sha256": "3766d76fb83172ed6bf9853f71a83707a01bb342d60d1319525577bdb5414213"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0045_T6-N06-changed_prompt_only_r2/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0045_T6-N06-changed_prompt_only_r2/intake_snapshot.json",
+    "sha256": "bb0cf9e2865cd82183b817b151050dc978cf0be32a2da758afc963166cd9b834"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0045_T6-N06-changed_prompt_only_r2/raw_response.json",
+    "sha256": "f1f5195517e5e1995625650d7c483a3cc9ea58247418addca94bf39f227fbcf4"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0045_T6-N06-changed_prompt_only_r2/request.json",
+    "sha256": "24a24cacc699252860f5e68170d2051394d83bae9c60fb3d427dad49aba49d89"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0045_T6-N06-changed_prompt_only_r2/result.json",
+    "sha256": "a3c2fb89d5d3adf1baf922240fcfd60c10b3b4f2888e6d3faeed16ec12cc0771"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0046_T6-N06-changed_prompt_plus_skill_r2/a0_inspection.json",
+    "sha256": "912daf0bb61e81f63494dc9277640c261043dca0a114260917d275ececde58d0"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0046_T6-N06-changed_prompt_plus_skill_r2/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0046_T6-N06-changed_prompt_plus_skill_r2/intake_snapshot.json",
+    "sha256": "ba28c7bcf7f170bd78fe03ed31e831669dc12a7f77e2d9742551da59e82c2524"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0046_T6-N06-changed_prompt_plus_skill_r2/raw_response.json",
+    "sha256": "f0b48b50f9469208b1e87354246a84e1f380b4df4e69028e07b26973cbfca445"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0046_T6-N06-changed_prompt_plus_skill_r2/request.json",
+    "sha256": "ce24075d449cabc27b80a783d8e7c39c6e7889168c976e467a09682db2b978fd"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0046_T6-N06-changed_prompt_plus_skill_r2/result.json",
+    "sha256": "2bed0c49fc23e3f44a1e8838cf149b6194d6ed77a1a68e5129eb73396cf1dc2b"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0047_T6-N03-changed_prompt_plus_skill_r2/a0_inspection.json",
+    "sha256": "f58e262ffaf3ae10db162f2bfc923a6446c0251e408470477e100cb4c308cdcb"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0047_T6-N03-changed_prompt_plus_skill_r2/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0047_T6-N03-changed_prompt_plus_skill_r2/intake_snapshot.json",
+    "sha256": "a5144314420591b0689e978b2952a4a0ebda850e12b841e4dd3e17c34261c6d7"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0047_T6-N03-changed_prompt_plus_skill_r2/raw_response.json",
+    "sha256": "4659e4ebacf94ea775cd1ef18c228fd0e4d440e6f51d7f30d457c54d9faadbae"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0047_T6-N03-changed_prompt_plus_skill_r2/request.json",
+    "sha256": "fd4ad80c690bbca6582a2ae40c53771fe7d2a96f63a5e0e74b547d4c63df1ecb"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0047_T6-N03-changed_prompt_plus_skill_r2/result.json",
+    "sha256": "2ab7aa061b0f582ae662c397062a5cbe11ed2e5e4a1fff6550c0207590646ad2"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0048_T6-N03-changed_prompt_only_r2/a0_inspection.json",
+    "sha256": "91961f259743b7ddfba8ad95aad3e2e8507206ce3cc03b252cbfa13bf365fc8b"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0048_T6-N03-changed_prompt_only_r2/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0048_T6-N03-changed_prompt_only_r2/intake_snapshot.json",
+    "sha256": "531f6389921c5f08c4a585830bf4eddbbbf118f0615c85826f26f569b939cb22"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0048_T6-N03-changed_prompt_only_r2/raw_response.json",
+    "sha256": "af0dceeef33d420131a99b7ad6072eeafb0c308e2939965f60244211f3dbed56"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0048_T6-N03-changed_prompt_only_r2/request.json",
+    "sha256": "7b4e307d2ccaf138c68c54ea53ab6aa78ae3677c969d00dfeec0fcfd8ceb3809"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0048_T6-N03-changed_prompt_only_r2/result.json",
+    "sha256": "fa8d737aefe2455e683a31dde53bfc42851a5e9dd2c4acf962e0684199c515ef"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0049_T6-N04-changed_prompt_only_r2/a0_inspection.json",
+    "sha256": "857da8d478387dad1340863a5c13306196aac4cf01f2c24359ad9a473a5499cd"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0049_T6-N04-changed_prompt_only_r2/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0049_T6-N04-changed_prompt_only_r2/intake_snapshot.json",
+    "sha256": "937a2f61a5266759f8df91cff417a33e01f86258ff61fc62a0f648dd3bbdf1d0"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0049_T6-N04-changed_prompt_only_r2/raw_response.json",
+    "sha256": "b2be66e31a91762fc22c4602d44a2569598834e3a9e42eadfe28541e04a1958c"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0049_T6-N04-changed_prompt_only_r2/request.json",
+    "sha256": "cbecf9a06285df343912ccec8c002bf506a5c32b1a19de9681ed7e011a3a982f"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0049_T6-N04-changed_prompt_only_r2/result.json",
+    "sha256": "a43af76de6f0c461cfb1b55ca48b17f9fc94094568265551681b42f49817738a"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0050_T6-N04-changed_prompt_plus_skill_r2/a0_inspection.json",
+    "sha256": "8af713185a81d4b780ec6f00bff16915104a470004c18bafb23aea4d28994fc6"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0050_T6-N04-changed_prompt_plus_skill_r2/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0050_T6-N04-changed_prompt_plus_skill_r2/intake_snapshot.json",
+    "sha256": "8afed04829919d2a635fbc38d1006c674013d7db1ed78ab91da93914e5cb62d0"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0050_T6-N04-changed_prompt_plus_skill_r2/raw_response.json",
+    "sha256": "6d6d5e47feeaa02ebba33cb18616c966e8a3b95c8fa3ce6585ad1d065dd7a42c"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0050_T6-N04-changed_prompt_plus_skill_r2/request.json",
+    "sha256": "031752fe44d4fe122bdfcb75d0b6feaf2905a49cf6c8b8490d623ee8af5df97d"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0050_T6-N04-changed_prompt_plus_skill_r2/result.json",
+    "sha256": "a1d44d5b034b37a7f69b296e13d655835a3ad14f0dcb2f97fea2be162565bc74"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0051_T6-N03-full_prompt_plus_skill_r2/a0_inspection.json",
+    "sha256": "fee39a6ddad624759a267767307bb9fbc4bb01dccfee869d837d8ff5ebc3962e"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0051_T6-N03-full_prompt_plus_skill_r2/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0051_T6-N03-full_prompt_plus_skill_r2/intake_snapshot.json",
+    "sha256": "9fb85fb76b75e8abc7250c0d45383c2a9296a75a85c1f9cd28180af9a256c454"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0051_T6-N03-full_prompt_plus_skill_r2/raw_response.json",
+    "sha256": "69a2e011efbf2b47e899cc57d413e39aba1666813325906d16362148c3e92a8e"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0051_T6-N03-full_prompt_plus_skill_r2/request.json",
+    "sha256": "02b0ded2fcd5986144b67572981c1e3d9b6eb5f69e7eb2a8e864992c7c7334d4"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0051_T6-N03-full_prompt_plus_skill_r2/result.json",
+    "sha256": "5842202559b43b0f5e5a208cb39e484d1e5dc7adaaf7377adea38627eff15e2e"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0052_T6-N03-full_prompt_only_r2/a0_inspection.json",
+    "sha256": "77536d6813e4347cd75dfed2f96f593b5791fef790de87880ac19ceb4b7b1d9d"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0052_T6-N03-full_prompt_only_r2/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0052_T6-N03-full_prompt_only_r2/intake_snapshot.json",
+    "sha256": "ea8985d7c1c76adbbcf813c166b23d52f7b7a03792610b0110560c751d1abd6d"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0052_T6-N03-full_prompt_only_r2/raw_response.json",
+    "sha256": "5fcb7ef07991ca25feef04683bd45849872576ab1286fea81f982fe406e846d9"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0052_T6-N03-full_prompt_only_r2/request.json",
+    "sha256": "964accc3002d7318bfdf97311ca216b7ae945c7081f8c9ab864cab46c1bdbf50"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0052_T6-N03-full_prompt_only_r2/result.json",
+    "sha256": "6a87eec818617b590e6a5b1cfbbdb63ac3282c23e32c2e54335bb647e57bcef7"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0053_T6-N05-full_prompt_only_r2/a0_inspection.json",
+    "sha256": "8efd1accb9d54d0dcb255d993c86c9b7dab04d9344a399c610f47f5074a371ce"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0053_T6-N05-full_prompt_only_r2/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0053_T6-N05-full_prompt_only_r2/intake_snapshot.json",
+    "sha256": "61836e62afbccd201cf04b2a6097f8518ef290de8ea16697e31762833dbfc664"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0053_T6-N05-full_prompt_only_r2/raw_response.json",
+    "sha256": "55ca07b3c8a96439046ccc97039377e5c938320626bd7a7599f693e8ce046dc1"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0053_T6-N05-full_prompt_only_r2/request.json",
+    "sha256": "be186ebebca0276b568b078429c218ccb9e60ec1b29995554eede07db5ccc6a0"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0053_T6-N05-full_prompt_only_r2/result.json",
+    "sha256": "c4d99e4f3606f6b551b1c704c31faedb94d852dfb7c0e56ad76381d988194cee"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0054_T6-N05-full_prompt_plus_skill_r2/a0_inspection.json",
+    "sha256": "8ecb9c13c22b72a70c88f88645cf1d8a4e9b3493fec4691ce260582dcffb842b"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0054_T6-N05-full_prompt_plus_skill_r2/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0054_T6-N05-full_prompt_plus_skill_r2/intake_snapshot.json",
+    "sha256": "bc3e1b6ae2f222a1b0bd30e5ac157443ad699638bf946351e9651fa74435f174"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0054_T6-N05-full_prompt_plus_skill_r2/raw_response.json",
+    "sha256": "2356d5e24613e6d2a1712908598baab7af8c0e809caed2ccbfc2f5a018ab0a7e"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0054_T6-N05-full_prompt_plus_skill_r2/request.json",
+    "sha256": "6bd8d22446466506ed9b644996fd60b12507a476a525298c6dc5317bf3af044c"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0054_T6-N05-full_prompt_plus_skill_r2/result.json",
+    "sha256": "9cff85508c231cb79e79b16133ea9750e31cf923981070ffd9fa6f53de58e5e7"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0055_T6-N01-changed_prompt_plus_skill_r2/a0_inspection.json",
+    "sha256": "d448309a98bb914cf5b4d054a688b79e83e56511a26ca96e76b14ee811a5902e"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0055_T6-N01-changed_prompt_plus_skill_r2/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0055_T6-N01-changed_prompt_plus_skill_r2/intake_snapshot.json",
+    "sha256": "284d61d4f29ff460215c366e0f79e69b2ba5045c0cf9d0c3be8992ac184210e3"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0055_T6-N01-changed_prompt_plus_skill_r2/raw_response.json",
+    "sha256": "10fef014e1fa6c5c417817831482abfcd3c356a07037abe37ba4c3a15ef32b50"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0055_T6-N01-changed_prompt_plus_skill_r2/request.json",
+    "sha256": "bfa7288e4686fb6ff314951e7ea6a569ee84c55d08bf2deacd081a70d5fdb01a"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0055_T6-N01-changed_prompt_plus_skill_r2/result.json",
+    "sha256": "04522aaa9ae5e0bb51cad1f3a02a6a91097072aede84385c6d12f56bb32db438"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0056_T6-N01-changed_prompt_only_r2/a0_inspection.json",
+    "sha256": "e880368161805ff15c2af4fedbdb5c1a6e5aca1bfa75af47265ec162444c0754"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0056_T6-N01-changed_prompt_only_r2/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0056_T6-N01-changed_prompt_only_r2/intake_snapshot.json",
+    "sha256": "81eb554f33c6bf47c6e667608902845d42f1d561223e9a2a3f093b98be50416a"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0056_T6-N01-changed_prompt_only_r2/raw_response.json",
+    "sha256": "38f3f2e1a7e3d46ade0d1929a678752000d3587c66b352dacc57517dd63f8c5a"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0056_T6-N01-changed_prompt_only_r2/request.json",
+    "sha256": "0fc1095a0a227be90dcc3d90f0e4324da3bf0a4f2fe2c259d9080b07611961fb"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0056_T6-N01-changed_prompt_only_r2/result.json",
+    "sha256": "6c119fc092f03fad965149fddd0389e7f3fd0517d6d3013cf31aa07cd47671bc"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0057_T6-N02-full_prompt_only_r2/a0_inspection.json",
+    "sha256": "32eadcfedb2febf8ffe76b4631ff3d89e6f50427d730ec439a3b25e3f808ea29"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0057_T6-N02-full_prompt_only_r2/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0057_T6-N02-full_prompt_only_r2/intake_snapshot.json",
+    "sha256": "49b2373ed740136a7d29952045acd3cec5369b0fd87f0ae20024122e58a71b13"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0057_T6-N02-full_prompt_only_r2/raw_response.json",
+    "sha256": "6c0a641035834a95f52f167490aef186f15924f0dc8afef4fe7ed929360077bc"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0057_T6-N02-full_prompt_only_r2/request.json",
+    "sha256": "a5e8853abe3d83cd659f867565ffc39455dc7c3012838b5440f4883625e401ca"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0057_T6-N02-full_prompt_only_r2/result.json",
+    "sha256": "daa4d12080e175afecc74cbe4192bd848bd20e7c3dd3f3e307e5a377382fff06"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0058_T6-N02-full_prompt_plus_skill_r2/a0_inspection.json",
+    "sha256": "58bd50a5bf9da761c771b5dad59fc102da6101978ea72cdb0150112c3a1e2d5b"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0058_T6-N02-full_prompt_plus_skill_r2/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0058_T6-N02-full_prompt_plus_skill_r2/intake_snapshot.json",
+    "sha256": "e73f36d96e2f410ac4c85cb6c52441a15f61346a66e39c76fc1f58088a2043d2"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0058_T6-N02-full_prompt_plus_skill_r2/raw_response.json",
+    "sha256": "bb5bf0e2d179e9e501579bde7db83b4a933b8a4157f7b292bcc66c27e413c236"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0058_T6-N02-full_prompt_plus_skill_r2/request.json",
+    "sha256": "47e2cffda2b40f0413ac3c82c998c52c7fa4ccf3003d7d3934ae03ee97de0f4e"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0058_T6-N02-full_prompt_plus_skill_r2/result.json",
+    "sha256": "2db3bff832b2db89794ab08901607650611c928390f3479b26c22e7315c4b6f0"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0059_T6-N02-changed_prompt_plus_skill_r2/a0_inspection.json",
+    "sha256": "6f9a461be37274123f7e362c6afd79917e1b5ce5a57934141736425396989297"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0059_T6-N02-changed_prompt_plus_skill_r2/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0059_T6-N02-changed_prompt_plus_skill_r2/intake_snapshot.json",
+    "sha256": "7678404abd145c74c4e0b60a6c975a0680c6e3ef2d49c86465dee4dbeeb4491f"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0059_T6-N02-changed_prompt_plus_skill_r2/raw_response.json",
+    "sha256": "a2e522f90273c894b2ced78a3403655d64cc897798faba9634abd8d0a45556aa"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0059_T6-N02-changed_prompt_plus_skill_r2/request.json",
+    "sha256": "03d68a188aaa14a0d9ccd8aba95b85d1c94d5876e015e5d68a01eb778799c741"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0059_T6-N02-changed_prompt_plus_skill_r2/result.json",
+    "sha256": "f4229d058b4d7034b61ea4a8617c95ceda962b7ce69baf4c29bde99db9f53a88"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0060_T6-N02-changed_prompt_only_r2/a0_inspection.json",
+    "sha256": "325f8c63fe7d3da456db1491214fd0d2a87e2c7a7e92f8b541c3b89819f86440"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0060_T6-N02-changed_prompt_only_r2/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0060_T6-N02-changed_prompt_only_r2/intake_snapshot.json",
+    "sha256": "d03c1bca74860b5e41fccf9ff04fa58bf6178f0f1e0cdfd8be16b8dd75aa9663"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0060_T6-N02-changed_prompt_only_r2/raw_response.json",
+    "sha256": "a312011b5af5a6326295e2afa2b15b230f23d3834cd85223f65469f2cd005994"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0060_T6-N02-changed_prompt_only_r2/request.json",
+    "sha256": "c8c158e8908e24444aac1c3d4759cd31a9618d5d931ba8f72537d9754cd8ba55"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0060_T6-N02-changed_prompt_only_r2/result.json",
+    "sha256": "2071cf9ec0e914515bc8f223c8c09c9b13f67dc09ac3a6f8a1dfbbff0624bf83"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0061_T6-N08-full_prompt_only_r2/a0_inspection.json",
+    "sha256": "8fe7fd34df1d9524d16cb5f6cdf112eb31794fb2f92220212949e46c943d931a"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0061_T6-N08-full_prompt_only_r2/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0061_T6-N08-full_prompt_only_r2/intake_snapshot.json",
+    "sha256": "ca3d0f2d97e2e277adc96274c9a6b05cbbfd399fb5035206c862c5bc23ceba62"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0061_T6-N08-full_prompt_only_r2/raw_response.json",
+    "sha256": "b36afc3ca1e745170747d0b8a2946051f03556646c09e453348d7445492d5176"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0061_T6-N08-full_prompt_only_r2/request.json",
+    "sha256": "5fb35be2b156521203f4b6f38b06a297fae9a1090d41a822950eb2a26a131fb6"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0061_T6-N08-full_prompt_only_r2/result.json",
+    "sha256": "27e6299f83d52a0968b898a3609a9e01433351ffadce281bbcf3f1c37b2af5a9"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0062_T6-N08-full_prompt_plus_skill_r2/a0_inspection.json",
+    "sha256": "cb46bdbb0c7d0b2b46c0f246647051ea8d7fbfe5f7d8cca852f3b0b97464d060"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0062_T6-N08-full_prompt_plus_skill_r2/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0062_T6-N08-full_prompt_plus_skill_r2/intake_snapshot.json",
+    "sha256": "c9a6233d328215c35bbdf4da7acc4d62e7ca1ce6771b1b8d3db4579d5faa6480"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0062_T6-N08-full_prompt_plus_skill_r2/raw_response.json",
+    "sha256": "83457a84b548dcbcd9382accd4a28c203dcca4611be30af34c459f29a28dc686"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0062_T6-N08-full_prompt_plus_skill_r2/request.json",
+    "sha256": "686fdee8760c2a08c8f09e2e78763f9ea4eae79cdc143b2c01e58e23595ca0ff"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0062_T6-N08-full_prompt_plus_skill_r2/result.json",
+    "sha256": "cb11c90a8ab73d513338436add78496d6d0d96864bdfb16c2056a98b9e8ada45"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0063_T6-N01-full_prompt_plus_skill_r2/a0_inspection.json",
+    "sha256": "53a3d0f6e67c5d5e52289ac36afaf8557689e76cacba47b8381efa206e5229a7"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0063_T6-N01-full_prompt_plus_skill_r2/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0063_T6-N01-full_prompt_plus_skill_r2/intake_snapshot.json",
+    "sha256": "a9d23cfb29dc4e5891f4d0dd5d281ff123d86917b6c9244e43d4ee1b8d9d0dbc"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0063_T6-N01-full_prompt_plus_skill_r2/raw_response.json",
+    "sha256": "d6ff8ab584e039542ff6503efeef1853ca340a766a315adb3419b65f494636e5"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0063_T6-N01-full_prompt_plus_skill_r2/request.json",
+    "sha256": "dc7c2fd4741d7c6346bc78175bf27a3ac7505f341007c749617a9497628170b4"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0063_T6-N01-full_prompt_plus_skill_r2/result.json",
+    "sha256": "e6315b0b4ed206f56f4ef9b5c89f2162c4ef88b5adb47ead31676f347797e56a"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0064_T6-N01-full_prompt_only_r2/a0_inspection.json",
+    "sha256": "2786394927f3e3dd94fadc681e6fdbbc245180e70b38debf8e06598dc8c3556e"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0064_T6-N01-full_prompt_only_r2/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0064_T6-N01-full_prompt_only_r2/intake_snapshot.json",
+    "sha256": "847d707ae01216acc99367a32a4193b55526b37b88b9165d66c7bcdc51c872e3"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0064_T6-N01-full_prompt_only_r2/raw_response.json",
+    "sha256": "d931224dd3a9708d2bbd9a1bdfd1190a91a87f1dd72cfae3ce78b745abdf4ff5"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0064_T6-N01-full_prompt_only_r2/request.json",
+    "sha256": "2af9d71bc6f198b5f332d23c11411a4602e871e3afd3e65244c7160a5bb9a629"
+  },
+  {
+    "path": "outputs/task6_dev_final_002/private/0064_T6-N01-full_prompt_only_r2/result.json",
+    "sha256": "cd2a062ae5f7fb83a83fa155fd0302b2045afc67beb5c5da977ae1a3c162c074"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/manifest.json",
+    "sha256": "1ee542174c4d828cd7b6f2832b394b312ae2d5d92806e6de32e687645167a82f"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/runs.json",
+    "sha256": "1b7759637896dbf8d27eee4042cbffc02786a648ac7e96b4b4af71d2960e4734"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/Task6_holdout32_pre_review.csv",
+    "sha256": "49bfa0f9ccb2246e71ea833ef04543036a285898cbe5f475072b0a6b5ba25c0a"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0001_T6-N10-full_prompt_plus_skill_r1/a0_inspection.json",
+    "sha256": "888f172a1ce6c3467cea0dc5e925e94c7b31b668404631b8e29557a9d4206e12"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0001_T6-N10-full_prompt_plus_skill_r1/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0001_T6-N10-full_prompt_plus_skill_r1/intake_snapshot.json",
+    "sha256": "43d66df6c680c1a3c7d2ab07d7be491657e4c309f564f81c15352cbb9f9743f6"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0001_T6-N10-full_prompt_plus_skill_r1/raw_response.json",
+    "sha256": "0fc5c884c4a84ebbb2ad3d1477407168ac99150a48aee32b66f3ea505dfe4add"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0001_T6-N10-full_prompt_plus_skill_r1/request.json",
+    "sha256": "9057ba8d85ed04754c18fced1bdb9d643f98a945570eae95279d11bb398666e1"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0001_T6-N10-full_prompt_plus_skill_r1/result.json",
+    "sha256": "170601ebe74b7ed39578f295707c1a58a324564ffd3f80a32853642c4632e935"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0002_T6-N10-full_prompt_only_r1/a0_inspection.json",
+    "sha256": "8496706904ac0953ec4e6ac039692adbbedce769e742d128d43f2ee7c9ee8b57"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0002_T6-N10-full_prompt_only_r1/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0002_T6-N10-full_prompt_only_r1/intake_snapshot.json",
+    "sha256": "66819c620360b9fa7acc31ccf799058209c4e502a72f3e39396aea70070ecacc"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0002_T6-N10-full_prompt_only_r1/raw_response.json",
+    "sha256": "482432891e3f28f46f907972cc6888fcf696817c7150b230f91576c05240d337"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0002_T6-N10-full_prompt_only_r1/request.json",
+    "sha256": "e40cbe79944e2d53e731ef09cfd72756cd480bf5b0b252141bbb3bd83ccf01ba"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0002_T6-N10-full_prompt_only_r1/result.json",
+    "sha256": "be290c35a6518f8cad5be108ade44f5c1fae0163a97ffb4042d5cbef9fad9795"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0003_T6-D12-full_prompt_only_r1/a0_inspection.json",
+    "sha256": "182fade45ba268a659aeacf3a321002acb84a70d8d9015a86012600698836462"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0003_T6-D12-full_prompt_only_r1/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0003_T6-D12-full_prompt_only_r1/intake_snapshot.json",
+    "sha256": "60610a624e0f355d87a8818d5d4f49209f91d2d23e4697c37c2bede801c3110b"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0003_T6-D12-full_prompt_only_r1/raw_response.json",
+    "sha256": "3bca85f15c5b7ee4e680d0ca3055b442a656f485ebd4bddba586af6f1cb66de6"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0003_T6-D12-full_prompt_only_r1/request.json",
+    "sha256": "b55ef35dbac94aa3ac5bb0b11f3be5511e3b41f9e3c95fc72c0f0ea7b3aa8a80"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0003_T6-D12-full_prompt_only_r1/result.json",
+    "sha256": "3470c918d471d1eae7cc902fbe26f73f245052cf3c32799925203d9bb0a2f89c"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0004_T6-D12-full_prompt_plus_skill_r1/a0_inspection.json",
+    "sha256": "40fa6de95807b45e2c3d4bd1a86b977edda048f1c5b9c6e58aafef079ef9991d"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0004_T6-D12-full_prompt_plus_skill_r1/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0004_T6-D12-full_prompt_plus_skill_r1/intake_snapshot.json",
+    "sha256": "a12de3c0f532d97d9abca74c821a4d7e6156c87feeabbb066560eb05aee800ad"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0004_T6-D12-full_prompt_plus_skill_r1/raw_response.json",
+    "sha256": "b38a28251dcf2d1a8ed4164b1bc03dc6fe750fc822f438f1646098c7664d2b94"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0004_T6-D12-full_prompt_plus_skill_r1/request.json",
+    "sha256": "b7d70d5515a6bbe463063a89d22207d36eb9c26b898f18d0315269480bc56b79"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0004_T6-D12-full_prompt_plus_skill_r1/result.json",
+    "sha256": "bb8dceaa75afca5853c25229df095f55027aaac979966b23dd5d72ae9e9502f1"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0005_T6-N09-changed_prompt_plus_skill_r1/a0_inspection.json",
+    "sha256": "539ea37dc472848d2b7f34d15f12decf1bf82dd6683c4970e259b2d26089cca0"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0005_T6-N09-changed_prompt_plus_skill_r1/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0005_T6-N09-changed_prompt_plus_skill_r1/intake_snapshot.json",
+    "sha256": "514518a36ba3572fc3907c13b4a8a5f1ea0431b2947cabca5d2d66efde3457c0"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0005_T6-N09-changed_prompt_plus_skill_r1/raw_response.json",
+    "sha256": "1f160ae527bc8f2a45a2bdb20b88d223fbb4852366a17d36bc98d6c056ec0c72"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0005_T6-N09-changed_prompt_plus_skill_r1/request.json",
+    "sha256": "86c6f2a6f97f069570bd5552a262cb044fd6a68fa730771142ec2d7e0109ef3e"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0005_T6-N09-changed_prompt_plus_skill_r1/result.json",
+    "sha256": "ea86938d535c8a90b16a7f01605767fd50a6a8a903f69f232c64a4fa11c00a92"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0006_T6-N09-changed_prompt_only_r1/a0_inspection.json",
+    "sha256": "0a75bd090e9ff1dc7731e0d6aac0f3518ef58ecb787d83904d1a3ca676457c48"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0006_T6-N09-changed_prompt_only_r1/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0006_T6-N09-changed_prompt_only_r1/intake_snapshot.json",
+    "sha256": "b852fc22b2334ba9945f6de1beba8933d9ca8d6b654ca33df6ff22bd75439df5"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0006_T6-N09-changed_prompt_only_r1/raw_response.json",
+    "sha256": "e33bffc05b059cee041023f99a08bce18c6d159f610b45754561852d16206f25"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0006_T6-N09-changed_prompt_only_r1/request.json",
+    "sha256": "811ee7a69658cd38e1b6afa92d49071fbcd6f61f0154b02c61000c9cdab1af97"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0006_T6-N09-changed_prompt_only_r1/result.json",
+    "sha256": "fb5619e434e9adafaf534610908f4f9cf40b22521af5b6ef2bb0e054ecc3d0f5"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0007_T6-D11-changed_prompt_only_r1/a0_inspection.json",
+    "sha256": "d5e392c5b767cfe2cd29621ade874f01bd5e462d1c2daaf7404e52c8a9c79e93"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0007_T6-D11-changed_prompt_only_r1/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0007_T6-D11-changed_prompt_only_r1/intake_snapshot.json",
+    "sha256": "c7a4cd17e8e25fa3cd6496158bf74a00be34bac22e9d1881ae1f498294af5975"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0007_T6-D11-changed_prompt_only_r1/raw_response.json",
+    "sha256": "2d8059392df5c8846f805c8dd689792dc0d3f7f972d5d0e3db8fe3efe84eb1f6"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0007_T6-D11-changed_prompt_only_r1/request.json",
+    "sha256": "e0e32d881666c6f3731de8387c094aa3f302b1340a15403b51d19155a199d81e"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0007_T6-D11-changed_prompt_only_r1/result.json",
+    "sha256": "a9023b50e13c58ccef2898fb5362013bf337898806bb234b156755e2de630781"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0008_T6-D11-changed_prompt_plus_skill_r1/a0_inspection.json",
+    "sha256": "33ed5afa4f8125dbcd5b4d0f1550f6bf9d8c52b1950c85f67adce11514ba9429"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0008_T6-D11-changed_prompt_plus_skill_r1/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0008_T6-D11-changed_prompt_plus_skill_r1/intake_snapshot.json",
+    "sha256": "0487218233fb23a9107611a0ddc4708428a356ad0347155d53fd45ae33fb85ab"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0008_T6-D11-changed_prompt_plus_skill_r1/raw_response.json",
+    "sha256": "a5c207832d23171d7ddd86b55dc084d8c99ead7e42a37801d71717538b3d3eb7"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0008_T6-D11-changed_prompt_plus_skill_r1/request.json",
+    "sha256": "e6de5356e724abf52b833ef2c47f2b32cb18a6d00be8160b960bfd784abaeb5d"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0008_T6-D11-changed_prompt_plus_skill_r1/result.json",
+    "sha256": "397b52251a6eae9cec25ba8d3b93511506bbee65371cabce24189f81906c6287"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0009_T6-D11-full_prompt_plus_skill_r1/a0_inspection.json",
+    "sha256": "ff1d2379c7e96219195518c7ffbb8e47752a58567065ba8f452bb91d394785a2"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0009_T6-D11-full_prompt_plus_skill_r1/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0009_T6-D11-full_prompt_plus_skill_r1/intake_snapshot.json",
+    "sha256": "96a92493d7167340177e30ca5e948a3d2cde01460ad25566e4e6016ab807a576"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0009_T6-D11-full_prompt_plus_skill_r1/raw_response.json",
+    "sha256": "1c1a47b853a5ecb98c2716c29639bd510e91295879ba5a1bad984547ae6a451c"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0009_T6-D11-full_prompt_plus_skill_r1/request.json",
+    "sha256": "857ad094e58d63ca32cd843abd82abe11d0446dc002b03b3422381909951a5a9"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0009_T6-D11-full_prompt_plus_skill_r1/result.json",
+    "sha256": "c89672a5e43c3de8c53d7fe7ba90014d3bbbe58ec0d6aa5d168d38bbca85f6f6"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0010_T6-D11-full_prompt_only_r1/a0_inspection.json",
+    "sha256": "bae0fb1250e6e8c681915fc911fef159d8ad998b5a70fb5ac1e321fdb393a747"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0010_T6-D11-full_prompt_only_r1/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0010_T6-D11-full_prompt_only_r1/intake_snapshot.json",
+    "sha256": "b95b9d309f686960881ed47c63029276303998d1e95e4c2dd1bb8d5fdd342021"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0010_T6-D11-full_prompt_only_r1/raw_response.json",
+    "sha256": "8efe36cf8b9c489538815913b90a3474ca6b2b270f7ecaa3828bae19d45dc309"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0010_T6-D11-full_prompt_only_r1/request.json",
+    "sha256": "bfb6923b554b83f4d0a6ca46fe1f73502a5b2fa557d18b25f6085485e16ecd1f"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0010_T6-D11-full_prompt_only_r1/result.json",
+    "sha256": "0fa7d4cca2136fa2f96b611a239fc728a5d0c2e50f51d4965459d7080646fbbd"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0011_T6-N09-full_prompt_only_r1/a0_inspection.json",
+    "sha256": "97e2febd2746a4e6d0db800e74e627aebee205334a06206220ba67e25c13f8b2"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0011_T6-N09-full_prompt_only_r1/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0011_T6-N09-full_prompt_only_r1/intake_snapshot.json",
+    "sha256": "21a5596736a374c76da1fb8766f2c9b3867aca6b41181bdbdff855e9c398fe27"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0011_T6-N09-full_prompt_only_r1/raw_response.json",
+    "sha256": "330119fbd5feb67c4dd865ce1d3e7e2b892678a7337ea0c201183eb35838e250"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0011_T6-N09-full_prompt_only_r1/request.json",
+    "sha256": "75ea4fa5905e00be9611c9b4d081c0feb52a7c0e792a9d7a50ae25d30ab558c4"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0011_T6-N09-full_prompt_only_r1/result.json",
+    "sha256": "f552328e0e60ea00ffdd7ca57b532d453351f394a2cba4564aee44594ffde692"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0012_T6-N09-full_prompt_plus_skill_r1/a0_inspection.json",
+    "sha256": "756e1c69d3fce5fd82810dd352360b50da050e2a58f8b0c9b780e187583c4c44"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0012_T6-N09-full_prompt_plus_skill_r1/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0012_T6-N09-full_prompt_plus_skill_r1/intake_snapshot.json",
+    "sha256": "12fa7762105b0176dc91164094687d990862a0f24f848add18086013d3b21c4a"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0012_T6-N09-full_prompt_plus_skill_r1/raw_response.json",
+    "sha256": "6fa9ae9440a040642798f81c3776945b8201d669f62b72331e7fd637e1c9d56f"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0012_T6-N09-full_prompt_plus_skill_r1/request.json",
+    "sha256": "25acf1cdc190914ecd76feeebe2137207ad67f1b8aba5fbf84336518f9f0c03d"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0012_T6-N09-full_prompt_plus_skill_r1/result.json",
+    "sha256": "6e071d5246785a0771421ead367bc30772d83f1e83efe4078b9ce705c05e0260"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0013_T6-N10-changed_prompt_plus_skill_r1/a0_inspection.json",
+    "sha256": "db9f61cdd10c5ab56987d4ee47e904d7911b43fd6434e9536cb20357d6b679b8"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0013_T6-N10-changed_prompt_plus_skill_r1/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0013_T6-N10-changed_prompt_plus_skill_r1/intake_snapshot.json",
+    "sha256": "051bc5064b7903d1d4178515d98b6888bfa9cbb7ce7cd910e67180414775d0b8"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0013_T6-N10-changed_prompt_plus_skill_r1/raw_response.json",
+    "sha256": "9e94a2e9e5f2715de8059ebb79e060ee623521854371f4a67ffc7b53a593d1dc"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0013_T6-N10-changed_prompt_plus_skill_r1/request.json",
+    "sha256": "7fc54af8af3d2001f2de505651152fce572b9013a42592fa351a335601aacd42"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0013_T6-N10-changed_prompt_plus_skill_r1/result.json",
+    "sha256": "2019c71acf59403a9c2d73b37a3dcc49fb8bc828c6f878a94148a46551c1e7b2"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0014_T6-N10-changed_prompt_only_r1/a0_inspection.json",
+    "sha256": "3971b4852432036e8935c19ecfc656a0642ef3d49bf579b3c7fe5b0c14fd38d0"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0014_T6-N10-changed_prompt_only_r1/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0014_T6-N10-changed_prompt_only_r1/intake_snapshot.json",
+    "sha256": "8db64c74ca1f922150dcb8d44d1104fda95a3ffec52d657c4146c4125364156f"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0014_T6-N10-changed_prompt_only_r1/raw_response.json",
+    "sha256": "0a2df49eef858ad4e5f40bbfad18e7c3416451dced936468c89ed377975feb0b"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0014_T6-N10-changed_prompt_only_r1/request.json",
+    "sha256": "50991c3ae968bcd86e3157d4f06458b1652e2e75f6a0519706b4bdb4193329cd"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0014_T6-N10-changed_prompt_only_r1/result.json",
+    "sha256": "83b8bf5827e46f0db0b71b49627d3051534086376793c909efab1d57ee9cac27"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0015_T6-D12-changed_prompt_only_r1/a0_inspection.json",
+    "sha256": "ec5bd427f5bf4e8ac9e731c213e13d6a34ab38a63ed60dba2e0788a17bfff7a2"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0015_T6-D12-changed_prompt_only_r1/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0015_T6-D12-changed_prompt_only_r1/intake_snapshot.json",
+    "sha256": "3c1a18594e18505348668fe5683bc8333a31682cfc6dc41b76cba9b0fb165e1d"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0015_T6-D12-changed_prompt_only_r1/raw_response.json",
+    "sha256": "f957e649dfa7f6b51410e92ab686704e6792d8db09ecb323c181d4df5913f95f"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0015_T6-D12-changed_prompt_only_r1/request.json",
+    "sha256": "e0dc37553d502318b2095b360a896f5beae586980396c31114b513d74bbaa865"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0015_T6-D12-changed_prompt_only_r1/result.json",
+    "sha256": "7fc519a60a908150ae47c3cf4f2bbc17c586d0f0df91ae5539d93251f5e1bb2b"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0016_T6-D12-changed_prompt_plus_skill_r1/a0_inspection.json",
+    "sha256": "a46fbec1b4fe1e35c47cb6c4806d6ee558ad5225fd64c78e0bce84e1ed2cae86"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0016_T6-D12-changed_prompt_plus_skill_r1/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0016_T6-D12-changed_prompt_plus_skill_r1/intake_snapshot.json",
+    "sha256": "998149c128c056af6cc88e9dff39b64ed19cbc348e5bc26bb08ba6cc95b7846b"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0016_T6-D12-changed_prompt_plus_skill_r1/raw_response.json",
+    "sha256": "1f7f14753c307d25a5056b6c7dcf07c64c269d5e515dce919796da40d4a1c7e1"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0016_T6-D12-changed_prompt_plus_skill_r1/request.json",
+    "sha256": "46e6410fc4cc4a7255ff218a02d09c56d98494b71aa710ecea7ebe37e2728bce"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0016_T6-D12-changed_prompt_plus_skill_r1/result.json",
+    "sha256": "84f26e587e7e428b751e142a9a3c752597fdcf39231e6dcc1f0a3d29f74d7156"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0017_T6-D12-full_prompt_only_r2/a0_inspection.json",
+    "sha256": "32afe7002d56d6e521613d07e0e3e2dce354070c02fce4bc3dcbea4c8c08c1e1"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0017_T6-D12-full_prompt_only_r2/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0017_T6-D12-full_prompt_only_r2/intake_snapshot.json",
+    "sha256": "2b8901cc001a3d46d5c1c887bf5e976dc1f9001c44bee3f1d7fd8eb95d347330"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0017_T6-D12-full_prompt_only_r2/raw_response.json",
+    "sha256": "e782f33f2b3c7ae339e819930277ece87c33af3b19f94a1c5081a706421d80b3"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0017_T6-D12-full_prompt_only_r2/request.json",
+    "sha256": "38badd563f67fba69148f4f19b63e180f791f92ca140f3afb18e65c33a00fd34"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0017_T6-D12-full_prompt_only_r2/result.json",
+    "sha256": "61ae0e12bb18df035fad441b16a6881b3fccf8c242e1b8a1c52c0c4d83d61d24"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0018_T6-D12-full_prompt_plus_skill_r2/a0_inspection.json",
+    "sha256": "074481e97048ecab49c58cfba703f04bc1d7a61d4238ace2d9250cb9a5dcbbed"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0018_T6-D12-full_prompt_plus_skill_r2/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0018_T6-D12-full_prompt_plus_skill_r2/intake_snapshot.json",
+    "sha256": "68b2d1f5328c472f0e9159cda19da385e4eeacce6625e338dbf17e2426ae35e0"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0018_T6-D12-full_prompt_plus_skill_r2/raw_response.json",
+    "sha256": "635d4c492f7513324295c354f73caf0b0e0f873cc94b8d12d5939581cfc4f808"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0018_T6-D12-full_prompt_plus_skill_r2/request.json",
+    "sha256": "04ba679455b8201b07c6c9444e56322853c112a2e8ba3d93e06f7c316977ddf5"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0018_T6-D12-full_prompt_plus_skill_r2/result.json",
+    "sha256": "ea9fc87c55d898d81212c0d43e097b1ef3616ed4f359b98ae602a0d0c246c47a"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0019_T6-N09-changed_prompt_plus_skill_r2/a0_inspection.json",
+    "sha256": "d1b092a3c5aabe696c8eba22a0295bfe3f8ff45949e185c54a9fba874b4e69d8"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0019_T6-N09-changed_prompt_plus_skill_r2/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0019_T6-N09-changed_prompt_plus_skill_r2/intake_snapshot.json",
+    "sha256": "765b110df8df0d4322fa058d04739fdc59aa0239b6c24b027f64ce9a723c7853"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0019_T6-N09-changed_prompt_plus_skill_r2/raw_response.json",
+    "sha256": "3075bcfbf32021d7990915501ac1d04ba32f9056ef147cc59528143e75d30270"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0019_T6-N09-changed_prompt_plus_skill_r2/request.json",
+    "sha256": "191bcc8537a1d2b2a8758551ef17065c46cf55e37517120fb73b28a2e50238a7"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0019_T6-N09-changed_prompt_plus_skill_r2/result.json",
+    "sha256": "1ff06e59843f96e7a49bf4ca8272346db4c32b3182e133ecaa669cb0f9d05f11"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0020_T6-N09-changed_prompt_only_r2/a0_inspection.json",
+    "sha256": "1cd7378377f64f0f7062e75c2e532a12d12dd8c7e23b69abf5cf660e039b8e4a"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0020_T6-N09-changed_prompt_only_r2/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0020_T6-N09-changed_prompt_only_r2/intake_snapshot.json",
+    "sha256": "b5a630f1a6974f510dd5ebecd231bb2dc58f08bbe3a6d7f1d46f853110748578"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0020_T6-N09-changed_prompt_only_r2/raw_response.json",
+    "sha256": "576f506c69907f9d1cb607de5554ed7d5024e58105fdf5dd0730e1576cb18c29"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0020_T6-N09-changed_prompt_only_r2/request.json",
+    "sha256": "e5392e2bf15bcb6792c64b4838596369f4192930ba6881b943c6497bfaf9b6c1"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0020_T6-N09-changed_prompt_only_r2/result.json",
+    "sha256": "92472ff9e85f0590b42a7b5dc9541fc454cc9fa79dfd4c5e7b949ddf29179926"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0021_T6-D12-changed_prompt_only_r2/a0_inspection.json",
+    "sha256": "7010d20af1726c4ec54b8b8f753ec2d5ff2122eb4e094d5bb6486f62681e1613"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0021_T6-D12-changed_prompt_only_r2/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0021_T6-D12-changed_prompt_only_r2/intake_snapshot.json",
+    "sha256": "58b8d1b5bd85f045f8371280af9fe7154580711b92601c7b33975a8881f8a91c"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0021_T6-D12-changed_prompt_only_r2/raw_response.json",
+    "sha256": "79f48dcf05b6167842c6b3bc898a2e3ede8bb9a4637da9a8504c702b42b3d00c"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0021_T6-D12-changed_prompt_only_r2/request.json",
+    "sha256": "deebca4cb0e67f325dc0e4054a9e3faffa35180e603065c2fd67ac2aa850a94a"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0021_T6-D12-changed_prompt_only_r2/result.json",
+    "sha256": "c63e2fd9ed3decd50941f6c4361ec6fa0d7abdb62e76c8678648fce74ed28bf3"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0022_T6-D12-changed_prompt_plus_skill_r2/a0_inspection.json",
+    "sha256": "8c6c140ff04df8a61e5fe44dec2eab23bd4251a710b657d12faefcb763226ad2"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0022_T6-D12-changed_prompt_plus_skill_r2/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0022_T6-D12-changed_prompt_plus_skill_r2/intake_snapshot.json",
+    "sha256": "f50aecc0bede0c9656ef7c8dbfb15f267b54b2d7392782941454ae7a9fe9b31c"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0022_T6-D12-changed_prompt_plus_skill_r2/raw_response.json",
+    "sha256": "b3d7b8f326444f5e02f2336c004b95dc56874762ab4d9418cc69200e3cfb05f5"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0022_T6-D12-changed_prompt_plus_skill_r2/request.json",
+    "sha256": "e0d1738ba212bbb4f45fe1b3172fdb694978a25bf801878746716dcc86904950"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0022_T6-D12-changed_prompt_plus_skill_r2/result.json",
+    "sha256": "754a9f459713ec77387f8051be3679bd4cb7263e81f8c6794e4f37a87b01e7d1"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0023_T6-N10-changed_prompt_plus_skill_r2/a0_inspection.json",
+    "sha256": "d86c59b313a44d89af198430e8636b167414a2f606638be952367600eb174c51"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0023_T6-N10-changed_prompt_plus_skill_r2/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0023_T6-N10-changed_prompt_plus_skill_r2/intake_snapshot.json",
+    "sha256": "fbfb3298eec3f19c74e2dd1cbe42ab30fee69a9271a375b7ce2840ac01972cf1"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0023_T6-N10-changed_prompt_plus_skill_r2/raw_response.json",
+    "sha256": "903d2756eb6b795f4dc87e83f84740ec5ea520b8f73184fb4447b7d7d04ed758"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0023_T6-N10-changed_prompt_plus_skill_r2/request.json",
+    "sha256": "10259c63e327cb7cf9fe749511fb65c466769fa33c25a6d9df271f5ef427ea9b"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0023_T6-N10-changed_prompt_plus_skill_r2/result.json",
+    "sha256": "bd6c57d81e8b14d8ede01e113e6f659cb1048b5fed247e3995f8cd76d516d233"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0024_T6-N10-changed_prompt_only_r2/a0_inspection.json",
+    "sha256": "19d0cf7f8f05e4d94759256877e6e22ef6136f1e77be8515750ebbaed2845ca9"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0024_T6-N10-changed_prompt_only_r2/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0024_T6-N10-changed_prompt_only_r2/intake_snapshot.json",
+    "sha256": "b4f0b1a8894735018af7c5047f8396afbb53b0a64caf6817194cd070d79df09b"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0024_T6-N10-changed_prompt_only_r2/raw_response.json",
+    "sha256": "e162c368ce985bbbfbadf535e083dcc0ac63e7507cdb4c5012ae0ee846583ab4"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0024_T6-N10-changed_prompt_only_r2/request.json",
+    "sha256": "a32bec33000f4e37c6dbdfa45d42d132393ed7180c4b234cb85a4c169d377d3c"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0024_T6-N10-changed_prompt_only_r2/result.json",
+    "sha256": "b85633c780c7d271ae7c697e31a983212ddc7cc28f13233667872c9768277a65"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0025_T6-N09-full_prompt_only_r2/a0_inspection.json",
+    "sha256": "02e6157d71edbf7358a0b559d1908625b9781b02612f8f41c750bd5de0c7b42d"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0025_T6-N09-full_prompt_only_r2/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0025_T6-N09-full_prompt_only_r2/intake_snapshot.json",
+    "sha256": "a0dc1f215b3489b394cee6265e50a172ac23139fa4acd8742ddd26d84708e9b3"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0025_T6-N09-full_prompt_only_r2/raw_response.json",
+    "sha256": "23e8c5ce7762f2a613775f01b39884adf543863988860f98dab93292ec48b89a"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0025_T6-N09-full_prompt_only_r2/request.json",
+    "sha256": "f0fcaa3ae9c799e7fa22368b1e766721bded7bc91086b69165f2a5efb0ce522e"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0025_T6-N09-full_prompt_only_r2/result.json",
+    "sha256": "d2a66206fa7a386f40a864062cc6f8454fc661248d86f71713e1e1d4df660e6a"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0026_T6-N09-full_prompt_plus_skill_r2/a0_inspection.json",
+    "sha256": "603d582d9bf6eb8bc03a16409e95b5accb106e3ae6c7564cfa4f31ea6d508c13"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0026_T6-N09-full_prompt_plus_skill_r2/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0026_T6-N09-full_prompt_plus_skill_r2/intake_snapshot.json",
+    "sha256": "57ce310ac7f04f87750f2b8bbd680f1b520f4f212afc479059f8469cfeb7c705"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0026_T6-N09-full_prompt_plus_skill_r2/raw_response.json",
+    "sha256": "31ddfa1d268d6183f5357178283f93ea32f57d90427628977e005a3746ed4313"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0026_T6-N09-full_prompt_plus_skill_r2/request.json",
+    "sha256": "f4b2850ff13bf4094f71814c2555b0d16c77da1bed1db3d6481578b8bfccd470"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0026_T6-N09-full_prompt_plus_skill_r2/result.json",
+    "sha256": "482af783b4be006efebc975570adb4d94bea168ab2a507f87382e445eeb19f8b"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0027_T6-D11-full_prompt_plus_skill_r2/a0_inspection.json",
+    "sha256": "766333de91dc234f892c8b507df7db79ce29004beaaf14df1bfe92b13a6ef17e"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0027_T6-D11-full_prompt_plus_skill_r2/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0027_T6-D11-full_prompt_plus_skill_r2/intake_snapshot.json",
+    "sha256": "4a971cd6557b6772914a92af5548df7aebfbb8bfe8b974d3bf3d79f1335234f9"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0027_T6-D11-full_prompt_plus_skill_r2/raw_response.json",
+    "sha256": "deb420bd9fdadeee460a49c5cd3d523016ddf63423a6296f2ab7c06a69013810"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0027_T6-D11-full_prompt_plus_skill_r2/request.json",
+    "sha256": "6a8c110618c481a050f8bc39da8accd9c021f1008249f6af751e8b9117d77efa"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0027_T6-D11-full_prompt_plus_skill_r2/result.json",
+    "sha256": "4d54295f8e256331d288765c3e7c2393a194e46ac63799c12e7ff48ce078aefb"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0028_T6-D11-full_prompt_only_r2/a0_inspection.json",
+    "sha256": "dd3026d0620515bb98a41e51d41238a4b4e63e74ff43de79f851b01eda1ede45"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0028_T6-D11-full_prompt_only_r2/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0028_T6-D11-full_prompt_only_r2/intake_snapshot.json",
+    "sha256": "d48e4a4047f451a568ddaed85b952912aa3806fa3564f4b1c6c5adb3953bda2c"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0028_T6-D11-full_prompt_only_r2/raw_response.json",
+    "sha256": "fd9aac8633a9980b673e3a3cd3f7bd912c15045e5ece2c4aa5490c77cab7c03c"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0028_T6-D11-full_prompt_only_r2/request.json",
+    "sha256": "339edbb8c13462ccb87874dee0d020a18e915407003e890073d7544472b9c04d"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0028_T6-D11-full_prompt_only_r2/result.json",
+    "sha256": "228901d692470694b7269b446c40cc9a91e9bfeb6163f245984ca209ee2bf234"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0029_T6-N10-full_prompt_only_r2/a0_inspection.json",
+    "sha256": "604157c3bf21ea548171dab56cd800bdb381fafed9e98b8c40a0c4a70874b536"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0029_T6-N10-full_prompt_only_r2/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0029_T6-N10-full_prompt_only_r2/intake_snapshot.json",
+    "sha256": "039c5a71673da1b4c44269a0ea970441d5882fa97d98b024486d6938dfa653ec"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0029_T6-N10-full_prompt_only_r2/raw_response.json",
+    "sha256": "20f07a6a6864b580b8086d139771176062db717ecab71fdc40fc6892bcfa818b"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0029_T6-N10-full_prompt_only_r2/request.json",
+    "sha256": "ccf791481eafb52888a518c066ea7ac5c823054513beab3aee9ff231212c6111"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0029_T6-N10-full_prompt_only_r2/result.json",
+    "sha256": "408dd16eeccc8575b851d8adb4ae2f797d205af2b948aa881f2a8a61abef260e"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0030_T6-N10-full_prompt_plus_skill_r2/a0_inspection.json",
+    "sha256": "bafda3a7756d2e6092054d94b83334dc04f9eaa625b92899d3007aa20bf20b60"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0030_T6-N10-full_prompt_plus_skill_r2/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0030_T6-N10-full_prompt_plus_skill_r2/intake_snapshot.json",
+    "sha256": "e369a5e8fa89a846e40249ae3b1bb08e1574d5ddf9d35d7ae9114a8c6b563014"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0030_T6-N10-full_prompt_plus_skill_r2/raw_response.json",
+    "sha256": "c504ae138f1f7d7370768af034b219b6365cae7743054cd98efd2fbe758329cf"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0030_T6-N10-full_prompt_plus_skill_r2/request.json",
+    "sha256": "265461e96dffba4e859aa45b356c78040d276fca2e2a4ee9c384f1a777a21154"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0030_T6-N10-full_prompt_plus_skill_r2/result.json",
+    "sha256": "ea716dad58bb0f8c5e5aca3f5a6e25c98e291345b0d344ff5c63f55fa5c2d204"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0031_T6-D11-changed_prompt_plus_skill_r2/a0_inspection.json",
+    "sha256": "26d239a4188ed50c3443dcc27baa004ec5e82db4ee748ac351cb5c074d43406f"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0031_T6-D11-changed_prompt_plus_skill_r2/configuration.json",
+    "sha256": "baaa1d701c1218735558d0f45a9b99587d781fa40484493ef7179a3bc34fbd58"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0031_T6-D11-changed_prompt_plus_skill_r2/intake_snapshot.json",
+    "sha256": "3ac02cd0700412dfc58713ecc7610a0c9413d22bd46e6135927c2cda44858313"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0031_T6-D11-changed_prompt_plus_skill_r2/raw_response.json",
+    "sha256": "92dd92a9ed22999ad4059db45488c4a354feaafdf20b3b583a24d8629e6b3eb2"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0031_T6-D11-changed_prompt_plus_skill_r2/request.json",
+    "sha256": "7cc694df7b24f769b8d67e1e87f15b1c1986febce79a6b2a76321fd51050ddbc"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0031_T6-D11-changed_prompt_plus_skill_r2/result.json",
+    "sha256": "fd02f472ab7ffb83724fc2f0e44ad80cf0678f85b6541dbaffb07ef7cd26a8a0"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0032_T6-D11-changed_prompt_only_r2/a0_inspection.json",
+    "sha256": "2f69a34ce0959fcb82869d9229476f12f8e5a09e8282138a8bc36ea9b1eafd76"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0032_T6-D11-changed_prompt_only_r2/configuration.json",
+    "sha256": "2f8a6f69b04b54008d6519aeeec13af682e4e25c160dcd799b96ca20ffac3346"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0032_T6-D11-changed_prompt_only_r2/intake_snapshot.json",
+    "sha256": "c6fa71632e535da6c0c897d9732baa785b7cbd4c0f291aaecc85ecd3a7901579"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0032_T6-D11-changed_prompt_only_r2/raw_response.json",
+    "sha256": "ce9183c5481efb85760ae88ce1b338fabc159f6f4d8bacc7ff32a00402e94fb5"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0032_T6-D11-changed_prompt_only_r2/request.json",
+    "sha256": "e79149f91663b5602f2305a13d787d91021d3abe3a033cf02eb53dcd518487a7"
+  },
+  {
+    "path": "outputs/task6_holdout_final_001/private/0032_T6-D11-changed_prompt_only_r2/result.json",
+    "sha256": "8b8f0dc3a53dea6494bc3eb915d8507e957521b587da0536ebf88651cf080cd7"
+  }
+]

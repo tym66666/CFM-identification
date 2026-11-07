@@ -1,0 +1,31 @@
+{
+  "case_id": "T6-N01-changed",
+  "scenario": "N01",
+  "domain": "network",
+  "split": "dev",
+  "variant": "changed",
+  "change_type": "missing_information",
+  "expected_primary_kind": "FIXED_POLICY_VALUE",
+  "expected_operation": "NOT_APPLICABLE",
+  "expected_query_count": 1,
+  "reference_review_status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW",
+  "source_note": "下列参考是作者自拟测试口径，不是项目数学认证或独立审读结果。",
+  "manual_checks": [
+    "研究总体四店与评价四店未混淆",
+    "目标是固定全部启用政策的水平而非差值",
+    "有限样本不被改写成总体信息"
+  ],
+  "expected_fact_warning": "故意把总体律替换成有限回访样本；不应自动升级为A4总体。",
+  "must_not_claim_point_from_a0": true,
+  "reference_semantics": {
+    "query_kinds": [
+      "FIXED_POLICY_VALUE"
+    ],
+    "first": "四店全部启用",
+    "second": "不适用",
+    "evaluation": "甲乙丙丁等权",
+    "time": "第4周",
+    "background": "未限定"
+  },
+  "evaluation_scope": "A0目标+字段/引用；A4/A5与全链路需额外真实事实读取和审核"
+}

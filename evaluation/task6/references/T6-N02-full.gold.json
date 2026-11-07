@@ -1,0 +1,31 @@
+{
+  "case_id": "T6-N02-full",
+  "scenario": "N02",
+  "domain": "network",
+  "split": "dev",
+  "variant": "full",
+  "change_type": null,
+  "expected_primary_kind": "TOTAL_EFFECT",
+  "expected_operation": "FIRST_MINUS_SECOND",
+  "expected_query_count": 1,
+  "reference_review_status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW",
+  "source_note": "下列参考是作者自拟测试口径，不是项目数学认证或独立审读结果。",
+  "manual_checks": [
+    "完整版被减数为新方案丙丁",
+    "完整版减数为原方案甲乙",
+    "冲突版应提示方向未定而非猜测"
+  ],
+  "expected_fact_warning": null,
+  "must_not_claim_point_from_a0": true,
+  "reference_semantics": {
+    "query_kinds": [
+      "TOTAL_EFFECT"
+    ],
+    "first": "新方案仅丙丁启用",
+    "second": "原方案仅甲乙启用",
+    "evaluation": "甲乙丙丁等权",
+    "time": "第4周",
+    "background": "未限定"
+  },
+  "evaluation_scope": "A0目标+字段/引用；A4/A5与全链路需额外真实事实读取和审核"
+}

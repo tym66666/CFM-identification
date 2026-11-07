@@ -1,0 +1,31 @@
+{
+  "case_id": "T6-N10-changed",
+  "scenario": "N10",
+  "domain": "network",
+  "split": "holdout",
+  "variant": "changed",
+  "change_type": "conflicting_time",
+  "expected_primary_kind": "FIXED_POLICY_VALUE",
+  "expected_operation": "NOT_APPLICABLE",
+  "expected_query_count": 1,
+  "reference_review_status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW",
+  "source_note": "下列参考是作者自拟测试口径，不是项目数学认证或独立审读结果。",
+  "manual_checks": [
+    "目标时期保持第8周",
+    "第4周不能替代目标结果",
+    "变体时期冲突需保留"
+  ],
+  "expected_fact_warning": "第4周历史记录不能悄悄替换第8周目标。",
+  "must_not_claim_point_from_a0": true,
+  "reference_semantics": {
+    "query_kinds": [
+      "FIXED_POLICY_VALUE"
+    ],
+    "first": "四店全部启用",
+    "second": "不适用",
+    "evaluation": "甲乙丙丁等权",
+    "time": "第8周",
+    "background": "第4周不是目标"
+  },
+  "evaluation_scope": "A0目标+字段/引用；A4/A5与全链路需额外真实事实读取和审核"
+}

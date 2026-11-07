@@ -1,0 +1,31 @@
+{
+  "case_id": "T6-N06-changed",
+  "scenario": "N06",
+  "domain": "network",
+  "split": "dev",
+  "variant": "changed",
+  "change_type": "conflicting_population",
+  "expected_primary_kind": "FIXED_POLICY_VALUE",
+  "expected_operation": "NOT_APPLICABLE",
+  "expected_query_count": 1,
+  "reference_review_status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW",
+  "source_note": "下列参考是作者自拟测试口径，不是项目数学认证或独立审读结果。",
+  "manual_checks": [
+    "研究名单四店与评价名单甲丁区分",
+    "政策是全体启用",
+    "冲突版评价对象不得凭空定下"
+  ],
+  "expected_fact_warning": "变体评价名单存在矛盾，不能随意选一份。",
+  "must_not_claim_point_from_a0": true,
+  "reference_semantics": {
+    "query_kinds": [
+      "FIXED_POLICY_VALUE"
+    ],
+    "first": "全部四店启用",
+    "second": "不适用",
+    "evaluation": "仅甲丁平均",
+    "time": "第4周",
+    "background": "未限定"
+  },
+  "evaluation_scope": "A0目标+字段/引用；A4/A5与全链路需额外真实事实读取和审核"
+}

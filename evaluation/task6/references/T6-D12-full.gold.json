@@ -1,0 +1,31 @@
+{
+  "case_id": "T6-D12-full",
+  "scenario": "D12",
+  "domain": "dag",
+  "split": "holdout",
+  "variant": "full",
+  "change_type": null,
+  "expected_primary_kind": "INTERVENTIONAL_DISTRIBUTION",
+  "expected_operation": "NOT_APPLICABLE",
+  "expected_query_count": 1,
+  "reference_review_status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW",
+  "source_note": "下列参考是作者自拟测试口径，不是项目数学认证或独立审读结果。",
+  "manual_checks": [
+    "干预变量X值为0",
+    "目标是干预分布而非均值",
+    "变体图和A4不齐不能断言POINT"
+  ],
+  "expected_fact_warning": null,
+  "must_not_claim_point_from_a0": true,
+  "reference_semantics": {
+    "query_kinds": [
+      "INTERVENTIONAL_DISTRIBUTION"
+    ],
+    "first": "do(X=0)",
+    "second": "不适用",
+    "evaluation": "续费Y总体分布",
+    "time": "下一月",
+    "background": "X→M→Y，X↔Y混杂"
+  },
+  "evaluation_scope": "A0目标+字段/引用；A4/A5与全链路需额外真实事实读取和审核"
+}
