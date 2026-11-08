@@ -16,11 +16,21 @@ VERSION = 'dag-id-1'
 # is what actually costs time: at n = 12 that is 4096 rows per seed, which keeps
 # a full replay under a second. Raising the bound means re-measuring that.
 MAX_NODES = 12
+# The independent check is what costs time, and its cost is exponential in the
+# observed variables *and* in the latent ones: the oracle enumerates every
+# assignment to V and every configuration of the unobserved common causes, so
+# it walks 2 ** (n + b) rows, where b is the number of bidirected edges. A graph
+# of six nodes with five bidirected edges is as expensive as a twelve-node graph
+# with none, which is why the node count alone cannot decide the limit.
+MAX_ENUMERATION_VARIABLES = 14
 
 # Success and failure are different interfaces: never collapse them into one.
 STATUSES = (
     'POINT',            # a formula was derived and certified
-    'UNSUPPORTED',      # identified as non-identifiable in this graph model
+    'UNSUPPORTED',      # the evidence was checked against the graph: no uniform formula
+    'NO_FORMULA_YET',   # the recursion stopped but the evidence did not check out,
+                        # so the honest statement is "not derived yet" - a stage
+                        # result, not a claim of non-identification
     'RESOURCE_LIMIT',   # the request exceeds the declared scale, nothing was computed
     'NEEDS_INPUT',      # a required declaration is missing (e.g. unconfirmed graph)
     'CHECK_BLOCKED',    # the request itself is malformed, or the run aborted early
@@ -134,6 +144,12 @@ def validate(problem):
 
     if not _is_acyclic(p.nodes, directed):
         fail('CHECK_BLOCKED', 'DIRECTED_CYCLE_NOT_RECURSIVE_MODEL')
+
+    if len(p.nodes) + len(bidirected) > MAX_ENUMERATION_VARIABLES:
+        # Same state as the node cap, and for the same reason: the request is
+        # answerable in principle but not at this scale. It must never surface
+        # as a review problem or as a non-identification.
+        fail('RESOURCE_LIMIT', 'MODEL_SIZE_OUT_OF_RANGE')
 
     return p
 

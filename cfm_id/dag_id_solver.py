@@ -141,6 +141,10 @@ def _witness(g, x, y, surviving):
     hedge = _hedge(g, x, y, surviving)
     return {
         'kind': 'FAILED_COMPONENT_CONDITION',
+        # The sub-problem the recursion had reduced to when line 5 fired. The
+        # evidence is about this graph, not the one the caller declared, so the
+        # checker needs it to recompute the partition instead of guessing.
+        'graph': describe(g),
         'theorem': 'SHPITSER_PEARL_2006_THEOREM_6',
         'c_components_of_graph': sorted([sorted(b) for b in c_components(g)]),
         'c_components_of_graph_minus_treatment': sorted(
@@ -161,7 +165,18 @@ def _fail_with_witness(state, reason, witness):
     raise error
 
 
-def _id(g, y, x, dist, trace, depth):
+def _id(g, y, x, dist, trace, depth, added=frozenset()):
+    """Run the recursion on one sub-problem.
+
+    ``added`` records the variables that line 3 put into the treatment set
+    because cutting the arrows into X left them outside An(Y). Those variables
+    are provably irrelevant to the target, so they must not reappear as free
+    conditioning variables in the final expression: P(y | do(x), a) equals
+    P(y | do(x)) for them, and carrying ``a`` through makes the expression a
+    kernel on the wrong variable set. A -> B -> C is the smallest case: with
+    X = {B} the recursion widens the treatment to {A, B}, and conditioning on A
+    would leave an expression that no longer reads as a distribution over C.
+    """
     if depth > MAX_RECURSION:
         fail('RESOURCE_LIMIT', RESOURCE_REASON)
 
@@ -204,6 +219,7 @@ def _id(g, y, x, dist, trace, depth):
             {'operation': 'MARGINAL', 'keep': sorted(an), 'scope': sorted(V), 'of': dist},
             trace,
             depth + 1,
+            added & an,
         )
 
     # Line 3: variables that are neither treatment nor ancestors of Y can be
@@ -218,7 +234,7 @@ def _id(g, y, x, dist, trace, depth):
             justification='The added variables are not ancestors of Y once arrows into X are cut, '
                           'so intervening on them does not change the distribution of Y.',
         )
-        return _id(g, y, x | w, dist, trace, depth + 1)
+        return _id(g, y, x | w, dist, trace, depth + 1, added | w)
 
     # Line 4: cut the graph into C-components of G \ X and solve each block.
     blocks = c_components(without_nodes(g, x))
@@ -230,7 +246,8 @@ def _id(g, y, x, dist, trace, depth):
                           'P over v minus S_i of S_i: removing the treatment separates the blocks, '
                           'and each block is solved separately (Lemma 4).',
         )
-        operands = [_id(g, block, V - block, dist, trace, depth + 1) for block in blocks]
+        operands = [_id(g, block, V - block, dist, trace, depth + 1, added)
+                    for block in blocks]
         return {
             'operation': 'SUM',
             'over': sorted(V - y - x),
@@ -249,7 +266,14 @@ def _id(g, y, x, dist, trace, depth):
             justification='The whole graph is one C-component and G minus X leaves one component, '
                           'so the hedge of Theorem 6 exists and no uniform formula can be derived.',
         )
-        _fail_with_witness('UNSUPPORTED', FAILED_REASON, _witness(g, x, y, S))
+        witness = _witness(g, x, y, S)
+        # The stopping condition is necessary for a hedge, not sufficient as
+        # evidence. Until the pair passes its own checks the run has proved
+        # nothing, so it must not answer "not identifiable": that would be a
+        # claim without the proof the task asks for.
+        if not witness['hedge_materialised']:
+            _fail_with_witness('NO_FORMULA_YET', 'NO_IDENTIFICATION_FORMULA_DERIVED_YET', witness)
+        _fail_with_witness('UNSUPPORTED', FAILED_REASON, witness)
 
     # Line 6: the surviving block is itself a C-component, so the chain rule
     # on its topological order is already a formula in P.
@@ -274,7 +298,7 @@ def _id(g, y, x, dist, trace, depth):
             # latent parents, so P(v | pa(v)) and P(v | prefix) differ. Graph
             # V2 -> V0 -> V1 with V0 <-> V1, X = V2, Y = V1 is the smallest case:
             # pa(V1) = {V0}, yet P_{v2}(v1 | v0) = P(v1 | v0, v2).
-            given = full_order[:full_order.index(v)]
+            given = [name for name in full_order[:full_order.index(v)] if name not in added]
             factors.append({
                 'operation': 'CONDITIONAL',
                 'outcome': [v],
@@ -314,7 +338,7 @@ def _id(g, y, x, dist, trace, depth):
     )
     factors = []
     for v in topological_order(g, container):
-        prefix = full_order[:full_order.index(v)]
+        prefix = [name for name in full_order[:full_order.index(v)] if name not in added]
         factors.append({
             'operation': 'CONDITIONAL',
             'outcome': [v],
@@ -323,7 +347,7 @@ def _id(g, y, x, dist, trace, depth):
         })
     restricted = {'operation': 'PRODUCT', 'operands': factors}
 
-    return _id(induced(g, container), y, x & container, restricted, trace, depth + 1)
+    return _id(induced(g, container), y, x & container, restricted, trace, depth + 1, added)
 
 
 def collect_atoms(expr, into=None):

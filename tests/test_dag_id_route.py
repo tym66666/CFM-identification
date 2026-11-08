@@ -144,5 +144,37 @@ class RejectionTests(unittest.TestCase):
         self.assertEqual(result['reason_code'], 'NODE_COUNT_OUT_OF_RANGE')
 
 
+class ReadingConfirmationGateTests(unittest.TestCase):
+    """A model reading is a draft; it is not a confirmed graph.
+
+    These two cases guard the gate in the walkthrough script. Without it the
+    caller fills in the confirmation itself, and a draft that extracted no
+    relation at all becomes a formula for P(Y) - arithmetically correct,
+    semantically unsupported. That failure was produced by a real model run.
+    """
+
+    class _Reading:
+        def __init__(self, relations, common_causes=()):
+            self.variables = [type('V', (), {'name': 'X', 'observation': 'OBSERVED'})(),
+                              type('V', (), {'name': 'Y', 'observation': 'OBSERVED'})()]
+            self.relations = [type('R', (), {'cause': a, 'effect': b, 'kind': 'DIRECT_CAUSE'})()
+                              for a, b in relations]
+            self.common_causes = [type('C', (), {'first': a, 'second': b})()
+                                  for a, b in common_causes]
+
+    def setUp(self):
+        from examples.dag_id_llm_reading import confirmation
+        self.confirmation = confirmation
+
+    def test_a_draft_without_any_relation_cannot_be_confirmed(self):
+        confirmed, blocker = self.confirmation(self._Reading([]))
+        self.assertFalse(confirmed)
+        self.assertEqual(blocker, 'NO_CAUSAL_STRUCTURE_READ')
+
+    def test_one_relation_or_one_shared_cause_is_enough_to_proceed(self):
+        self.assertEqual(self.confirmation(self._Reading([('X', 'Y')])), (True, None))
+        self.assertEqual(self.confirmation(self._Reading([], [('X', 'Y')])), (True, None))
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)

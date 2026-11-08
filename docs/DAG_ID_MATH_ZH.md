@@ -5,9 +5,18 @@
 - 模型：递归半马尔可夫图（ADMG）。有向边表示因果方向，双向边表示未观测的共同原因。
 - 变量：有限、离散；目标是 P(Y | do(X = x))，X 单变量，Y 可为向量。
 - 给定：完整的观察总体分布 P(V)，符号形式，不需要数值。
-- 不做：自动学图、反事实、条件干预、图上的 PARTIAL 识别、连续变量。
+- 不做：自动学图、反事实、条件干预、图上的 PARTIAL 识别、连续变量、跨人群迁移。
+- 不使用工具变量，也不假设其单调性。
+- 图须由研究者确认为变量因果图；关系网络数据不能直接当变量因果图。
 
-规模范围：12 个节点。 超过时返回 `RESOURCE_LIMIT / NODE_COUNT_OUT_OF_RANGE`，不崩溃、不静默截断。
+规模范围：观察节点数与隐藏共因条数之和不超过 14。 超过时返回 `RESOURCE_LIMIT`，不崩溃、不静默截断。
+
+上限不能只看节点数。独立验证要在同一张联合分布上枚举全部 `2^n` 个取值，并枚举每条双向边背后隐变量的全部 `2^b` 种配置，实际代价是 `2^(n+b)`。六节点五条双向边和十二节点零双向边一样贵。因此判据写成：
+
+- `len(nodes) > 12` → `RESOURCE_LIMIT / NODE_COUNT_OUT_OF_RANGE`
+- `len(nodes) + len(bidirected) > 14` → `RESOURCE_LIMIT / MODEL_SIZE_OUT_OF_RANGE`
+
+两者都是规模结论，不借用 `NEEDS_INPUT`（审核问题）或 `UNSUPPORTED`（数学结论）。
 
 这个上限由独立检查的成本决定，不是求解器的成本。求解本身很便宜，代价在验证那一步：验证器要在同一张联合分布上枚举全部 `2^n` 个取值，每加两个节点成本约翻四倍。实测（链式图，单次调用，Windows / Python 3.12）：
 
@@ -154,7 +163,11 @@ P(y | do(x)) = Σ_m P(m|x) · Σ_x P(x) · P(y|x,m)
 4. 用证书里的表达式树在同一个 P(V) 上求值。
 5. 在 3 个 seed、2 个干预值、全部结果取值上比对，误差阈值 1e-9。
 
-`replay` 返回六项检查：证书字段、状态为 POINT、证书摘要、题目绑定、表达式树结构、与新建 SCM 的数值一致性。只有最后一项能抓住"公式看起来对但语义错"。
+`replay` 返回九项检查：证书字段、状态为 POINT、证书摘要、题目绑定、问答绑定、公式只读取被问到的变量、推导逐步复算、表达式树结构、与新建 SCM 的数值一致性。
+
+题目绑定只证明证书与题目摘要一致；问答绑定把治疗、结果和图逐项对照，防止"回答的是另一个问题"却因为证书自身摘要合法而通过。公式读取范围检查拒绝任何落在治疗与结果之外的自由变量：`P(C|A,B)` 这种把上游变量留在条件里的写法会被它拦下，即便某个数值上碰巧相等。推导复算按论文规则顺序重算每一步的前提，引用了一条并未适用的规则同样会被拒绝。
+
+最后一项数值一致性负责抓"公式看起来对但语义错"，前面的结构检查负责抓"数值碰巧对但推理是编的"。两者不能互相替代。
 
 这两句话都有测试守着，不是注释：
 
@@ -230,11 +243,12 @@ bow-arc 上就是：被剪的森林 `{Y}`，长出的森林 `{X, Y}`（多出 X 
 
 ### 措辞边界
 
-任务书对此有明确要求，这三条是边界，不是补充说明：
+任务书对此有明确要求，这四条是边界，不是补充说明：
 
 - 这表示"在指定的图模型里不存在统一的识别公式"，不是"每个特殊数值分布都同样有歧义"。
 - 反过来，如果递归因资源上限中断，状态是 `RESOURCE_LIMIT / DAG_ID_RECURSION_LIMIT`，与"不可识别"分开报告。
 - 如果某张图上"每节点至多一个子节点"的裁剪不唯一，构造会返回 `hedge_materialised = False` 并说明原因，而不是硬拼一对出来。
+- 在这种情况下状态不是 `UNSUPPORTED` 而是 `NO_FORMULA_YET / NO_IDENTIFICATION_FORMULA_DERIVED_YET`：证据没过检查，就只能说"尚未给出识别式"。这是阶段成果，不是非识别结论。
 
 ## 7. 复现结果
 
@@ -243,11 +257,39 @@ bow-arc 上就是：被剪的森林 `{Y}`，长出的森林 `{X, Y}`（多出 X 
 | 后门 | `Z→X, Z→Y, X→Y` | POINT，数值验证通过 |
 | 链 | `X→M→Y` | POINT，数值验证通过 |
 | 前门 | `X→M→Y`, `X↔Y` | POINT，得到 `Σ_m P(m\|x) Σ_x P(x)P(y\|x,m)` |
-| 混合 | `Z→X, Z→Y, X→M, M→Y`, `X↔Y` | POINT，数值验证通过（超出现有三条路线） |
+| 平行双中介 + 直接混杂 | `X→M1→Y, X→M2→Y`, `X↔Y` | POINT，得到 `Σ_{m1,m2} P(m1\|x)P(m2\|x) Σ_x P(x)P(y\|x,m1,m2)`；三条专用路线在同一张图上全部拒绝 |
+| 混合 | `Z→X, Z→Y, X→M, M→Y`, `X↔Y` | POINT，数值验证通过 |
 | 论文 Fig. 1(a) | `W1↔X↔W2, X→Y1, W2→Y2` | POINT，双结果联合分布通过 |
 | bow-arc | `X→Y`, `X↔Y` | UNSUPPORTED，C-forest 对通过十三条检查 |
 
 前门那一行的公式不是手抄的：`test_frontdoor_formula_matches_the_documented_shape` 把表达式树里的三个条件原子逐个对出来——`P(m|x)`、`P(x)`、`P(y|x,m)`，少一个 `x` 就失败。数值验证只能证明"等价"，这条测试证明它是文档里写的那一个。
+
+### 平行双中介那一行，为什么它才算超出三条专用路线
+
+混合那张图早先被当作范围证据，但它其实落在前门之内：`Z` 不拦截任何东西，`M` 是唯一中介，前门判据对它成立。所以它不能证明新能力。能证明的是平行双中介这张图：
+
+- 后门：`M1`、`M2` 都是 `X` 的后代，不能进调整集；空集挡不住 `X↔Y`。判据返回 `NO_CLASSICAL_BACKDOOR_SET`。
+- 前门：单中介前门要求该中介拦截所有有向路径。`M1` 拦不住 `X→M2→Y`，`M2` 拦不住 `X→M1→Y`，两个都不合格。判据返回 `NO_SINGLE_VARIABLE_FRONTDOOR`。
+- 调整集：同样要面对 `X↔Y`，返回 `NO_OBSERVED_DAG_ADJUSTMENT_SET`。
+- ID 算法：`C(G) = {{X,Y},{M1},{M2}}`，第 4 行按 `G_X` 的分量分解成三块分别求，`M1`、`M2` 各自是单点 C-分量，直接得到 `P(m1|x)`、`P(m2|x)`；`Y` 所在的块递归进 `C(G)` 的 `{X,Y}`，第 2 行剥掉 `X`，第 1 行落回联合分布的边际，于是 `X` 被求和而不是被条件化。
+
+关键就在最后一步。化简后的式子是
+
+```
+P(y|do(x)) = Σ_{m1,m2} P(m1|x) P(m2|x) · Σ_{x'} P(x') P(y|x',m1,m2)
+```
+
+最后一个因子对 `x'` 求和，不是条件在 `x` 上。这一步正是把未观测共因还原回来：`M1`、`M2` 只依赖 `X`、不含共因，所以给定 `m1,m2` 后
+
+```
+Σ_{x'} P(x') P(y|x',m1,m2) = Σ_u P(y|m1,m2,u) · Σ_{x'} P(x') P(u|x') = Σ_u P(u) P(y|m1,m2,u)
+```
+
+中间那个等号用到 `Σ_{x'} P(x')P(u|x') = P(u)`，也就是"用 `X` 的边际把 `u` 的分布积回去"。写成 `P(y|x,m1,m2)` 就错了——那是条件分布，与干预分布相差一个共因项。
+
+这一点专门有测试盯着：`test_parallel_mediators_with_a_direct_confounded_edge` 断言条件原子恰好是 `P(m1|x)`、`P(m2|x)`、`P(y|x,m1,m2)`，外加一个无条件的 `P(x)`（被求和的那一项）。`test_the_three_dedicated_routes_all_refuse_that_graph` 把同一张图改写成显式隐变量，逐个跑三条专用求解器，断言三者都拒绝并核对拒绝原因，这样一来"超出现有路线"是被跑出来的，不是写在文档里的。
+
+文献对应：这一步就是 Shpitser & Pearl (2006) Fig. 3 第 4 行（按 `G_X` 的 C-分量分解）、第 7 行（递归进 `C(G)` 的组件）、第 2 行（剥掉非祖先）、第 1 行（落回联合分布）串起来的结果；该文 Theorem 4 指出其递归在递归半马尔可夫图上完备，前门与后门都是它的特例，因此存在它们都判否而它仍能识别的图，这张就是其中最小的一个。
 
 复现命令：
 
@@ -257,7 +299,7 @@ D:/python/python.exe examples/dag_id_demo.py
 D:/python/python.exe examples/dag_id_route_reference.py
 ```
 
-预期：两个测试文件共 51 个测试全部 OK（数学 38 个，含一组 160 张随机图的检查；业务入口 13 个）。
+预期：两个测试文件共 59 个测试全部 OK（数学 44 个，含一组 160 张随机图的检查；业务入口 15 个）。
 
 ### 实际执行的测试范围
 
@@ -265,14 +307,43 @@ D:/python/python.exe examples/dag_id_route_reference.py
 
 | 档位 | 命令 | 本次是否执行 | 结果 |
 |---|---|---|---|
-| 定向 | `python -m unittest tests.test_dag_id tests.test_dag_id_route` | 是 | 54 passed |
+| 定向 | `python -m unittest tests.test_dag_id tests.test_dag_id_route` | 是 | 59 passed |
 | 定向（门禁） | `python -m unittest tests_gateway.test_framework_acceptance tests_gateway.test_business_packets` | 是 | 8 passed |
-| quick | `python -m evaluation.framework_acceptance --suite quick` | 是 | 110 passed，41 s |
-| chain | `python -m evaluation.framework_acceptance --suite chain` | 是 | 见下方 |
+| quick | `python -m evaluation.framework_acceptance --suite quick --output outputs/checks/quick.json` | 是 | 110 passed，40.5 s |
+| chain | `python -m evaluation.framework_acceptance --suite chain --output outputs/checks/chain.json` | 是 | 1086 passed，354.9 s |
 | full | `python -m evaluation.framework_acceptance --suite full` | 否 | 本批不改公共接口，按 `TESTING_ZH.md` 的触发条件未选 full |
-| 真实 LLM 首答与复查 | — | 未运行 | 本批没有读取层，问题由图声明，不产生 LLM 首答；因此没有可统计的分母，也不存在与离线固定输入混算的问题 |
+| 真实 LLM 首答与复查 | `python examples/dag_id_llm_reading.py` | 是 | 3 个案例，deepseek-chat，见下方小节 |
 
 full 未运行的理由是选择而非结论：本批对既有文件零改动（`git diff` 为空），触发 quick、chain 的条件是"新增数学能力 + 复用公共审核入口"，full 的触发条件是公共接口或历史配置变化，本次没有发生。这一条属于未验证，不能读作"full 会通过"。
+
+### 真实模型走查（脱敏记录）
+
+材料是三段合成的业务描述：连锁咖啡的会员复购、发券与下单金额、门店排班，不含任何真实会员数据。三个案例的预期结果在运行之前写进脚本，运行后不修改。
+
+模型用 `deepseek-chat`，端点 `https://api.deepseek.com/v1`，每题一次调用，未重试。
+
+| 案例 | 预期 | 首次回答 | 是否重读 | 是否人工修改 | 最终结果 |
+|---|---|---|---|---|---|
+| 条件齐全、可识别 | POINT | 读出中介与共同原因，POINT 且重放通过 | 否 | 否 | 正确 |
+| 图内不可识别 | UNSUPPORTED | 读出 `发券→下单金额` 与 `发券↔下单金额`，UNSUPPORTED 且证据十三条通过 | 否 | 否 | 正确 |
+| 材料缺关键条件 | NEEDS_INPUT | 读出空图，管线仍给出 POINT 与 `P(门店表现)` | 否 | 是，修了管线 | 正确，由闸门拦下 |
+
+第三行必须如实写：第一次它没对，模型没有错。模型两次都把"门店表现口径未定""排班方式与自由度说法相反"列进 `unresolved`，第二次更直接把目标结果填成 `None`；错在脚本当时写死了 `researcher_confirmed=True`，等于替研究者给草稿盖章，空图因此变成"干预无效果"的结论。修掉盖章后重跑，闸门返回 `NEEDS_INPUT / NO_CAUSAL_STRUCTURE_READ` 并列出两条追问，才与预期一致。
+
+闸门规则只有一条，且不看预期答案：草稿里一条有向关系、一条共同原因都没有时，不得确认。理由是空图不是"没有信息"，而是断言该人群没有因果结构，这是最强的断言，也最需要人确认。由 `tests/test_dag_id_route.py` 的 `ReadingConfirmationGateTests` 守住。
+
+另有一处观察值得记下：三次运行中模型对 `scope` 六项几乎全填 `null`，不肯替材料断言"图已完整""潜在原因已计"。所以闸门不能依赖模型自报完整性，只能看它实际读出了什么结构。
+
+复现：
+
+```
+set CFM_ID_LLM_API_KEY / CFM_ID_LLM_BASE_URL / CFM_ID_LLM_MODEL
+python examples/dag_id_llm_reading.py
+```
+
+原始输出由脚本自动落到仓库根下的 `dagid_runs/`，每个案例一个 JSON：发出的材料原文、模型首答的完整 JSON（原样保存，不做修补）、解析后的读取结果、最终状态与独立重放，以及这次调用的传输诊断（返回的模型名、token 数、finish_reason）。目录不入库，已写进本地 `.git/info/exclude`；要换位置设 `CFM_ID_LLM_SAVE_DIR`。每写完一个文件打印一行 `saved :`，可以直接看出三份是否齐全。这些是运行记录而非交付物，提交的仓库里不含该目录，本地跑一次即生成。重跑会覆盖同名文件；要同时保留多轮记录，就换一个 `CFM_ID_LLM_SAVE_DIR`。记录里的 `run_at` 与 `provider` 两栏写明这次用的时间和端点，换了模型或日期时可以直接对照本节表格。
+
+局限：只用一个模型、每题一次调用，没有做第二模型对照，也没有统计首答与复查的正确率；三个案例的样本量不支持任何准确率结论，只能说明这条链路在真实模型上跑通了。
 
 ## 8. 验收标准对照
 
@@ -282,17 +353,18 @@ full 未运行的理由是选择而非结论：本批对既有文件零改动（
 |---|---|---|
 | 算法：递归半马尔可夫图、有向/双向边 | `dag_id_solver._id` 七行 | `test_c_components_follow_bidirected_chains_only`、`test_backdoor_graph` |
 | 明确公式所需分母 | `positivity_requirements()` | `test_positivity_requirements_cover_every_conditioning_event`（前门图精确等于 `[['X'], ['X','M']]`） |
-| 明确规模范围 | `MAX_NODES = 12` + 第 1 节实测表 | `test_resource_limit_is_reported_separately` |
+| 明确规模范围 | 节点上限 12、节点数加双向边数上限 14，两者都报 `RESOURCE_LIMIT` | `test_resource_limit_is_reported_separately`、`test_model_size_counts_shared_causes_not_just_nodes` |
 | 结构化公式与步骤 | 表达式树 + `derivation`（含理由） | `test_derivation_trace_is_recorded`、`test_every_step_says_why_it_is_legal` |
-| 独立检查图操作、最终目标 | `replay` 六项检查 | `test_replay_reports_the_six_documented_checks`、`test_replay_compares_three_seeds_and_two_interventions` |
+| 独立检查图操作、最终目标 | `replay` 九项检查，含问答绑定与推导复算 | `test_replay_reports_the_nine_documented_checks`、`test_replay_compares_three_seeds_and_two_interventions`、`test_a_correct_answer_to_a_different_question_is_rejected`、`test_a_step_that_cites_the_wrong_rule_is_rejected` |
+| 普通问题可运行 | `A→B→C` 求 `P(C|do(B))`，得到 `P(C|B)` | `test_intervening_mid_chain_does_not_leak_the_upstream_variable` |
 | 不能两次调用同一求解器 | 验证器不 import 求解器/图模块，自建 SCM | `test_verifier_never_imports_the_solver_or_the_graph_module`（AST 扫 import）、`test_numeric_check_catches_a_formula_that_is_structurally_valid` |
 | 检查 hedge 等非识别证据 | C-forest 对 + 十三条独立检查 | `test_failure_materialises_a_c_forest_pair`、`test_hedge_evidence_is_the_documented_thirteen_checks`、`test_altered_hedge_is_rejected` |
 | 复现后门 / 前门 | 第 7 节 | `test_backdoor_graph`、`test_frontdoor_graph`（均含数值 replay） |
-| 至少一个超出现有专门路线的可识别例 | MIXED 图 | `test_mixed_frontdoor_and_backdoor` |
-| 成功 / 非识别 / 程序异常 / 资源超限分开 | `STATUSES` 五态，外加 `INTERNAL_ERROR` 兜底 | `test_the_five_outcomes_are_distinct_states`、`test_resource_limit_is_reported_separately`、`test_an_unexpected_defect_becomes_a_structured_state`、`test_cyclic_graph_is_rejected` |
+| 至少一个超出现有专门路线的可识别例 | 平行双中介 + `X↔Y` 图，三条专用路线均拒绝 | `test_parallel_mediators_with_a_direct_confounded_edge`、`test_the_three_dedicated_routes_all_refuse_that_graph` |
+| 成功 / 非识别 / 程序异常 / 资源超限分开 | `STATUSES` 六态，外加 `INTERNAL_ERROR` 兜底 | `test_the_six_outcomes_are_distinct_states`、`test_resource_limit_is_reported_separately`、`test_an_unexpected_defect_becomes_a_structured_state`、`test_cyclic_graph_is_rejected` |
 | 图例、推导、正负测试 | `examples/`、本文、`tests/` | `test_random_graphs_are_total_and_numerically_sound`（160 张随机图，正负两侧同时覆盖） |
-| 业务接入 | `cfm_id/dag_id_route.py` + 13 个测试 | `test_mixed_graph_is_answered_end_to_end`、`test_pending_condition_blocks_before_the_solver`（适配器完成；注册不在本次交付范围，见第 9 节） |
-| 专属读取 | 无 `cfm_id_llm/dag_id_reading.py` | 未实现，见第 10 节 |
+| 业务接入 | `cfm_id/dag_id_route.py` + 15 个测试 | `test_mixed_graph_is_answered_end_to_end`、`test_pending_condition_blocks_before_the_solver`（适配器完成；注册不在本次交付范围，见第 9 节） |
+| 专属读取 | `cfm_id_llm/dag_id_reading.py`，沿用 `dag_reading` 的类型，只补 `common_causes` 一组 | `ReadingConfirmationGateTests`（草稿无结构不得确认）、`examples/dag_id_llm_reading.py` 三个案例 |
 | 兼容检查 | 未运行旧请求对照 | 未验证，见第 10 节 |
 
 两类例外，如实标注：
@@ -303,7 +375,7 @@ full 未运行的理由是选择而非结论：本批对既有文件零改动（
 
 ## 9. 业务接入的边界
 
-`cfm_id/dag_id_route.py` 是一个完整的业务适配器：问题契约（含图来源声明）、审核契约（逐条件接受/待定/驳回）、`prepare` / `submit`、以及 `research_route_workflow.run_route` 需要的 `claim` / `replay` / `verify_claim`。它已经在 `research_route_workflow.run_route` 上端到端跑通（未经注册表登记），13 个测试覆盖成功、非识别、三种拦截、超限和环图。
+`cfm_id/dag_id_route.py` 是一个完整的业务适配器：问题契约（含图来源声明）、审核契约（逐条件接受/待定/驳回）、`prepare` / `submit`、以及 `research_route_workflow.run_route` 需要的 `claim` / `replay` / `verify_claim`。它已经在 `research_route_workflow.run_route` 上端到端跑通（未经注册表登记），15 个测试覆盖成功、非识别、三种拦截、超限、环图，以及读取草稿的确认闸门。
 
 但它没有注册进 `capability_registry`。那是项目的闭合显式注册，按 `docs/EXTENSION_MAINTENANCE_ZH.md` 的归属属于路线维护者；学生直接往里加等于自己给自己开门。本批不提交任何注册改动，也没有预留插入位置。交付边界与留给维护者的问题清单写在 `docs/DAG_ID_INTEGRATION_ZH.md`。
 
@@ -314,9 +386,10 @@ full 未运行的理由是选择而非结论：本批对既有文件零改动（
 
 ## 10. 未完成
 
-本批定位为数学阶段成果。按任务书的分档口径，数学模块完成这一档齐全；约定范围完整验收还差下面第 1、2 两项，其余是外部输入或规模问题。
+本批定位为数学阶段成果。按任务书的分档口径，数学模块完成这一档齐全；约定范围完整验收还差兼容检查与注册两项，其余是外部输入或规模问题。
 
-- 专属读取未实现。 本批只有声明式输入（`cfm_id/dag_id_route.py` 的问题契约），没有 `cfm_id_llm/` 下的读取模块。前门路线的对照物是 `cfm_id_llm/dag_frontdoor_reading.py`，任务五没有对应文件。共用层 `Relation.kind` 只有 `DIRECT_CAUSE / ASSOCIATION / UNCERTAIN`，没有"未观测共同原因"的位置，因此半马尔可夫图目前只能由研究者直接声明，不能从阅读候选生成。补法是新增一个读取扩展模块，不动共用层。
+- 读取层只到草稿。 `cfm_id_llm/dag_id_reading.py` 已经能把业务材料读成变量、有向关系、共同原因和目标，并跑通读取、审核、求解、检查整条链路（第 7 节的真实模型走查）。但它没有扩共用层的 `Relation.kind`：该字段仍只有 `DIRECT_CAUSE / ASSOCIATION / UNCERTAIN`，表达不了未观测共同原因，所以双向边由新增的 `common_causes` 单独承载，属于本模块自己的约定。要并进公共阅读链路，需要先提交扩 `Relation` 的最小接口提案，这一步不在本批。
+- 读取草稿的确认仍由调用方做。 读取层只产出候选，不批准；示例脚本按结构判断能否确认，真实接入时这一步必须是人看着 `unresolved` 清单来做。规则写在 `examples/dag_id_llm_reading.py` 的 `confirmation`，由测试守住，但它不是审核，不产生审核记录。
 - 兼容检查未运行。 本批全部是新增文件，`git diff` 对既有文件为空，既有四条路线的行为不可能改变；但没有跑过旧请求的逐字节对照，也没有留下记录。属于未验证，不是已知风险。
 - 注册不在本次交付范围。 见第 9 节。路线要进入共用入口需要维护者登记，本批不做。
 - 研究者确认的变量因果图未到。 要求"图须经过研究者确认，合作关系网络不能直接当变量因果图"。现有测试图全部来自论文或仓库参考例，用于验证代码，不用于回答业务问题。

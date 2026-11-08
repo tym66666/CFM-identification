@@ -9,16 +9,32 @@ from unittest import mock
 
 from cfm_id.dag_id_contract import STATUSES, Unavailable, as_problem
 from cfm_id.dag_id_graph import ancestors, c_components, parse, remove_incoming
-from cfm_id.dag_id_solver import identify, identify_or_report
+from cfm_id.dag_id_solver import collect_atoms, identify, identify_or_report
 from cfm_id.dag_id_verify import check_failure, observed_joint, replay
 
 BACKDOOR = (["Z", "X", "Y"], [("Z", "X"), ("Z", "Y"), ("X", "Y")], [], "X", ["Y"])
 CHAIN = (["X", "M", "Y"], [("X", "M"), ("M", "Y")], [], "X", ["Y"])
+# A downstream query on a plain chain. Line 3 widens the treatment to {A, B}
+# because A stops being an ancestor of C once the arrows into B are cut; the
+# widened variable must not survive into the expression as a free condition.
+MIDCHAIN = (["A", "B", "C"], [("A", "B"), ("B", "C")], [], "B", ["C"])
 FRONTDOOR = (["X", "M", "Y"], [("X", "M"), ("M", "Y")], [("X", "Y")], "X", ["Y"])
 BOWARC = (["X", "Y"], [("X", "Y")], [("X", "Y")], "X", ["Y"])
 MIXED = (
     ["Z", "X", "M", "Y"],
     [("Z", "X"), ("Z", "Y"), ("X", "M"), ("M", "Y")],
+    [("X", "Y")],
+    "X",
+    ["Y"],
+)
+# Two parallel mediators plus a direct X <-> Y edge. No admissible back-door
+# set exists (the mediators are descendants of X) and no single mediator is a
+# front-door variable (a mediator does not intercept the other branch), yet the
+# recursion still returns a formula. This is the case the dedicated routes
+# cannot answer at all, so it carries the scope claim.
+PARALLEL_MEDIATORS = (
+    ["X", "M1", "M2", "Y"],
+    [("X", "M1"), ("M1", "Y"), ("X", "M2"), ("M2", "Y")],
     [("X", "Y")],
     "X",
     ["Y"],
@@ -90,13 +106,79 @@ class IdentificationTests(unittest.TestCase):
     def test_unconfounded_chain(self):
         self.assertPointAndVerified(CHAIN)
 
+    def test_intervening_mid_chain_does_not_leak_the_upstream_variable(self):
+        """A -> B -> C, P(C | do(B)) is P(C | B).
+
+        Line 3 widens the treatment to {A, B}, and A is then irrelevant. A
+        prefix-conditioned expression would emit P(C | A, B): still a number,
+        no longer a distribution over C alone, and it fails numeric replay.
+        """
+        certificate = self.assertPointAndVerified(MIDCHAIN)
+        atoms = collect_atoms(certificate['functional'])
+        self.assertEqual([atom['given'] for atom in atoms['conditional']], [["B"]])
+
     def test_frontdoor_graph(self):
         self.assertPointAndVerified(FRONTDOOR)
 
     def test_mixed_frontdoor_and_backdoor(self):
-        """Outside all three dedicated routes: back-door fails on X <-> Y,
-        single-mediator front-door fails because Z also reaches Y."""
+        """A graph the dedicated routes do not settle on their own: the
+        back-door criterion fails on X <-> Y, and Z reaches Y directly."""
         self.assertPointAndVerified(MIXED)
+
+    def test_parallel_mediators_with_a_direct_confounded_edge(self):
+        """Two mediators in parallel plus X <-> Y. The last factor is a marginal
+        over the treatment, not a condition on it: summing X out is what
+        restores the unobserved common cause. Conditioning on X there would give
+        P(Y|X) instead, which differs from the interventional distribution."""
+        certificate = self.assertPointAndVerified(PARALLEL_MEDIATORS)
+        atoms = collect_atoms(certificate["functional"])
+        conditional = [atom["given"] for atom in atoms["conditional"]]
+        self.assertEqual(sorted(given for given in conditional if given),
+                         [["X"], ["X"], ["X", "M1", "M2"]])
+        # The unconditional atom is P(X) itself; it is the term the recursion
+        # sums over, and it is what replaces the unobserved common cause.
+        self.assertIn([], conditional)
+        self.assertEqual(certificate["positivity"]["conditional_denominators"],
+                         [["X"], ["X", "M1", "M2"]])
+
+    def test_the_three_dedicated_routes_all_refuse_that_graph(self):
+        """The scope claim has to be shown, not asserted. The same graph is
+        written with one explicit latent per bidirected edge and put to each
+        dedicated solver; all three decline, so the formula is not something an
+        existing route could have produced."""
+        from examples.dag_backdoor_reference import make_problem as backdoor_problem
+        from examples.dag_frontdoor_reference import make_problem as frontdoor_problem
+        from cfm_id.dag_backdoor_solver import solve as backdoor_solve
+        from cfm_id.dag_frontdoor_solver import solve as frontdoor_solve
+        from cfm_id.dag_adjustment_solver import solve as adjustment_solve
+        from cfm_id.dag_adjustment_contract import AdjustmentProblem, VERSION as ADJUSTMENT_VERSION
+
+        nodes = ["X", "M1", "M2", "Y", "U0"]
+        edges = [["X", "M1"], ["M1", "Y"], ["X", "M2"], ["M2", "Y"],
+                 ["U0", "X"], ["U0", "Y"]]
+        latent = ["U0"]
+
+        def adjustment_problem():
+            return AdjustmentProblem(**{**backdoor_problem(nodes, edges, latent).model_dump(),
+                                        "version": ADJUSTMENT_VERSION})
+
+        routes = (
+            ("back-door", backdoor_solve, lambda: backdoor_problem(nodes, edges, latent)),
+            ("front-door", frontdoor_solve, lambda: frontdoor_problem(nodes, edges, latent)),
+            ("adjustment", adjustment_solve, adjustment_problem),
+        )
+        refused = {}
+        for route, solve, build in routes:
+            # Each module reports refusal through its own Unavailable subclass,
+            # all of them ValueError descendants with a machine-readable reason.
+            with self.assertRaises(ValueError) as caught:
+                solve(build())
+            refused[route] = caught.exception.reason
+        self.assertEqual(refused, {
+            "back-door": "NO_CLASSICAL_BACKDOOR_SET",
+            "front-door": "NO_SINGLE_VARIABLE_FRONTDOOR",
+            "adjustment": "NO_OBSERVED_DAG_ADJUSTMENT_SET",
+        })
 
     def test_paper_figure_1a_joint_outcome(self):
         certificate = self.assertPointAndVerified(FIG1A)
@@ -290,10 +372,28 @@ class RejectionTests(unittest.TestCase):
         self.assertEqual(caught.exception.state, 'RESOURCE_LIMIT')
         self.assertNotEqual(caught.exception.state, 'UNSUPPORTED')
 
-    def test_the_five_outcomes_are_distinct_states(self):
+    def test_model_size_counts_shared_causes_not_just_nodes(self):
+        """Replay enumerates 2^n assignments over 2^b latent configurations, so
+        cost is driven by nodes and bidirected edges together. Eight nodes with
+        seven shared causes is as expensive as fifteen bare nodes, and must be
+        reported as a scale limit rather than as a review problem or a
+        non-identification."""
+        nodes = ['N{}'.format(i) for i in range(8)]
+        directed = [(nodes[i], nodes[i + 1]) for i in range(7)]
+        shared = [(nodes[i], nodes[i + 1]) for i in range(7)]
+        with self.assertRaises(Unavailable) as caught:
+            identify(as_problem(nodes, directed, shared, nodes[0], [nodes[-1]]))
+        self.assertEqual(caught.exception.reason, 'MODEL_SIZE_OUT_OF_RANGE')
+        self.assertEqual(caught.exception.state, 'RESOURCE_LIMIT')
+        # The same node set without shared causes is inside the declared scale,
+        # so the refusal above is about size and not about node count alone.
+        identify(as_problem(nodes, directed, [], nodes[0], [nodes[-1]]))
+
+    def test_the_six_outcomes_are_distinct_states(self):
         self.assertEqual(
             STATUSES,
-            ('POINT', 'UNSUPPORTED', 'RESOURCE_LIMIT', 'NEEDS_INPUT', 'CHECK_BLOCKED'))
+            ('POINT', 'UNSUPPORTED', 'NO_FORMULA_YET',
+             'RESOURCE_LIMIT', 'NEEDS_INPUT', 'CHECK_BLOCKED'))
 
     def test_zero_denominator_is_not_silently_zero(self):
         """A formula that needs P(x) > 0 must fail loudly when it is violated."""
@@ -376,14 +476,51 @@ class EvidenceTests(unittest.TestCase):
         failed = [c['name'] for c in result['checks'] if not c['passed']]
         self.assertEqual(failed, ['numeric_agreement_with_fresh_scm'])
 
-    def test_replay_reports_the_six_documented_checks(self):
+    def test_replay_reports_the_nine_documented_checks(self):
         p = problem(FRONTDOOR)
         checks = replay(identify(p), p)['checks']
         self.assertEqual([c['name'] for c in checks], [
             'certificate_fields', 'status_is_point', 'certificate_digest',
-            'problem_binding', 'expression_tree_well_formed',
+            'problem_binding', 'question_binding',
+            'formula_reads_only_the_asked_variables',
+            'derivation_steps_recompute',
+            'expression_tree_well_formed',
             'numeric_agreement_with_fresh_scm'])
-        self.assertEqual(len(checks), 6)
+        self.assertEqual(len(checks), 9)
+
+    def test_a_step_that_cites_the_wrong_rule_is_rejected(self):
+        """Numbers can agree while the reason is invented. The trace is
+        recomputed rule by rule, so a step is only accepted when the rule it
+        cites is the one that actually applies to that sub-problem."""
+        p = problem(FRONTDOOR)
+        certificate = identify(p)
+        self.assertTrue(replay(certificate, p)['passed'])
+
+        tampered = dict(certificate)
+        tampered['derivation'] = [dict(step) for step in certificate['derivation']]
+        tampered['derivation'][1]['line'] = 6
+        body = {k: v for k, v in tampered.items() if k != 'certificate_sha256'}
+        from cfm_id_bridge.scientific_binding import sha as digest
+        tampered['certificate_sha256'] = digest(body)
+
+        result = replay(tampered, p)
+        self.assertFalse(result['passed'])
+        derivation = [c for c in result['checks']
+                      if c['name'] == 'derivation_steps_recompute'][0]
+        self.assertFalse(derivation['passed'])
+        self.assertIn('WRONG_RULE', [f['problem'] for f in derivation['findings']])
+
+    def test_a_correct_answer_to_a_different_question_is_rejected(self):
+        """The digest is not a question check. A certificate for P(M | do(X))
+        is internally consistent; replayed against a question about Y it must
+        still fail, on three separate checks."""
+        p_answer = problem((MIXED[0], MIXED[1], MIXED[2], "X", ["M"]))
+        p_asked = problem(MIXED)
+        result = replay(identify(p_answer), p_asked)
+        self.assertFalse(result['passed'])
+        failed = {c['name'] for c in result['checks'] if not c['passed']}
+        self.assertIn('question_binding', failed)
+        self.assertIn('formula_reads_only_the_asked_variables', failed)
 
     def test_replay_compares_three_seeds_and_two_interventions(self):
         """Section 5 claims 3 seeds x 2 intervention values x every outcome value."""
