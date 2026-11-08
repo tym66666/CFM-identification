@@ -1,0 +1,36 @@
+{
+  "version": "literature-cases-0.1.0",
+  "cases": [
+    {
+      "case_id": "LIT-NET-01",
+      "paper_id": "aronow_samii2017_interference",
+      "family": "NETWORK",
+      "title": "AI 经营助手试点：直接效应、同伴效应与局部总效应",
+      "public_directory": "evaluation/literature_cases/public/LIT-NET-01",
+      "research_directory": "evaluation/literature_cases/research_only/LIT-NET-01",
+      "variants": [
+        {
+          "name": "original",
+          "expected_status": "POINT",
+          "actual_status": "POINT",
+          "actual_source": "structured_runs/original (2026-11-08, no LLM)"
+        },
+        {
+          "name": "missing_condition",
+          "expected_status": "NEEDS_INPUT",
+          "actual_status": "NEEDS_INPUT",
+          "actual_source": "structured_runs/missing_condition (2026-11-08, no LLM)"
+        },
+        {
+          "name": "changed_target",
+          "expected_status": "POINT_REVERSED_SIGN",
+          "actual_status": "POINT",
+          "actual_source": "structured_runs/changed_target (2026-11-08, no LLM)"
+        }
+      ],
+      "heldout": false,
+      "review_status": "PENDING_TEACHER",
+      "status": "PILOT_RUN_COMPLETE"
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "case_id": "LIT-NET-01",
+  "paper_id": "aronow_samii2017_interference",
+  "paper": {
+    "authors": [
+      "Peter M. Aronow",
+      "Cyrus Samii"
+    ],
+    "year": 2017,
+    "title": "Estimating Average Causal Effects Under General Interference, with Application to a Social Network Experiment",
+    "venue": "Annals of Applied Statistics",
+    "volume": "11",
+    "issue": "4",
+    "pages": "1912-1947",
+    "doi": "10.1214/16-AOAS1005",
+    "version_checked": "arXiv:1305.6156v3 (2017-07-14)"
+  },
+  "paper_reference": {
+    "paper_question": "在已知分配律和暴露映射下，如何定义并识别按原设计条件平均的暴露特定平均结果，以及两个暴露条件之差？",
+    "target": "全部 60 家门店等权平均的设计加权条件暴露平均之差。三个目标：直接效应 (T=1,S=0) - (T=0,S=0)；溢出效应 (T=1,S=1) - (T=1,S=0)；局部总效应 (T=1,S=1) - (T=0,S=0)。",
+    "source_location": "Aronow & Samii (2017), §8, Eq. (16) and Corollary 8.1; arXiv PDF pp. 20-21. Design/exposure setup: §3; Conditions 1-2: §4.",
+    "formula": "For unit i and exposure d: mu_i^q(d) = sum_{z: f(z,theta_i)=d} [q(z) / Pr_q(D_i=d)] mu_i(z). The population target is tau(d_k,d_l) = (1/N) sum_i [mu_i^q(d_k) - mu_i^q(d_l)], with N=60 and equal weights 1/60.",
+    "conditions": [
+      "Known assignment law q: 60 independent Bernoulli(1/2) draws.",
+      "Exposure mapping: S_i=1 iff strictly more than half of i's neighbors are treated; ties are low (S_i=0).",
+      "Design positivity for each target exposure: Pr_q(D_i=d)>0 for every i and every d used in the target.",
+      "Consistency: observed outcome equals the potential outcome under the actual assignment/exposure.",
+      "Finite conditional first moments for the outcomes used in the target.",
+      "Pre-treatment network fixed before treatment.",
+      "The design-weighted target in Section 8 does not require exposure sufficiency to be added; it is defined by q and f. It should not be renamed as a design-free structural parameter."
+    ],
+    "what_paper_supports": [
+      "Separates assignment design, exposure mapping and estimand.",
+      "Computes exposure probabilities from a known assignment law.",
+      "Gives a design-weighted conditional mean target and its difference under exposure misspecification (Section 8).",
+      "Exposure definition alone is not a sufficiency assumption."
+    ],
+    "what_paper_does_not_support": [
+      "It does not show that an arbitrary full policy assignment is point identified.",
+      "It does not turn a finite sample into known population means.",
+      "It does not provide the project's sharp PARTIAL bounds for all designs.",
+      "It does not make the N60 synthetic data a replication of the paper's field experiment."
+    ],
+    "background_reference": "Hudgens & Halloran (2008) for the individual average potential outcome terminology; cited by Aronow & Samii (2017) in Section 8."
+  },
+  "available_information_a4": {
+    "population": "All 60 stores, node-0 through node-59, fixed before randomization.",
+    "network": "Complete pre-treatment undirected network: 120 edges, symmetric, zero diagonal, degrees 3-5, no isolated nodes.",
+    "assignment": "Independent Bernoulli(1/2) for each of the 60 stores; known product law q.",
+    "exposure": "S_i=1 iff strictly more than half of i's neighbors are treated; ties low.",
+    "outcome_information": "Symbolic population conditional mean operators E[Y_i | T_i=a, S_i=s, W] for all 60 stores and all four (a,s) cells. The 30 observed outcomes are a finite sample, not the population means.",
+    "evaluation_population": "All 60 stores, equal weight 1/60."
+  },
+  "scientific_assumptions_a5": {
+    "status": "PROPOSED_AND_REQUIRES_INDEPENDENT_REVIEW",
+    "items": [
+      "Full treatment vector is independent of all potential outcomes conditional on the fixed pre-treatment background W.",
+      "Consistency: observed outcome equals the potential outcome under the actual complete assignment.",
+      "Finite conditional first moments.",
+      "Network fixed before treatment.",
+      "Positivity for the exposure conditions used by each target."
+    ],
+    "not_adopted": [
+      "No extra exposure sufficiency assumption is added to rename the design-weighted target as a design-free structural parameter.",
+      "No assumption that the 30 observed stores are the full population."
+    ]
+  },
+  "software_expected": {
+    "original": {
+      "status": "POINT",
+      "targets": {
+        "direct": "POINT, design-standardized (T=1,S=0) - (T=0,S=0)",
+        "spillover": "POINT, design-standardized (T=1,S=1) - (T=1,S=0)",
+        "local_total": "POINT, design-standardized (T=1,S=1) - (T=0,S=0)"
+      },
+      "reason": "The repository already has network randomized-effect facts and a saved N60 demo run for these three targets. The expected status is POINT under the declared design, A4 and A5."
+    },
+    "missing_condition": {
+      "status": "NEEDS_INPUT",
+      "reason": "The complete network is removed; only 30 of 120 edges are supplied. S_i cannot be computed for all stores and target positivity cannot be checked. The system should stop and name the missing network, not impute edges."
+    },
+    "changed_target": {
+      "status": "POINT_EXPECTED_WITH_REVERSED_SIGN",
+      "reason": "The same design and exposure support the reverse comparison (T=1,S=0) - (T=1,S=1). The expected formula is the negative of the original spillover formula. The original positive-direction certificate must not be reused as the answer without re-binding the target."
+    }
+  },
+  "actual_run": {
+    "method": "LOCAL_STRUCTURED_INPUT_NO_LLM",
+    "provenance": "2026-11-08 local structured run through cfm_id.business_intake -> business_dispatch -> business_case; explicit synthetic reviews; api_calls=0. This is not a live LLM reading result.",
+    "original": {
+      "state": "ALL_QUERIES_IDENTIFIED",
+      "queries": [
+        {
+          "query_id": "q1",
+          "target": "direct",
+          "state": "POINT",
+          "independent_replay": true,
+          "target_fingerprint": "c10f55d3b705372f1b27e79662ac6b281e313357c55aa067e2e8321308685738"
+        },
+        {
+          "query_id": "q2",
+          "target": "spillover",
+          "state": "POINT",
+          "independent_replay": true,
+          "target_fingerprint": "7b7a13b23841781d4318ba94a093392e777c2126d17427da058e4ef9ec579e6d"
+        },
+        {
+          "query_id": "q3",
+          "target": "local_total",
+          "state": "POINT",
+          "independent_replay": true,
+          "target_fingerprint": "508fd8118eb10216d64a827a110e0cb1ffa817e0e7c14df677294f4a115b4a4d"
+        }
+      ],
+      "output_file": "structured_runs/original/result.json"
+    },
+    "missing_condition": {
+      "state": "NEEDS_INPUT",
+      "reason_code": "NETWORK_EFFECT_FACTS_INCOMPLETE",
+      "queries": [
+        {
+          "query_id": "q1",
+          "state": "NEEDS_INPUT",
+          "reason": "NETWORK_EFFECT_FACTS_INCOMPLETE"
+        },
+        {
+          "query_id": "q2",
+          "state": "NEEDS_INPUT",
+          "reason": "NETWORK_EFFECT_FACTS_INCOMPLETE"
+        },
+        {
+          "query_id": "q3",
+          "state": "NEEDS_INPUT",
+          "reason": "NETWORK_EFFECT_FACTS_INCOMPLETE"
+        }
+      ],
+      "output_file": "structured_runs/missing_condition/result.json"
+    },
+    "changed_target": {
+      "state": "ALL_QUERIES_IDENTIFIED",
+      "queries": [
+        {
+          "query_id": "q1",
+          "target": "reverse_spillover",
+          "state": "POINT",
+          "independent_replay": true,
+          "target_fingerprint": "58385584627f0a9ab71eb4b70067753d27446095015939dc716979203910d8c1"
+        }
+      ],
+      "output_file": "structured_runs/changed_target/result.json"
+    },
+    "historical_demo_saved_run": {
+      "source": "demo/examples.json saved_runs for n60",
+      "provenance": "2026-11-03 LongCat-2.5 saved and replayed demo output; not a fresh call in this run.",
+      "note": "Kept separately from the 2026-11-08 structured run; target fingerprints differ because source bindings differ, but the original expressions have the same coordinate form."
+    }
+  },
+  "review_status": "PENDING_TEACHER",
+  "reviewer": "teacher (to be completed)",
+  "holdout": false,
+  "notes": "Pilot case. The 2026-11-08 structured run is fresh local execution with synthetic reviews and no LLM API. The historical 2026-11-03 demo saved run is kept separately. Missing-condition and changed-target variants are now run."
+}

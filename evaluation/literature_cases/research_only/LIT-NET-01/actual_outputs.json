@@ -1,0 +1,135 @@
+{
+  "source": "demo/examples.json saved_runs for n60",
+  "provenance": "Historical saved demo output (2026-11-03 LongCat-2.5, explicitly reviewed and replayed). Not a fresh LLM call in this case package.",
+  "results": [
+    {
+      "title": "直接效应：同伴低使用时，本店用减不用",
+      "state": "POINT",
+      "reason_code": null,
+      "independent_replay": true,
+      "target": {
+        "kind": "DIRECT_EFFECT",
+        "first": [
+          1,
+          0
+        ],
+        "second": [
+          0,
+          0
+        ],
+        "operation": "FIRST_MINUS_SECOND",
+        "remaining_assignment": "ORIGINAL_DESIGN_CONDITIONAL",
+        "exposure": "STRICT_MAJORITY_TIES_LOW",
+        "evaluation_population_size": 60,
+        "unit_weights": "1/60 each"
+      },
+      "target_fingerprint": "c320483bfed7ddd5de8f4f280576b34ba797fea55be9d6401ec7ffced6a1528d",
+      "expression": "-1/60*E[Y_node-0^obs | W, T_node-0=0, S_node-0=0] + 1/60*E[Y_node-0^obs | W, T_node-0=1, S_node-0=0] - 1/60*E[Y_node-1^obs | W, T_node-1=0, S_node-1=0] + 1/60*E[Y_node-1^obs | W, T_node-1=1, S_node-1=0] - 1/60*E[Y_node-2^obs | W, T_node-2=0, S_node-2=0] + 1/60*E[Y_node-2^obs | W, T_node-2=1, S_node-2=0] - 1/60*E[Y_node-3^obs | W, T_node-3=0, S_node-3=0] + 1/60*E[Y_node-3^obs | W, T_node-3=1, S_node-3=0] - 1/60*E[Y_node-4^obs | W, T_node-4=0, S_node-4=0] + 1/60*E[Y_node-4^obs | W, T_node-4=1, S_node-4=0] - 1/60*E[Y_node-5^obs | W, T_node-5=0, S_node-5=0] + 1/60*E[Y_node-5^obs | W, T_node-5=1, S_node-5=0] - 1/60*E[Y_node-6^obs | W, T_node-6=0, S_node-6=0] + 1/60*E[Y_node-6^obs | W, T_node-6=1, S_node-6=0] - 1/60*E[Y_node-7^obs | W, T_node-7=0, S_node-7=0] + 1/60*E[Y_node-7^obs | W, T_node-7=1, S_node-7=0] - 1/60*E[Y_node-8^obs | W, T_node-8=0, S_node-8=0] + 1/60*E[Y_node-8^obs | W, T_node-8=1, S_node-8=0] - 1/60*E[Y_node-9^obs | W, T_node-9=0, S_node-9=0] + 1/60*E[Y_node-9^obs | W, T_node-9=1, S_node-9=0] - 1/60*E[Y_node-10^obs | W, T_node-10=0, S_node-10=0] + 1/60*E[Y_node-10^obs | W, T_node-10=1, S_node-10=0] - 1/60*E[Y_node-11^obs | W, T_node-11=0, S_node-11=0] + 1/60*E[Y_node-11^obs | W, T_node-11=1, S_node-11=0] - 1/60*E[Y_node-12^obs | W, T_node-12=0, S_node-12=0] + 1/60*E[Y_node-12^obs | W, T_node-12=1, S_node-12=0] - 1/60*E[Y_node-13^obs | W, T_node-13=0, S_node-13=0] + 1/60*E[Y_node-13^obs | W, T_node-13=1, S_node-13=0] - 1/60*E[Y_node-14^obs | W, T_node-14=0, S_node-14=0] + 1/60*E[Y_node-14^obs | W, T_node-14=1, S_node-14=0] - 1/60*E[Y_node-15^obs | W, T_node-15=0, S_node-15=0] + 1/60*E[Y_node-15^obs | W, T_node-15=1, S_node-15=0] - 1/60*E[Y_node-16^obs | W, T_node-16=0, S_node-16=0] + 1/60*E[Y_node-16^obs | W, T_node-16=1, S_node-16=0] - 1/60*E[Y_node-17^obs | W, T_node-17=0, S_node-17=0] + 1/60*E[Y_node-17^obs | W, T_node-17=1, S_node-17=0] - 1/60*E[Y_node-18^obs | W, T_node-18=0, S_node-18=0] + 1/60*E[Y_node-18^obs | W, T_node-18=1, S_node-18=0] - 1/60*E[Y_node-19^obs | W, T_node-19=0, S_node-19=0] + 1/60*E[Y_node-19^obs | W, T_node-19=1, S_node-19=0] - 1/60*E[Y_node-20^obs | W, T_node-20=0, S_node-20=0] + 1/60*E[Y_node-20^obs | W, T_node-20=1, S_node-20=0] - 1/60*E[Y_node-21^obs | W, T_node-21=0, S_node-21=0] + 1/60*E[Y_node-21^obs | W, T_node-21=1, S_node-21=0] - 1/60*E[Y_node-22^obs | W, T_node-22=0, S_node-22=0] + 1/60*E[Y_node-22^obs | W, T_node-22=1, S_node-22=0] - 1/60*E[Y_node-23^obs | W, T_node-23=0, S_node-23=0] + 1/60*E[Y_node-23^obs | W, T_node-23=1, S_node-23=0] - 1/60*E[Y_node-24^obs | W, T_node-24=0, S_node-24=0] + 1/60*E[Y_node-24^obs | W, T_node-24=1, S_node-24=0] - 1/60*E[Y_node-25^obs | W, T_node-25=0, S_node-25=0] + 1/60*E[Y_node-25^obs | W, T_node-25=1, S_node-25=0] - 1/60*E[Y_node-26^obs | W, T_node-26=0, S_node-26=0] + 1/60*E[Y_node-26^obs | W, T_node-26=1, S_node-26=0] - 1/60*E[Y_node-27^obs | W, T_node-27=0, S_node-27=0] + 1/60*E[Y_node-27^obs | W, T_node-27=1, S_node-27=0] - 1/60*E[Y_node-28^obs | W, T_node-28=0, S_node-28=0] + 1/60*E[Y_node-28^obs | W, T_node-28=1, S_node-28=0] - 1/60*E[Y_node-29^obs | W, T_node-29=0, S_node-29=0] + 1/60*E[Y_node-29^obs | W, T_node-29=1, S_node-29=0] - 1/60*E[Y_node-30^obs | W, T_node-30=0, S_node-30=0] + 1/60*E[Y_node-30^obs | W, T_node-30=1, S_node-30=0] - 1/60*E[Y_node-31^obs | W, T_node-31=0, S_node-31=0] + 1/60*E[Y_node-31^obs | W, T_node-31=1, S_node-31=0] - 1/60*E[Y_node-32^obs | W, T_node-32=0, S_node-32=0] + 1/60*E[Y_node-32^obs | W, T_node-32=1, S_node-32=0] - 1/60*E[Y_node-33^obs | W, T_node-33=0, S_node-33=0] + 1/60*E[Y_node-33^obs | W, T_node-33=1, S_node-33=0] - 1/60*E[Y_node-34^obs | W, T_node-34=0, S_node-34=0] + 1/60*E[Y_node-34^obs | W, T_node-34=1, S_node-34=0] - 1/60*E[Y_node-35^obs | W, T_node-35=0, S_node-35=0] + 1/60*E[Y_node-35^obs | W, T_node-35=1, S_node-35=0] - 1/60*E[Y_node-36^obs | W, T_node-36=0, S_node-36=0] + 1/60*E[Y_node-36^obs | W, T_node-36=1, S_node-36=0] - 1/60*E[Y_node-37^obs | W, T_node-37=0, S_node-37=0] + 1/60*E[Y_node-37^obs | W, T_node-37=1, S_node-37=0] - 1/60*E[Y_node-38^obs | W, T_node-38=0, S_node-38=0] + 1/60*E[Y_node-38^obs | W, T_node-38=1, S_node-38=0] - 1/60*E[Y_node-39^obs | W, T_node-39=0, S_node-39=0] + 1/60*E[Y_node-39^obs | W, T_node-39=1, S_node-39=0] - 1/60*E[Y_node-40^obs | W, T_node-40=0, S_node-40=0] + 1/60*E[Y_node-40^obs | W, T_node-40=1, S_node-40=0] - 1/60*E[Y_node-41^obs | W, T_node-41=0, S_node-41=0] + 1/60*E[Y_node-41^obs | W, T_node-41=1, S_node-41=0] - 1/60*E[Y_node-42^obs | W, T_node-42=0, S_node-42=0] + 1/60*E[Y_node-42^obs | W, T_node-42=1, S_node-42=0] - 1/60*E[Y_node-43^obs | W, T_node-43=0, S_node-43=0] + 1/60*E[Y_node-43^obs | W, T_node-43=1, S_node-43=0] - 1/60*E[Y_node-44^obs | W, T_node-44=0, S_node-44=0] + 1/60*E[Y_node-44^obs | W, T_node-44=1, S_node-44=0] - 1/60*E[Y_node-45^obs | W, T_node-45=0, S_node-45=0] + 1/60*E[Y_node-45^obs | W, T_node-45=1, S_node-45=0] - 1/60*E[Y_node-46^obs | W, T_node-46=0, S_node-46=0] + 1/60*E[Y_node-46^obs | W, T_node-46=1, S_node-46=0] - 1/60*E[Y_node-47^obs | W, T_node-47=0, S_node-47=0] + 1/60*E[Y_node-47^obs | W, T_node-47=1, S_node-47=0] - 1/60*E[Y_node-48^obs | W, T_node-48=0, S_node-48=0] + 1/60*E[Y_node-48^obs | W, T_node-48=1, S_node-48=0] - 1/60*E[Y_node-49^obs | W, T_node-49=0, S_node-49=0] + 1/60*E[Y_node-49^obs | W, T_node-49=1, S_node-49=0] - 1/60*E[Y_node-50^obs | W, T_node-50=0, S_node-50=0] + 1/60*E[Y_node-50^obs | W, T_node-50=1, S_node-50=0] - 1/60*E[Y_node-51^obs | W, T_node-51=0, S_node-51=0] + 1/60*E[Y_node-51^obs | W, T_node-51=1, S_node-51=0] - 1/60*E[Y_node-52^obs | W, T_node-52=0, S_node-52=0] + 1/60*E[Y_node-52^obs | W, T_node-52=1, S_node-52=0] - 1/60*E[Y_node-53^obs | W, T_node-53=0, S_node-53=0] + 1/60*E[Y_node-53^obs | W, T_node-53=1, S_node-53=0] - 1/60*E[Y_node-54^obs | W, T_node-54=0, S_node-54=0] + 1/60*E[Y_node-54^obs | W, T_node-54=1, S_node-54=0] - 1/60*E[Y_node-55^obs | W, T_node-55=0, S_node-55=0] + 1/60*E[Y_node-55^obs | W, T_node-55=1, S_node-55=0] - 1/60*E[Y_node-56^obs | W, T_node-56=0, S_node-56=0] + 1/60*E[Y_node-56^obs | W, T_node-56=1, S_node-56=0] - 1/60*E[Y_node-57^obs | W, T_node-57=0, S_node-57=0] + 1/60*E[Y_node-57^obs | W, T_node-57=1, S_node-57=0] - 1/60*E[Y_node-58^obs | W, T_node-58=0, S_node-58=0] + 1/60*E[Y_node-58^obs | W, T_node-58=1, S_node-58=0] - 1/60*E[Y_node-59^obs | W, T_node-59=0, S_node-59=0] + 1/60*E[Y_node-59^obs | W, T_node-59=1, S_node-59=0]",
+      "certificate": {
+        "verification_status": "VERIFIED",
+        "query_count": 1,
+        "source_batch_sha256": "e24b186b403c7bce4eb978ac4f01c4b24c1012092d796a99ff00968134fd5480",
+        "bundle_sha256": "f340c5a1fc94e9cba3a2aac5ccbc9aa8f145423443453b57a6ae7b8c1da3634b",
+        "display_scope": "SUMMARY_ONLY; COMPLETE_REPLAY_RECORD_RETAINED_LOCALLY"
+      },
+      "record_note": "2026-11-03 LongCat-2.5 实测，经显式复查及合成研究审核；不是无人审核首答成功。",
+      "condition_record": {
+        "origin": "EXECUTED_CERTIFICATES",
+        "source_batch_sha256": "e24b186b403c7bce4eb978ac4f01c4b24c1012092d796a99ff00968134fd5480",
+        "keys": [
+          "consistency",
+          "finite_conditional_first_moments",
+          "fixed_pretreatment_network",
+          "full_vector_randomization",
+          "known_assignment_law"
+        ]
+      }
+    },
+    {
+      "title": "同伴效应：本店使用时，同伴高使用减低使用",
+      "state": "POINT",
+      "reason_code": null,
+      "independent_replay": true,
+      "target": {
+        "kind": "SPILLOVER_EFFECT",
+        "first": [
+          1,
+          1
+        ],
+        "second": [
+          1,
+          0
+        ],
+        "operation": "FIRST_MINUS_SECOND",
+        "remaining_assignment": "ORIGINAL_DESIGN_CONDITIONAL",
+        "exposure": "STRICT_MAJORITY_TIES_LOW",
+        "evaluation_population_size": 60,
+        "unit_weights": "1/60 each"
+      },
+      "target_fingerprint": "f3452b005ad0082d759135c89c318c7a76528a0074ea2016ca31b7344741fbf5",
+      "expression": "-1/60*E[Y_node-0^obs | W, T_node-0=1, S_node-0=0] + 1/60*E[Y_node-0^obs | W, T_node-0=1, S_node-0=1] - 1/60*E[Y_node-1^obs | W, T_node-1=1, S_node-1=0] + 1/60*E[Y_node-1^obs | W, T_node-1=1, S_node-1=1] - 1/60*E[Y_node-2^obs | W, T_node-2=1, S_node-2=0] + 1/60*E[Y_node-2^obs | W, T_node-2=1, S_node-2=1] - 1/60*E[Y_node-3^obs | W, T_node-3=1, S_node-3=0] + 1/60*E[Y_node-3^obs | W, T_node-3=1, S_node-3=1] - 1/60*E[Y_node-4^obs | W, T_node-4=1, S_node-4=0] + 1/60*E[Y_node-4^obs | W, T_node-4=1, S_node-4=1] - 1/60*E[Y_node-5^obs | W, T_node-5=1, S_node-5=0] + 1/60*E[Y_node-5^obs | W, T_node-5=1, S_node-5=1] - 1/60*E[Y_node-6^obs | W, T_node-6=1, S_node-6=0] + 1/60*E[Y_node-6^obs | W, T_node-6=1, S_node-6=1] - 1/60*E[Y_node-7^obs | W, T_node-7=1, S_node-7=0] + 1/60*E[Y_node-7^obs | W, T_node-7=1, S_node-7=1] - 1/60*E[Y_node-8^obs | W, T_node-8=1, S_node-8=0] + 1/60*E[Y_node-8^obs | W, T_node-8=1, S_node-8=1] - 1/60*E[Y_node-9^obs | W, T_node-9=1, S_node-9=0] + 1/60*E[Y_node-9^obs | W, T_node-9=1, S_node-9=1] - 1/60*E[Y_node-10^obs | W, T_node-10=1, S_node-10=0] + 1/60*E[Y_node-10^obs | W, T_node-10=1, S_node-10=1] - 1/60*E[Y_node-11^obs | W, T_node-11=1, S_node-11=0] + 1/60*E[Y_node-11^obs | W, T_node-11=1, S_node-11=1] - 1/60*E[Y_node-12^obs | W, T_node-12=1, S_node-12=0] + 1/60*E[Y_node-12^obs | W, T_node-12=1, S_node-12=1] - 1/60*E[Y_node-13^obs | W, T_node-13=1, S_node-13=0] + 1/60*E[Y_node-13^obs | W, T_node-13=1, S_node-13=1] - 1/60*E[Y_node-14^obs | W, T_node-14=1, S_node-14=0] + 1/60*E[Y_node-14^obs | W, T_node-14=1, S_node-14=1] - 1/60*E[Y_node-15^obs | W, T_node-15=1, S_node-15=0] + 1/60*E[Y_node-15^obs | W, T_node-15=1, S_node-15=1] - 1/60*E[Y_node-16^obs | W, T_node-16=1, S_node-16=0] + 1/60*E[Y_node-16^obs | W, T_node-16=1, S_node-16=1] - 1/60*E[Y_node-17^obs | W, T_node-17=1, S_node-17=0] + 1/60*E[Y_node-17^obs | W, T_node-17=1, S_node-17=1] - 1/60*E[Y_node-18^obs | W, T_node-18=1, S_node-18=0] + 1/60*E[Y_node-18^obs | W, T_node-18=1, S_node-18=1] - 1/60*E[Y_node-19^obs | W, T_node-19=1, S_node-19=0] + 1/60*E[Y_node-19^obs | W, T_node-19=1, S_node-19=1] - 1/60*E[Y_node-20^obs | W, T_node-20=1, S_node-20=0] + 1/60*E[Y_node-20^obs | W, T_node-20=1, S_node-20=1] - 1/60*E[Y_node-21^obs | W, T_node-21=1, S_node-21=0] + 1/60*E[Y_node-21^obs | W, T_node-21=1, S_node-21=1] - 1/60*E[Y_node-22^obs | W, T_node-22=1, S_node-22=0] + 1/60*E[Y_node-22^obs | W, T_node-22=1, S_node-22=1] - 1/60*E[Y_node-23^obs | W, T_node-23=1, S_node-23=0] + 1/60*E[Y_node-23^obs | W, T_node-23=1, S_node-23=1] - 1/60*E[Y_node-24^obs | W, T_node-24=1, S_node-24=0] + 1/60*E[Y_node-24^obs | W, T_node-24=1, S_node-24=1] - 1/60*E[Y_node-25^obs | W, T_node-25=1, S_node-25=0] + 1/60*E[Y_node-25^obs | W, T_node-25=1, S_node-25=1] - 1/60*E[Y_node-26^obs | W, T_node-26=1, S_node-26=0] + 1/60*E[Y_node-26^obs | W, T_node-26=1, S_node-26=1] - 1/60*E[Y_node-27^obs | W, T_node-27=1, S_node-27=0] + 1/60*E[Y_node-27^obs | W, T_node-27=1, S_node-27=1] - 1/60*E[Y_node-28^obs | W, T_node-28=1, S_node-28=0] + 1/60*E[Y_node-28^obs | W, T_node-28=1, S_node-28=1] - 1/60*E[Y_node-29^obs | W, T_node-29=1, S_node-29=0] + 1/60*E[Y_node-29^obs | W, T_node-29=1, S_node-29=1] - 1/60*E[Y_node-30^obs | W, T_node-30=1, S_node-30=0] + 1/60*E[Y_node-30^obs | W, T_node-30=1, S_node-30=1] - 1/60*E[Y_node-31^obs | W, T_node-31=1, S_node-31=0] + 1/60*E[Y_node-31^obs | W, T_node-31=1, S_node-31=1] - 1/60*E[Y_node-32^obs | W, T_node-32=1, S_node-32=0] + 1/60*E[Y_node-32^obs | W, T_node-32=1, S_node-32=1] - 1/60*E[Y_node-33^obs | W, T_node-33=1, S_node-33=0] + 1/60*E[Y_node-33^obs | W, T_node-33=1, S_node-33=1] - 1/60*E[Y_node-34^obs | W, T_node-34=1, S_node-34=0] + 1/60*E[Y_node-34^obs | W, T_node-34=1, S_node-34=1] - 1/60*E[Y_node-35^obs | W, T_node-35=1, S_node-35=0] + 1/60*E[Y_node-35^obs | W, T_node-35=1, S_node-35=1] - 1/60*E[Y_node-36^obs | W, T_node-36=1, S_node-36=0] + 1/60*E[Y_node-36^obs | W, T_node-36=1, S_node-36=1] - 1/60*E[Y_node-37^obs | W, T_node-37=1, S_node-37=0] + 1/60*E[Y_node-37^obs | W, T_node-37=1, S_node-37=1] - 1/60*E[Y_node-38^obs | W, T_node-38=1, S_node-38=0] + 1/60*E[Y_node-38^obs | W, T_node-38=1, S_node-38=1] - 1/60*E[Y_node-39^obs | W, T_node-39=1, S_node-39=0] + 1/60*E[Y_node-39^obs | W, T_node-39=1, S_node-39=1] - 1/60*E[Y_node-40^obs | W, T_node-40=1, S_node-40=0] + 1/60*E[Y_node-40^obs | W, T_node-40=1, S_node-40=1] - 1/60*E[Y_node-41^obs | W, T_node-41=1, S_node-41=0] + 1/60*E[Y_node-41^obs | W, T_node-41=1, S_node-41=1] - 1/60*E[Y_node-42^obs | W, T_node-42=1, S_node-42=0] + 1/60*E[Y_node-42^obs | W, T_node-42=1, S_node-42=1] - 1/60*E[Y_node-43^obs | W, T_node-43=1, S_node-43=0] + 1/60*E[Y_node-43^obs | W, T_node-43=1, S_node-43=1] - 1/60*E[Y_node-44^obs | W, T_node-44=1, S_node-44=0] + 1/60*E[Y_node-44^obs | W, T_node-44=1, S_node-44=1] - 1/60*E[Y_node-45^obs | W, T_node-45=1, S_node-45=0] + 1/60*E[Y_node-45^obs | W, T_node-45=1, S_node-45=1] - 1/60*E[Y_node-46^obs | W, T_node-46=1, S_node-46=0] + 1/60*E[Y_node-46^obs | W, T_node-46=1, S_node-46=1] - 1/60*E[Y_node-47^obs | W, T_node-47=1, S_node-47=0] + 1/60*E[Y_node-47^obs | W, T_node-47=1, S_node-47=1] - 1/60*E[Y_node-48^obs | W, T_node-48=1, S_node-48=0] + 1/60*E[Y_node-48^obs | W, T_node-48=1, S_node-48=1] - 1/60*E[Y_node-49^obs | W, T_node-49=1, S_node-49=0] + 1/60*E[Y_node-49^obs | W, T_node-49=1, S_node-49=1] - 1/60*E[Y_node-50^obs | W, T_node-50=1, S_node-50=0] + 1/60*E[Y_node-50^obs | W, T_node-50=1, S_node-50=1] - 1/60*E[Y_node-51^obs | W, T_node-51=1, S_node-51=0] + 1/60*E[Y_node-51^obs | W, T_node-51=1, S_node-51=1] - 1/60*E[Y_node-52^obs | W, T_node-52=1, S_node-52=0] + 1/60*E[Y_node-52^obs | W, T_node-52=1, S_node-52=1] - 1/60*E[Y_node-53^obs | W, T_node-53=1, S_node-53=0] + 1/60*E[Y_node-53^obs | W, T_node-53=1, S_node-53=1] - 1/60*E[Y_node-54^obs | W, T_node-54=1, S_node-54=0] + 1/60*E[Y_node-54^obs | W, T_node-54=1, S_node-54=1] - 1/60*E[Y_node-55^obs | W, T_node-55=1, S_node-55=0] + 1/60*E[Y_node-55^obs | W, T_node-55=1, S_node-55=1] - 1/60*E[Y_node-56^obs | W, T_node-56=1, S_node-56=0] + 1/60*E[Y_node-56^obs | W, T_node-56=1, S_node-56=1] - 1/60*E[Y_node-57^obs | W, T_node-57=1, S_node-57=0] + 1/60*E[Y_node-57^obs | W, T_node-57=1, S_node-57=1] - 1/60*E[Y_node-58^obs | W, T_node-58=1, S_node-58=0] + 1/60*E[Y_node-58^obs | W, T_node-58=1, S_node-58=1] - 1/60*E[Y_node-59^obs | W, T_node-59=1, S_node-59=0] + 1/60*E[Y_node-59^obs | W, T_node-59=1, S_node-59=1]",
+      "certificate": {
+        "verification_status": "VERIFIED",
+        "query_count": 1,
+        "source_batch_sha256": "c7a86d60e6f93e8e20b6ee6f168e2eb0ae6e1d13e42351d8fb27f43b0dec22f2",
+        "bundle_sha256": "827a48a2d6a0e7c074b7edc726067f03e165571cb284dfb155d47a5744462fbe",
+        "display_scope": "SUMMARY_ONLY; COMPLETE_REPLAY_RECORD_RETAINED_LOCALLY"
+      },
+      "record_note": "2026-11-03 LongCat-2.5 实测，经显式复查及合成研究审核；不是无人审核首答成功。",
+      "condition_record": {
+        "origin": "EXECUTED_CERTIFICATES",
+        "source_batch_sha256": "c7a86d60e6f93e8e20b6ee6f168e2eb0ae6e1d13e42351d8fb27f43b0dec22f2",
+        "keys": [
+          "consistency",
+          "finite_conditional_first_moments",
+          "fixed_pretreatment_network",
+          "full_vector_randomization",
+          "known_assignment_law"
+        ]
+      }
+    },
+    {
+      "title": "局部总效应：本人及同伴状态同时改变",
+      "state": "POINT",
+      "reason_code": null,
+      "independent_replay": true,
+      "target": {
+        "kind": "LOCAL_TOTAL_EFFECT",
+        "first": [
+          1,
+          1
+        ],
+        "second": [
+          0,
+          0
+        ],
+        "operation": "FIRST_MINUS_SECOND",
+        "remaining_assignment": "ORIGINAL_DESIGN_CONDITIONAL",
+        "exposure": "STRICT_MAJORITY_TIES_LOW",
+        "evaluation_population_size": 60,
+        "unit_weights": "1/60 each"
+      },
+      "target_fingerprint": "74263b286a6cc193cf4fa3df6a0c62a69574fa53c2aa4f452f5141780815357a",
+      "expression": "-1/60*E[Y_node-0^obs | W, T_node-0=0, S_node-0=0] + 1/60*E[Y_node-0^obs | W, T_node-0=1, S_node-0=1] - 1/60*E[Y_node-1^obs | W, T_node-1=0, S_node-1=0] + 1/60*E[Y_node-1^obs | W, T_node-1=1, S_node-1=1] - 1/60*E[Y_node-2^obs | W, T_node-2=0, S_node-2=0] + 1/60*E[Y_node-2^obs | W, T_node-2=1, S_node-2=1] - 1/60*E[Y_node-3^obs | W, T_node-3=0, S_node-3=0] + 1/60*E[Y_node-3^obs | W, T_node-3=1, S_node-3=1] - 1/60*E[Y_node-4^obs | W, T_node-4=0, S_node-4=0] + 1/60*E[Y_node-4^obs | W, T_node-4=1, S_node-4=1] - 1/60*E[Y_node-5^obs | W, T_node-5=0, S_node-5=0] + 1/60*E[Y_node-5^obs | W, T_node-5=1, S_node-5=1] - 1/60*E[Y_node-6^obs | W, T_node-6=0, S_node-6=0] + 1/60*E[Y_node-6^obs | W, T_node-6=1, S_node-6=1] - 1/60*E[Y_node-7^obs | W, T_node-7=0, S_node-7=0] + 1/60*E[Y_node-7^obs | W, T_node-7=1, S_node-7=1] - 1/60*E[Y_node-8^obs | W, T_node-8=0, S_node-8=0] + 1/60*E[Y_node-8^obs | W, T_node-8=1, S_node-8=1] - 1/60*E[Y_node-9^obs | W, T_node-9=0, S_node-9=0] + 1/60*E[Y_node-9^obs | W, T_node-9=1, S_node-9=1] - 1/60*E[Y_node-10^obs | W, T_node-10=0, S_node-10=0] + 1/60*E[Y_node-10^obs | W, T_node-10=1, S_node-10=1] - 1/60*E[Y_node-11^obs | W, T_node-11=0, S_node-11=0] + 1/60*E[Y_node-11^obs | W, T_node-11=1, S_node-11=1] - 1/60*E[Y_node-12^obs | W, T_node-12=0, S_node-12=0] + 1/60*E[Y_node-12^obs | W, T_node-12=1, S_node-12=1] - 1/60*E[Y_node-13^obs | W, T_node-13=0, S_node-13=0] + 1/60*E[Y_node-13^obs | W, T_node-13=1, S_node-13=1] - 1/60*E[Y_node-14^obs | W, T_node-14=0, S_node-14=0] + 1/60*E[Y_node-14^obs | W, T_node-14=1, S_node-14=1] - 1/60*E[Y_node-15^obs | W, T_node-15=0, S_node-15=0] + 1/60*E[Y_node-15^obs | W, T_node-15=1, S_node-15=1] - 1/60*E[Y_node-16^obs | W, T_node-16=0, S_node-16=0] + 1/60*E[Y_node-16^obs | W, T_node-16=1, S_node-16=1] - 1/60*E[Y_node-17^obs | W, T_node-17=0, S_node-17=0] + 1/60*E[Y_node-17^obs | W, T_node-17=1, S_node-17=1] - 1/60*E[Y_node-18^obs | W, T_node-18=0, S_node-18=0] + 1/60*E[Y_node-18^obs | W, T_node-18=1, S_node-18=1] - 1/60*E[Y_node-19^obs | W, T_node-19=0, S_node-19=0] + 1/60*E[Y_node-19^obs | W, T_node-19=1, S_node-19=1] - 1/60*E[Y_node-20^obs | W, T_node-20=0, S_node-20=0] + 1/60*E[Y_node-20^obs | W, T_node-20=1, S_node-20=1] - 1/60*E[Y_node-21^obs | W, T_node-21=0, S_node-21=0] + 1/60*E[Y_node-21^obs | W, T_node-21=1, S_node-21=1] - 1/60*E[Y_node-22^obs | W, T_node-22=0, S_node-22=0] + 1/60*E[Y_node-22^obs | W, T_node-22=1, S_node-22=1] - 1/60*E[Y_node-23^obs | W, T_node-23=0, S_node-23=0] + 1/60*E[Y_node-23^obs | W, T_node-23=1, S_node-23=1] - 1/60*E[Y_node-24^obs | W, T_node-24=0, S_node-24=0] + 1/60*E[Y_node-24^obs | W, T_node-24=1, S_node-24=1] - 1/60*E[Y_node-25^obs | W, T_node-25=0, S_node-25=0] + 1/60*E[Y_node-25^obs | W, T_node-25=1, S_node-25=1] - 1/60*E[Y_node-26^obs | W, T_node-26=0, S_node-26=0] + 1/60*E[Y_node-26^obs | W, T_node-26=1, S_node-26=1] - 1/60*E[Y_node-27^obs | W, T_node-27=0, S_node-27=0] + 1/60*E[Y_node-27^obs | W, T_node-27=1, S_node-27=1] - 1/60*E[Y_node-28^obs | W, T_node-28=0, S_node-28=0] + 1/60*E[Y_node-28^obs | W, T_node-28=1, S_node-28=1] - 1/60*E[Y_node-29^obs | W, T_node-29=0, S_node-29=0] + 1/60*E[Y_node-29^obs | W, T_node-29=1, S_node-29=1] - 1/60*E[Y_node-30^obs | W, T_node-30=0, S_node-30=0] + 1/60*E[Y_node-30^obs | W, T_node-30=1, S_node-30=1] - 1/60*E[Y_node-31^obs | W, T_node-31=0, S_node-31=0] + 1/60*E[Y_node-31^obs | W, T_node-31=1, S_node-31=1] - 1/60*E[Y_node-32^obs | W, T_node-32=0, S_node-32=0] + 1/60*E[Y_node-32^obs | W, T_node-32=1, S_node-32=1] - 1/60*E[Y_node-33^obs | W, T_node-33=0, S_node-33=0] + 1/60*E[Y_node-33^obs | W, T_node-33=1, S_node-33=1] - 1/60*E[Y_node-34^obs | W, T_node-34=0, S_node-34=0] + 1/60*E[Y_node-34^obs | W, T_node-34=1, S_node-34=1] - 1/60*E[Y_node-35^obs | W, T_node-35=0, S_node-35=0] + 1/60*E[Y_node-35^obs | W, T_node-35=1, S_node-35=1] - 1/60*E[Y_node-36^obs | W, T_node-36=0, S_node-36=0] + 1/60*E[Y_node-36^obs | W, T_node-36=1, S_node-36=1] - 1/60*E[Y_node-37^obs | W, T_node-37=0, S_node-37=0] + 1/60*E[Y_node-37^obs | W, T_node-37=1, S_node-37=1] - 1/60*E[Y_node-38^obs | W, T_node-38=0, S_node-38=0] + 1/60*E[Y_node-38^obs | W, T_node-38=1, S_node-38=1] - 1/60*E[Y_node-39^obs | W, T_node-39=0, S_node-39=0] + 1/60*E[Y_node-39^obs | W, T_node-39=1, S_node-39=1] - 1/60*E[Y_node-40^obs | W, T_node-40=0, S_node-40=0] + 1/60*E[Y_node-40^obs | W, T_node-40=1, S_node-40=1] - 1/60*E[Y_node-41^obs | W, T_node-41=0, S_node-41=0] + 1/60*E[Y_node-41^obs | W, T_node-41=1, S_node-41=1] - 1/60*E[Y_node-42^obs | W, T_node-42=0, S_node-42=0] + 1/60*E[Y_node-42^obs | W, T_node-42=1, S_node-42=1] - 1/60*E[Y_node-43^obs | W, T_node-43=0, S_node-43=0] + 1/60*E[Y_node-43^obs | W, T_node-43=1, S_node-43=1] - 1/60*E[Y_node-44^obs | W, T_node-44=0, S_node-44=0] + 1/60*E[Y_node-44^obs | W, T_node-44=1, S_node-44=1] - 1/60*E[Y_node-45^obs | W, T_node-45=0, S_node-45=0] + 1/60*E[Y_node-45^obs | W, T_node-45=1, S_node-45=1] - 1/60*E[Y_node-46^obs | W, T_node-46=0, S_node-46=0] + 1/60*E[Y_node-46^obs | W, T_node-46=1, S_node-46=1] - 1/60*E[Y_node-47^obs | W, T_node-47=0, S_node-47=0] + 1/60*E[Y_node-47^obs | W, T_node-47=1, S_node-47=1] - 1/60*E[Y_node-48^obs | W, T_node-48=0, S_node-48=0] + 1/60*E[Y_node-48^obs | W, T_node-48=1, S_node-48=1] - 1/60*E[Y_node-49^obs | W, T_node-49=0, S_node-49=0] + 1/60*E[Y_node-49^obs | W, T_node-49=1, S_node-49=1] - 1/60*E[Y_node-50^obs | W, T_node-50=0, S_node-50=0] + 1/60*E[Y_node-50^obs | W, T_node-50=1, S_node-50=1] - 1/60*E[Y_node-51^obs | W, T_node-51=0, S_node-51=0] + 1/60*E[Y_node-51^obs | W, T_node-51=1, S_node-51=1] - 1/60*E[Y_node-52^obs | W, T_node-52=0, S_node-52=0] + 1/60*E[Y_node-52^obs | W, T_node-52=1, S_node-52=1] - 1/60*E[Y_node-53^obs | W, T_node-53=0, S_node-53=0] + 1/60*E[Y_node-53^obs | W, T_node-53=1, S_node-53=1] - 1/60*E[Y_node-54^obs | W, T_node-54=0, S_node-54=0] + 1/60*E[Y_node-54^obs | W, T_node-54=1, S_node-54=1] - 1/60*E[Y_node-55^obs | W, T_node-55=0, S_node-55=0] + 1/60*E[Y_node-55^obs | W, T_node-55=1, S_node-55=1] - 1/60*E[Y_node-56^obs | W, T_node-56=0, S_node-56=0] + 1/60*E[Y_node-56^obs | W, T_node-56=1, S_node-56=1] - 1/60*E[Y_node-57^obs | W, T_node-57=0, S_node-57=0] + 1/60*E[Y_node-57^obs | W, T_node-57=1, S_node-57=1] - 1/60*E[Y_node-58^obs | W, T_node-58=0, S_node-58=0] + 1/60*E[Y_node-58^obs | W, T_node-58=1, S_node-58=1] - 1/60*E[Y_node-59^obs | W, T_node-59=0, S_node-59=0] + 1/60*E[Y_node-59^obs | W, T_node-59=1, S_node-59=1]",
+      "certificate": {
+        "verification_status": "VERIFIED",
+        "query_count": 1,
+        "source_batch_sha256": "bf1fa1099dfb876cec04ee83f76214e5175132595ae1413857779a2d268d7e06",
+        "bundle_sha256": "a29e5db2b6811e18ef9146521ca68bd26a3d5f09256ad7c2b0d0e17bcd9117cb",
+        "display_scope": "SUMMARY_ONLY; COMPLETE_REPLAY_RECORD_RETAINED_LOCALLY"
+      },
+      "record_note": "2026-11-03 LongCat-2.5 实测，经显式复查及合成研究审核；不是无人审核首答成功。",
+      "condition_record": {
+        "origin": "EXECUTED_CERTIFICATES",
+        "source_batch_sha256": "bf1fa1099dfb876cec04ee83f76214e5175132595ae1413857779a2d268d7e06",
+        "keys": [
+          "consistency",
+          "finite_conditional_first_moments",
+          "fixed_pretreatment_network",
+          "full_vector_randomization",
+          "known_assignment_law"
+        ]
+      }
+    }
+  ]
+}
