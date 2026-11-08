@@ -1,0 +1,104 @@
+{
+  "case_id": "LIT-NET-06",
+  "paper_id": "beaman2021_seed",
+  "paper": {
+    "authors": [
+      "Lori Beaman",
+      "Ariel BenYishay",
+      "Jeremy Magruder",
+      "A. Mushfiq Mobarak"
+    ],
+    "year": 2021,
+    "title": "Can Network Theory-Based Targeting Increase Technology Adoption?",
+    "venue": "American Economic Review",
+    "doi": "10.1257/aer.20200295"
+  },
+  "paper_reference": {
+    "paper_question": "通过示范农户和网络传播促进技术采用，如何评估培训名单/政策？",
+    "target": "四户在“培训甲丙”和“培训乙丁”各1/2的随机政策下的平均采用率；四户等权。",
+    "source_location": "Beaman et al. (2021) AER, DOI 10.1257/aer.20200295; project demo alignment only.",
+    "formula": "Target = (1/4) sum_i [ (1/2) mu_i(A) + (1/2) mu_i(B) ], A={甲,丙}, B={乙,丁}.",
+    "conditions": [
+      "Two complete policy lists with known probabilities 1/2 each.",
+      "Full treatment vector randomized independently of potential outcomes.",
+      "Consistency.",
+      "Fixed pre-treatment network.",
+      "Finite first moments."
+    ],
+    "what_paper_supports": [
+      "Seed-farmer training and network diffusion as business context.",
+      "Policy/list comparisons need an explicit evaluation population and weights."
+    ],
+    "what_paper_does_not_support": [
+      "No replication of the paper's diffusion model or optimal seeding.",
+      "No claim that the synthetic 1/2 policy is optimal.",
+      "No extrapolation from four households."
+    ]
+  },
+  "software_expected": {
+    "original": {
+      "status": "POINT"
+    },
+    "missing_condition": {
+      "status": "NEEDS_INPUT",
+      "reason": "Policy probabilities are omitted."
+    },
+    "changed_target": {
+      "status": "POINT",
+      "reason": "New pair of complete policies; requires fresh target binding."
+    }
+  },
+  "actual_run": {
+    "method": "HISTORICAL_DEMO_SAVED_RUN",
+    "provenance": "demo lit_seed_policy saved run 2026-11-04, independent replay true. Not a fresh call.",
+    "original": {
+      "state": "POINT",
+      "independent_replay": true,
+      "target_fingerprint": "c74d56d61e02f8fa5561d3a0c5cbc480c32ea478dbf5ea0f62460d3a68b211bc",
+      "certificate": {
+        "theorem_id": "R1B_FINITE_SUPPORT_STOCHASTIC_POLICY_POINT_V1",
+        "status": "POINT",
+        "verification_status": "VERIFIED",
+        "target_fingerprint": "c74d56d61e02f8fa5561d3a0c5cbc480c32ea478dbf5ea0f62460d3a68b211bc",
+        "policy_support": [
+          {
+            "assignment": [
+              0,
+              1,
+              0,
+              1
+            ],
+            "policy_probability": "1/2",
+            "experimental_assignment_probability": "1/6",
+            "fixed_policy_certificate": "19bf738e729daa1b650e0f3fe7dc9ca3f0b758d920e891318d10903d7c8bab12"
+          },
+          {
+            "assignment": [
+              1,
+              0,
+              1,
+              0
+            ],
+            "policy_probability": "1/2",
+            "experimental_assignment_probability": "1/6",
+            "fixed_policy_certificate": "4b8c29c3271b70dc935b06929aa246c141428fddb633cdcb3dcb69b25bb45823"
+          }
+        ],
+        "identified_functional": "1/2 * (1/4 * E[Y_{甲}^obs | W=文献启发的合成演示；关系在培训前固定且为无向，评价全部四户，名单在试点前固定, T_vector=(0,1,0,1)] + 1/4 * E[Y_{乙}^obs | W=文献启发的合成演示；关系在培训前固定且为无向，评价全部四户，名单在试点前固定, T_vector=(0,1,0,1)] + 1/4 * E[Y_{丙}^obs | W=文献启发的合成演示；关系在培训前固定且为无向，评价全部四户，名单在试点前固定, T_vector=(0,1,0,1)] + 1/4 * E[Y_{丁}^obs | W=文献启发的合成演示；关系在培训前固定且为无向，评价全部四户，名单在试点前固定, T_vector=(0,1,0,1)]) + 1/2 * (1/4 * E[Y_{甲}^obs | W=文献启发的合成演示；关系在培训前固定且为无向，评价全部四户，名单在试点前固定, T_vector=(1,0,1,0)] + 1/4 * E[Y_{乙}^obs | W=文献启发的合成演示；关系在培训前固定且为无向，评价全部四户，名单在试点前固定, T_vector=(1,0,1,0)] + 1/4 * E[Y_{丙}^obs | W=文献启发的合成演示；关系在培训前固定且为无向，评价全部四户，名单在试点前固定, T_vector=(1,0,1,0)] + 1/4 * E[Y_{丁}^obs | W=文献启发的合成演示；关系在培训前固定且为无向，评价全部四户，名单在试点前固定, T_vector=(1,0,1,0)])",
+        "certificate_sha256": "48822a73eea6ed0e7255f1bc1a77666c6910f5cf6da10c255fd1f102e1331f67",
+        "estimation_request": null,
+        "warning": "Finite mixture of full-assignment population means; no PFN value is estimated"
+      }
+    },
+    "missing_condition": {
+      "status": "NOT_RUN"
+    },
+    "changed_target": {
+      "status": "NOT_RUN"
+    }
+  },
+  "review_status": "PENDING_TEACHER",
+  "reviewer": "teacher",
+  "holdout": false,
+  "notes": "Seed-policy finite policy mean template. Original actual is a saved demo run; variants are reference-only and not run."
+}

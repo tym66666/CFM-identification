@@ -14,10 +14,10 @@
   "result_scope": "SELECTED_QUERY_ONLY",
   "remaining_query_ids": [],
   "fact_family": "NETWORK_RANDOMIZED_EFFECT_FACTS",
-  "request_sha256": "ffc8e885b922436404384beb1f9d45af670d04f637b2318dec0942847410cac5",
+  "request_sha256": "7d04dd6c3c9dc7d7b3fe0d145bebba02d1baf1317f27a0b9328e9d5ec7f46034",
   "query_review": {
     "version": "business-dispatch-review-1",
-    "binding_sha256": "368c732a90068a1ca4a89b9ed9cf8ac5873934d6e9a432a4c185e8714cc13ca7",
+    "binding_sha256": "5f01525b91cfb47877eaba1379f6cfbded7ca8e1449dfe90a486ac00da8219df",
     "reviewer": "Independent synthetic protocol reviewer",
     "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.",
     "authority": "SYNTHETIC_TEST",
@@ -34,7 +34,7 @@
       "applicability": "NOT_CHECKED_BEFORE_SCIENCE_REVIEW",
       "reading_worksheet": {
         "version": "business-dispatch-review-1",
-        "binding_sha256": "f55ab93ac53e3f82c334d1b758e1bfe69b2f3a05d1147b90f28659e03d8d6657",
+        "binding_sha256": "c7c4d45061dd22af6f5b0c66ab8eac380afceed56e10fee04f2e225f2902158a",
         "decisions": {
           "local_states_and_first_minus_second_direction": "PENDING",
           "evaluation_population_fixed_before_assignment_and_weights": "PENDING",
@@ -47,7 +47,7 @@
       },
       "science_worksheet": {
         "version": "business-dispatch-review-1",
-        "binding_sha256": "f55ab93ac53e3f82c334d1b758e1bfe69b2f3a05d1147b90f28659e03d8d6657",
+        "binding_sha256": "c7c4d45061dd22af6f5b0c66ab8eac380afceed56e10fee04f2e225f2902158a",
         "decisions": {
           "known_assignment_law": "PENDING",
           "full_vector_randomization": "PENDING",
@@ -65,7 +65,7 @@
   "method_matching": "NOT_CHECKED_BEFORE_SCIENCE_REVIEW",
   "facts": {
     "version": "network-randomized-effect-reading-1",
-    "reference_context": "c635e8f3d373e",
+    "reference_context": "c791cf6b489fc",
     "study": {
       "source_ids": [
         "src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402",
@@ -306,8 +306,8 @@
     "unresolved": []
   },
   "reference_binding": {
-    "context": "c635e8f3d373e",
-    "context_sha256": "635e8f3d373e6d3a4436e8345fd364f3e4c038f905366d92c6884ebf5e876dd7",
+    "context": "c791cf6b489fc",
+    "context_sha256": "791cf6b489fcbf700ce5e66557e9d7b3e2d9acdf32710f9e432d2c4a92998406",
     "aliases": {
       "s0001": {
         "source_id": "src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402",
@@ -421,7 +421,7 @@
   },
   "reading_candidate": {
     "version": "network-randomized-effect-reading-1",
-    "reference_context": "c635e8f3d373e",
+    "reference_context": "c791cf6b489fc",
     "study": {
       "nodes": [
         "甲1",
@@ -772,10 +772,10 @@
       "context": "W"
     }
   },
-  "plan_sha256": "0189924b21d359a1c917579568ac5958fc09860c5a7757ea25d93470c719995c",
+  "plan_sha256": "7d84742babfc7246f26e6122e07d854ccd82d448839f66f75c1800af99e7bcdb",
   "plan_worksheet": {
     "version": "business-dispatch-review-1",
-    "binding_sha256": "0189924b21d359a1c917579568ac5958fc09860c5a7757ea25d93470c719995c",
+    "binding_sha256": "7d84742babfc7246f26e6122e07d854ccd82d448839f66f75c1800af99e7bcdb",
     "decisions": {
       "selected_query_matches_native_target": "PENDING",
       "complete_model_and_constraints_preserved": "PENDING",

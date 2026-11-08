@@ -1,0 +1,249 @@
+{
+  "case_id": "LIT-DAG-02",
+  "paper_id": "pearl1995_frontdoor",
+  "paper": {
+    "author": "Judea Pearl",
+    "year": 1995,
+    "title": "Causal Diagrams for Empirical Research",
+    "venue": "Biometrika",
+    "volume": "82",
+    "issue": "4",
+    "pages": "669-688",
+    "doi": "10.1093/biomet/82.4.669"
+  },
+  "paper_reference": {
+    "paper_question": "存在未观测共同原因时，什么图结构允许通过观测中介识别干预分布？",
+    "target": "p(肺癌 | do(吸烟=x))。",
+    "source_location": "Pearl (1995), §3.2 front-door criterion, Theorem 2, Eq. (9), pp. 675-677.",
+    "formula": "p(y|do(x)) = sum_z p(z|x) sum_{x'} p(y|x',z) p(x').",
+    "conditions": [
+      "Mediator Z intercepts all directed paths from X to Y.",
+      "No unblocked back-door path from X to Z.",
+      "All back-door paths from Z to Y are blocked by X.",
+      "Observed joint distribution is available and positive.",
+      "No direct X->Y edge."
+    ],
+    "what_paper_supports": [
+      "Front-door identification with an observed mediator.",
+      "The inner x' sum is distinct from the outer intervention x.",
+      "The three graphical conditions are required."
+    ],
+    "what_paper_does_not_support": [
+      "No front-door formula when mediator completeness fails.",
+      "No general graph-ID completeness.",
+      "No medical fact claim from the synthetic graph."
+    ]
+  },
+  "software_expected": {
+    "original": {
+      "status": "POINT"
+    },
+    "missing_condition": {
+      "status": "NEEDS_INPUT",
+      "reason": "Mediator completeness/direct-edge status is unconfirmed."
+    },
+    "changed_target": {
+      "status": "UNSUPPORTED",
+      "reason": "Adding a direct X->Y edge breaks the front-door conditions; no connected method."
+    }
+  },
+  "actual_run": {
+    "method": "HISTORICAL_DEMO_SAVED_RUN",
+    "provenance": "demo dag_frontdoor saved run 2026-11-04, independent replay true. Not a fresh call.",
+    "original": {
+      "state": "POINT",
+      "independent_replay": true,
+      "target": {
+        "kind": "INTERVENTIONAL_DISTRIBUTION",
+        "treatment": "吸烟",
+        "outcome": "随访肺癌",
+        "context": "同一随访人群与随访期"
+      },
+      "certificate": {
+        "version": "dag-frontdoor-1",
+        "theorem": "CLASSICAL_SINGLE_VARIABLE_FRONTDOOR_SUFFICIENT",
+        "claim_scope": "SUFFICIENT_POINT_ONLY_FOR_DECLARED_BINARY_SCM",
+        "status": "POINT",
+        "problem_sha256": "d9745a7da74a7955c9c8ec963bada611bb26d2fed3ab9b65c8010a3f66351e66",
+        "materials_sha256": "b287e78572c2d9b831a83cd275027a73457ea981e31724fefe07fb972cd7b90d",
+        "information_sha256": "9c499e13003c666cd4e336507eeb1ef3fc8adbf7fa71fa0af03d0d7c6f7f6091",
+        "target": {
+          "kind": "INTERVENTIONAL_DISTRIBUTION",
+          "treatment": "吸烟",
+          "outcome": "随访肺癌",
+          "context": "同一随访人群与随访期"
+        },
+        "frontdoor_variable": "焦油沉积",
+        "selection": {
+          "mode": "SEARCH_SINGLETON",
+          "requested": null
+        },
+        "conditions": {
+          "FD1": true,
+          "FD2": true,
+          "FD3": true
+        },
+        "graphical_trace": {
+          "FD1": {
+            "removed_node": "焦油沉积",
+            "reachable_without_node": [
+              "吸烟"
+            ]
+          },
+          "FD2": {
+            "removed_outgoing_from": "吸烟",
+            "ancestral_nodes": [
+              "吸烟",
+              "潜在体质",
+              "焦油沉积"
+            ],
+            "moral_edges": [
+              [
+                "吸烟",
+                "潜在体质"
+              ]
+            ],
+            "reachable_after_conditioning": [
+              "吸烟",
+              "潜在体质"
+            ]
+          },
+          "FD3": {
+            "removed_outgoing_from": "焦油沉积",
+            "ancestral_nodes": [
+              "吸烟",
+              "潜在体质",
+              "焦油沉积",
+              "随访肺癌"
+            ],
+            "moral_edges": [
+              [
+                "吸烟",
+                "潜在体质"
+              ],
+              [
+                "吸烟",
+                "焦油沉积"
+              ],
+              [
+                "潜在体质",
+                "随访肺癌"
+              ]
+            ],
+            "reachable_after_conditioning": [
+              "焦油沉积"
+            ]
+          }
+        },
+        "functional": {
+          "operation": "CLASSICAL_FRONTDOOR",
+          "source_id": "dag_law_2f143184c579c17f7b7dbfe164090ef6607d86ad31bc004613082eef34306750",
+          "free_values": {
+            "intervention_value": {
+              "variable": "吸烟",
+              "domain": [
+                0,
+                1
+              ]
+            },
+            "outcome_value": {
+              "variable": "随访肺癌",
+              "domain": [
+                0,
+                1
+              ]
+            }
+          },
+          "expression": {
+            "operation": "SUM",
+            "bind": {
+              "variable": "焦油沉积",
+              "role": "mediator_value",
+              "domain": [
+                0,
+                1
+              ]
+            },
+            "summand": {
+              "operation": "PRODUCT",
+              "factors": [
+                {
+                  "operation": "CONDITIONAL_PROBABILITY",
+                  "outcomes": [
+                    {
+                      "variable": "焦油沉积",
+                      "value_role": "mediator_value"
+                    }
+                  ],
+                  "given": [
+                    {
+                      "variable": "吸烟",
+                      "value_role": "intervention_value"
+                    }
+                  ]
+                },
+                {
+                  "operation": "SUM",
+                  "bind": {
+                    "variable": "吸烟",
+                    "role": "treatment_marginal_value",
+                    "domain": [
+                      0,
+                      1
+                    ]
+                  },
+                  "summand": {
+                    "operation": "PRODUCT",
+                    "factors": [
+                      {
+                        "operation": "CONDITIONAL_PROBABILITY",
+                        "outcomes": [
+                          {
+                            "variable": "随访肺癌",
+                            "value_role": "outcome_value"
+                          }
+                        ],
+                        "given": [
+                          {
+                            "variable": "吸烟",
+                            "value_role": "treatment_marginal_value"
+                          },
+                          {
+                            "variable": "焦油沉积",
+                            "value_role": "mediator_value"
+                          }
+                        ]
+                      },
+                      {
+                        "operation": "PROBABILITY",
+                        "outcomes": [
+                          {
+                            "variable": "吸烟",
+                            "value_role": "treatment_marginal_value"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "positivity": "DECLARED_STRICT_POSITIVE_OBSERVED_JOINT",
+        "numeric_value": null,
+        "certificate_sha256": "d97ef0998a4dfd16a1877ea0c6af3f04dffb321256316a89aa03637460d66929"
+      }
+    },
+    "missing_condition": {
+      "status": "NOT_RUN"
+    },
+    "changed_target": {
+      "status": "NOT_RUN"
+    }
+  },
+  "review_status": "PENDING_TEACHER",
+  "reviewer": "teacher",
+  "holdout": true,
+  "notes": "Front-door template. Original actual is a saved demo run; variants are reference-only and not run."
+}

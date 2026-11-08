@@ -1,0 +1,603 @@
+{
+  "source": "demo/examples.json lit_school saved_runs",
+  "provenance": "Historical saved demo run; not a fresh call in this package.",
+  "saved_runs": [
+    {
+      "title": "2026-11-04 · Chrome + LongCat-2.5 实际运行",
+      "result": {
+        "state": "POINT",
+        "reason_code": null,
+        "independent_replay": true,
+        "mathematical_claim": {
+          "kind": "POINT",
+          "representation": "DESIGN_STANDARDIZED_EFFECT_OBSERVED_FUNCTIONAL",
+          "target": {
+            "kind": "SPILLOVER_EFFECT",
+            "node_order": [
+              "学生01",
+              "学生02",
+              "学生03",
+              "学生04",
+              "学生05",
+              "学生06",
+              "学生07",
+              "学生08",
+              "学生09",
+              "学生10",
+              "学生11",
+              "学生12"
+            ],
+            "evaluation_population": [
+              "学生01",
+              "学生02",
+              "学生03",
+              "学生04",
+              "学生05",
+              "学生06",
+              "学生07",
+              "学生08",
+              "学生09",
+              "学生10",
+              "学生11",
+              "学生12"
+            ],
+            "unit_weights": [
+              "1/12",
+              "1/12",
+              "1/12",
+              "1/12",
+              "1/12",
+              "1/12",
+              "1/12",
+              "1/12",
+              "1/12",
+              "1/12",
+              "1/12",
+              "1/12"
+            ],
+            "first": [
+              0,
+              1
+            ],
+            "second": [
+              0,
+              0
+            ],
+            "operation": "FIRST_MINUS_SECOND",
+            "remaining_assignment": "ORIGINAL_DESIGN_CONDITIONAL",
+            "assignment": {
+              "kind": "TWO_GROUP_FIXED_QUOTA",
+              "groups": [
+                [
+                  "学生01",
+                  "学生02",
+                  "学生03",
+                  "学生04",
+                  "学生05",
+                  "学生06"
+                ],
+                [
+                  "学生07",
+                  "学生08",
+                  "学生09",
+                  "学生10",
+                  "学生11",
+                  "学生12"
+                ]
+              ],
+              "treated_quotas": [
+                2,
+                2
+              ]
+            },
+            "exposure": "ANY_TREATED_NEIGHBOR",
+            "treatment": "收到反冲突项目的参与邀请记1，未收到邀请记0；邀请后是否实际出席不改变这个编码",
+            "outcome": "学年末是否报告佩戴支持反冲突的手环，佩戴记1，未佩戴记0",
+            "context": "在一所已经开展项目的学校；结果评价期间为本学年末，两端保持相同；没有另行指定的背景分层或条件筛选",
+            "native_symbol_mapping": {
+              "treatment": "treatment",
+              "outcome": "outcome",
+              "context": "W"
+            }
+          },
+          "target_fingerprint": "f69361e3a1f97a0b478c92def8a02e49b6437e2cbd8d98641ba83b6acde4a170",
+          "expression": "-1/12*E[Y_学生01^obs | W, T_学生01=0, S_学生01=0] + 1/12*E[Y_学生01^obs | W, T_学生01=0, S_学生01=1] - 1/12*E[Y_学生02^obs | W, T_学生02=0, S_学生02=0] + 1/12*E[Y_学生02^obs | W, T_学生02=0, S_学生02=1] - 1/12*E[Y_学生03^obs | W, T_学生03=0, S_学生03=0] + 1/12*E[Y_学生03^obs | W, T_学生03=0, S_学生03=1] - 1/12*E[Y_学生04^obs | W, T_学生04=0, S_学生04=0] + 1/12*E[Y_学生04^obs | W, T_学生04=0, S_学生04=1] - 1/12*E[Y_学生05^obs | W, T_学生05=0, S_学生05=0] + 1/12*E[Y_学生05^obs | W, T_学生05=0, S_学生05=1] - 1/12*E[Y_学生06^obs | W, T_学生06=0, S_学生06=0] + 1/12*E[Y_学生06^obs | W, T_学生06=0, S_学生06=1] - 1/12*E[Y_学生07^obs | W, T_学生07=0, S_学生07=0] + 1/12*E[Y_学生07^obs | W, T_学生07=0, S_学生07=1] - 1/12*E[Y_学生08^obs | W, T_学生08=0, S_学生08=0] + 1/12*E[Y_学生08^obs | W, T_学生08=0, S_学生08=1] - 1/12*E[Y_学生09^obs | W, T_学生09=0, S_学生09=0] + 1/12*E[Y_学生09^obs | W, T_学生09=0, S_学生09=1] - 1/12*E[Y_学生10^obs | W, T_学生10=0, S_学生10=0] + 1/12*E[Y_学生10^obs | W, T_学生10=0, S_学生10=1] - 1/12*E[Y_学生11^obs | W, T_学生11=0, S_学生11=0] + 1/12*E[Y_学生11^obs | W, T_学生11=0, S_学生11=1] - 1/12*E[Y_学生12^obs | W, T_学生12=0, S_学生12=0] + 1/12*E[Y_学生12^obs | W, T_学生12=0, S_学生12=1]",
+          "numeric_value": null
+        },
+        "certificate": {
+          "verification_status": "VERIFIED",
+          "query_count": 1,
+          "source_batch_sha256": "6028230c689ca21c08886715773c46f1e012f976fbd87df63f894777384e1335",
+          "bundle_sha256": "361eb14d5b7cfe9a10d2afe42f83ebd181be8e080f4bc225aeb31dbbfcb5beec",
+          "results": [
+            {
+              "status": "POINT",
+              "verification_status": "VERIFIED",
+              "kind": "SPILLOVER",
+              "term_count": 24,
+              "identified_functional": "-1/12*E[Y_学生01^obs | W, T_学生01=0, S_学生01=0] + 1/12*E[Y_学生01^obs | W, T_学生01=0, S_学生01=1] - 1/12*E[Y_学生02^obs | W, T_学生02=0, S_学生02=0] + 1/12*E[Y_学生02^obs | W, T_学生02=0, S_学生02=1] - 1/12*E[Y_学生03^obs | W, T_学生03=0, S_学生03=0] + 1/12*E[Y_学生03^obs | W, T_学生03=0, S_学生03=1] - 1/12*E[Y_学生04^obs | W, T_学生04=0, S_学生04=0] + 1/12*E[Y_学生04^obs | W, T_学生04=0, S_学生04=1] - 1/12*E[Y_学生05^obs | W, T_学生05=0, S_学生05=0] + 1/12*E[Y_学生05^obs | W, T_学生05=0, S_学生05=1] - 1/12*E[Y_学生06^obs | W, T_学生06=0, S_学生06=0] + 1/12*E[Y_学生06^obs | W, T_学生06=0, S_学生06=1] - 1/12*E[Y_学生07^obs | W, T_学生07=0, S_学生07=0] + 1/12*E[Y_学生07^obs | W, T_学生07=0, S_学生07=1] - 1/12*E[Y_学生08^obs | W, T_学生08=0, S_学生08=0] + 1/12*E[Y_学生08^obs | W, T_学生08=0, S_学生08=1] - 1/12*E[Y_学生09^obs | W, T_学生09=0, S_学生09=0] + 1/12*E[Y_学生09^obs | W, T_学生09=0, S_学生09=1] - 1/12*E[Y_学生10^obs | W, T_学生10=0, S_学生10=0] + 1/12*E[Y_学生10^obs | W, T_学生10=0, S_学生10=1] - 1/12*E[Y_学生11^obs | W, T_学生11=0, S_学生11=0] + 1/12*E[Y_学生11^obs | W, T_学生11=0, S_学生11=1] - 1/12*E[Y_学生12^obs | W, T_学生12=0, S_学生12=0] + 1/12*E[Y_学生12^obs | W, T_学生12=0, S_学生12=1]",
+              "target_fingerprint": "f69361e3a1f97a0b478c92def8a02e49b6437e2cbd8d98641ba83b6acde4a170",
+              "source_batch_sha256": "6028230c689ca21c08886715773c46f1e012f976fbd87df63f894777384e1335",
+              "a4_source_id": "reviewed_effect_source_0",
+              "constituent_arms": [
+                {
+                  "node_id": "学生01",
+                  "own_treatment": 0,
+                  "exposure_state": 0,
+                  "coefficient": "-1/12",
+                  "joint_support": "4/15",
+                  "arm_target_fingerprint": "7902fd6fd40abc18f8837af5082b36dc59ceab5aae72fd41277aa3f5f49c167a"
+                },
+                {
+                  "node_id": "学生01",
+                  "own_treatment": 0,
+                  "exposure_state": 1,
+                  "coefficient": "1/12",
+                  "joint_support": "2/5",
+                  "arm_target_fingerprint": "f241b0ecf3796c17b7e0ef6e6cf73d830173b10978cb27045c672a062d138afe"
+                },
+                {
+                  "node_id": "学生02",
+                  "own_treatment": 0,
+                  "exposure_state": 0,
+                  "coefficient": "-1/12",
+                  "joint_support": "1/5",
+                  "arm_target_fingerprint": "d77e43596462b214553e63d3295e7ceb4b01c2494e9ede5a3531eeb2b99de42a"
+                },
+                {
+                  "node_id": "学生02",
+                  "own_treatment": 0,
+                  "exposure_state": 1,
+                  "coefficient": "1/12",
+                  "joint_support": "7/15",
+                  "arm_target_fingerprint": "d5fa3441aa9d3eecce5b5785145f0ed26c74babc3c9ab45d24c61b2ef08f97c7"
+                },
+                {
+                  "node_id": "学生03",
+                  "own_treatment": 0,
+                  "exposure_state": 0,
+                  "coefficient": "-1/12",
+                  "joint_support": "1/5",
+                  "arm_target_fingerprint": "692458d248edb9c0d96fe27cb0fecb4e48910be55493755de21b5a6e64f2139c"
+                },
+                {
+                  "node_id": "学生03",
+                  "own_treatment": 0,
+                  "exposure_state": 1,
+                  "coefficient": "1/12",
+                  "joint_support": "7/15",
+                  "arm_target_fingerprint": "9e99e815e7e0e0643f77f2819fc29c51f7e979d73e64d61b5906a0af14728f34"
+                },
+                {
+                  "node_id": "学生04",
+                  "own_treatment": 0,
+                  "exposure_state": 0,
+                  "coefficient": "-1/12",
+                  "joint_support": "1/5",
+                  "arm_target_fingerprint": "48c05989dc495986902ad2486f3a90dc9e2649ce152116eb7c316ec8acd1be04"
+                },
+                {
+                  "node_id": "学生04",
+                  "own_treatment": 0,
+                  "exposure_state": 1,
+                  "coefficient": "1/12",
+                  "joint_support": "7/15",
+                  "arm_target_fingerprint": "edffd6c54222689ecf9c806332eb0e8d0f28381db07774cc5273428b24d00204"
+                },
+                {
+                  "node_id": "学生05",
+                  "own_treatment": 0,
+                  "exposure_state": 0,
+                  "coefficient": "-1/12",
+                  "joint_support": "1/5",
+                  "arm_target_fingerprint": "5bfe88c737c6a8f062960331168549a7558d866ee7b8c924b237029111b29905"
+                },
+                {
+                  "node_id": "学生05",
+                  "own_treatment": 0,
+                  "exposure_state": 1,
+                  "coefficient": "1/12",
+                  "joint_support": "7/15",
+                  "arm_target_fingerprint": "a8e954385359b5109ff4008c1e73533481d4398405741bfc4be36cc1e246ea62"
+                },
+                {
+                  "node_id": "学生06",
+                  "own_treatment": 0,
+                  "exposure_state": 0,
+                  "coefficient": "-1/12",
+                  "joint_support": "4/15",
+                  "arm_target_fingerprint": "33f47e4e652fab70dc476eea875916cab2677a33a04343cd0a5b72dd5b4d3515"
+                },
+                {
+                  "node_id": "学生06",
+                  "own_treatment": 0,
+                  "exposure_state": 1,
+                  "coefficient": "1/12",
+                  "joint_support": "2/5",
+                  "arm_target_fingerprint": "ab283fd933eb4a3b96ae5ddd1b584c1ec4cec72274620f7ad6f7bca0348f10ab"
+                },
+                {
+                  "node_id": "学生07",
+                  "own_treatment": 0,
+                  "exposure_state": 0,
+                  "coefficient": "-1/12",
+                  "joint_support": "4/15",
+                  "arm_target_fingerprint": "7700433fd2f22150b15fa345d179a7e90646580d500f47f47d79b324d2180ab8"
+                },
+                {
+                  "node_id": "学生07",
+                  "own_treatment": 0,
+                  "exposure_state": 1,
+                  "coefficient": "1/12",
+                  "joint_support": "2/5",
+                  "arm_target_fingerprint": "3a3f56065ff99b45b93303438422ef38af253864653af70cf005bdcaeb2ac4f4"
+                },
+                {
+                  "node_id": "学生08",
+                  "own_treatment": 0,
+                  "exposure_state": 0,
+                  "coefficient": "-1/12",
+                  "joint_support": "1/5",
+                  "arm_target_fingerprint": "de119f0131b10919ab09e652124b54221e248653723f07ffcb67eaee84857363"
+                },
+                {
+                  "node_id": "学生08",
+                  "own_treatment": 0,
+                  "exposure_state": 1,
+                  "coefficient": "1/12",
+                  "joint_support": "7/15",
+                  "arm_target_fingerprint": "1bc96209bf6aba8848bc7f3d475db606649fae761aed11ad4b965abb1b80c58e"
+                },
+                {
+                  "node_id": "学生09",
+                  "own_treatment": 0,
+                  "exposure_state": 0,
+                  "coefficient": "-1/12",
+                  "joint_support": "1/5",
+                  "arm_target_fingerprint": "1afff9f241420889b1f5c95b2b232be78c6bf5aff5873bda3f93951180c5c582"
+                },
+                {
+                  "node_id": "学生09",
+                  "own_treatment": 0,
+                  "exposure_state": 1,
+                  "coefficient": "1/12",
+                  "joint_support": "7/15",
+                  "arm_target_fingerprint": "8bc85a47bd74f4cd3d851334c86704e9856eb588f5e443728156b83d65b91f04"
+                },
+                {
+                  "node_id": "学生10",
+                  "own_treatment": 0,
+                  "exposure_state": 0,
+                  "coefficient": "-1/12",
+                  "joint_support": "1/5",
+                  "arm_target_fingerprint": "67c64363cbea509e3488a446ebdf0310aa389dc9370f84b39cec9fe6541298fa"
+                },
+                {
+                  "node_id": "学生10",
+                  "own_treatment": 0,
+                  "exposure_state": 1,
+                  "coefficient": "1/12",
+                  "joint_support": "7/15",
+                  "arm_target_fingerprint": "307bfa2104315b3c02b9ede4af55d5dc2269375ddf7897e5433e6f299c4a8aed"
+                },
+                {
+                  "node_id": "学生11",
+                  "own_treatment": 0,
+                  "exposure_state": 0,
+                  "coefficient": "-1/12",
+                  "joint_support": "1/5",
+                  "arm_target_fingerprint": "f0e863f45c1fdfa4d27dbe07b656d53fb8c7650d3aa82a329ad9559e8dd888e3"
+                },
+                {
+                  "node_id": "学生11",
+                  "own_treatment": 0,
+                  "exposure_state": 1,
+                  "coefficient": "1/12",
+                  "joint_support": "7/15",
+                  "arm_target_fingerprint": "42d3a1f60dd2b6cdafce0a2b7caa8153ede24b9a365c7d6e3a3662dd9e982258"
+                },
+                {
+                  "node_id": "学生12",
+                  "own_treatment": 0,
+                  "exposure_state": 0,
+                  "coefficient": "-1/12",
+                  "joint_support": "4/15",
+                  "arm_target_fingerprint": "14bf328151b0bc4fa8a4c65c514d7409e9f775789a4dc46cbacc3bc0528e87eb"
+                },
+                {
+                  "node_id": "学生12",
+                  "own_treatment": 0,
+                  "exposure_state": 1,
+                  "coefficient": "1/12",
+                  "joint_support": "2/5",
+                  "arm_target_fingerprint": "39cfdc209db638cfcb459498591d75481ed7290609ab69750c70d2b457ff497e"
+                }
+              ],
+              "a4_rule_id": "A4_DIRECT_NODE_ARM_V1",
+              "assumptions_used": [
+                "consistency",
+                "finite_conditional_first_moments",
+                "fixed_pretreatment_network",
+                "full_vector_randomization",
+                "known_assignment_law"
+              ],
+              "validity_note": "All nonzero constituent arms must have verified positive q-support; all refer to the same W/q/g; a reviewed population observable must supply every conditional arm mean.",
+              "certificate_sha256": "bd2582051dbaa6c2a79ddf88fe18cdfce28baec10f5a7a481a61a1d65f1df541",
+              "estimation_request": null
+            }
+          ],
+          "estimation_request": null
+        },
+        "assumption_choices_review": {
+          "method": "R1A_COMPOSITION",
+          "required_conditions": [
+            "a4_operator_scope_and_provenance",
+            "consistency",
+            "finite_conditional_first_moments",
+            "fixed_pretreatment_network",
+            "full_vector_randomization",
+            "known_assignment_law"
+          ],
+          "missing": [],
+          "blocked": [],
+          "retained": [
+            {
+              "condition": "MEAN_EXPOSURE_SUFFICIENCY",
+              "status": "NOT_ADOPTED",
+              "required": false
+            }
+          ],
+          "scientific_approval": false
+        },
+        "record_scope": "真实运行的数学结果摘要；完整原答及原生证书包保存在本地验收目录。",
+        "answers": [
+          {
+            "independent_replay": true,
+            "certificate": {
+              "verification_status": "VERIFIED",
+              "query_count": 1,
+              "source_batch_sha256": "6028230c689ca21c08886715773c46f1e012f976fbd87df63f894777384e1335",
+              "bundle_sha256": "361eb14d5b7cfe9a10d2afe42f83ebd181be8e080f4bc225aeb31dbbfcb5beec",
+              "results": [
+                {
+                  "status": "POINT",
+                  "verification_status": "VERIFIED",
+                  "kind": "SPILLOVER",
+                  "term_count": 24,
+                  "identified_functional": "-1/12*E[Y_学生01^obs | W, T_学生01=0, S_学生01=0] + 1/12*E[Y_学生01^obs | W, T_学生01=0, S_学生01=1] - 1/12*E[Y_学生02^obs | W, T_学生02=0, S_学生02=0] + 1/12*E[Y_学生02^obs | W, T_学生02=0, S_学生02=1] - 1/12*E[Y_学生03^obs | W, T_学生03=0, S_学生03=0] + 1/12*E[Y_学生03^obs | W, T_学生03=0, S_学生03=1] - 1/12*E[Y_学生04^obs | W, T_学生04=0, S_学生04=0] + 1/12*E[Y_学生04^obs | W, T_学生04=0, S_学生04=1] - 1/12*E[Y_学生05^obs | W, T_学生05=0, S_学生05=0] + 1/12*E[Y_学生05^obs | W, T_学生05=0, S_学生05=1] - 1/12*E[Y_学生06^obs | W, T_学生06=0, S_学生06=0] + 1/12*E[Y_学生06^obs | W, T_学生06=0, S_学生06=1] - 1/12*E[Y_学生07^obs | W, T_学生07=0, S_学生07=0] + 1/12*E[Y_学生07^obs | W, T_学生07=0, S_学生07=1] - 1/12*E[Y_学生08^obs | W, T_学生08=0, S_学生08=0] + 1/12*E[Y_学生08^obs | W, T_学生08=0, S_学生08=1] - 1/12*E[Y_学生09^obs | W, T_学生09=0, S_学生09=0] + 1/12*E[Y_学生09^obs | W, T_学生09=0, S_学生09=1] - 1/12*E[Y_学生10^obs | W, T_学生10=0, S_学生10=0] + 1/12*E[Y_学生10^obs | W, T_学生10=0, S_学生10=1] - 1/12*E[Y_学生11^obs | W, T_学生11=0, S_学生11=0] + 1/12*E[Y_学生11^obs | W, T_学生11=0, S_学生11=1] - 1/12*E[Y_学生12^obs | W, T_学生12=0, S_学生12=0] + 1/12*E[Y_学生12^obs | W, T_学生12=0, S_学生12=1]",
+                  "target_fingerprint": "f69361e3a1f97a0b478c92def8a02e49b6437e2cbd8d98641ba83b6acde4a170",
+                  "source_batch_sha256": "6028230c689ca21c08886715773c46f1e012f976fbd87df63f894777384e1335",
+                  "a4_source_id": "reviewed_effect_source_0",
+                  "constituent_arms": [
+                    {
+                      "node_id": "学生01",
+                      "own_treatment": 0,
+                      "exposure_state": 0,
+                      "coefficient": "-1/12",
+                      "joint_support": "4/15",
+                      "arm_target_fingerprint": "7902fd6fd40abc18f8837af5082b36dc59ceab5aae72fd41277aa3f5f49c167a"
+                    },
+                    {
+                      "node_id": "学生01",
+                      "own_treatment": 0,
+                      "exposure_state": 1,
+                      "coefficient": "1/12",
+                      "joint_support": "2/5",
+                      "arm_target_fingerprint": "f241b0ecf3796c17b7e0ef6e6cf73d830173b10978cb27045c672a062d138afe"
+                    },
+                    {
+                      "node_id": "学生02",
+                      "own_treatment": 0,
+                      "exposure_state": 0,
+                      "coefficient": "-1/12",
+                      "joint_support": "1/5",
+                      "arm_target_fingerprint": "d77e43596462b214553e63d3295e7ceb4b01c2494e9ede5a3531eeb2b99de42a"
+                    },
+                    {
+                      "node_id": "学生02",
+                      "own_treatment": 0,
+                      "exposure_state": 1,
+                      "coefficient": "1/12",
+                      "joint_support": "7/15",
+                      "arm_target_fingerprint": "d5fa3441aa9d3eecce5b5785145f0ed26c74babc3c9ab45d24c61b2ef08f97c7"
+                    },
+                    {
+                      "node_id": "学生03",
+                      "own_treatment": 0,
+                      "exposure_state": 0,
+                      "coefficient": "-1/12",
+                      "joint_support": "1/5",
+                      "arm_target_fingerprint": "692458d248edb9c0d96fe27cb0fecb4e48910be55493755de21b5a6e64f2139c"
+                    },
+                    {
+                      "node_id": "学生03",
+                      "own_treatment": 0,
+                      "exposure_state": 1,
+                      "coefficient": "1/12",
+                      "joint_support": "7/15",
+                      "arm_target_fingerprint": "9e99e815e7e0e0643f77f2819fc29c51f7e979d73e64d61b5906a0af14728f34"
+                    },
+                    {
+                      "node_id": "学生04",
+                      "own_treatment": 0,
+                      "exposure_state": 0,
+                      "coefficient": "-1/12",
+                      "joint_support": "1/5",
+                      "arm_target_fingerprint": "48c05989dc495986902ad2486f3a90dc9e2649ce152116eb7c316ec8acd1be04"
+                    },
+                    {
+                      "node_id": "学生04",
+                      "own_treatment": 0,
+                      "exposure_state": 1,
+                      "coefficient": "1/12",
+                      "joint_support": "7/15",
+                      "arm_target_fingerprint": "edffd6c54222689ecf9c806332eb0e8d0f28381db07774cc5273428b24d00204"
+                    },
+                    {
+                      "node_id": "学生05",
+                      "own_treatment": 0,
+                      "exposure_state": 0,
+                      "coefficient": "-1/12",
+                      "joint_support": "1/5",
+                      "arm_target_fingerprint": "5bfe88c737c6a8f062960331168549a7558d866ee7b8c924b237029111b29905"
+                    },
+                    {
+                      "node_id": "学生05",
+                      "own_treatment": 0,
+                      "exposure_state": 1,
+                      "coefficient": "1/12",
+                      "joint_support": "7/15",
+                      "arm_target_fingerprint": "a8e954385359b5109ff4008c1e73533481d4398405741bfc4be36cc1e246ea62"
+                    },
+                    {
+                      "node_id": "学生06",
+                      "own_treatment": 0,
+                      "exposure_state": 0,
+                      "coefficient": "-1/12",
+                      "joint_support": "4/15",
+                      "arm_target_fingerprint": "33f47e4e652fab70dc476eea875916cab2677a33a04343cd0a5b72dd5b4d3515"
+                    },
+                    {
+                      "node_id": "学生06",
+                      "own_treatment": 0,
+                      "exposure_state": 1,
+                      "coefficient": "1/12",
+                      "joint_support": "2/5",
+                      "arm_target_fingerprint": "ab283fd933eb4a3b96ae5ddd1b584c1ec4cec72274620f7ad6f7bca0348f10ab"
+                    },
+                    {
+                      "node_id": "学生07",
+                      "own_treatment": 0,
+                      "exposure_state": 0,
+                      "coefficient": "-1/12",
+                      "joint_support": "4/15",
+                      "arm_target_fingerprint": "7700433fd2f22150b15fa345d179a7e90646580d500f47f47d79b324d2180ab8"
+                    },
+                    {
+                      "node_id": "学生07",
+                      "own_treatment": 0,
+                      "exposure_state": 1,
+                      "coefficient": "1/12",
+                      "joint_support": "2/5",
+                      "arm_target_fingerprint": "3a3f56065ff99b45b93303438422ef38af253864653af70cf005bdcaeb2ac4f4"
+                    },
+                    {
+                      "node_id": "学生08",
+                      "own_treatment": 0,
+                      "exposure_state": 0,
+                      "coefficient": "-1/12",
+                      "joint_support": "1/5",
+                      "arm_target_fingerprint": "de119f0131b10919ab09e652124b54221e248653723f07ffcb67eaee84857363"
+                    },
+                    {
+                      "node_id": "学生08",
+                      "own_treatment": 0,
+                      "exposure_state": 1,
+                      "coefficient": "1/12",
+                      "joint_support": "7/15",
+                      "arm_target_fingerprint": "1bc96209bf6aba8848bc7f3d475db606649fae761aed11ad4b965abb1b80c58e"
+                    },
+                    {
+                      "node_id": "学生09",
+                      "own_treatment": 0,
+                      "exposure_state": 0,
+                      "coefficient": "-1/12",
+                      "joint_support": "1/5",
+                      "arm_target_fingerprint": "1afff9f241420889b1f5c95b2b232be78c6bf5aff5873bda3f93951180c5c582"
+                    },
+                    {
+                      "node_id": "学生09",
+                      "own_treatment": 0,
+                      "exposure_state": 1,
+                      "coefficient": "1/12",
+                      "joint_support": "7/15",
+                      "arm_target_fingerprint": "8bc85a47bd74f4cd3d851334c86704e9856eb588f5e443728156b83d65b91f04"
+                    },
+                    {
+                      "node_id": "学生10",
+                      "own_treatment": 0,
+                      "exposure_state": 0,
+                      "coefficient": "-1/12",
+                      "joint_support": "1/5",
+                      "arm_target_fingerprint": "67c64363cbea509e3488a446ebdf0310aa389dc9370f84b39cec9fe6541298fa"
+                    },
+                    {
+                      "node_id": "学生10",
+                      "own_treatment": 0,
+                      "exposure_state": 1,
+                      "coefficient": "1/12",
+                      "joint_support": "7/15",
+                      "arm_target_fingerprint": "307bfa2104315b3c02b9ede4af55d5dc2269375ddf7897e5433e6f299c4a8aed"
+                    },
+                    {
+                      "node_id": "学生11",
+                      "own_treatment": 0,
+                      "exposure_state": 0,
+                      "coefficient": "-1/12",
+                      "joint_support": "1/5",
+                      "arm_target_fingerprint": "f0e863f45c1fdfa4d27dbe07b656d53fb8c7650d3aa82a329ad9559e8dd888e3"
+                    },
+                    {
+                      "node_id": "学生11",
+                      "own_treatment": 0,
+                      "exposure_state": 1,
+                      "coefficient": "1/12",
+                      "joint_support": "7/15",
+                      "arm_target_fingerprint": "42d3a1f60dd2b6cdafce0a2b7caa8153ede24b9a365c7d6e3a3662dd9e982258"
+                    },
+                    {
+                      "node_id": "学生12",
+                      "own_treatment": 0,
+                      "exposure_state": 0,
+                      "coefficient": "-1/12",
+                      "joint_support": "4/15",
+                      "arm_target_fingerprint": "14bf328151b0bc4fa8a4c65c514d7409e9f775789a4dc46cbacc3bc0528e87eb"
+                    },
+                    {
+                      "node_id": "学生12",
+                      "own_treatment": 0,
+                      "exposure_state": 1,
+                      "coefficient": "1/12",
+                      "joint_support": "2/5",
+                      "arm_target_fingerprint": "39cfdc209db638cfcb459498591d75481ed7290609ab69750c70d2b457ff497e"
+                    }
+                  ],
+                  "a4_rule_id": "A4_DIRECT_NODE_ARM_V1",
+                  "assumptions_used": [
+                    "consistency",
+                    "finite_conditional_first_moments",
+                    "fixed_pretreatment_network",
+                    "full_vector_randomization",
+                    "known_assignment_law"
+                  ],
+                  "validity_note": "All nonzero constituent arms must have verified positive q-support; all refer to the same W/q/g; a reviewed population observable must supply every conditional arm mean.",
+                  "certificate_sha256": "bd2582051dbaa6c2a79ddf88fe18cdfce28baec10f5a7a481a61a1d65f1df541",
+                  "estimation_request": null
+                }
+              ],
+              "estimation_request": null
+            },
+            "native_evidence": {
+              "result": {
+                "source_batch": {
+                  "anchor": {
+                    "result": {
+                      "assumptions_used": [
+                        "known_assignment_law",
+                        "full_vector_randomization",
+                        "consistency",
+                        "fixed_pretreatment_network",
+                        "finite_conditional_first_moments"
+                      ],
+                      "verification_status": "VERIFIED"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

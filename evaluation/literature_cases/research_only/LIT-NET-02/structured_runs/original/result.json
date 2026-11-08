@@ -96,8 +96,8 @@
   "certificate": {
     "verification_status": "VERIFIED",
     "query_count": 1,
-    "source_batch_sha256": "843905d9d23c44281b3d9218354d09b882f4d7c9ec536d254de572cd6f5ca26d",
-    "bundle_sha256": "0a295b7249468bdb56dfeb281172b5815fd2277e55ed15c0c1af53fea7eebdbb",
+    "source_batch_sha256": "27d2cf5a8cc4154c17f8a936e9c9627f44fc01347df5b232e8ad619552476063",
+    "bundle_sha256": "38b4efa47a4cea300b9b62dfe72dbacbaa2aefefe1225e8ed74edd3a12651926",
     "results": [
       {
         "status": "POINT",
@@ -106,7 +106,7 @@
         "term_count": 16,
         "identified_functional": "-1/8*E[Y_甲1^obs | W, T_甲1=0, S_甲1=1] + 1/8*E[Y_甲1^obs | W, T_甲1=0, S_甲1=3] - 1/8*E[Y_甲2^obs | W, T_甲2=0, S_甲2=1] + 1/8*E[Y_甲2^obs | W, T_甲2=0, S_甲2=3] - 1/8*E[Y_甲3^obs | W, T_甲3=0, S_甲3=1] + 1/8*E[Y_甲3^obs | W, T_甲3=0, S_甲3=3] - 1/8*E[Y_甲4^obs | W, T_甲4=0, S_甲4=1] + 1/8*E[Y_甲4^obs | W, T_甲4=0, S_甲4=3] - 1/8*E[Y_乙1^obs | W, T_乙1=0, S_乙1=1] + 1/8*E[Y_乙1^obs | W, T_乙1=0, S_乙1=3] - 1/8*E[Y_乙2^obs | W, T_乙2=0, S_乙2=1] + 1/8*E[Y_乙2^obs | W, T_乙2=0, S_乙2=3] - 1/8*E[Y_乙3^obs | W, T_乙3=0, S_乙3=1] + 1/8*E[Y_乙3^obs | W, T_乙3=0, S_乙3=3] - 1/8*E[Y_乙4^obs | W, T_乙4=0, S_乙4=1] + 1/8*E[Y_乙4^obs | W, T_乙4=0, S_乙4=3]",
         "target_fingerprint": "472bf8f954149ce7aab364d1316551324f9258a2dc82b403861f1330c33b80ce",
-        "source_batch_sha256": "843905d9d23c44281b3d9218354d09b882f4d7c9ec536d254de572cd6f5ca26d",
+        "source_batch_sha256": "27d2cf5a8cc4154c17f8a936e9c9627f44fc01347df5b232e8ad619552476063",
         "a4_source_id": "reviewed_effect_source_0",
         "constituent_arms": [
           {
@@ -247,7 +247,7 @@
           "known_assignment_law"
         ],
         "validity_note": "All nonzero constituent arms must have verified positive q-support; all refer to the same W/q/g; a reviewed population observable must supply every conditional arm mean.",
-        "certificate_sha256": "07ad36b38b12b2c26c2aa4244e18f22ba26ce3afb857126fe822e352aac6acba",
+        "certificate_sha256": "136a1a9e8f16e190d79538fefbe46b43826bbac5308e9333d6c6a575e53c0457",
         "estimation_request": null
       }
     ],
@@ -349,8 +349,8 @@
       "certificate": {
         "verification_status": "VERIFIED",
         "query_count": 1,
-        "source_batch_sha256": "843905d9d23c44281b3d9218354d09b882f4d7c9ec536d254de572cd6f5ca26d",
-        "bundle_sha256": "0a295b7249468bdb56dfeb281172b5815fd2277e55ed15c0c1af53fea7eebdbb",
+        "source_batch_sha256": "27d2cf5a8cc4154c17f8a936e9c9627f44fc01347df5b232e8ad619552476063",
+        "bundle_sha256": "38b4efa47a4cea300b9b62dfe72dbacbaa2aefefe1225e8ed74edd3a12651926",
         "results": [
           {
             "status": "POINT",
@@ -359,7 +359,7 @@
             "term_count": 16,
             "identified_functional": "-1/8*E[Y_甲1^obs | W, T_甲1=0, S_甲1=1] + 1/8*E[Y_甲1^obs | W, T_甲1=0, S_甲1=3] - 1/8*E[Y_甲2^obs | W, T_甲2=0, S_甲2=1] + 1/8*E[Y_甲2^obs | W, T_甲2=0, S_甲2=3] - 1/8*E[Y_甲3^obs | W, T_甲3=0, S_甲3=1] + 1/8*E[Y_甲3^obs | W, T_甲3=0, S_甲3=3] - 1/8*E[Y_甲4^obs | W, T_甲4=0, S_甲4=1] + 1/8*E[Y_甲4^obs | W, T_甲4=0, S_甲4=3] - 1/8*E[Y_乙1^obs | W, T_乙1=0, S_乙1=1] + 1/8*E[Y_乙1^obs | W, T_乙1=0, S_乙1=3] - 1/8*E[Y_乙2^obs | W, T_乙2=0, S_乙2=1] + 1/8*E[Y_乙2^obs | W, T_乙2=0, S_乙2=3] - 1/8*E[Y_乙3^obs | W, T_乙3=0, S_乙3=1] + 1/8*E[Y_乙3^obs | W, T_乙3=0, S_乙3=3] - 1/8*E[Y_乙4^obs | W, T_乙4=0, S_乙4=1] + 1/8*E[Y_乙4^obs | W, T_乙4=0, S_乙4=3]",
             "target_fingerprint": "472bf8f954149ce7aab364d1316551324f9258a2dc82b403861f1330c33b80ce",
-            "source_batch_sha256": "843905d9d23c44281b3d9218354d09b882f4d7c9ec536d254de572cd6f5ca26d",
+            "source_batch_sha256": "27d2cf5a8cc4154c17f8a936e9c9627f44fc01347df5b232e8ad619552476063",
             "a4_source_id": "reviewed_effect_source_0",
             "constituent_arms": [
               {
@@ -500,14 +500,14 @@
               "known_assignment_law"
             ],
             "validity_note": "All nonzero constituent arms must have verified positive q-support; all refer to the same W/q/g; a reviewed population observable must supply every conditional arm mean.",
-            "certificate_sha256": "07ad36b38b12b2c26c2aa4244e18f22ba26ce3afb857126fe822e352aac6acba",
+            "certificate_sha256": "136a1a9e8f16e190d79538fefbe46b43826bbac5308e9333d6c6a575e53c0457",
             "estimation_request": null
           }
         ],
         "estimation_request": null
       },
       "independent_replay": true,
-      "reviewed_input_sha256": "5da8275b592f2445c8b70cd30b049a1a74605ac0d6032277b3135a633072c196",
+      "reviewed_input_sha256": "205098df6ab010bcae425105c0ada3951f3bb76eedf3d6e26eb854f228895ff8",
       "native_evidence": {
         "query_type": "EFFECT_BUNDLE",
         "status": "POINT",
@@ -742,7 +742,7 @@
                     "source": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                   },
                   "qualification_evidence": [
-                    "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                    "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                   ]
                 },
                 "reference_exposure_propensity_upper_bound_fact": null,
@@ -816,7 +816,7 @@
                     "confirmed": true,
                     "status": "CERTIFIED",
                     "evidence": [
-                      "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                      "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                     ],
                     "details": "Known exact first-stage lottery among 2 quota profiles; given profile, independent uniform fixed quotas in 2 groups; marginal assignment law mixes group quotas. Direct first-stage outcome effects are separately excluded by an explicit A5 scientific admission. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                   },
@@ -826,7 +826,7 @@
                     "confirmed": true,
                     "status": "CERTIFIED",
                     "evidence": [
-                      "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                      "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                     ],
                     "details": "The complete assignment vector is randomized independently of the full potential-outcome schedule conditional on W. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                   },
@@ -836,7 +836,7 @@
                     "confirmed": true,
                     "status": "CERTIFIED",
                     "evidence": [
-                      "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                      "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                     ],
                     "details": "The observed outcome equals Y_i(T) at the realized full assignment; no exposure-sufficiency condition. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                   },
@@ -846,7 +846,7 @@
                     "confirmed": true,
                     "status": "CERTIFIED",
                     "evidence": [
-                      "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                      "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                     ],
                     "details": "The fixed network and one-hop neighbor-count signature were defined before treatment. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                   },
@@ -856,7 +856,7 @@
                     "confirmed": true,
                     "status": "DERIVED",
                     "evidence": [
-                      "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                      "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                     ],
                     "details": "Relevant potential-outcome absolute first moments are finite conditional on W. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                   },
@@ -866,7 +866,7 @@
                     "confirmed": true,
                     "status": "CERTIFIED",
                     "evidence": [
-                      "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                      "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                     ],
                     "details": "Scientifically accepted exclusion: given final treatment vector, the publicly assigned stage-one quota profile has no independent effect on outcomes; no profile-dependent versions of treatment. Software does not verify this scientific premise. Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                   }
@@ -891,7 +891,7 @@
                       "randomized_arm_observable": {
                         "operator": "NODE_ARM_MEANS",
                         "source_id": "official_randomized_arm_task_constructor_v21",
-                        "provenance": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402: Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a",
+                        "provenance": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402: Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751",
                         "admission": "CERTIFIED",
                         "availability": "SYMBOLIC_POPULATION_OPERATOR",
                         "node_order": [
@@ -942,7 +942,7 @@
                   "policy_fingerprint": null,
                   "response_target_fingerprint": "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21",
                   "evidence": [
-                    "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                    "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                   ],
                   "confidence": 1.0,
                   "alternatives": [],
@@ -971,7 +971,7 @@
               "metadata": {
                 "setting": "D6xE4",
                 "source": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402",
-                "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
               }
             },
             "anchor": {
@@ -1202,7 +1202,7 @@
                       "source": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                     },
                     "qualification_evidence": [
-                      "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                      "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                     ]
                   },
                   "reference_exposure_propensity_upper_bound_fact": null,
@@ -1276,7 +1276,7 @@
                       "confirmed": true,
                       "status": "CERTIFIED",
                       "evidence": [
-                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                       ],
                       "details": "Known exact first-stage lottery among 2 quota profiles; given profile, independent uniform fixed quotas in 2 groups; marginal assignment law mixes group quotas. Direct first-stage outcome effects are separately excluded by an explicit A5 scientific admission. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                     },
@@ -1286,7 +1286,7 @@
                       "confirmed": true,
                       "status": "CERTIFIED",
                       "evidence": [
-                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                       ],
                       "details": "The complete assignment vector is randomized independently of the full potential-outcome schedule conditional on W. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                     },
@@ -1296,7 +1296,7 @@
                       "confirmed": true,
                       "status": "CERTIFIED",
                       "evidence": [
-                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                       ],
                       "details": "The observed outcome equals Y_i(T) at the realized full assignment; no exposure-sufficiency condition. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                     },
@@ -1306,7 +1306,7 @@
                       "confirmed": true,
                       "status": "CERTIFIED",
                       "evidence": [
-                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                       ],
                       "details": "The fixed network and one-hop neighbor-count signature were defined before treatment. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                     },
@@ -1316,7 +1316,7 @@
                       "confirmed": true,
                       "status": "DERIVED",
                       "evidence": [
-                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                       ],
                       "details": "Relevant potential-outcome absolute first moments are finite conditional on W. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                     },
@@ -1326,7 +1326,7 @@
                       "confirmed": true,
                       "status": "CERTIFIED",
                       "evidence": [
-                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                       ],
                       "details": "Scientifically accepted exclusion: given final treatment vector, the publicly assigned stage-one quota profile has no independent effect on outcomes; no profile-dependent versions of treatment. Software does not verify this scientific premise. Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                     }
@@ -1351,7 +1351,7 @@
                         "randomized_arm_observable": {
                           "operator": "NODE_ARM_MEANS",
                           "source_id": "official_randomized_arm_task_constructor_v21",
-                          "provenance": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402: Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a",
+                          "provenance": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402: Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751",
                           "admission": "CERTIFIED",
                           "availability": "SYMBOLIC_POPULATION_OPERATOR",
                           "node_order": [
@@ -1402,7 +1402,7 @@
                     "policy_fingerprint": null,
                     "response_target_fingerprint": "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21",
                     "evidence": [
-                      "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                      "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                     ],
                     "confidence": 1.0,
                     "alternatives": [],
@@ -1431,7 +1431,7 @@
                 "metadata": {
                   "setting": "D6xE4",
                   "source": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402",
-                  "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                  "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                 }
               },
               "result": {
@@ -1452,7 +1452,7 @@
                   "policy_fingerprint": null,
                   "response_target_fingerprint": "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21",
                   "evidence": [
-                    "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                    "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                   ],
                   "confidence": 1.0,
                   "alternatives": [],
@@ -1646,7 +1646,7 @@
                     2,
                     3
                   ],
-                  "source_spec_sha256": "2636be904fc17ad6947c9a1e150334592e7192a252ee534bedbc0c1f9363e699",
+                  "source_spec_sha256": "8febcf734d9d9283b2296c984aef8d1678cfee28b23a6282c7a4d9e315684e1a",
                   "node_degree": 3,
                   "network_size": 8,
                   "query_node_id": "甲1",
@@ -2161,8 +2161,8 @@
                 ]
               ]
             ],
-            "source_spec_sha256": "2636be904fc17ad6947c9a1e150334592e7192a252ee534bedbc0c1f9363e699",
-            "batch_sha256": "843905d9d23c44281b3d9218354d09b882f4d7c9ec536d254de572cd6f5ca26d",
+            "source_spec_sha256": "8febcf734d9d9283b2296c984aef8d1678cfee28b23a6282c7a4d9e315684e1a",
+            "batch_sha256": "27d2cf5a8cc4154c17f8a936e9c9627f44fc01347df5b232e8ad619552476063",
             "coverage_status": "SOME_ARMS_UNSUPPORTED",
             "verification_status": "VERIFIED",
             "contract_version": "randomized-network-full-arm-batch-v1",
@@ -2175,7 +2175,7 @@
             "admission": "ADMITTED",
             "availability": "SYMBOLIC_POPULATION_OPERATOR",
             "regime": "experimental",
-            "source_spec_fingerprint": "2636be904fc17ad6947c9a1e150334592e7192a252ee534bedbc0c1f9363e699",
+            "source_spec_fingerprint": "8febcf734d9d9283b2296c984aef8d1678cfee28b23a6282c7a4d9e315684e1a",
             "network_fingerprint": "41b0b8c2403f61ed34297d04a7c34e9690afb93d0e95a536043b7e305420eeef",
             "assignment_law_fingerprint": "7ed18ab5f62af62c53a0854b3328df30220e9075c3e8a96edfcbcd6949c57b88",
             "node_order": [
@@ -2479,7 +2479,7 @@
                         "source": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                       },
                       "qualification_evidence": [
-                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                       ]
                     },
                     "reference_exposure_propensity_upper_bound_fact": null,
@@ -2553,7 +2553,7 @@
                         "confirmed": true,
                         "status": "CERTIFIED",
                         "evidence": [
-                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                         ],
                         "details": "Known exact first-stage lottery among 2 quota profiles; given profile, independent uniform fixed quotas in 2 groups; marginal assignment law mixes group quotas. Direct first-stage outcome effects are separately excluded by an explicit A5 scientific admission. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                       },
@@ -2563,7 +2563,7 @@
                         "confirmed": true,
                         "status": "CERTIFIED",
                         "evidence": [
-                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                         ],
                         "details": "The complete assignment vector is randomized independently of the full potential-outcome schedule conditional on W. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                       },
@@ -2573,7 +2573,7 @@
                         "confirmed": true,
                         "status": "CERTIFIED",
                         "evidence": [
-                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                         ],
                         "details": "The observed outcome equals Y_i(T) at the realized full assignment; no exposure-sufficiency condition. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                       },
@@ -2583,7 +2583,7 @@
                         "confirmed": true,
                         "status": "CERTIFIED",
                         "evidence": [
-                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                         ],
                         "details": "The fixed network and one-hop neighbor-count signature were defined before treatment. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                       },
@@ -2593,7 +2593,7 @@
                         "confirmed": true,
                         "status": "DERIVED",
                         "evidence": [
-                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                         ],
                         "details": "Relevant potential-outcome absolute first moments are finite conditional on W. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                       },
@@ -2603,7 +2603,7 @@
                         "confirmed": true,
                         "status": "CERTIFIED",
                         "evidence": [
-                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                         ],
                         "details": "Scientifically accepted exclusion: given final treatment vector, the publicly assigned stage-one quota profile has no independent effect on outcomes; no profile-dependent versions of treatment. Software does not verify this scientific premise. Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                       }
@@ -2628,7 +2628,7 @@
                           "randomized_arm_observable": {
                             "operator": "NODE_ARM_MEANS",
                             "source_id": "official_randomized_arm_task_constructor_v21",
-                            "provenance": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402: Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a",
+                            "provenance": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402: Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751",
                             "admission": "CERTIFIED",
                             "availability": "SYMBOLIC_POPULATION_OPERATOR",
                             "node_order": [
@@ -2679,7 +2679,7 @@
                       "policy_fingerprint": null,
                       "response_target_fingerprint": "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21",
                       "evidence": [
-                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                       ],
                       "confidence": 1.0,
                       "alternatives": [],
@@ -2708,7 +2708,7 @@
                   "metadata": {
                     "setting": "D6xE4",
                     "source": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402",
-                    "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                    "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                   }
                 },
                 "anchor": {
@@ -2939,7 +2939,7 @@
                           "source": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                         },
                         "qualification_evidence": [
-                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                         ]
                       },
                       "reference_exposure_propensity_upper_bound_fact": null,
@@ -3013,7 +3013,7 @@
                           "confirmed": true,
                           "status": "CERTIFIED",
                           "evidence": [
-                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                           ],
                           "details": "Known exact first-stage lottery among 2 quota profiles; given profile, independent uniform fixed quotas in 2 groups; marginal assignment law mixes group quotas. Direct first-stage outcome effects are separately excluded by an explicit A5 scientific admission. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                         },
@@ -3023,7 +3023,7 @@
                           "confirmed": true,
                           "status": "CERTIFIED",
                           "evidence": [
-                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                           ],
                           "details": "The complete assignment vector is randomized independently of the full potential-outcome schedule conditional on W. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                         },
@@ -3033,7 +3033,7 @@
                           "confirmed": true,
                           "status": "CERTIFIED",
                           "evidence": [
-                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                           ],
                           "details": "The observed outcome equals Y_i(T) at the realized full assignment; no exposure-sufficiency condition. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                         },
@@ -3043,7 +3043,7 @@
                           "confirmed": true,
                           "status": "CERTIFIED",
                           "evidence": [
-                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                           ],
                           "details": "The fixed network and one-hop neighbor-count signature were defined before treatment. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                         },
@@ -3053,7 +3053,7 @@
                           "confirmed": true,
                           "status": "DERIVED",
                           "evidence": [
-                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                           ],
                           "details": "Relevant potential-outcome absolute first moments are finite conditional on W. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                         },
@@ -3063,7 +3063,7 @@
                           "confirmed": true,
                           "status": "CERTIFIED",
                           "evidence": [
-                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                           ],
                           "details": "Scientifically accepted exclusion: given final treatment vector, the publicly assigned stage-one quota profile has no independent effect on outcomes; no profile-dependent versions of treatment. Software does not verify this scientific premise. Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
                         }
@@ -3088,7 +3088,7 @@
                             "randomized_arm_observable": {
                               "operator": "NODE_ARM_MEANS",
                               "source_id": "official_randomized_arm_task_constructor_v21",
-                              "provenance": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402: Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a",
+                              "provenance": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402: Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751",
                               "admission": "CERTIFIED",
                               "availability": "SYMBOLIC_POPULATION_OPERATOR",
                               "node_order": [
@@ -3139,7 +3139,7 @@
                         "policy_fingerprint": null,
                         "response_target_fingerprint": "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21",
                         "evidence": [
-                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                         ],
                         "confidence": 1.0,
                         "alternatives": [],
@@ -3168,7 +3168,7 @@
                     "metadata": {
                       "setting": "D6xE4",
                       "source": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402",
-                      "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                      "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                     }
                   },
                   "result": {
@@ -3189,7 +3189,7 @@
                       "policy_fingerprint": null,
                       "response_target_fingerprint": "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21",
                       "evidence": [
-                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=90da75e5d6d29a0a12adffdd0a3003f5beb137d302f4c938ddc371675cf93751"
                       ],
                       "confidence": 1.0,
                       "alternatives": [],
@@ -3383,7 +3383,7 @@
                         2,
                         3
                       ],
-                      "source_spec_sha256": "2636be904fc17ad6947c9a1e150334592e7192a252ee534bedbc0c1f9363e699",
+                      "source_spec_sha256": "8febcf734d9d9283b2296c984aef8d1678cfee28b23a6282c7a4d9e315684e1a",
                       "node_degree": 3,
                       "network_size": 8,
                       "query_node_id": "甲1",
@@ -3898,8 +3898,8 @@
                     ]
                   ]
                 ],
-                "source_spec_sha256": "2636be904fc17ad6947c9a1e150334592e7192a252ee534bedbc0c1f9363e699",
-                "batch_sha256": "843905d9d23c44281b3d9218354d09b882f4d7c9ec536d254de572cd6f5ca26d",
+                "source_spec_sha256": "8febcf734d9d9283b2296c984aef8d1678cfee28b23a6282c7a4d9e315684e1a",
+                "batch_sha256": "27d2cf5a8cc4154c17f8a936e9c9627f44fc01347df5b232e8ad619552476063",
                 "coverage_status": "SOME_ARMS_UNSUPPORTED",
                 "verification_status": "VERIFIED",
                 "contract_version": "randomized-network-full-arm-batch-v1",
@@ -3912,7 +3912,7 @@
                 "admission": "ADMITTED",
                 "availability": "SYMBOLIC_POPULATION_OPERATOR",
                 "regime": "experimental",
-                "source_spec_fingerprint": "2636be904fc17ad6947c9a1e150334592e7192a252ee534bedbc0c1f9363e699",
+                "source_spec_fingerprint": "8febcf734d9d9283b2296c984aef8d1678cfee28b23a6282c7a4d9e315684e1a",
                 "network_fingerprint": "41b0b8c2403f61ed34297d04a7c34e9690afb93d0e95a536043b7e305420eeef",
                 "assignment_law_fingerprint": "7ed18ab5f62af62c53a0854b3328df30220e9075c3e8a96edfcbcd6949c57b88",
                 "node_order": [
@@ -4146,7 +4146,7 @@
                 "LINEAR_COMBINATION"
               ],
               "target_fingerprint": "472bf8f954149ce7aab364d1316551324f9258a2dc82b403861f1330c33b80ce",
-              "certificate_sha256": "07ad36b38b12b2c26c2aa4244e18f22ba26ce3afb857126fe822e352aac6acba",
+              "certificate_sha256": "136a1a9e8f16e190d79538fefbe46b43826bbac5308e9333d6c6a575e53c0457",
               "contract_version": "randomized-network-verified-linear-composition-v1.8",
               "status": "POINT",
               "verification_status": "VERIFIED",
@@ -4161,7 +4161,7 @@
               "estimation_request": null
             }
           ],
-          "bundle_sha256": "0a295b7249468bdb56dfeb281172b5815fd2277e55ed15c0c1af53fea7eebdbb",
+          "bundle_sha256": "38b4efa47a4cea300b9b62dfe72dbacbaa2aefefe1225e8ed74edd3a12651926",
           "contract_version": "randomized-network-verified-linear-composition-v1.8",
           "verification_status": "VERIFIED",
           "estimation_request": null
@@ -4178,7 +4178,7 @@
   "remaining_query_ids": [],
   "result_scope": "SELECTED_QUERY_ONLY",
   "fact_family": "NETWORK_RANDOMIZED_EFFECT_FACTS",
-  "plan_sha256": "3e046298dc64006055fb67ab6bba47ff9eca85d270953cf2ab912b6ab61dda68",
+  "plan_sha256": "73d73147d000e283adcb5117075a0118f912593fdd6158f024e3fef227265320",
   "attempts": [
     {
       "stage": "ANCHOR",

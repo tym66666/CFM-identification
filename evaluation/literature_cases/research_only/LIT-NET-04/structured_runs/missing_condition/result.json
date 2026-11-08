@@ -19,10 +19,10 @@
   "result_scope": "SELECTED_QUERY_ONLY",
   "remaining_query_ids": [],
   "fact_family": "NETWORK_POLICY_CONTRAST_FACTS",
-  "request_sha256": "62d6f975f628ba704b155086ae676d4286017a9b35e37fad7e97728058f9c546",
+  "request_sha256": "69d8063f0566d06e8632c969deb6cb7b73d90a22709cea40890566939ebea051",
   "query_review": {
     "version": "business-dispatch-review-1",
-    "binding_sha256": "b4f8f0f18f2a13d8524b1d33d2ff618521400eaf94c40c18dff25cd1362db4d4",
+    "binding_sha256": "a394a269a74ffd1a1a13086e1b062cbf8ad4e1bae07c111cbebcebeb0470fbed",
     "reviewer": "Independent synthetic protocol reviewer",
     "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.",
     "authority": "SYNTHETIC_TEST",
@@ -37,7 +37,7 @@
   "method_matching": "NOT_CHECKED_BEFORE_SCIENCE_REVIEW",
   "reading_candidate": {
     "version": "network-policy-contrast-reading-1",
-    "reference_context": "cb62b74dcb503",
+    "reference_context": "c8ebb57443ff1",
     "study": {
       "nodes": [
         "甲店",
@@ -448,7 +448,7 @@
     "first": {
       "facts": {
         "version": "network-policy-reading-1",
-        "reference_context": "cb62b74dcb503",
+        "reference_context": "c8ebb57443ff1",
         "study": {
           "source_ids": [
             "src_7a01c2a7e01c4ff85c94c83cd28cc96bec622a538c41def15365b4d0f055e836",
@@ -733,8 +733,8 @@
         }
       },
       "reference_binding": {
-        "context": "cb62b74dcb503",
-        "context_sha256": "b62b74dcb503c372166591ee06720b9aca9e06d4286c345dce04f75fae0d47e6",
+        "context": "c8ebb57443ff1",
+        "context_sha256": "8ebb57443ff1e4c9ebb47aa9aa79830aaefbd0f68887307172810b355079b47a",
         "aliases": {
           "s0001": "src_7a01c2a7e01c4ff85c94c83cd28cc96bec622a538c41def15365b4d0f055e836",
           "s0002": "src_34a5ea7519a1160f7f731ecba48405fb77ed95a915d32551c490dc019d6f9313",
@@ -804,7 +804,7 @@
             ]
           }
         },
-        "original_candidate_sha256": "d2ab94a3ea8380fc6ae2a0f644ccc090063c247df8b4c5d550bc20f223de726f",
+        "original_candidate_sha256": "ad8b2acafcc47e6f18a21abfdf136cc4be16e5087cb038ed0d13ebfae46299ce",
         "conflicts": [],
         "quotation_occurrence_verified": true,
         "semantic_entailment_verified": false,
@@ -817,7 +817,7 @@
     "second": {
       "facts": {
         "version": "network-policy-reading-1",
-        "reference_context": "cb62b74dcb503",
+        "reference_context": "c8ebb57443ff1",
         "study": {
           "source_ids": [
             "src_7a01c2a7e01c4ff85c94c83cd28cc96bec622a538c41def15365b4d0f055e836",
@@ -1102,8 +1102,8 @@
         }
       },
       "reference_binding": {
-        "context": "cb62b74dcb503",
-        "context_sha256": "b62b74dcb503c372166591ee06720b9aca9e06d4286c345dce04f75fae0d47e6",
+        "context": "c8ebb57443ff1",
+        "context_sha256": "8ebb57443ff1e4c9ebb47aa9aa79830aaefbd0f68887307172810b355079b47a",
         "aliases": {
           "s0001": "src_7a01c2a7e01c4ff85c94c83cd28cc96bec622a538c41def15365b4d0f055e836",
           "s0002": "src_34a5ea7519a1160f7f731ecba48405fb77ed95a915d32551c490dc019d6f9313",
@@ -1173,7 +1173,7 @@
             ]
           }
         },
-        "original_candidate_sha256": "860da5beb90c93957a541fadd949c5f30c9162a6449957d34ecd17f62bb91a67",
+        "original_candidate_sha256": "4e29b67693829be4014f3e5a323c9057a690d401faed7d2e4c4d5817da4a15b7",
         "conflicts": [],
         "quotation_occurrence_verified": true,
         "semantic_entailment_verified": false,

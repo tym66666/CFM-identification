@@ -1,0 +1,63 @@
+{
+  "case_id": "LIT-IV-02",
+  "paper_id": "balke_pearl1997_bounds",
+  "paper": {
+    "authors": [
+      "Alexander Balke",
+      "Judea Pearl"
+    ],
+    "year": 1997,
+    "title": "Bounds on Treatment Effects From Studies With Imperfect Compliance",
+    "venue": "Journal of the American Statistical Association",
+    "volume": "92",
+    "issue": "439",
+    "pages": "1171-1176",
+    "doi": "10.1080/01621459.1997.10474074"
+  },
+  "paper_reference": {
+    "paper_question": "在不完全遵从的二元 IV 设置中，全体 ATE 不能点识别时，sharp 上下界是什么？",
+    "target": "ATE = E[Y(1)-Y(0)] for the whole population, not LATE for compliers.",
+    "source_location": "Balke & Pearl (1997), JASA 92(439):1171-1176; project literature card and abstract-level alignment.",
+    "formula": "The paper constructs sharp bounds for the average treatment effect under binary imperfect compliance from the observed joint distribution of (Y,D,Z). This package does not reproduce the closed-form bounds or their proof.",
+    "conditions": [
+      "Binary instrument Z, binary treatment D, binary outcome Y.",
+      "Imperfect compliance; latent response types.",
+      "Observed joint distribution P(Y,D,Z).",
+      "No point identification of ATE in general."
+    ],
+    "what_paper_supports": [
+      "LATE and ATE are distinct targets.",
+      "ATE is generally only partially identified under imperfect compliance.",
+      "Sharp bounds can be constructed in the binary IV model."
+    ],
+    "what_paper_does_not_support": [
+      "It does not mean the current software has an IV/ATE-bounds backend.",
+      "It does not justify replacing ATE with LATE.",
+      "It does not make the 200-person synthetic table the paper data."
+    ]
+  },
+  "software_expected": {
+    "original": {
+      "status": "UNSUPPORTED",
+      "reason": "No IV/ATE-bounds backend."
+    },
+    "missing_condition": {
+      "status": "UNSUPPORTED",
+      "reason": "No IV/ATE-bounds backend; sample-only data also cannot be upgraded to a population."
+    },
+    "changed_target": {
+      "status": "UNSUPPORTED",
+      "reason": "LATE is also unavailable; the system must not reuse the ATE question's materials as a LATE answer."
+    }
+  },
+  "actual_run": {
+    "method": "CAPABILITY_CATALOG_CHECK_ONLY",
+    "source": "capability_check.json",
+    "system_status": "UNSUPPORTED",
+    "note": "No IV business run was attempted because there is no IV reader/backend."
+  },
+  "review_status": "PENDING_TEACHER",
+  "reviewer": "teacher",
+  "holdout": true,
+  "notes": "Holdout candidate. Paper bounds are recorded as paper reference only; software status is UNSUPPORTED. This is not a proof of non-identification."
+}

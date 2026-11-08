@@ -1,0 +1,161 @@
+{
+  "case_id": "LIT-NET-07",
+  "paper_id": "forastiere2021_network",
+  "paper": {
+    "authors": [
+      "Laura Forastiere",
+      "Edoardo M. Airoldi",
+      "Fabrizia Mealli"
+    ],
+    "year": 2021,
+    "title": "Identification and Estimation of Treatment and Interference Effects in Observational Studies on Networks",
+    "venue": "JASA",
+    "doi": "10.1080/01621459.2020.1768100"
+  },
+  "paper_reference": {
+    "paper_question": "观察性网络中，如何用本人和邻居的处理前协变量识别干扰效应？",
+    "target": "甲不参加时，至少一位朋友参加减朋友都不参加，甲测验成绩之差；按甲自身学习困难和朋友中学习困难人数两层各1/2加权，只评价甲。",
+    "source_location": "Forastiere et al. (2021) JASA, DOI 10.1080/01621459.2020.1768100; author manuscript arXiv:1609.06245, Theorem 1 and Eq. (7).",
+    "formula": "tau = (1/2)[mu_甲(0,S=1|X甲=0,friendX=0)-mu_甲(0,S=0|...)] + (1/2)[...X甲=1,friendX=1...].",
+    "conditions": [
+      "Observational treatment, no randomization.",
+      "Conditional exchangeability/mean sufficiency given own X, number of friends with X=1, and fixed W.",
+      "Friend network fixed.",
+      "Consistency.",
+      "Finite conditional means.",
+      "Positivity for the two friend-participation states."
+    ],
+    "what_paper_supports": [
+      "Covariate adjustment for observational network interference.",
+      "Own and peer covariates must be retained.",
+      "Conditional exchangeability is an assumption, not a data fact."
+    ],
+    "what_paper_does_not_support": [
+      "No replication of the full ADRF or Add Health analysis.",
+      "No adjustment formula without exchangeability.",
+      "No extrapolation from four students."
+    ]
+  },
+  "software_expected": {
+    "original": {
+      "status": "POINT"
+    },
+    "missing_condition": {
+      "status": "NEEDS_INPUT",
+      "reason": "Conditional exchangeability is explicitly not adopted."
+    },
+    "changed_target": {
+      "status": "POINT",
+      "reason": "Reverse comparison; expected sign is flipped."
+    }
+  },
+  "actual_run": {
+    "method": "HISTORICAL_DEMO_SAVED_RUN",
+    "provenance": "demo lit_observational_peers saved run, independent replay true. Not a fresh call.",
+    "original": {
+      "state": "POINT",
+      "independent_replay": true,
+      "target_fingerprint": "16dab9e9e322004d2c4d6a378f466be75dc4e2363948747186795028d086c075",
+      "certificate": {
+        "route": "R3_NODEWISE_EXPOSURE_ADJUSTED_EFFECTS",
+        "theorem_id": "R3_LOCAL_COVARIATE_EXPOSURE_G_FORMULA_POINT_V1",
+        "contract_version": "r3-nodewise-neighbor-covariate-adjustment-v2.8",
+        "status": "POINT",
+        "verification_status": "VERIFIED",
+        "source_id": "source_7ec69032c51c0afc9f9f24bc074fcc1da44851b0c0683bce2b8ab6af34d8a662",
+        "A4_operator": "OBSERVATIONAL_NODE_LOCAL_COVARIATE_ARM_POPULATION_MEANS",
+        "observational_law_fingerprint": "c2aeedab29b67946f73caead9bc3116be2d33585bebab6c3e96893d42e3a6ac5",
+        "target_semantics": "NODEWISE_LOCAL_COVARIATE_ADJUSTED_EXPOSURE_POTENTIAL_OUTCOME",
+        "adjustment_schema": {
+          "own_pretreatment_feature": "每个对象的活动前学习困难X，困难为1、不困难为0；C_i为自身X与全部无向邻居中X=1的人数。对甲，C_i=(0,0)或(1,1)。",
+          "neighbor_summary": "count of undirected neighbors with pre-treatment X=1"
+        },
+        "full_vector_exchangeability_required": false,
+        "exposure_sufficiency_required": true,
+        "assumptions_used": [
+          "consistency",
+          "fixed_pretreatment_network",
+          "finite_conditional_first_moments",
+          "potential_outcome_exposure_sufficiency",
+          "local_covariate_exposure_mean_exchangeability"
+        ],
+        "results": [
+          {
+            "kind": "SPILLOVER",
+            "arm_terms": [
+              {
+                "node_id": "甲",
+                "own_treatment": 0,
+                "exposure_state": 0,
+                "coefficient": "-1"
+              },
+              {
+                "node_id": "甲",
+                "own_treatment": 0,
+                "exposure_state": 1,
+                "coefficient": "1"
+              }
+            ],
+            "support_by_term": [
+              {
+                "node": "甲",
+                "own_treatment": 0,
+                "exposure": 0,
+                "local_strata": [
+                  {
+                    "own_pretreatment_covariate": 0,
+                    "neighbor_covariate_count": 0,
+                    "population_mass": "1/2",
+                    "arm_support": "1/4"
+                  },
+                  {
+                    "own_pretreatment_covariate": 1,
+                    "neighbor_covariate_count": 1,
+                    "population_mass": "1/2",
+                    "arm_support": "1/4"
+                  }
+                ]
+              },
+              {
+                "node": "甲",
+                "own_treatment": 0,
+                "exposure": 1,
+                "local_strata": [
+                  {
+                    "own_pretreatment_covariate": 0,
+                    "neighbor_covariate_count": 0,
+                    "population_mass": "1/2",
+                    "arm_support": "1/4"
+                  },
+                  {
+                    "own_pretreatment_covariate": 1,
+                    "neighbor_covariate_count": 1,
+                    "population_mass": "1/2",
+                    "arm_support": "1/4"
+                  }
+                ]
+              }
+            ],
+            "identified_functional": "(-1) * ((1/2) * E[Y_甲^obs | T_甲=0,S_甲^g=0,每个对象的活动前学习困难X，困难为1、不困难为0；C_i为自身X与全部无向邻居中X=1的人数。对甲，C_i=(0,0)或(1,1)。_甲=0,neighbor_positive_每个对象的活动前学习困难X，困难为1、不困难为0；C_i为自身X与全部无向邻居中X=1的人数。对甲，C_i=(0,0)或(1,1)。_count=0,普通教学周；固定背景W为活动前登记的普通教学周，不包括学习困难特征；网络处理前固定; fixed pretreatment W: 活动前登记的普通教学周W，不包括学习困难特征；处理前固定网络甲—乙、乙—丙、丙—丁] + (1/2) * E[Y_甲^obs | T_甲=0,S_甲^g=0,每个对象的活动前学习困难X，困难为1、不困难为0；C_i为自身X与全部无向邻居中X=1的人数。对甲，C_i=(0,0)或(1,1)。_甲=1,neighbor_positive_每个对象的活动前学习困难X，困难为1、不困难为0；C_i为自身X与全部无向邻居中X=1的人数。对甲，C_i=(0,0)或(1,1)。_count=1,普通教学周；固定背景W为活动前登记的普通教学周，不包括学习困难特征；网络处理前固定; fixed pretreatment W: 活动前登记的普通教学周W，不包括学习困难特征；处理前固定网络甲—乙、乙—丙、丙—丁]) + (1) * ((1/2) * E[Y_甲^obs | T_甲=0,S_甲^g=1,每个对象的活动前学习困难X，困难为1、不困难为0；C_i为自身X与全部无向邻居中X=1的人数。对甲，C_i=(0,0)或(1,1)。_甲=0,neighbor_positive_每个对象的活动前学习困难X，困难为1、不困难为0；C_i为自身X与全部无向邻居中X=1的人数。对甲，C_i=(0,0)或(1,1)。_count=0,普通教学周；固定背景W为活动前登记的普通教学周，不包括学习困难特征；网络处理前固定; fixed pretreatment W: 活动前登记的普通教学周W，不包括学习困难特征；处理前固定网络甲—乙、乙—丙、丙—丁] + (1/2) * E[Y_甲^obs | T_甲=0,S_甲^g=1,每个对象的活动前学习困难X，困难为1、不困难为0；C_i为自身X与全部无向邻居中X=1的人数。对甲，C_i=(0,0)或(1,1)。_甲=1,neighbor_positive_每个对象的活动前学习困难X，困难为1、不困难为0；C_i为自身X与全部无向邻居中X=1的人数。对甲，C_i=(0,0)或(1,1)。_count=1,普通教学周；固定背景W为活动前登记的普通教学周，不包括学习困难特征；网络处理前固定; fixed pretreatment W: 活动前登记的普通教学周W，不包括学习困难特征；处理前固定网络甲—乙、乙—丙、丙—丁])",
+            "target_fingerprint": "16dab9e9e322004d2c4d6a378f466be75dc4e2363948747186795028d086c075"
+          }
+        ],
+        "certificate_sha256": "d6213f2198330bb53a60f7909a23dc2896f59862ffbc1e8c482fe510610f8ae5",
+        "estimator_capability": "NO_ADAPTER",
+        "estimation_request": null,
+        "scientific_assumptions_verified_in_real_world": false,
+        "note": "Exact population nodewise local-covariate G-formula; NOT p-standardized, NOT a fixed policy value; no empirical estimator or general Network Auto-G."
+      }
+    },
+    "missing_condition": {
+      "status": "NOT_RUN"
+    },
+    "changed_target": {
+      "status": "NOT_RUN"
+    }
+  },
+  "review_status": "PENDING_TEACHER",
+  "reviewer": "teacher",
+  "holdout": true,
+  "notes": "Observational network adjustment template. Original actual is a saved demo run; variants are reference-only and not run."
+}

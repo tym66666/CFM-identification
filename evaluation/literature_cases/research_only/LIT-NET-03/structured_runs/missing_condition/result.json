@@ -16,13 +16,13 @@
   "result_scope": "SELECTED_QUERY_ONLY",
   "remaining_query_ids": [],
   "fact_family": "NETWORK_FIXED_POLICY_FACTS",
-  "request_sha256": "5ed1ff98f948df4d7745f13b3e139d93e96da93606e6ec3b60f337f36ff329db",
+  "request_sha256": "2eff7b95bf56b4c6d493364443956ae4b3ed6dcc00f8c6df98915ff3f6d6a188",
   "methods": [],
   "exclusions": [],
   "method_matching": "NOT_CHECKED_BEFORE_SCIENCE_REVIEW",
   "query_review": {
     "version": "business-dispatch-review-1",
-    "binding_sha256": "ef26828ca463a1b732b23eb04cf71da904c7bc22c7a534214d1bd0d742d3b839",
+    "binding_sha256": "7744159f7961a35cd712b80f7bcae8a96522cf894029460b695433905c7f06ae",
     "reviewer": "Independent synthetic protocol reviewer",
     "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.",
     "authority": "SYNTHETIC_TEST",
@@ -34,7 +34,7 @@
   },
   "facts": {
     "version": "network-policy-reading-1",
-    "reference_context": "ccaf0759a121a",
+    "reference_context": "cbd4107be6ffc",
     "study": {
       "source_ids": [
         "src_1dcd45ebb956306abc0ee5caa74bf19eae4d1a58047560bdcd8a4455f6fc4381",
@@ -387,8 +387,8 @@
     }
   },
   "reference_binding": {
-    "context": "ccaf0759a121a",
-    "context_sha256": "caf0759a121a00546474efe918bd2017fde87be14f4ed58b96df481d545b8d5f",
+    "context": "cbd4107be6ffc",
+    "context_sha256": "bd4107be6ffcfde18d71f7c40c9a1b8a2bb87a97dc888d030afcf2b0bf3a1034",
     "aliases": {
       "s0001": "src_1dcd45ebb956306abc0ee5caa74bf19eae4d1a58047560bdcd8a4455f6fc4381",
       "s0002": "src_65da84e211367047f0e9cba8c3e614b46d2612d35bebb5d567c406861965a034",
@@ -419,7 +419,7 @@
   },
   "reading_candidate": {
     "version": "network-policy-reading-1",
-    "reference_context": "ccaf0759a121a",
+    "reference_context": "cbd4107be6ffc",
     "study": {
       "nodes": [
         "中心",

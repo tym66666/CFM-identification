@@ -320,8 +320,8 @@
         "certificate": {
           "verification_status": "VERIFIED",
           "query_count": 1,
-          "source_batch_sha256": "056e605af287206c76ad1ad820f9f27a764792293e64435b55af4559354a0fd1",
-          "bundle_sha256": "c7c800599e08bb79e8621fcf1bc035ae09e90e1a8805802f43274184e87ff487",
+          "source_batch_sha256": "ad3f16ce6c29aa0642e4ac35303f35566cf3bd49e935bd0abbafafa92d5342e3",
+          "bundle_sha256": "6c807c6f3d585bef8601adfcb6c48406b8a2783dec73e5291a34b12e28ad8b00",
           "results": [
             {
               "status": "POINT",
@@ -330,7 +330,7 @@
               "term_count": 120,
               "identified_functional": "1/60*E[Y_node-0^obs | W, T_node-0=1, S_node-0=0] - 1/60*E[Y_node-0^obs | W, T_node-0=1, S_node-0=1] + 1/60*E[Y_node-1^obs | W, T_node-1=1, S_node-1=0] - 1/60*E[Y_node-1^obs | W, T_node-1=1, S_node-1=1] + 1/60*E[Y_node-2^obs | W, T_node-2=1, S_node-2=0] - 1/60*E[Y_node-2^obs | W, T_node-2=1, S_node-2=1] + 1/60*E[Y_node-3^obs | W, T_node-3=1, S_node-3=0] - 1/60*E[Y_node-3^obs | W, T_node-3=1, S_node-3=1] + 1/60*E[Y_node-4^obs | W, T_node-4=1, S_node-4=0] - 1/60*E[Y_node-4^obs | W, T_node-4=1, S_node-4=1] + 1/60*E[Y_node-5^obs | W, T_node-5=1, S_node-5=0] - 1/60*E[Y_node-5^obs | W, T_node-5=1, S_node-5=1] + 1/60*E[Y_node-6^obs | W, T_node-6=1, S_node-6=0] - 1/60*E[Y_node-6^obs | W, T_node-6=1, S_node-6=1] + 1/60*E[Y_node-7^obs | W, T_node-7=1, S_node-7=0] - 1/60*E[Y_node-7^obs | W, T_node-7=1, S_node-7=1] + 1/60*E[Y_node-8^obs | W, T_node-8=1, S_node-8=0] - 1/60*E[Y_node-8^obs | W, T_node-8=1, S_node-8=1] + 1/60*E[Y_node-9^obs | W, T_node-9=1, S_node-9=0] - 1/60*E[Y_node-9^obs | W, T_node-9=1, S_node-9=1] + 1/60*E[Y_node-10^obs | W, T_node-10=1, S_node-10=0] - 1/60*E[Y_node-10^obs | W, T_node-10=1, S_node-10=1] + 1/60*E[Y_node-11^obs | W, T_node-11=1, S_node-11=0] - 1/60*E[Y_node-11^obs | W, T_node-11=1, S_node-11=1] + 1/60*E[Y_node-12^obs | W, T_node-12=1, S_node-12=0] - 1/60*E[Y_node-12^obs | W, T_node-12=1, S_node-12=1] + 1/60*E[Y_node-13^obs | W, T_node-13=1, S_node-13=0] - 1/60*E[Y_node-13^obs | W, T_node-13=1, S_node-13=1] + 1/60*E[Y_node-14^obs | W, T_node-14=1, S_node-14=0] - 1/60*E[Y_node-14^obs | W, T_node-14=1, S_node-14=1] + 1/60*E[Y_node-15^obs | W, T_node-15=1, S_node-15=0] - 1/60*E[Y_node-15^obs | W, T_node-15=1, S_node-15=1] + 1/60*E[Y_node-16^obs | W, T_node-16=1, S_node-16=0] - 1/60*E[Y_node-16^obs | W, T_node-16=1, S_node-16=1] + 1/60*E[Y_node-17^obs | W, T_node-17=1, S_node-17=0] - 1/60*E[Y_node-17^obs | W, T_node-17=1, S_node-17=1] + 1/60*E[Y_node-18^obs | W, T_node-18=1, S_node-18=0] - 1/60*E[Y_node-18^obs | W, T_node-18=1, S_node-18=1] + 1/60*E[Y_node-19^obs | W, T_node-19=1, S_node-19=0] - 1/60*E[Y_node-19^obs | W, T_node-19=1, S_node-19=1] + 1/60*E[Y_node-20^obs | W, T_node-20=1, S_node-20=0] - 1/60*E[Y_node-20^obs | W, T_node-20=1, S_node-20=1] + 1/60*E[Y_node-21^obs | W, T_node-21=1, S_node-21=0] - 1/60*E[Y_node-21^obs | W, T_node-21=1, S_node-21=1] + 1/60*E[Y_node-22^obs | W, T_node-22=1, S_node-22=0] - 1/60*E[Y_node-22^obs | W, T_node-22=1, S_node-22=1] + 1/60*E[Y_node-23^obs | W, T_node-23=1, S_node-23=0] - 1/60*E[Y_node-23^obs | W, T_node-23=1, S_node-23=1] + 1/60*E[Y_node-24^obs | W, T_node-24=1, S_node-24=0] - 1/60*E[Y_node-24^obs | W, T_node-24=1, S_node-24=1] + 1/60*E[Y_node-25^obs | W, T_node-25=1, S_node-25=0] - 1/60*E[Y_node-25^obs | W, T_node-25=1, S_node-25=1] + 1/60*E[Y_node-26^obs | W, T_node-26=1, S_node-26=0] - 1/60*E[Y_node-26^obs | W, T_node-26=1, S_node-26=1] + 1/60*E[Y_node-27^obs | W, T_node-27=1, S_node-27=0] - 1/60*E[Y_node-27^obs | W, T_node-27=1, S_node-27=1] + 1/60*E[Y_node-28^obs | W, T_node-28=1, S_node-28=0] - 1/60*E[Y_node-28^obs | W, T_node-28=1, S_node-28=1] + 1/60*E[Y_node-29^obs | W, T_node-29=1, S_node-29=0] - 1/60*E[Y_node-29^obs | W, T_node-29=1, S_node-29=1] + 1/60*E[Y_node-30^obs | W, T_node-30=1, S_node-30=0] - 1/60*E[Y_node-30^obs | W, T_node-30=1, S_node-30=1] + 1/60*E[Y_node-31^obs | W, T_node-31=1, S_node-31=0] - 1/60*E[Y_node-31^obs | W, T_node-31=1, S_node-31=1] + 1/60*E[Y_node-32^obs | W, T_node-32=1, S_node-32=0] - 1/60*E[Y_node-32^obs | W, T_node-32=1, S_node-32=1] + 1/60*E[Y_node-33^obs | W, T_node-33=1, S_node-33=0] - 1/60*E[Y_node-33^obs | W, T_node-33=1, S_node-33=1] + 1/60*E[Y_node-34^obs | W, T_node-34=1, S_node-34=0] - 1/60*E[Y_node-34^obs | W, T_node-34=1, S_node-34=1] + 1/60*E[Y_node-35^obs | W, T_node-35=1, S_node-35=0] - 1/60*E[Y_node-35^obs | W, T_node-35=1, S_node-35=1] + 1/60*E[Y_node-36^obs | W, T_node-36=1, S_node-36=0] - 1/60*E[Y_node-36^obs | W, T_node-36=1, S_node-36=1] + 1/60*E[Y_node-37^obs | W, T_node-37=1, S_node-37=0] - 1/60*E[Y_node-37^obs | W, T_node-37=1, S_node-37=1] + 1/60*E[Y_node-38^obs | W, T_node-38=1, S_node-38=0] - 1/60*E[Y_node-38^obs | W, T_node-38=1, S_node-38=1] + 1/60*E[Y_node-39^obs | W, T_node-39=1, S_node-39=0] - 1/60*E[Y_node-39^obs | W, T_node-39=1, S_node-39=1] + 1/60*E[Y_node-40^obs | W, T_node-40=1, S_node-40=0] - 1/60*E[Y_node-40^obs | W, T_node-40=1, S_node-40=1] + 1/60*E[Y_node-41^obs | W, T_node-41=1, S_node-41=0] - 1/60*E[Y_node-41^obs | W, T_node-41=1, S_node-41=1] + 1/60*E[Y_node-42^obs | W, T_node-42=1, S_node-42=0] - 1/60*E[Y_node-42^obs | W, T_node-42=1, S_node-42=1] + 1/60*E[Y_node-43^obs | W, T_node-43=1, S_node-43=0] - 1/60*E[Y_node-43^obs | W, T_node-43=1, S_node-43=1] + 1/60*E[Y_node-44^obs | W, T_node-44=1, S_node-44=0] - 1/60*E[Y_node-44^obs | W, T_node-44=1, S_node-44=1] + 1/60*E[Y_node-45^obs | W, T_node-45=1, S_node-45=0] - 1/60*E[Y_node-45^obs | W, T_node-45=1, S_node-45=1] + 1/60*E[Y_node-46^obs | W, T_node-46=1, S_node-46=0] - 1/60*E[Y_node-46^obs | W, T_node-46=1, S_node-46=1] + 1/60*E[Y_node-47^obs | W, T_node-47=1, S_node-47=0] - 1/60*E[Y_node-47^obs | W, T_node-47=1, S_node-47=1] + 1/60*E[Y_node-48^obs | W, T_node-48=1, S_node-48=0] - 1/60*E[Y_node-48^obs | W, T_node-48=1, S_node-48=1] + 1/60*E[Y_node-49^obs | W, T_node-49=1, S_node-49=0] - 1/60*E[Y_node-49^obs | W, T_node-49=1, S_node-49=1] + 1/60*E[Y_node-50^obs | W, T_node-50=1, S_node-50=0] - 1/60*E[Y_node-50^obs | W, T_node-50=1, S_node-50=1] + 1/60*E[Y_node-51^obs | W, T_node-51=1, S_node-51=0] - 1/60*E[Y_node-51^obs | W, T_node-51=1, S_node-51=1] + 1/60*E[Y_node-52^obs | W, T_node-52=1, S_node-52=0] - 1/60*E[Y_node-52^obs | W, T_node-52=1, S_node-52=1] + 1/60*E[Y_node-53^obs | W, T_node-53=1, S_node-53=0] - 1/60*E[Y_node-53^obs | W, T_node-53=1, S_node-53=1] + 1/60*E[Y_node-54^obs | W, T_node-54=1, S_node-54=0] - 1/60*E[Y_node-54^obs | W, T_node-54=1, S_node-54=1] + 1/60*E[Y_node-55^obs | W, T_node-55=1, S_node-55=0] - 1/60*E[Y_node-55^obs | W, T_node-55=1, S_node-55=1] + 1/60*E[Y_node-56^obs | W, T_node-56=1, S_node-56=0] - 1/60*E[Y_node-56^obs | W, T_node-56=1, S_node-56=1] + 1/60*E[Y_node-57^obs | W, T_node-57=1, S_node-57=0] - 1/60*E[Y_node-57^obs | W, T_node-57=1, S_node-57=1] + 1/60*E[Y_node-58^obs | W, T_node-58=1, S_node-58=0] - 1/60*E[Y_node-58^obs | W, T_node-58=1, S_node-58=1] + 1/60*E[Y_node-59^obs | W, T_node-59=1, S_node-59=0] - 1/60*E[Y_node-59^obs | W, T_node-59=1, S_node-59=1]",
               "target_fingerprint": "58385584627f0a9ab71eb4b70067753d27446095015939dc716979203910d8c1",
-              "source_batch_sha256": "056e605af287206c76ad1ad820f9f27a764792293e64435b55af4559354a0fd1",
+              "source_batch_sha256": "ad3f16ce6c29aa0642e4ac35303f35566cf3bd49e935bd0abbafafa92d5342e3",
               "a4_source_id": "reviewed_effect_source_0",
               "constituent_arms": [
                 {
@@ -1303,7 +1303,7 @@
                 "known_assignment_law"
               ],
               "validity_note": "All nonzero constituent arms must have verified positive q-support; all refer to the same W/q/g; a reviewed population observable must supply every conditional arm mean.",
-              "certificate_sha256": "18f6e8ae4346cf024508c08866d9165f7e56dab666bd199c3b244c59c1968db0",
+              "certificate_sha256": "830402eea88ba1df61c5d07b40fb9da0192b5eb8683145c04b6520eb089cf5a2",
               "estimation_request": null
             }
           ],
@@ -1595,8 +1595,8 @@
             "certificate": {
               "verification_status": "VERIFIED",
               "query_count": 1,
-              "source_batch_sha256": "056e605af287206c76ad1ad820f9f27a764792293e64435b55af4559354a0fd1",
-              "bundle_sha256": "c7c800599e08bb79e8621fcf1bc035ae09e90e1a8805802f43274184e87ff487",
+              "source_batch_sha256": "ad3f16ce6c29aa0642e4ac35303f35566cf3bd49e935bd0abbafafa92d5342e3",
+              "bundle_sha256": "6c807c6f3d585bef8601adfcb6c48406b8a2783dec73e5291a34b12e28ad8b00",
               "results": [
                 {
                   "status": "POINT",
@@ -1605,7 +1605,7 @@
                   "term_count": 120,
                   "identified_functional": "1/60*E[Y_node-0^obs | W, T_node-0=1, S_node-0=0] - 1/60*E[Y_node-0^obs | W, T_node-0=1, S_node-0=1] + 1/60*E[Y_node-1^obs | W, T_node-1=1, S_node-1=0] - 1/60*E[Y_node-1^obs | W, T_node-1=1, S_node-1=1] + 1/60*E[Y_node-2^obs | W, T_node-2=1, S_node-2=0] - 1/60*E[Y_node-2^obs | W, T_node-2=1, S_node-2=1] + 1/60*E[Y_node-3^obs | W, T_node-3=1, S_node-3=0] - 1/60*E[Y_node-3^obs | W, T_node-3=1, S_node-3=1] + 1/60*E[Y_node-4^obs | W, T_node-4=1, S_node-4=0] - 1/60*E[Y_node-4^obs | W, T_node-4=1, S_node-4=1] + 1/60*E[Y_node-5^obs | W, T_node-5=1, S_node-5=0] - 1/60*E[Y_node-5^obs | W, T_node-5=1, S_node-5=1] + 1/60*E[Y_node-6^obs | W, T_node-6=1, S_node-6=0] - 1/60*E[Y_node-6^obs | W, T_node-6=1, S_node-6=1] + 1/60*E[Y_node-7^obs | W, T_node-7=1, S_node-7=0] - 1/60*E[Y_node-7^obs | W, T_node-7=1, S_node-7=1] + 1/60*E[Y_node-8^obs | W, T_node-8=1, S_node-8=0] - 1/60*E[Y_node-8^obs | W, T_node-8=1, S_node-8=1] + 1/60*E[Y_node-9^obs | W, T_node-9=1, S_node-9=0] - 1/60*E[Y_node-9^obs | W, T_node-9=1, S_node-9=1] + 1/60*E[Y_node-10^obs | W, T_node-10=1, S_node-10=0] - 1/60*E[Y_node-10^obs | W, T_node-10=1, S_node-10=1] + 1/60*E[Y_node-11^obs | W, T_node-11=1, S_node-11=0] - 1/60*E[Y_node-11^obs | W, T_node-11=1, S_node-11=1] + 1/60*E[Y_node-12^obs | W, T_node-12=1, S_node-12=0] - 1/60*E[Y_node-12^obs | W, T_node-12=1, S_node-12=1] + 1/60*E[Y_node-13^obs | W, T_node-13=1, S_node-13=0] - 1/60*E[Y_node-13^obs | W, T_node-13=1, S_node-13=1] + 1/60*E[Y_node-14^obs | W, T_node-14=1, S_node-14=0] - 1/60*E[Y_node-14^obs | W, T_node-14=1, S_node-14=1] + 1/60*E[Y_node-15^obs | W, T_node-15=1, S_node-15=0] - 1/60*E[Y_node-15^obs | W, T_node-15=1, S_node-15=1] + 1/60*E[Y_node-16^obs | W, T_node-16=1, S_node-16=0] - 1/60*E[Y_node-16^obs | W, T_node-16=1, S_node-16=1] + 1/60*E[Y_node-17^obs | W, T_node-17=1, S_node-17=0] - 1/60*E[Y_node-17^obs | W, T_node-17=1, S_node-17=1] + 1/60*E[Y_node-18^obs | W, T_node-18=1, S_node-18=0] - 1/60*E[Y_node-18^obs | W, T_node-18=1, S_node-18=1] + 1/60*E[Y_node-19^obs | W, T_node-19=1, S_node-19=0] - 1/60*E[Y_node-19^obs | W, T_node-19=1, S_node-19=1] + 1/60*E[Y_node-20^obs | W, T_node-20=1, S_node-20=0] - 1/60*E[Y_node-20^obs | W, T_node-20=1, S_node-20=1] + 1/60*E[Y_node-21^obs | W, T_node-21=1, S_node-21=0] - 1/60*E[Y_node-21^obs | W, T_node-21=1, S_node-21=1] + 1/60*E[Y_node-22^obs | W, T_node-22=1, S_node-22=0] - 1/60*E[Y_node-22^obs | W, T_node-22=1, S_node-22=1] + 1/60*E[Y_node-23^obs | W, T_node-23=1, S_node-23=0] - 1/60*E[Y_node-23^obs | W, T_node-23=1, S_node-23=1] + 1/60*E[Y_node-24^obs | W, T_node-24=1, S_node-24=0] - 1/60*E[Y_node-24^obs | W, T_node-24=1, S_node-24=1] + 1/60*E[Y_node-25^obs | W, T_node-25=1, S_node-25=0] - 1/60*E[Y_node-25^obs | W, T_node-25=1, S_node-25=1] + 1/60*E[Y_node-26^obs | W, T_node-26=1, S_node-26=0] - 1/60*E[Y_node-26^obs | W, T_node-26=1, S_node-26=1] + 1/60*E[Y_node-27^obs | W, T_node-27=1, S_node-27=0] - 1/60*E[Y_node-27^obs | W, T_node-27=1, S_node-27=1] + 1/60*E[Y_node-28^obs | W, T_node-28=1, S_node-28=0] - 1/60*E[Y_node-28^obs | W, T_node-28=1, S_node-28=1] + 1/60*E[Y_node-29^obs | W, T_node-29=1, S_node-29=0] - 1/60*E[Y_node-29^obs | W, T_node-29=1, S_node-29=1] + 1/60*E[Y_node-30^obs | W, T_node-30=1, S_node-30=0] - 1/60*E[Y_node-30^obs | W, T_node-30=1, S_node-30=1] + 1/60*E[Y_node-31^obs | W, T_node-31=1, S_node-31=0] - 1/60*E[Y_node-31^obs | W, T_node-31=1, S_node-31=1] + 1/60*E[Y_node-32^obs | W, T_node-32=1, S_node-32=0] - 1/60*E[Y_node-32^obs | W, T_node-32=1, S_node-32=1] + 1/60*E[Y_node-33^obs | W, T_node-33=1, S_node-33=0] - 1/60*E[Y_node-33^obs | W, T_node-33=1, S_node-33=1] + 1/60*E[Y_node-34^obs | W, T_node-34=1, S_node-34=0] - 1/60*E[Y_node-34^obs | W, T_node-34=1, S_node-34=1] + 1/60*E[Y_node-35^obs | W, T_node-35=1, S_node-35=0] - 1/60*E[Y_node-35^obs | W, T_node-35=1, S_node-35=1] + 1/60*E[Y_node-36^obs | W, T_node-36=1, S_node-36=0] - 1/60*E[Y_node-36^obs | W, T_node-36=1, S_node-36=1] + 1/60*E[Y_node-37^obs | W, T_node-37=1, S_node-37=0] - 1/60*E[Y_node-37^obs | W, T_node-37=1, S_node-37=1] + 1/60*E[Y_node-38^obs | W, T_node-38=1, S_node-38=0] - 1/60*E[Y_node-38^obs | W, T_node-38=1, S_node-38=1] + 1/60*E[Y_node-39^obs | W, T_node-39=1, S_node-39=0] - 1/60*E[Y_node-39^obs | W, T_node-39=1, S_node-39=1] + 1/60*E[Y_node-40^obs | W, T_node-40=1, S_node-40=0] - 1/60*E[Y_node-40^obs | W, T_node-40=1, S_node-40=1] + 1/60*E[Y_node-41^obs | W, T_node-41=1, S_node-41=0] - 1/60*E[Y_node-41^obs | W, T_node-41=1, S_node-41=1] + 1/60*E[Y_node-42^obs | W, T_node-42=1, S_node-42=0] - 1/60*E[Y_node-42^obs | W, T_node-42=1, S_node-42=1] + 1/60*E[Y_node-43^obs | W, T_node-43=1, S_node-43=0] - 1/60*E[Y_node-43^obs | W, T_node-43=1, S_node-43=1] + 1/60*E[Y_node-44^obs | W, T_node-44=1, S_node-44=0] - 1/60*E[Y_node-44^obs | W, T_node-44=1, S_node-44=1] + 1/60*E[Y_node-45^obs | W, T_node-45=1, S_node-45=0] - 1/60*E[Y_node-45^obs | W, T_node-45=1, S_node-45=1] + 1/60*E[Y_node-46^obs | W, T_node-46=1, S_node-46=0] - 1/60*E[Y_node-46^obs | W, T_node-46=1, S_node-46=1] + 1/60*E[Y_node-47^obs | W, T_node-47=1, S_node-47=0] - 1/60*E[Y_node-47^obs | W, T_node-47=1, S_node-47=1] + 1/60*E[Y_node-48^obs | W, T_node-48=1, S_node-48=0] - 1/60*E[Y_node-48^obs | W, T_node-48=1, S_node-48=1] + 1/60*E[Y_node-49^obs | W, T_node-49=1, S_node-49=0] - 1/60*E[Y_node-49^obs | W, T_node-49=1, S_node-49=1] + 1/60*E[Y_node-50^obs | W, T_node-50=1, S_node-50=0] - 1/60*E[Y_node-50^obs | W, T_node-50=1, S_node-50=1] + 1/60*E[Y_node-51^obs | W, T_node-51=1, S_node-51=0] - 1/60*E[Y_node-51^obs | W, T_node-51=1, S_node-51=1] + 1/60*E[Y_node-52^obs | W, T_node-52=1, S_node-52=0] - 1/60*E[Y_node-52^obs | W, T_node-52=1, S_node-52=1] + 1/60*E[Y_node-53^obs | W, T_node-53=1, S_node-53=0] - 1/60*E[Y_node-53^obs | W, T_node-53=1, S_node-53=1] + 1/60*E[Y_node-54^obs | W, T_node-54=1, S_node-54=0] - 1/60*E[Y_node-54^obs | W, T_node-54=1, S_node-54=1] + 1/60*E[Y_node-55^obs | W, T_node-55=1, S_node-55=0] - 1/60*E[Y_node-55^obs | W, T_node-55=1, S_node-55=1] + 1/60*E[Y_node-56^obs | W, T_node-56=1, S_node-56=0] - 1/60*E[Y_node-56^obs | W, T_node-56=1, S_node-56=1] + 1/60*E[Y_node-57^obs | W, T_node-57=1, S_node-57=0] - 1/60*E[Y_node-57^obs | W, T_node-57=1, S_node-57=1] + 1/60*E[Y_node-58^obs | W, T_node-58=1, S_node-58=0] - 1/60*E[Y_node-58^obs | W, T_node-58=1, S_node-58=1] + 1/60*E[Y_node-59^obs | W, T_node-59=1, S_node-59=0] - 1/60*E[Y_node-59^obs | W, T_node-59=1, S_node-59=1]",
                   "target_fingerprint": "58385584627f0a9ab71eb4b70067753d27446095015939dc716979203910d8c1",
-                  "source_batch_sha256": "056e605af287206c76ad1ad820f9f27a764792293e64435b55af4559354a0fd1",
+                  "source_batch_sha256": "ad3f16ce6c29aa0642e4ac35303f35566cf3bd49e935bd0abbafafa92d5342e3",
                   "a4_source_id": "reviewed_effect_source_0",
                   "constituent_arms": [
                     {
@@ -2578,14 +2578,14 @@
                     "known_assignment_law"
                   ],
                   "validity_note": "All nonzero constituent arms must have verified positive q-support; all refer to the same W/q/g; a reviewed population observable must supply every conditional arm mean.",
-                  "certificate_sha256": "18f6e8ae4346cf024508c08866d9165f7e56dab666bd199c3b244c59c1968db0",
+                  "certificate_sha256": "830402eea88ba1df61c5d07b40fb9da0192b5eb8683145c04b6520eb089cf5a2",
                   "estimation_request": null
                 }
               ],
               "estimation_request": null
             },
             "independent_replay": true,
-            "reviewed_input_sha256": "f9d26722676f289d4f117a06f4794e1d16615bdb949505fa4305eaee109f0125",
+            "reviewed_input_sha256": "0e54087dfb568b5afb4ad1dfbd9640e33f6fea748fbf8694cd5ff53136415312",
             "native_evidence": {
               "query_type": "EFFECT_BUNDLE",
               "status": "POINT",
@@ -7030,7 +7030,7 @@
                           "source": "Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475"
                         },
                         "qualification_evidence": [
-                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                         ]
                       },
                       "reference_exposure_propensity_upper_bound_fact": null,
@@ -7135,7 +7135,7 @@
                           "confirmed": true,
                           "status": "CERTIFIED",
                           "evidence": [
-                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                           ],
                           "details": "Known pretreatment, node-specific independent Bernoulli probabilities p_i=P(T_i=1|W), fixed for every node; conditioning on T_i=a does not change the neighbors' assignment law. Source: Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475"
                         },
@@ -7145,7 +7145,7 @@
                           "confirmed": true,
                           "status": "CERTIFIED",
                           "evidence": [
-                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                           ],
                           "details": "The complete assignment vector is randomized independently of the full potential-outcome schedule conditional on W. Source: Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475"
                         },
@@ -7155,7 +7155,7 @@
                           "confirmed": true,
                           "status": "CERTIFIED",
                           "evidence": [
-                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                           ],
                           "details": "The observed outcome equals Y_i(T) at the realized full assignment; no exposure-sufficiency condition. Source: Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475"
                         },
@@ -7165,7 +7165,7 @@
                           "confirmed": true,
                           "status": "CERTIFIED",
                           "evidence": [
-                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                           ],
                           "details": "The fixed network and strict-majority grouping were defined before treatment. Source: Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475"
                         },
@@ -7175,7 +7175,7 @@
                           "confirmed": true,
                           "status": "DERIVED",
                           "evidence": [
-                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                           ],
                           "details": "Relevant potential-outcome absolute first moments are finite conditional on W. Source: Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475"
                         }
@@ -7200,7 +7200,7 @@
                             "randomized_arm_observable": {
                               "operator": "NODE_ARM_MEANS",
                               "source_id": "official_randomized_arm_task_constructor_v21",
-                              "provenance": "Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475: Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a",
+                              "provenance": "Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475: Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7",
                               "admission": "CERTIFIED",
                               "availability": "SYMBOLIC_POPULATION_OPERATOR",
                               "node_order": [
@@ -7355,7 +7355,7 @@
                         "policy_fingerprint": null,
                         "response_target_fingerprint": "feb03b7a25d68400357e1293d1e3b6b1da31460325eb1ce19861ae4891eabd98",
                         "evidence": [
-                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                         ],
                         "confidence": 1.0,
                         "alternatives": [],
@@ -7384,7 +7384,7 @@
                     "metadata": {
                       "setting": "D1xE1",
                       "source": "Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475",
-                      "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                      "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                     }
                   },
                   "anchor": {
@@ -11825,7 +11825,7 @@
                             "source": "Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475"
                           },
                           "qualification_evidence": [
-                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                           ]
                         },
                         "reference_exposure_propensity_upper_bound_fact": null,
@@ -11930,7 +11930,7 @@
                             "confirmed": true,
                             "status": "CERTIFIED",
                             "evidence": [
-                              "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                              "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                             ],
                             "details": "Known pretreatment, node-specific independent Bernoulli probabilities p_i=P(T_i=1|W), fixed for every node; conditioning on T_i=a does not change the neighbors' assignment law. Source: Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475"
                           },
@@ -11940,7 +11940,7 @@
                             "confirmed": true,
                             "status": "CERTIFIED",
                             "evidence": [
-                              "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                              "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                             ],
                             "details": "The complete assignment vector is randomized independently of the full potential-outcome schedule conditional on W. Source: Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475"
                           },
@@ -11950,7 +11950,7 @@
                             "confirmed": true,
                             "status": "CERTIFIED",
                             "evidence": [
-                              "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                              "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                             ],
                             "details": "The observed outcome equals Y_i(T) at the realized full assignment; no exposure-sufficiency condition. Source: Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475"
                           },
@@ -11960,7 +11960,7 @@
                             "confirmed": true,
                             "status": "CERTIFIED",
                             "evidence": [
-                              "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                              "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                             ],
                             "details": "The fixed network and strict-majority grouping were defined before treatment. Source: Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475"
                           },
@@ -11970,7 +11970,7 @@
                             "confirmed": true,
                             "status": "DERIVED",
                             "evidence": [
-                              "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                              "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                             ],
                             "details": "Relevant potential-outcome absolute first moments are finite conditional on W. Source: Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475"
                           }
@@ -11995,7 +11995,7 @@
                               "randomized_arm_observable": {
                                 "operator": "NODE_ARM_MEANS",
                                 "source_id": "official_randomized_arm_task_constructor_v21",
-                                "provenance": "Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475: Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a",
+                                "provenance": "Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475: Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7",
                                 "admission": "CERTIFIED",
                                 "availability": "SYMBOLIC_POPULATION_OPERATOR",
                                 "node_order": [
@@ -12150,7 +12150,7 @@
                           "policy_fingerprint": null,
                           "response_target_fingerprint": "feb03b7a25d68400357e1293d1e3b6b1da31460325eb1ce19861ae4891eabd98",
                           "evidence": [
-                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                           ],
                           "confidence": 1.0,
                           "alternatives": [],
@@ -12179,7 +12179,7 @@
                       "metadata": {
                         "setting": "D1xE1",
                         "source": "Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475",
-                        "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                        "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                       }
                     },
                     "result": {
@@ -12200,7 +12200,7 @@
                         "policy_fingerprint": null,
                         "response_target_fingerprint": "feb03b7a25d68400357e1293d1e3b6b1da31460325eb1ce19861ae4891eabd98",
                         "evidence": [
-                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                         ],
                         "confidence": 1.0,
                         "alternatives": [],
@@ -12938,7 +12938,7 @@
                           "node-9": "1/2"
                         },
                         "support_method": "conditional_poisson_binomial_dp",
-                        "source_spec_sha256": "38b2a389c462f9f34e201afba26dba6b9d8e490ff5a369a76962fc64a6d72f61",
+                        "source_spec_sha256": "8d4d9b677f5f4d511af08a6dc9b8fc95373e5bfc7276ecbb02a2797f9d1746f1",
                         "node_degree": 4,
                         "network_size": 60,
                         "query_node_id": "node-0",
@@ -15455,8 +15455,8 @@
                       ]
                     ]
                   ],
-                  "source_spec_sha256": "38b2a389c462f9f34e201afba26dba6b9d8e490ff5a369a76962fc64a6d72f61",
-                  "batch_sha256": "056e605af287206c76ad1ad820f9f27a764792293e64435b55af4559354a0fd1",
+                  "source_spec_sha256": "8d4d9b677f5f4d511af08a6dc9b8fc95373e5bfc7276ecbb02a2797f9d1746f1",
+                  "batch_sha256": "ad3f16ce6c29aa0642e4ac35303f35566cf3bd49e935bd0abbafafa92d5342e3",
                   "coverage_status": "ALL_POINT_IDENTIFIED",
                   "verification_status": "VERIFIED",
                   "contract_version": "randomized-network-full-arm-batch-v1",
@@ -15469,7 +15469,7 @@
                   "admission": "ADMITTED",
                   "availability": "SYMBOLIC_POPULATION_OPERATOR",
                   "regime": "experimental",
-                  "source_spec_fingerprint": "38b2a389c462f9f34e201afba26dba6b9d8e490ff5a369a76962fc64a6d72f61",
+                  "source_spec_fingerprint": "8d4d9b677f5f4d511af08a6dc9b8fc95373e5bfc7276ecbb02a2797f9d1746f1",
                   "network_fingerprint": "a30261236572815ed22da1fd8d57d22ead3cca5cc4a9de52fc846c1b7c189eea",
                   "assignment_law_fingerprint": "95b4a1d4eb902087bda96167963bbedff3feea4b04322324423bb6dafabc786a",
                   "node_order": [
@@ -21496,7 +21496,7 @@
                               "source": "Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475"
                             },
                             "qualification_evidence": [
-                              "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                              "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                             ]
                           },
                           "reference_exposure_propensity_upper_bound_fact": null,
@@ -21601,7 +21601,7 @@
                               "confirmed": true,
                               "status": "CERTIFIED",
                               "evidence": [
-                                "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                                "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                               ],
                               "details": "Known pretreatment, node-specific independent Bernoulli probabilities p_i=P(T_i=1|W), fixed for every node; conditioning on T_i=a does not change the neighbors' assignment law. Source: Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475"
                             },
@@ -21611,7 +21611,7 @@
                               "confirmed": true,
                               "status": "CERTIFIED",
                               "evidence": [
-                                "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                                "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                               ],
                               "details": "The complete assignment vector is randomized independently of the full potential-outcome schedule conditional on W. Source: Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475"
                             },
@@ -21621,7 +21621,7 @@
                               "confirmed": true,
                               "status": "CERTIFIED",
                               "evidence": [
-                                "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                                "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                               ],
                               "details": "The observed outcome equals Y_i(T) at the realized full assignment; no exposure-sufficiency condition. Source: Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475"
                             },
@@ -21631,7 +21631,7 @@
                               "confirmed": true,
                               "status": "CERTIFIED",
                               "evidence": [
-                                "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                                "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                               ],
                               "details": "The fixed network and strict-majority grouping were defined before treatment. Source: Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475"
                             },
@@ -21641,7 +21641,7 @@
                               "confirmed": true,
                               "status": "DERIVED",
                               "evidence": [
-                                "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                                "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                               ],
                               "details": "Relevant potential-outcome absolute first moments are finite conditional on W. Source: Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475"
                             }
@@ -21666,7 +21666,7 @@
                                 "randomized_arm_observable": {
                                   "operator": "NODE_ARM_MEANS",
                                   "source_id": "official_randomized_arm_task_constructor_v21",
-                                  "provenance": "Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475: Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a",
+                                  "provenance": "Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475: Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7",
                                   "admission": "CERTIFIED",
                                   "availability": "SYMBOLIC_POPULATION_OPERATOR",
                                   "node_order": [
@@ -21821,7 +21821,7 @@
                             "policy_fingerprint": null,
                             "response_target_fingerprint": "feb03b7a25d68400357e1293d1e3b6b1da31460325eb1ce19861ae4891eabd98",
                             "evidence": [
-                              "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                              "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                             ],
                             "confidence": 1.0,
                             "alternatives": [],
@@ -21850,7 +21850,7 @@
                         "metadata": {
                           "setting": "D1xE1",
                           "source": "Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475",
-                          "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                          "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                         }
                       },
                       "anchor": {
@@ -26291,7 +26291,7 @@
                                 "source": "Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475"
                               },
                               "qualification_evidence": [
-                                "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                                "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                               ]
                             },
                             "reference_exposure_propensity_upper_bound_fact": null,
@@ -26396,7 +26396,7 @@
                                 "confirmed": true,
                                 "status": "CERTIFIED",
                                 "evidence": [
-                                  "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                                  "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                                 ],
                                 "details": "Known pretreatment, node-specific independent Bernoulli probabilities p_i=P(T_i=1|W), fixed for every node; conditioning on T_i=a does not change the neighbors' assignment law. Source: Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475"
                               },
@@ -26406,7 +26406,7 @@
                                 "confirmed": true,
                                 "status": "CERTIFIED",
                                 "evidence": [
-                                  "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                                  "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                                 ],
                                 "details": "The complete assignment vector is randomized independently of the full potential-outcome schedule conditional on W. Source: Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475"
                               },
@@ -26416,7 +26416,7 @@
                                 "confirmed": true,
                                 "status": "CERTIFIED",
                                 "evidence": [
-                                  "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                                  "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                                 ],
                                 "details": "The observed outcome equals Y_i(T) at the realized full assignment; no exposure-sufficiency condition. Source: Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475"
                               },
@@ -26426,7 +26426,7 @@
                                 "confirmed": true,
                                 "status": "CERTIFIED",
                                 "evidence": [
-                                  "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                                  "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                                 ],
                                 "details": "The fixed network and strict-majority grouping were defined before treatment. Source: Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475"
                               },
@@ -26436,7 +26436,7 @@
                                 "confirmed": true,
                                 "status": "DERIVED",
                                 "evidence": [
-                                  "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                                  "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                                 ],
                                 "details": "Relevant potential-outcome absolute first moments are finite conditional on W. Source: Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475"
                               }
@@ -26461,7 +26461,7 @@
                                   "randomized_arm_observable": {
                                     "operator": "NODE_ARM_MEANS",
                                     "source_id": "official_randomized_arm_task_constructor_v21",
-                                    "provenance": "Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475: Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a",
+                                    "provenance": "Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475: Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7",
                                     "admission": "CERTIFIED",
                                     "availability": "SYMBOLIC_POPULATION_OPERATOR",
                                     "node_order": [
@@ -26616,7 +26616,7 @@
                               "policy_fingerprint": null,
                               "response_target_fingerprint": "feb03b7a25d68400357e1293d1e3b6b1da31460325eb1ce19861ae4891eabd98",
                               "evidence": [
-                                "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                                "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                               ],
                               "confidence": 1.0,
                               "alternatives": [],
@@ -26645,7 +26645,7 @@
                           "metadata": {
                             "setting": "D1xE1",
                             "source": "Reviewed original source locators: src_08b217d7b34c8ba852be2d853c3a0850968ac53b614c78fa370c6cdec8464475",
-                            "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                            "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                           }
                         },
                         "result": {
@@ -26666,7 +26666,7 @@
                             "policy_fingerprint": null,
                             "response_target_fingerprint": "feb03b7a25d68400357e1293d1e3b6b1da31460325eb1ce19861ae4891eabd98",
                             "evidence": [
-                              "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=81ee4c59609c723936ad4b31df80e4c23d957284143a9e83eba455c703916e8a"
+                              "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=e31dab04206ec756b3d154377a04774303a14770a16ae2980bc704a3921c4ac7"
                             ],
                             "confidence": 1.0,
                             "alternatives": [],
@@ -27404,7 +27404,7 @@
                               "node-9": "1/2"
                             },
                             "support_method": "conditional_poisson_binomial_dp",
-                            "source_spec_sha256": "38b2a389c462f9f34e201afba26dba6b9d8e490ff5a369a76962fc64a6d72f61",
+                            "source_spec_sha256": "8d4d9b677f5f4d511af08a6dc9b8fc95373e5bfc7276ecbb02a2797f9d1746f1",
                             "node_degree": 4,
                             "network_size": 60,
                             "query_node_id": "node-0",
@@ -29921,8 +29921,8 @@
                           ]
                         ]
                       ],
-                      "source_spec_sha256": "38b2a389c462f9f34e201afba26dba6b9d8e490ff5a369a76962fc64a6d72f61",
-                      "batch_sha256": "056e605af287206c76ad1ad820f9f27a764792293e64435b55af4559354a0fd1",
+                      "source_spec_sha256": "8d4d9b677f5f4d511af08a6dc9b8fc95373e5bfc7276ecbb02a2797f9d1746f1",
+                      "batch_sha256": "ad3f16ce6c29aa0642e4ac35303f35566cf3bd49e935bd0abbafafa92d5342e3",
                       "coverage_status": "ALL_POINT_IDENTIFIED",
                       "verification_status": "VERIFIED",
                       "contract_version": "randomized-network-full-arm-batch-v1",
@@ -29935,7 +29935,7 @@
                       "admission": "ADMITTED",
                       "availability": "SYMBOLIC_POPULATION_OPERATOR",
                       "regime": "experimental",
-                      "source_spec_fingerprint": "38b2a389c462f9f34e201afba26dba6b9d8e490ff5a369a76962fc64a6d72f61",
+                      "source_spec_fingerprint": "8d4d9b677f5f4d511af08a6dc9b8fc95373e5bfc7276ecbb02a2797f9d1746f1",
                       "network_fingerprint": "a30261236572815ed22da1fd8d57d22ead3cca5cc4a9de52fc846c1b7c189eea",
                       "assignment_law_fingerprint": "95b4a1d4eb902087bda96167963bbedff3feea4b04322324423bb6dafabc786a",
                       "node_order": [
@@ -32616,7 +32616,7 @@
                       "APPLY_EXACT_LINEAR_COEFFICIENTS"
                     ],
                     "target_fingerprint": "58385584627f0a9ab71eb4b70067753d27446095015939dc716979203910d8c1",
-                    "certificate_sha256": "18f6e8ae4346cf024508c08866d9165f7e56dab666bd199c3b244c59c1968db0",
+                    "certificate_sha256": "830402eea88ba1df61c5d07b40fb9da0192b5eb8683145c04b6520eb089cf5a2",
                     "contract_version": "randomized-network-verified-linear-composition-v1.8",
                     "status": "POINT",
                     "verification_status": "VERIFIED",
@@ -32631,7 +32631,7 @@
                     "estimation_request": null
                   }
                 ],
-                "bundle_sha256": "c7c800599e08bb79e8621fcf1bc035ae09e90e1a8805802f43274184e87ff487",
+                "bundle_sha256": "6c807c6f3d585bef8601adfcb6c48406b8a2783dec73e5291a34b12e28ad8b00",
                 "contract_version": "randomized-network-verified-linear-composition-v1.8",
                 "verification_status": "VERIFIED",
                 "estimation_request": null
@@ -32648,7 +32648,7 @@
         "remaining_query_ids": [],
         "result_scope": "SELECTED_QUERY_ONLY",
         "fact_family": "NETWORK_RANDOMIZED_EFFECT_FACTS",
-        "plan_sha256": "bc6966bb081ef9118ef45dab2727c6707ccd97c003876cf111845fb7e21eb4ec",
+        "plan_sha256": "c0d5bacd25a2844756043e3d22a419d5aab4ee0fb2fced444a8846e92a9072d5",
         "attempts": [
           {
             "stage": "ANCHOR",
@@ -32683,14 +32683,14 @@
   ],
   "case_worksheet": {
     "version": "business-dispatch-review-1",
-    "binding_sha256": "fceca18ad40d145c91ea9029dcd32eaa0c54fb6174fb41caa14cf707c78fbcc6",
+    "binding_sha256": "164b97b1ba8ff61029341943d427d9e00040cf820dce27eefeeaadd58c6f5ee5",
     "decisions": {
       "all_business_questions_represented": "PENDING",
       "query_boundaries_and_targets_reviewed": "PENDING"
     },
     "is_approval": false
   },
-  "case_binding_sha256": "fceca18ad40d145c91ea9029dcd32eaa0c54fb6174fb41caa14cf707c78fbcc6",
+  "case_binding_sha256": "164b97b1ba8ff61029341943d427d9e00040cf820dce27eefeeaadd58c6f5ee5",
   "queries": [
     {
       "query_id": "q1",
@@ -32723,7 +32723,7 @@
         "method_matching": "NOT_PERFORMED",
         "query_worksheet": {
           "version": "business-dispatch-review-1",
-          "binding_sha256": "b52c6d170081c0e15bc9ce0f76d74f6a171dd4653f74f491969c891a5e94686c",
+          "binding_sha256": "47357ba1f83ee1f6c61a9254296337757b0e5b9ad0a6be2ec9f4ea17276975b6",
           "decisions": {
             "business_target_and_population": "PENDING",
             "research_structure": "PENDING",
@@ -32842,13 +32842,13 @@
           }
         },
         "remaining_query_ids": [],
-        "intake_sha256": "fceca18ad40d145c91ea9029dcd32eaa0c54fb6174fb41caa14cf707c78fbcc6"
+        "intake_sha256": "164b97b1ba8ff61029341943d427d9e00040cf820dce27eefeeaadd58c6f5ee5"
       }
     }
   ],
   "case_review": {
     "version": "business-dispatch-review-1",
-    "binding_sha256": "fceca18ad40d145c91ea9029dcd32eaa0c54fb6174fb41caa14cf707c78fbcc6",
+    "binding_sha256": "164b97b1ba8ff61029341943d427d9e00040cf820dce27eefeeaadd58c6f5ee5",
     "reviewer": "Independent synthetic protocol reviewer",
     "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.",
     "authority": "SYNTHETIC_TEST",

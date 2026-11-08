@@ -14,10 +14,10 @@
   "result_scope": "SELECTED_QUERY_ONLY",
   "remaining_query_ids": [],
   "fact_family": "NETWORK_POLICY_CONTRAST_FACTS",
-  "request_sha256": "8e4d0d1340dd141a0d3d8e3f2bca354676718a10bf997f9009dd62f4b805c1ce",
+  "request_sha256": "3851c040d3cd61629b8fffe35f66abcbb9500284cdd33125cc9ac340f7a6c4ee",
   "query_review": {
     "version": "business-dispatch-review-1",
-    "binding_sha256": "05346a1041d84cd6779c7c459781634ee204229bb053ec55f49aeabf095e64a6",
+    "binding_sha256": "41a842eb1fe29d9ec0eea0822c5d4a7a49554fa28a493488f61ab84fa00d72e7",
     "reviewer": "Independent synthetic protocol reviewer",
     "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.",
     "authority": "SYNTHETIC_TEST",
@@ -36,7 +36,7 @@
       "applicability": "NOT_CHECKED_BEFORE_SCIENCE_REVIEW",
       "reading_worksheet": {
         "version": "business-dispatch-review-1",
-        "binding_sha256": "0620469ad6b8682efcee27daadafd5b7366b38957068a8c5ab857757184bb8a7",
+        "binding_sha256": "4c795e680b6ef7f0ac0d04dbd462c05d303b28d54935d6e155c66ce3f79161e1",
         "decisions": {
           "target_policy_population_and_weights": "PENDING",
           "network_assignment_and_variable_meaning": "PENDING",
@@ -49,7 +49,7 @@
       },
       "science_worksheet": {
         "version": "business-dispatch-review-1",
-        "binding_sha256": "0620469ad6b8682efcee27daadafd5b7366b38957068a8c5ab857757184bb8a7",
+        "binding_sha256": "4c795e680b6ef7f0ac0d04dbd462c05d303b28d54935d6e155c66ce3f79161e1",
         "decisions": {
           "known_assignment_law": "PENDING",
           "full_vector_randomization": "PENDING",
@@ -79,7 +79,7 @@
   "method_matching": "NOT_CHECKED_BEFORE_SCIENCE_REVIEW",
   "reading_candidate": {
     "version": "network-policy-contrast-reading-1",
-    "reference_context": "c4d4e23635065",
+    "reference_context": "c67375d498a1c",
     "study": {
       "nodes": [
         "甲店",
@@ -496,7 +496,7 @@
     "first": {
       "facts": {
         "version": "network-policy-reading-1",
-        "reference_context": "c4d4e23635065",
+        "reference_context": "c67375d498a1c",
         "study": {
           "source_ids": [
             "src_7a01c2a7e01c4ff85c94c83cd28cc96bec622a538c41def15365b4d0f055e836",
@@ -778,8 +778,8 @@
         }
       },
       "reference_binding": {
-        "context": "c4d4e23635065",
-        "context_sha256": "4d4e236350657273144d7eef014167bc2a8166d70fc62aac439dc77a207817ca",
+        "context": "c67375d498a1c",
+        "context_sha256": "67375d498a1c3ae8bc79d4bc29c5713b1b1b03d81ce70162eb3ced1ac1c6dae1",
         "aliases": {
           "s0001": "src_7a01c2a7e01c4ff85c94c83cd28cc96bec622a538c41def15365b4d0f055e836",
           "s0002": "src_34a5ea7519a1160f7f731ecba48405fb77ed95a915d32551c490dc019d6f9313",
@@ -849,7 +849,7 @@
             ]
           }
         },
-        "original_candidate_sha256": "a90794798212e64ee8267a565eec8b9777e66f1c046876ad28c72c49dea874a1",
+        "original_candidate_sha256": "469f8e68214aef544d54480cb9c88b6bde34bca04a5e06ca091459ad5339a4db",
         "conflicts": [],
         "quotation_occurrence_verified": true,
         "semantic_entailment_verified": false,
@@ -862,7 +862,7 @@
     "second": {
       "facts": {
         "version": "network-policy-reading-1",
-        "reference_context": "c4d4e23635065",
+        "reference_context": "c67375d498a1c",
         "study": {
           "source_ids": [
             "src_7a01c2a7e01c4ff85c94c83cd28cc96bec622a538c41def15365b4d0f055e836",
@@ -1144,8 +1144,8 @@
         }
       },
       "reference_binding": {
-        "context": "c4d4e23635065",
-        "context_sha256": "4d4e236350657273144d7eef014167bc2a8166d70fc62aac439dc77a207817ca",
+        "context": "c67375d498a1c",
+        "context_sha256": "67375d498a1c3ae8bc79d4bc29c5713b1b1b03d81ce70162eb3ced1ac1c6dae1",
         "aliases": {
           "s0001": "src_7a01c2a7e01c4ff85c94c83cd28cc96bec622a538c41def15365b4d0f055e836",
           "s0002": "src_34a5ea7519a1160f7f731ecba48405fb77ed95a915d32551c490dc019d6f9313",
@@ -1215,7 +1215,7 @@
             ]
           }
         },
-        "original_candidate_sha256": "60355072261d749fca9f75f1013cd54258ed4d31e8f9e76ab221e0490d6d8b28",
+        "original_candidate_sha256": "d8abb2ca4dd250da2f95db80b8ed28aa0333af4bf054ebc80044ab8e36aae46e",
         "conflicts": [],
         "quotation_occurrence_verified": true,
         "semantic_entailment_verified": false,
@@ -1370,7 +1370,7 @@
       "result_scope": "SELECTED_QUERY_ONLY",
       "remaining_query_ids": [],
       "fact_family": "NETWORK_FIXED_POLICY_FACTS",
-      "request_sha256": "8e4d0d1340dd141a0d3d8e3f2bca354676718a10bf997f9009dd62f4b805c1ce",
+      "request_sha256": "3851c040d3cd61629b8fffe35f66abcbb9500284cdd33125cc9ac340f7a6c4ee",
       "methods": [
         {
           "method": "MEAN_ORDER_D2_E1",
@@ -1380,7 +1380,7 @@
           "applicability": "NOT_CHECKED_BEFORE_SCIENCE_REVIEW",
           "reading_worksheet": {
             "version": "business-dispatch-review-1",
-            "binding_sha256": "d0139756cb82ba349f2b0d0b841a388871fa09c47446ec618cbcf82d8771fa20",
+            "binding_sha256": "cca8f1e536596fb01b5fe04b6cd9ba3d4b2a663ede5e7f0110465ed2bed52887",
             "decisions": {
               "target_policy_population_and_weights": "PENDING",
               "network_assignment_and_variable_meaning": "PENDING",
@@ -1391,7 +1391,7 @@
           },
           "science_worksheet": {
             "version": "business-dispatch-review-1",
-            "binding_sha256": "d0139756cb82ba349f2b0d0b841a388871fa09c47446ec618cbcf82d8771fa20",
+            "binding_sha256": "cca8f1e536596fb01b5fe04b6cd9ba3d4b2a663ede5e7f0110465ed2bed52887",
             "decisions": {
               "known_assignment_law": "PENDING",
               "full_vector_randomization": "PENDING",
@@ -1421,7 +1421,7 @@
       "method_matching": "NOT_CHECKED_BEFORE_SCIENCE_REVIEW",
       "query_review": {
         "version": "business-dispatch-review-1",
-        "binding_sha256": "05346a1041d84cd6779c7c459781634ee204229bb053ec55f49aeabf095e64a6",
+        "binding_sha256": "41a842eb1fe29d9ec0eea0822c5d4a7a49554fa28a493488f61ab84fa00d72e7",
         "reviewer": "Independent synthetic protocol reviewer",
         "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.",
         "authority": "SYNTHETIC_TEST",
@@ -1433,7 +1433,7 @@
       },
       "facts": {
         "version": "network-policy-reading-1",
-        "reference_context": "c4d4e23635065",
+        "reference_context": "c67375d498a1c",
         "study": {
           "source_ids": [
             "src_7a01c2a7e01c4ff85c94c83cd28cc96bec622a538c41def15365b4d0f055e836",
@@ -1715,8 +1715,8 @@
         }
       },
       "reference_binding": {
-        "context": "c4d4e23635065",
-        "context_sha256": "4d4e236350657273144d7eef014167bc2a8166d70fc62aac439dc77a207817ca",
+        "context": "c67375d498a1c",
+        "context_sha256": "67375d498a1c3ae8bc79d4bc29c5713b1b1b03d81ce70162eb3ced1ac1c6dae1",
         "aliases": {
           "s0001": "src_7a01c2a7e01c4ff85c94c83cd28cc96bec622a538c41def15365b4d0f055e836",
           "s0002": "src_34a5ea7519a1160f7f731ecba48405fb77ed95a915d32551c490dc019d6f9313",
@@ -1786,7 +1786,7 @@
             ]
           }
         },
-        "original_candidate_sha256": "a90794798212e64ee8267a565eec8b9777e66f1c046876ad28c72c49dea874a1",
+        "original_candidate_sha256": "469f8e68214aef544d54480cb9c88b6bde34bca04a5e06ca091459ad5339a4db",
         "conflicts": [],
         "quotation_occurrence_verified": true,
         "semantic_entailment_verified": false,
@@ -1797,7 +1797,7 @@
       },
       "reading_candidate": {
         "version": "network-source-selections-1",
-        "reference_context": "c4d4e23635065",
+        "reference_context": "c67375d498a1c",
         "study": {
           "source_ids": [
             "s0001",
@@ -2313,10 +2313,10 @@
         ],
         "cell_count": 8
       },
-      "plan_sha256": "4d4b0586b7549f397f376039d70f68c9bf983a8cf09dd92e5c679901ea659151",
+      "plan_sha256": "bb3e2e8516db1b9f6a7776fbc171127b08b0f69817bbe384f13850ced0675156",
       "plan_worksheet": {
         "version": "business-dispatch-review-1",
-        "binding_sha256": "4d4b0586b7549f397f376039d70f68c9bf983a8cf09dd92e5c679901ea659151",
+        "binding_sha256": "bb3e2e8516db1b9f6a7776fbc171127b08b0f69817bbe384f13850ced0675156",
         "decisions": {
           "selected_query_matches_native_target": "PENDING",
           "complete_model_and_constraints_preserved": "PENDING",
@@ -2341,7 +2341,7 @@
       "result_scope": "SELECTED_QUERY_ONLY",
       "remaining_query_ids": [],
       "fact_family": "NETWORK_FIXED_POLICY_FACTS",
-      "request_sha256": "8e4d0d1340dd141a0d3d8e3f2bca354676718a10bf997f9009dd62f4b805c1ce",
+      "request_sha256": "3851c040d3cd61629b8fffe35f66abcbb9500284cdd33125cc9ac340f7a6c4ee",
       "methods": [
         {
           "method": "MEAN_ORDER_D2_E1",
@@ -2351,7 +2351,7 @@
           "applicability": "NOT_CHECKED_BEFORE_SCIENCE_REVIEW",
           "reading_worksheet": {
             "version": "business-dispatch-review-1",
-            "binding_sha256": "f48623ab8298ece5fd089e5eab7162ce64e24abe2d5e6b3f1e8565d7bb8388d4",
+            "binding_sha256": "c218c1601f8fd320c183ff1382be958787fdbd281a719ccc4564624134204d21",
             "decisions": {
               "target_policy_population_and_weights": "PENDING",
               "network_assignment_and_variable_meaning": "PENDING",
@@ -2362,7 +2362,7 @@
           },
           "science_worksheet": {
             "version": "business-dispatch-review-1",
-            "binding_sha256": "f48623ab8298ece5fd089e5eab7162ce64e24abe2d5e6b3f1e8565d7bb8388d4",
+            "binding_sha256": "c218c1601f8fd320c183ff1382be958787fdbd281a719ccc4564624134204d21",
             "decisions": {
               "known_assignment_law": "PENDING",
               "full_vector_randomization": "PENDING",
@@ -2392,7 +2392,7 @@
       "method_matching": "NOT_CHECKED_BEFORE_SCIENCE_REVIEW",
       "query_review": {
         "version": "business-dispatch-review-1",
-        "binding_sha256": "05346a1041d84cd6779c7c459781634ee204229bb053ec55f49aeabf095e64a6",
+        "binding_sha256": "41a842eb1fe29d9ec0eea0822c5d4a7a49554fa28a493488f61ab84fa00d72e7",
         "reviewer": "Independent synthetic protocol reviewer",
         "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.",
         "authority": "SYNTHETIC_TEST",
@@ -2404,7 +2404,7 @@
       },
       "facts": {
         "version": "network-policy-reading-1",
-        "reference_context": "c4d4e23635065",
+        "reference_context": "c67375d498a1c",
         "study": {
           "source_ids": [
             "src_7a01c2a7e01c4ff85c94c83cd28cc96bec622a538c41def15365b4d0f055e836",
@@ -2686,8 +2686,8 @@
         }
       },
       "reference_binding": {
-        "context": "c4d4e23635065",
-        "context_sha256": "4d4e236350657273144d7eef014167bc2a8166d70fc62aac439dc77a207817ca",
+        "context": "c67375d498a1c",
+        "context_sha256": "67375d498a1c3ae8bc79d4bc29c5713b1b1b03d81ce70162eb3ced1ac1c6dae1",
         "aliases": {
           "s0001": "src_7a01c2a7e01c4ff85c94c83cd28cc96bec622a538c41def15365b4d0f055e836",
           "s0002": "src_34a5ea7519a1160f7f731ecba48405fb77ed95a915d32551c490dc019d6f9313",
@@ -2757,7 +2757,7 @@
             ]
           }
         },
-        "original_candidate_sha256": "60355072261d749fca9f75f1013cd54258ed4d31e8f9e76ab221e0490d6d8b28",
+        "original_candidate_sha256": "d8abb2ca4dd250da2f95db80b8ed28aa0333af4bf054ebc80044ab8e36aae46e",
         "conflicts": [],
         "quotation_occurrence_verified": true,
         "semantic_entailment_verified": false,
@@ -2768,7 +2768,7 @@
       },
       "reading_candidate": {
         "version": "network-source-selections-1",
-        "reference_context": "c4d4e23635065",
+        "reference_context": "c67375d498a1c",
         "study": {
           "source_ids": [
             "s0001",
@@ -3284,10 +3284,10 @@
         ],
         "cell_count": 8
       },
-      "plan_sha256": "d45997758ff969c5f309417af078d9d5e45b9cb9e06dfa87d1ea6429f8615b87",
+      "plan_sha256": "194c599187e0efe0f896b0cb83ca43c5223528f1fc63697708f67f40c923dbf3",
       "plan_worksheet": {
         "version": "business-dispatch-review-1",
-        "binding_sha256": "d45997758ff969c5f309417af078d9d5e45b9cb9e06dfa87d1ea6429f8615b87",
+        "binding_sha256": "194c599187e0efe0f896b0cb83ca43c5223528f1fc63697708f67f40c923dbf3",
         "decisions": {
           "selected_query_matches_native_target": "PENDING",
           "complete_model_and_constraints_preserved": "PENDING",
@@ -3329,10 +3329,10 @@
     "operation": "first_minus_second"
   },
   "scope_note": "Existing ordered composition / joint finite model; no automatic endpoint interval subtraction.",
-  "plan_sha256": "654d177d4f5b0c669b8fa1d37267f51691e69b78a067667b4d7e465346eed4ea",
+  "plan_sha256": "d75a33c67bd2106c6a2a932a86b937fd657e72bd87fcc6e38763e0f567129230",
   "plan_worksheet": {
     "version": "business-dispatch-review-1",
-    "binding_sha256": "654d177d4f5b0c669b8fa1d37267f51691e69b78a067667b4d7e465346eed4ea",
+    "binding_sha256": "d75a33c67bd2106c6a2a932a86b937fd657e72bd87fcc6e38763e0f567129230",
     "decisions": {
       "selected_query_matches_native_target": "PENDING",
       "complete_model_and_constraints_preserved": "PENDING",

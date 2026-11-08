@@ -186,6 +186,192 @@
       "heldout": false,
       "review_status": "PENDING_TEACHER",
       "status": "PILOT_RUN_COMPLETE"
+    },
+    {
+      "case_id": "LIT-NET-05",
+      "paper_id": "paluck2016_aronow_samii2017",
+      "family": "NETWORK",
+      "title": "朋友被邀请，会改变我的行为吗？",
+      "public_directory": "evaluation/literature_cases/public/LIT-NET-05",
+      "research_directory": "evaluation/literature_cases/research_only/LIT-NET-05",
+      "variants": [
+        {
+          "name": "original",
+          "expected_status": "POINT",
+          "actual_status": "POINT",
+          "actual_source": "actual_outputs.json (saved demo run)"
+        },
+        {
+          "name": "missing_condition",
+          "expected_status": "NEEDS_INPUT",
+          "actual_status": "NOT_RUN",
+          "actual_source": null
+        },
+        {
+          "name": "changed_target",
+          "expected_status": "POINT",
+          "actual_status": "NOT_RUN",
+          "actual_source": null
+        }
+      ],
+      "heldout": false,
+      "review_status": "PENDING_TEACHER",
+      "status": "PILOT_RUN_COMPLETE"
+    },
+    {
+      "case_id": "LIT-NET-06",
+      "paper_id": "beaman2021_seed",
+      "family": "NETWORK",
+      "title": "按两份名单抽签培训，整体采用率会是多少？",
+      "public_directory": "evaluation/literature_cases/public/LIT-NET-06",
+      "research_directory": "evaluation/literature_cases/research_only/LIT-NET-06",
+      "variants": [
+        {
+          "name": "original",
+          "expected_status": "POINT",
+          "actual_status": "POINT",
+          "actual_source": "actual_outputs.json (saved demo run)"
+        },
+        {
+          "name": "missing_condition",
+          "expected_status": "NEEDS_INPUT",
+          "actual_status": "NOT_RUN",
+          "actual_source": null
+        },
+        {
+          "name": "changed_target",
+          "expected_status": "POINT",
+          "actual_status": "NOT_RUN",
+          "actual_source": null
+        }
+      ],
+      "heldout": false,
+      "review_status": "PENDING_TEACHER",
+      "status": "PILOT_RUN_COMPLETE"
+    },
+    {
+      "case_id": "LIT-NET-07",
+      "paper_id": "forastiere2021_network",
+      "family": "NETWORK",
+      "title": "朋友参加学习活动，会影响我的成绩吗？",
+      "public_directory": "evaluation/literature_cases/public/LIT-NET-07",
+      "research_directory": "evaluation/literature_cases/research_only/LIT-NET-07",
+      "variants": [
+        {
+          "name": "original",
+          "expected_status": "POINT",
+          "actual_status": "POINT",
+          "actual_source": "actual_outputs.json (saved demo run)"
+        },
+        {
+          "name": "missing_condition",
+          "expected_status": "NEEDS_INPUT",
+          "actual_status": "NOT_RUN",
+          "actual_source": null
+        },
+        {
+          "name": "changed_target",
+          "expected_status": "POINT",
+          "actual_status": "NOT_RUN",
+          "actual_source": null
+        }
+      ],
+      "heldout": true,
+      "review_status": "PENDING_TEACHER",
+      "status": "PILOT_RUN_COMPLETE"
+    },
+    {
+      "case_id": "LIT-DAG-02",
+      "paper_id": "pearl1995_frontdoor",
+      "family": "DAG",
+      "title": "存在未观测共同原因，还能研究吸烟的作用吗？",
+      "public_directory": "evaluation/literature_cases/public/LIT-DAG-02",
+      "research_directory": "evaluation/literature_cases/research_only/LIT-DAG-02",
+      "variants": [
+        {
+          "name": "original",
+          "expected_status": "POINT",
+          "actual_status": "POINT",
+          "actual_source": "actual_outputs.json (saved demo run)"
+        },
+        {
+          "name": "missing_condition",
+          "expected_status": "NEEDS_INPUT",
+          "actual_status": "NOT_RUN",
+          "actual_source": null
+        },
+        {
+          "name": "changed_target",
+          "expected_status": "UNSUPPORTED",
+          "actual_status": "NOT_RUN",
+          "actual_source": null
+        }
+      ],
+      "heldout": true,
+      "review_status": "PENDING_TEACHER",
+      "status": "PILOT_RUN_COMPLETE"
+    },
+    {
+      "case_id": "LIT-NET-08",
+      "paper_id": "tchetgen_fulcher_shpitser2021_autog",
+      "family": "NETWORK",
+      "title": "Auto-G 网络干预案例",
+      "public_directory": "evaluation/literature_cases/public/LIT-NET-08",
+      "research_directory": "evaluation/literature_cases/research_only/LIT-NET-08",
+      "variants": [
+        {
+          "name": "original",
+          "expected_status": "UNSUPPORTED",
+          "actual_status": "UNSUPPORTED",
+          "actual_source": "capability_check.json (2026-11-08)"
+        },
+        {
+          "name": "missing_condition",
+          "expected_status": "UNSUPPORTED",
+          "actual_status": "UNSUPPORTED",
+          "actual_source": "capability_check.json (2026-11-08)"
+        },
+        {
+          "name": "changed_target",
+          "expected_status": "UNSUPPORTED",
+          "actual_status": "UNSUPPORTED",
+          "actual_source": "capability_check.json (2026-11-08)"
+        }
+      ],
+      "heldout": true,
+      "review_status": "PENDING_TEACHER",
+      "status": "PILOT_UNSUPPORTED_RECORDED"
+    },
+    {
+      "case_id": "LIT-IV-02",
+      "paper_id": "balke_pearl1997_bounds",
+      "family": "IV",
+      "title": "Balke–Pearl ATE 界限案例",
+      "public_directory": "evaluation/literature_cases/public/LIT-IV-02",
+      "research_directory": "evaluation/literature_cases/research_only/LIT-IV-02",
+      "variants": [
+        {
+          "name": "original",
+          "expected_status": "UNSUPPORTED",
+          "actual_status": "UNSUPPORTED",
+          "actual_source": "capability_check.json (2026-11-08)"
+        },
+        {
+          "name": "missing_condition",
+          "expected_status": "UNSUPPORTED",
+          "actual_status": "UNSUPPORTED",
+          "actual_source": "capability_check.json (2026-11-08)"
+        },
+        {
+          "name": "changed_target",
+          "expected_status": "UNSUPPORTED",
+          "actual_status": "UNSUPPORTED",
+          "actual_source": "capability_check.json (2026-11-08)"
+        }
+      ],
+      "heldout": true,
+      "review_status": "PENDING_TEACHER",
+      "status": "PILOT_UNSUPPORTED_RECORDED"
     }
   ]
 }

@@ -66,7 +66,7 @@ def check_case(entry: dict) -> list[str]:
 def check_network(case_dir: Path) -> dict:
     units_path = case_dir / "units.csv"
     if not units_path.is_file():
-        return {"error": "units.csv missing"}
+        return {"not_applicable": "no units.csv; source-only exported case"}
     units = [row["unit_id"] for row in read_csv(units_path)]
     edge_name = "network_edges.csv" if (case_dir / "network_edges.csv").is_file() else "network_partial.csv"
     edge_path = case_dir / edge_name

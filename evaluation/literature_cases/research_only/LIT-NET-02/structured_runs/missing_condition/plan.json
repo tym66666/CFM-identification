@@ -16,10 +16,10 @@
   "result_scope": "SELECTED_QUERY_ONLY",
   "remaining_query_ids": [],
   "fact_family": "NETWORK_RANDOMIZED_EFFECT_FACTS",
-  "request_sha256": "b6feba19a90c239dd49ad71f336f68cf1c7dea085a0823d908aa4252bca84d04",
+  "request_sha256": "591b70bd9fb4c706246b456c6d040270f4ad6bd5a521bbed68e289dbc106fb6d",
   "query_review": {
     "version": "business-dispatch-review-1",
-    "binding_sha256": "749020923bc3fb5d23319dd7b035b717e85126715eee79bb8c2930145196cfe9",
+    "binding_sha256": "3fc05646139786046a65cd012026a3d2cb2756a44b8ce24a36a7457732841423",
     "reviewer": "Independent synthetic protocol reviewer",
     "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.",
     "authority": "SYNTHETIC_TEST",
@@ -34,7 +34,7 @@
   "method_matching": "NOT_CHECKED_BEFORE_SCIENCE_REVIEW",
   "facts": {
     "version": "network-randomized-effect-reading-1",
-    "reference_context": "cbe6db32c7a9d",
+    "reference_context": "c7a2c142362fe",
     "study": {
       "source_ids": [
         "src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402",
@@ -270,8 +270,8 @@
     "unresolved": []
   },
   "reference_binding": {
-    "context": "cbe6db32c7a9d",
-    "context_sha256": "be6db32c7a9d4cf36f059f51bfbdc04a5a3944f745d9c0c57a65b3526148ef74",
+    "context": "c7a2c142362fe",
+    "context_sha256": "7a2c142362fe075bf7243217b7029cad92b9856abaf0634bfd962e5524c0a8b7",
     "aliases": {
       "s0001": {
         "source_id": "src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402",
@@ -376,7 +376,7 @@
   },
   "reading_candidate": {
     "version": "network-randomized-effect-reading-1",
-    "reference_context": "cbe6db32c7a9d",
+    "reference_context": "c7a2c142362fe",
     "study": {
       "nodes": [
         "甲1",

@@ -1,0 +1,18 @@
+{
+  "case_id": "LIT-NET-08",
+  "variant": "original",
+  "paper_id": "tchetgen_fulcher_shpitser2021_autog",
+  "title": "Auto-G 网络干预案例",
+  "synthetic": true,
+  "gold_oracle_location": "OUTSIDE_PUBLIC_CASE_DIRECTORY",
+  "llm_access_scope": "PUBLIC_CASE_FILES_ONLY",
+  "business_question_file": "business_question.md",
+  "supporting_files": [
+    "study_protocol.md",
+    "data_dictionary.md",
+    "units.csv",
+    "network_edges.csv"
+  ],
+  "heldout": true,
+  "notes": "当前仓库没有 Auto-G 后端；不是论文数据复现。"
+}

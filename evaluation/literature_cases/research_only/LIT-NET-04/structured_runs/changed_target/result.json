@@ -55,7 +55,7 @@
   "certificate": {
     "version": "mean-order-d2-e1-1",
     "theorem": "FINITE_MEAN_ORDER_PRIMAL_DUAL",
-    "input_sha256": "13fbf423060946e7c2ffc99f0a7069230d65c01090960a7841ec070e25a285bb",
+    "input_sha256": "3ffa25b8481cf98306f458199ba2f3e778139a1af56f88a12796752994af3bf0",
     "model_scope": "SIGNATURE_MEANS_NODE_BOUNDS_AND_DECLARED_ORDERS_ONLY",
     "scientific_approval": false,
     "production_admission": false,
@@ -241,7 +241,7 @@
       "a4_upper:[\"甲店\",1,0]": "1"
     },
     "realization": "COMMON_UNIFORM_PER_NODE",
-    "certificate_sha256": "9664fc97f8ab5297030901b060a7aa11564de4ee270ae656aac61314da9e9fc8"
+    "certificate_sha256": "3ceb9fa015b7d04730017db0ac6d1ce7ece732b7bdc07768ab06c3b771e56708"
   },
   "answers": [
     {
@@ -298,7 +298,7 @@
       "certificate": {
         "version": "mean-order-d2-e1-1",
         "theorem": "FINITE_MEAN_ORDER_PRIMAL_DUAL",
-        "input_sha256": "13fbf423060946e7c2ffc99f0a7069230d65c01090960a7841ec070e25a285bb",
+        "input_sha256": "3ffa25b8481cf98306f458199ba2f3e778139a1af56f88a12796752994af3bf0",
         "model_scope": "SIGNATURE_MEANS_NODE_BOUNDS_AND_DECLARED_ORDERS_ONLY",
         "scientific_approval": false,
         "production_admission": false,
@@ -484,7 +484,7 @@
           "a4_upper:[\"甲店\",1,0]": "1"
         },
         "realization": "COMMON_UNIFORM_PER_NODE",
-        "certificate_sha256": "9664fc97f8ab5297030901b060a7aa11564de4ee270ae656aac61314da9e9fc8"
+        "certificate_sha256": "3ceb9fa015b7d04730017db0ac6d1ce7ece732b7bdc07768ab06c3b771e56708"
       },
       "native_evidence": {
         "problem": {
@@ -610,7 +610,7 @@
             }
           ],
           "a4_source": "Source table: fb0010583f18aa8cad2cf416895a36f5e666016de26d2fea87a6a38e533df26f",
-          "a4_provenance": "Reviewed source/target/science plan: 654d177d4f5b0c669b8fa1d37267f51691e69b78a067667b4d7e465346eed4ea; exact information: ad95044d2c3403c3537b001902cc83f2a7965d0efc4c9bd95d733b8a10d2683c",
+          "a4_provenance": "Reviewed source/target/science plan: d75a33c67bd2106c6a2a932a86b937fd657e72bd87fcc6e38763e0f567129230; exact information: ad95044d2c3403c3537b001902cc83f2a7965d0efc4c9bd95d733b8a10d2683c",
           "bounds": [
             {
               "node": "甲店",
@@ -635,7 +635,7 @@
           ],
           "bounds_kind": "CONDITIONAL_MEAN",
           "bounds_scope": "ALL_BINARY_ASSIGNMENTS_CONDITIONAL_ON_STUDY_CONTEXT",
-          "bounds_provenance": "Reviewed source/target/science plan: 654d177d4f5b0c669b8fa1d37267f51691e69b78a067667b4d7e465346eed4ea; bounds: 0c76c61102c6fff64e87a6715410be5b6852ccd5243cdbecb74f9e46c0fd7ccc",
+          "bounds_provenance": "Reviewed source/target/science plan: d75a33c67bd2106c6a2a932a86b937fd657e72bd87fcc6e38763e0f567129230; bounds: 0c76c61102c6fff64e87a6715410be5b6852ccd5243cdbecb74f9e46c0fd7ccc",
           "first": [
             1,
             1,
@@ -655,13 +655,13 @@
             "0"
           ],
           "operation": "FIRST_MINUS_SECOND",
-          "scientific_provenance": "Reviewed source/target/science plan: 654d177d4f5b0c669b8fa1d37267f51691e69b78a067667b4d7e465346eed4ea; per-axis review: 452b4d2cccb4cc869221e5ebe1b0f06fbefbae324e5a769acb02de0db6fc3fc3"
+          "scientific_provenance": "Reviewed source/target/science plan: d75a33c67bd2106c6a2a932a86b937fd657e72bd87fcc6e38763e0f567129230; per-axis review: 452b4d2cccb4cc869221e5ebe1b0f06fbefbae324e5a769acb02de0db6fc3fc3"
         },
         "review": {
           "version": "mean-order-d2-e1-1",
-          "problem_sha256": "13fbf423060946e7c2ffc99f0a7069230d65c01090960a7841ec070e25a285bb",
+          "problem_sha256": "3ffa25b8481cf98306f458199ba2f3e778139a1af56f88a12796752994af3bf0",
           "reviewer": "Independent synthetic protocol reviewer",
-          "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; checked common review: 0620469ad6b8682efcee27daadafd5b7366b38957068a8c5ab857757184bb8a7",
+          "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; checked common review: 4c795e680b6ef7f0ac0d04dbd462c05d303b28d54935d6e155c66ce3f79161e1",
           "reviewed_target_direction_population": true,
           "reviewed_complete_a4_and_no_unmodeled_constraints": true,
           "reviewed_base_assumptions_and_all_arrangement_scope": true,
@@ -669,7 +669,7 @@
           "synthetic_fixture": true
         }
       },
-      "reviewed_input_sha256": "13fbf423060946e7c2ffc99f0a7069230d65c01090960a7841ec070e25a285bb",
+      "reviewed_input_sha256": "3ffa25b8481cf98306f458199ba2f3e778139a1af56f88a12796752994af3bf0",
       "independent_replay": true
     }
   ],
@@ -681,7 +681,7 @@
   "result_scope": "SELECTED_QUERY_ONLY",
   "remaining_query_ids": [],
   "fact_family": "NETWORK_POLICY_CONTRAST_FACTS",
-  "plan_sha256": "654d177d4f5b0c669b8fa1d37267f51691e69b78a067667b4d7e465346eed4ea",
+  "plan_sha256": "d75a33c67bd2106c6a2a932a86b937fd657e72bd87fcc6e38763e0f567129230",
   "attempts": [],
   "primary_method": "MEAN_ORDER_D2_E1",
   "partial_fallback_performed": false

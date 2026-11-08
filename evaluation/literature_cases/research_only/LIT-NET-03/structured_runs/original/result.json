@@ -56,7 +56,7 @@
   "certificate": {
     "version": "bounded-policy-mean-1",
     "theorem": "FINITE_SIGNATURE_MEAN_BOX",
-    "input_sha256": "0abbcf2eae0efa084d7eb775a4b87274cf502478363720d5c066c465327290a8",
+    "input_sha256": "dd82cca6264465e60f6c6441406220eb387d89d4fa581c1a7b141fa364c59424",
     "target_sha256": "fd50019f12c0745ebbf72721697ffc043042c1ebc88fbbdba2c234780f64dd01",
     "status": "PARTIAL",
     "lower": "3/7",
@@ -461,7 +461,7 @@
     "realization": "BERNOULLI_PER_NODE_SIGNATURE",
     "production_admission": false,
     "estimation_handoff_allowed": false,
-    "certificate_sha256": "a8e25da5bbecab2fe7aba640e27b6ba2764d516544d4c2fc23be7d1b1fb90eca"
+    "certificate_sha256": "53c323501d0983775640d8d68a802083e66dcd16c30cc70d1fa27f0aa5701fbf"
   },
   "answers": [
     {
@@ -519,7 +519,7 @@
       "certificate": {
         "version": "bounded-policy-mean-1",
         "theorem": "FINITE_SIGNATURE_MEAN_BOX",
-        "input_sha256": "0abbcf2eae0efa084d7eb775a4b87274cf502478363720d5c066c465327290a8",
+        "input_sha256": "dd82cca6264465e60f6c6441406220eb387d89d4fa581c1a7b141fa364c59424",
         "target_sha256": "fd50019f12c0745ebbf72721697ffc043042c1ebc88fbbdba2c234780f64dd01",
         "status": "PARTIAL",
         "lower": "3/7",
@@ -924,7 +924,7 @@
         "realization": "BERNOULLI_PER_NODE_SIGNATURE",
         "production_admission": false,
         "estimation_handoff_allowed": false,
-        "certificate_sha256": "a8e25da5bbecab2fe7aba640e27b6ba2764d516544d4c2fc23be7d1b1fb90eca"
+        "certificate_sha256": "53c323501d0983775640d8d68a802083e66dcd16c30cc70d1fa27f0aa5701fbf"
       },
       "native_evidence": {
         "inquiry": {
@@ -1026,7 +1026,7 @@
                 "Reviewed original source locators: src_59fc705ea1fbed4a332e400c3ca2efa442168015dfca75452d5711cf3425c40b",
                 "Independent synthetic protocol reviewer",
                 "Frozen hypothetical target and declared model independently stipulated; no real-world approval.",
-                "review_binding:5b71969f780e8dbd2422370c323aec0f3a86d978e50dcfcfda675666ad9a1fc3"
+                "review_binding:dbdc9c0f5cc70c6ea9e28f3a10b604466515b9001da6199b2c3da273cd73b145"
               ],
               "details": ""
             },
@@ -1039,7 +1039,7 @@
                 "Reviewed original source locators: src_59fc705ea1fbed4a332e400c3ca2efa442168015dfca75452d5711cf3425c40b",
                 "Independent synthetic protocol reviewer",
                 "Frozen hypothetical target and declared model independently stipulated; no real-world approval.",
-                "review_binding:5b71969f780e8dbd2422370c323aec0f3a86d978e50dcfcfda675666ad9a1fc3"
+                "review_binding:dbdc9c0f5cc70c6ea9e28f3a10b604466515b9001da6199b2c3da273cd73b145"
               ],
               "details": ""
             },
@@ -1052,7 +1052,7 @@
                 "Reviewed original source locators: src_59fc705ea1fbed4a332e400c3ca2efa442168015dfca75452d5711cf3425c40b",
                 "Independent synthetic protocol reviewer",
                 "Frozen hypothetical target and declared model independently stipulated; no real-world approval.",
-                "review_binding:5b71969f780e8dbd2422370c323aec0f3a86d978e50dcfcfda675666ad9a1fc3"
+                "review_binding:dbdc9c0f5cc70c6ea9e28f3a10b604466515b9001da6199b2c3da273cd73b145"
               ],
               "details": ""
             },
@@ -1065,7 +1065,7 @@
                 "Reviewed original source locators: src_59fc705ea1fbed4a332e400c3ca2efa442168015dfca75452d5711cf3425c40b",
                 "Independent synthetic protocol reviewer",
                 "Frozen hypothetical target and declared model independently stipulated; no real-world approval.",
-                "review_binding:5b71969f780e8dbd2422370c323aec0f3a86d978e50dcfcfda675666ad9a1fc3"
+                "review_binding:dbdc9c0f5cc70c6ea9e28f3a10b604466515b9001da6199b2c3da273cd73b145"
               ],
               "details": ""
             },
@@ -1078,7 +1078,7 @@
                 "Reviewed original source locators: src_59fc705ea1fbed4a332e400c3ca2efa442168015dfca75452d5711cf3425c40b",
                 "Independent synthetic protocol reviewer",
                 "Frozen hypothetical target and declared model independently stipulated; no real-world approval.",
-                "review_binding:5b71969f780e8dbd2422370c323aec0f3a86d978e50dcfcfda675666ad9a1fc3"
+                "review_binding:dbdc9c0f5cc70c6ea9e28f3a10b604466515b9001da6199b2c3da273cd73b145"
               ],
               "details": ""
             }
@@ -1113,7 +1113,7 @@
                 "Reviewed original source locators: src_47a34a4f5da9213ff0d41884378430fbbfa17cb06fd5f4d6ce4ecaea85047651",
                 "Independent synthetic protocol reviewer",
                 "Frozen hypothetical target and declared model independently stipulated; no real-world approval.",
-                "review_binding:5b71969f780e8dbd2422370c323aec0f3a86d978e50dcfcfda675666ad9a1fc3"
+                "review_binding:dbdc9c0f5cc70c6ea9e28f3a10b604466515b9001da6199b2c3da273cd73b145"
               ],
               "details": ""
             }
@@ -1190,7 +1190,7 @@
         },
         "information": {
           "version": "bounded-policy-mean-1",
-          "inquiry_sha256": "58086d1b443a2d39afddf4922aa7b9c07db26938efb74427e8d2f0445721665c",
+          "inquiry_sha256": "5c00e92109acf0c37fe573a21429ba9b47e55c9cbd3f0cd7716076ac5f3cdd9a",
           "source_id": "source_fc75b9d1c28c73f2397fc9a803f3a020ce4ae51bcf275e2495370eafb7a5b148",
           "source_sha256": "bf1b03edf44e709207caa55674910db5a94203351b5e169e3a9fa8ff843b61d5",
           "information_scope": "EXACT_LISTED_SIGNATURE_MEANS_ONLY",
@@ -1282,12 +1282,12 @@
           "outcome_definition": "本周任务按时完成记1、未完成记0",
           "outcome_unit": "0/1指标",
           "outcome_period": "本周",
-          "a4_provenance": "Reviewed exact source locators: 8e5fad292d606f95cc75a61fe2b1048376dd592fe26b7c56faebc008848bfc83; plan:08e8a6b2a63f800ab9beb7e0160ebb2eb89a39f30a2a61fc3e8fdc145fa628cd",
-          "bounds_provenance": "Reviewed bound/model source locators: 42fc01752d9fd2bf4af200acf1ae6e7d5dba555b3d70e1aff9ae728180c1d335; plan:08e8a6b2a63f800ab9beb7e0160ebb2eb89a39f30a2a61fc3e8fdc145fa628cd"
+          "a4_provenance": "Reviewed exact source locators: 8e5fad292d606f95cc75a61fe2b1048376dd592fe26b7c56faebc008848bfc83; plan:adb794c8766abc6b168d53c1da2a97eb1d1c261e0abc3658726c1df50b151961",
+          "bounds_provenance": "Reviewed bound/model source locators: 42fc01752d9fd2bf4af200acf1ae6e7d5dba555b3d70e1aff9ae728180c1d335; plan:adb794c8766abc6b168d53c1da2a97eb1d1c261e0abc3658726c1df50b151961"
         }
       },
       "independent_replay": true,
-      "reviewed_input_sha256": "0abbcf2eae0efa084d7eb775a4b87274cf502478363720d5c066c465327290a8"
+      "reviewed_input_sha256": "dd82cca6264465e60f6c6441406220eb387d89d4fa581c1a7b141fa364c59424"
     }
   ],
   "clarification_questions": [],
@@ -1297,7 +1297,7 @@
   "query_id": "q1",
   "result_scope": "SELECTED_QUERY_ONLY",
   "remaining_query_ids": [],
-  "plan_sha256": "08e8a6b2a63f800ab9beb7e0160ebb2eb89a39f30a2a61fc3e8fdc145fa628cd",
+  "plan_sha256": "adb794c8766abc6b168d53c1da2a97eb1d1c261e0abc3658726c1df50b151961",
   "fact_family": "NETWORK_FIXED_POLICY_FACTS",
   "attempts": [
     {
