@@ -1,0 +1,90 @@
+Causal-IDFM 历史业务扩展回放示例（原始记录：2026-10-21）
+
+目的：先把“普通业务原话 → 阅读候选 → 缺项/审核状态”跑通。
+Identification Core 和独立证书验证继续使用既有实现。此入口不自动批准 A4/A5。
+
+维护标记（2026-10-30）：本目录是历史四入口协议的兼容回放示例，不是当前新项目模板。
+当前业务入口从 cfm_id.business_intake 开始，用户无需先选 D2_ARM 等内部类别。
+新增能力和目录归属请读 ../../../docs/DEVELOPMENT_ENTRY_ZH.md 与 ../../../docs/EXTENSION_MAINTENANCE_ZH.md。
+下列旧命令和两份 recorded 回答保留用于复现；不沿用其科学批准，也不当作新模型准确率。
+
+一、复现历史示例
+在当前 causal_idfm 源码根目录，使用已安装项目依赖的 Python：
+  python -B examples/legacy/business_extension/run_offline.py
+  python -B -m unittest tests_gateway.test_business_entry -v
+
+示例包含真实 LongCat 历史阅读输出，离线回放不重新调用模型。
+positive：本站使用、恰好一个邻站使用 → REVIEW_REQUIRED。
+negative：本站是否使用未决定，邻站人数仍然明确 → NEEDS_INPUT。
+这里的通过指阅读准入符合预期，不是取得 POINT。
+
+二、只需要认识这几个位置
+  cfm_id/business_entry.py       历史显式阅读入口；新业务优先使用 business_intake
+  public/                           业务原话、研究材料、公开结构数据
+  recorded/                         两条真实模型输出与来源哈希；不要覆盖
+  research/                         预先确定的期望行为；不得传给模型
+  case_template.json                新案例记录模板，不是自动注册工具
+  run_offline.py                    离线验收示例
+
+三、新业务描述仍然用普通语言
+仅为复现和比较旧协议时，可复制本目录到自己的独立实验目录，保留原示例并另建 my_question.txt。
+新能力开发使用当前扩展维护指南，不再从这四种旧入口复制整条运行链。
+可写：“我们只看 unit_017 站点。如果它用了新系统，而且恰好一家邻站也用了，平均会延误多少？”
+必要条件可以在研究协议或一次澄清中提供；不要求业务人员手填数学 JSON。
+每个问题用问号结尾，最多六问。这是当前简单的切题约定，不代表任意自然语言已经支持。
+如果修改了历史研究设计、结构表或单位名单，需要重新阅读并绑定研究信息。
+
+生成新的公开目标材料（不调用模型、不生成归一化答案）：
+  python -m cfm_id.business_entry variant --bundle examples/legacy/business_extension/public/positive_bundle.json --text my_question.txt --output my_bundle.json
+
+准备目标阅读 Prompt（不调用模型）：
+  python -m cfm_id.business_entry prepare --entry D2_ARM --bundle my_bundle.json --envelope examples/legacy/business_extension/recorded/study_envelope.json --output my_request.json
+
+取得与新输入匹配的新模型响应后，运行：
+  python -m cfm_id.business_entry preview --entry D2_ARM --bundle my_bundle.json --envelope examples/legacy/business_extension/recorded/study_envelope.json --candidate my_response.json --output my_preview.json
+
+输出文件必须是新路径；旧文件不会被覆盖。修改问题后不能借用原 recorded 输出当成新模型测试。
+示例研究绑定仅用于相同历史材料的目标改写，不是科学授权。
+
+四、Python 接口
+  prepare_request(bundle, entry, envelope=None) -> {system, user}
+  preview(bundle, candidate, entry, envelope=None) -> 原有阅读结果
+  read_once(bundle, provider, entry, envelope=None) -> 一次 provider 调用后的阅读结果
+
+provider 只需提供 generate_json(system_prompt=..., user_prompt=...)。
+真实请求须由维护者使用现有计数、密钥和留痕流程运行；本示例不提供自动付费循环。
+read_once 不自动重试，不切换模型，不自动生成未验证数学答案。
+
+四种入口由维护者根据业务合同明确选择，不宣称已经实现通用自动路由：
+  D1_EFFECTS          独立逐单位抽签下的直接/同伴差值阅读
+  STAGED_CORE_PEERS   固定核心伙伴定义；必须先有绑定研究候选
+  D2_ARM             固定名额完全随机下的局部均值；可用绑定研究候选
+  CLUSTER_ARM        商圈/集群整组抽签下的局部均值
+这些是本轮阅读适配入口，不等同于 Core 的全部定理覆盖列表。
+
+五、历史示例的扩展建议（当前验收义务以扩展维护指南为准）
+A. 业务案例与澄清：先给 3 组成对描述，每组负例只删一项条件。
+   先冻结期望语义，再测试模型；同时记录已知字段和未知字段，不只看最终状态。
+B. 阅读与 Prompt 对比：在新实验目录保存候选和来源；对比正确率、耗时、失败类别。
+   不按题号补答案，不把研究标签发给模型；代码修复与模型改进分开计数。
+C. 小图支持概率核验：放在自己的任务目录，枚举完整合法分配，与既有 Core 对拍。
+   参考 docs/EXTENSION_MAINTENANCE_ZH.md。共享 Core、合同、verifier 由维护者审核。
+D. 展示与解释：改善原话/公式/前提/证书的对应展示；未知、未验证不能涂成绿色。
+
+每项交付：业务说明 + 小型正负例 + 可执行命令 + 实测日志 + 局限说明。
+先交一个可复现的小任务，再决定是否合并。新增定理、新 A4/A5、证书合同不是简单扩展。
+当前维护源码位于团队仓库 research/identification/causal_idfm；是否提交或推送由负责人另行授权。
+
+六、何时进入 Identification
+阅读状态 REVIEW_REQUIRED → 独立审核目标含义和科学前提 → 绑定审核包与目标 → 既有 Core → 独立证书重放。
+本轮入口刻意只承担前三步中的“读取和准入检查”；审核不是学生代码里的一个默认 true。
+真实业务 A4 不能由有限样本 CSV 自动推出；同伴 exposure 定义不自动推出 A5。
+库外 LLM 数学建议是另一条显式启用、单独计数的未验证路径；不能冒充识别证书。
+
+七、两类 System Prompt
+业务规范化的通用历史入口：cfm_id_llm/quality_prompts.py。
+未验证数学候选的通用历史入口：cfm_id_llm/candidate_query_prompts.py。
+business_entry.prepare_request 默认使用 v0561：问题意图 intents 与具体条件 questions 分开输出。
+缺少条件不取消比较意图，已知的部分坐标必须保留。prepare 和 preview 必须使用同一合同。
+run_offline.py 为复现历史记录，显式选择 legacy-v0551；历史输出不会被冒充新合同的模型结果。
+改动时新建实验记录，不覆盖旧冻结请求。

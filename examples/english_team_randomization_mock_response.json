@@ -1,0 +1,130 @@
+{
+  "schema_version": "cfm-id-draft-v0.1",
+  "target": {
+    "kind": "OTHER",
+    "description": {
+      "value": "Overall policy benefit, but which policy and contrast are unspecified",
+      "basis": "INTERPRETATION",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "overall policy benefit"
+        }
+      ]
+    },
+    "alternatives": [
+      "FIXED_POLICY_VALUE",
+      "POLICY_OPTIMIZATION"
+    ]
+  },
+  "units_variables": {
+    "analysis_unit": {
+      "value": "teams",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "teams"
+        }
+      ]
+    },
+    "treatment": {
+      "value": "AI tool access",
+      "basis": "INTERPRETATION",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "access to an AI tool"
+        }
+      ]
+    },
+    "outcome": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "covariates": [],
+    "temporal_structure": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "structure": {
+    "unit_network": {
+      "value": "teams are referenced, but network edges are unspecified",
+      "basis": "INTERPRETATION",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "across teams"
+        }
+      ]
+    },
+    "variable_causal_graph": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "exposure_mapping": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "network_pretreatment_status": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "information_design": {
+    "assignment_family": "UNRESOLVED",
+    "assignment_law": {
+      "value": "randomization across teams, exact mechanism unspecified",
+      "basis": "INTERPRETATION",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "randomized access to an AI tool across teams"
+        }
+      ]
+    },
+    "population_information_level": "UNRESOLVED",
+    "population_observable_operator": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "sample_data_description": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "assumptions": [],
+  "validity": {
+    "support_or_positivity": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "query_domain": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "other_conditions": []
+  },
+  "ambiguities": [
+    {
+      "field_path": "target.kind",
+      "alternatives": [
+        "FIXED_POLICY_VALUE",
+        "POLICY_OPTIMIZATION"
+      ],
+      "description": "Policy evaluation vs selection is not specified"
+    }
+  ],
+  "clarifying_questions": [],
+  "normalization_notes": []
+}

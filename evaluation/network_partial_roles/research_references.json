@@ -1,0 +1,514 @@
+{
+  "version": 1,
+  "not_for_model_input": true,
+  "scope": "Known original plus newly authored controlled transfer/negative cases, not blind generalization",
+  "references": {
+    "original": {
+      "spec": {
+        "nodes": [
+          "东街站",
+          "南街站",
+          "西街站",
+          "北街站",
+          "机场站"
+        ],
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "quota": 2,
+        "population": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "cells": [
+          [
+            0,
+            0,
+            1,
+            "1/4"
+          ],
+          [
+            1,
+            0,
+            1,
+            "1/2"
+          ],
+          [
+            2,
+            0,
+            1,
+            "3/4"
+          ],
+          [
+            3,
+            0,
+            1,
+            "1/2"
+          ],
+          [
+            4,
+            1,
+            0,
+            "3/5"
+          ]
+        ]
+      },
+      "native": "PARTIAL",
+      "interval": [
+        "3/25",
+        "23/25"
+      ],
+      "unit": "配送站",
+      "information": "精确总体均值"
+    },
+    "point": {
+      "spec": {
+        "nodes": [
+          "河西店",
+          "大学城店",
+          "中心店",
+          "公园店",
+          "河东店"
+        ],
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "quota": 2,
+        "population": [
+          0,
+          4
+        ],
+        "cells": [
+          [
+            0,
+            1,
+            1,
+            "1/3"
+          ],
+          [
+            4,
+            1,
+            1,
+            "2/3"
+          ]
+        ]
+      },
+      "native": "POINT",
+      "interval": [
+        "1/2",
+        "1/2"
+      ],
+      "unit": "便利店",
+      "information": "精确总体均值"
+    },
+    "sample": {
+      "spec": {
+        "nodes": [
+          "东街站",
+          "南街站",
+          "西街站",
+          "北街站",
+          "机场站"
+        ],
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "quota": 2,
+        "population": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "unit": "配送站",
+      "native": "NEEDS_INPUT",
+      "information": "仅有限样本和置信区间；总体信息MISSING"
+    },
+    "bounds_missing": {
+      "spec": {
+        "nodes": [
+          "东街站",
+          "南街站",
+          "西街站",
+          "北街站",
+          "机场站"
+        ],
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "quota": 2,
+        "population": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "unit": "配送站",
+      "native": "NEEDS_INPUT",
+      "information": "精确总体均值",
+      "missing": "均值界限未提供；不能由二元结果自动补入"
+    },
+    "sufficiency_rejected": {
+      "spec": {
+        "nodes": [
+          "东街站",
+          "南街站",
+          "西街站",
+          "北街站",
+          "机场站"
+        ],
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "quota": 2,
+        "population": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "unit": "配送站",
+      "native": "ADAPTER_NOT_CONNECTED",
+      "information": "精确总体均值",
+      "science": "NOT_ADOPTED"
+    },
+    "extra": {
+      "spec": {
+        "nodes": [
+          "东街站",
+          "南街站",
+          "西街站",
+          "北街站",
+          "机场站"
+        ],
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "quota": 2,
+        "population": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "unit": "配送站",
+      "native": "ADAPTER_NOT_CONNECTED",
+      "information": "精确总体均值",
+      "extra": "自身处理单调性；不作为A4数值，不删除"
+    },
+    "observed_interval": {
+      "spec": {
+        "nodes": [
+          "东街站",
+          "南街站",
+          "西街站",
+          "北街站",
+          "机场站"
+        ],
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "quota": 2,
+        "population": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "unit": "配送站",
+      "native": "STOP_WITHOUT_CERTIFICATE",
+      "information": "观测总体量区间留在A4，不能误当科学限制或变为精确均值"
+    },
+    "plain_narrow": {
+      "spec": {
+        "nodes": [
+          "城北服务点",
+          "城东服务点",
+          "城南服务点",
+          "城西服务点",
+          "园区服务点"
+        ],
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "quota": 2,
+        "population": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "cells": [
+          [
+            0,
+            0,
+            1,
+            "1/4"
+          ],
+          [
+            1,
+            0,
+            1,
+            "1/2"
+          ],
+          [
+            2,
+            0,
+            1,
+            "3/4"
+          ],
+          [
+            3,
+            0,
+            1,
+            "1/2"
+          ],
+          [
+            4,
+            1,
+            0,
+            "3/5"
+          ]
+        ],
+        "special_bounds": {
+          "0": [
+            "1/4",
+            "3/4"
+          ],
+          "1": [
+            "1/4",
+            "3/4"
+          ],
+          "2": [
+            "1/4",
+            "3/4"
+          ],
+          "3": [
+            "1/4",
+            "3/4"
+          ]
+        }
+      },
+      "native": "PARTIAL",
+      "interval": [
+        "8/25",
+        "18/25"
+      ],
+      "unit": "服务点",
+      "information": "精确总体均值"
+    },
+    "task_units": {
+      "spec": {
+        "nodes": [
+          "冷库检修单",
+          "照明检修单",
+          "包装线检修单",
+          "消防检修单",
+          "机房检修单"
+        ],
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "quota": 2,
+        "population": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "cells": [
+          [
+            0,
+            0,
+            1,
+            "1/4"
+          ],
+          [
+            1,
+            0,
+            1,
+            "1/2"
+          ],
+          [
+            2,
+            0,
+            1,
+            "3/4"
+          ],
+          [
+            3,
+            0,
+            1,
+            "1/2"
+          ],
+          [
+            4,
+            1,
+            0,
+            "3/5"
+          ]
+        ]
+      },
+      "native": "PARTIAL",
+      "interval": [
+        "3/25",
+        "23/25"
+      ],
+      "unit": "检修任务单",
+      "information": "精确总体均值"
+    }
+  },
+  "reference_corrections": {
+    "sufficiency_rejected": "Explicit rejection is outside the adopted mean-signature model (ADAPTER_NOT_CONNECTED), not an undecided condition (NEEDS_INPUT). The previous frozen evaluation retained this mismatch separately."
+  }
+}

@@ -1,0 +1,80 @@
+两个固定政策之差：接入结构的独立源码审查
+日期：2026-10-23
+范围：只读审查现有实现；本文件不注册路线、不授予审核、不调用 API。
+
+一、结论与定位
+
+适合以第二个“目标类型”检验扩展框架：在同一 D2/E1 有限 signature-mean box 下，将单政策加权均值改为两个固定政策在同一评价群体上的均值之差。这是同一可行模型集合上的有符号线性目标扩展，不能宣传为已经覆盖新的科学限制家族、一般 PARTIAL、IV 或 DAG。
+
+可以复用业务读入、来源绑定、既有科学审核对象、D2/E1 输入校验和离线验收协议；应新增联合目标合同、联合证书生产与独立验证，以及显式入口。不能把两个分别 sharp 的区间直接相减后宣称差值界 sharp。两端使用同一模型，同一均值变量可能同时出现并精确抵消。
+
+二、源码事实：哪些可以直接复用
+
+1. question_bound_assignment.resolve_reading/preview：当前完整 bundle、问题 ID、原始 candidate 与来源绑定；保留 first、second、population、未知字段。绑定正确不等于语义已经审核。
+2. fixed_comparison.project/preview（第 41/56 行）：已经构造 first_minus_second 和同一群体的两端坐标；“从甲改为乙增加多少”已有方向规则。当前读入只接等权平均，不能在展示中写成自然语言入口已经支持任意权重。
+3. assignment_review.validate_assignment_review：每端独立检查原始均匀固定名额、来源、study 与 raw wrapper；成功不产生科学许可。
+4. intent_submission._context_snapshot / _validate_policy（第 62/84 行）：检查原始 reading、业务审批、packet、A4/A5 来源和实际坐标重建。可以对两个端点分别调用。注意 _validate_policy 接受的是 resolved['reading']，assignment review 则须绑定原始 ID wrapper。
+5. bounded_policy_contract 的严格类型、精确有理数、D2/E1 validate_model：可以分别校验两个 inquiry 的入参。validate_model 不进行支持度求界，正适合成为共享输入层。两端各自通过并不足够，还须验证共同模型。
+6. partial_extension_acceptance 的 AcceptanceCase、六个 adapter hook 与 evaluate：联合差值仍是 sharp 闭区间，POINT/PARTIAL 与区间证书字段可直接接入。
+
+三、不能原样使用的入口
+
+1. fixed_comparison._validate 第 190 行明确拒绝 R2 signature/sufficiency/source，要求 COMPARISON_R1B_SCOPE_REQUIRED。其 submit/compose/replay 只接受两份已独立重放的 R1B POINT，验证的是有符号公式合成，不是联合 PARTIAL。不要移除这一限制以求复用。
+2. intent_submission.submit 对 FIXED_COMPARISON 固定转入上述 R1B 入口。新路线应显式调用新入口，不应修改默认分派或静默 fallback。
+3. bounded_policy_intake._inspect 和 compile_reviewed 专用于单个 FIXED_POLICY；其中 proposed_target、单 inquiry 哈希和单 target hash 均不代表完整比较合同。不能将比较 raw 伪装成单政策 raw 后声称完整语义与审核未变。
+4. bounded_policy.submit 先走单政策 POINT 链再允许有限支持缺失。这是旧路线自己的准入规则。新的 contrast 目标可能因同一 signature 抵消而点识别，即使两个端点各自不识别；不能要求两端各自先成为 POINT。
+5. StructuredBusinessReader 当前使用 fixed_reading_clarity.make_request 与单政策 preview：可保留完整 comparison，但最终 preview 是 UNSUPPORTED。Provider 与 schema 可复用；comparison 需要显式的新 reader/选择项、比较方向 prompt 和 comparison.preview，且保持现有默认行为不变。还应保留“使用安排”和“评价名单”分开读取的已验证澄清规则。
+
+四、建议的最小模块边界
+
+A. bounded_contrast_contract.py
+定义有序两个 FixedPolicyInquiry 与绑定两端的共同 mean 信息、目标和审核哈希。最大程度复用旧严格类型/validate_model；新的 pair validator 必须检查：相同 study、node_order、outcome/context、A4 source、A5/sufficiency、signature；相同权重；相同 exact values、bounds、bounds kind/scope/outcome semantics。若暂用两份 BoundedMeanInformation，它们除 inquiry_sha256 外必须严格一致，不能只比较 source_id 或版本。
+
+B. bounded_contrast_solver.py 与 bounded_contrast_verify.py
+生产者先在共同 cell 坐标上合并 c_s=sum_i w_i[1{s=s_i(first)}-1{s=s_i(second)}]，再对正负系数分别选上下端。证书必须绑定完整两端及方向，并给出两张共同潜在均值表。独立 verifier 继续枚举所有完整处理向量，独立恢复暴露、支持概率、系数、全部 A4 和边界，检查两端世界达到差值极值。不要导入新 solver 或其 signature/count 工具到 verifier；共享 typed contract 是可接受的当前独立性边界。
+
+C. bounded_contrast.py（显式 reviewed 提交）
+复用 comparison.project/preview、assignment review、_validate_policy 和既有业务/科学 port 验证。新增 pair review 同时绑定原始 bundle/raw、ordered targets、两端 context/packet、完整共同信息、科学边界与额外约束清单。
+顺序应为：缺项检查 → 两端及 pair 的独立审核 → 共同模型一致性 → 求界 → 独立 replay → 发布。prepare 只能形成工作表。不可从 LLM 字段自动生成 accepted 假设；未审核、不一致或 stale 必须在 backend 调用之前阻断。
+若当前只完成数学级/已审核 typed 输入的路线，应明确标记该范围；不要用 fixture 的自动审核帮助器宣称自然语言端到端已经完成。
+
+D. examples/bounded_contrast_reference.py + tests + 数学说明
+实现已有六个 adapter hook，gold 用独立小规模 box vertices 枚举或手工预注册表达式。源代码无 case-name 路由。fixture 可生成审核断言，但仅限显式合成验收，不能进入 production。
+
+本轮不建议把已有单政策模块抽象为大型通用求解器；两条路线稳定后再按真实重复点提取共享接口。
+
+五、联合模型特有的验收点
+
+正例必须覆盖：
+• 两端 signature 完全相同，未知均值抵消，差值为零；还包括完整安排不同但所评价对象 signature 相同。
+• 两端部分重合，已知/未知均值混合；联合界严格窄于分别求界后相减。
+• 非零正、负系数分别选不同端点；反向比较把 [L,U] 变为 [-U,-L]。
+• 全体、指定子集、单对象；零权重对象的 A4/边界仍要检查全局可行性。
+• sharp 但未比逻辑范围更窄；边界收缩导致 POINT；明确不可行的 A4 保持 INCOMPATIBLE。
+
+负例必须覆盖：
+• 一端缺使用状态、人口名单/汇总方式缺失、比较方向或问题 ID 错误；不替换 gold。
+• 两端 study、原始 quota、网络、outcome、期段、signature、A4 数值或 A5 任一不一致。
+• 缺 review、PENDING/REJECTED、raw/bundle/target/review 任一修改后的 stale review。
+• 两端各自合法，但科学信息并不是同一个模型；不能将独立端点合法性当作联合 sharp 性。
+• 新增单调性、跨节点/跨政策限制或 full law；不能丢掉这些限制以进入 mean box。
+• 支持事件上的 A4 漏项：先明确新合同是否只对非零合并系数要求补齐。旧单政策代码第 39 行有 SUPPORTED_TARGET_A4_MEAN_MISSING 门槛，不宜意外继承为“各端均必须有值”，也不能未经说明改变它为可自动忽略。即使目标抵消，已有所有 A4 的一致性仍必须检验。
+• 重新计算哈希后的方向翻转、删除一端、wrong weights、common-cell duplication、未合并抵消项、错符号界、端点世界和非目标 cell A4 篡改。
+
+六、现有验收 adapter 的限制
+
+evaluate 接受 POINT/证明为 sharp 的有限闭区间；不能代表外界、开端点、多段集合或一般约束优化的完整验收。
+它依赖 adapter 自己声明 expected interval/informative，并不能自动证明 oracle 独立、所有审核步骤被执行、科学前提成立或新 theorem 正确。
+它以 bounded_backend_called 为统一阻断指标；新入口必须显式设置这个字段，不能换名后让检查漏过。
+负例必须无证书且不运行 backend；若新路线要让一般可行性由 solver 才判出 INCOMPATIBLE，需先明确修改验收合同，不要伪造 backend_called=False。
+CLI 当前固定导入单政策 reference，通用 evaluate(adapter) 本身可复用；新增路线可以单独运行自己的显式 driver，不必扩大自动插件发现。
+
+七、同问题、同目标、同 A4 的放宽假设阶梯
+
+可用完整四节点无向图、D2 恰好两个处理、E1 严格多数。每个处理者有一个处理邻居，signature 为 (1,0)；每个未处理者有两个处理邻居，signature 为 (0,1)。全员处理与全员不处理分别要求 (1,1)、(0,0)，均为零支持。所有已知 A4 均值固定为 1/2，比较方向和群体权重固定。
+明确将二元结果的 CONDITIONAL_MEAN 边界从 [1/2,1/2] 放宽至 [1/4,3/4]，再放宽至 [0,1]，共同可行模型集合嵌套，差值 sharp 区间依次为 [0,0]、[-1/2,1/2]、[-1,1]。
+这是科学均值边界的放宽，不是放宽 A4 数据，也不是撤销 mean-signature sufficiency。不能改成二元潜在结果的 ALMOST_SURE_OUTCOME [1/4,3/4]：那会排除 0、1，模型为空。最后 [-1,1] 是相对二元差值自然范围完全无信息的 sharp 集合；可以说“没有收窄识别范围”，不能把其标签写成缺项/软件不支持，也不能声称数学上不存在界。
+若 informative 指“是否比当前声明科学边界的逻辑范围更窄”，上述三档都可能为 False；POINT 仍是 POINT。展示应注明相对何种基线衡量信息量，不能擅改布尔定义来突出效果。
+撤销 sufficiency 是更换科学模型；需要新合同和证明，并检验模型集合的真实包含关系，不能在这条路线中仅改变一个标签。
+
+审查完成：只新增本审查文件，未改任何运行模块、测试、默认路由或数学 Core；未调用真实模型，未读取密钥。

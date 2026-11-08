@@ -1,5 +1,7 @@
 # Identification Interface
 
+范围说明：本页描述保留的 `pfn_pipeline.TaskSpec → identify` 程序化接口，不是自然语言业务会话的统一入口。当前业务会话、显式数学路线及原生 Core 的对应关系见 [框架合同](FRAMEWORK_CONTRACT_ZH.md)；业务操作见 [研究会话指南](RESEARCH_SESSION_ZH.md)。
+
 这份文档只说明**当前代码真实存在的接口**，方便第一次进入仓库的学生知道输入从哪里来、
 `identify()` 做什么、什么时候应该停止，以及结果怎样交给下游。
 
@@ -32,7 +34,7 @@ support 接口经过更多 setting 验证后再决定；第一轮学生任务不
 
 ## 2. Public entry point
 
-当前 Identification 的公共入口是：
+这一程序化接口的公共入口是：
 
 ```python
 from pfn_pipeline import identify
@@ -114,6 +116,7 @@ identified.diagnostics["workflow_status"]
 COMPLETE
 NEEDS_INPUT
 UNSUPPORTED
+IDENTIFIED_NO_ESTIMATION_ADAPTER
 ```
 
 ## 5. 当前 randomized-network POINT baseline
@@ -124,8 +127,9 @@ UNSUPPORTED
 mu_i(t,s)
 ```
 
-表示固定节点自身 treatment 为 `t`，让其他节点按原 assignment design 随机变化，并只在节点
-暴露状态为 `s` 的随机化情形中对潜在结果取平均。
+表示按照原联合 assignment design 抽取完整处理向量，再仅在本人处理为 `t`、
+暴露状态为 `s` 的条件下对潜在结果按设计概率加权求平均。固定名额实验不能把其他人的
+无条件分配律误当成给定本人处理后的条件分配律。
 
 当前 POINT route 依赖的核心条件包括：
 
@@ -135,13 +139,21 @@ mu_i(t,s)
 - finite conditional first moments；
 - query-specific positive population support。
 
+注意：当前 ER300 全链路仍主要使用 iid Bernoulli design，新增的 D1/D2/D3×E1/E2 已在正式
+Identification 中实现了**单节点单 arm 的 POINT 识别**，但均没有可执行的 PFN 适配器。
+D1 使用已知的处理前 `p_i` 组成独立 Bernoulli 联合设计律；D2/D3 则必须正确处理
+固定名额导致的本人 treatment 条件分配律。
+两种固定配额设计必须使用 `P(T_-i | T_i=t, S_i=s, pretreatment context)` 对潜在结果加权，
+不能直接沿用 iid 情况下 `T_-i` 的无条件边缘分布。完整数学合同见
+[`RANDOMIZED_ARM_FRACTION_EXPOSURE_ZH.md`](RANDOMIZED_ARM_FRACTION_EXPOSURE_ZH.md)。
+
 当前实现**不要求**：
 
 ```text
 Y_i(T) = Y_i(T_i, S_i)
 ```
 
-也就是说，strict-majority `S_i` 在当前 baseline 中是 target-standardization grouping，不必被当成
+也就是说，E1/E2 的 `S_i` 在当前 Identification family 中是 target-standardization grouping，不必被当成
 真实 outcome mechanism 的充分 exposure mapping。
 
 ## 6. Population support 与 finite sample 必须区分
@@ -181,11 +193,14 @@ print(identified.verification_status)
 print(identified.diagnostics.get("workflow_status"))
 ```
 
-只有 theorem result 可执行且 verification 通过时，才应期待：
+只有 theorem 已验证、且对应的下游估计器合同已实现时，才应期待：
 
 ```python
 identified.estimation_request is not None
 ```
+
+新 D1/D2/D3 路线的 `POINT / VERIFIED` **不会**自动生成这个请求。它们可以用
+`replay_population_identification(identified)` 重新核验已识别的总体函数式。
 
 ## 8. Estimation handoff
 
@@ -239,3 +254,13 @@ SupportEngine
 ```
 
 这些名称目前是设计目标，不代表仓库里已经存在同名稳定公共类。
+
+
+## 新增（D2×E1：完整随机化单 arm POINT）
+
+生产入口：`make_complete_randomization_arm_task(...)` 创建完整 `TaskSpec`，再调用 `identify(task)`；
+当前只实现 `NETWORK_RANDOMIZED_ARM_MEAN` 的完整随机化设计和严格多数暴露，查询一个 `i,a,s`。
+`replay_population_identification(result)` 独立重算定理证书及精确 support，**无需估计器**。
+此新 route 的结果虽可为 `POINT / VERIFIED`，但因为 Estimation 未支持固定配额分配，
+会明确返回 `estimation_request=None`，而不是错误地继续调用旧 PFN。
+数学/示例/验收见 [`RANDOMIZED_ARM_FIXED_QUOTA_ZH.md`](RANDOMIZED_ARM_FIXED_QUOTA_ZH.md)。

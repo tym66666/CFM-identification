@@ -1,0 +1,82 @@
+{
+  "schema_version": "cfm-id-draft-v0.1",
+  "target": {
+    "kind": "UNRESOLVED",
+    "description": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "alternatives": []
+  },
+  "units_variables": {
+    "analysis_unit": {
+      "value": "业务描述中的员工、节点或团体",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "我们随机给一半销售员开通AI，想知道有没有用。"
+        }
+      ]
+    },
+    "treatment": {
+      "value": "描述中的AI干预",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "我们随机给一半销售员开通AI，想知道有没有用。"
+        }
+      ]
+    },
+    "outcome": {
+      "value": "描述中的销售或结果指标",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "我们随机给一半销售员开通AI，想知道有没有用。"
+        }
+      ]
+    }
+  },
+  "structure": {
+    "unit_network": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "exposure_mapping": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "information_design": {
+    "assignment_family": "UNRESOLVED",
+    "assignment_law": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "population_information_level": "UNRESOLVED",
+    "population_observable_operator": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "sample_data_description": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "assumptions": [],
+  "validity": {},
+  "ambiguities": [],
+  "clarifying_questions": [],
+  "normalization_notes": [
+    "MOCK TEST-ONLY fixture synthesized from benchmark reference; not model-generated"
+  ]
+}

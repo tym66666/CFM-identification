@@ -1,0 +1,48 @@
+"""Student/public starting point with one maintained reading configuration.
+
+This prepares requests, never supplies model replies or scientific approvals.
+Existing business_intake APIs retain their historical explicit defaults.
+"""
+from importlib.resources import files
+import argparse
+import json
+from pathlib import Path
+from . import business_intake
+from .business_reading_config import ReadingConfig
+from .business_dispatch import prepare_reader, inspect_methods, execute
+from .business_case import prepare_case, execute_case
+
+
+def reading_config():
+    return ReadingConfig.model_validate_json(files('cfm_id').joinpath('configuration/reading.json').read_text('utf8'))
+
+
+def start(case):
+    return business_intake.start_configured(case, reading_config())
+
+
+def diagnose_methods(intake, query_id, **options):
+    """Read-only method view through the usual reading/source/model gates."""
+    from .method_diagnostics import inspect
+    return inspect(intake, query_id, **options)
+
+
+def main(argv=None):
+    p=argparse.ArgumentParser(description=__doc__)
+    commands=p.add_subparsers(dest='command',required=True)
+    commands.add_parser('config',help='Print the single maintained reading configuration')
+    create=commands.add_parser('start',help='Prepare A0 from a BusinessCase JSON; makes no API call')
+    create.add_argument('--input',type=Path,required=True)
+    create.add_argument('--output',type=Path,required=True)
+    args=p.parse_args(argv)
+    if args.command=='config':
+        print(reading_config().model_dump_json(indent=2));return 0
+    session=start(business_intake.read_json(args.input));args.output.mkdir(parents=True,exist_ok=False)
+    business_intake.save(session,args.output/'intake.json')
+    business_intake.write_json(args.output/'request.json',business_intake.prepare_request(session))
+    business_intake.write_json(args.output/'reading_config.json',reading_config().model_dump(mode='json'))
+    print(json.dumps(dict(state='REQUEST_PREPARED',api_calls=0,output=str(args.output)),ensure_ascii=False))
+    return 0
+
+
+if __name__=='__main__':raise SystemExit(main())

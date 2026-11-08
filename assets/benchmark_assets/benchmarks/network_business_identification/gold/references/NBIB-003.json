@@ -1,0 +1,49 @@
+{
+  "A4_population_operator_from_business_files": "NOT_PROVIDED",
+  "all_business_packet_provenance": "SYNTHETIC_OFFLINE_GENERATOR",
+  "assignment_family": "D4",
+  "case_id": "NBIB-003",
+  "conditional_route_only": [
+    "R1a_candidate"
+  ],
+  "data_is_finite_observations_not_A4": true,
+  "design_params": {
+    "groups": 6
+  },
+  "edge_count": 140,
+  "expected_blockers": [
+    "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+    "A5_NEEDS_SCIENTIFIC_REVIEW"
+  ],
+  "exposure_rule": "E5",
+  "fixed_policy_support": [],
+  "identification_library_status": "NOT_RUN_ON_THIS_GENERATED_CASE",
+  "industry": "连锁零售",
+  "lower_is_better": false,
+  "n_nodes": 72,
+  "network_type": "communities",
+  "number_independent_market_replicates": 1,
+  "outcome_metric_name": "store_revenue",
+  "outcome_metric_unit": "千元/日",
+  "pair_family": null,
+  "query_targets": [
+    {
+      "exact_target_semantics": "R1A_Q_STANDARDIZED_SPILLOVER",
+      "kind": "SPILLOVER_EFFECT",
+      "quote": "没有发券的门店会不会因为相邻商圈有门店发券而获得更多订单"
+    }
+  ],
+  "scenario_title": "整片商圈会员券投放",
+  "scientific_reference_notes": "R1a D4×E5；簇内处理完全相同、跨簇边应保留。查询未treated节点高暴露需检查跨簇正支持。",
+  "simulation_is_not_proof_of_scientific_assumptions": true,
+  "split": "dev",
+  "support_checks": {
+    "exposure_rule": "E5",
+    "exposure_value": 1,
+    "focal_node": "unit_000",
+    "mathematical_support_only_not_IDENTIFICATION": true,
+    "own_treatment": 0,
+    "support_probability": "3/8"
+  },
+  "synthetic": true
+}

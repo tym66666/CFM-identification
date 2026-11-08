@@ -34,7 +34,11 @@ IdentificationStatus = Literal[
 ]
 VerificationStatus = Literal["VERIFIED", "REJECTED", "UNSUPPORTED"]
 BudgetMode = Literal["exact", "at_most"]
-ExposureDefinition = Literal["strict_majority", "treated_neighbor_count_1hop"]
+ExposureDefinition = Literal[
+    "strict_majority", "treated_neighbor_count_1hop",
+    "three_level_treated_neighbor_fraction", "pretreatment_core_collaborator_majority",
+    "exact_treated_neighbor_count", "any_treated_neighbor",
+]
 EstimateKind = Literal["response_surface", "scalar", "structured", "unavailable"]
 State = tuple[int, int]
 
@@ -169,7 +173,7 @@ class TaskSpec:
         if not np.array_equal(adjacency, adjacency.T) or np.any(np.diag(adjacency)):
             raise ValueError("adjacency must be symmetric and have no self-loops")
         object.__setattr__(self, "adjacency", adjacency)
-        _choice(self.exposure_definition, ("strict_majority", "treated_neighbor_count_1hop"),
+        _choice(self.exposure_definition, ("strict_majority", "treated_neighbor_count_1hop", "three_level_treated_neighbor_fraction", "pretreatment_core_collaborator_majority", "exact_treated_neighbor_count", "any_treated_neighbor"),
                 "exposure_definition")
         _choice(self.outcome_kind, ("continuous", "binary"), "outcome_kind")
         _choice(self.budget_mode, ("exact", "at_most"), "budget_mode")
@@ -192,6 +196,67 @@ class TaskSpec:
             if not isinstance(query, Mapping) or query.get("type") != self.estimand:
                 raise ValueError("identification_spec.query.type differs from task.estimand")
             _check_network_binding(self, self.identification_spec.get("network_exposure"))
+            if query.get("type") == "NETWORK_RANDOMIZED_ARM_MEAN":
+                contract = self.identification_spec.get("randomized_network_arm_theorem_contract")
+                if not isinstance(contract, Mapping) or not isinstance(contract.get("design"), Mapping):
+                    raise ValueError("The public arm-mean task requires a typed randomized-network contract")
+                design = contract["design"]
+                if design.get("kind") == "complete_randomization_binary_v1":
+                    declared_assignment = {
+                        "design_type": "randomized_experiment",
+                        "assignment_scheme": "complete_randomization",
+                        "treated_quota": design.get("m"),
+                    }
+                elif design.get("kind") == "two_group_fixed_quota_binary_v1":
+                    declared_assignment = {
+                        "design_type": "randomized_experiment",
+                        "assignment_scheme": "two_group_fixed_quotas",
+                        "groups": design.get("groups"),
+                        "treated_quotas": design.get("treated_quotas"),
+                    }
+                elif design.get("kind") == "heterogeneous_bernoulli_binary_v1":
+                    declared_assignment = {
+                        "design_type": "randomized_experiment",
+                        "assignment_scheme": "heterogeneous_independent_bernoulli",
+                        "propensities": design.get("propensities"),
+                    }
+                elif design.get("kind") == "multi_group_fixed_quota_binary_v2_5":
+                    declared_assignment = {
+                        "design_type": "randomized_experiment",
+                        "assignment_scheme": "multi_group_fixed_quotas",
+                        "groups": design.get("groups"),
+                        "treated_quotas": design.get("treated_quotas"),
+                    }
+                elif design.get("kind") == "two_stage_quota_mixture_binary_v2_7":
+                    declared_assignment = {
+                        "design_type": "randomized_experiment",
+                        "assignment_scheme": "two_stage_quota_mixture",
+                        "groups": design.get("groups"),
+                        "quota_profiles": design.get("quota_profiles"),
+                        "profile_probabilities": design.get("profile_probabilities"),
+                    }
+                elif design.get("kind") == "cluster_bernoulli_binary_v2_4":
+                    declared_assignment = {
+                        "design_type": "randomized_experiment",
+                        "assignment_scheme": "cluster_bernoulli",
+                        "clusters": design.get("clusters"),
+                        "cluster_probabilities": design.get("cluster_probabilities"),
+                    }
+                else:
+                    raise ValueError("Public TaskSpec references an unsupported arm assignment scheme")
+                declared_grouping = contract.get("grouping", "strict_majority_ties_low")
+                public_exposure = {
+                    "strict_majority_ties_low": "strict_majority",
+                    "three_level_treated_neighbor_fraction": "three_level_treated_neighbor_fraction",
+                    "pretreatment_core_collaborator_majority": "pretreatment_core_collaborator_majority",
+                    "exact_treated_neighbor_count": "exact_treated_neighbor_count",
+                    "any_treated_neighbor": "any_treated_neighbor",
+                }.get(declared_grouping)
+                if (not _same_payload(self.assignment_design, declared_assignment)
+                    or public_exposure is None or self.exposure_definition != public_exposure
+                    or self.target_fingerprint != query.get("response_target_fingerprint")
+                    or self.target_semantics != "design_standardized_conditional_arm_mean_not_fixed_assignment"):
+                    raise ValueError("Public TaskSpec assignment/exposure/target differs from randomized-network arm theorem contract")
             domain = self.identification_spec.get("variable_domains", {}).get(query.get("outcome"))
             if domain is not None and domain.get("kind") != self.outcome_kind:
                 raise ValueError("identification outcome domain differs from task.outcome_kind")
@@ -558,6 +623,8 @@ class PolicyResult:
             if np.any(degree == 0):
                 raise ValueError("current strict-majority policy does not support isolated nodes")
             exposure = (counts > degree // 2).astype(np.int64)
+        elif self.task.exposure_definition == "any_treated_neighbor":
+            exposure = (counts > 0).astype(np.int64)
         else:
             exposure = counts
         if self.resulting_exposure is not None:

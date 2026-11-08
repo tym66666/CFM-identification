@@ -1,0 +1,59 @@
+固定名额事实读取：统一业务入口的显式新合同
+更新日期：2026-10-23
+
+用途
+把“未来要评估什么安排”和“原试点如何分配”分别读取。前者完整，不能弥补后者缺失。
+这轮只扩展业务入口和独立审核，不增加识别定理，不改数学 Core、Estimation 或 Policy。
+
+入口
+from cfm_id.business_entry import prepare_request, preview, read_once
+request = prepare_request(bundle, 'FIXED_POLICY', contract='fixed-assignment')
+result = read_once(bundle, authorized_provider, 'FIXED_POLICY', contract='fixed-assignment')
+
+authorized_provider 由调用方配置和授权；read_once 只调用一次 generate_json，不重试。
+本地已存候选可直接 preview，不消耗 API。CLI 示例：
+python -X utf8 -B -m cfm_id.business_entry prepare --entry FIXED_POLICY --contract fixed-assignment --bundle bundle.json --output request.json
+python -X utf8 -B -m cfm_id.business_entry preview --entry FIXED_POLICY --contract fixed-assignment --bundle bundle.json --candidate candidate.json --output preview.json
+输出文件必须尚不存在，以免覆盖先前实验。
+
+兼容性与范围
+默认 intent-v0561 和旧合同保留原行为；它们没有因此自动增加本轮事实审核门。
+新合同必须显式指定，当前只用于 FIXED_POLICY、同一原始研究、均匀固定名额随机化适配。
+独立随机、观察性、不等概率名单保留原事实，但本适配入口不处理；这不是数学不可识别结论。
+更一般机制需使用相应既有入口或另行扩展事实适配，不应要求用户把真实机制改写成固定名额。
+
+候选格式
+最外层为 reading 与 reported_assignment，不能附带科学批准或识别结论。
+reading 延用原有 intents/questions，保留完整名册上每人的已知/未知目标坐标。
+reported_assignment 包含 mechanism、fixed_count、maximum_count、uniform_subset_declared、reported_conflict、source_ids。
+人数必须是整数或 null；bool、浮点和数字字符串拒绝。平均人数、观察人数、人数上限、未来目标都不是原试点固定人数。
+maximum_count 只保存材料明示的原试点上限；追问保留这个限制。
+
+证据定位
+系统按原文非空行生成 source_catalog。模型选择 source_ids，不复抄分配原文。
+系统从原材料重建全文/段落哈希、原始位置和文字；不归一化换行，不删除否定词。
+任意文档字符变化都会使该文档全部旧 ID 失效。位置为 Python Unicode 字符索引，不能直接作为 JavaScript UTF-16 索引使用。
+ID 有效只证明定位，不证明“该句支持该事实”。既有声明筛查是保守文本筛查，也不验证数值、均匀性或科学许可。
+目标句的 quote 仍保留既有合同要求；这轮替换的是原试点证据的复抄，不是全部阅读字段。
+
+独立审核后进入识别
+from cfm_id.assignment_review import assignment_worksheet, ReviewedAssignmentFacts
+from cfm_id.intent_submission import submit
+worksheet = assignment_worksheet(bundle, wrapper, packet, context)
+
+worksheet 仅生成绑定摘要，没有 reviewer、evidence 或批准标记。研究者需要独立检查原文、分配事实和 typed study，再提供 ReviewedAssignmentFacts。
+不得把 LLM 或 source ID 当作批准者。事实审核还必须匹配整个 wrapper、原材料、目录、选中原文、packet、context 和每个查询的完整 study；改变任何绑定后旧审核失效。
+在现有受控合成验收中，submit(..., contract='fixed-assignment', assignment_review=review, submission_review=old_review, packet=packet, context=context, synthetic_protocol_selected=True) 才能继续原有流程。
+原有业务/目标审核、A4 总体信息、A5 科学假设、路线检查和独立重放仍然必需。
+这里的记录不是数字签名；调用应用仍应控制谁能提供审核记录。当前提交适配仍限独立审核的合成验收，不等于任意企业输入自动获得科学批准。
+
+结果解释
+REVIEW_REQUIRED：信息可以进入独立审核，不是 POINT。
+NEEDS_INPUT：缺原分配规则或材料冲突时先澄清；已知目标仍保留。
+CHECK_BLOCKED：非法合同、审核绑定失败或当前适配范围外，需按 reason_code 区分；不是非识别证明。
+审核完整后才调用既有 Core；POINT 需已有证书重放，零支持也可正确停止。
+
+离线验收
+python -X utf8 -B -m unittest tests_gateway.test_source_locations tests_gateway.test_fixed_assignment_reading tests_gateway.test_fixed_assignment_submission -v
+包含 R1b/R2 正例、真正零支持、缺条件、冲突、同义表述、引用/审核篡改及 Mock。
+真实模型准确率另见冻结实验记录；离线参考回答不是新的真实模型成功。

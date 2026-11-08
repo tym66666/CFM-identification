@@ -1,0 +1,17 @@
+{
+  "case_id": "weighted_exposure_demo",
+  "business_question": "在120名销售员的处理前合作网络上，识别销售员本人使用AI且其合作伙伴加权treated暴露超过0.6时的设计标准化销售均值。",
+  "response_language": "zh",
+  "sources": [
+    {
+      "source_id": "protocol",
+      "kind": "STUDY_PROTOCOL",
+      "text": "合作权重w_ij在分配前固定。各销售员T_i独立按已知Bernoulli(p_i)随机分配AI，其中0<p_i<1。加权暴露S_i=1{sum_j w_ij T_j / sum_j w_ij > 0.6}，无邻居节点单独定义S_i=0。"
+    },
+    {
+      "source_id": "information_contract",
+      "kind": "OTHER",
+      "text": "本理论问题声明可用的总体信息算子是完整联合律P(T,Yobs|W)，包含完整处理向量T与全部销售员结果Yobs。这是理论信息假设，不代表现实中已经取得总体律。"
+    }
+  ]
+}

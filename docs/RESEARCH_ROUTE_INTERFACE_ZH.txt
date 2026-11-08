@@ -1,0 +1,80 @@
+研究路线公共接口与第一个图形参考
+2026-10-24；新增外层适配，不改数学Core，不修改Prompt。
+
+这次解决什么
+同一个明确选择的入口能够保留两类不同数学结果：
+  网络均值顺序：POINT / sharp PARTIAL 区间，或带Farkas证据的不相容；
+  DAG经典后门：干预分布的可观测分布泛函，不伪装成一个数值区间。
+每类仍使用自己的输入、独立审核、定理、证书和重放。公共接口不生成科学批准。
+
+文件职责
+cfm_id/research_route_workflow.py：RouteCapability、ResearchRoute Protocol、run_route。
+cfm_id/research_route_adapters.py：现有MeanOrderRoute与新增DagBackdoorRoute的薄适配。
+cfm_id/dag_backdoor_contract.py：严格DAG/总体律/目标和独立研究审核合同。
+cfm_id/dag_backdoor_solver.py：经典后门集合检查/搜索及符号公式证书。
+cfm_id/dag_backdoor_verify.py：独立活动路径重放，不调用求解端的分离或公式构造函数。
+cfm_id/dag_backdoor.py：prepare和显式审核后的submit。
+examples/dag_backdoor_reference.py：事先固定的合成图及预期，不是实际审批工具。
+evaluation/research_route_acceptance.py：显式源代码树离线参考验收。
+
+新增路线需要实现的最小接口
+capability：路线ID、模型族、目标、信息类型、证明类型、适用范围。
+prepare(problem)：只返回未审批表或停止原因；不得产生识别证书或调用求解器。
+submit(problem,review)：使用自己严格的审核类型，核对当前完整输入后再执行数学后端。
+certificate(result)：提取路线原生证据，不转写成另一类证明。
+claim(certificate)：生成便于调用者读取的数学结论，不丢失目标或改变范围。
+verify_claim(certificate,claim)：核对公开结论与证据绑定，防止摘要反号、换目标或添加数值。
+replay(problem,certificate)：独立检查具体输入下的数学证据。
+这些接口及共同工作流都不授权路由模块自行发明审核对象。
+
+run_route 的约束
+调用者必须直接提供选定的适配器对象，没有任意模块动态加载、关键词猜路线或失败自动回退。
+prepare跨越审核边界、修改输入、正例缺证书、结论与证据不一致、验证失败，均CHECK_BLOCKED。
+缺少外部review或research_protocol_selected不是显式True时不提交。
+原生结果保留在native_result供诊断；对外只能按顶层state、mathematical_claim、independent_replay读取。
+CHECK_BLOCKED中的native_result可能含未被公共边界接受的候选，不可再当作认证结果展示。
+所有输出production_admission=False，estimation_handoff_allowed=False。
+能力目录是只读描述，不意味着每条路线适用于当前问题，也不是生产插件注册。
+本接口检查是防错层，不能证明任意第三方适配器诚实或数学正确；新路线仍须独立审查。
+
+DAG参考的科学边界
+最多8个二元变量，静态因果DAG，显式潜变量，单个观测处理与观测结果。
+全观测联合总体律使用符号引用，并明确声明严格正性；此版不读取样本来拟合或判断正性。
+图的因果语义、缺边、潜变量完备性、干预语义、总体信息和正性均需外部研究审核。
+BackdoorReview允许外部研究者的声明式审核或明确的合成测试审核；它记录断言和绑定，
+没有实现审核人身份认证，也没有证明现实科学条件成立。所有模式仍限研究，不自动生产准入。
+数学合同及阅读依据见DAG_BACKDOOR_RESEARCH_ZH.txt。
+没有经典后门集合不表示一般不可识别；前门图和Y→X的例子均保留这个区别。
+不处理一般ID、ADMG/PAG、网络干扰与DAG自动混合、IV、选择偏差或多期问题。
+
+运行
+在当前源码根目录、使用已有项目依赖的Python运行：
+  python -B -m unittest tests_gateway.test_dag_backdoor tests_gateway.test_research_route_workflow tests_gateway.test_research_route_acceptance -v
+  python -B -m evaluation.research_route_acceptance --allow-synthetic-reviews --output research_routes.json
+输出文件必须不存在；旧证据不覆盖。CLI需要examples，仅承诺源码树运行，未声称发布新的wheel。
+命令全程离线，没有API、认证加载、重试或模型调用。
+
+实际研究调用的形状
+  run_route(DagBackdoorRoute(), problem,
+            review=externally_supplied_review, research_protocol_selected=True)
+problem是BackdoorProblem，review是绑定该problem哈希的BackdoorReview；类型和决定不得从模型候选自动补齐。
+可先prepare导出PENDING表，交给研究者分别判断，再将明确的研究审核记录提交。
+MeanOrderRoute保留旧的合成合同、审核类型与证书，不因为增加这个接口就支持真实企业生产。
+
+本次验收不包含什么
+未修改A0 Prompt；没有真实LLM读取DAG业务的线上实验；没有自动因果发现或自动确认图。
+这是数学/审核接口和后门参考的验收，不是完成自然语言DAG端到端，也不是一般DAG识别库完成。
+后续最有价值的工作：外部材料→图与目标读取候选→研究者逐项确认的接入，
+再使用冻结、独立标注的业务正负例做少量真实LLM验收。先不增加前门/IV数学范围。
+
+2026-10-24实际验收
+25项新测试与67项现有网络回归通过；13个离线参考例符合预期。
+636个原有Python文件哈希未变化。API调用0次，没有DAG自然语言线上准确率声明。
+详细证据、首次临时目录权限异常与重跑记录：
+  LOCAL_EVIDENCE_NOT_DISTRIBUTED。
+
+2026-10-25后续接入
+新增业务读取、来源检查、追问与独立阅读/科学审核桥接，见docs/DAG_BUSINESS_BRIDGE_ZH.txt。
+这个接入沿用本文件的数学接口，未改变后门合同和证明。自然语言试测是另一次小样本合成试验，
+实际结果、原始失败及Prompt修订见LOCAL_EVIDENCE_NOT_DISTRIBUTED。
+2026-10-24的“尚未进行LLM试测”是当日记录，不覆盖这一后续阶段。

@@ -1,0 +1,8 @@
+{
+  "target_kind": "FIXED_POLICY_VALUE",
+  "assignment_family": "COMPLETE_RANDOMIZATION",
+  "expected_quality_codes": [
+    "UNTRUSTED_DOCUMENT_INSTRUCTION"
+  ],
+  "note": "This is an authored Mock fixture; no real LLM accuracy or mathematical proof."
+}

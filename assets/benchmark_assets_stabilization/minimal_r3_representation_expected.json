@@ -1,0 +1,51 @@
+{
+  "schema_version": "cfm-id-r3-minimal-representation-ablation-v1",
+  "network": "3-node path",
+  "target": "R3 p-standardized Direct, node n2, E1 exposure 0",
+  "declared_observational_propensities": [
+    "1/4",
+    "1/2",
+    "3/4"
+  ],
+  "support_from_independent_full_enumeration": [
+    "1/8",
+    "3/8"
+  ],
+  "representations": {
+    "full": {
+      "status": "POINT",
+      "theorem_replay": true,
+      "arm_support": [
+        "1/8",
+        "3/8"
+      ]
+    },
+    "factorized": {
+      "status": "POINT",
+      "theorem_replay": true,
+      "arm_support": [
+        "1/8",
+        "3/8"
+      ]
+    },
+    "mixture_single_component": {
+      "status": "POINT",
+      "theorem_replay": true,
+      "arm_support": [
+        "1/8",
+        "3/8"
+      ]
+    }
+  },
+  "cross_representation_equivalence": {
+    "full_vs_independent": true,
+    "full_vs_one_component_mixture": true,
+    "changed_observational_law_must_not_merge": true
+  },
+  "ablation": {
+    "remove_exchangeability": "NEEDS_INPUT",
+    "replace_A4_with_sample_only": "NEEDS_INPUT"
+  },
+  "scientific_assumptions_verified_in_real_world": false,
+  "estimation_performed": false
+}

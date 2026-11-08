@@ -1,0 +1,97 @@
+业务材料到DAG调整研究路线：合同与验收范围
+2026-10-25
+
+本轮仅扩展读取与审核，不更改2026-10-24冻结的后门定理、求解器、独立验证器或默认Core。
+因果变量图不同于人与人的关系网络。入口由调用者明确选择，不能看到“网络”一词就猜路线。
+
+交互顺序
+1. 提交case_id、documents、question三个公开字段。研究金标、审核记录和预期不能夹入模型请求。
+2. 读取器提出变量、直接因果/相关/不确定关系、干预分布目标、总体信息及模型范围声明，逐项引用原文。
+3. inspect_candidate检查结构和来源。缺项/方向不明保留追问；不适用范围单独停止。
+4. 条件声明齐全时，只构建proposed_problem与两份PENDING审核表，不运行求解。
+5. 外部研究者分别审核业务解释与数学前提；两份审核同时绑定当前材料、候选及完整数学输入。
+6. 显式submit后复用已验证后门路线与公共接口，公式必须通过独立重放才发布。
+
+两类“正确”不可混淆
+引用能定位原文，不表示引用支持所提取的语义；类型通过不表示因果图正确。
+图的边、缺边、潜变量是否列全、独立误差和完美干预，都是科学模型前提，不由LLM批准。
+本研究原型记录外部审核断言，没有实现审核人身份认证；不能把构造一个review对象称作现实科学验证。
+公式正确性是相对于已审核模型与信息的条件性结论。保持全部输出production_admission=False。
+
+与现有A1–A6职责的对应
+A1：target中的处理、结果和研究背景，读取审核确认没有换问题。
+A2/A3：变量、观测/潜变量划分与有向边；这是因果变量图，不能复用人的关系网络语义。
+A4：完整观测总体联合分布的来源声明。这里输出符号泛函，不需要伪造数值表。
+A5：完整图及缺边、共同原因是否已列全、递归结构模型、独立噪声、完美干预等独立审核。
+A6：后门充分判据、观测支持条件及证书重放；严格正性由外部声明并审核，软件没有从样本证明它。
+公共接口统一的是阶段和证据绑定，每条路线仍保留自己的变量、总体信息和假设含义。
+
+投影必须满足的边界
+- 只有明确声明的二元变量、完整静态无环图、已列全共同原因、独立结构噪声、完美干预才可提出数学问题。
+- 样本表、边际统计、未知正性不会自动变成完整严格正的总体联合律。
+- 原文仅相关或方向不明时不补因果边，未提到某边时不自动补“该边不存在”。
+- 原文指定调整集合须保留，即使数学上错误；未指定为null，求解端可搜索。
+- 额外模型限制不能丢弃后求一个较弱模型的答案。
+- 当前只接单个观测处理、单个观测结果的干预分布族；ATE、最优政策、多期、连续变量等单独停止。
+- 没有经典后门集合为UNSUPPORTED，不构造非识别反例或自行调用模型给出“已证明”答案。
+
+入口
+cfm_id_llm/dag_reading.py：严格候选schema、通用System Prompt、来源核对。
+cfm_id/dag_business.py：保守投影、追问、业务审核与科学审核绑定。
+evaluation/dag_business_workflow.py：请求/候选/审核提交的离线CLI与可注入provider的read_once。
+examples/dag_business_reference.py：冻结合成题与独立测试审核，仅用于测试，默认入口不导入它。
+
+在源码根目录运行
+python -B -m evaluation.dag_business_workflow request --bundle public.json --output request.json
+python -B -m evaluation.dag_business_workflow inspect --bundle public.json --candidate reply.json --output inspection.json
+python -B -m evaluation.dag_business_workflow submit --bundle public.json --candidate reply.json --reading-review reading_review.json --science-review science_review.json --select-research-protocol --output result.json
+所有输出须新文件名，不覆盖历史证据。上述CLI不会调用API或创建批准。
+真实API试测只能发送公开合成材料与schema，需冻结请求并按既有台账单次登记，密钥仅由认证进程载入。
+
+数学来源与限制
+沿用docs/DAG_BACKDOOR_RESEARCH_ZH.txt和literature_support/routes/dag_classical_backdoor.json。
+JMLR 18(220),2018，Definition 1、Definition 18、Section 5.1。
+此桥接不增加新的识别定理，不改变原来的严格正性与二元、八节点研究范围。
+
+2026-10-25 请求合同修正
+target.context明确为研究对象、时期与背景；不是统计条件变量，未说明或尚未确定时仍为null。
+Claim.value区分肯定声明true、否定声明false和未声明null；缺少正性声明不是反对正性。
+make_request按当前材料目录构造SourceId枚举。使用支持JSON Schema的provider时，须把返回user载荷中的output_schema原样传给provider，不能另用未绑定材料的静态DagReading.model_json_schema()替代。
+枚举限制只是生成约束；本地parse仍严格检查未知、重复及过期来源，引用有效不表示语义或科学假设已批准。
+候选JSON结构与dag-reading-1版本不变，旧证书仍按原数学协议重放。本次没有修改dag_business投影、后门求解器或验证器。
+
+初始桥接验收（历史记录）
+117项最终离线测试通过，8个合成参考例通过。
+LongCat首轮5次中2次完全符合预期；澄清两个读取字段职责后，新的5次均符合预期。
+这是诊断和小样本验收，不是泛化准确率。全部原始失败保留，未改变业务材料或数学模块。
+详情见LOCAL_EVIDENCE_NOT_DISTRIBUTED。
+
+2026-10-25 后续请求合同验收
+最终87项相关离线测试通过；保留原始跨行业失败，不覆盖评分。
+第一批LongCat 6/10、DeepSeek 2/2；前者另发现重复范围限制、自由文本范围不一致及一次传输失败。
+澄清target/scope/additional_restrictions职责后的独立LongCat定向验收6/6：3个POINT、真正额外约束保留、正性未知、范围未定。
+本次合计9份实际POINT证书独立重放通过。这些数字按调用结果计数，包含重复题，不是9个独立新数学场景。
+最新字段职责说明尚未在DeepSeek重复测试；定向验收不是一般准确率。
+详情见LOCAL_EVIDENCE_NOT_DISTRIBUTED。
+后续DAG调整数学路线已完成独立离线验收，见docs/DAG_ADJUSTMENT_NEXT_STAGE_ZH.txt。
+
+2026-10-25 显式接入DAG_ADJUSTMENT
+现有dag_reading候选、Prompt、来源校验和业务审查代码共用；新增route_id参数区分两个数学合同。
+inspect_candidate / submit_reviewed / read_once不传route_id时仍使用DAG_CLASSICAL_BACKDOOR。
+选择DAG_ADJUSTMENT时生成dag-adjustment-1问题，要求AdjustmentReview；没有自动回退或升级路线。
+同一个候选的旧问题审核不能沿用，新问题哈希须由两份审核重新绑定；数学模块没有修改。
+CLI在inspect和submit等命令加入 --route DAG_ADJUSTMENT：
+python -B -m evaluation.dag_business_workflow inspect --route DAG_ADJUSTMENT --bundle public.json --candidate reply.json --output inspection.json
+python -B -m evaluation.dag_business_workflow submit --route DAG_ADJUSTMENT --bundle public.json --candidate reply.json --reading-review reading_review.json --science-review science_review.json --select-research-protocol --output result.json
+这只是明确选择研究路线；不会自动创建审核或调用API。request产生的Prompt与经典后门相同。
+典型新例：只含培训→完成任务、培训→打开资料时，指定控制打开资料可被新路线接受。
+把图改成培训→打开资料→完成任务后，指定控制打开资料仍须拒绝。未知正性或未知完整图继续追问。
+冻结业务参考见examples/dag_adjustment_business_reference.py；所有合成审核仅用于验收。
+Prompt及网络干扰复用边界见docs/DAG_PROMPT_AND_CODE_REUSE_ZH.txt。
+
+后续通用读取澄清（与初始冻结批次分开）
+初始试测发现：模型可能把计算方法或变量测量时序放入additional_restrictions，也可能把未核实记为false。
+仅在共享DAG System Prompt中补两处边界说明，不改变字段、投影、审核规则或数学实现。
+真实额外单调性/排除限制仍须保留，无法表达的特殊计算要求进入unresolved；没有自动删除自由文本或批准条件。
+3条原失败题保持原始公开材料，另配新措辞、明确否定与真实科学限制对照；原失败结果不覆盖。
+记录见LOCAL_EVIDENCE_NOT_DISTRIBUTED。

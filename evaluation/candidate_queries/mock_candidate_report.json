@@ -1,0 +1,95 @@
+{
+  "schema_version": "cfm-id-candidate-batch-report-v0.11",
+  "gateway_version": "0.11.0",
+  "case_id": "QA_SALES",
+  "input_sha256": "adf635c512aa2b1fe051311724857700ad0ca0f970234d1bffaebd36432069d1",
+  "draft_sha256": "1bd4972c7f3f944d4002e0bc09a07eb8717e22f003262b9bf6c0f342d81435b9",
+  "business_review_sha256": "de20feaeaf278c5175c808102dda695a215103987e37115fdfd327361823274d",
+  "prompt_version": "cfm-id-exploratory-identification-candidate-zh-v0.11.0",
+  "provider": "mock-fixture",
+  "results": [
+    {
+      "schema_version": "cfm-id-candidate-query-report-v0.11",
+      "query_id": "q1",
+      "target_sha256": "01c3f3a9ed438c59ef2b8d0b89cbc34ea5166a4afb7cdb8b6249970bc77485a2",
+      "status": "BLOCKED",
+      "reason_code": "NOT_A_COVERAGE_GAP",
+      "mode": "NOT_RUN",
+      "coverage_sha256": null,
+      "science_scope_sha256": null,
+      "candidate": null,
+      "issues": [],
+      "verification_level": "LLM_UNVERIFIED",
+      "estimation_handoff_allowed": false,
+      "mathematical_certificate": null
+    },
+    {
+      "schema_version": "cfm-id-candidate-query-report-v0.11",
+      "query_id": "q2",
+      "target_sha256": "b9fa43525a9b4b2952adcac1eda88f6d59416c0d3075dfe50b682e975ee451e0",
+      "status": "UNVERIFIED_CANDIDATE",
+      "reason_code": "EXPLORATORY_MATH_ONLY_NOT_CERTIFIED",
+      "mode": "MOCK_PREVIEW",
+      "coverage_sha256": "b44fc53a6f3bbb74f6aa3c285497b079fe475ed40ac7c960169125ff333c0cdb",
+      "science_scope_sha256": "052a68d726194f778806aeb57757cd03a97022feafdf436060f076864edd356f",
+      "candidate": {
+        "schema_version": "cfm-id-candidate-proposal-v0.11",
+        "query_id": "q2",
+        "target_sha256": "b9fa43525a9b4b2952adcac1eda88f6d59416c0d3075dfe50b682e975ee451e0",
+        "semantics_sha256": "653b283eeb6039df938dd86a2ec59df8647ca6e4e79162bdeab0badba0592821",
+        "science_scope_sha256": "052a68d726194f778806aeb57757cd03a97022feafdf436060f076864edd356f",
+        "proposal": {
+          "schema_version": "cfm-id-candidate-draft-v0.3",
+          "target_kind": "SPILLOVER_EFFECT",
+          "target_description": "没有开通的同事是否受影响",
+          "claimed_identification": "POINT",
+          "scope": "IF_ADDITIONAL_REQUIREMENTS",
+          "a4_used": {
+            "source": "UNRESOLVED",
+            "level": null,
+            "operator": null
+          },
+          "admitted_assumptions_used": [],
+          "additional_requirements": [
+            {
+              "kind": "A4_INFORMATION",
+              "description": "需要相关处理与邻居暴露臂的总体条件结果均值",
+              "why_needed": "有限样本表不能替代总体可观测律"
+            },
+            {
+              "kind": "A6_VALIDITY_SUPPORT",
+              "description": "需要所比较的两个处理－暴露臂均有正支持",
+              "why_needed": "无支持的总体条件均值不能由该实验直接恢复"
+            }
+          ],
+          "candidate_expression": "E[Yobs | T_i=0,S_i=1,W]-E[Yobs | T_i=0,S_i=0,W] (候选示意，需逐节点和权重确认)",
+          "nonidentification_witness": null,
+          "reasoning_steps": [
+            "确认业务关注未开通者间接影响，而非政策总体价值",
+            "在额外总体观测信息和臂支持成立时尝试建立可观测均值对照",
+            "针对当前网络与随机化设计逐节点证明或寻找失败反例"
+          ],
+          "caveats": [
+            "这只是未验证的候选公式；任何数学 Core 状态均来自 MOCK，不能推断生产库覆盖情况。"
+          ],
+          "suggested_checks": [
+            "由研究者检查对照暴露定义及 q(t|W)",
+            "独立审查 A4/A5 和逐节点支持"
+          ]
+        },
+        "proposed_validation_checks": [
+          "用数学库验证是否已经有覆盖该目标的严格定理",
+          "检查逐节点支持与 A4 总体信息",
+          "独立复核候选公式并尝试反例"
+        ],
+        "known_core_coverage_gap": "离线模拟的 NO_REGISTERED_THEOREM，不代表真实 Core 未覆盖。"
+      },
+      "issues": [],
+      "verification_level": "LLM_UNVERIFIED",
+      "estimation_handoff_allowed": false,
+      "mathematical_certificate": null
+    }
+  ],
+  "mathematical_verification": "NOT_PERFORMED",
+  "estimation_handoff_allowed": false
+}

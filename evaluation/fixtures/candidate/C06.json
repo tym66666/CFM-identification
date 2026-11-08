@@ -1,0 +1,33 @@
+{
+  "schema_version": "cfm-id-candidate-draft-v0.3",
+  "target_kind": "FIXED_POLICY_VALUE",
+  "target_description": "给定四节点网络每人独立随机，已知四臂均值，求完整政策 z=(1,1,0,0) 的真实销售收益。",
+  "claimed_identification": "NOT_POINT",
+  "scope": "AS_REVIEWED",
+  "a4_used": {
+    "source": "REVIEWED_OPERATOR",
+    "level": "NODE_ARM_CONDITIONAL_MEANS",
+    "operator": "可用的总体观测信息仅为各节点 arm 条件均值 E[Y_i^obs|T_i=a,S_i=s,W]，并没有完整处理向量的联合律。"
+  },
+  "admitted_assumptions_used": [
+    "full_vector_randomization",
+    "consistency"
+  ],
+  "additional_requirements": [],
+  "candidate_expression": null,
+  "nonidentification_witness": {
+    "world_a": "构造与所有可观测配置一致的潜在结果世界A",
+    "world_b": "构造可观测配置不变但目标配置结果不同的潜在结果世界B",
+    "why_observables_match": "两者对已观察条件下所有结果一致，从而观察律完全相同",
+    "why_targets_differ": "构造同一个arm分组内Y_i(z)增减抵消的两个世界，使所有arm均值相同，但选定z的政策值不同。"
+  },
+  "reasoning_steps": [
+    "节点arm均值是合并多个完整配置的条件平均，不足以唯一确定给定配置结果。"
+  ],
+  "caveats": [
+    "仅为离线FIXTURE，既非大模型推理结果也非数学认证"
+  ],
+  "suggested_checks": [
+    "进行独立数学证明或两个世界的完整可观测等价检查"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "A4_population_operator_from_business_files": "NOT_PROVIDED",
+  "all_business_packet_provenance": "SYNTHETIC_OFFLINE_GENERATOR",
+  "assignment_family": "O_WITNESS",
+  "case_id": "NBIB-019",
+  "conditional_route_only": [
+    "observational_nonidentification_witness_without_A5"
+  ],
+  "data_is_finite_observations_not_A4": true,
+  "design_params": {},
+  "edge_count": 40,
+  "expected_blockers": [
+    "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+    "A5_NEEDS_SCIENTIFIC_REVIEW",
+    "FORMAL_OBSERVATIONAL_EQUIVALENCE_WITNESS"
+  ],
+  "exposure_rule": "E5",
+  "fixed_policy_support": [],
+  "identification_library_status": "NOT_RUN_ON_THIS_GENERATED_CASE",
+  "industry": "内容平台",
+  "lower_is_better": false,
+  "n_nodes": 40,
+  "network_type": "ring",
+  "number_independent_market_replicates": 1,
+  "outcome_metric_name": "views_target_met",
+  "outcome_metric_unit": "0/1是否达标",
+  "pair_family": null,
+  "query_targets": [
+    {
+      "exact_target_semantics": "R3_CAUSAL_DIRECT_EFFECT",
+      "kind": "DIRECT_EFFECT",
+      "quote": "开通推荐工具本身是否提高创作者达到播放目标的概率"
+    }
+  ],
+  "scenario_title": "自发报名和经营积极性导致的识别歧义",
+  "scientific_reference_notes": "严格双世界nonidentification witness在无exchangeability模型类下有效；见gold/nonidentification_witness.json，可离线精确验证；不意味着通用非识别求解器已实现。",
+  "simulation_is_not_proof_of_scientific_assumptions": true,
+  "split": "test",
+  "support_checks": {
+    "exposure_rule": "E5",
+    "exposure_value": 1,
+    "focal_node": "unit_000",
+    "mathematical_support_only_not_IDENTIFICATION": true,
+    "own_treatment": 1,
+    "support_probability": "3/8"
+  },
+  "synthetic": true
+}

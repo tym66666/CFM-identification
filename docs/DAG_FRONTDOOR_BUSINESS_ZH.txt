@@ -1,0 +1,87 @@
+前门业务读取与审核桥接
+日期：2026-10-25
+范围：显式选择DAG_CLASSICAL_FRONTDOOR的研究工作流；不是自动选择所有识别方法的调度器。
+
+这次新增的能力
+公开业务材料 → LLM读取候选 → 来源/字段检查与追问 → 阅读审核 → 科学审核 →
+已验证前门数学模块 → 独立证书复核 → POINT或明确停止。
+与既有后门、DAG调整共用业务工作流。前门数学合同、求解器和验证器均未修改。
+
+请求格式
+cfm_id_llm/dag_frontdoor_reading.py新增dag-frontdoor-reading-2；
+旧cfm_id_llm/dag_reading.py及其dag-reading-1 Prompt保持不变。
+共用变量、图、目标、总体信息、科学声明和来源字段，仅增加frontdoor_choice：
+- SPECIFIED：用户明确指定某变量，或要求检验能否用该变量做前门；定理尚未判定不是选择尚未决定。
+- UNSPECIFIED：用户未指定具体变量；variable为null。调用者显式选择前门路线后，数学端可搜索。
+- UNDECIDED：是否采用/选择什么仍未决定；保留已提到的变量并追问，不能当作允许搜索。
+- FORBIDDEN：用户明确禁止相应用途；保留禁止信息，本版不自动改用其他变量。
+
+adjustment仍只表示普通协变量调整。前门变量不进入adjustment。
+“用M做前门，而不是把它当控制变量”是角色说明，不等于指定空调整集。
+用户同时要求前门和普通调整时，本版不丢掉其中一个要求去求结果，而是明确UNSUPPORTED。
+明确空调整集[]也属于一个已指定的普通调整操作；本版尚未定义其与前门请求的组合语义。
+只说M是中介或传导环节，不等于指定M作为前门变量。代码和Prompt都不按图位置替用户选择。
+FORBIDDEN目前为保守停止，不实现“排除某候选后继续搜索”的扩展合同。
+
+读取候选不判断FD1–FD3，不给公式、不批准科学前提。
+假设命题是否已提出与是否已批准仍分开记录；引用能定位不表示语义已证明。
+
+独立审核
+新DagFrontdoorReadingReview使用dag-frontdoor-reading-review-2；
+在原有四项阅读审核外，增加requested_identification_roles，单独确认前门与控制的用户意图。
+候选、材料、最终数学问题哈希共同绑定。旧版本审核、改动候选后复用审核、待定或拒绝决定均不放行。
+科学审核仍用既有FrontdoorReview及原生数学模块。
+两个审核必须齐备并显式选择研究协议才可提交；没有自动生成实际业务的科学批准。
+本轮测试中的审核来自冻结的合成参考协议，不代表现实科学条件已验证。
+所有结果仍production_admission=false、estimation_handoff_allowed=false。
+
+为何复用不会改变旧路线
+cfm_id/dag_business.py增加固定路线的reading_contract：
+后门/调整继续选择旧读取格式与旧审核类型；前门选择新格式与新版阅读审核。
+数学问题中前门只生成frontdoor_variable，不附加adjustment。
+旧路线不能接收新候选，新路线也不悄悄升级旧候选。
+默认路线仍是DAG_CLASSICAL_BACKDOOR。未知路线没有动态模块导入或自动回退。
+
+入口
+Python：
+  evaluation.dag_business_workflow.read_once(bundle, provider,
+      route_id='DAG_CLASSICAL_FRONTDOOR', allow_external=True, allow_document_sharing=True)
+其返回完整候选时仍为REVIEW_REQUIRED；不会调用数学求解器。
+随后使用cfm_id.dag_business.submit_reviewed，提供两份独立审核和明确协议选择。
+
+离线CLI（在源码根目录、使用已配置项目依赖的Python）：
+python -B -m evaluation.dag_business_workflow request --route DAG_CLASSICAL_FRONTDOOR --bundle public.json --output request.json
+python -B -m evaluation.dag_business_workflow inspect --route DAG_CLASSICAL_FRONTDOOR --bundle public.json --candidate candidate.json --output inspection.json
+python -B -m evaluation.dag_business_workflow submit --route DAG_CLASSICAL_FRONTDOOR --bundle public.json --candidate candidate.json --reading-review reading_review.json --science-review science_review.json --select-research-protocol --output result.json
+CLI不调用API、不创建审核，输出不能覆盖旧证据。
+使用结构化输出provider时，必须使用对应request中随材料生成的output_schema及来源ID枚举，不能沿用旧静态schema。
+
+验收材料与计分
+examples/dag_frontdoor_business_reference.py冻结14个合成业务案例：
+覆盖培训、设备保养、会员营销；指定、搜索、控制要求、尚未决定、明确禁止、两种要求并存，
+缺正性、样本代替总体律、图未确定、指定潜变量、没有声明前门角色及违反图判据等。
+核心数学结构主要是经典前门图及其直接路径变化；跨行业措辞不代表新增独立数学模型族。
+tests_gateway/test_dag_frontdoor_business.py检查读取/来源/审核/版本/CLI及证书保留边界。
+
+真实试测预先选择同一组6题，各交给LongCat和DeepSeek，两个DeepSeek Key按同一模型合并。
+请求只含公开材料、问题、来源目录与schema；case_id采用不透露预期的中性编号。
+参考标签、预期数学结果、审核记录全部留在本地，不发送给模型。
+每槽位仅一次POST，无自动重试。语义或引用检查不通过时，合成审核不发放，不能用“停止状态碰巧一致”算通过。
+只有源语义比对通过的合成例才按独立预设科学条件提交，POINT还必须独立重放。
+最终通过率是本组小样本的严格验收比例，不是一般准确率或“理解任意前门业务”的证明。
+离线测试与真实响应、同图改写与独立案例分开计数。
+
+结果与追溯
+LOCAL_EVIDENCE_NOT_DISTRIBUTED （相对源码根目录）
+PLAN.json：调用前冻结的源码、问题、请求、参考、槽位、额度。
+public/、requests/、private/：公开材料、实际请求与仅本地参考。
+live/：逐次实际模型候选、传输诊断、语义评分、审核和数学结果。
+cli_live_example/：使用真实LongCat候选实际执行的请求、检查、审核后提交及负例CLI输出。
+RESULTS.json / RESULTS_ZH.txt：最终实际完成的结果、分母、调用次数和剩余额度。
+原始失败若有会保留；不修改业务问题或候选来把原失败变成通过。
+
+后续边界
+真实研究仍须外部人员确认业务读取及科学条件；无身份鉴权、因果发现或自动科学批准。
+下一轮宜使用未见过的图结构和独立措辞做冻结外部检验，再考虑更大覆盖。
+暂不把多前门变量、条件前门、一般ID或IV混入此合同。
+

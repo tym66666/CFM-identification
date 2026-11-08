@@ -1,0 +1,54 @@
+{
+  "version": "business-target-reading-cases-1",
+  "purpose": "Synthetic plain business descriptions for target reading; private expectations must never be included in model requests. These are not NBIB results or mathematical identification fixtures.",
+  "cases": [
+    {
+      "id": "sales_level",
+      "business_question": "我们准备在下个月第一周，让销售一组、二组使用AI客户助手，三组、四组继续按原来的方式工作。想了解这项安排下，四个小组平均每组一周能完成多少销售额，各组按相同权重计算。这次只需要这项安排下的销售额水平，不要求与其他安排相减。",
+      "sources": [{"source_id": "background", "text": "公司共有销售一组、二组、三组、四组。各组会互相转交客户线索：一组与二组合作，二组与三组合作，三组与四组合作，没有其他组间合作关系。一个小组使用助手后，也可能把整理出的线索分享给合作组。现有资料是最近八周各组是否使用助手和每周销售额的记录；过去由各组主管自行决定是否使用。"}],
+      "expected": {"kinds": ["FIXED_POLICY_VALUE"], "query_count": 1, "population": "全部四个销售小组", "direction": null, "comparator": "NOT_APPLICABLE", "information": "只有有限记录，没有总体分布声明", "science": "未声明随机分配或独立性"}
+    },
+    {
+      "id": "sales_change",
+      "business_question": "下个月第一周的AI客户助手有两种安排可选：一是销售一组、二组使用，三组、四组不使用；二是三组、四组使用，一组、二组不使用。我们想知道，如果从第二种安排改为第一种安排，四个小组平均每组一周的销售额会增加多少。两种安排都看同一周、同一批小组，各组按相同权重计算。",
+      "sources": [{"source_id": "background", "text": "公司共有销售一组、二组、三组、四组。各组会互相转交客户线索：一组与二组合作，二组与三组合作，三组与四组合作，没有其他组间合作关系。一个小组使用助手后，也可能把整理出的线索分享给合作组。现有资料是最近八周各组是否使用助手和每周销售额的记录；过去由各组主管自行决定是否使用。"}],
+      "expected": {"kinds": ["TOTAL_EFFECT"], "query_count": 1, "population": "全部四个销售小组", "direction": "一二使用的平均销售额减三四使用的平均销售额", "comparator": "三四使用，一二不使用", "information": "只有有限记录，没有总体分布声明", "science": "未声明随机分配或独立性"}
+    },
+    {
+      "id": "stores_level",
+      "business_question": "我们原来讨论过让北店和南店使用智能补货工具，但这只是备选方案。现在要单独评估另一个安排：东店、西店使用，北店、南店不用。请看下个月第一周，在这个安排下四家店平均每家每天的毛利是多少，四家店按相同权重计算。原来的备选方案仅作为背景，本次不需要比较两种安排。",
+      "sources": [{"source_id": "background", "text": "公司只有东店、西店、南店、北店四家门店。东店与西店之间可以互相调货，南店与北店之间也可以互相调货，其他门店之间不调货；一家店的补货安排可能影响与它调货的另一家店。我们有各店过去两个月的每日销售、成本、调货和工具使用记录，还没有开展随机试点。"}],
+      "expected": {"kinds": ["FIXED_POLICY_VALUE"], "query_count": 1, "population": "全部四家店", "direction": null, "comparator": "NOT_APPLICABLE", "information": "只有有限记录，没有总体分布声明", "science": "未开展随机试点"}
+    },
+    {
+      "id": "stores_reverse",
+      "business_question": "下个月第一周我们需要评估两项补货安排：最先提出的是东店、西店使用智能工具，南店、北店不用；后来提出的是南店、北店使用，东店、西店不用。我们关心的是，后来提出的南北店方案，比最先提出的东西店方案，平均每家店每天的毛利高多少。两项安排都评价同一周的全部四家店，四家店按相同权重计算。",
+      "sources": [{"source_id": "background", "text": "公司只有东店、西店、南店、北店四家门店。东店与西店之间可以互相调货，南店与北店之间也可以互相调货，其他门店之间不调货；一家店的补货安排可能影响与它调货的另一家店。我们有各店过去两个月的每日销售、成本、调货和工具使用记录，还没有开展随机试点。"}],
+      "expected": {"kinds": ["TOTAL_EFFECT"], "query_count": 1, "population": "全部四家店", "direction": "南北使用的平均毛利减东西使用的平均毛利", "comparator": "东西使用，南北不用", "information": "只有有限记录，没有总体分布声明", "science": "未开展随机试点"}
+    },
+    {
+      "id": "clinic_subset",
+      "business_question": "下个月第一周，我们考虑把预约短信提醒从两家门诊扩大到全部门诊。目前的备选安排是河畔、城南发提醒，青禾、湖滨不发；新的备选安排是四家都发。我们只评价青禾门诊：与原备选安排相比，全部发提醒时，青禾平均每天的爽约率会降低多少？两种安排都用同一周、同一定义的爽约率。这里的爽约率是当天未按约到诊人数除以当天预约人数。",
+      "sources": [{"source_id": "background", "text": "机构共有青禾、河畔、城南、湖滨四家门诊，患者可经转诊到其他门诊。青禾与河畔、河畔与城南、城南与湖滨会互相转诊，没有其他转诊关系。一家门诊发提醒后，患者可能改约到与它有转诊关系的门诊。现有资料为过去三个月的预约、到诊、转诊和提醒发送记录。"}],
+      "expected": {"kinds": ["TOTAL_EFFECT"], "query_count": 1, "population": "只评价青禾", "direction": "原备选安排的爽约率减全部提醒的爽约率", "comparator": "下降量的相减基准须与原goal一致，不可默认为新减旧", "information": "只有有限记录，没有总体分布声明", "science": "未声明随机化"}
+    },
+    {
+      "id": "supplier_missing_baseline",
+      "business_question": "我们计划下个月第一周让华东、华南、华北三个仓库都使用新的到货预约系统，想知道三个仓库平均每天的延迟到货比例能下降多少，三个仓库按相同权重计算。业务负责人还没有决定要与哪种原安排比较；我们希望先保留这个下降幅度的问题，等基准安排明确后再补充。延迟到货比例指当天晚于约定时间到货的车次占当天全部到货车次的比例。",
+      "sources": [{"source_id": "background", "text": "公司只有华东、华南、华北三个仓库。华东与华南会互相调配运输车辆，华南与华北也会互相调配，华东与华北不直接调配。一个仓库调整到货时段可能占用另一个仓库原本可以使用的车辆。我们保存了最近六周各仓库的预约、到货和系统使用记录。"}],
+      "expected": {"kinds": ["TOTAL_EFFECT"], "query_count": 1, "population": "三个仓库", "direction": "下降幅度，基准未定", "comparator": "UNKNOWN", "information": "只有有限记录，没有总体分布声明", "science": "未声明随机化", "required_stop": "基准缺失；不得改成单方案均值或补出全不使用"}
+    },
+    {
+      "id": "delivery_pending_assignment",
+      "business_question": "下个月第一周，我们想比较两种配送安排下东站和西站平均每天的准时送达率，两个站按相同权重计算。现方案是东站和南站使用新调度工具，西站和北站不用。拟议方案已确定东站、西站使用，南站不用，但北站是否使用还在讨论。问题是拟议方案比现方案提高多少；请保留北站安排尚未确定这一点。准时送达率按当天按时送达订单数除以当天全部订单数计算。",
+      "sources": [{"source_id": "background", "text": "公司共有东站、西站、南站、北站四个配送站。东站与西站、西站与南站、南站与北站可以互相支援骑手，没有其他站间支援关系。一个站改变调度会影响可借给其他站的骑手。现有资料是过去四周各站的订单、送达时间、骑手支援和工具使用记录。"}],
+      "expected": {"kinds": ["TOTAL_EFFECT"], "query_count": 1, "population": "只评价东站和西站", "direction": "拟议减现方案", "comparator": "现方案东南使用、西北不用", "information": "只有有限记录，没有总体分布声明", "science": "未声明随机化", "required_stop": "北站未来安排未知；保留其他安排，不得填0或只按评价子集补全政策"}
+    },
+    {
+      "id": "subscriptions_two_levels",
+      "business_question": "下个月第一周，平台有两种会员推荐安排需要分别评估：一种是读书群和电影群展示新推荐页，跑步群和旅行群展示原页面；另一种是跑步群和旅行群展示新推荐页，读书群和电影群展示原页面。请分别报告这两种安排下，四个群平均每群的付费续订率，各群按相同权重计算。本次不需要计算两种安排的差额。续订率按该周到期后付费续订人数除以该周到期人数计算。",
+      "sources": [{"source_id": "background", "text": "平台研究范围是读书群、电影群、跑步群、旅行群。读书群与电影群、电影群与旅行群、旅行群与跑步群之间存在成员交流和推荐转发，其他群之间没有这种联系。群内推荐页可能影响与它交流的其他群成员。现有资料是过去八周各群的页面版本、到期和续订记录。"}],
+      "expected": {"kinds": ["FIXED_POLICY_VALUE", "FIXED_POLICY_VALUE"], "query_count": 2, "population": "每个问题均评价全部四群", "direction": null, "comparator": "每问NOT_APPLICABLE", "information": "只有有限记录，没有总体分布声明", "science": "未声明随机化"}
+    }
+  ]
+}

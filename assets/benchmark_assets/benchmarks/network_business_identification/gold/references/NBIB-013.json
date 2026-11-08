@@ -1,0 +1,54 @@
+{
+  "A4_population_operator_from_business_files": "NOT_PROVIDED",
+  "all_business_packet_provenance": "SYNTHETIC_OFFLINE_GENERATOR",
+  "assignment_family": "O_B",
+  "case_id": "NBIB-013",
+  "conditional_route_only": [
+    "R3_exposure_adjusted_candidate"
+  ],
+  "data_is_finite_observations_not_A4": true,
+  "design_params": {},
+  "edge_count": 82,
+  "expected_blockers": [
+    "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+    "A5_NEEDS_SCIENTIFIC_REVIEW",
+    "R3_P2_INDIVIDUAL_EXPOSURE_SUFFICIENCY_NOT_PROVEN"
+  ],
+  "exposure_rule": "E5",
+  "fixed_policy_support": [],
+  "identification_library_status": "NOT_RUN_ON_THIS_GENERATED_CASE",
+  "industry": "金融服务",
+  "lower_is_better": true,
+  "n_nodes": 48,
+  "network_type": "grid",
+  "number_independent_market_replicates": 24,
+  "outcome_metric_name": "branch_wait",
+  "outcome_metric_unit": "分钟/人",
+  "pair_family": "r3_exposure_strata",
+  "query_targets": [
+    {
+      "exact_target_semantics": "R3_EXPOSURE_ADJUSTED_DIRECT",
+      "kind": "DIRECT_EFFECT",
+      "quote": "比较相同市场背景和邻近网点使用状态后，自己开通助手会怎样影响等候时间"
+    },
+    {
+      "exact_target_semantics": "R3_EXPOSURE_ADJUSTED_SPILLOVER",
+      "kind": "SPILLOVER_EFFECT",
+      "quote": "比较相同市场背景后，邻近网点开通助手会不会影响尚未开通者的等候时间"
+    }
+  ],
+  "scenario_title": "市场背景分层的门店协同调整",
+  "scientific_reference_notes": "R3 P2 exposure-adjusted；必须逐层p(T|B)因子化总体描述、P(B)、各层条件均值A4、个人exposure suff与逐层mean exchangeability、逐层正支持。CSV只是有限仿真样本。",
+  "simulation_is_not_proof_of_scientific_assumptions": true,
+  "split": "test",
+  "support_checks": {
+    "exposure_rule": "E5",
+    "exposure_value": 1,
+    "focal_node": "unit_000",
+    "mathematical_support_only_not_IDENTIFICATION": true,
+    "own_treatment": 1,
+    "support_probability_B0": "16/75",
+    "support_probability_B1": "14/25"
+  },
+  "synthetic": true
+}

@@ -1,0 +1,58 @@
+{
+  "A4_population_operator_from_business_files": "NOT_PROVIDED",
+  "all_business_packet_provenance": "SYNTHETIC_OFFLINE_GENERATOR",
+  "assignment_family": "D3",
+  "case_id": "NBIB-021",
+  "conditional_route_only": [
+    "R1a_candidate"
+  ],
+  "data_is_finite_observations_not_A4": true,
+  "design_params": {
+    "groups": 2,
+    "quotas": [
+      16,
+      12
+    ]
+  },
+  "edge_count": 94,
+  "expected_blockers": [
+    "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+    "A5_NEEDS_SCIENTIFIC_REVIEW"
+  ],
+  "exposure_rule": "E1",
+  "fixed_policy_support": [],
+  "identification_library_status": "NOT_RUN_ON_THIS_GENERATED_CASE",
+  "industry": "供应链管理",
+  "lower_is_better": true,
+  "n_nodes": 64,
+  "network_type": "ladder",
+  "number_independent_market_replicates": 1,
+  "outcome_metric_name": "warehouse_stockout",
+  "outcome_metric_unit": "缺货小时/月",
+  "pair_family": null,
+  "query_targets": [
+    {
+      "exact_target_semantics": "R1A_Q_STANDARDIZED_DIRECT",
+      "kind": "DIRECT_EFFECT",
+      "quote": "站点自己使用补货系统是否减少缺货"
+    },
+    {
+      "exact_target_semantics": "R1A_Q_STANDARDIZED_SPILLOVER",
+      "kind": "SPILLOVER_EFFECT",
+      "quote": "没有安装系统的站点是否会被隔壁及对面仓库的采用情况影响"
+    }
+  ],
+  "scenario_title": "双区域固定名额的仓储协作试点",
+  "scientific_reference_notes": "R1a D3×E1；必须按两组独立固定quota的联合律计算支持，不能误用D2或D4；总体A4和随机化A5仍需单独审核。",
+  "simulation_is_not_proof_of_scientific_assumptions": true,
+  "split": "test",
+  "support_checks": {
+    "exposure_rule": "E1",
+    "exposure_value": 1,
+    "focal_node": "unit_000",
+    "mathematical_support_only_not_IDENTIFICATION": true,
+    "own_treatment": 1,
+    "support_probability": "45/496"
+  },
+  "synthetic": true
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "literature-support-route-1",
+  "route_id": "DAG_CLASSICAL_BACKDOOR",
+  "updated_on": "2026-10-25",
+  "development_status": "EXPLICIT_RESEARCH_BUSINESS_BRIDGE_NOT_DEFAULT_REGISTERED",
+  "route_registered": false,
+  "production_admission": false,
+  "estimation_handoff_allowed": false,
+  "theorem": {
+    "attribution": "Pearl classical backdoor sufficient theorem, checked through the selected JMLR definitions; no novelty or generalized-criterion completeness claim.",
+    "derivation_path": "../../docs/DAG_BACKDOOR_RESEARCH_ZH.txt",
+    "path_base": "this route JSON directory"
+  },
+  "scientific_scope": {
+    "model": "Recursive static SCM with explicit observed/latent partition and independent structural errors",
+    "variables": "Binary; at most eight including latents, solely an exhaustive replay budget",
+    "target": "Single observed treatment, single observed outcome, full interventional distribution",
+    "information": "Full symbolic observed joint population law with explicitly reviewed strict positivity",
+    "review": "Separate declarative research review bound to the complete input; no reviewer authentication or automated scientific approval",
+    "output": "Symbolic observed-distribution functional, not an estimated value",
+    "unsupported_is_not_nonidentification": true
+  },
+  "mapping": [
+    {
+      "source_id": "perkovic_etal2018_adjustment",
+      "locator": "Definitions 1 and 18; Section 5.1",
+      "claim": "Observed non-descendant Z blocking all backdoor paths gives the adjustment identity; no such set need not imply nonidentification.",
+      "role": "Known sufficient identification theorem"
+    }
+  ],
+  "implementation": [
+    "cfm_id/dag_backdoor_contract.py",
+    "cfm_id/dag_backdoor_solver.py",
+    "cfm_id/dag_backdoor_verify.py",
+    "cfm_id/dag_backdoor.py",
+    "cfm_id/research_route_workflow.py",
+    "cfm_id/research_route_adapters.py"
+  ],
+  "tests": [
+    "tests_gateway/test_dag_backdoor.py",
+    "tests_gateway/test_research_route_workflow.py",
+    "tests_gateway/test_research_route_acceptance.py"
+  ],
+  "verification_obligations": [
+    "Classical positive graphs, latent paths, colliders and descendant conditioning",
+    "Missing information, pending/rejected/stale review, unsupported criteria",
+    "Independent active-path versus ancestral-moralization checks",
+    "Exact intervention enumeration in independent finite binary SCMs",
+    "Rehashed certificate tampering, normalized claim tampering, no promotion",
+    "Existing network backend regression and unchanged original Python sources"
+  ],
+  "verification_evidence": {
+    "directory": "LOCAL_EVIDENCE_NOT_DISTRIBUTED",
+    "path_base": "source root",
+    "summary": "RESULTS_ZH.txt",
+    "machine_summary": "RESULTS.json",
+    "reference_acceptance": "REFERENCE_ACCEPTANCE.json",
+    "llm_accuracy_measured": false,
+    "note": "A listed test path is not a passing-test claim; read the dated execution report."
+  },
+  "business_interface": {
+    "added_on": "2026-10-25",
+    "mathematical_contract_changed": false,
+    "implementation": [
+      "cfm_id_llm/dag_reading.py",
+      "cfm_id/dag_business.py",
+      "evaluation/dag_business_workflow.py"
+    ],
+    "tests": [
+      "tests_gateway/test_dag_business.py"
+    ],
+    "documentation": "docs/DAG_BUSINESS_BRIDGE_ZH.txt",
+    "results_directory": "LOCAL_EVIDENCE_NOT_DISTRIBUTED",
+    "path_base": "source root",
+    "review_scope": "Explicit separate reading and scientific review; small synthetic LLM pilot does not authenticate reviewers or establish real-world graph correctness.",
+    "same_mathematical_limits": true,
+    "request_contract_evidence": [
+      "LOCAL_EVIDENCE_NOT_DISTRIBUTED",
+      "LOCAL_EVIDENCE_NOT_DISTRIBUTED"
+    ],
+    "request_contract_tests": [
+      "tests_gateway/test_dag_request_contract.py"
+    ],
+    "planned_adjustment_extension": {
+      "documentation": "docs/DAG_ADJUSTMENT_NEXT_STAGE_ZH.txt",
+      "implemented": true,
+      "implementation_scope": "SEPARATE_EXPLICIT_RESEARCH_ADAPTER_SUFFICIENT_POINT_ONLY",
+      "route_map": "routes/dag_adjustment.json",
+      "business_reading_connected": true
+    }
+  },
+  "runtime_coverage_authority": "cfm_id.capability_registry.inventory",
+  "document_role": "MATHEMATICAL_AND_LITERATURE_TRACE_WITH_DATED_EVIDENCE"
+}

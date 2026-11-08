@@ -1,0 +1,11 @@
+source_id,target_id,frozen_before_rollout
+site_01,site_02,1
+site_02,site_03,1
+site_03,site_04,1
+site_04,site_05,1
+site_05,site_06,1
+site_06,site_07,1
+site_07,site_08,1
+site_08,site_09,1
+site_09,site_10,1
+site_10,site_01,1

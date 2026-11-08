@@ -1,0 +1,24 @@
+{
+  "version": "business-evidence-slot-cases-1",
+  "purpose": "Plain complete business inputs for source absence and comparison direction. Expected labels are evaluator-only, not scientific approvals.",
+  "cases": [
+    {
+      "id": "freight_wait_reduction",
+      "business_question": "运输公司有江北、江南和机场三个车队。我们想评估下个月第一周的新安排：三个车队都使用新的装车预约工具。原安排是只有江北使用，江南和机场不用。请比较同一周里江南与机场两个车队平均每车次的等待小时数：改用新安排后，比原安排减少多少？先分别计算两个车队每车次的平均等待小时数，再对这两个车队取相同权重的平均，不评价江北的等待时间。",
+      "sources": [{"source_id":"operations","text":"江北与江南之间、江南与机场之间可以相互借调驾驶员，江北与机场不直接借调，没有其他借调关系。一处调整预约时间可能占用另一处可借用的驾驶员。借调名单从上季度开始固定，过去八周没有改动。公司保存了八周的工具使用、车次和等待小时数记录，但没有说明以前由谁决定哪些车队使用工具，也没有规定如何汇总其他车队使用工具的情况。"}],
+      "expected": {"query_count":1,"kind":"TOTAL_EFFECT","population":"江南与机场，按车队等权平均各自每车次等待小时数","main":"三队都使用","baseline":"只有江北使用","direction":"原安排减新安排","new_operation":"COMPARATOR_MINUS_INTERVENTION","known_network_time":true,"assignment_law":"UNKNOWN","exposure_mapping":"UNKNOWN","sample_not_population":true,"no_scientific_approval":true}
+    },
+    {
+      "id": "branches_completed_increase",
+      "business_question": "办事服务中心有城东、城西和城北三个网点。下个月第一周准备采用一个新安排：城东和城西使用材料预审助手，城北不用。现在作为比较依据的安排是城北使用、城东和城西不用。我们想知道改为新安排后，三个网点平均每个网点每天办结的业务件数能增加多少，两种安排都看同一周的全部三个网点，三个网点按相同权重计算。",
+      "sources": [{"source_id":"operations","text":"城东与城西可以相互转交申请，城西与城北也可以相互转交，城东与城北之间不直接转交。一个网点预审得更快可能把更多申请转给另一个网点。过去是否使用助手由各网点负责人自行决定。现有资料是最近十周逐网点的助手使用和每天办结件数，以及每个网点在记录开始前的工作人员人数。"}],
+      "expected":{"query_count":1,"kind":"TOTAL_EFFECT","population":"全部三个网点等权","main":"东西用、北不用","baseline":"北用、东西不用","direction":"新安排减比较安排","new_operation":"INTERVENTION_MINUS_COMPARATOR","assignment_law":"负责人自行决定","network_time":"UNKNOWN","exposure_mapping":"UNKNOWN","covariates":["记录前工作人员人数"],"sample_not_population":true,"no_scientific_approval":true}
+    },
+    {
+      "id": "workshop_difference_unresolved",
+      "business_question":"工厂有加工、装配、喷涂和包装四个班组。我们想比较下个月第一周两种工单工具安排下，四组平均每组每天的完工件数，四组按相同权重计算。方案甲是加工与装配使用新工具、喷涂与包装不用；方案乙是喷涂与包装使用、加工与装配不用。报告需要给出两种安排的差额，但负责人还没有决定报告里写甲比乙多多少，还是乙比甲多多少，请保留这个尚未决定的地方。两种安排均评价同一周的四个班组。",
+      "sources":[{"source_id":"operations","text":"加工与装配、装配与喷涂、喷涂与包装会相互借用设备，其他班组之间不借用设备。一组调整工单顺序可能改变另一组能够使用设备的时间。现有资料是最近五周各组的工具使用、完工件数和借用记录。材料没有说明这些借用关系何时形成，也没有给出过去如何决定各组是否使用工具的规则。"}],
+      "expected":{"query_count":1,"kind":"TOTAL_EFFECT","population":"全部四组等权","both_policies_known":true,"direction":"UNSPECIFIED","new_operation":"UNSPECIFIED","required_stop":"重查原文后保留未定方向，不擅选符号，不变成两个水平","assignment_law":"UNKNOWN","network_time":"UNKNOWN","sample_not_population":true,"no_scientific_approval":true}
+    }
+  ]
+}

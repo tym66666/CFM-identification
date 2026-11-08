@@ -1,0 +1,3789 @@
+{
+  "synthetic_only": true,
+  "independent_holdout": false,
+  "cases": {
+    "G32-03": {
+      "case_id": "G32-03",
+      "bundle": {
+        "case_id": "G32-03",
+        "synthetic": true,
+        "documents": {
+          "business_question.md": "全厂24条产线都算进去，算平均时每条线一份，不按规模加权。\n如果east和west车间的线都用上工具，另外两个车间的线都不用，全厂平均会停机多少小时？\n",
+          "study_protocol.md": "这是合成工厂业务试验。24条产线分在四个车间，各6条，分组见units.csv；试验前固定的协作联系见无向表network_edges.csv。\r\n每个车间抽一次签，抽中时该车间全部启用预警工具，否则全不启用；各车间抽中概率见cluster_randomization.csv。四个车间各自独立抽签。\r\n同伴分为两类：相邻产线至少一条启用预警工具，或者相邻产线一条也没有启用。\r\n",
+          "data_dictionary.md": "downtime_hours表示每条产线八周内的停机小时。\r\n"
+        },
+        "tables": {
+          "units.csv": {
+            "headers": [
+              "node_id",
+              "unit_group"
+            ],
+            "row_count": 24,
+            "rows": [
+              {
+                "node_id": "F_01",
+                "unit_group": "north"
+              },
+              {
+                "node_id": "F_02",
+                "unit_group": "north"
+              },
+              {
+                "node_id": "F_03",
+                "unit_group": "north"
+              },
+              {
+                "node_id": "F_04",
+                "unit_group": "north"
+              },
+              {
+                "node_id": "F_05",
+                "unit_group": "north"
+              },
+              {
+                "node_id": "F_06",
+                "unit_group": "north"
+              },
+              {
+                "node_id": "F_07",
+                "unit_group": "east"
+              },
+              {
+                "node_id": "F_08",
+                "unit_group": "east"
+              },
+              {
+                "node_id": "F_09",
+                "unit_group": "east"
+              },
+              {
+                "node_id": "F_10",
+                "unit_group": "east"
+              },
+              {
+                "node_id": "F_11",
+                "unit_group": "east"
+              },
+              {
+                "node_id": "F_12",
+                "unit_group": "east"
+              },
+              {
+                "node_id": "F_13",
+                "unit_group": "south"
+              },
+              {
+                "node_id": "F_14",
+                "unit_group": "south"
+              },
+              {
+                "node_id": "F_15",
+                "unit_group": "south"
+              },
+              {
+                "node_id": "F_16",
+                "unit_group": "south"
+              },
+              {
+                "node_id": "F_17",
+                "unit_group": "south"
+              },
+              {
+                "node_id": "F_18",
+                "unit_group": "south"
+              },
+              {
+                "node_id": "F_19",
+                "unit_group": "west"
+              },
+              {
+                "node_id": "F_20",
+                "unit_group": "west"
+              },
+              {
+                "node_id": "F_21",
+                "unit_group": "west"
+              },
+              {
+                "node_id": "F_22",
+                "unit_group": "west"
+              },
+              {
+                "node_id": "F_23",
+                "unit_group": "west"
+              },
+              {
+                "node_id": "F_24",
+                "unit_group": "west"
+              }
+            ]
+          },
+          "network_edges.csv": {
+            "headers": [
+              "source_id",
+              "target_id",
+              "frozen_before_rollout"
+            ],
+            "row_count": 50,
+            "rows": [
+              {
+                "source_id": "F_01",
+                "target_id": "F_02",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_01",
+                "target_id": "F_08",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_01",
+                "target_id": "F_18",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_01",
+                "target_id": "F_24",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_02",
+                "target_id": "F_03",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_02",
+                "target_id": "F_09",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_02",
+                "target_id": "F_19",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_03",
+                "target_id": "F_04",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_03",
+                "target_id": "F_10",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_03",
+                "target_id": "F_14",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_03",
+                "target_id": "F_20",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_04",
+                "target_id": "F_05",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_04",
+                "target_id": "F_11",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_04",
+                "target_id": "F_21",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_05",
+                "target_id": "F_06",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_05",
+                "target_id": "F_12",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_05",
+                "target_id": "F_22",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_06",
+                "target_id": "F_07",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_06",
+                "target_id": "F_13",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_06",
+                "target_id": "F_23",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_07",
+                "target_id": "F_08",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_07",
+                "target_id": "F_14",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_07",
+                "target_id": "F_24",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_08",
+                "target_id": "F_09",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_08",
+                "target_id": "F_15",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_09",
+                "target_id": "F_10",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_09",
+                "target_id": "F_16",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_10",
+                "target_id": "F_11",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_10",
+                "target_id": "F_17",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_11",
+                "target_id": "F_12",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_11",
+                "target_id": "F_18",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_11",
+                "target_id": "F_22",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_12",
+                "target_id": "F_13",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_12",
+                "target_id": "F_19",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_13",
+                "target_id": "F_14",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_13",
+                "target_id": "F_20",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_14",
+                "target_id": "F_15",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_14",
+                "target_id": "F_21",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_15",
+                "target_id": "F_16",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_15",
+                "target_id": "F_22",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_16",
+                "target_id": "F_17",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_16",
+                "target_id": "F_23",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_17",
+                "target_id": "F_18",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_17",
+                "target_id": "F_24",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_18",
+                "target_id": "F_19",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_19",
+                "target_id": "F_20",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_20",
+                "target_id": "F_21",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_21",
+                "target_id": "F_22",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_22",
+                "target_id": "F_23",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_23",
+                "target_id": "F_24",
+                "frozen_before_rollout": "1"
+              }
+            ]
+          },
+          "candidate_policies.csv": {
+            "headers": [
+              "policy_id",
+              "node_id",
+              "planned_tool_status"
+            ],
+            "row_count": 24,
+            "rows": [
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_01",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_02",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_03",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_04",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_05",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_06",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_07",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_08",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_09",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_10",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_11",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_12",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_13",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_14",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_15",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_16",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_17",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_18",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_19",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_20",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_21",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_22",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_23",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_24",
+                "planned_tool_status": "0"
+              }
+            ]
+          },
+          "cluster_randomization.csv": {
+            "headers": [
+              "cluster_id",
+              "randomization_probability",
+              "member_count"
+            ],
+            "row_count": 4,
+            "rows": [
+              {
+                "cluster_id": "north",
+                "randomization_probability": "1/3",
+                "member_count": "6"
+              },
+              {
+                "cluster_id": "east",
+                "randomization_probability": "2/3",
+                "member_count": "6"
+              },
+              {
+                "cluster_id": "south",
+                "randomization_probability": "1/2",
+                "member_count": "6"
+              },
+              {
+                "cluster_id": "west",
+                "randomization_probability": "1/4",
+                "member_count": "6"
+              }
+            ]
+          }
+        },
+        "file_inventory": {
+          "business_question.md": {
+            "sha256": "9e0ec05f1c26b2884f78ff36c0fdfab766c7d6692a2305d050b75152443144d0",
+            "bytes": 204
+          },
+          "study_protocol.md": {
+            "sha256": "b317911b460f370c0e2e5d9f85fd8bb1548aa426faae5e3a1cdfda184c96fdc3",
+            "bytes": 450
+          },
+          "data_dictionary.md": {
+            "sha256": "b023aa51e8d8a7283716d6ada54f053e4f20e858fb896a5d1c611c020d0b8579",
+            "bytes": 61
+          },
+          "units.csv": {
+            "sha256": "f0f34e5c8cfedad0bbdcad74d5c18bb2624b7bc34054c779a3b81dd34572d95a",
+            "bytes": 296
+          },
+          "network_edges.csv": {
+            "sha256": "1f104e38cecbc718583f144340aa48eaf41f1a9b9a6577b972bb3e9bf81febc9",
+            "bytes": 693
+          },
+          "candidate_policies.csv": {
+            "sha256": "6371d4e8edf0401ba079c5e8e46d78816dfb866f8f4f903411f19a0ca74326b0",
+            "bytes": 687
+          },
+          "cluster_randomization.csv": {
+            "sha256": "1883a412ee7238545756d0a6b9093d81c86ff9b9b90941bc7affd94ece977245",
+            "bytes": 101
+          }
+        },
+        "structure": {
+          "nodes": [
+            "F_01",
+            "F_02",
+            "F_03",
+            "F_04",
+            "F_05",
+            "F_06",
+            "F_07",
+            "F_08",
+            "F_09",
+            "F_10",
+            "F_11",
+            "F_12",
+            "F_13",
+            "F_14",
+            "F_15",
+            "F_16",
+            "F_17",
+            "F_18",
+            "F_19",
+            "F_20",
+            "F_21",
+            "F_22",
+            "F_23",
+            "F_24"
+          ],
+          "edges": [
+            [
+              "F_01",
+              "F_02"
+            ],
+            [
+              "F_01",
+              "F_08"
+            ],
+            [
+              "F_01",
+              "F_18"
+            ],
+            [
+              "F_01",
+              "F_24"
+            ],
+            [
+              "F_02",
+              "F_03"
+            ],
+            [
+              "F_02",
+              "F_09"
+            ],
+            [
+              "F_02",
+              "F_19"
+            ],
+            [
+              "F_03",
+              "F_04"
+            ],
+            [
+              "F_03",
+              "F_10"
+            ],
+            [
+              "F_03",
+              "F_14"
+            ],
+            [
+              "F_03",
+              "F_20"
+            ],
+            [
+              "F_04",
+              "F_05"
+            ],
+            [
+              "F_04",
+              "F_11"
+            ],
+            [
+              "F_04",
+              "F_21"
+            ],
+            [
+              "F_05",
+              "F_06"
+            ],
+            [
+              "F_05",
+              "F_12"
+            ],
+            [
+              "F_05",
+              "F_22"
+            ],
+            [
+              "F_06",
+              "F_07"
+            ],
+            [
+              "F_06",
+              "F_13"
+            ],
+            [
+              "F_06",
+              "F_23"
+            ],
+            [
+              "F_07",
+              "F_08"
+            ],
+            [
+              "F_07",
+              "F_14"
+            ],
+            [
+              "F_07",
+              "F_24"
+            ],
+            [
+              "F_08",
+              "F_09"
+            ],
+            [
+              "F_08",
+              "F_15"
+            ],
+            [
+              "F_09",
+              "F_10"
+            ],
+            [
+              "F_09",
+              "F_16"
+            ],
+            [
+              "F_10",
+              "F_11"
+            ],
+            [
+              "F_10",
+              "F_17"
+            ],
+            [
+              "F_11",
+              "F_12"
+            ],
+            [
+              "F_11",
+              "F_18"
+            ],
+            [
+              "F_11",
+              "F_22"
+            ],
+            [
+              "F_12",
+              "F_13"
+            ],
+            [
+              "F_12",
+              "F_19"
+            ],
+            [
+              "F_13",
+              "F_14"
+            ],
+            [
+              "F_13",
+              "F_20"
+            ],
+            [
+              "F_14",
+              "F_15"
+            ],
+            [
+              "F_14",
+              "F_21"
+            ],
+            [
+              "F_15",
+              "F_16"
+            ],
+            [
+              "F_15",
+              "F_22"
+            ],
+            [
+              "F_16",
+              "F_17"
+            ],
+            [
+              "F_16",
+              "F_23"
+            ],
+            [
+              "F_17",
+              "F_18"
+            ],
+            [
+              "F_17",
+              "F_24"
+            ],
+            [
+              "F_18",
+              "F_19"
+            ],
+            [
+              "F_19",
+              "F_20"
+            ],
+            [
+              "F_20",
+              "F_21"
+            ],
+            [
+              "F_21",
+              "F_22"
+            ],
+            [
+              "F_22",
+              "F_23"
+            ],
+            [
+              "F_23",
+              "F_24"
+            ]
+          ],
+          "groups": {
+            "north": [
+              "F_01",
+              "F_02",
+              "F_03",
+              "F_04",
+              "F_05",
+              "F_06"
+            ],
+            "east": [
+              "F_07",
+              "F_08",
+              "F_09",
+              "F_10",
+              "F_11",
+              "F_12"
+            ],
+            "south": [
+              "F_13",
+              "F_14",
+              "F_15",
+              "F_16",
+              "F_17",
+              "F_18"
+            ],
+            "west": [
+              "F_19",
+              "F_20",
+              "F_21",
+              "F_22",
+              "F_23",
+              "F_24"
+            ]
+          },
+          "cluster_rates": {
+            "north": "1/3",
+            "east": "2/3",
+            "south": "1/2",
+            "west": "1/4"
+          },
+          "policies": {
+            "half_each_workshop": {
+              "F_01": 1,
+              "F_02": 1,
+              "F_03": 1,
+              "F_04": 0,
+              "F_05": 0,
+              "F_06": 0,
+              "F_07": 1,
+              "F_08": 1,
+              "F_09": 1,
+              "F_10": 0,
+              "F_11": 0,
+              "F_12": 0,
+              "F_13": 1,
+              "F_14": 1,
+              "F_15": 1,
+              "F_16": 0,
+              "F_17": 0,
+              "F_18": 0,
+              "F_19": 1,
+              "F_20": 1,
+              "F_21": 1,
+              "F_22": 0,
+              "F_23": 0,
+              "F_24": 0
+            }
+          },
+          "units_with_cross_group_neighbors": [
+            "F_01",
+            "F_02",
+            "F_03",
+            "F_04",
+            "F_05",
+            "F_06",
+            "F_07",
+            "F_08",
+            "F_09",
+            "F_10",
+            "F_11",
+            "F_12",
+            "F_13",
+            "F_14",
+            "F_15",
+            "F_16",
+            "F_17",
+            "F_18",
+            "F_19",
+            "F_20",
+            "F_21",
+            "F_22",
+            "F_23",
+            "F_24"
+          ]
+        },
+        "active_goal_document": "business_question.md",
+        "question_slots": {
+          "q1": "如果east和west车间的线都用上工具，另外两个车间的线都不用，全厂平均会停机多少小时？"
+        },
+        "original_business_unchanged": false,
+        "revision_kind": "VERSIONED_NATURAL_LANGUAGE_PARAPHRASE"
+      },
+      "raw": {
+        "study": {
+          "design": "整组开关",
+          "group_parameters": null,
+          "declared_independent": true,
+          "design_sources": [
+            "study_protocol.md:L2",
+            "study_protocol.md:L3",
+            "cluster_randomization.csv"
+          ],
+          "exposure": "any_treated_neighbor",
+          "exposure_source": "study_protocol.md:L3",
+          "outcome": "downtime_hours",
+          "independence_source": "study_protocol.md:L2"
+        },
+        "questions": {
+          "q1": {
+            "operation": "水平",
+            "population": {
+              "selection": "全体",
+              "ids": []
+            },
+            "aggregation": "等权平均",
+            "population_source": "business_question.md:L1",
+            "first": {
+              "setting": "完整安排",
+              "treated": {
+                "selection": "指定分组",
+                "group_ids": [
+                  "east",
+                  "west"
+                ]
+              }
+            },
+            "second": null,
+            "remaining_source": null,
+            "remaining_evidence_span": null
+          }
+        }
+      },
+      "packet": {
+        "mode": "SYNTHETIC_BENCHMARK_ONLY",
+        "bundle_sha256": "67c51c3978958780628e40068956e6c299db99c3b6677fbcfb6dae329e23b644",
+        "study": {
+          "units": 24,
+          "design": "整组开关",
+          "groups": [
+            [
+              "F_07",
+              "F_08",
+              "F_09",
+              "F_10",
+              "F_11",
+              "F_12"
+            ],
+            [
+              "F_01",
+              "F_02",
+              "F_03",
+              "F_04",
+              "F_05",
+              "F_06"
+            ],
+            [
+              "F_13",
+              "F_14",
+              "F_15",
+              "F_16",
+              "F_17",
+              "F_18"
+            ],
+            [
+              "F_19",
+              "F_20",
+              "F_21",
+              "F_22",
+              "F_23",
+              "F_24"
+            ]
+          ],
+          "quotas": null,
+          "probabilities": [
+            "2/3",
+            "1/3",
+            "1/2",
+            "1/4"
+          ],
+          "draws_independent": true,
+          "exposure": "any_treated_neighbor",
+          "outcome": "downtime_hours",
+          "network_file": "network_edges.csv",
+          "partition_file": "units.csv",
+          "group_column": "unit_group"
+        },
+        "science": {
+          "population_information": "EXPLICIT CONDITIONAL SYNTHETIC population operator for held-out fixture",
+          "causal_licenses": "EXPLICIT CONDITIONAL SYNTHETIC causal licenses; not derived from business text"
+        }
+      },
+      "provenance": {
+        "stage": "language_contract_fix_20261020_v033",
+        "slot": "g03",
+        "reading_model": "LongCat-2.5-Preview",
+        "prior_live_attempt": true,
+        "raw_file_sha256": "bfdc9ff48b64f367b78333fbd5994b45ab36beb4c8091e564b33ab5c278380b2"
+      }
+    },
+    "G32-05": {
+      "case_id": "G32-05",
+      "bundle": {
+        "case_id": "G32-05",
+        "synthetic": true,
+        "documents": {
+          "business_question.md": "先只看S_04这个网点。\n它自己开工具，正好两家邻近网点也开工具时，平均处理工单要多少小时？\n其他网点到底怎么安排，我还没想好，先留空吧。\n",
+          "study_protocol.md": "这是合成售后业务试验。18个服务网点的合作联系已在试验前固定；network_edges.csv为无向联系表，units.csv为名册和分组。\r\nalpha组8个网点，每次等可能地不放回抽3个启用诊断工具；beta组10个网点，同样抽4个。两组的抽签彼此独立。\r\n同伴状态按相邻网点中启用工具的确切家数区分，0家、1家、2家等各为一类。\r\n",
+          "data_dictionary.md": "resolution_hours表示每个网点八周内的平均工单处理小时。\r\n"
+        },
+        "tables": {
+          "units.csv": {
+            "headers": [
+              "node_id",
+              "unit_group"
+            ],
+            "row_count": 18,
+            "rows": [
+              {
+                "node_id": "S_01",
+                "unit_group": "alpha"
+              },
+              {
+                "node_id": "S_02",
+                "unit_group": "alpha"
+              },
+              {
+                "node_id": "S_03",
+                "unit_group": "alpha"
+              },
+              {
+                "node_id": "S_04",
+                "unit_group": "alpha"
+              },
+              {
+                "node_id": "S_05",
+                "unit_group": "alpha"
+              },
+              {
+                "node_id": "S_06",
+                "unit_group": "alpha"
+              },
+              {
+                "node_id": "S_07",
+                "unit_group": "alpha"
+              },
+              {
+                "node_id": "S_08",
+                "unit_group": "alpha"
+              },
+              {
+                "node_id": "S_09",
+                "unit_group": "beta"
+              },
+              {
+                "node_id": "S_10",
+                "unit_group": "beta"
+              },
+              {
+                "node_id": "S_11",
+                "unit_group": "beta"
+              },
+              {
+                "node_id": "S_12",
+                "unit_group": "beta"
+              },
+              {
+                "node_id": "S_13",
+                "unit_group": "beta"
+              },
+              {
+                "node_id": "S_14",
+                "unit_group": "beta"
+              },
+              {
+                "node_id": "S_15",
+                "unit_group": "beta"
+              },
+              {
+                "node_id": "S_16",
+                "unit_group": "beta"
+              },
+              {
+                "node_id": "S_17",
+                "unit_group": "beta"
+              },
+              {
+                "node_id": "S_18",
+                "unit_group": "beta"
+              }
+            ]
+          },
+          "network_edges.csv": {
+            "headers": [
+              "source_id",
+              "target_id",
+              "frozen_before_rollout"
+            ],
+            "row_count": 38,
+            "rows": [
+              {
+                "source_id": "S_01",
+                "target_id": "S_02",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_01",
+                "target_id": "S_06",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_01",
+                "target_id": "S_14",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_01",
+                "target_id": "S_18",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_02",
+                "target_id": "S_03",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_02",
+                "target_id": "S_07",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_02",
+                "target_id": "S_12",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_02",
+                "target_id": "S_15",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_03",
+                "target_id": "S_04",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_03",
+                "target_id": "S_08",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_03",
+                "target_id": "S_16",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_04",
+                "target_id": "S_05",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_04",
+                "target_id": "S_09",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_04",
+                "target_id": "S_17",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_05",
+                "target_id": "S_06",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_05",
+                "target_id": "S_10",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_05",
+                "target_id": "S_18",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_06",
+                "target_id": "S_07",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_06",
+                "target_id": "S_11",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_07",
+                "target_id": "S_08",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_07",
+                "target_id": "S_12",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_07",
+                "target_id": "S_16",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_08",
+                "target_id": "S_09",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_08",
+                "target_id": "S_13",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_09",
+                "target_id": "S_10",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_09",
+                "target_id": "S_14",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_10",
+                "target_id": "S_11",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_10",
+                "target_id": "S_15",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_11",
+                "target_id": "S_12",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_11",
+                "target_id": "S_16",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_12",
+                "target_id": "S_13",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_12",
+                "target_id": "S_17",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_13",
+                "target_id": "S_14",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_13",
+                "target_id": "S_18",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_14",
+                "target_id": "S_15",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_15",
+                "target_id": "S_16",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_16",
+                "target_id": "S_17",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "S_17",
+                "target_id": "S_18",
+                "frozen_before_rollout": "1"
+              }
+            ]
+          },
+          "candidate_policies.csv": {
+            "headers": [
+              "policy_id",
+              "node_id",
+              "planned_tool_status"
+            ],
+            "row_count": 18,
+            "rows": [
+              {
+                "policy_id": "quota_plan",
+                "node_id": "S_01",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "quota_plan",
+                "node_id": "S_02",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "quota_plan",
+                "node_id": "S_03",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "quota_plan",
+                "node_id": "S_04",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "quota_plan",
+                "node_id": "S_05",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "quota_plan",
+                "node_id": "S_06",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "quota_plan",
+                "node_id": "S_07",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "quota_plan",
+                "node_id": "S_08",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "quota_plan",
+                "node_id": "S_09",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "quota_plan",
+                "node_id": "S_10",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "quota_plan",
+                "node_id": "S_11",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "quota_plan",
+                "node_id": "S_12",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "quota_plan",
+                "node_id": "S_13",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "quota_plan",
+                "node_id": "S_14",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "quota_plan",
+                "node_id": "S_15",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "quota_plan",
+                "node_id": "S_16",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "quota_plan",
+                "node_id": "S_17",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "quota_plan",
+                "node_id": "S_18",
+                "planned_tool_status": "0"
+              }
+            ]
+          }
+        },
+        "file_inventory": {
+          "business_question.md": {
+            "sha256": "2847c4188edfb5a65442a8e2e865c5e4955767da0a3219704daa44355dee3623",
+            "bytes": 196
+          },
+          "study_protocol.md": {
+            "sha256": "031efcb02c9487843c43287b7c86fcb2f95ef2b5a199e3d9ddc42e1fc481e39e",
+            "bytes": 408
+          },
+          "data_dictionary.md": {
+            "sha256": "6e02289d7c40184bed3eeea042bf9a1191af098b764a960d9f901978d0486d25",
+            "bytes": 75
+          },
+          "units.csv": {
+            "sha256": "38c0d1c3eb9f1b80efde0583b45ac4567b4bd9b2ff8b6c8096133a0f291e17af",
+            "bytes": 226
+          },
+          "network_edges.csv": {
+            "sha256": "13d85c6ee1665780ce22a8a6dc8856254159d55a1b3bebbdc011e7bf477e3214",
+            "bytes": 537
+          },
+          "candidate_policies.csv": {
+            "sha256": "0c88245f0ceb9e455052c1111039931f02abfcfe4a4ca25b4db7f00599b572e2",
+            "bytes": 381
+          }
+        },
+        "structure": {
+          "nodes": [
+            "S_01",
+            "S_02",
+            "S_03",
+            "S_04",
+            "S_05",
+            "S_06",
+            "S_07",
+            "S_08",
+            "S_09",
+            "S_10",
+            "S_11",
+            "S_12",
+            "S_13",
+            "S_14",
+            "S_15",
+            "S_16",
+            "S_17",
+            "S_18"
+          ],
+          "edges": [
+            [
+              "S_01",
+              "S_02"
+            ],
+            [
+              "S_01",
+              "S_06"
+            ],
+            [
+              "S_01",
+              "S_14"
+            ],
+            [
+              "S_01",
+              "S_18"
+            ],
+            [
+              "S_02",
+              "S_03"
+            ],
+            [
+              "S_02",
+              "S_07"
+            ],
+            [
+              "S_02",
+              "S_12"
+            ],
+            [
+              "S_02",
+              "S_15"
+            ],
+            [
+              "S_03",
+              "S_04"
+            ],
+            [
+              "S_03",
+              "S_08"
+            ],
+            [
+              "S_03",
+              "S_16"
+            ],
+            [
+              "S_04",
+              "S_05"
+            ],
+            [
+              "S_04",
+              "S_09"
+            ],
+            [
+              "S_04",
+              "S_17"
+            ],
+            [
+              "S_05",
+              "S_06"
+            ],
+            [
+              "S_05",
+              "S_10"
+            ],
+            [
+              "S_05",
+              "S_18"
+            ],
+            [
+              "S_06",
+              "S_07"
+            ],
+            [
+              "S_06",
+              "S_11"
+            ],
+            [
+              "S_07",
+              "S_08"
+            ],
+            [
+              "S_07",
+              "S_12"
+            ],
+            [
+              "S_07",
+              "S_16"
+            ],
+            [
+              "S_08",
+              "S_09"
+            ],
+            [
+              "S_08",
+              "S_13"
+            ],
+            [
+              "S_09",
+              "S_10"
+            ],
+            [
+              "S_09",
+              "S_14"
+            ],
+            [
+              "S_10",
+              "S_11"
+            ],
+            [
+              "S_10",
+              "S_15"
+            ],
+            [
+              "S_11",
+              "S_12"
+            ],
+            [
+              "S_11",
+              "S_16"
+            ],
+            [
+              "S_12",
+              "S_13"
+            ],
+            [
+              "S_12",
+              "S_17"
+            ],
+            [
+              "S_13",
+              "S_14"
+            ],
+            [
+              "S_13",
+              "S_18"
+            ],
+            [
+              "S_14",
+              "S_15"
+            ],
+            [
+              "S_15",
+              "S_16"
+            ],
+            [
+              "S_16",
+              "S_17"
+            ],
+            [
+              "S_17",
+              "S_18"
+            ]
+          ],
+          "groups": {
+            "alpha": [
+              "S_01",
+              "S_02",
+              "S_03",
+              "S_04",
+              "S_05",
+              "S_06",
+              "S_07",
+              "S_08"
+            ],
+            "beta": [
+              "S_09",
+              "S_10",
+              "S_11",
+              "S_12",
+              "S_13",
+              "S_14",
+              "S_15",
+              "S_16",
+              "S_17",
+              "S_18"
+            ]
+          },
+          "cluster_rates": {},
+          "policies": {
+            "quota_plan": {
+              "S_01": 1,
+              "S_02": 1,
+              "S_03": 1,
+              "S_04": 0,
+              "S_05": 0,
+              "S_06": 0,
+              "S_07": 0,
+              "S_08": 0,
+              "S_09": 1,
+              "S_10": 1,
+              "S_11": 1,
+              "S_12": 1,
+              "S_13": 0,
+              "S_14": 0,
+              "S_15": 0,
+              "S_16": 0,
+              "S_17": 0,
+              "S_18": 0
+            }
+          },
+          "units_with_cross_group_neighbors": [
+            "S_01",
+            "S_02",
+            "S_03",
+            "S_04",
+            "S_05",
+            "S_06",
+            "S_07",
+            "S_08",
+            "S_09",
+            "S_10",
+            "S_11",
+            "S_12",
+            "S_13",
+            "S_14",
+            "S_15",
+            "S_16",
+            "S_17",
+            "S_18"
+          ]
+        },
+        "active_goal_document": "business_question.md",
+        "question_slots": {
+          "q1": "它自己开工具，正好两家邻近网点也开工具时，平均处理工单要多少小时？"
+        },
+        "original_business_unchanged": false,
+        "revision_kind": "VERSIONED_NATURAL_LANGUAGE_PARAPHRASE"
+      },
+      "raw": {
+        "study": {
+          "design": "组内固定名额",
+          "group_parameters": [
+            {
+              "group_id": "alpha",
+              "quota": 3,
+              "probability": null
+            },
+            {
+              "group_id": "beta",
+              "quota": 4,
+              "probability": null
+            }
+          ],
+          "declared_independent": true,
+          "design_sources": [
+            "study_protocol.md:L2"
+          ],
+          "exposure": "exact_treated_neighbor_count",
+          "exposure_source": "study_protocol.md:L3",
+          "outcome": "resolution_hours",
+          "independence_source": "study_protocol.md:L2"
+        },
+        "questions": {
+          "q1": {
+            "operation": "水平",
+            "population": {
+              "selection": "单个",
+              "ids": [
+                "S_04"
+              ]
+            },
+            "aggregation": "单个",
+            "population_source": "business_question.md:L1",
+            "first": {
+              "setting": "局部条件",
+              "own": "开通",
+              "neighbors": "恰好人数",
+              "neighbor_count": 2
+            },
+            "second": null,
+            "remaining_source": null,
+            "remaining_evidence_span": null
+          }
+        }
+      },
+      "packet": {
+        "mode": "SYNTHETIC_BENCHMARK_ONLY",
+        "bundle_sha256": "4a42897d3fb973768f982a374bc4fdca4b7413277068b21e84aa7ddcd6b9c044",
+        "study": {
+          "units": 18,
+          "design": "组内固定名额",
+          "groups": [
+            [
+              "S_01",
+              "S_02",
+              "S_03",
+              "S_04",
+              "S_05",
+              "S_06",
+              "S_07",
+              "S_08"
+            ],
+            [
+              "S_09",
+              "S_10",
+              "S_11",
+              "S_12",
+              "S_13",
+              "S_14",
+              "S_15",
+              "S_16",
+              "S_17",
+              "S_18"
+            ]
+          ],
+          "quotas": [
+            3,
+            4
+          ],
+          "probabilities": null,
+          "draws_independent": true,
+          "exposure": "exact_treated_neighbor_count",
+          "outcome": "resolution_hours",
+          "network_file": "network_edges.csv",
+          "partition_file": "units.csv",
+          "group_column": "unit_group"
+        },
+        "science": {
+          "population_information": "EXPLICIT CONDITIONAL SYNTHETIC population operator for held-out fixture",
+          "causal_licenses": "EXPLICIT CONDITIONAL SYNTHETIC causal licenses; not derived from business text"
+        }
+      },
+      "provenance": {
+        "stage": "language_contract_fix_20261020_v033",
+        "slot": "g05",
+        "reading_model": "LongCat-2.5-Preview",
+        "prior_live_attempt": true,
+        "raw_file_sha256": "3ba79fb41bda31cb7fcbc41c10e13061911bde4de62f1332925c6c2ffc7b9594"
+      }
+    },
+    "G32-07": {
+      "case_id": "G32-07",
+      "bundle": {
+        "case_id": "G32-07",
+        "synthetic": true,
+        "documents": {
+          "business_question.md": "全厂24条产线每条占一份，一起算平均。\neast和west车间都开工具，north和south都关着时，全厂平均停机小时是多少？\n",
+          "study_protocol.md": "这是合成工厂业务试验。24条产线分在四个车间，各6条，分组见units.csv；试验前固定的协作联系见无向表network_edges.csv。\n每个车间抽一次签，抽中就全车间启用预警工具，没抽中就全车间不用。各车间中签比例在cluster_randomization.csv里，不过这些签之间有没有联动，我们手里没有这条记录。\n同伴分为两类：相邻产线至少一条启用预警工具，或者相邻产线一条也没有启用。\n",
+          "data_dictionary.md": "downtime_hours表示每条产线八周内的停机小时。\r\n"
+        },
+        "tables": {
+          "units.csv": {
+            "headers": [
+              "node_id",
+              "unit_group"
+            ],
+            "row_count": 24,
+            "rows": [
+              {
+                "node_id": "F_01",
+                "unit_group": "north"
+              },
+              {
+                "node_id": "F_02",
+                "unit_group": "north"
+              },
+              {
+                "node_id": "F_03",
+                "unit_group": "north"
+              },
+              {
+                "node_id": "F_04",
+                "unit_group": "north"
+              },
+              {
+                "node_id": "F_05",
+                "unit_group": "north"
+              },
+              {
+                "node_id": "F_06",
+                "unit_group": "north"
+              },
+              {
+                "node_id": "F_07",
+                "unit_group": "east"
+              },
+              {
+                "node_id": "F_08",
+                "unit_group": "east"
+              },
+              {
+                "node_id": "F_09",
+                "unit_group": "east"
+              },
+              {
+                "node_id": "F_10",
+                "unit_group": "east"
+              },
+              {
+                "node_id": "F_11",
+                "unit_group": "east"
+              },
+              {
+                "node_id": "F_12",
+                "unit_group": "east"
+              },
+              {
+                "node_id": "F_13",
+                "unit_group": "south"
+              },
+              {
+                "node_id": "F_14",
+                "unit_group": "south"
+              },
+              {
+                "node_id": "F_15",
+                "unit_group": "south"
+              },
+              {
+                "node_id": "F_16",
+                "unit_group": "south"
+              },
+              {
+                "node_id": "F_17",
+                "unit_group": "south"
+              },
+              {
+                "node_id": "F_18",
+                "unit_group": "south"
+              },
+              {
+                "node_id": "F_19",
+                "unit_group": "west"
+              },
+              {
+                "node_id": "F_20",
+                "unit_group": "west"
+              },
+              {
+                "node_id": "F_21",
+                "unit_group": "west"
+              },
+              {
+                "node_id": "F_22",
+                "unit_group": "west"
+              },
+              {
+                "node_id": "F_23",
+                "unit_group": "west"
+              },
+              {
+                "node_id": "F_24",
+                "unit_group": "west"
+              }
+            ]
+          },
+          "network_edges.csv": {
+            "headers": [
+              "source_id",
+              "target_id",
+              "frozen_before_rollout"
+            ],
+            "row_count": 50,
+            "rows": [
+              {
+                "source_id": "F_01",
+                "target_id": "F_02",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_01",
+                "target_id": "F_08",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_01",
+                "target_id": "F_18",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_01",
+                "target_id": "F_24",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_02",
+                "target_id": "F_03",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_02",
+                "target_id": "F_09",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_02",
+                "target_id": "F_19",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_03",
+                "target_id": "F_04",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_03",
+                "target_id": "F_10",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_03",
+                "target_id": "F_14",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_03",
+                "target_id": "F_20",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_04",
+                "target_id": "F_05",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_04",
+                "target_id": "F_11",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_04",
+                "target_id": "F_21",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_05",
+                "target_id": "F_06",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_05",
+                "target_id": "F_12",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_05",
+                "target_id": "F_22",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_06",
+                "target_id": "F_07",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_06",
+                "target_id": "F_13",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_06",
+                "target_id": "F_23",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_07",
+                "target_id": "F_08",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_07",
+                "target_id": "F_14",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_07",
+                "target_id": "F_24",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_08",
+                "target_id": "F_09",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_08",
+                "target_id": "F_15",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_09",
+                "target_id": "F_10",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_09",
+                "target_id": "F_16",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_10",
+                "target_id": "F_11",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_10",
+                "target_id": "F_17",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_11",
+                "target_id": "F_12",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_11",
+                "target_id": "F_18",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_11",
+                "target_id": "F_22",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_12",
+                "target_id": "F_13",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_12",
+                "target_id": "F_19",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_13",
+                "target_id": "F_14",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_13",
+                "target_id": "F_20",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_14",
+                "target_id": "F_15",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_14",
+                "target_id": "F_21",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_15",
+                "target_id": "F_16",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_15",
+                "target_id": "F_22",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_16",
+                "target_id": "F_17",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_16",
+                "target_id": "F_23",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_17",
+                "target_id": "F_18",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_17",
+                "target_id": "F_24",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_18",
+                "target_id": "F_19",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_19",
+                "target_id": "F_20",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_20",
+                "target_id": "F_21",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_21",
+                "target_id": "F_22",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_22",
+                "target_id": "F_23",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_23",
+                "target_id": "F_24",
+                "frozen_before_rollout": "1"
+              }
+            ]
+          },
+          "candidate_policies.csv": {
+            "headers": [
+              "policy_id",
+              "node_id",
+              "planned_tool_status"
+            ],
+            "row_count": 24,
+            "rows": [
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_01",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_02",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_03",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_04",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_05",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_06",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_07",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_08",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_09",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_10",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_11",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_12",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_13",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_14",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_15",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_16",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_17",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_18",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_19",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_20",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_21",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_22",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_23",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_24",
+                "planned_tool_status": "0"
+              }
+            ]
+          },
+          "cluster_randomization.csv": {
+            "headers": [
+              "cluster_id",
+              "randomization_probability",
+              "member_count"
+            ],
+            "row_count": 4,
+            "rows": [
+              {
+                "cluster_id": "north",
+                "randomization_probability": "1/3",
+                "member_count": "6"
+              },
+              {
+                "cluster_id": "east",
+                "randomization_probability": "2/3",
+                "member_count": "6"
+              },
+              {
+                "cluster_id": "south",
+                "randomization_probability": "1/2",
+                "member_count": "6"
+              },
+              {
+                "cluster_id": "west",
+                "randomization_probability": "1/4",
+                "member_count": "6"
+              }
+            ]
+          }
+        },
+        "file_inventory": {
+          "business_question.md": {
+            "sha256": "ddcb4b11deceee5ccdb2a060e3dd4364a59b4bf574e95aea2bf314e346222824",
+            "bytes": 151
+          },
+          "study_protocol.md": {
+            "sha256": "e159d3487df25855350496bf542e5365a76dd3991abdc03a3b1731ed7ec3924b",
+            "bytes": 492
+          },
+          "data_dictionary.md": {
+            "sha256": "b023aa51e8d8a7283716d6ada54f053e4f20e858fb896a5d1c611c020d0b8579",
+            "bytes": 61
+          },
+          "units.csv": {
+            "sha256": "f0f34e5c8cfedad0bbdcad74d5c18bb2624b7bc34054c779a3b81dd34572d95a",
+            "bytes": 296
+          },
+          "network_edges.csv": {
+            "sha256": "1f104e38cecbc718583f144340aa48eaf41f1a9b9a6577b972bb3e9bf81febc9",
+            "bytes": 693
+          },
+          "candidate_policies.csv": {
+            "sha256": "6371d4e8edf0401ba079c5e8e46d78816dfb866f8f4f903411f19a0ca74326b0",
+            "bytes": 687
+          },
+          "cluster_randomization.csv": {
+            "sha256": "1883a412ee7238545756d0a6b9093d81c86ff9b9b90941bc7affd94ece977245",
+            "bytes": 101
+          }
+        },
+        "structure": {
+          "nodes": [
+            "F_01",
+            "F_02",
+            "F_03",
+            "F_04",
+            "F_05",
+            "F_06",
+            "F_07",
+            "F_08",
+            "F_09",
+            "F_10",
+            "F_11",
+            "F_12",
+            "F_13",
+            "F_14",
+            "F_15",
+            "F_16",
+            "F_17",
+            "F_18",
+            "F_19",
+            "F_20",
+            "F_21",
+            "F_22",
+            "F_23",
+            "F_24"
+          ],
+          "edges": [
+            [
+              "F_01",
+              "F_02"
+            ],
+            [
+              "F_01",
+              "F_08"
+            ],
+            [
+              "F_01",
+              "F_18"
+            ],
+            [
+              "F_01",
+              "F_24"
+            ],
+            [
+              "F_02",
+              "F_03"
+            ],
+            [
+              "F_02",
+              "F_09"
+            ],
+            [
+              "F_02",
+              "F_19"
+            ],
+            [
+              "F_03",
+              "F_04"
+            ],
+            [
+              "F_03",
+              "F_10"
+            ],
+            [
+              "F_03",
+              "F_14"
+            ],
+            [
+              "F_03",
+              "F_20"
+            ],
+            [
+              "F_04",
+              "F_05"
+            ],
+            [
+              "F_04",
+              "F_11"
+            ],
+            [
+              "F_04",
+              "F_21"
+            ],
+            [
+              "F_05",
+              "F_06"
+            ],
+            [
+              "F_05",
+              "F_12"
+            ],
+            [
+              "F_05",
+              "F_22"
+            ],
+            [
+              "F_06",
+              "F_07"
+            ],
+            [
+              "F_06",
+              "F_13"
+            ],
+            [
+              "F_06",
+              "F_23"
+            ],
+            [
+              "F_07",
+              "F_08"
+            ],
+            [
+              "F_07",
+              "F_14"
+            ],
+            [
+              "F_07",
+              "F_24"
+            ],
+            [
+              "F_08",
+              "F_09"
+            ],
+            [
+              "F_08",
+              "F_15"
+            ],
+            [
+              "F_09",
+              "F_10"
+            ],
+            [
+              "F_09",
+              "F_16"
+            ],
+            [
+              "F_10",
+              "F_11"
+            ],
+            [
+              "F_10",
+              "F_17"
+            ],
+            [
+              "F_11",
+              "F_12"
+            ],
+            [
+              "F_11",
+              "F_18"
+            ],
+            [
+              "F_11",
+              "F_22"
+            ],
+            [
+              "F_12",
+              "F_13"
+            ],
+            [
+              "F_12",
+              "F_19"
+            ],
+            [
+              "F_13",
+              "F_14"
+            ],
+            [
+              "F_13",
+              "F_20"
+            ],
+            [
+              "F_14",
+              "F_15"
+            ],
+            [
+              "F_14",
+              "F_21"
+            ],
+            [
+              "F_15",
+              "F_16"
+            ],
+            [
+              "F_15",
+              "F_22"
+            ],
+            [
+              "F_16",
+              "F_17"
+            ],
+            [
+              "F_16",
+              "F_23"
+            ],
+            [
+              "F_17",
+              "F_18"
+            ],
+            [
+              "F_17",
+              "F_24"
+            ],
+            [
+              "F_18",
+              "F_19"
+            ],
+            [
+              "F_19",
+              "F_20"
+            ],
+            [
+              "F_20",
+              "F_21"
+            ],
+            [
+              "F_21",
+              "F_22"
+            ],
+            [
+              "F_22",
+              "F_23"
+            ],
+            [
+              "F_23",
+              "F_24"
+            ]
+          ],
+          "groups": {
+            "north": [
+              "F_01",
+              "F_02",
+              "F_03",
+              "F_04",
+              "F_05",
+              "F_06"
+            ],
+            "east": [
+              "F_07",
+              "F_08",
+              "F_09",
+              "F_10",
+              "F_11",
+              "F_12"
+            ],
+            "south": [
+              "F_13",
+              "F_14",
+              "F_15",
+              "F_16",
+              "F_17",
+              "F_18"
+            ],
+            "west": [
+              "F_19",
+              "F_20",
+              "F_21",
+              "F_22",
+              "F_23",
+              "F_24"
+            ]
+          },
+          "cluster_rates": {
+            "north": "1/3",
+            "east": "2/3",
+            "south": "1/2",
+            "west": "1/4"
+          },
+          "policies": {
+            "half_each_workshop": {
+              "F_01": 1,
+              "F_02": 1,
+              "F_03": 1,
+              "F_04": 0,
+              "F_05": 0,
+              "F_06": 0,
+              "F_07": 1,
+              "F_08": 1,
+              "F_09": 1,
+              "F_10": 0,
+              "F_11": 0,
+              "F_12": 0,
+              "F_13": 1,
+              "F_14": 1,
+              "F_15": 1,
+              "F_16": 0,
+              "F_17": 0,
+              "F_18": 0,
+              "F_19": 1,
+              "F_20": 1,
+              "F_21": 1,
+              "F_22": 0,
+              "F_23": 0,
+              "F_24": 0
+            }
+          },
+          "units_with_cross_group_neighbors": [
+            "F_01",
+            "F_02",
+            "F_03",
+            "F_04",
+            "F_05",
+            "F_06",
+            "F_07",
+            "F_08",
+            "F_09",
+            "F_10",
+            "F_11",
+            "F_12",
+            "F_13",
+            "F_14",
+            "F_15",
+            "F_16",
+            "F_17",
+            "F_18",
+            "F_19",
+            "F_20",
+            "F_21",
+            "F_22",
+            "F_23",
+            "F_24"
+          ]
+        },
+        "active_goal_document": "business_question.md",
+        "question_slots": {
+          "q1": "east和west车间都开工具，north和south都关着时，全厂平均停机小时是多少？"
+        },
+        "original_business_unchanged": false,
+        "revision_kind": "VERSIONED_NATURAL_LANGUAGE_PARAPHRASE"
+      },
+      "raw": {
+        "study": {
+          "design": "整组开关",
+          "group_parameters": null,
+          "declared_independent": null,
+          "design_sources": [
+            "study_protocol.md:L1",
+            "study_protocol.md:L2",
+            "study_protocol.md:L3",
+            "cluster_randomization.csv"
+          ],
+          "exposure": "any_treated_neighbor",
+          "exposure_source": "study_protocol.md:L3",
+          "outcome": "downtime_hours",
+          "independence_source": null
+        },
+        "questions": {
+          "q1": {
+            "operation": "水平",
+            "population": {
+              "selection": "全体",
+              "ids": []
+            },
+            "aggregation": "等权平均",
+            "population_source": "business_question.md:L1",
+            "first": {
+              "setting": "完整安排",
+              "treated": {
+                "selection": "指定分组",
+                "group_ids": [
+                  "east",
+                  "west"
+                ]
+              }
+            },
+            "second": null,
+            "remaining_source": null,
+            "remaining_evidence_span": null
+          }
+        }
+      },
+      "packet": {
+        "mode": "SYNTHETIC_BENCHMARK_ONLY",
+        "bundle_sha256": "1c662665a685cae8763674c3c726c332cfa1e6367e013288ef15230b142af937",
+        "study": {
+          "units": 24,
+          "design": "整组开关",
+          "groups": [
+            [
+              "F_07",
+              "F_08",
+              "F_09",
+              "F_10",
+              "F_11",
+              "F_12"
+            ],
+            [
+              "F_01",
+              "F_02",
+              "F_03",
+              "F_04",
+              "F_05",
+              "F_06"
+            ],
+            [
+              "F_13",
+              "F_14",
+              "F_15",
+              "F_16",
+              "F_17",
+              "F_18"
+            ],
+            [
+              "F_19",
+              "F_20",
+              "F_21",
+              "F_22",
+              "F_23",
+              "F_24"
+            ]
+          ],
+          "quotas": null,
+          "probabilities": [
+            "2/3",
+            "1/3",
+            "1/2",
+            "1/4"
+          ],
+          "draws_independent": null,
+          "exposure": "any_treated_neighbor",
+          "outcome": "downtime_hours",
+          "network_file": "network_edges.csv",
+          "partition_file": "units.csv",
+          "group_column": "unit_group"
+        },
+        "science": {
+          "population_information": "EXPLICIT CONDITIONAL SYNTHETIC population operator for held-out fixture",
+          "causal_licenses": "EXPLICIT CONDITIONAL SYNTHETIC causal licenses; not derived from business text"
+        }
+      },
+      "provenance": {
+        "stage": "language_contract_fix_20261020_v033",
+        "slot": "g07",
+        "reading_model": "LongCat-2.5-Preview",
+        "prior_live_attempt": true,
+        "raw_file_sha256": "301476d591e9ea805b581c8afd72b2bdf9ccf9b53017feb3cbe586d6545bafc0"
+      }
+    },
+    "G32-08": {
+      "case_id": "G32-08",
+      "bundle": {
+        "case_id": "G32-08",
+        "synthetic": true,
+        "documents": {
+          "business_question.md": "所有24条产线都计入，每条线的分量一样。\n我想按candidate_policies.csv里half_each_workshop那份名单，让每个车间三条线用工具、其余三条不用，这样全厂平均停机小时是多少？\n",
+          "study_protocol.md": "这是合成工厂业务试验。24条产线分在四个车间，各6条，分组见units.csv；试验前固定的协作联系见无向表network_edges.csv。\r\n每个车间抽一次签，抽中时该车间全部启用预警工具，否则全不启用；各车间抽中概率见cluster_randomization.csv。四个车间各自独立抽签。\r\n同伴分为两类：相邻产线至少一条启用预警工具，或者相邻产线一条也没有启用。\r\n",
+          "data_dictionary.md": "downtime_hours表示每条产线八周内的停机小时。\r\n"
+        },
+        "tables": {
+          "units.csv": {
+            "headers": [
+              "node_id",
+              "unit_group"
+            ],
+            "row_count": 24,
+            "rows": [
+              {
+                "node_id": "F_01",
+                "unit_group": "north"
+              },
+              {
+                "node_id": "F_02",
+                "unit_group": "north"
+              },
+              {
+                "node_id": "F_03",
+                "unit_group": "north"
+              },
+              {
+                "node_id": "F_04",
+                "unit_group": "north"
+              },
+              {
+                "node_id": "F_05",
+                "unit_group": "north"
+              },
+              {
+                "node_id": "F_06",
+                "unit_group": "north"
+              },
+              {
+                "node_id": "F_07",
+                "unit_group": "east"
+              },
+              {
+                "node_id": "F_08",
+                "unit_group": "east"
+              },
+              {
+                "node_id": "F_09",
+                "unit_group": "east"
+              },
+              {
+                "node_id": "F_10",
+                "unit_group": "east"
+              },
+              {
+                "node_id": "F_11",
+                "unit_group": "east"
+              },
+              {
+                "node_id": "F_12",
+                "unit_group": "east"
+              },
+              {
+                "node_id": "F_13",
+                "unit_group": "south"
+              },
+              {
+                "node_id": "F_14",
+                "unit_group": "south"
+              },
+              {
+                "node_id": "F_15",
+                "unit_group": "south"
+              },
+              {
+                "node_id": "F_16",
+                "unit_group": "south"
+              },
+              {
+                "node_id": "F_17",
+                "unit_group": "south"
+              },
+              {
+                "node_id": "F_18",
+                "unit_group": "south"
+              },
+              {
+                "node_id": "F_19",
+                "unit_group": "west"
+              },
+              {
+                "node_id": "F_20",
+                "unit_group": "west"
+              },
+              {
+                "node_id": "F_21",
+                "unit_group": "west"
+              },
+              {
+                "node_id": "F_22",
+                "unit_group": "west"
+              },
+              {
+                "node_id": "F_23",
+                "unit_group": "west"
+              },
+              {
+                "node_id": "F_24",
+                "unit_group": "west"
+              }
+            ]
+          },
+          "network_edges.csv": {
+            "headers": [
+              "source_id",
+              "target_id",
+              "frozen_before_rollout"
+            ],
+            "row_count": 50,
+            "rows": [
+              {
+                "source_id": "F_01",
+                "target_id": "F_02",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_01",
+                "target_id": "F_08",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_01",
+                "target_id": "F_18",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_01",
+                "target_id": "F_24",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_02",
+                "target_id": "F_03",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_02",
+                "target_id": "F_09",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_02",
+                "target_id": "F_19",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_03",
+                "target_id": "F_04",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_03",
+                "target_id": "F_10",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_03",
+                "target_id": "F_14",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_03",
+                "target_id": "F_20",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_04",
+                "target_id": "F_05",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_04",
+                "target_id": "F_11",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_04",
+                "target_id": "F_21",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_05",
+                "target_id": "F_06",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_05",
+                "target_id": "F_12",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_05",
+                "target_id": "F_22",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_06",
+                "target_id": "F_07",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_06",
+                "target_id": "F_13",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_06",
+                "target_id": "F_23",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_07",
+                "target_id": "F_08",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_07",
+                "target_id": "F_14",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_07",
+                "target_id": "F_24",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_08",
+                "target_id": "F_09",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_08",
+                "target_id": "F_15",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_09",
+                "target_id": "F_10",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_09",
+                "target_id": "F_16",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_10",
+                "target_id": "F_11",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_10",
+                "target_id": "F_17",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_11",
+                "target_id": "F_12",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_11",
+                "target_id": "F_18",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_11",
+                "target_id": "F_22",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_12",
+                "target_id": "F_13",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_12",
+                "target_id": "F_19",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_13",
+                "target_id": "F_14",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_13",
+                "target_id": "F_20",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_14",
+                "target_id": "F_15",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_14",
+                "target_id": "F_21",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_15",
+                "target_id": "F_16",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_15",
+                "target_id": "F_22",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_16",
+                "target_id": "F_17",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_16",
+                "target_id": "F_23",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_17",
+                "target_id": "F_18",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_17",
+                "target_id": "F_24",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_18",
+                "target_id": "F_19",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_19",
+                "target_id": "F_20",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_20",
+                "target_id": "F_21",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_21",
+                "target_id": "F_22",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_22",
+                "target_id": "F_23",
+                "frozen_before_rollout": "1"
+              },
+              {
+                "source_id": "F_23",
+                "target_id": "F_24",
+                "frozen_before_rollout": "1"
+              }
+            ]
+          },
+          "candidate_policies.csv": {
+            "headers": [
+              "policy_id",
+              "node_id",
+              "planned_tool_status"
+            ],
+            "row_count": 24,
+            "rows": [
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_01",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_02",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_03",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_04",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_05",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_06",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_07",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_08",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_09",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_10",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_11",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_12",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_13",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_14",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_15",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_16",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_17",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_18",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_19",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_20",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_21",
+                "planned_tool_status": "1"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_22",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_23",
+                "planned_tool_status": "0"
+              },
+              {
+                "policy_id": "half_each_workshop",
+                "node_id": "F_24",
+                "planned_tool_status": "0"
+              }
+            ]
+          },
+          "cluster_randomization.csv": {
+            "headers": [
+              "cluster_id",
+              "randomization_probability",
+              "member_count"
+            ],
+            "row_count": 4,
+            "rows": [
+              {
+                "cluster_id": "north",
+                "randomization_probability": "1/3",
+                "member_count": "6"
+              },
+              {
+                "cluster_id": "east",
+                "randomization_probability": "2/3",
+                "member_count": "6"
+              },
+              {
+                "cluster_id": "south",
+                "randomization_probability": "1/2",
+                "member_count": "6"
+              },
+              {
+                "cluster_id": "west",
+                "randomization_probability": "1/4",
+                "member_count": "6"
+              }
+            ]
+          }
+        },
+        "file_inventory": {
+          "business_question.md": {
+            "sha256": "1078b1b787e824d5ff7bee236ce990bb2e1a57bbd83906d65f16b63a6c939739",
+            "bytes": 224
+          },
+          "study_protocol.md": {
+            "sha256": "b317911b460f370c0e2e5d9f85fd8bb1548aa426faae5e3a1cdfda184c96fdc3",
+            "bytes": 450
+          },
+          "data_dictionary.md": {
+            "sha256": "b023aa51e8d8a7283716d6ada54f053e4f20e858fb896a5d1c611c020d0b8579",
+            "bytes": 61
+          },
+          "units.csv": {
+            "sha256": "f0f34e5c8cfedad0bbdcad74d5c18bb2624b7bc34054c779a3b81dd34572d95a",
+            "bytes": 296
+          },
+          "network_edges.csv": {
+            "sha256": "1f104e38cecbc718583f144340aa48eaf41f1a9b9a6577b972bb3e9bf81febc9",
+            "bytes": 693
+          },
+          "candidate_policies.csv": {
+            "sha256": "6371d4e8edf0401ba079c5e8e46d78816dfb866f8f4f903411f19a0ca74326b0",
+            "bytes": 687
+          },
+          "cluster_randomization.csv": {
+            "sha256": "1883a412ee7238545756d0a6b9093d81c86ff9b9b90941bc7affd94ece977245",
+            "bytes": 101
+          }
+        },
+        "structure": {
+          "nodes": [
+            "F_01",
+            "F_02",
+            "F_03",
+            "F_04",
+            "F_05",
+            "F_06",
+            "F_07",
+            "F_08",
+            "F_09",
+            "F_10",
+            "F_11",
+            "F_12",
+            "F_13",
+            "F_14",
+            "F_15",
+            "F_16",
+            "F_17",
+            "F_18",
+            "F_19",
+            "F_20",
+            "F_21",
+            "F_22",
+            "F_23",
+            "F_24"
+          ],
+          "edges": [
+            [
+              "F_01",
+              "F_02"
+            ],
+            [
+              "F_01",
+              "F_08"
+            ],
+            [
+              "F_01",
+              "F_18"
+            ],
+            [
+              "F_01",
+              "F_24"
+            ],
+            [
+              "F_02",
+              "F_03"
+            ],
+            [
+              "F_02",
+              "F_09"
+            ],
+            [
+              "F_02",
+              "F_19"
+            ],
+            [
+              "F_03",
+              "F_04"
+            ],
+            [
+              "F_03",
+              "F_10"
+            ],
+            [
+              "F_03",
+              "F_14"
+            ],
+            [
+              "F_03",
+              "F_20"
+            ],
+            [
+              "F_04",
+              "F_05"
+            ],
+            [
+              "F_04",
+              "F_11"
+            ],
+            [
+              "F_04",
+              "F_21"
+            ],
+            [
+              "F_05",
+              "F_06"
+            ],
+            [
+              "F_05",
+              "F_12"
+            ],
+            [
+              "F_05",
+              "F_22"
+            ],
+            [
+              "F_06",
+              "F_07"
+            ],
+            [
+              "F_06",
+              "F_13"
+            ],
+            [
+              "F_06",
+              "F_23"
+            ],
+            [
+              "F_07",
+              "F_08"
+            ],
+            [
+              "F_07",
+              "F_14"
+            ],
+            [
+              "F_07",
+              "F_24"
+            ],
+            [
+              "F_08",
+              "F_09"
+            ],
+            [
+              "F_08",
+              "F_15"
+            ],
+            [
+              "F_09",
+              "F_10"
+            ],
+            [
+              "F_09",
+              "F_16"
+            ],
+            [
+              "F_10",
+              "F_11"
+            ],
+            [
+              "F_10",
+              "F_17"
+            ],
+            [
+              "F_11",
+              "F_12"
+            ],
+            [
+              "F_11",
+              "F_18"
+            ],
+            [
+              "F_11",
+              "F_22"
+            ],
+            [
+              "F_12",
+              "F_13"
+            ],
+            [
+              "F_12",
+              "F_19"
+            ],
+            [
+              "F_13",
+              "F_14"
+            ],
+            [
+              "F_13",
+              "F_20"
+            ],
+            [
+              "F_14",
+              "F_15"
+            ],
+            [
+              "F_14",
+              "F_21"
+            ],
+            [
+              "F_15",
+              "F_16"
+            ],
+            [
+              "F_15",
+              "F_22"
+            ],
+            [
+              "F_16",
+              "F_17"
+            ],
+            [
+              "F_16",
+              "F_23"
+            ],
+            [
+              "F_17",
+              "F_18"
+            ],
+            [
+              "F_17",
+              "F_24"
+            ],
+            [
+              "F_18",
+              "F_19"
+            ],
+            [
+              "F_19",
+              "F_20"
+            ],
+            [
+              "F_20",
+              "F_21"
+            ],
+            [
+              "F_21",
+              "F_22"
+            ],
+            [
+              "F_22",
+              "F_23"
+            ],
+            [
+              "F_23",
+              "F_24"
+            ]
+          ],
+          "groups": {
+            "north": [
+              "F_01",
+              "F_02",
+              "F_03",
+              "F_04",
+              "F_05",
+              "F_06"
+            ],
+            "east": [
+              "F_07",
+              "F_08",
+              "F_09",
+              "F_10",
+              "F_11",
+              "F_12"
+            ],
+            "south": [
+              "F_13",
+              "F_14",
+              "F_15",
+              "F_16",
+              "F_17",
+              "F_18"
+            ],
+            "west": [
+              "F_19",
+              "F_20",
+              "F_21",
+              "F_22",
+              "F_23",
+              "F_24"
+            ]
+          },
+          "cluster_rates": {
+            "north": "1/3",
+            "east": "2/3",
+            "south": "1/2",
+            "west": "1/4"
+          },
+          "policies": {
+            "half_each_workshop": {
+              "F_01": 1,
+              "F_02": 1,
+              "F_03": 1,
+              "F_04": 0,
+              "F_05": 0,
+              "F_06": 0,
+              "F_07": 1,
+              "F_08": 1,
+              "F_09": 1,
+              "F_10": 0,
+              "F_11": 0,
+              "F_12": 0,
+              "F_13": 1,
+              "F_14": 1,
+              "F_15": 1,
+              "F_16": 0,
+              "F_17": 0,
+              "F_18": 0,
+              "F_19": 1,
+              "F_20": 1,
+              "F_21": 1,
+              "F_22": 0,
+              "F_23": 0,
+              "F_24": 0
+            }
+          },
+          "units_with_cross_group_neighbors": [
+            "F_01",
+            "F_02",
+            "F_03",
+            "F_04",
+            "F_05",
+            "F_06",
+            "F_07",
+            "F_08",
+            "F_09",
+            "F_10",
+            "F_11",
+            "F_12",
+            "F_13",
+            "F_14",
+            "F_15",
+            "F_16",
+            "F_17",
+            "F_18",
+            "F_19",
+            "F_20",
+            "F_21",
+            "F_22",
+            "F_23",
+            "F_24"
+          ]
+        },
+        "active_goal_document": "business_question.md",
+        "question_slots": {
+          "q1": "我想按candidate_policies.csv里half_each_workshop那份名单，让每个车间三条线用工具、其余三条不用，这样全厂平均停机小时是多少？"
+        },
+        "original_business_unchanged": false,
+        "revision_kind": "VERSIONED_NATURAL_LANGUAGE_PARAPHRASE"
+      },
+      "raw": {
+        "study": {
+          "design": "整组开关",
+          "group_parameters": null,
+          "declared_independent": true,
+          "design_sources": [
+            "study_protocol.md:L2",
+            "cluster_randomization.csv"
+          ],
+          "exposure": "any_treated_neighbor",
+          "exposure_source": "study_protocol.md:L3",
+          "outcome": "downtime_hours",
+          "independence_source": "study_protocol.md:L2"
+        },
+        "questions": {
+          "q1": {
+            "operation": "水平",
+            "population": {
+              "selection": "全体",
+              "ids": []
+            },
+            "aggregation": "等权平均",
+            "population_source": "business_question.md:L1",
+            "first": {
+              "setting": "完整安排",
+              "treated": {
+                "selection": "政策名单",
+                "policy_id": "half_each_workshop"
+              }
+            },
+            "second": null,
+            "remaining_source": null,
+            "remaining_evidence_span": null
+          }
+        }
+      },
+      "packet": {
+        "mode": "SYNTHETIC_BENCHMARK_ONLY",
+        "bundle_sha256": "5c516d13c009721b7c92cd96600b506e676f439c846cad7c589395573b03ed42",
+        "study": {
+          "units": 24,
+          "design": "整组开关",
+          "groups": [
+            [
+              "F_07",
+              "F_08",
+              "F_09",
+              "F_10",
+              "F_11",
+              "F_12"
+            ],
+            [
+              "F_01",
+              "F_02",
+              "F_03",
+              "F_04",
+              "F_05",
+              "F_06"
+            ],
+            [
+              "F_13",
+              "F_14",
+              "F_15",
+              "F_16",
+              "F_17",
+              "F_18"
+            ],
+            [
+              "F_19",
+              "F_20",
+              "F_21",
+              "F_22",
+              "F_23",
+              "F_24"
+            ]
+          ],
+          "quotas": null,
+          "probabilities": [
+            "2/3",
+            "1/3",
+            "1/2",
+            "1/4"
+          ],
+          "draws_independent": true,
+          "exposure": "any_treated_neighbor",
+          "outcome": "downtime_hours",
+          "network_file": "network_edges.csv",
+          "partition_file": "units.csv",
+          "group_column": "unit_group"
+        },
+        "science": {
+          "population_information": "EXPLICIT CONDITIONAL SYNTHETIC population operator for held-out fixture",
+          "causal_licenses": "EXPLICIT CONDITIONAL SYNTHETIC causal licenses; not derived from business text"
+        }
+      },
+      "provenance": {
+        "stage": "language_contract_fix_20261020_v033",
+        "slot": "g08",
+        "reading_model": "LongCat-2.5-Preview",
+        "prior_live_attempt": true,
+        "raw_file_sha256": "1a26d81a46ad7f1a14eb639f05d563e5d6d3491350914fa770a9daf4f155b06e"
+      }
+    }
+  }
+}

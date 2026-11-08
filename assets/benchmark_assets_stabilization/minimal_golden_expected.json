@@ -1,0 +1,130 @@
+{
+  "design": {
+    "kind": "D2 uniform complete randomization",
+    "treated_quota": 2
+  },
+  "expected_base_support": "1/3",
+  "exposure": "E1 strict majority among pretreatment neighbors",
+  "network": {
+    "node_ids": [
+      "0",
+      "1",
+      "2"
+    ],
+    "undirected_edges": [
+      [
+        "0",
+        "1"
+      ],
+      [
+        "1",
+        "2"
+      ]
+    ]
+  },
+  "scenarios": [
+    {
+      "certified_support": "1/3",
+      "change": "base",
+      "exact_support_oracle": "1/3",
+      "numeric_effect_estimated": false,
+      "reason_code": null,
+      "replay_verified": true,
+      "route": "R1A_RANDOMIZED_ARM",
+      "same_target_as_base": true,
+      "status": "POINT"
+    },
+    {
+      "certified_support": null,
+      "change": "missing_a4",
+      "exact_support_oracle": "1/3",
+      "numeric_effect_estimated": false,
+      "reason_code": "CONDITIONAL_ARM_POPULATION_INFORMATION_REQUIRED",
+      "replay_verified": false,
+      "route": null,
+      "same_target_as_base": true,
+      "status": "NEEDS_INPUT"
+    },
+    {
+      "certified_support": null,
+      "change": "a4_not_admitted",
+      "exact_support_oracle": "1/3",
+      "numeric_effect_estimated": false,
+      "reason_code": "CONDITIONAL_ARM_POPULATION_INFORMATION_REQUIRED",
+      "replay_verified": false,
+      "route": null,
+      "same_target_as_base": true,
+      "status": "NEEDS_INPUT"
+    },
+    {
+      "certified_support": null,
+      "change": "a5_unresolved",
+      "exact_support_oracle": "1/3",
+      "numeric_effect_estimated": false,
+      "reason_code": "REQUIRED_ASSUMPTIONS_NOT_ADMITTED",
+      "replay_verified": false,
+      "route": null,
+      "same_target_as_base": true,
+      "status": "NEEDS_INPUT"
+    },
+    {
+      "certified_support": null,
+      "change": "a5_rejected",
+      "exact_support_oracle": "1/3",
+      "numeric_effect_estimated": false,
+      "reason_code": "REQUIRED_ASSUMPTIONS_NOT_ADMITTED",
+      "replay_verified": false,
+      "route": null,
+      "same_target_as_base": true,
+      "status": "UNSUPPORTED"
+    },
+    {
+      "certified_support": null,
+      "change": "zero_quota",
+      "exact_support_oracle": "0",
+      "numeric_effect_estimated": false,
+      "reason_code": "ZERO_ARM_SUPPORT",
+      "replay_verified": false,
+      "route": null,
+      "same_target_as_base": false,
+      "status": "UNSUPPORTED"
+    },
+    {
+      "certified_support": null,
+      "change": "add_network_edge",
+      "exact_support_oracle": "0",
+      "numeric_effect_estimated": false,
+      "reason_code": "ZERO_ARM_SUPPORT",
+      "replay_verified": false,
+      "route": null,
+      "same_target_as_base": false,
+      "status": "UNSUPPORTED"
+    },
+    {
+      "certified_support": "1/3",
+      "change": "different_exposure",
+      "exact_support_oracle": "1/3",
+      "numeric_effect_estimated": false,
+      "reason_code": null,
+      "replay_verified": true,
+      "route": "R1A_RANDOMIZED_ARM",
+      "same_target_as_base": false,
+      "status": "POINT"
+    },
+    {
+      "certified_support": null,
+      "change": "query_not_confirmed",
+      "exact_support_oracle": "1/3",
+      "numeric_effect_estimated": false,
+      "reason_code": "QUERY_NOT_CONFIRMED",
+      "replay_verified": false,
+      "route": null,
+      "same_target_as_base": true,
+      "status": "UNSUPPORTED"
+    }
+  ],
+  "schema_version": "cfm-id-minimal-golden-stabilization-v1",
+  "study": "explicit synthetic population exercise only",
+  "target": "mu_0^q(1,1 | W)",
+  "theorem": "R1a randomized-network design-standardized arm (no exposure sufficiency)"
+}

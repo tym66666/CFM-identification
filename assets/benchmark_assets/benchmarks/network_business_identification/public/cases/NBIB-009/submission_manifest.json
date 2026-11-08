@@ -1,0 +1,18 @@
+{
+  "business_question_file": "business_question.md",
+  "case_id": "NBIB-009",
+  "gold_oracle_location": "OUTSIDE_PUBLIC_CASE_DIRECTORY",
+  "llm_access_scope": "PUBLIC_CASE_FILES_ONLY",
+  "supporting_files": [
+    "candidate_policies.csv",
+    "data_dictionary.md",
+    "market_episodes.csv",
+    "network_edges.csv",
+    "outcomes.csv",
+    "study_protocol.md",
+    "treatment.csv",
+    "units.csv"
+  ],
+  "synthetic": true,
+  "title": "同一固定名额试点增加一项结构假设"
+}

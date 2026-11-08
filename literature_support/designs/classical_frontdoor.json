@@ -1,0 +1,59 @@
+{
+  "schema_version": "literature-support-design-1",
+  "route_id": "DAG_CLASSICAL_FRONTDOOR",
+  "updated_on": "2026-10-25",
+  "development_status": "BUSINESS_RESEARCH_BRIDGE_IMPLEMENTED_SEE_ROUTE_MAP",
+  "route_registered": true,
+  "registration_scope": "EXPLICIT_MATHEMATICAL_RESEARCH_ONLY",
+  "default_business_route_registered": false,
+  "implementation_exists": true,
+  "implemented_route_map": "../routes/dag_classical_frontdoor.json",
+  "production_admission": false,
+  "estimation_handoff_allowed": false,
+  "business_reading_connected": true,
+  "contract_path": "../../docs/DAG_FRONTDOOR_CONTRACT_ZH.txt",
+  "path_base": "this design JSON directory",
+  "scope": {
+    "model": "Known static binary SCM with explicit latents and independent structural errors",
+    "target": "Single observed X/Y interventional distribution",
+    "information": "Reviewed strictly positive full observed symbolic population law",
+    "selector": "Single observed front-door variable, explicitly checked or finitely searched"
+  },
+  "mapping": [
+    {
+      "source_id": "pearl_causality_ch3_frontdoor",
+      "locator": "Definition 3.3.3 and Theorem 3.3.4",
+      "claim": "Published sufficient identification formula and positivity condition."
+    },
+    {
+      "source_id": "jeong_tian_bareinboim2022_frontdoor",
+      "locator": "Definition 1, equation (3), Section 3",
+      "claim": "Front-door graph criterion and distinction between checking and searching."
+    }
+  ],
+  "implementation": [
+    "cfm_id/dag_frontdoor_contract.py",
+    "cfm_id/dag_frontdoor_solver.py",
+    "cfm_id/dag_frontdoor_verify.py",
+    "cfm_id/dag_frontdoor.py",
+    "cfm_id/dag_frontdoor_adapter.py"
+  ],
+  "tests": [
+    "tests_gateway/test_dag_frontdoor.py",
+    "tests_gateway/test_dag_frontdoor_acceptance.py",
+    "evaluation/dag_frontdoor_acceptance.py"
+  ],
+  "pre_research_evidence": {
+    "directory": "LOCAL_EVIDENCE_NOT_DISTRIBUTED",
+    "path_base": "source root",
+    "file": "FRONTDOOR_PRE_RESEARCH_CHECK.json",
+    "scope": "Finite examples only; no route implementation, graph-checker acceptance or general proof."
+  },
+  "acceptance_obligations": [
+    "Independent graph criterion replay",
+    "Correct free/bound-value roles in nested-sum functional",
+    "Exact finite SCM comparisons",
+    "Mutation and stale-review rejection",
+    "No general nonidentification conclusion from failed criterion"
+  ]
+}

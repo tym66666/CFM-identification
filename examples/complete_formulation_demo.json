@@ -1,0 +1,17 @@
+{
+  "case_id": "complete_formulation_demo",
+  "business_question": "在销售员合作网络中，研究本人使用AI且严格多数邻居使用AI时的设计标准化销售均值。",
+  "sources": [
+    {
+      "source_id": "protocol",
+      "kind": "STUDY_PROTOCOL",
+      "text": "实验前合作网络已固定。每名销售员独立以概率1/2分配AI。邻居中严格多数获得AI时，暴露状态S_i=1。"
+    },
+    {
+      "source_id": "information_contract",
+      "kind": "OTHER",
+      "text": "在本理论问题中，研究者声明总体可观测信息算子为完整联合分布 P(T,Yobs|W)，包含全部节点结果与完整处理向量。"
+    }
+  ],
+  "response_language": "zh"
+}

@@ -1,0 +1,58 @@
+DAG 调整研究路线：实现与本地验收
+2026-10-25
+
+当前可以做什么
+对已声明的静态DAG，检查指定的观测调整集，或搜索一个合格集合，生成P(Y | do(X))的符号调整公式。
+支持范围为单处理/单结果、最多8个二元节点、显式潜变量、完整符号观测总体律和已审核的严格正性。
+只以文献判据的充分性发布POINT。无法调整不等于一般不可识别；前门图及Y→X是明确的边界例。
+数学适用范围、来源和推导入口：DAG_ADJUSTMENT_RESEARCH_ZH.txt。
+
+结构及职责
+1. dag_adjustment_contract.py：独立问题/审核版本dag-adjustment-1；复用已有形状与支持校验，保留原始新问题哈希。
+2. dag_adjustment.py：先准备待审核清单，再接受显式研究选择和绑定输入的审核；未批准不调用求解器。
+3. dag_adjustment_solver.py：计算因果路径节点和禁集，仅移除因果路径首边，在proper back-door graph中做祖先道德化分离。
+4. dag_adjustment_verify.py：独立枚举原图非因果路径并计算闭包；核对图形条件、目标、公式、来源、哈希和协议。
+5. dag_adjustment_adapter.py：接入既有run_route研究接口；停止状态没有数学结论/证书，成功状态再次重放。
+
+协议边界
+- adjustment=null表示自动搜索；[]表示用户明确不调整，两者不互换。
+- 指定集合失败时不能悄悄改用其他集合；需要用户重新选择，并重新绑定审核。
+- 原经典后门问题、审核和证书不能直接跨路线使用。两条路线的证书各自保留。
+- SYNTHETIC_TEST只标记离线假设已由测试设计规定，并不证明真实业务假设成立。
+- 外部审核为声明性记录，当前没有审核者身份认证系统。
+- 本路线没有默认注册或修改Estimation/Policy；后续业务连接在共享dag_business投影中显式选择新合同，DAG Prompt仅补通用语义边界说明。
+- 新接口不新增用户直接选择“确认所有假设”的自动化流程。
+
+直观例子
+X表示培训，Y表示完成任务，W表示培训后打开辅助面板；假设图仅有X→Y、X→W。
+在该图与完整正总体律均被审核接受后，指定调整W也可得到有效公式。
+这不表示任意处理后变量可调整：若图为X→W→Y，W是中介，指定调整W会被拒绝。
+旧经典后门在第一个图上自动搜索空集已能识别；新增价值是正确检查指定集合，并非把该目标重新算作新增识别题。
+
+本地运行（在源码根目录，Python已安装项目依赖）
+python -B -m unittest tests_gateway.test_dag_adjustment -v
+python -B -m evaluation.dag_adjustment_acceptance --synthetic-protocol --output adjustment_acceptance.json
+验收输出路径必须尚不存在，以保留历史记录；不读密钥，不调用LLM。
+
+代码调用示例（仅离线合成测试）
+from examples.dag_adjustment_reference import make_problem, synthetic_review
+from cfm_id.dag_adjustment_adapter import DagAdjustmentRoute
+from cfm_id.research_route_workflow import run_route
+p = make_problem(["X","Y","W"], [["X","Y"],["X","W"]], adjustment=["W"])
+r = run_route(DagAdjustmentRoute(), p, review=synthetic_review(p), research_protocol_selected=True)
+assert r["state"] == "POINT" and r["independent_replay"]
+真实业务应另建外部审核记录，不能调用synthetic_review作为批准手段。
+
+验收如何理解
+16个固定正负例通过公共研究接口执行，6个POINT、10个UNSUPPORTED，含潜变量、碰撞点、指定集合和前门边界。
+固定拓扑顺序的4节点图共64张；遍历所有有序X/Y与其他节点子集，得到3072组双算法一致结果。
+对所有观测/不可用变量组合，3072组最小调整集族与经典后门一致。
+128个严格正二元SCM产生6584次精确干预概率与调整式等式；同时对相应证书重放。
+7个不合法指定集合另存具体SCM、核概率和不相等的结果，展示“这个调整式会错”，不是两世界非识别证书。
+新增协议测试和既有回归的实际运行记录见结果目录；不能把这些数量解释成LLM准确率。
+
+后续业务连接
+已在dag_business.py中新增显式route_id=DAG_ADJUSTMENT，通过相同DAG读取结果进入新数学合同。
+读取和科学审核必须覆盖新问题哈希；跨路线旧审核被拒绝，LLM仍不能批准科学条件。
+9个业务正负参考例和133项相关测试通过；真实模型试测记录见LOCAL_EVIDENCE_NOT_DISTRIBUTED。
+Prompt及网络路线复用说明见DAG_PROMPT_AND_CODE_REUSE_ZH.txt；这一连接没有增加新数学判据。

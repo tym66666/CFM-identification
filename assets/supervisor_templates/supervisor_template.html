@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Causal-IDFM · 业务因果问题判断</title>
+<style>
+:root{--ink:#172c39;--muted:#617381;--line:#e0e8ec;--bg:#f5f8f8;--teal:#09685e;--paper:white;--warm:#f2f8f6}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.65}button,input,textarea,select{font:inherit}button{cursor:pointer}a{color:#176959}a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #4bb39a;outline-offset:2px}.shell{max-width:1190px;margin:0 auto;padding:0 24px 70px}.top{background:var(--paper);border-bottom:1px solid var(--line)}.top-inner{display:flex;align-items:center;justify-content:space-between;max-width:1190px;margin:auto;padding:16px 24px;gap:16px}.brand{font-size:16px;font-weight:790;letter-spacing:.1px}.small{color:var(--muted);font-size:12px}.tabs{display:flex;gap:8px;align-items:center}.tabs button,.tabs a{border:0;background:transparent;text-decoration:none;color:#415b65;padding:8px 12px;border-radius:8px;font-size:13px}.tabs button.current,.tabs a.current{background:#e5f2ee;color:#0a645a;font-weight:700}.hero{padding:45px 0 22px;display:grid;grid-template-columns:1.5fr 1fr;gap:32px;align-items:center}.eyebrow{color:var(--teal);font-weight:750;font-size:12px;letter-spacing:2px}.hero h1{font-size:clamp(30px,3.9vw,45px);line-height:1.23;letter-spacing:-1.5px;margin:12px 0 16px}.hero p{color:#58707c;margin:0;max-width:650px}.overview{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{background:white;padding:17px 13px;border:1px solid var(--line);border-radius:14px;text-align:center}.stat strong{font-size:30px;display:block;font-weight:780;line-height:1.2}.stat small{color:var(--muted);font-size:11px}.bar{display:flex;height:8px;border-radius:99px;overflow:hidden;gap:0;margin-top:10px}.bar>div:nth-child(1){background:#118776;flex:9}.bar>div:nth-child(2){background:#c39549;flex:10}.bar>div:nth-child(3){background:#95a3ac;flex:8}.page{display:none}.page.active{display:block}.panel{background:white;border:1px solid var(--line);border-radius:17px;padding:24px;margin:14px 0;box-shadow:0 7px 22px rgba(38,80,80,.028)}h2{font-size:20px;letter-spacing:-.35px;margin:0 0 13px}h3{font-size:16px;margin:0 0 7px}.muted{color:var(--muted)}.controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:18px 0}.controls select,.controls input,.form textarea,.form input{background:#fff;border:1px solid #d4e0e4;border-radius:10px;padding:10px 12px;width:100%}.controls input{flex:2;min-width:180px}.controls select{flex:1;min-width:140px}.split{display:grid;grid-template-columns:350px minmax(0,1fr);gap:16px}.list{max-height:640px;overflow-y:auto;border:1px solid var(--line);border-radius:12px}.case{border:0;border-bottom:1px solid #e9eff1;display:block;background:white;width:100%;text-align:left;padding:13px 15px;line-height:1.5}.case:hover,.case.selected{background:#eef7f4}.case .note{display:block;color:var(--muted);font-size:11px;margin-top:4px}.case .question-snippet{display:block;font-size:12px;color:#627b83;margin-top:3px}.case strong{display:block;font-size:14px;margin-top:5px}.tag{display:inline-block;border:1px solid #cde6e0;color:#156c60;background:#f4faf8;padding:2px 9px;border-radius:99px;font-size:11px;font-weight:740;white-space:nowrap}.tag.wait{border-color:#f0dfbb;color:#90651f;background:#fff9ed}.tag.out{border-color:#e0e6ea;color:#61707b;background:#f5f7f8}.tag.research{border-color:#dad4ec;color:#6b548d;background:#f9f6ff}.result{border:1px solid #d6e7e3;border-radius:14px;background:#fbfefd;padding:22px;min-height:280px}.result h2{font-size:25px;margin:11px 0}.result .question{font-size:16px;font-weight:680}.primary{background:var(--teal);border:1px solid var(--teal);color:#fff;border-radius:10px;font-weight:700;padding:10px 16px}.secondary{background:white;border:1px solid #cfdbde;color:#245b60;border-radius:10px;padding:10px 14px}.what{background:#edf6f3;border-left:3px solid #308d7d;border-radius:4px;padding:13px 15px;margin:18px 0;color:#285a55}.flex{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.facts{display:grid;grid-template-columns:125px 1fr;gap:8px 10px;font-size:13px}.facts dt{color:#697c86}.facts dd{margin:0;overflow-wrap:anywhere}.formula{padding:12px 14px;border-radius:9px;background:#f1f5f7;font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere}details{border-top:1px solid #e2eaec;padding-top:12px;margin-top:15px}summary{font-weight:700;color:#276457;cursor:pointer}.form{display:grid;grid-template-columns:1fr 1fr;gap:15px}.form label{display:block;font-size:13px;font-weight:680;margin-bottom:6px}.form textarea{min-height:115px;resize:vertical}.form input[type=file]{padding:9px;font-size:12px}.steps{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.step{padding:7px 11px;border-radius:8px;background:#eff4f4;color:#48626d;font-size:12px}.message{background:#f6f8fa;border:1px solid #e4eaf0;border-radius:11px;padding:12px 14px;font-size:13px;margin-top:14px;white-space:pre-wrap;overflow-wrap:anywhere}.three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.feature{border:1px solid var(--line);border-radius:12px;padding:18px}.feature p{font-size:13px;color:var(--muted);margin:7px 0}.disclaimer{font-size:12px;color:#6d7b80;margin:25px 0}.divider{height:1px;background:var(--line);margin:20px 0}.banner{padding:15px 16px;background:#faf8f0;border:1px solid #eee4c9;border-radius:11px;font-size:13px}.footer{margin-top:28px;border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:12px}pre{white-space:pre-wrap;overflow-wrap:anywhere}.tabs button:hover,.tabs a:hover{background:#eff5f3}@media(max-width:950px){.split{grid-template-columns:1fr}.list{max-height:320px}.hero{grid-template-columns:1fr}.form{grid-template-columns:1fr}}@media(max-width:620px){.shell{padding:0 13px 45px}.top-inner{padding:12px;flex-wrap:wrap}.hero{padding:24px 0}.three,.overview{grid-template-columns:1fr}.panel{padding:16px}.facts{grid-template-columns:1fr}.tabs{flex-wrap:wrap}}
+
+/* Display layer: business question first, auditable conditions second. */
+.explain-eyebrow{font-size:12px;letter-spacing:.04em;color:#527569;font-weight:730;margin-bottom:7px}
+.business-context{font-size:13px;background:#f1f6f6;border-radius:10px;padding:12px 14px;color:#42606e;margin:12px 0}
+.question-strong{font-size:18px;line-height:1.6;font-weight:750;margin:12px 0 16px}
+.condition-title{font-size:15px;font-weight:760;margin:18px 0 6px}
+.condition-intro{color:#647883;font-size:12px;margin:0 0 12px}
+.condition-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.condition{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid #e0e8e9;border-radius:10px;padding:12px 12px;min-height:78px}
+.condition .symbol{flex:none;display:flex;align-items:center;justify-content:center;border-radius:8px;width:28px;height:28px;background:#e1f3ec;color:#15715b;font-size:18px;font-weight:900}
+.condition.missing .symbol{background:#fff1d8;color:#946919}
+.condition.failed .symbol{background:#fbe9e7;color:#a33b34}
+.condition.unchecked .symbol{background:#edf0f2;color:#62717a}
+.condition b{font-size:13px;display:block}.condition small{display:block;font-size:11px;color:#70838b;line-height:1.45;margin-top:3px}
+.explain-footer{font-size:11px;color:#73858c;margin:12px 0}
+.case-card-title{font-size:14px;font-weight:720;margin:5px 0}.case-card-question{font-size:12px;color:#58737d;margin:4px 0}
+.review-panel{border:1px solid #d8e4e5;border-radius:12px;padding:17px;background:#fff;margin-top:16px}
+.nbib-example{border:1px solid #dbe6e8;border-radius:12px;padding:16px;background:#fdfefe;margin-top:12px}
+.nbib-example .nbib-alert{color:#986d27;font-weight:760;font-size:12px}
+.nbib-example ul{padding-left:21px;margin:10px 0}
+.gap-help{margin:12px 0;padding:12px;background:#f8fafb;border-left:3px solid #aabec4;border-radius:5px}
+@media(max-width:700px){.condition-grid{grid-template-columns:1fr}.result h2{font-size:19px}}
+</style></head><body>
+<div class="top"><div class="top-inner"><div class="brand">CFM-ID <span class="small">/ 因果问题识别</span></div><nav class="tabs" aria-label="页面导航"><button id="nav-results" class="current" data-page="results">看结果</button><button id="nav-input" data-page="input">提交业务问题</button><a href="CFM_ID_No_Key_Curated_Business_Live_Demo.html">无 Key 核验演示</a><a href="CFM_ID_Coverage_Map.html">我们覆盖什么</a><button id="nav-research" data-page="research">研究探索</button></nav></div></div>
+<div class="shell"><section class="hero"><div><div class="eyebrow">CAUSAL-IDFM · V3.0</div><h1>一个业务问题，<br>我们能可靠地判断什么？</h1><p>从业务目标出发，说明哪些因果问题<strong>已有确定的数学答案</strong>，哪些还需要补充信息，以及哪些暂时没有正式结论。不会把数学公式包装成实际销售额。</p></div><div><div class="overview"><div class="stat"><strong id="m-point">9</strong><small>已有证明的案例</small></div><div class="stat"><strong id="m-needs">10</strong><small>需要补充条件</small></div><div class="stat"><strong id="m-unsup">8</strong><small>暂时不能认证</small></div></div><div class="bar"><div></div><div></div><div></div></div><p class="small">均为合成研究案例，不代表现实业务覆盖率</p></div></section>
+<section class="page active" id="page-results"><div class="panel"><h2>按业务问题查看已验证结果</h2><p class="muted">每个案例先讲清业务背景和要回答的问题，再逐项检查所需条件。这里是合成研究案例，不是实际企业的效应估计。</p><div class="controls"><input id="query" placeholder="搜索：线上 A/B、门店、固定名额、员工使用 AI…" aria-label="搜索案例"><select id="case-filter" aria-label="按判断结果筛选"><option value="">全部结论</option><option value="POINT">可以确定</option><option value="NEEDS_INPUT">需要补充资料</option><option value="UNSUPPORTED">暂时无法认证</option></select><select id="case-group" aria-label="按场景筛选"><option value="">全部场景</option><option value="business">常见业务</option><option value="GOLDEN">三人最简单的例子</option></select></div><div class="explain-footer">符号说明：✓ 本例已提供或确认　？ 还需补充　× 已知不满足　— 暂未核验。勾号不代表现实世界的因果假设已被软件证明。</div><div class="split"><div id="case-list" class="list" aria-label="已验证的例子"></div><article class="result" id="case-detail" aria-live="polite"></article></div></div><div class="panel"><div class="three"><div class="feature"><h3>① 业务问题</h3><p>想了解哪个人群、哪一种干预或推广方案的影响？</p></div><div class="feature"><h3>② 事实与条件</h3><p>看实验如何分配、网络如何连接，以及可用的信息是否足够。</p></div><div class="feature"><h3>③ 数学结论</h3><p>给出能否确定、必要的条件和可核查的公式；不编造实际效果数值。</p></div></div></div></section>
+<section class="page" id="page-input"><div class="panel"><h2>提交你自己的业务问题</h2><p class="muted">可以填写问题和上传实验方案、问卷、说明书或数据字典。我们会先安全整理材料；之后必须经过目标和科学条件确认，才能执行正式识别。</p><div class="review-panel"><h3>从 21 个业务问题示例中选一个</h3>
+<p class="muted" style="font-size:13px">21 份原始业务描述用于检查“有没有正确理解需求”，不是已经获得数学认证的案例。选择后可以填入下方待审核请求。</p>
+<div class="flex"><select id="nbib-select" aria-label="选择业务语言基准题" style="flex:1;min-width:220px;border:1px solid #d4e0e4;border-radius:9px;padding:8px"></select><button class="secondary" id="nbib-fill">填入下面的业务输入</button></div>
+<div id="nbib-preview" class="nbib-example" aria-live="polite"></div>
+</div><div class="form"><div><label for="business">你想知道什么？</label><textarea id="business" placeholder="例如：如果给全体销售员启用 AI，团队平均表现会发生什么变化？"></textarea></div><div><label for="requirements">补充要求（可选）</label><textarea id="requirements" placeholder="例如：网络是员工合作关系；处理是是否有 AI 权限；结果是每周成交量；这是随机实验还是员工自选…"></textarea></div><div><label for="attachments">相关文件</label><input id="attachments" type="file" multiple accept=".txt,.md,.csv,.json,.pdf,.docx,.xlsx"><div class="small" id="file-desc">PDF / DOCX / XLSX / CSV / TXT / MD / JSON，最多 8 份</div></div><div><label>下一步</label><div class="flex"><button class="primary" id="submit-business">整理我的业务问题</button><button class="secondary" id="download-packet">下载待审核请求</button></div><div class="small" style="margin-top:9px">本地服务运行时会安全读取文件；离线打开页面只导出请求，不会自动调用 LLM 或数学定理。</div></div></div><div class="steps"><span class="step">整理业务描述</span><span class="step">确认真正想问的目标</span><span class="step">研究者确认必要条件</span><span class="step">正式计算与验证</span></div><div class="message" id="input-status">当前展示已经审核并回放的预置案例。要提交新的业务，请先填写上方内容。</div></div></section>
+<section class="page" id="page-research"><div class="panel"><h2>如果不能确定单一答案，还能知道什么？</h2><p class="muted">有些问题虽然不能精确确定，却可以在明确限制下得到一个区间。目前仅有下面这一例通过研究性推导，尚未纳入正式识别库。</p><div class="explain-footer">以下只有明确限定的研究性区间；尚无正式 PARTIAL 验证证书。</div><div class="banner" id="partial-example">Star7：固定三人使用 AI，全员推广时部分节点的状态从未在实验中出现。</div><details><summary>展开研究边界与区间公式</summary><div id="partial-detail"></div></details></div><div class="panel"><h2>现有方法没覆盖时，LLM 能做什么？</h2><p>第二个 LLM 可以提出<strong>未经认证的</strong>公式、额外假设或反例思路，但不能把候选结论当作数学证明。</p><div class="three"><div class="feature"><h3>已有证明</h3><p>数学 Core 已认证：不启动探索模型。</p></div><div class="feature"><h3>明确缺少输入</h3><p>请先补充必要信息或假设，不允许用猜测代替。</p></div><div class="feature"><h3>当前库未覆盖</h3><p>只对符合安全分流条件的情况启动候选研究，并标为“未经认证”。</p></div></div><div class="message" id="candidate-demo"></div></div></section>
+<div class="footer">Causal-IDFM · 预置结果来自正式数学 Core + 独立证书复核。页面本身不估计实际效果；上传输入不代表已经接受科学假设。<a href="CFM_ID_Coverage_Map.html">查看完整覆盖范围 →</a></div>
+</div>
+<!-- EMBED_DATA -->
+<script>
+'use strict';const DATA=JSON.parse(document.getElementById('trusted-data').textContent);
+const VIEW=DATA.presentation;
+const id=x=>document.getElementById(x);
+const LABEL={POINT:'可以点识别',NEEDS_INPUT:'需要补充条件',UNSUPPORTED:'当前路线不能认证'};
+const tag=(name,value)=>{let el=document.createElement(name);el.textContent=value??'';return el};
+const ALL=DATA.core_cases;let current=ALL.find(x=>x.identification.status==='POINT')||ALL[0];
+for(const b of document.querySelectorAll('[data-page]'))b.addEventListener('click',()=>{
+ for(const p of document.querySelectorAll('.page'))p.classList.toggle('active',p.id==='page-'+b.dataset.page);
+ for(const n of document.querySelectorAll('nav.tabs button'))n.classList.toggle('current',n===b);
+});
+id('m-point').textContent=DATA.summary.POINT||0;
+id('m-needs').textContent=DATA.summary.NEEDS_INPUT||0;
+id('m-unsup').textContent=DATA.summary.UNSUPPORTED||0;
+function badge(status){let b=tag('span',LABEL[status]||'研究示例');b.className='tag '+(status==='POINT'?'':status==='NEEDS_INPUT'?'wait':'out');return b}
+function caseList(){
+ let search=id('query').value.trim().toLowerCase(),status=id('case-filter').value,group=id('case-group').value,wrap=id('case-list');wrap.replaceChildren();
+ let filtered=ALL.filter(c=>{
+   const disp=VIEW.cases[c.case_id];return (!status||c.identification.status===status)
+     &&(!group||(group==='GOLDEN'?c.scenario_id==='GOLDEN':c.scenario_id!=='GOLDEN'))
+     &&(!search||(disp.headline+' '+disp.question+' '+disp.business_context+' '+c.case_id).toLowerCase().includes(search));
+ });
+ for(const c of filtered){
+   const disp=VIEW.cases[c.case_id], btn=tag('button','');btn.className='case'+(c===current?' selected':'');btn.type='button';
+   const q=tag('p',disp.question);q.className='case-card-question';
+   btn.append(badge(c.identification.status),tag('div',disp.headline),q);btn.onclick=()=>{current=c;caseList();renderDetail()};wrap.append(btn);
+ }
+ if(!filtered.length)wrap.append(tag('p','没有匹配的案例，请更换筛选条件。'));
+}
+function fact(label,text,dl){dl.append(tag('dt',label),tag('dd',String(text??'—')))}
+const ICONS={confirmed:'✓',missing:'？',failed:'×',unchecked:'—'};
+function renderDetail(){
+ const c=current,v=VIEW.cases[c.case_id],e=id('case-detail');e.replaceChildren();
+ e.append(badge(c.identification.status),tag('div','业务背景'));e.lastChild.className='explain-eyebrow';
+ const bg=tag('div',v.business_context);bg.className='business-context';e.append(bg);
+ e.append(tag('div','这次想回答：'));e.lastChild.className='explain-eyebrow';
+ const q=tag('div',v.question);q.className='question-strong';e.append(q);
+ let note=tag('div',v.conclusion);note.className='what';e.append(note);
+ e.append(tag('div','为什么得到这个结果？'));e.lastChild.className='condition-title';
+ e.append(tag('p','逐项检查本次输入的必要条件；未完成检查的项目不会自动打勾。'));e.lastChild.className='condition-intro';
+ const grid=tag('div','');grid.className='condition-grid';
+ for(const cc of v.conditions){
+   const card=tag('div','');card.className='condition '+cc.state;
+   let sym=tag('span',ICONS[cc.state]);sym.className='symbol';
+   const body=tag('div','');body.append(tag('b',cc.label),tag('small',cc.display_status+' · '+cc.case_specific_explanation));
+   card.title=cc.definition;card.append(sym,body);grid.append(card);
+ }
+ e.append(grid);
+ let foot=tag('p','✓ 只表示这份合成输入已声明/获准或相关数学条件通过检查；不能据此推断真实公司无混杂。');foot.className='explain-footer';e.append(foot);
+ e.append(tag('h3',c.identification.status==='POINT'?'结论：可以写出可信的总体识别公式':'接下来应做什么'));
+ e.append(tag('p',v.next_step_plain));
+ const proof=tag('div',v.replay_status);proof.className='small';e.append(proof);
+ const d=tag('details','');d.append(tag('summary','展开研究人员详情：定义、证据与公式'));
+ const dl=tag('dl','');dl.className='facts';
+ fact('正式定理路线',c.identification.theorem_route,dl);
+ fact('试验或使用机制',v.design_label+'（'+c.inputs.design+'）',dl);
+ fact('同伴状态定义',v.exposure_label+'（'+c.inputs.exposure+'）',dl);
+ fact('总体结果信息',c.inputs.a4,dl);
+ fact('所需因果前提',c.inputs.a5,dl);
+ fact('支持概率（原输出）',c.identification.support,dl);
+ fact('未通过的检查编码',c.identification.reason_code,dl);
+ fact('独立证书复核',c.proof.replay_verified?'通过':'未颁发正式 POINT 证书',dl);
+ fact('正式案例 ID',c.case_id,dl);
+ d.append(dl);
+ if(c.identification.formula){d.append(tag('h3','原正式识别公式'));let f=tag('div',c.identification.formula);f.className='formula';d.append(f)}
+ d.append(tag('p','原始数学问题记录：'+c.business_question));e.append(d);
+}
+for(const k of ['query','case-filter','case-group'])id(k).addEventListener('input',caseList);caseList();renderDetail();
+const part=DATA.research_partial;
+id('partial-example').textContent='七名员工组成星型协作网，每次抽三人使用 AI。想知道全员推广后的平均结果，但中心员工需要的试验状态始终没有出现。';
+const pbox=id('partial-detail');
+pbox.append(tag('h3','研究性条件核对'));
+const pchecks=tag('div','');pchecks.className='condition-grid';
+for(const [symbol,name,body,cls] of [
+ ['✓','实验分配方案','七人网络、每次恰好三人获得资格：本示例已明确','confirmed'],
+ ['✓','结果界限','本示例额外假定每个结果都在 0 到 1 之间','confirmed'],
+ ['✓','均值结构限制','本示例额外接受“同伴多数”可充分描述平均结果的限制','confirmed'],
+ ['×','中心节点的目标状态','在原试验中不可能出现','failed'],
+ ['—','正式 PARTIAL 证书','研究原型；尚未纳入正式生产级验证','unchecked']]){
+ const line=tag('div','');line.className='condition '+cls;const a=tag('span',symbol);a.className='symbol';const b=tag('div','');b.append(tag('b',name),tag('small',body));line.append(a,b);pchecks.append(line)
+}
+pbox.append(pchecks,tag('p','在这些明确限制下，六个叶节点的结果贡献可识别，只有中心员工未知。该政策平均结果的区间宽度为 1/7。'));
+pbox.append(tag('p','若额外设叶节点总体均值都为 1/2，仅作为演示，区间为 ['+part.identification.illustrative_interval.join(', ')+']。'));
+const math=tag('details','');math.append(tag('summary','查看研究性区间公式'));math.append(tag('pre',part.identification.formula));pbox.append(math);
+id('candidate-demo').textContent='合成数学联调：已有正式证明时，不需要第二个模型；当前库无法认证某个零支持政策时，允许模拟模型提出未经验证的研究猜想（调用 '+DATA.candidate_demo.off_support_model_calls+' 次）。这些候选输出均未经数学认证。';
+const bench=VIEW.nbib_business_questions;
+const select=id('nbib-select');for(const b of bench){let opt=tag('option',String(Number(b.id.slice(-3)))+' · '+b.title);opt.value=b.id;select.append(opt)}
+function nbibPreview(){const b=bench.find(x=>x.id===select.value)||bench[0],r=id('nbib-preview');r.replaceChildren();
+ const lab=tag('div','业务理解题 · 尚未认证');lab.className='nbib-alert';r.append(lab,tag('h3',b.title));
+ const ul=tag('ul','');for(const q of b.questions)ul.append(tag('li',q));r.append(ul);
+ const conds=tag('div','');conds.className='condition-grid';
+ for(const z of b.display_conditions){const a=tag('div','');a.className='condition '+z.state;const sym=tag('span',ICONS[z.state]);sym.className='symbol';const c=tag('div','');c.append(tag('b',z.label),tag('small',z.explanation));a.append(sym,c);conds.append(a)}r.append(conds);
+ const det=tag('details','');det.append(tag('summary','查看原始完整业务描述'));det.append(tag('p',b.original_description));r.append(det);
+ r.append(tag('p','这份题目用来检验能否正确理解业务需求；研究条件尚未完整审核，也没有获得正式数学结论。'));r.lastChild.className='explain-footer';
+}
+select.onchange=nbibPreview;nbibPreview();
+id('nbib-fill').onclick=()=>{const b=bench.find(x=>x.id===select.value);id('business').value=b.original_description;id('requirements').value='请先逐项澄清以下业务问题：'+b.questions.join('；')+'。如无正式科学审核，不要直接认证因果识别。';id('input-status').textContent='已填入原始 NBIB 业务题。此操作只是准备待审核输入，没有运行 Core。'};
+let fileList=[];function buildPacket(){return {schema_version:'cfm-id-v3-unreviewed-business-intake',status:'UNREVIEWED_NO_POINT_CERTIFICATE',business_question:id('business').value.trim(),requirements:id('requirements').value.trim(),files:fileList.map(f=>({filename:f.name,size_bytes:f.size})),note:'An independent A0 and science review must occur before verified Identification.'}}
+id('attachments').onchange=e=>{fileList=Array.from(e.target.files||[]);id('file-desc').textContent=fileList.length?fileList.map(f=>f.name+' ('+Math.ceil(f.size/1024)+' KB)').join('；'):'尚未上传文件';};
+function download(){let data=buildPacket();if(!data.business_question){id('input-status').textContent='请先说明要判断的业务问题。';return}let b=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download='CFM_ID_待审核业务问题.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);id('input-status').textContent='已导出待审核材料清单。此操作没有运行数学推断。'}id('download-packet').onclick=download;
+function asBase64(file){return new Promise((ok,no)=>{let reader=new FileReader();reader.onload=()=>ok(String(reader.result).split(',')[1]);reader.onerror=()=>no(new Error('FILE_READ_FAILED'));reader.readAsDataURL(file)})}
+id('submit-business').onclick=async()=>{let q=id('business').value.trim();if(!q){id('input-status').textContent='请先填写业务问题。';return}if(location.protocol==='file:'){download();id('input-status').textContent+=' 离线打开的页面不会连接 Python；想分析上传文件，请运行本地服务。';return}let total=fileList.reduce((n,f)=>n+f.size,0);if(fileList.length>8||total>20*1024*1024||fileList.some(f=>f.size>8*1024*1024)){id('input-status').textContent='文件超过安全限额（最多 8 份、单份 8MB、总计 20MB）。';return}id('input-status').textContent='正在本机安全读取和整理材料，尚未进行数学识别…';try{let files=[];for(let f of fileList)files.push({filename:f.name,data_base64:await asBase64(f)});let r=await fetch('/api/intake',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({business_question:q,requirements:id('requirements').value,attachments:files})});let data=await r.json();if(!r.ok)throw new Error(data.error||'READ_FAILED');let a=(data.attachments||[]).map(x=>x.name+'：'+x.mode).join('；');id('input-status').textContent='材料已由本机 Gateway 读取。'+(a?'\n'+a:'')+'\n当前状态：业务目标与科学条件待审核。没有执行识别定理，也没有得到 POINT。';}catch(err){id('input-status').textContent='材料整理未完成：'+err.message+'。未产生识别结论。'}};
+</script></body></html>

@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "causal-idfm"
+version = "3.5.0"
+description = "Reviewed causal identification with independent certificate replay"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["pydantic>=2.12,<3", "numpy>=1.24", "scipy>=1.10", "pandas>=2", "networkx>=2.5", "sympy>=1.13"]
+
+[project.optional-dependencies]
+# Whole-repository regression includes legacy PFN/graph compatibility fixtures.
+# Keep their Torch dependency optional; the Identification runtime does not need it.
+test = ["pytest>=8", "jsonschema>=4", "torch>=2"]
+documents = ["pypdf>=5,<7"]
+integration = ["torch>=2", "matplotlib>=3.7", "scikit-learn>=1.3", "filelock>=3.12"]
+
+[project.scripts]
+cfm-id-project = "cfm_id.project:main"
+cfm-id = "cfm_id_bridge.cli:main"
+cfm-id-business = "cfm_id.business_entry:main"
+cfm-id-read = "cfm_id_llm.quality_cli:main"
+cfm-id-candidate = "cfm_id_llm.candidate_preview_cli:main"
+cfm-id-research = "evaluation.research_routes_cli:main"
+cfm-id-session = "cfm_id.research_session_cli:main"
+cfm-id-intake = "cfm_id.business_intake_cli:main"
+cfm-id-dispatch = "cfm_id.business_dispatch_cli:main"
+cfm-id-case = "cfm_id.business_case_cli:main"
+cfm-id-mean-order = "cfm_id.workflows.mean_order:main"
+cfm-id-nbib = "evaluation.nbib_semantic_eval:main"
+
+[tool.setuptools.packages.find]
+include = ["cfm_id*", "pfn_pipeline*", "evaluation*", "identification_only*", "examples*", "predevelopment*", "research_partial*", "assets*", "literature_support*"]
+exclude = ["tests*", "docs*", "outputs*", "evaluation.reading_accuracy_cases.recorded*"]
+namespaces = true
+
+[tool.setuptools.package-data]
+"*" = ["**/*.json", "**/*.md", "**/*.txt", "**/*.csv", "**/*.pdf", "**/*.xlsx", "**/*.html", "**/LICENSE", "**/LICENSE.*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "tests_gateway"]
+pythonpath = [".", "tests"]
+addopts = "-ra"

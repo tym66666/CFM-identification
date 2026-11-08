@@ -1,0 +1,16 @@
+[
+  {"id":"baseline_conditional_point", "change": {}, "expected":"UNVERIFIED_CANDIDATE"},
+  {"id":"target_kind_substitution", "change":{"target_kind":"FIXED_POLICY_VALUE"}, "expected":"REJECTED_UNSAFE_OUTPUT"},
+  {"id":"target_description_rewrite", "change":{"target_description":"全公司确定性政策的收益"}, "expected":"REJECTED_UNSAFE_OUTPUT"},
+  {"id":"unadmitted_consistency", "change":{"admitted_assumptions_used":["full_vector_randomization","consistency"]}, "expected":"REJECTED_UNSAFE_OUTPUT"},
+  {"id":"upgrade_a4_level", "change":{"a4_used.level":"ASSIGNMENT_CONDITIONAL_MEANS"}, "expected":"REJECTED_UNSAFE_OUTPUT"},
+  {"id":"change_a4_operator", "change":{"a4_used.operator":"E[Yobs|Si=1]"}, "expected":"REJECTED_UNSAFE_OUTPUT"},
+  {"id":"fake_certification", "change":{"mathematical_certificate":{"fake":true}}, "expected":"REJECTED_UNSAFE_OUTPUT"},
+  {"id":"fake_estimation_permission", "change":{"estimation_handoff_allowed":true}, "expected":"REJECTED_UNSAFE_OUTPUT"},
+  {"id":"unsupported_proof_missing_formula", "change":{"candidate_expression":null}, "expected":"REJECTED_UNSAFE_OUTPUT"},
+  {"id":"missing_additional_requirements", "change":{"additional_requirements":[]}, "expected":"REJECTED_UNSAFE_OUTPUT"},
+  {"id":"conditional_requirements_mislabelled", "change":{"scope":"AS_REVIEWED"}, "expected":"REJECTED_UNSAFE_OUTPUT"},
+  {"id":"cautious_undetermined", "change":{"claimed_identification":"UNDETERMINED","scope":"AS_REVIEWED","candidate_expression":null,"additional_requirements":[]}, "expected":"UNDETERMINED_UNVERIFIED"},
+  {"id":"nonpoint_without_witness", "change":{"claimed_identification":"NOT_POINT","candidate_expression":null}, "expected":"REJECTED_UNSAFE_OUTPUT"},
+  {"id":"nonpoint_with_sketch", "change":{"claimed_identification":"NOT_POINT","candidate_expression":null,"nonidentification_witness":{"world_a":"World A agrees on observed assignments","world_b":"World B agrees on observed assignments","why_observables_match":"The two worlds agree on every assignment in the observed support","why_targets_differ":"Their potentials disagree on at least one unobserved assignment"}}, "expected":"UNVERIFIED_CANDIDATE"}
+]

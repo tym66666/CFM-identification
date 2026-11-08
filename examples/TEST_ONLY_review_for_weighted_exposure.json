@@ -1,0 +1,11 @@
+{
+  "schema_version": "cfm-id-human-review-v0.2",
+  "input_sha256": "87e538a4d4273e3f4f5ca9a0347e917e174ec3eb231f5b11fca1d1ad3b19c303",
+  "draft_sha256": "3133bb1d99e43bcbd1550d0fefb40a3afeeb6ccefe02fef595b73fcda77d0358",
+  "reviewed_by": "FIXTURE_TEST_ONLY_NO_REAL_REVIEW",
+  "decision": "CONFIRMED",
+  "review_note": "TEST ONLY offline preview: this is not a human scientific certification",
+  "admitted_assumptions": [
+    "full_vector_randomization"
+  ]
+}

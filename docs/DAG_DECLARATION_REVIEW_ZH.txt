@@ -1,0 +1,62 @@
+DAG读取：区分命题声明与科学批准
+2026-10-25
+
+本次只改动cfm_id_llm/dag_reading.py中的SYSTEM两行和Claim.value字段说明。
+JSON字段集合、类型、版本、解析逻辑、业务桥接、数学Core与独立验证器保持不变。
+新增examples/dag_declaration_review_reference.py和tests_gateway/test_dag_declaration_review.py。
+本轮143项离线测试通过；真实结果见LOCAL_EVIDENCE_NOT_DISTRIBUTED。
+
+读取合同
+true：原文明确肯定条件，或已提出/决定在分析方案中采用该假设。
+false：原文明确断言命题不成立。
+null：原文没有声明，事实未知且没有提出采用，或是否采用仍未决定。
+是否具有现实证据、是否科学合理、是否已获审批是独立审核问题。
+true不等于现实命题已被证明，也不等于审核ACCEPTED。
+已决定采用但待审核的候选，必须由PENDING科学审核继续阻断。
+只有别人提出建议、自己还没决定采用，不能自动变为true。
+
+为何保持简单schema
+当前值只摘要原文的建模声明，原文与来源定位仍完整保留。
+无需为了这次错误增加科学批准字段给LLM填写；批准记录始终由独立流程给出。
+这次澄清意图并不改变既有证书数学含义；AST核对仅忽略SYSTEM字符串和Claim描述后，应与改动前完全相同。
+真正的来源蕴含和业务含义仍需阅读审核，不能靠source_id合法就当作已理解。
+
+受控检验设计
+5条新材料：方案写定待批准、未核验但已决定采用、建议尚未决定、明确否定、明确肯定。
+两种合成业务背景共用同一个图类型，检验通用措辞合同，不宣称跨图泛化。
+另对第一条待批准材料使用旧Prompt及旧schema说明；原文、问题、公开编号和schema结构完全相同。
+新Prompt为主结果，旧Prompt为诊断对照，分母分别计算。
+每题每模型一次；两个DeepSeek Key作为同一模型合并，不能当成两个模型。
+旧/新对照只有一个样本且在不同时间调用，不能估计稳定因果提升或总体模型排名。
+
+保留的接口边界
+- 模型不获知私人参考标签，也没有接收评分反馈。
+- 不按具体业务名字补值，不把模型响应中的null人工替换成true。
+- 严格分数失败时，合成参考审核不授予；真实业务不会部署金标签自动审批。
+- 待审批例，即使语义全部读对，也不得触发求解器。
+- 正例只有在合成参考阅读审核和科学审核通过后才进行数学计算，再独立重放。
+- 停止状态没有证书，不将UNSUPPORTED或NEEDS_INPUT解释成一般不可识别。
+
+目前观察到的限制
+LongCat在5个新材料上均通过；旧Prompt对照请求输出不完整，不能据此作语义比较。
+DeepSeek已在同一待批准材料上从旧Prompt的null改为新Prompt的true；
+另一条“未核验但已经决定采用”仍把graph_complete读为null，并加入冗余澄清。
+正性已填true，所以这不是仅修复一处field后就消失的系统性保证。
+这说明通用说明澄清有价值，但不能宣布所有模型误读已解决或需要训练才能解决。
+后续保留失败例及严格审核，避免继续围绕同一句无限改写；新数学路线可以先在独立合同下推进。
+完整结果、实际调用数和最终预算以本轮RESULTS.json为准。
+
+复核材料
+BEFORE_DAG_READING.py / SYSTEM_BEFORE.txt / SYSTEM_AFTER.txt：准确的前后说明。
+READING_SCHEMA_BEFORE.json / READING_SCHEMA_AFTER.json：类型结构不变。
+READING_INSTRUCTION_CHANGE.diff：本次三处文字变化。
+PLAN.json、public/、private/、requests/：调用前冻结的材料、标签与请求。
+live/：保留原始候选、脱敏传输诊断与评测结果，不修复模型回答。
+audit.py：只核查本地证据、代码差异和证书，不发API请求。
+
+前门下一阶段
+DAG_FRONTDOOR_CONTRACT_ZH.txt固定实施前数学合同、变量绑定和独立验收义务。
+literature_support/designs/classical_frontdoor.json记录文献到合同的映射；
+catalog.json新增两张文献卡，未把前门放进已有路线清单。
+当前没有前门实现、注册或业务读取接入。先实现有限数学模块并完成正负例验收，再讨论业务入口。
+

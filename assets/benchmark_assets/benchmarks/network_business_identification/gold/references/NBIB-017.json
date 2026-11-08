@@ -1,0 +1,53 @@
+{
+  "A4_population_operator_from_business_files": "NOT_PROVIDED",
+  "all_business_packet_provenance": "SYNTHETIC_OFFLINE_GENERATOR",
+  "assignment_family": "D1",
+  "case_id": "NBIB-017",
+  "conditional_route_only": [
+    "OUT_OF_SCOPE_DYNAMIC_NETWORK"
+  ],
+  "data_is_finite_observations_not_A4": true,
+  "design_params": {},
+  "edge_count": 119,
+  "expected_blockers": [
+    "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+    "A5_NEEDS_SCIENTIFIC_REVIEW",
+    "NO_FIXED_PRETREATMENT_NETWORK",
+    "DYNAMIC_NETWORK_OUTSIDE_CORE"
+  ],
+  "exposure_rule": "E5",
+  "fixed_policy_support": [],
+  "identification_library_status": "NOT_RUN_ON_THIS_GENERATED_CASE",
+  "industry": "制造业协作",
+  "lower_is_better": true,
+  "n_nodes": 60,
+  "network_type": "small_world",
+  "number_independent_market_replicates": 1,
+  "outcome_metric_name": "line_downtime",
+  "outcome_metric_unit": "小时/月",
+  "pair_family": null,
+  "query_targets": [
+    {
+      "exact_target_semantics": "R1A_Q_STANDARDIZED_DIRECT",
+      "kind": "DIRECT_EFFECT",
+      "quote": "新系统对产线自身停机时长有怎样的因果影响"
+    },
+    {
+      "exact_target_semantics": "DYNAMIC_NETWORK_EFFECT",
+      "kind": "SPILLOVER_EFFECT",
+      "quote": "上线后重新形成的合作关系会不会传递给其他产线影响"
+    }
+  ],
+  "scenario_title": "合作网络随着系统使用而改变",
+  "scientific_reference_notes": "OUT_OF_SCOPE fixed-pretreatment-network;不得将post-treatment网络冒充pre-treatment图。",
+  "simulation_is_not_proof_of_scientific_assumptions": true,
+  "split": "test",
+  "support_checks": {
+    "exposure_rule": "E5",
+    "exposure_value": 1,
+    "focal_node": "unit_000",
+    "mathematical_support_only_not_IDENTIFICATION": true,
+    "own_treatment": 1
+  },
+  "synthetic": true
+}

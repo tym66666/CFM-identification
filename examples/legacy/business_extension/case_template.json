@@ -1,0 +1,13 @@
+{
+  "track": "DEVELOPMENT_NEW_CASE",
+  "case_id": "replace_with_unique_case_id",
+  "entry": "D2_ARM",
+  "positive_business_text": "public/positive.txt",
+  "negative_business_text": "public/negative.txt",
+  "base_public_bundle": "public/positive_bundle.json",
+  "frozen_research_reference": "research/expected_behavior.json",
+  "negative_changes_only": "本人是否使用",
+  "model_outputs": "new per-run directory; never overwrite recorded/",
+  "automatic_scientific_approval": false,
+  "status": "TEMPLATE_NOT_REGISTERED_OR_SCORED"
+}

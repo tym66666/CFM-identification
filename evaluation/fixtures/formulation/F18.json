@@ -1,0 +1,102 @@
+{
+  "schema_version": "cfm-id-draft-v0.1",
+  "target": {
+    "kind": "TOTAL_EFFECT",
+    "description": {
+      "value": "处理分为三次按时间发生，求第一期AI投入对第三期销售的总效应。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "处理分为三次按时间发生，求第一期AI投入对第三期销售的总效应。"
+        }
+      ]
+    },
+    "alternatives": []
+  },
+  "units_variables": {
+    "analysis_unit": {
+      "value": "业务描述中的员工、节点或团体",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "处理分为三次按时间发生，求第一期AI投入对第三期销售的总效应。"
+        }
+      ]
+    },
+    "treatment": {
+      "value": "描述中的AI干预",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前有网络，三个时点的分配由一个已知的动态概率方案产生；不属于当前单轮随机化。"
+        }
+      ]
+    },
+    "outcome": {
+      "value": "描述中的销售或结果指标",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "处理分为三次按时间发生，求第一期AI投入对第三期销售的总效应。"
+        }
+      ]
+    }
+  },
+  "structure": {
+    "unit_network": {
+      "value": "被描述的网络",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前有网络，三个时点的分配由一个已知的动态概率方案产生；不属于当前单轮随机化。"
+        }
+      ]
+    },
+    "exposure_mapping": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "information_design": {
+    "assignment_family": "OTHER",
+    "assignment_law": {
+      "value": "处理前有网络，三个时点的分配由一个已知的动态概率方案产生；不属于当前单轮随机化。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前有网络，三个时点的分配由一个已知的动态概率方案产生；不属于当前单轮随机化。"
+        }
+      ]
+    },
+    "population_information_level": "FULL_JOINT_LAW",
+    "population_observable_operator": {
+      "value": "总体可观测信息算子明确为完整联合律 P(T,Yobs|W)，包括完整处理向量及所有结果；这是一个理论信息声明，不代表已知总体数值。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "information",
+          "quote": "总体可观测信息算子明确为完整联合律 P(T,Yobs|W)，包括完整处理向量及所有结果；这是一个理论信息声明，不代表已知总体数值。"
+        }
+      ]
+    },
+    "sample_data_description": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "assumptions": [],
+  "validity": {},
+  "ambiguities": [],
+  "clarifying_questions": [],
+  "normalization_notes": [
+    "MOCK TEST-ONLY fixture synthesized from benchmark reference; not model-generated"
+  ]
+}

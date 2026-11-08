@@ -1,0 +1,113 @@
+{
+  "schema_version": "cfm-id-draft-v0.1",
+  "target": {
+    "kind": "SPILLOVER_EFFECT",
+    "description": {
+      "value": "邻居使用AI所产生的潜在外溢效应",
+      "basis": "INTERPRETATION",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "邻居是否使用AI对结果的影响"
+        }
+      ]
+    },
+    "alternatives": []
+  },
+  "units_variables": {
+    "analysis_unit": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "treatment": {
+      "value": "是否使用AI",
+      "basis": "INTERPRETATION",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "是否使用AI"
+        }
+      ]
+    },
+    "outcome": {
+      "value": "未说明含义的结果指标",
+      "basis": "INTERPRETATION",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "结果"
+        }
+      ]
+    },
+    "covariates": [],
+    "temporal_structure": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "structure": {
+    "unit_network": {
+      "value": "涉及邻居关系但无网络定义",
+      "basis": "INTERPRETATION",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "邻居"
+        }
+      ]
+    },
+    "variable_causal_graph": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "exposure_mapping": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "network_pretreatment_status": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "information_design": {
+    "assignment_family": "UNRESOLVED",
+    "assignment_law": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "population_information_level": "UNRESOLVED",
+    "population_observable_operator": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "sample_data_description": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "assumptions": [],
+  "validity": {
+    "support_or_positivity": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "query_domain": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "other_conditions": []
+  },
+  "ambiguities": [],
+  "clarifying_questions": [],
+  "normalization_notes": []
+}

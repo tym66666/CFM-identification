@@ -1,0 +1,136 @@
+{
+  "schema_version": "cfm-id-draft-v0.1",
+  "target": {
+    "kind": "FIXED_POLICY_VALUE",
+    "description": {
+      "value": "所有员工都使用AI的固定政策下的真实平均业绩",
+      "basis": "INTERPRETATION",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "让所有300人使用AI的固定政策下的真实平均业绩"
+        }
+      ]
+    },
+    "alternatives": []
+  },
+  "units_variables": {
+    "analysis_unit": {
+      "value": "员工",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "员工"
+        }
+      ]
+    },
+    "treatment": {
+      "value": "是否使用AI",
+      "basis": "INTERPRETATION",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "使用AI"
+        }
+      ]
+    },
+    "outcome": {
+      "value": "真实平均业绩",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "真实平均业绩"
+        }
+      ]
+    },
+    "covariates": [],
+    "temporal_structure": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "structure": {
+    "unit_network": {
+      "value": "员工固定合作网络",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "员工的固定合作网络"
+        }
+      ]
+    },
+    "variable_causal_graph": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "exposure_mapping": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "network_pretreatment_status": {
+      "value": "处理前",
+      "basis": "INTERPRETATION",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前已经记录"
+        }
+      ]
+    }
+  },
+  "information_design": {
+    "assignment_family": "COMPLETE_RANDOMIZATION",
+    "assignment_law": {
+      "value": "固定150人随机分配",
+      "basis": "INTERPRETATION",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "实验每次恰好给150人分配AI，随机抽取所有固定150人的配置"
+        }
+      ]
+    },
+    "population_information_level": "UNRESOLVED",
+    "population_observable_operator": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "sample_data_description": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "assumptions": [
+    {
+      "name": "consistency",
+      "statement": "实际结果对应实际分配下潜在结果",
+      "status": "PROPOSED",
+      "basis": "LLM_SUGGESTION",
+      "evidence": []
+    }
+  ],
+  "validity": {
+    "support_or_positivity": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "query_domain": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "other_conditions": []
+  },
+  "ambiguities": [],
+  "clarifying_questions": [],
+  "normalization_notes": []
+}

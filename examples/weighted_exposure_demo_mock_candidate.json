@@ -1,0 +1,41 @@
+{
+  "schema_version": "cfm-id-candidate-draft-v0.3",
+  "target_kind": "NETWORK_DESIGN_STANDARDIZED_ARM_MEAN",
+  "target_description": "销售员本人使用AI且伙伴加权treated暴露超过0.6时的设计标准化销售均值",
+  "claimed_identification": "POINT",
+  "scope": "IF_ADDITIONAL_REQUIREMENTS",
+  "a4_used": {
+    "source": "REVIEWED_OPERATOR",
+    "level": "FULL_JOINT_LAW",
+    "operator": "完整联合律P(T,Yobs|W)"
+  },
+  "admitted_assumptions_used": [
+    "full_vector_randomization"
+  ],
+  "additional_requirements": [
+    {
+      "kind": "A5_ASSUMPTION",
+      "description": "必须明确接受 consistency: Y_i^obs=Y_i(T)",
+      "why_needed": "否则无法把实验观测结果映射到完整处理分配下的潜在结果"
+    },
+    {
+      "kind": "A6_VALIDITY_SUPPORT",
+      "description": "对目标 i 的 (T_i=1,S_i=1) 必须具有严格正支持",
+      "why_needed": "否则该条件均值没有可定义的总体分母"
+    }
+  ],
+  "candidate_expression": "mu_i^q(1,1|W) = E[Y_i^obs | W,T_i=1,S_i=1]",
+  "nonidentification_witness": null,
+  "reasoning_steps": [
+    "按已知随机化 q 对满足 T_i=1,S_i=1 的完整处理向量的潜在结果做条件平均。",
+    "在 consistency 与 full-vector randomization 下，观测条件均值等于该设计标准化均值；这不要求 exposure sufficiency。",
+    "仍需核对加权暴露分母、目标节点支持以及总体信息算子确实可用。"
+  ],
+  "caveats": [
+    "该定理思想可能与 R1a 相近，但当前九种已实现 exposure 不包括此加权表达式；软件并未给出正式证书。"
+  ],
+  "suggested_checks": [
+    "用小图枚举计算该加权 exposure 下的 pi_i(1,1)",
+    "独立推导并验证条件均值恒等式和业务目标语义"
+  ]
+}

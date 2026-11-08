@@ -1,0 +1,246 @@
+{
+  "cases": [
+    {
+      "actual": "POINT",
+      "expected": "POINT",
+      "replay": "CORE_REPLAY_VERIFIED",
+      "route": "R1A_ARM",
+      "scenario": "ADMITTED_FORMAL_TARGET"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R1A_ARM",
+      "scenario": "A4_SOURCE_MISMATCH"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R1A_ARM",
+      "scenario": "A5_LICENSE_MISMATCH"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R1A_ARM",
+      "scenario": "ROUTE_APPROVAL_MISMATCH"
+    },
+    {
+      "actual": "POINT",
+      "expected": "POINT",
+      "replay": "CORE_REPLAY_VERIFIED",
+      "route": "R1A_EFFECT",
+      "scenario": "ADMITTED_FORMAL_TARGET"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R1A_EFFECT",
+      "scenario": "A4_SOURCE_MISMATCH"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R1A_EFFECT",
+      "scenario": "A5_LICENSE_MISMATCH"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R1A_EFFECT",
+      "scenario": "ROUTE_APPROVAL_MISMATCH"
+    },
+    {
+      "actual": "POINT",
+      "expected": "POINT",
+      "replay": "CORE_REPLAY_VERIFIED",
+      "route": "R1B_FIXED_POLICY",
+      "scenario": "ADMITTED_FORMAL_TARGET"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R1B_FIXED_POLICY",
+      "scenario": "A4_SOURCE_MISMATCH"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R1B_FIXED_POLICY",
+      "scenario": "A5_LICENSE_MISMATCH"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R1B_FIXED_POLICY",
+      "scenario": "ROUTE_APPROVAL_MISMATCH"
+    },
+    {
+      "actual": "POINT",
+      "expected": "POINT",
+      "replay": "CORE_REPLAY_VERIFIED",
+      "route": "R1B_FINITE_POLICY",
+      "scenario": "ADMITTED_FORMAL_TARGET"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R1B_FINITE_POLICY",
+      "scenario": "A4_SOURCE_MISMATCH"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R1B_FINITE_POLICY",
+      "scenario": "A5_LICENSE_MISMATCH"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R1B_FINITE_POLICY",
+      "scenario": "ROUTE_APPROVAL_MISMATCH"
+    },
+    {
+      "actual": "POINT",
+      "expected": "POINT",
+      "replay": "CORE_REPLAY_VERIFIED",
+      "route": "R2_FIXED_POLICY",
+      "scenario": "ADMITTED_FORMAL_TARGET"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R2_FIXED_POLICY",
+      "scenario": "A4_SOURCE_MISMATCH"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R2_FIXED_POLICY",
+      "scenario": "A5_LICENSE_MISMATCH"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R2_FIXED_POLICY",
+      "scenario": "ROUTE_APPROVAL_MISMATCH"
+    },
+    {
+      "actual": "POINT",
+      "expected": "POINT",
+      "replay": "CORE_REPLAY_VERIFIED",
+      "route": "R3_POLICY",
+      "scenario": "ADMITTED_FORMAL_TARGET"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R3_POLICY",
+      "scenario": "A4_SOURCE_MISMATCH"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R3_POLICY",
+      "scenario": "A5_LICENSE_MISMATCH"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R3_POLICY",
+      "scenario": "ROUTE_APPROVAL_MISMATCH"
+    },
+    {
+      "actual": "POINT",
+      "expected": "POINT",
+      "replay": "CORE_REPLAY_VERIFIED",
+      "route": "R3_P_STANDARDIZED",
+      "scenario": "ADMITTED_FORMAL_TARGET"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R3_P_STANDARDIZED",
+      "scenario": "A4_SOURCE_MISMATCH"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R3_P_STANDARDIZED",
+      "scenario": "A5_LICENSE_MISMATCH"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R3_P_STANDARDIZED",
+      "scenario": "ROUTE_APPROVAL_MISMATCH"
+    },
+    {
+      "actual": "POINT",
+      "expected": "POINT",
+      "replay": "CORE_REPLAY_VERIFIED",
+      "route": "R3_EXPOSURE_ADJUSTED",
+      "scenario": "ADMITTED_FORMAL_TARGET"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R3_EXPOSURE_ADJUSTED",
+      "scenario": "A4_SOURCE_MISMATCH"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R3_EXPOSURE_ADJUSTED",
+      "scenario": "A5_LICENSE_MISMATCH"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R3_EXPOSURE_ADJUSTED",
+      "scenario": "ROUTE_APPROVAL_MISMATCH"
+    },
+    {
+      "actual": "POINT",
+      "expected": "POINT",
+      "replay": "CORE_REPLAY_VERIFIED",
+      "route": "R3_NODEWISE_ADJUSTED",
+      "scenario": "ADMITTED_FORMAL_TARGET"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R3_NODEWISE_ADJUSTED",
+      "scenario": "A4_SOURCE_MISMATCH"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R3_NODEWISE_ADJUSTED",
+      "scenario": "A5_LICENSE_MISMATCH"
+    },
+    {
+      "actual": "INCOMPATIBLE",
+      "expected": "INCOMPATIBLE",
+      "route": "R3_NODEWISE_ADJUSTED",
+      "scenario": "ROUTE_APPROVAL_MISMATCH"
+    }
+  ],
+  "count": 36,
+  "fail_count": 0,
+  "numeric_estimation_performed": false,
+  "pass_count": 36,
+  "population_operator": "EXPLICITLY_SYNTHETIC_NOT_FROM_SAMPLE",
+  "raw_business_benchmark": "SEPARATE; the existing 21 NBIB golds lack admitted A4",
+  "route_count": 9,
+  "scenario_counts": {
+    "A4_SOURCE_MISMATCH": 9,
+    "A5_LICENSE_MISMATCH": 9,
+    "ADMITTED_FORMAL_TARGET": 9,
+    "ROUTE_APPROVAL_MISMATCH": 9
+  },
+  "schema_version": "cfm-id-v291-formal-backed-offline-synthetic",
+  "science_truth": "HYPOTHETICAL_STIPULATION_NOT_REAL_WORLD_VALIDATION",
+  "track": "FORMAL_BACKED_TRACK",
+  "version": "2.9.1"
+}

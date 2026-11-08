@@ -1,0 +1,21 @@
+{
+  "version": "business-staged-d1-d2-v0.54",
+  "entry": "D2_ARM",
+  "state": "STUDY_CANDIDATE_BOUND",
+  "study_candidate": {
+    "study": {
+      "design": "全体固定名额",
+      "global_quota": 24,
+      "uniform_without_replacement": true,
+      "design_sources": [
+        "study_protocol.md:L3"
+      ],
+      "exposure": "exact_treated_neighbor_count",
+      "exposure_source": "study_protocol.md:L3",
+      "outcome": "delivery_delay"
+    }
+  },
+  "historical_materials_sha256": "74886e6e08386566d0c5999b3fa6d6c7e6d7354faf4fc6cf1f23a365851e64d9",
+  "core_called": false,
+  "scientific_approval": false
+}

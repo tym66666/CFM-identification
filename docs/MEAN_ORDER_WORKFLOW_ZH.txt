@@ -1,0 +1,72 @@
+均值顺序 Identification：固定运行入口
+日期：2026-10-24；范围：显式选择的合成研究协议
+
+这次把什么固定下来
+业务材料 → 导出同一个已验证请求 → 读取LLM候选 → 检查目标、分配和条件 → 独立审核 → 识别与证书重放。
+已有数学Core、Prompt和审核适配层均复用。新增入口不根据题号选择答案，也不替模型补字段。
+当前CLI的三种模式均离线：request导出请求，inspect检查保存的候选，replay-synthetic使用另外提供的冻结合成参考重放。
+replay-synthetic必须显式加--allow-synthetic-review。它是研究验收工具，不是对任意真实企业输入自动授予科学审批。
+
+代码入口
+evaluation/mean_order_workflow.py：通用请求、候选检查、外部审核提交、统一结果视图和CLI。
+examples/mean_order_workflow_fixture.py：独立合成参考的导出/读取和显式重放；参考不发送给LLM，不放进通用读取层。
+evaluation/mean_order_factored_review.py：复用的完整候选审核绑定。
+tests_gateway/test_mean_order_workflow.py：权限、缺项、错目标、错来源、过期审核、POINT/PARTIAL等边界回归。
+
+三个最直观的真实回复重放案例
+以下是原开发目录的历史记录位置，不随当前源码包分发；需要自备相应材料才能执行这部分历史重放。无需模型档案的验收入口见根目录 README。
+../../local_results/mean_order_workflow_integration_20261024/final/cases/mean_order_locked_acceptance_20261024/
+  n04：POINT，目标差为1/2。
+  n01：PARTIAL，sharp区间[3/5, 1]。
+  n21：NEEDS_INPUT，评价名单未知；追问全体、指定子集或单个对象，不补成全体。
+另有n20审核阻断和n25未支持条件。所有44份保存的真实LLM回复都在上述final/cases下，包含重复槽位，不是44道独立业务题。
+各案例bundle.json保留业务原文；candidate.json来自以前真实LongCat回复；fixture.json是独立合成参考及科学资料。
+上述数值来自声明的合成精确总体信息及已审核条件，不是从自然语言推测出的业绩，也不是有限样本估计。
+
+Windows PowerShell运行
+先进入当前源码目录：
+# 在独立 Identification 仓库根目录执行
+
+使用已安装项目依赖的Python 3.11+。本轮实际使用的本地解释器：
+$py = "python"
+$case = "..\..\local_results\mean_order_workflow_integration_20261024\final\cases\mean_order_locked_acceptance_20261024\n04"
+
+1. 导出请求，仅含公开材料、目录和Schema：
+& $py -B -m evaluation.mean_order_workflow request --bundle "$case\bundle.json" --output .\my_request.json
+
+2. 查看候选、来源及待审核内容（不会直接得到POINT）：
+& $py -B -m evaluation.mean_order_workflow inspect --bundle "$case\bundle.json" --candidate "$case\candidate.json" --output .\my_inspection.json
+
+3. 明确选择独立合成参考，重放原真实回复对应的识别链：
+& $py -B -m evaluation.mean_order_workflow replay-synthetic --bundle "$case\bundle.json" --candidate "$case\candidate.json" --fixture "$case\fixture.json" --allow-synthetic-review --output .\my_identification.json
+
+将$case末尾改为n01或n21即可查看另两种结果。每次输出文件名应不同；入口拒绝覆盖已有文件以保留证据。
+此重放模式依赖 examples 中的合成参考工具；当前源码包及 wheel 已包含这些工具，但真实回复档案仍需另外提供。
+若希望直接看结果，不用重跑：各案例已有request.json、inspection.json、workflow_result.json和PROVENANCE.json。
+
+结果怎么读
+public_materials：原业务说明和问题。
+wire_candidate：完整原始模型候选；历史统计投影为UNKNOWN等信息损失也必须保留原文。
+review_worksheet：目标、分配、逐条声明和原文位置；这是一张待填写表，is_approval=false，不是批准记录。
+clarification_questions：从现有缺项代码和审核结果产生的具体追问；不靠第二次模型调用，也不擅自填值。
+stages：结构解析、独立审核、原Core端点检查、有界计算和证书重放是否实际执行。
+answer：状态、精确区间和原因。UNSUPPORTED与NEEDS_INPUT不是数学不可识别证明。
+result：完整旧适配结果及证书，便于其他研究者核查。
+synthetic_reference_check：仅replay-synthetic有此项；这是预先给定的合成金标准核对，不是生产语义验证器。
+
+与真实API的连接
+Python函数read_once(bundle, provider, allow_external=True, allow_document_sharing=True)可复用已经配置好的Gateway Provider。
+只调用一次provider.generate_json；它不读取密钥、不授予额度、不实现重试，也不控制Provider内部HTTP行为。
+实际HTTP单次限制、调用账本、超时、认证加载和服务端完整完成检查，仍由已验证的受控runner/Provider负责。
+read_once只产生候选检查结果；submit_reviewed须另外收到现有typed业务/科学/分配审核与完整候选审核，不从LLM或fixture自动创建批准。
+上述CLI没有在线调用选项。本轮验证使用历史真实回复，不消耗新API次数；新入口的在线完整传输链尚未作新调用验证。
+
+怎样放入其他业务
+public_bundle必须且只包含case_id、node_order、documents、question_slots。documents和question_slots是自然语言文本，不能混入参考答案或科学审核包。
+更换业务名、对象名、网络或比较目标不需要修改workflow代码；业务能否进入计算仍由现有入口的数学域与独立审核决定。
+当前正式计算域为固定已知简单无向网络、D2均匀固定名额、E1严格多数暴露、二元结果的已验收均值顺序合成入口。
+未知网络、动态网络、IV/DAG、任意额外条件等不由这个运行入口自动扩展支持。
+
+后续工作
+先用这一个入口走读POINT、PARTIAL、缺项追问、审核阻断、未支持条件五种流程；再决定接入现有展示的方式。
+继续保留完整候选和独立审核。当前synthetic_fixture=True的合同不能简单删除来声称支持真实企业生产审批。

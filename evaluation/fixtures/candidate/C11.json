@@ -1,0 +1,33 @@
+{
+  "schema_version": "cfm-id-candidate-draft-v0.3",
+  "target_kind": "STOCHASTIC_POLICY_VALUE",
+  "target_description": "四节点网络恰好2人获得AI的实验中，某未来策略以0.5概率全员AI、0.5概率全员无AI，求真实策略值。",
+  "claimed_identification": "NOT_POINT",
+  "scope": "AS_REVIEWED",
+  "a4_used": {
+    "source": "REVIEWED_OPERATOR",
+    "level": "FULL_JOINT_LAW",
+    "operator": "总体可观测信息算子明确为完整联合律 P(T,Yobs|W)，包括完整处理向量及所有结果；这是一个理论信息声明，不代表已知总体数值。"
+  },
+  "admitted_assumptions_used": [
+    "full_vector_randomization",
+    "consistency"
+  ],
+  "additional_requirements": [],
+  "candidate_expression": null,
+  "nonidentification_witness": {
+    "world_a": "构造与所有可观测配置一致的潜在结果世界A",
+    "world_b": "构造可观测配置不变但目标配置结果不同的潜在结果世界B",
+    "why_observables_match": "两者对已观察条件下所有结果一致，从而观察律完全相同",
+    "why_targets_differ": "两个世界对所有恰好2人treated的配置潜在结果相同，对全员/全无配置不同；策略真实值不同。"
+  },
+  "reasoning_steps": [
+    "这两个完整配置都不在原设计支持内，潜在结果自由。"
+  ],
+  "caveats": [
+    "仅为离线FIXTURE，既非大模型推理结果也非数学认证"
+  ],
+  "suggested_checks": [
+    "进行独立数学证明或两个世界的完整可观测等价检查"
+  ]
+}

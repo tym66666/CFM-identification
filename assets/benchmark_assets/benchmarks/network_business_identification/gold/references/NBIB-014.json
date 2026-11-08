@@ -1,0 +1,49 @@
+{
+  "A4_population_operator_from_business_files": "NOT_PROVIDED",
+  "all_business_packet_provenance": "SYNTHETIC_OFFLINE_GENERATOR",
+  "assignment_family": "O_B",
+  "case_id": "NBIB-014",
+  "conditional_route_only": [
+    "R3_exposure_adjusted_candidate"
+  ],
+  "data_is_finite_observations_not_A4": true,
+  "design_params": {},
+  "edge_count": 82,
+  "expected_blockers": [
+    "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+    "A5_NEEDS_SCIENTIFIC_REVIEW",
+    "ONLY_FINITE_CSV_NO_A4"
+  ],
+  "exposure_rule": "E5",
+  "fixed_policy_support": [],
+  "identification_library_status": "NOT_RUN_ON_THIS_GENERATED_CASE",
+  "industry": "金融服务",
+  "lower_is_better": true,
+  "n_nodes": 48,
+  "network_type": "grid",
+  "number_independent_market_replicates": 24,
+  "outcome_metric_name": "branch_wait",
+  "outcome_metric_unit": "分钟/人",
+  "pair_family": "r3_exposure_strata",
+  "query_targets": [
+    {
+      "exact_target_semantics": "R3_EXPOSURE_ADJUSTED_DIRECT",
+      "kind": "DIRECT_EFFECT",
+      "quote": "考虑市场背景和邻近网点使用情况后，助手对本网点等待时间的影响能否现在确认"
+    }
+  ],
+  "scenario_title": "市场背景分层：只提供有限业务表",
+  "scientific_reference_notes": "R3 P2 NEEDS_INPUT: finite CSV cannot establish A4 population observables; identical empirical pattern to B13 is deliberate.",
+  "simulation_is_not_proof_of_scientific_assumptions": true,
+  "split": "test",
+  "support_checks": {
+    "exposure_rule": "E5",
+    "exposure_value": 1,
+    "focal_node": "unit_000",
+    "mathematical_support_only_not_IDENTIFICATION": true,
+    "own_treatment": 1,
+    "support_probability_B0": "16/75",
+    "support_probability_B1": "14/25"
+  },
+  "synthetic": true
+}

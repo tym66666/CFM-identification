@@ -1,0 +1,23 @@
+{
+  "case_id": "biz_v08_network_timing_conflict",
+  "business_question": "我们公司有300名销售员，他们通过合作关系分享客户线索。上季度我们抽选一部分销售员使用AI销售助手，试验持续八周。我们保存了试验方案、合作关系和销售业绩记录。现在我们想知道，如果今后让所有人使用AI助手，公司整体销售表现会怎样；也希望了解是否存在同事间的影响。请先帮我们整理需要分析的因果问题，不要直接预测销售额。",
+  "response_language": "zh",
+  "attachments": [
+    {
+      "path": "pilot_protocol.pdf",
+      "kind": "STUDY_PROTOCOL"
+    },
+    {
+      "path": "collaboration_edges.csv",
+      "kind": "DATA_DICTIONARY"
+    },
+    {
+      "path": "pilot_outcomes.xlsx",
+      "kind": "DATA_DICTIONARY"
+    },
+    {
+      "path": "supplement.txt",
+      "kind": "OTHER"
+    }
+  ]
+}

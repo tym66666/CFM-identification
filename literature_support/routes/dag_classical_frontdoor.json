@@ -1,0 +1,95 @@
+{
+  "schema_version": "literature-support-route-1",
+  "route_id": "DAG_CLASSICAL_FRONTDOOR",
+  "updated_on": "2026-10-25",
+  "development_status": "EXPLICIT_RESEARCH_BUSINESS_BRIDGE_NOT_DEFAULT_REGISTERED",
+  "route_registered": true,
+  "registration_scope": "EXPLICIT_RESEARCH_ENTRY_AND_BUSINESS_BRIDGE",
+  "default_business_route_registered": false,
+  "business_reading_connected": true,
+  "production_admission": false,
+  "estimation_handoff_allowed": false,
+  "theorem": {
+    "attribution": "Published classical front-door sufficient identification theorem, specialized to a single observed front-door variable in the declared finite binary SCM.",
+    "contract_path": "../../docs/DAG_FRONTDOOR_CONTRACT_ZH.txt",
+    "implementation_notes": "../../docs/DAG_FRONTDOOR_IMPLEMENTATION_ZH.txt",
+    "path_base": "this route JSON directory",
+    "general_id_completeness_claimed": false,
+    "necessity_claimed": false,
+    "formal_proof_system": false
+  },
+  "scientific_scope": {
+    "model": "Known static recursive SCM, explicit observed/latent partition, independent structural errors.",
+    "variables": "At most eight binary listed nodes, including explicit non-root latent variables.",
+    "target": "One observed treatment X and one distinct observed outcome Y, full interventional distribution.",
+    "selector": "One observed distinct variable; explicit request checked without substitution, null permits finite singleton search.",
+    "information": "Compatible full observed population law with separately reviewed strict observed-joint positivity, stronger than theorem support requirements.",
+    "extra_assumptions": "No linearity, Gaussianity, faithfulness, or scientific approval inferred by the software.",
+    "review": "Separate typed, input-bound research declarations; not reviewer authentication.",
+    "output": "Canonical nested observable functional, distinct intervention and marginal treatment value roles, no numeric estimation.",
+    "failure": "Unsupported criterion is not general nonidentification."
+  },
+  "mapping": [
+    {
+      "source_id": "pearl_causality_ch3_frontdoor",
+      "locator": "Definition 3.3.3; Theorem 3.3.4; book pages 82-83",
+      "claim": "Classical sufficient criterion, observable formula and P(x,m)>0. The project uses conservative observed-joint positivity."
+    },
+    {
+      "source_id": "jeong_tian_bareinboim2022_frontdoor",
+      "locator": "Definition 1; equation (3); Section 3",
+      "claim": "Graph/path criterion and outgoing-edge transformations. Singleton search only; not the paper's set enumeration algorithm."
+    }
+  ],
+  "implementation": [
+    "cfm_id/dag_frontdoor_contract.py",
+    "cfm_id/dag_frontdoor_solver.py",
+    "cfm_id/dag_frontdoor_verify.py",
+    "cfm_id/dag_frontdoor.py",
+    "cfm_id/dag_frontdoor_adapter.py"
+  ],
+  "tests": [
+    "examples/dag_frontdoor_reference.py",
+    "evaluation/dag_frontdoor_acceptance.py",
+    "tests_gateway/test_dag_frontdoor.py",
+    "tests_gateway/test_dag_frontdoor_acceptance.py",
+    "evaluation/research_route_acceptance.py",
+    "tests_gateway/test_research_route_entry.py"
+  ],
+  "independence": {
+    "production": "Reachability after removing the candidate, ancestral moralization in two outgoing-edge-deleted graphs.",
+    "replay": "Simple directed path enumeration and independently enumerated active paths with transitive closure. Independent formula reconstruction.",
+    "shared": "Existing strict shape/population validation, type and hashing primitives. Production reuses the existing moralization primitive; replay does not.",
+    "limitation": "Finite arithmetic and graphical tests supplement the sufficient theorem; neither a formal proof nor completeness claim."
+  },
+  "verification_evidence": {
+    "directory": "LOCAL_EVIDENCE_NOT_DISTRIBUTED",
+    "path_base": "source root",
+    "mathematical_acceptance": "MATHEMATICAL_ACCEPTANCE.json",
+    "shared_acceptance": "SHARED_ACCEPTANCE.json",
+    "summary": "RESULTS_ZH.txt",
+    "llm_accuracy_measured": false
+  },
+  "business_interface": {
+    "route_selection": "Caller explicitly chooses DAG_CLASSICAL_FRONTDOOR",
+    "reading_version": "dag-frontdoor-reading-2",
+    "reading_review_version": "dag-frontdoor-reading-review-2",
+    "implementation": [
+      "cfm_id_llm/dag_frontdoor_reading.py",
+      "cfm_id/dag_business.py",
+      "evaluation/dag_business_workflow.py"
+    ],
+    "tests": [
+      "tests_gateway/test_dag_frontdoor_business.py",
+      "examples/dag_frontdoor_business_reference.py"
+    ],
+    "legacy_dag_reader_unchanged": true,
+    "review_rule": "Separate source/role reading review and FrontdoorReview; no automatic scientific approval.",
+    "results_directory": "LOCAL_EVIDENCE_NOT_DISTRIBUTED",
+    "path_base": "source root",
+    "general_semantic_accuracy_claimed": false,
+    "real_world_scientific_approval": false
+  },
+  "runtime_coverage_authority": "cfm_id.capability_registry.inventory",
+  "document_role": "MATHEMATICAL_AND_LITERATURE_TRACE_WITH_DATED_EVIDENCE"
+}

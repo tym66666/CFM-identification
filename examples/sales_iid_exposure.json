@@ -1,0 +1,17 @@
+{
+  "case_id": "sales_iid_exposure",
+  "business_question": "在处理前已固定的销售员合作网络中，估计本人有AI且严格多数邻居有AI时的设计标准化销售均值。",
+  "sources": [
+    {
+      "source_id": "protocol",
+      "kind": "STUDY_PROTOCOL",
+      "text": "每名销售员独立以概率0.5随机获得AI。我们记录一次实验的T_i和Y_i观测值。"
+    },
+    {
+      "source_id": "network_notes",
+      "kind": "DOMAIN_KNOWLEDGE",
+      "text": "合作网络在处理前固定；邻居严格多数接受AI时S_i=1。"
+    }
+  ],
+  "response_language": "zh"
+}

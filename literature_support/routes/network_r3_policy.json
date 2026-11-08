@@ -1,0 +1,39 @@
+{
+  "schema_version": "literature-support-route-1",
+  "route_id": "R3_FULL_ASSIGNMENT",
+  "document_role": "LITERATURE_CONTEXT_AND_PROJECT_DERIVATION_MAP_NOT_NEW_THEOREM",
+  "native_route_ids": [
+    "R3_FULL_ASSIGNMENT",
+    "R3_MEAN_SIGNATURE"
+  ],
+  "runtime_coverage_authority": "cfm_id.capability_registry.inventory",
+  "literature_scope": {
+    "source_ids": [
+      "bhadra_schweinberger2026_review",
+      "forastiere_airoldi_mealli2021_network",
+      "savje_exposure_definitions"
+    ],
+    "role": "Conditional ignorability versus local exposure adjustment; project full-vector/signature contracts are separately proved.",
+    "limitations": [
+      "Forastiere local adjusted targets are not identical to full-policy means.",
+      "Full-vector exchangeability, mean sufficiency and support each need their own review."
+    ]
+  },
+  "project_math_documents": [
+    "docs/R3_OBSERVATIONAL_FINITE_POLICY_AND_SIGNATURE_DIAGNOSTICS_ZH.md",
+    "docs/R3_POLICY_ENTRY_CONTRACT_ZH.md"
+  ],
+  "implementation": [
+    "pfn_pipeline/identification_observational_r3.py",
+    "cfm_id/network_observational_policy_dispatch.py"
+  ],
+  "tests": [
+    "tests/test_observational_r3_and_signature_diagnostics.py",
+    "tests_gateway/test_network_observational_policy_dispatch.py",
+    "tests_gateway/test_observational_signature_entry.py"
+  ],
+  "path_base": "source repository root",
+  "audit_date": "2026-10-31",
+  "verification_evidence": "Documentation pointers checked this round; no claim of rerunning mathematical or live-model acceptance.",
+  "production_admission": false
+}

@@ -1,0 +1,47 @@
+问题ID绑定入口（显式合同 fixed-assignment-id）
+2026-10-23
+
+用途
+避免模型为了表达一个已经正确理解的目标，仍必须逐字复抄“问题1：”等格式。
+模型仅返回意图kind、问题question_id、实际读取的安排和评价对象，以及所报原试点事实。
+系统根据当前问题目录呈现原文。这个原文来自程序定位，绝不记成LLM自己提供的引文，也不证明模型语义正确。
+
+入口
+from cfm_id.business_entry import prepare_request, preview, read_once
+prepare_request(bundle, 'FIXED_POLICY', contract='fixed-assignment-id')
+preview(bundle, candidate, 'FIXED_POLICY', contract='fixed-assignment-id')
+read_once(bundle, authorized_provider, 'FIXED_POLICY', contract='fixed-assignment-id')
+
+CLI
+python -X utf8 -B -m cfm_id.business_entry prepare --entry FIXED_POLICY --contract fixed-assignment-id --bundle bundle.json --output request.json
+python -X utf8 -B -m cfm_id.business_entry preview --entry FIXED_POLICY --contract fixed-assignment-id --bundle bundle.json --candidate candidate.json --output preview.json
+
+约束
+新增question_catalog按query_id列出question_id、原始text及文档位置。每个question_id绑定合同、完整bundle和query_id，同文不同题也不可串用。
+问题原句必须出现在当前documents中；位置使用Python Unicode字符偏移。程序不规范化换行、删标签或重写原文。
+reading.intents[qid]严格只接收kind与question_id，不能同时带quote。旧回答不会被自动迁移，也不会被悄悄补上前缀。
+模型仍填写reading.questions中全部已知/未知目标条件；程序绝不根据ID或原文替模型补人口、处理名单或科学假设。
+错误ID、错题ID、过期bundle ID、额外字段一律阻断。
+研究材料/名册/问题集合变动后，必须重新读取；旧ID与旧审核记录失效。
+
+独立审核与识别
+resolve_reading(bundle, candidate)只生成向下兼容的派生视图和question_binding记录；这个视图中的quote由程序从question_slots定位。
+原始候选完整保存在reading_candidate，question_binding明确model_quote_supplied=False，text_origin=CURRENT_BUNDLE_QUESTION_SLOTS。
+既有业务/目标审核绑定派生视图中的实际模型条件；新事实审核同时绑定原始ID候选和来源视图，不能仅审核派生文本。
+
+from cfm_id.assignment_review import assignment_worksheet, ReviewedQuestionBoundAssignmentFacts
+sheet = assignment_worksheet(bundle, candidate, packet, context, contract='fixed-assignment-id')
+
+sheet没有reviewer、evidence或批准标记。研究者独立审核后，才能构造ReviewedQuestionBoundAssignmentFacts；不能把模型给的ID当成批准。
+submit(..., contract='fixed-assignment-id', assignment_review=review, submission_review=original_intent_review, packet=packet, context=context, synthetic_protocol_selected=True)保留原A1/A4/A5检查、真实Core和独立证书重放。
+旧ReviewedAssignmentFacts不能批准新合同。问题绑定字段、原候选、派生视图、packet、context、完整study都要一致。
+审核记录不是数字签名；调用应用仍负责控制审核权限。
+
+兼容性与范围
+旧fixed-assignment以及默认intent-v0561行为保留；该改动必须显式选择。旧实验记录与旧成功/失败口径原样保留。
+本新入口仍只适配同一原实验下的均匀固定名额随机化，以及现有受控合成科学审核流程。
+没有新增数学路线，没有修改Core/Estimation/Policy。未实现自动二次LLM补漏，也没有放宽缺项阻断。
+
+测试
+python -X utf8 -B -m unittest tests_gateway.test_question_bound_assignment -v
+覆盖题目ID定位、重复原句分题、错ID、过期资料、无原文索引、缺项、旧/新审核边界、实际R1b/R2、零支持及Mock一次调用。

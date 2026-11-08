@@ -1,0 +1,84 @@
+{
+  "schema_version": "literature-support-route-1",
+  "route_id": "DAG_ADJUSTMENT",
+  "updated_on": "2026-10-25",
+  "development_status": "EXPLICIT_RESEARCH_BUSINESS_BRIDGE_NOT_DEFAULT_REGISTERED",
+  "route_registered": false,
+  "production_admission": false,
+  "estimation_handoff_allowed": false,
+  "business_reading_connected": true,
+  "theorem": {
+    "attribution": "Published DAG adjustment criterion, used only for its sufficiency on the declared binary SCM subclass.",
+    "derivation_path": "../../docs/DAG_ADJUSTMENT_RESEARCH_ZH.txt",
+    "path_base": "this route JSON directory",
+    "binary_necessity_claimed": false,
+    "general_id_completeness_claimed": false
+  },
+  "scientific_scope": {
+    "model": "Known static recursive SCM; explicit observed/latent partition; independent structural errors",
+    "variables": "At most eight binary nodes, an implementation replay budget",
+    "target": "Single observed treatment and outcome; full interventional distribution",
+    "information": "Full symbolic observed joint law, with reviewed strict positivity",
+    "review": "Separately declared review bound to the complete input; no reviewer authentication",
+    "output": "Symbolic observable functional; no estimated value",
+    "unsupported_is_not_nonidentification": true
+  },
+  "mapping": [
+    {
+      "source_id": "perkovic_etal2018_adjustment",
+      "locator": "Definitions 6 and 55; Theorems 7, 57 and 58",
+      "claim": "Forbidden set plus proper back-door separation yields the adjustment functional; independent original-path checking is used for replay.",
+      "limitation": "The Gaussian necessity construction is not imported as a binary necessity proof."
+    },
+    {
+      "source_id": "shpitser_etal2010_adjustment",
+      "locator": "Definition 5, Theorem 4 and Corollary 1",
+      "claim": "Source adjustment criterion and sufficient observable adjustment identity."
+    },
+    {
+      "source_id": "textor_liskiewicz2011_adjustment",
+      "locator": "Theorem 4.4; Section 5",
+      "claim": "For the current singleton-treatment setting, minimal adjustment and classical backdoor sets coincide, including restriction to available observed candidates.",
+      "limitation": "Additional valid specified sets do not imply additional targets identifiable by unrestricted set search."
+    }
+  ],
+  "implementation": [
+    "cfm_id/dag_adjustment_contract.py",
+    "cfm_id/dag_adjustment_solver.py",
+    "cfm_id/dag_adjustment_verify.py",
+    "cfm_id/dag_adjustment.py",
+    "cfm_id/dag_adjustment_adapter.py"
+  ],
+  "tests": [
+    "tests_gateway/test_dag_adjustment.py",
+    "evaluation/dag_adjustment_acceptance.py",
+    "examples/dag_adjustment_reference.py"
+  ],
+  "business_interface": {
+    "route_selection": "Explicit route_id=DAG_ADJUSTMENT in the shared DAG business bridge",
+    "prompt": "Shared cfm_id_llm/dag_reading.py; two general semantic clarifications after the initial unchanged-Prompt pilot",
+    "implementation": [
+      "cfm_id/dag_business.py",
+      "evaluation/dag_business_workflow.py"
+    ],
+    "tests": [
+      "tests_gateway/test_dag_adjustment_business.py"
+    ],
+    "results_directory": "LOCAL_EVIDENCE_NOT_DISTRIBUTED",
+    "prompt_followup_directory": "LOCAL_EVIDENCE_NOT_DISTRIBUTED",
+    "path_base": "source root",
+    "review_rule": "Reading and scientific review must bind the new problem version; old classical-route approvals cannot be reused.",
+    "real_world_scientific_approval": false
+  },
+  "verification_evidence": {
+    "directory": "LOCAL_EVIDENCE_NOT_DISTRIBUTED",
+    "path_base": "source root",
+    "summary": "RESULTS_ZH.txt",
+    "machine_summary": "RESULTS.json",
+    "mathematical_acceptance": "ACCEPTANCE.json",
+    "llm_accuracy_measured": false,
+    "note": "Finite tests supplement the literature-based sufficient theorem; they do not establish completeness or serve as formal proof."
+  },
+  "runtime_coverage_authority": "cfm_id.capability_registry.inventory",
+  "document_role": "MATHEMATICAL_AND_LITERATURE_TRACE_WITH_DATED_EVIDENCE"
+}

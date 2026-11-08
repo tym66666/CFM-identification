@@ -1,0 +1,923 @@
+{
+  "cases": [
+    {
+      "id": "NBIB-001",
+      "title": "销售团队的 AI 助手试点",
+      "design": "D1",
+      "exposure": "E1",
+      "queries": [
+        {
+          "candidate_math_route": "R1a",
+          "case_id": "NBIB-001",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "DIRECT_EFFECT",
+          "gold_semantics_from_v01": "R1A_Q_STANDARDIZED_DIRECT",
+          "query_id": "NBIB-001-Q01",
+          "query_index": 1,
+          "recommended_audit_semantics": "R1A_Q_STANDARDIZED_DIRECT",
+          "review_issue_tag": "TARGET_CONTRAST_UNSPECIFIED",
+          "review_priority": "P2",
+          "target_quote": "AI助手是否改善获准使用者自己的销售表现",
+          "target_unique_from_natural_language": "NO"
+        },
+        {
+          "candidate_math_route": "R1a",
+          "case_id": "NBIB-001",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "SPILLOVER_EFFECT",
+          "gold_semantics_from_v01": "R1A_Q_STANDARDIZED_SPILLOVER",
+          "query_id": "NBIB-001-Q02",
+          "query_index": 2,
+          "recommended_audit_semantics": "R1A_Q_STANDARDIZED_SPILLOVER",
+          "review_issue_tag": "TARGET_CONTRAST_UNSPECIFIED",
+          "review_priority": "P2",
+          "target_quote": "没有获得权限的人是否也受附近合作同事的影响",
+          "target_unique_from_natural_language": "NO"
+        }
+      ],
+      "required_findings": [
+        "分别保留自身和同伴影响两个目标",
+        "不得把随机授予权限者自动解释成ATT",
+        "邻居状态、比较端点、人群及剩余安排不明时保留未知"
+      ],
+      "known_material_issue": "“对使用者自身有用”可能被误解为已使用者ATT；R1a q 标准化的自身效应需固定哪些邻居暴露、节点权重及对照。",
+      "recommended_clarification": "保留两个业务目标；gold 新增“精确对照/暴露尚待定义”，不自动推定ATT或单一s。",
+      "label_correction": null,
+      "expected_core_admission": false,
+      "exact_identification_status": null,
+      "scientific_gate": "Public files alone do not supply approved A4/A5; gate success is not semantic success.",
+      "semantic_reference_status": "REVIEWED_CONSTRAINTS_ONLY_NOT_EXACT_TARGET_GOLD",
+      "acceptance": null,
+      "semantic_checked": false,
+      "transport_checked_on_frozen_version": false
+    },
+    {
+      "id": "NBIB-002",
+      "title": "配送站点固定名额试点",
+      "design": "D2",
+      "exposure": "E4",
+      "queries": [
+        {
+          "candidate_math_route": "R1a",
+          "case_id": "NBIB-002",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "NETWORK_DESIGN_STANDARDIZED_ARM_MEAN",
+          "gold_semantics_from_v01": "R1A_Q_STANDARDIZED_ARM_MEAN",
+          "query_id": "NBIB-002-Q01",
+          "query_index": 1,
+          "recommended_audit_semantics": "R1A_Q_STANDARDIZED_ARM_MEAN",
+          "review_issue_tag": "FOCAL_NODE_OR_WEIGHT_UNSPECIFIED",
+          "review_priority": "P1",
+          "target_quote": "当某站点已经使用系统并且恰有一个相邻站点使用时，它的平均延误水平如何",
+          "target_unique_from_natural_language": "NO"
+        }
+      ],
+      "required_findings": [
+        "恰好24/48均匀无放回，不改为Bernoulli",
+        "是使用且恰好一个邻站使用的水平，不自造差值",
+        "某站点未指定编号，不能默选unit_000或全体"
+      ],
+      "known_material_issue": "当前只问“某站点”的平均延误，却未说该站点是谁或怎样跨站点汇总；gold 的单节点 unit_000 支持探针不是全站识别证明。",
+      "recommended_clarification": "明确是指定站点、所有站点等权均值，还是分组加权的arm mean；若指定站点，公开其ID。",
+      "label_correction": null,
+      "expected_core_admission": false,
+      "exact_identification_status": null,
+      "scientific_gate": "Public files alone do not supply approved A4/A5; gate success is not semantic success.",
+      "semantic_reference_status": "REVIEWED_CONSTRAINTS_ONLY_NOT_EXACT_TARGET_GOLD",
+      "acceptance": null,
+      "semantic_checked": false,
+      "transport_checked_on_frozen_version": false
+    },
+    {
+      "id": "NBIB-003",
+      "title": "整片商圈会员券投放",
+      "design": "D4",
+      "exposure": "E5",
+      "queries": [
+        {
+          "candidate_math_route": "R1a",
+          "case_id": "NBIB-003",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "SPILLOVER_EFFECT",
+          "gold_semantics_from_v01": "R1A_Q_STANDARDIZED_SPILLOVER",
+          "query_id": "NBIB-003-Q01",
+          "query_index": 1,
+          "recommended_audit_semantics": "R1A_Q_STANDARDIZED_SPILLOVER",
+          "review_issue_tag": "SPILLOVER_BASELINE_IMPLICIT",
+          "review_priority": "P2",
+          "target_quote": "没有发券的门店会不会因为相邻商圈有门店发券而获得更多订单",
+          "target_unique_from_natural_language": "PARTIAL"
+        }
+      ],
+      "required_findings": [
+        "整商圈独立抽签，不改为逐店抽签",
+        "不得自行缩到54家有跨圈邻居门店",
+        "不得默认等权、比较端点或条件平均规则"
+      ],
+      "known_material_issue": "业务实际问“未投券门店有没有跨商圈收益”，可映射 E5 spillover，但需对照无邻居投券的状态。",
+      "recommended_clarification": "在研究注释中列出 T_i=0,S=1 与 T_i=0,S=0 的比较，说明仅对有正支持的门店聚合。",
+      "label_correction": null,
+      "expected_core_admission": false,
+      "exact_identification_status": null,
+      "scientific_gate": "Public files alone do not supply approved A4/A5; gate success is not semantic success.",
+      "semantic_reference_status": "REVIEWED_CONSTRAINTS_ONLY_NOT_EXACT_TARGET_GOLD",
+      "acceptance": null,
+      "semantic_checked": false,
+      "transport_checked_on_frozen_version": false
+    },
+    {
+      "id": "NBIB-004",
+      "title": "各地区医院固定培训名额",
+      "design": "D5",
+      "exposure": "E2",
+      "queries": [
+        {
+          "candidate_math_route": "R1a",
+          "case_id": "NBIB-004",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "DIRECT_EFFECT",
+          "gold_semantics_from_v01": "R1A_Q_STANDARDIZED_DIRECT",
+          "query_id": "NBIB-004-Q01",
+          "query_index": 1,
+          "recommended_audit_semantics": "R1A_Q_STANDARDIZED_DIRECT",
+          "review_issue_tag": "EXPOSURE_THRESHOLDS_NOT_PUBLIC",
+          "review_priority": "P1",
+          "target_quote": "接受培训的医院本院等候时间是否缩短",
+          "target_unique_from_natural_language": "NO"
+        },
+        {
+          "candidate_math_route": "R1a",
+          "case_id": "NBIB-004",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "SPILLOVER_EFFECT",
+          "gold_semantics_from_v01": "R1A_Q_STANDARDIZED_SPILLOVER",
+          "query_id": "NBIB-004-Q02",
+          "query_index": 2,
+          "recommended_audit_semantics": "R1A_Q_STANDARDIZED_SPILLOVER",
+          "review_issue_tag": "EXPOSURE_THRESHOLDS_NOT_PUBLIC",
+          "review_priority": "P1",
+          "target_quote": "没有接受培训的医院会不会因合作医院更多采用新流程而改变等候时间",
+          "target_unique_from_natural_language": "NO"
+        }
+      ],
+      "required_findings": [
+        "四片区固定名额4/5/6/5，跨区边保留",
+        "公开低中高没有切点，不擅填1/3、2/3",
+        "分别保留自身与同伴问题"
+      ],
+      "known_material_issue": "三档暴露规则已在隐藏生成器中写成1/3和2/3阈值，公开方案只说“低、中、高”；LLM无从唯一恢复E2阈值。",
+      "recommended_clarification": "公开业务研究方案加入“不到三分之一 / 三分之一至不足三分之二 / 至少三分之二”的自然语言规则；指定效应比较档次。",
+      "label_correction": null,
+      "expected_core_admission": false,
+      "exact_identification_status": null,
+      "scientific_gate": "Public files alone do not supply approved A4/A5; gate success is not semantic success.",
+      "semantic_reference_status": "REVIEWED_CONSTRAINTS_ONLY_NOT_EXACT_TARGET_GOLD",
+      "acceptance": null,
+      "semantic_checked": false,
+      "transport_checked_on_frozen_version": false
+    },
+    {
+      "id": "NBIB-005",
+      "title": "两阶段课后辅导名额实验",
+      "design": "D6",
+      "exposure": "E5",
+      "queries": [
+        {
+          "candidate_math_route": "R1a",
+          "case_id": "NBIB-005",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "DIRECT_EFFECT",
+          "gold_semantics_from_v01": "R1A_Q_STANDARDIZED_DIRECT",
+          "query_id": "NBIB-005-Q01",
+          "query_index": 1,
+          "recommended_audit_semantics": "R1A_Q_STANDARDIZED_DIRECT",
+          "review_issue_tag": "A5_D6_EXCLUSION_PENDING",
+          "review_priority": "P2",
+          "target_quote": "班级自己获得辅导工具对学习成绩有什么影响",
+          "target_unique_from_natural_language": "PARTIAL"
+        },
+        {
+          "candidate_math_route": "R1a",
+          "case_id": "NBIB-005",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "SPILLOVER_EFFECT",
+          "gold_semantics_from_v01": "R1A_Q_STANDARDIZED_SPILLOVER",
+          "query_id": "NBIB-005-Q02",
+          "query_index": 2,
+          "recommended_audit_semantics": "R1A_Q_STANDARDIZED_SPILLOVER",
+          "review_issue_tag": "A5_D6_EXCLUSION_PENDING",
+          "review_priority": "P2",
+          "target_quote": "没有获得工具但合作班级使用了工具时成绩是否也受益",
+          "target_unique_from_natural_language": "PARTIAL"
+        }
+      ],
+      "required_findings": [
+        "先联合抽完整配额向量，再在区域内抽班级",
+        "配额公告无直接影响仅为待确认假设",
+        "分别保留自身与同伴问题"
+      ],
+      "known_material_issue": "第一阶段配额公告可能直接影响结果的假设只被提出、未获科研许可；所有随机化记录存在仍不足以自动通过D6。",
+      "recommended_clarification": "在参考标签中单设 D6_PROFILE_EXCLUSION_PENDING；保留与006的同分配对照。",
+      "label_correction": null,
+      "expected_core_admission": false,
+      "exact_identification_status": null,
+      "scientific_gate": "Public files alone do not supply approved A4/A5; gate success is not semantic success.",
+      "semantic_reference_status": "REVIEWED_CONSTRAINTS_ONLY_NOT_EXACT_TARGET_GOLD",
+      "acceptance": null,
+      "semantic_checked": false,
+      "transport_checked_on_frozen_version": false
+    },
+    {
+      "id": "NBIB-006",
+      "title": "两阶段辅导：配额公告可能改变行为",
+      "design": "D6",
+      "exposure": "E5",
+      "queries": [
+        {
+          "candidate_math_route": "R1a",
+          "case_id": "NBIB-006",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "DIRECT_EFFECT",
+          "gold_semantics_from_v01": "R1A_Q_STANDARDIZED_DIRECT",
+          "query_id": "NBIB-006-Q01",
+          "query_index": 1,
+          "recommended_audit_semantics": "METHOD_ELIGIBILITY_CHECK + OWN_TREATMENT_EFFECT_NEEDS_EXPLICIT_CONTRAST",
+          "review_issue_tag": "METHOD_QUESTION_MISLABELED_AS_ESTIMAND",
+          "review_priority": "P1",
+          "target_quote": "在这次含有提前公告影响的实验中，能否直接照旧解释班级获得工具的效果",
+          "target_unique_from_natural_language": "NO"
+        }
+      ],
+      "required_findings": [
+        "识别这是方法适用性问题",
+        "保留公告可能直接影响结果，不读成没有影响",
+        "不得擅造固定公告下的具体因果对比"
+      ],
+      "known_material_issue": "业务核心问“原来的因果识别解释还能不能用”属于方法适用性检查；只标 DIRECT_EFFECT 会混淆目标与定理许可。",
+      "recommended_clarification": "增加 METHOD_ELIGIBILITY_CHECK 元查询；若保留DIRECT_EFFECT，另写明确的处理对照；记录公告直接作用违反当前Y(t)建模许可。",
+      "label_correction": "METHOD_ELIGIBILITY_CHECK; old DIRECT_EFFECT-only label is insufficient",
+      "expected_core_admission": false,
+      "exact_identification_status": null,
+      "scientific_gate": "Public files alone do not supply approved A4/A5; gate success is not semantic success.",
+      "semantic_reference_status": "REVIEWED_CONSTRAINTS_ONLY_NOT_EXACT_TARGET_GOLD",
+      "acceptance": null,
+      "semantic_checked": false,
+      "transport_checked_on_frozen_version": false
+    },
+    {
+      "id": "NBIB-007",
+      "title": "创业公司全员采用线上协作工具",
+      "design": "D1",
+      "exposure": "E5",
+      "queries": [
+        {
+          "candidate_math_route": "R1b",
+          "case_id": "NBIB-007",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "FIXED_POLICY_VALUE",
+          "gold_semantics_from_v01": "R1B_FULL_ASSIGNMENT_FIXED_POLICY",
+          "query_id": "NBIB-007-Q01",
+          "query_index": 1,
+          "recommended_audit_semantics": "R1B_FULL_ASSIGNMENT_FIXED_POLICY",
+          "review_issue_tag": "POLICY_AGGREGATION_UNSPECIFIED",
+          "review_priority": "P2",
+          "target_quote": "如果14名员工全部使用平台，公司整体交付质量会怎样变化",
+          "target_unique_from_natural_language": "NO"
+        }
+      ],
+      "required_findings": [
+        "保留全14人采用政策，不换成试验组差异",
+        "水平或相对何基线变化仍需确认",
+        "有限单次记录不等于完整分配总体均值"
+      ],
+      "known_material_issue": "“组织整体交付质量”尚未明确是平均评分、总分还是其他管理指标。q(全员)=1/16384>0却不提供对应A4。",
+      "recommended_clarification": "研究标签写清预先权重/聚合规则；业务材料可说“14人的平均交付质量评分”。",
+      "label_correction": null,
+      "expected_core_admission": false,
+      "exact_identification_status": null,
+      "scientific_gate": "Public files alone do not supply approved A4/A5; gate success is not semantic success.",
+      "semantic_reference_status": "REVIEWED_CONSTRAINTS_ONLY_NOT_EXACT_TARGET_GOLD",
+      "acceptance": null,
+      "semantic_checked": false,
+      "transport_checked_on_frozen_version": false
+    },
+    {
+      "id": "NBIB-008",
+      "title": "固定名额试点无法直接评价全员推广",
+      "design": "D2",
+      "exposure": "E5",
+      "queries": [
+        {
+          "candidate_math_route": "R1b|R2",
+          "case_id": "NBIB-008",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "FIXED_POLICY_VALUE",
+          "gold_semantics_from_v01": "R1B_OR_R2_FIXED_POLICY",
+          "query_id": "NBIB-008-Q01",
+          "query_index": 1,
+          "recommended_audit_semantics": "R1B_OR_R2_FIXED_POLICY",
+          "review_issue_tag": "FULL_ASSIGNMENT_ZERO_SUPPORT",
+          "review_priority": "P2",
+          "target_quote": "如果14家门店下季度全部安装新系统，公司整体收入会怎样",
+          "target_unique_from_natural_language": "PARTIAL"
+        }
+      ],
+      "required_findings": [
+        "保留全14店采用目标，不能改为7店",
+        "旧设计恰好7店，完整全员方案零支持",
+        "无额外许可不自动走R2，也不宣称数学NON-ID"
+      ],
+      "known_material_issue": "全员政策在固定7名额实验里完整分配不可能；E5只是定义，不提供R2 mean suff许可。",
+      "recommended_clarification": "保留为R1b零完整支持/R2未许可的基线；不要标为通用数学不可识别。",
+      "label_correction": null,
+      "expected_core_admission": false,
+      "exact_identification_status": null,
+      "scientific_gate": "Public files alone do not supply approved A4/A5; gate success is not semantic success.",
+      "semantic_reference_status": "REVIEWED_CONSTRAINTS_ONLY_NOT_EXACT_TARGET_GOLD",
+      "acceptance": null,
+      "semantic_checked": false,
+      "transport_checked_on_frozen_version": false
+    },
+    {
+      "id": "NBIB-009",
+      "title": "同一固定名额试点增加一项结构假设",
+      "design": "D2",
+      "exposure": "E5",
+      "queries": [
+        {
+          "candidate_math_route": "R1b|R2",
+          "case_id": "NBIB-009",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "FIXED_POLICY_VALUE",
+          "gold_semantics_from_v01": "R1B_OR_R2_FIXED_POLICY",
+          "query_id": "NBIB-009-Q01",
+          "query_index": 1,
+          "recommended_audit_semantics": "R1B_OR_R2_FIXED_POLICY",
+          "review_issue_tag": "THEOREM_TERM_LEAKAGE",
+          "review_priority": "P1",
+          "target_quote": "如果14家门店下季度全部安装新系统，公司整体收入会怎样",
+          "target_unique_from_natural_language": "PARTIAL"
+        }
+      ],
+      "required_findings": [
+        "保持008的政策目标及14中选7设计",
+        "充分性是待审核额外假设，非表格已证实",
+        "不得把提出假设等同正式接受"
+      ],
+      "known_material_issue": "公开研究方案直接出现mean-signature sufficiency、E5等术语；这是研究者标签泄漏，且备忘录提出≠已被授权。",
+      "recommended_clarification": "将公开memo改成日常表达：“平均收入只与本店启用和是否有邻店启用相关”；专业名称移到私有gold。",
+      "label_correction": null,
+      "expected_core_admission": false,
+      "exact_identification_status": null,
+      "scientific_gate": "Public files alone do not supply approved A4/A5; gate success is not semantic success.",
+      "semantic_reference_status": "REVIEWED_CONSTRAINTS_ONLY_NOT_EXACT_TARGET_GOLD",
+      "acceptance": null,
+      "semantic_checked": false,
+      "transport_checked_on_frozen_version": false
+    },
+    {
+      "id": "NBIB-010",
+      "title": "按固定比例轮换两种推广方案",
+      "design": "D1",
+      "exposure": "E5",
+      "queries": [
+        {
+          "candidate_math_route": "R1b",
+          "case_id": "NBIB-010",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "STOCHASTIC_POLICY_VALUE",
+          "gold_semantics_from_v01": "R1B_FINITE_FIXED_POLICY_MIXTURE",
+          "query_id": "NBIB-010-Q01",
+          "query_index": 1,
+          "recommended_audit_semantics": "R1B_FINITE_FIXED_POLICY_MIXTURE",
+          "review_issue_tag": "POLICY_METRIC_IMPLICIT",
+          "review_priority": "P2",
+          "target_quote": "如果以六成概率采用方案甲、四成概率采用方案乙，整体故障恢复表现如何",
+          "target_unique_from_natural_language": "NO"
+        }
+      ],
+      "required_findings": [
+        "保留两份完整方案及3/5、2/5固定混合",
+        "不得变成逐人按0.6独立抽签或求最优名单",
+        "均值/总量等结果汇总待明确"
+      ],
+      "known_material_issue": "固定混合政策3/5+2/5描述正确，但“整体故障恢复表现”可指恢复时间或成功率，虽字典写的是时长。",
+      "recommended_clarification": "业务目标明确为“所有维修组的平均故障恢复时间”，并明确两种名单均预先固定。",
+      "label_correction": null,
+      "expected_core_admission": false,
+      "exact_identification_status": null,
+      "scientific_gate": "Public files alone do not supply approved A4/A5; gate success is not semantic success.",
+      "semantic_reference_status": "REVIEWED_CONSTRAINTS_ONLY_NOT_EXACT_TARGET_GOLD",
+      "acceptance": null,
+      "semantic_checked": false,
+      "transport_checked_on_frozen_version": false
+    },
+    {
+      "id": "NBIB-011",
+      "title": "商户自主选择参与平台扶持",
+      "design": "O_CONF",
+      "exposure": "E5",
+      "queries": [
+        {
+          "candidate_math_route": "R3_POLICY",
+          "case_id": "NBIB-011",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "FIXED_POLICY_VALUE",
+          "gold_semantics_from_v01": "R3_OBSERVATIONAL_FIXED_POLICY",
+          "query_id": "NBIB-011-Q01",
+          "query_index": 1,
+          "recommended_audit_semantics": "R3_OBSERVATIONAL_FIXED_POLICY",
+          "review_issue_tag": "HIDDEN_CONFOUNDING_RISK",
+          "review_priority": "P2",
+          "target_quote": "如果下季度要求所有商户都使用推广工具，整个平台的订单总量会怎样",
+          "target_unique_from_natural_language": "PARTIAL"
+        }
+      ],
+      "required_findings": [
+        "自主采纳是观察性，不伪称随机",
+        "目标是所有商户采用",
+        "未记录积极性/交换性缺失不能自动忽略"
+      ],
+      "known_material_issue": "经营积极性可能共同决定采纳和结果；只有有限商户记录和网络不能接受full-vector exchangeability。",
+      "recommended_clarification": "保持自选机制和遗漏因素的显式描述；标签区分“有混杂风险”与“已给严格非识别双世界证据”。",
+      "label_correction": null,
+      "expected_core_admission": false,
+      "exact_identification_status": null,
+      "scientific_gate": "Public files alone do not supply approved A4/A5; gate success is not semantic success.",
+      "semantic_reference_status": "REVIEWED_CONSTRAINTS_ONLY_NOT_EXACT_TARGET_GOLD",
+      "acceptance": null,
+      "semantic_checked": false,
+      "transport_checked_on_frozen_version": false
+    },
+    {
+      "id": "NBIB-012",
+      "title": "员工自主采纳软件时按现状标准化的效果",
+      "design": "O_IND",
+      "exposure": "E1",
+      "queries": [
+        {
+          "candidate_math_route": "R3_P1",
+          "case_id": "NBIB-012",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "DIRECT_EFFECT",
+          "gold_semantics_from_v01": "R3_P_STANDARDIZED_DIRECT",
+          "query_id": "NBIB-012-Q01",
+          "query_index": 1,
+          "recommended_audit_semantics": "R3_P_STANDARDIZED_DIRECT",
+          "review_issue_tag": "OBS_PROPENSITY_APPROX_NOT_POPULATION_LAW",
+          "review_priority": "P1",
+          "target_quote": "按照现有员工自发采纳方式，插件对员工自己满意度的平均影响如何",
+          "target_unique_from_natural_language": "NO"
+        }
+      ],
+      "required_findings": [
+        "保留现状采纳背景的自身效果，不换全员政策",
+        "概率乘积只是近似，不能升级为已知精确总体律",
+        "无混杂与具体对比未确认"
+      ],
+      "known_material_issue": "公开备忘录只给独立概率乘积近似，不能作为精确已知的总体p(T|W)；“按现状”也未足够明确标准化权重。",
+      "recommended_clarification": "在研究端写清所需观测总体律、定义的p-standardized contrast与参考s；业务端说明概率模型仅为估算而非已验证分布。",
+      "label_correction": null,
+      "expected_core_admission": false,
+      "exact_identification_status": null,
+      "scientific_gate": "Public files alone do not supply approved A4/A5; gate success is not semantic success.",
+      "semantic_reference_status": "REVIEWED_CONSTRAINTS_ONLY_NOT_EXACT_TARGET_GOLD",
+      "acceptance": null,
+      "semantic_checked": false,
+      "transport_checked_on_frozen_version": false
+    },
+    {
+      "id": "NBIB-013",
+      "title": "市场背景分层的门店协同调整",
+      "design": "O_B",
+      "exposure": "E5",
+      "queries": [
+        {
+          "candidate_math_route": "R3_P2",
+          "case_id": "NBIB-013",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "DIRECT_EFFECT",
+          "gold_semantics_from_v01": "R3_EXPOSURE_ADJUSTED_DIRECT",
+          "query_id": "NBIB-013-Q01",
+          "query_index": 1,
+          "recommended_audit_semantics": "R3_EXPOSURE_ADJUSTED_DIRECT",
+          "review_issue_tag": "POPULATION_B_WEIGHTS_MISSING",
+          "review_priority": "P2",
+          "target_quote": "比较相同市场背景和邻近网点使用状态后，自己开通助手会怎样影响等候时间",
+          "target_unique_from_natural_language": "NO"
+        },
+        {
+          "candidate_math_route": "R3_P2",
+          "case_id": "NBIB-013",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "SPILLOVER_EFFECT",
+          "gold_semantics_from_v01": "R3_EXPOSURE_ADJUSTED_SPILLOVER",
+          "query_id": "NBIB-013-Q02",
+          "query_index": 2,
+          "recommended_audit_semantics": "R3_EXPOSURE_ADJUSTED_SPILLOVER",
+          "review_issue_tag": "POPULATION_B_WEIGHTS_MISSING",
+          "review_priority": "P2",
+          "target_quote": "比较相同市场背景后，邻近网点开通助手会不会影响尚未开通者的等候时间",
+          "target_unique_from_natural_language": "NO"
+        }
+      ],
+      "required_findings": [
+        "B是整个市场共同背景，不是每个节点独立背景",
+        "保留两个分层自身/同伴问题及总体占比汇总",
+        "分层交换性/充分性只是待审核"
+      ],
+      "known_material_issue": "24个独立市场+全网共同处理前B是合适的P2示例，但“预先约定总体占比”未实际提供人口分布P(B)，且A5均未获许可。",
+      "recommended_clarification": "在gold标出ρ_B未提供、个体exposure suff未确认、逐层mean exchangeability未确认；不从12/12市场频率推断总体权重。",
+      "label_correction": null,
+      "expected_core_admission": false,
+      "exact_identification_status": null,
+      "scientific_gate": "Public files alone do not supply approved A4/A5; gate success is not semantic success.",
+      "semantic_reference_status": "REVIEWED_CONSTRAINTS_ONLY_NOT_EXACT_TARGET_GOLD",
+      "acceptance": null,
+      "semantic_checked": false,
+      "transport_checked_on_frozen_version": false
+    },
+    {
+      "id": "NBIB-014",
+      "title": "市场背景分层：只提供有限业务表",
+      "design": "O_B",
+      "exposure": "E5",
+      "queries": [
+        {
+          "candidate_math_route": "R3_P2",
+          "case_id": "NBIB-014",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "DIRECT_EFFECT",
+          "gold_semantics_from_v01": "R3_EXPOSURE_ADJUSTED_DIRECT",
+          "query_id": "NBIB-014-Q01",
+          "query_index": 1,
+          "recommended_audit_semantics": "R3_EXPOSURE_ADJUSTED_DIRECT",
+          "review_issue_tag": "A4_FINITE_SAMPLE_ONLY",
+          "review_priority": "P2",
+          "target_quote": "考虑市场背景和邻近网点使用情况后，助手对本网点等待时间的影响能否现在确认",
+          "target_unique_from_natural_language": "PARTIAL"
+        }
+      ],
+      "required_findings": [
+        "仅有有限市场样本，缺逐层总体信息",
+        "不得从CSV自动生成A4",
+        "目标缺失条件需单独记录"
+      ],
+      "known_material_issue": "与013完全相同观测数据，但业务明确只有有限CSV；即便某些A5将来成立也不代替A4。",
+      "recommended_clarification": "保留此case用于辨别A4数据权限与Excel/CSV有列名的区别。",
+      "label_correction": null,
+      "expected_core_admission": false,
+      "exact_identification_status": null,
+      "scientific_gate": "Public files alone do not supply approved A4/A5; gate success is not semantic success.",
+      "semantic_reference_status": "REVIEWED_CONSTRAINTS_ONLY_NOT_EXACT_TARGET_GOLD",
+      "acceptance": null,
+      "semantic_checked": false,
+      "transport_checked_on_frozen_version": false
+    },
+    {
+      "id": "NBIB-015",
+      "title": "市场背景分层：还有未记录的经营因素",
+      "design": "O_B",
+      "exposure": "E5",
+      "queries": [
+        {
+          "candidate_math_route": "R3_P2",
+          "case_id": "NBIB-015",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "DIRECT_EFFECT",
+          "gold_semantics_from_v01": "R3_EXPOSURE_ADJUSTED_DIRECT",
+          "query_id": "NBIB-015-Q01",
+          "query_index": 1,
+          "recommended_audit_semantics": "R3_EXPOSURE_ADJUSTED_DIRECT",
+          "review_issue_tag": "A5_EXCHANGEABILITY_WITHHELD",
+          "review_priority": "P2",
+          "target_quote": "在无法确认有无遗漏的管理能力影响时，是否能够宣称助手本身改善等候时间",
+          "target_unique_from_natural_language": "PARTIAL"
+        }
+      ],
+      "required_findings": [
+        "明确未接受分层交换性，不自动批准",
+        "采纳概率模型不能排除未测管理能力",
+        "方法风险问题不能偷换为已识别效应"
+      ],
+      "known_material_issue": "与013相同观测数据，业务明确不接受逐层无遗漏混杂许可；属于科学前提未获准入。",
+      "recommended_clarification": "将研究标签设为EXCHANGEABILITY_WITHHELD，避免使用“已证明存在未观测混杂”的更强表述。",
+      "label_correction": null,
+      "expected_core_admission": false,
+      "exact_identification_status": null,
+      "scientific_gate": "Public files alone do not supply approved A4/A5; gate success is not semantic success.",
+      "semantic_reference_status": "REVIEWED_CONSTRAINTS_ONLY_NOT_EXACT_TARGET_GOLD",
+      "acceptance": null,
+      "semantic_checked": false,
+      "transport_checked_on_frozen_version": false
+    },
+    {
+      "id": "NBIB-016",
+      "title": "市场背景分层：某档市场无法接受处理",
+      "design": "O_B_ZERO",
+      "exposure": "E5",
+      "queries": [
+        {
+          "candidate_math_route": "R3_P2",
+          "case_id": "NBIB-016",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "DIRECT_EFFECT",
+          "gold_semantics_from_v01": "R3_EXPOSURE_ADJUSTED_DIRECT",
+          "query_id": "NBIB-016-Q01",
+          "query_index": 1,
+          "recommended_audit_semantics": "R3_EXPOSURE_ADJUSTED_DIRECT",
+          "review_issue_tag": "POSITIVE_WEIGHT_STRATUM_ZERO_SUPPORT",
+          "review_priority": "P2",
+          "target_quote": "如果想报告覆盖两类市场的开通助手效果，这些观察记录是否足够",
+          "target_unique_from_natural_language": "PARTIAL"
+        }
+      ],
+      "required_findings": [
+        "保留旺盛市场的正目标权重",
+        "旺盛层采纳概率0，不能删层",
+        "不得外推该层处理臂的结果"
+      ],
+      "known_material_issue": "正权重大需求市场处理被合规制度禁止：treated签名支持为零。符合R3 P2逐B层正支持失败。",
+      "recommended_clarification": "让评分程序明确检查“正权B层T=1零支持”，不能把总样本里有人采纳当作每层有支持。",
+      "label_correction": null,
+      "expected_core_admission": false,
+      "exact_identification_status": null,
+      "scientific_gate": "Public files alone do not supply approved A4/A5; gate success is not semantic success.",
+      "semantic_reference_status": "REVIEWED_CONSTRAINTS_ONLY_NOT_EXACT_TARGET_GOLD",
+      "acceptance": null,
+      "semantic_checked": false,
+      "transport_checked_on_frozen_version": false
+    },
+    {
+      "id": "NBIB-017",
+      "title": "合作网络随着系统使用而改变",
+      "design": "D1",
+      "exposure": "E5",
+      "queries": [
+        {
+          "candidate_math_route": "R1a",
+          "case_id": "NBIB-017",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "DIRECT_EFFECT",
+          "gold_semantics_from_v01": "R1A_Q_STANDARDIZED_DIRECT",
+          "query_id": "NBIB-017-Q01",
+          "query_index": 1,
+          "recommended_audit_semantics": "TOTAL_OWN_TREATMENT_EFFECT_UNSPECIFIED; FIXED_G_R1A_ROUTE_NOT_ASSUMED",
+          "review_issue_tag": "DYNAMIC_STORY_DGP_MISMATCH",
+          "review_priority": "P1",
+          "target_quote": "新系统对产线自身停机时长有怎样的因果影响",
+          "target_unique_from_natural_language": "NO"
+        },
+        {
+          "candidate_math_route": "UNSUPPORTED_DYNAMIC",
+          "case_id": "NBIB-017",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "SPILLOVER_EFFECT",
+          "gold_semantics_from_v01": "DYNAMIC_NETWORK_EFFECT",
+          "query_id": "NBIB-017-Q02",
+          "query_index": 2,
+          "recommended_audit_semantics": "DYNAMIC_NETWORK_MEDIATION_OUTSIDE_CURRENT_CORE",
+          "review_issue_tag": "DYNAMIC_STORY_DGP_MISMATCH",
+          "review_priority": "P1",
+          "target_quote": "上线后重新形成的合作关系会不会传递给其他产线影响",
+          "target_unique_from_natural_language": "NO"
+        }
+      ],
+      "required_findings": [
+        "只有处理后网络，不能当固定处理前图",
+        "保留自身和关系变化传递两个问题",
+        "固定图库不支持不等于证明不可识别"
+      ],
+      "known_material_issue": "公开故事讨论处理使网络重组的效应，但generator先用原始adj生成Y，再单独生成处理后的network_after；因此观测到的Y并未实际通过G(T)路径产生。",
+      "recommended_clarification": "若只测“处理后图不能当处理前图”，保留并降级宣传；若要测动态网络中介，改为先生成G(T)，再用它生成结果和反事实。分开评价直接效果与动态外溢。",
+      "label_correction": null,
+      "expected_core_admission": false,
+      "exact_identification_status": null,
+      "scientific_gate": "Public files alone do not supply approved A4/A5; gate success is not semantic success.",
+      "semantic_reference_status": "REVIEWED_CONSTRAINTS_ONLY_NOT_EXACT_TARGET_GOLD",
+      "acceptance": null,
+      "semantic_checked": false,
+      "transport_checked_on_frozen_version": false
+    },
+    {
+      "id": "NBIB-018",
+      "title": "三百名员工与有限授权最优分配",
+      "design": "D1",
+      "exposure": "E3",
+      "queries": [
+        {
+          "candidate_math_route": "R1a",
+          "case_id": "NBIB-018",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "DIRECT_EFFECT",
+          "gold_semantics_from_v01": "R1A_Q_STANDARDIZED_DIRECT",
+          "query_id": "NBIB-018-Q01",
+          "query_index": 1,
+          "recommended_audit_semantics": "R1A_Q_STANDARDIZED_DIRECT",
+          "review_issue_tag": "CORE_PARTNER_RANKING_NOT_SIMULATED",
+          "review_priority": "P1",
+          "target_quote": "获得AI助手是否改善员工自己处理客户问题的表现",
+          "target_unique_from_natural_language": "NO"
+        },
+        {
+          "candidate_math_route": "R1a",
+          "case_id": "NBIB-018",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "SPILLOVER_EFFECT",
+          "gold_semantics_from_v01": "R1A_Q_STANDARDIZED_SPILLOVER",
+          "query_id": "NBIB-018-Q02",
+          "query_index": 2,
+          "recommended_audit_semantics": "R1A_Q_STANDARDIZED_SPILLOVER",
+          "review_issue_tag": "CORE_PARTNER_RANKING_NOT_SIMULATED",
+          "review_priority": "P1",
+          "target_quote": "没有助手的人是否会因核心合作者使用助手而受益",
+          "target_unique_from_natural_language": "NO"
+        },
+        {
+          "candidate_math_route": "POLICY_OUT_OF_ID",
+          "case_id": "NBIB-018",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "POLICY_OPTIMIZATION",
+          "gold_semantics_from_v01": "POLICY_OPTIMIZATION_NOT_IDENTIFICATION_RESULT",
+          "query_id": "NBIB-018-Q03",
+          "query_index": 3,
+          "recommended_audit_semantics": "POLICY_OPTIMIZATION_OUTSIDE_IDENTIFICATION",
+          "review_issue_tag": "CORE_PARTNER_RANKING_NOT_SIMULATED",
+          "review_priority": "P1",
+          "target_quote": "只购买100套授权时应该给哪些员工才能让全公司满意度最高",
+          "target_unique_from_natural_language": "NO"
+        }
+      ],
+      "required_findings": [
+        "保留自身、核心伙伴、100套授权优化三个目标",
+        "核心伙伴过半与全邻居过半不同",
+        "没有Policy调用或最优名单认证；核心伙伴来源有已知生成局限"
+      ],
+      "known_material_issue": "E3核心伙伴在generator中由邻居ID排序截取前3位，并非由“最常求助”频率推出来，和业务叙述不完全一致。政策优化又不能用R1a双效应直接求解。",
+      "recommended_clarification": "将公开说法改为“事前登记的核心合作伙伴”，或新增交流频率列并按频率产生C_i；三查询单独评分。",
+      "label_correction": null,
+      "expected_core_admission": false,
+      "exact_identification_status": null,
+      "scientific_gate": "Public files alone do not supply approved A4/A5; gate success is not semantic success.",
+      "semantic_reference_status": "REVIEWED_CONSTRAINTS_ONLY_NOT_EXACT_TARGET_GOLD",
+      "acceptance": null,
+      "semantic_checked": false,
+      "transport_checked_on_frozen_version": false
+    },
+    {
+      "id": "NBIB-019",
+      "title": "自发报名和经营积极性导致的识别歧义",
+      "design": "O_WITNESS",
+      "exposure": "E5",
+      "queries": [
+        {
+          "candidate_math_route": "CAUSAL_DIRECT_UNVERIFIED",
+          "case_id": "NBIB-019",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "DIRECT_EFFECT",
+          "gold_semantics_from_v01": "R3_CAUSAL_DIRECT_EFFECT",
+          "query_id": "NBIB-019-Q01",
+          "query_index": 1,
+          "recommended_audit_semantics": "OWN_TREATMENT_CAUSAL_CONTRAST_WITNESS; NOT_R3_P1_OR_P2",
+          "review_issue_tag": "NONID_WITNESS_TARGET_SCOPE",
+          "review_priority": "P2",
+          "target_quote": "开通推荐工具本身是否提高创作者达到播放目标的概率",
+          "target_unique_from_natural_language": "NO"
+        }
+      ],
+      "required_findings": [
+        "保留自愿采纳及未测积极性问题",
+        "观测差异不等于因果作用",
+        "文字描述的反例不等于独立NON-ID证书"
+      ],
+      "known_material_issue": "双世界观察分布相同、处理效应不同的证明有效；但业务里“开通工具本身是否提高”未定固定邻居政策/加权范围。",
+      "recommended_clarification": "数学gold明确该反例证明的具体节点处理对照；公共题不泄漏两世界或隐藏U。",
+      "label_correction": null,
+      "expected_core_admission": false,
+      "exact_identification_status": null,
+      "scientific_gate": "Public files alone do not supply approved A4/A5; gate success is not semantic success.",
+      "semantic_reference_status": "REVIEWED_CONSTRAINTS_ONLY_NOT_EXACT_TARGET_GOLD",
+      "acceptance": null,
+      "semantic_checked": false,
+      "transport_checked_on_frozen_version": false
+    },
+    {
+      "id": "NBIB-020",
+      "title": "整组上线试验与无法实施的分组政策",
+      "design": "D4",
+      "exposure": "E5",
+      "queries": [
+        {
+          "candidate_math_route": "R1b",
+          "case_id": "NBIB-020",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "FIXED_POLICY_VALUE",
+          "gold_semantics_from_v01": "R1B_FULL_ASSIGNMENT_FIXED_POLICY",
+          "query_id": "NBIB-020-Q01",
+          "query_index": 1,
+          "recommended_audit_semantics": "R1B_FULL_ASSIGNMENT_FIXED_POLICY",
+          "review_issue_tag": "D4_SPLIT_CLUSTER_POLICY_ZERO_SUPPORT",
+          "review_priority": "P2",
+          "target_quote": "如果每个区域只让一半仓库启用补货系统，整个仓储网络的平均缺货情况会怎样",
+          "target_unique_from_natural_language": "PARTIAL"
+        }
+      ],
+      "required_findings": [
+        "整区域开关，不改成区域内逐仓抽签",
+        "保持每区域半数上线的新目标",
+        "边际1/2不能推出各区独立；无充分性许可不走R2"
+      ],
+      "known_material_issue": "当初区域内同处理，拟议同区半数处理完整向量q(z)=0。业务没有接受支持R2的均值充分性。",
+      "recommended_clarification": "保留，与未来同政策但加入正式R2和完整A4条件的正向formal-track案例成对。",
+      "label_correction": null,
+      "expected_core_admission": false,
+      "exact_identification_status": null,
+      "scientific_gate": "Public files alone do not supply approved A4/A5; gate success is not semantic success.",
+      "semantic_reference_status": "REVIEWED_CONSTRAINTS_ONLY_NOT_EXACT_TARGET_GOLD",
+      "acceptance": null,
+      "semantic_checked": false,
+      "transport_checked_on_frozen_version": false
+    },
+    {
+      "id": "NBIB-021",
+      "title": "双区域固定名额的仓储协作试点",
+      "design": "D3",
+      "exposure": "E1",
+      "queries": [
+        {
+          "candidate_math_route": "R1a",
+          "case_id": "NBIB-021",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "DIRECT_EFFECT",
+          "gold_semantics_from_v01": "R1A_Q_STANDARDIZED_DIRECT",
+          "query_id": "NBIB-021-Q01",
+          "query_index": 1,
+          "recommended_audit_semantics": "R1A_Q_STANDARDIZED_DIRECT",
+          "review_issue_tag": "TARGET_CONTRAST_UNSPECIFIED",
+          "review_priority": "P2",
+          "target_quote": "站点自己使用补货系统是否减少缺货",
+          "target_unique_from_natural_language": "NO"
+        },
+        {
+          "candidate_math_route": "R1a",
+          "case_id": "NBIB-021",
+          "evidence_and_license_class": "FINITE_RECORDS_NO_A4; SCIENTIFIC_A5_NOT_AUTO_ADMITTED",
+          "formal_core_result": "NOT_RUN",
+          "gold_kind_from_v01": "SPILLOVER_EFFECT",
+          "gold_semantics_from_v01": "R1A_Q_STANDARDIZED_SPILLOVER",
+          "query_id": "NBIB-021-Q02",
+          "query_index": 2,
+          "recommended_audit_semantics": "R1A_Q_STANDARDIZED_SPILLOVER",
+          "review_issue_tag": "TARGET_CONTRAST_UNSPECIFIED",
+          "review_priority": "P2",
+          "target_quote": "没有安装系统的站点是否会被隔壁及对面仓库的采用情况影响",
+          "target_unique_from_natural_language": "NO"
+        }
+      ],
+      "required_findings": [
+        "两组各32，名额16/12，组间抽签独立且有跨组边",
+        "甲乙与unit_group编码未对应时不能猜",
+        "保留两个目标；不能自选邻居阈值以外的对比或默认条件平均"
+      ],
+      "known_material_issue": "D3两组固定名额+梯形跨组网络合理；业务想比较direct/spillover，但严格多数E1在哪个具体对照中应用仍需明确。",
+      "recommended_clarification": "研究层补充每个目标的S=0/1对照及各节点权重；保留两组独立抽签与跨组边。",
+      "label_correction": null,
+      "expected_core_admission": false,
+      "exact_identification_status": null,
+      "scientific_gate": "Public files alone do not supply approved A4/A5; gate success is not semantic success.",
+      "semantic_reference_status": "REVIEWED_CONSTRAINTS_ONLY_NOT_EXACT_TARGET_GOLD",
+      "acceptance": null,
+      "semantic_checked": false,
+      "transport_checked_on_frozen_version": false
+    }
+  ],
+  "uniform_semantic_pass_rate": null
+}

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-Hans"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Causal-IDFM · Identification Only · 导师展示</title>
+<style>
+:root{--ink:#193046;--muted:#627588;--navy:#13334b;--border:#d8e2ec;--bg:#f3f7fa;--green:#218267;--amber:#ae7928;--rose:#9a555b}
+*{box-sizing:border-box}body{background:var(--bg);color:var(--ink);font:15px/1.56 system-ui,"Noto Sans SC",sans-serif;margin:0}main{max-width:1190px;margin:auto;padding:26px 18px 65px}
+h1{font-size:26px;margin:0 0 9px}h2{font-size:19px;margin:0 0 10px}h3{font-size:16px;margin:0 0 7px}p{margin:8px 0}header{background:var(--navy);padding:27px;border-radius:16px;color:white}header p{color:#d1dce6}header small{color:#b6cad7}
+.panel{background:white;border:1px solid var(--border);border-radius:14px;padding:20px;margin-top:18px}.row{display:flex;gap:13px;align-items:flex-start;flex-wrap:wrap}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}.metric{background:white;border:1px solid var(--border);padding:13px 16px;border-radius:11px}.metric strong{display:block;font-size:25px}.metric small{color:var(--muted)}
+label{font-weight:600;font-size:13px;display:block;margin-bottom:4px}input,textarea,select,button{font:inherit;border-radius:8px}input,textarea,select{border:1px solid #b9cbd9;width:100%;padding:10px;background:white}textarea{min-height:87px;resize:vertical}button{cursor:pointer;border:1px solid #abc0d1;background:white;padding:9px 12px;color:var(--ink)}button:hover{background:#f0f5fa}button.primary{background:#163c56;color:white;border:1px solid #163c56}button.primary:hover{background:#244d68}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #267c99;outline-offset:2px}.controls{display:flex;flex-wrap:wrap;gap:9px;margin:12px 0}
+.warning{border-left:4px solid #c69b49;background:#fdf7ea;border-radius:5px;padding:11px 14px;color:#68522e}.pill{display:inline-block;border-radius:20px;padding:3px 9px;font-size:12px;font-weight:700;background:#edf2f6}.point{background:#e0f2eb;color:#17644d}.needs{background:#fff0d3;color:#815916}.unsupported{background:#f2e5e6;color:#8c414b}.research{background:#eae6f8;color:#5b4690}.candidate{background:#e7eef6;color:#445a74}
+.cases{max-height:465px;overflow-y:auto;border:1px solid #d9e4ec;border-radius:11px;margin-top:11px}.case{display:block;width:100%;text-align:left;border:0;border-bottom:1px solid #edf1f5;border-radius:0;padding:12px 14px;background:#fff}.case:hover,.case[aria-current=true]{background:#ecf4fa}.case small{display:block;color:var(--muted)}.case .pill{float:right}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f3f6f9;border-radius:9px;padding:12px;font-size:12px;max-height:225px;overflow-y:auto}dl{display:grid;grid-template-columns:160px 1fr;gap:8px 12px}dt{font-weight:650}dd{margin:0;overflow-wrap:anywhere}.small{font-size:12px;color:var(--muted)}.good{color:var(--green);font-weight:650}.sectionline{border:0;border-top:1px solid var(--border);margin:14px 0}a{color:#216884}#file-status,#imported-result{font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere}
+@media(max-width:760px){.metrics{grid-template-columns:repeat(2,1fr)}.twocol{grid-template-columns:1fr}dl{grid-template-columns:1fr 2fr}main{padding:10px}header{padding:20px}}
+</style></head><body>
+<main><header>
+  <h1>Causal-IDFM · Identification-only 展示台</h1>
+  <p>业务输入 → 审核过的数学问题 → POINT / 安全拒绝 → 可观测总体公式、支持与证明。有限样本 Estimation 与 Policy 不在本展示范围。</p>
+  <small>离线无网络依赖 · 预置案例由真实 Python Core 生成并 replay · 静态页面本身不会运行定理或调用 LLM</small>
+</header>
+<div class="metrics"><div class="metric"><small>Core 实测案例</small><strong id="count-all">—</strong></div><div class="metric"><small>POINT + replay</small><strong id="count-point">—</strong></div><div class="metric"><small>缺少信息 / 假设</small><strong id="count-needs">—</strong></div><div class="metric"><small>当前路由不支持</small><strong id="count-unsupported">—</strong></div></div>
+<section class="panel">
+  <h2>① 输入业务描述和材料</h2>
+  <p class="small">这里收集输入并生成待审核请求，<strong>不自动给出因果结论</strong>。A0 的文档理解和独立人工审核由另一工作流负责。</p>
+  <div class="twocol"><div><label for="business">业务问题</label><textarea id="business" placeholder="例如：如果给所有销售人员开放 AI，团队总体结果如何？"></textarea></div>
+  <div><label for="requirement">补充要求（目标、结果、处理、网络、已确认的假设）</label><textarea id="requirement" placeholder="例如：固定处理前合作网络，调查是否为随机实验；哪类 A4 总体信息能够取得"></textarea></div></div>
+  <div class="twocol" style="margin-top:12px"><div><label for="businessfile">业务 / 要求文件（本地选择）</label><input id="businessfile" type="file" multiple accept=".txt,.md,.json,.csv,.pdf,.docx,.xlsx"/></div><div><label for="external-json">外部 Core 结果 / LLM 候选（仅供查看）</label><input id="external-json" type="file" accept=".json"/></div></div>
+  <div class="controls"><button class="primary" id="export-packet">导出待审核业务输入 JSON</button><button id="paste-selected">把选中样例填入业务框</button><button id="clear-input">清除输入</button></div>
+  <p id="file-status" class="small" role="status">尚未选择文件。</p>
+  <div class="warning">上传的 PDF/DOCX/XLSX 在此仅登记文件名，不进行文档解析。上传的文本/JSON 仅本地读取，未经业务与 A4/A5 科学审核；<strong>不会因为输入文件而得到 POINT</strong>。现有案例的 POINT 只对案例原有合成条件有效。</div>
+  <div id="imported-result" class="small" role="status" style="margin-top:10px"></div>
+</section>
+<section class="panel">
+  <h2>② 预置正式案例：真实 Core + 独立 replay</h2>
+  <p class="small">六种常用设置的 18 个 Formal-backed 案例，以及三节点 Golden 消融。点击下方卡片查看数学目标、A4/A5、公式、支持与诊断。</p>
+  <div class="controls"><input id="search" aria-label="搜索案例" placeholder="搜索业务、Design、Exposure、原因" style="flex:2 1 230px"><select id="filter" aria-label="筛选识别状态" style="flex:1 1 150px"><option value="">全部状态</option><option value="POINT">POINT</option><option value="NEEDS_INPUT">NEEDS_INPUT</option><option value="UNSUPPORTED">UNSUPPORTED</option></select><select id="group" aria-label="筛选案例类型" style="flex:1 1 140px"><option value="">全部类型</option><option value="GOLDEN">三节点消融</option><option value="business">六类业务</option></select></div>
+  <div class="twocol"><div><div class="cases" id="case-list" aria-label="案例列表"></div></div><div class="panel" style="margin-top:11px" id="case-detail"><p class="small">选择左侧案例查看结果。</p></div></div>
+</section>
+<section class="panel"><h2>③ PARTIAL：隔离研究示例</h2><p>Star7 固定三人处理、E1 严格多数；中心节点全员处理的签名零支持、叶节点可识别。额外接受结果位于 [0,1] 及均值签名充分性。</p><div id="partial-text"></div><div class="warning">这是带独立数学反例的 <strong>PARTIAL_RESEARCH_ONLY</strong>，不是通过正式 R4 验证器颁发的生产证书。不能写成已正式认证的 PARTIAL。</div></section>
+<section class="panel"><h2>④ 导师该看到的结论与下一步</h2>
+<p>每个正式 POINT 必须显示：<strong>业务目标、数学 Target、识别公式、选择的识别定理、已接受 A5、充分 A4、A6 支持以及证书 replay</strong>。无法 POINT 时，显示缺少的材料、适用域或零支持，并允许单独呈现“未经审核的 LLM 候选”（不可与正式结果混同）。</p>
+<p>当前设计 D1–D6、暴露 E1–E5、R1a/R1b/R2/R3 的数学范围没有在本轮扩大。交付源码中还保留 <code>assets/coverage_fixtures/CFM_ID_Coverage_Atlas.html</code> 覆盖地图，可与本展示结合使用。</p>
+</section>
+</main>
+<!-- EMBEDDED_CORE_DATA -->
+<script>
+'use strict';
+const d=JSON.parse(document.getElementById('certified-core-gallery').textContent);
+const byId=id=>document.getElementById(id);
+const cases=d.cases; let selected=cases[0]; let attachedFiles=[];
+const toText=x=>typeof x==='string'?x:JSON.stringify(x,null,2);
+function node(tag,text,cls){let n=document.createElement(tag);if(cls)n.className=cls;n.textContent=text??'';return n}
+function badge(status){return node('span',status,status==='POINT'?'pill point':status==='NEEDS_INPUT'?'pill needs':'pill unsupported')}
+for(let [id,key] of [['count-all','formal_case_count'],['count-point','POINT'],['count-needs','NEEDS_INPUT'],['count-unsupported','UNSUPPORTED']])byId(id).textContent=key==='formal_case_count'?d[key]:d.core_status_counts[key]||0;
+function renderList(){let q=byId('search').value.toLowerCase(),status=byId('filter').value,group=byId('group').value,ls=byId('case-list');ls.replaceChildren();let filtered=cases.filter(x=>
+(!status||x.identification.status===status)&&(!group||(group==='GOLDEN'?x.scenario_id==='GOLDEN':x.scenario_id!=='GOLDEN'))&&
+(x.business_question+' '+x.setting+' '+x.case_id+' '+(x.inputs.design||'')+' '+(x.inputs.exposure||'')+' '+(x.identification.reason_code||'')).toLowerCase().includes(q));
+for(let c of filtered){let b=node('button','','case');b.type='button';b.dataset.id=c.case_id;b.setAttribute('aria-current',String(selected?.case_id===c.case_id));b.append(badge(c.identification.status),node('strong',c.setting+' · '+c.case_id),node('small',c.business_question));b.addEventListener('click',()=>{selected=c;renderList();renderDetail()});ls.append(b)}
+if(!filtered.length)ls.append(node('p','没有符合条件的已验证合成案例。','small'))}
+function field(dl,key,value){dl.append(node('dt',key),node('dd',value==null?'—':toText(value)))}
+function renderDetail(){if(!selected)return;let x=selected,el=byId('case-detail');el.replaceChildren();let h=node('h3',x.setting+' · '+x.case_id);el.append(h,badge(x.identification.status),node('p',x.business_question));let dl=node('dl');field(dl,'Design / Exposure', (x.inputs.design||'—')+' / '+(x.inputs.exposure||'—'));field(dl,'数学路线',x.identification.theorem_route);field(dl,'A4 总体信息',x.inputs.a4);field(dl,'A5 科学许可',x.inputs.a5);field(dl,'A6 正支持',x.identification.support);field(dl,'原始拒绝原因',x.identification.reason_code);field(dl,'独立 Replay',x.proof.replay_verified?'CORE_REPLAY_VERIFIED':'NOT_CERTIFIED');field(dl,'证书摘要',x.proof.certificate_sha256);el.append(dl);
+if(x.identification.formula){el.append(node('h3','识别公式（来自 Core）'),node('pre',x.identification.formula))}
+if(x.identification.target){el.append(node('h3','目标身份（Core 返回）'),node('pre',toText(x.identification.target)))}
+el.append(node('p',x.next_step));el.append(node('p',x.warning,'small'))}
+['search','filter','group'].forEach(k=>byId(k).addEventListener('input',renderList));renderList();renderDetail();
+let part=d.research_partial;let p=byId('partial-text');p.append(badge('PARTIAL_RESEARCH_ONLY'),node('p','形式区间：'+part.identification.formula),node('p','仅示意六个叶节点 μ=1/2 时：['+part.identification.illustrative_interval.join(', ')+']；区间宽度 '+part.identification.sharp_width),node('p','正式 R4 replay：没有（RESEARCH_WITNESSES_ONLY）','small'));
+byId('paste-selected').addEventListener('click',()=>{if(selected)byId('business').value=selected.business_question;byId('requirement').focus()});
+byId('clear-input').addEventListener('click',()=>{byId('business').value='';byId('requirement').value='';byId('businessfile').value='';byId('external-json').value='';attachedFiles=[];byId('file-status').textContent='尚未选择文件。';byId('imported-result').textContent=''});
+byId('businessfile').addEventListener('change',async e=>{attachedFiles=[];for(let file of e.target.files){let item={filename:file.name,size_bytes:file.size,content_status:'BINARY_NOT_PARSED_A0_REQUIRED'};if(/\.(txt|md|csv|json)$/i.test(file.name)&&file.size<1024*1024){item.content_status='TEXT_ATTACHED_UNREVIEWED';item.content_preview=(await file.text()).slice(0,12000)}attachedFiles.push(item)}byId('file-status').textContent=attachedFiles.map(x=>x.filename+' · '+x.content_status).join('\n')||'尚未选择文件。'});
+byId('external-json').addEventListener('change',async e=>{let file=e.target.files[0];if(!file)return;try{let obj=JSON.parse(await file.text());byId('imported-result').textContent='外部结果已载入（未在浏览器执行 Core / replay）：'+(obj.schema_version||'未指定 schema')+'；原文件声明的状态仅作为未经验证的数据查看。\n'+toText(obj).slice(0,1600)}catch(err){byId('imported-result').textContent='无法解析外部 JSON，未产生识别结论。'}});
+byId('export-packet').addEventListener('click',()=>{let business=byId('business').value.trim();if(!business){byId('file-status').textContent='请先输入业务问题。';return}let packet={schema_version:'cfm-id-unreviewed-business-input-v1',status:'UNREVIEWED_INPUT_NO_IDENTIFICATION',business_question:business,requirements:byId('requirement').value,attachments:attachedFiles,disclaimer:'A0 review and A4/A5 science approval required. No Core theorem was executed. No POINT/PARTIAL/NON-ID certificate.'};let blob=new Blob([JSON.stringify(packet,null,2)],{type:'application/json'});let u=URL.createObjectURL(blob);let a=document.createElement('a');a.href=u;a.download='cfm_id_business_unreviewed.json';a.click();URL.revokeObjectURL(u)});
+</script></body></html>

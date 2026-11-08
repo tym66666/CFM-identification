@@ -1,0 +1,4281 @@
+{
+  "candidate_demo": {
+    "candidate_statuses": [
+      "BLOCKED",
+      "UNDETERMINED_UNVERIFIED"
+    ],
+    "core_off_support": {
+      "q1": {
+        "fallback": "NOT_NEEDED",
+        "reason_code": null,
+        "route": "R1A_RANDOMIZED_ARM",
+        "status": "POINT",
+        "verification_level": "CORE_REPLAY_VERIFIED"
+      },
+      "q2": {
+        "fallback": "ELIGIBLE_NOT_EXECUTED",
+        "reason_code": "OFF_SUPPORT_ALTERNATE_THEOREM",
+        "route": null,
+        "status": "UNSUPPORTED",
+        "verification_level": "NOT_PERFORMED"
+      }
+    },
+    "core_supported": {
+      "q1": {
+        "fallback": "NOT_NEEDED",
+        "reason_code": null,
+        "route": "R1A_RANDOMIZED_ARM",
+        "status": "POINT",
+        "verification_level": "CORE_REPLAY_VERIFIED"
+      },
+      "q2": {
+        "fallback": "NOT_NEEDED",
+        "reason_code": null,
+        "route": "R1B_FULL_ASSIGNMENT",
+        "status": "POINT",
+        "verification_level": "CORE_REPLAY_VERIFIED"
+      }
+    },
+    "off_support_model_calls": 1,
+    "online_llm_called": false,
+    "source": "REAL_CORE_GATE__MOCK_LLM_CANDIDATE",
+    "supported_model_calls": 0
+  },
+  "core_cases": [
+    {
+      "business_question": "一名用户获得新推荐功能、且至少一位关联用户获得该功能时的设计标准化平均结果",
+      "business_semantics_independently_certified": false,
+      "case_id": "S1-point",
+      "category": "FORMAL_POINT",
+      "identification": {
+        "attempted_routes": [],
+        "formula": "mu_i^q(a,s|W)=E_exp[Y_i^obs|W,T_i=a,S_i=s]",
+        "reason_code": null,
+        "status": "POINT",
+        "support": "3/8",
+        "target": {
+          "assignment_kind": "heterogeneous_bernoulli",
+          "exposure_value": 1,
+          "functional": "mu_i^q(a,s|W)=E_exp[Y_i^obs|W,T_i=a,S_i=s]",
+          "group_node_ids": null,
+          "group_treated_quotas": null,
+          "grouping": "S_i=1{K_i>0};any treated one-hop neighbor",
+          "kind": "randomized_network_design_standardized_arm_mean",
+          "network_fingerprint": "1897b9d7731caf744c1a08362a1d03f1f02047baba264e239fcdc97509831090",
+          "node_id": "a",
+          "outcome": "outcome",
+          "own_treatment_value": 1,
+          "propensities": {
+            "a": "1/2",
+            "b": "1/2",
+            "c": "1/2",
+            "d": "1/2",
+            "e": "1/2",
+            "f": "1/2"
+          },
+          "semantics": "design_standardized_conditional_arm_mean_not_fixed_assignment",
+          "target_fingerprint": "9e5e4448cbe18a145caf24f9660b9c6cab994de8268a9b6f44e114837d568ca4",
+          "treated_quota": null,
+          "treatment": "treatment"
+        },
+        "theorem_route": "R1A_RANDOMIZED_ARM"
+      },
+      "inputs": {
+        "a4": "研究人员额外声明的合成 typed 总体算子；未从有限样本推定",
+        "a5": "随机实验：已知分配律、full-vector randomization、consistency、固定处理前网络；D6 另需第一阶段排除限制",
+        "design": "D1",
+        "exposure": "E5",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "当前为符号总体 POINT；有限样本数值估计不属于本模块。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "original_expected_status": "POINT",
+      "proof": {
+        "certificate_sha256": "7a45fe8aac98db79e6f0a2d9c2581460b65e1a3529eb078604fd13b85f3651be",
+        "level": "CORE_REPLAY_VERIFIED",
+        "replay_verified": true
+      },
+      "scenario_id": "S1",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "在线账号独立 A/B 实验",
+      "source_case_explanation": "eligible randomized exposure arm",
+      "variant": "point",
+      "warning": "合成科学条件下的符号总体识别；不表示现实假设已得到证明。"
+    },
+    {
+      "business_question": "一名用户获得新推荐功能、且至少一位关联用户获得该功能时的设计标准化平均结果",
+      "business_semantics_independently_certified": false,
+      "case_id": "S1-a4_missing",
+      "category": "NEEDS_INPUT",
+      "identification": {
+        "attempted_routes": [
+          {
+            "result": "INTERFERENCE_STRUCTURE_UNRESOLVED",
+            "route": "R1A_RANDOMIZED_ARM"
+          }
+        ],
+        "formula": null,
+        "reason_code": "INTERFERENCE_STRUCTURE_UNRESOLVED",
+        "status": "NEEDS_INPUT",
+        "support": null,
+        "target": null,
+        "theorem_route": null
+      },
+      "inputs": {
+        "a4": "研究人员额外声明的合成 typed 总体算子；未从有限样本推定",
+        "a5": "随机实验：已知分配律、full-vector randomization、consistency、固定处理前网络；D6 另需第一阶段排除限制",
+        "design": "D1",
+        "exposure": "E5",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "当前路由未能完成认证；检查定理适用域、A4/A5/A6 或寻求独立数学研究。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "original_expected_status": "NEEDS_INPUT",
+      "proof": {
+        "certificate_sha256": null,
+        "level": "NOT_CERTIFIED",
+        "replay_verified": false
+      },
+      "scenario_id": "S1",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "在线账号独立 A/B 实验",
+      "source_case_explanation": "unadmitted population information",
+      "variant": "a4_missing",
+      "warning": "软件未认证 POINT；不等于已证明不可识别。"
+    },
+    {
+      "business_question": "在线独立 A/B 下，用户 a 使用新功能且恰有一名关联用户使用时的设计标准化平均结果",
+      "business_semantics_independently_certified": false,
+      "case_id": "S1-point_e4",
+      "category": "FORMAL_POINT",
+      "identification": {
+        "attempted_routes": [],
+        "formula": "mu_i^q(a,s|W)=E_exp[Y_i^obs|W,T_i=a,S_i=s]",
+        "reason_code": null,
+        "status": "POINT",
+        "support": "3/8",
+        "target": {
+          "assignment_kind": "heterogeneous_bernoulli",
+          "exposure_value": 1,
+          "functional": "mu_i^q(a,s|W)=E_exp[Y_i^obs|W,T_i=a,S_i=s]",
+          "group_node_ids": null,
+          "group_treated_quotas": null,
+          "grouping": "S_i=1{K_i>0};any treated one-hop neighbor",
+          "kind": "randomized_network_design_standardized_arm_mean",
+          "network_fingerprint": "1897b9d7731caf744c1a08362a1d03f1f02047baba264e239fcdc97509831090",
+          "node_id": "a",
+          "outcome": "outcome",
+          "own_treatment_value": 1,
+          "propensities": {
+            "a": "1/2",
+            "b": "1/2",
+            "c": "1/2",
+            "d": "1/2",
+            "e": "1/2",
+            "f": "1/2"
+          },
+          "semantics": "design_standardized_conditional_arm_mean_not_fixed_assignment",
+          "target_fingerprint": "9e5e4448cbe18a145caf24f9660b9c6cab994de8268a9b6f44e114837d568ca4",
+          "treated_quota": null,
+          "treatment": "treatment"
+        },
+        "theorem_route": "R1A_RANDOMIZED_ARM"
+      },
+      "inputs": {
+        "a4": "研究人员额外声明的合成 typed 总体算子；未从有限样本推定",
+        "a5": "随机实验：已知分配律、full-vector randomization、consistency、固定处理前网络；D6 另需第一阶段排除限制",
+        "design": "D1",
+        "exposure": "E4",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "当前为符号总体 POINT；有限样本数值估计不属于本模块。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "original_expected_status": "POINT",
+      "proof": {
+        "certificate_sha256": "7a45fe8aac98db79e6f0a2d9c2581460b65e1a3529eb078604fd13b85f3651be",
+        "level": "CORE_REPLAY_VERIFIED",
+        "replay_verified": true
+      },
+      "scenario_id": "S1",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "在线账号独立 A/B 实验",
+      "source_case_explanation": "same D1 design but a DISTINCT E4 exact-count arm target",
+      "variant": "point_e4",
+      "warning": "合成科学条件下的符号总体识别；不表示现实假设已得到证明。"
+    },
+    {
+      "business_question": "只允许三名员工试用 AI，员工 a 获得试用且恰好两名同事试用时的平均结果",
+      "business_semantics_independently_certified": false,
+      "case_id": "S2-point",
+      "category": "FORMAL_POINT",
+      "identification": {
+        "attempted_routes": [],
+        "formula": "mu_i^q(a,s|W)=E_exp[Y_i^obs|W,T_i=a,S_i=s]",
+        "reason_code": null,
+        "status": "POINT",
+        "support": "1/2",
+        "target": {
+          "assignment_kind": "complete_randomization",
+          "exposure_value": 2,
+          "functional": "mu_i^q(a,s|W)=E_exp[Y_i^obs|W,T_i=a,S_i=s]",
+          "group_node_ids": null,
+          "group_treated_quotas": null,
+          "grouping": "S_i=K_i;exact treated one-hop neighbor count",
+          "kind": "randomized_network_design_standardized_arm_mean",
+          "network_fingerprint": "48ede48456b6bd32377c3dbf3867c2f08b676a058524d400f0c8cf0f54a4dd85",
+          "node_id": "a",
+          "outcome": "outcome",
+          "own_treatment_value": 1,
+          "semantics": "design_standardized_conditional_arm_mean_not_fixed_assignment",
+          "target_fingerprint": "3b7e3d39868062432cf25ff68c021ffc961485a70372ec9f35c95730c7894da8",
+          "treated_quota": 3,
+          "treatment": "treatment"
+        },
+        "theorem_route": "R1A_RANDOMIZED_ARM"
+      },
+      "inputs": {
+        "a4": "研究人员额外声明的合成 typed 总体算子；未从有限样本推定",
+        "a5": "随机实验：已知分配律、full-vector randomization、consistency、固定处理前网络；D6 另需第一阶段排除限制",
+        "design": "D2",
+        "exposure": "E4",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "当前为符号总体 POINT；有限样本数值估计不属于本模块。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "original_expected_status": "POINT",
+      "proof": {
+        "certificate_sha256": "0dee164e6d54ce1f759d7f73c5095e06112ce3fed15cbcbe86bc0a9856fe8ae8",
+        "level": "CORE_REPLAY_VERIFIED",
+        "replay_verified": true
+      },
+      "scenario_id": "S2",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "固定总名额试用实验",
+      "source_case_explanation": "fixed-quota exposure supported",
+      "variant": "point",
+      "warning": "合成科学条件下的符号总体识别；不表示现实假设已得到证明。"
+    },
+    {
+      "business_question": "固定三名员工试用 AI 时，星型中心 a 自己试用且五位邻居中恰有三位试用的均值是否可识别？",
+      "business_semantics_independently_certified": false,
+      "case_id": "S2-zero_support",
+      "category": "UNSUPPORTED",
+      "identification": {
+        "attempted_routes": [
+          {
+            "result": "ZERO_ARM_SUPPORT",
+            "route": "R1A_RANDOMIZED_ARM"
+          }
+        ],
+        "formula": null,
+        "reason_code": "ZERO_ARM_SUPPORT",
+        "status": "UNSUPPORTED",
+        "support": null,
+        "target": null,
+        "theorem_route": null
+      },
+      "inputs": {
+        "a4": "研究人员额外声明的合成 typed 总体算子；未从有限样本推定",
+        "a5": "随机实验：已知分配律、full-vector randomization、consistency、固定处理前网络；D6 另需第一阶段排除限制",
+        "design": "D2",
+        "exposure": "E4",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "检查目标 arm / 完整分配 / 局部签名的精确支持；必要时重新设计未来实验或调整合法目标。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "original_expected_status": "UNSUPPORTED",
+      "proof": {
+        "certificate_sha256": null,
+        "level": "NOT_CERTIFIED",
+        "replay_verified": false
+      },
+      "scenario_id": "S2",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "固定总名额试用实验",
+      "source_case_explanation": "with m=3, a treated hub cannot have 3 treated neighbors",
+      "variant": "zero_support",
+      "warning": "软件未认证 POINT；不等于已证明不可识别。"
+    },
+    {
+      "business_question": "只允许三名员工试用 AI，员工 a 获得试用且恰好两名同事试用时的平均结果",
+      "business_semantics_independently_certified": false,
+      "case_id": "S2-a4_missing",
+      "category": "NEEDS_INPUT",
+      "identification": {
+        "attempted_routes": [
+          {
+            "result": "INTERFERENCE_STRUCTURE_UNRESOLVED",
+            "route": "R1A_RANDOMIZED_ARM"
+          }
+        ],
+        "formula": null,
+        "reason_code": "INTERFERENCE_STRUCTURE_UNRESOLVED",
+        "status": "NEEDS_INPUT",
+        "support": null,
+        "target": null,
+        "theorem_route": null
+      },
+      "inputs": {
+        "a4": "研究人员额外声明的合成 typed 总体算子；未从有限样本推定",
+        "a5": "随机实验：已知分配律、full-vector randomization、consistency、固定处理前网络；D6 另需第一阶段排除限制",
+        "design": "D2",
+        "exposure": "E4",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "当前路由未能完成认证；检查定理适用域、A4/A5/A6 或寻求独立数学研究。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "original_expected_status": "NEEDS_INPUT",
+      "proof": {
+        "certificate_sha256": null,
+        "level": "NOT_CERTIFIED",
+        "replay_verified": false
+      },
+      "scenario_id": "S2",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "固定总名额试用实验",
+      "source_case_explanation": "A4 not admitted",
+      "variant": "a4_missing",
+      "warning": "软件未认证 POINT；不等于已证明不可识别。"
+    },
+    {
+      "business_question": "整个团队随机启用新工具，员工 a 使用且有同伴使用时的设计标准化平均结果",
+      "business_semantics_independently_certified": false,
+      "case_id": "S3-point",
+      "category": "FORMAL_POINT",
+      "identification": {
+        "attempted_routes": [],
+        "formula": "mu_i^q(a,s|W)=E_exp[Y_i^obs|W,T_i=a,S_i=s]",
+        "reason_code": null,
+        "status": "POINT",
+        "support": "1/2",
+        "target": {
+          "assignment_kind": "cluster_bernoulli",
+          "cluster_node_ids": [
+            [
+              "a",
+              "b"
+            ],
+            [
+              "c",
+              "d"
+            ],
+            [
+              "e",
+              "f"
+            ]
+          ],
+          "cluster_probabilities": [
+            "1/2",
+            "1/2",
+            "1/2"
+          ],
+          "exposure_value": 1,
+          "functional": "mu_i^q(a,s|W)=E_exp[Y_i^obs|W,T_i=a,S_i=s]",
+          "group_node_ids": null,
+          "group_treated_quotas": null,
+          "grouping": "S_i=1{K_i>0};any treated one-hop neighbor",
+          "kind": "randomized_network_design_standardized_arm_mean",
+          "network_fingerprint": "1897b9d7731caf744c1a08362a1d03f1f02047baba264e239fcdc97509831090",
+          "node_id": "a",
+          "outcome": "outcome",
+          "own_treatment_value": 1,
+          "semantics": "design_standardized_conditional_arm_mean_not_fixed_assignment",
+          "target_fingerprint": "93c69e55836bab4271cfecb20b989b6c53c1830cfd3a3afe26e259da7851df9b",
+          "treated_quota": null,
+          "treatment": "treatment"
+        },
+        "theorem_route": "R1A_RANDOMIZED_ARM"
+      },
+      "inputs": {
+        "a4": "研究人员额外声明的合成 typed 总体算子；未从有限样本推定",
+        "a5": "随机实验：已知分配律、full-vector randomization、consistency、固定处理前网络；D6 另需第一阶段排除限制",
+        "design": "D4",
+        "exposure": "E5",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "当前为符号总体 POINT；有限样本数值估计不属于本模块。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "original_expected_status": "POINT",
+      "proof": {
+        "certificate_sha256": "9a870634cf1e585171f60652716c2650740505fc7affb470e58acacf9b48001f",
+        "level": "CORE_REPLAY_VERIFIED",
+        "replay_verified": true
+      },
+      "scenario_id": "S3",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "门店／班级整簇随机",
+      "source_case_explanation": "cluster randomization: treated with treated co-cluster peer",
+      "variant": "point",
+      "warning": "合成科学条件下的符号总体识别；不表示现实假设已得到证明。"
+    },
+    {
+      "business_question": "整个团队随机启用新工具，员工 a 使用且有同伴使用时的设计标准化平均结果",
+      "business_semantics_independently_certified": false,
+      "case_id": "S3-zero_support",
+      "category": "UNSUPPORTED",
+      "identification": {
+        "attempted_routes": [
+          {
+            "result": "ZERO_ARM_SUPPORT",
+            "route": "R1A_RANDOMIZED_ARM"
+          }
+        ],
+        "formula": null,
+        "reason_code": "ZERO_ARM_SUPPORT",
+        "status": "UNSUPPORTED",
+        "support": null,
+        "target": null,
+        "theorem_route": null
+      },
+      "inputs": {
+        "a4": "研究人员额外声明的合成 typed 总体算子；未从有限样本推定",
+        "a5": "随机实验：已知分配律、full-vector randomization、consistency、固定处理前网络；D6 另需第一阶段排除限制",
+        "design": "D4",
+        "exposure": "E5",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "检查目标 arm / 完整分配 / 局部签名的精确支持；必要时重新设计未来实验或调整合法目标。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "original_expected_status": "UNSUPPORTED",
+      "proof": {
+        "certificate_sha256": null,
+        "level": "NOT_CERTIFIED",
+        "replay_verified": false
+      },
+      "scenario_id": "S3",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "门店／班级整簇随机",
+      "source_case_explanation": "a treated node always has treated co-cluster peer",
+      "variant": "zero_support",
+      "warning": "软件未认证 POINT；不等于已证明不可识别。"
+    },
+    {
+      "business_question": "整个团队随机启用新工具，员工 a 使用且有同伴使用时的设计标准化平均结果",
+      "business_semantics_independently_certified": false,
+      "case_id": "S3-a4_missing",
+      "category": "NEEDS_INPUT",
+      "identification": {
+        "attempted_routes": [
+          {
+            "result": "INTERFERENCE_STRUCTURE_UNRESOLVED",
+            "route": "R1A_RANDOMIZED_ARM"
+          }
+        ],
+        "formula": null,
+        "reason_code": "INTERFERENCE_STRUCTURE_UNRESOLVED",
+        "status": "NEEDS_INPUT",
+        "support": null,
+        "target": null,
+        "theorem_route": null
+      },
+      "inputs": {
+        "a4": "研究人员额外声明的合成 typed 总体算子；未从有限样本推定",
+        "a5": "随机实验：已知分配律、full-vector randomization、consistency、固定处理前网络；D6 另需第一阶段排除限制",
+        "design": "D4",
+        "exposure": "E5",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "当前路由未能完成认证；检查定理适用域、A4/A5/A6 或寻求独立数学研究。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "original_expected_status": "NEEDS_INPUT",
+      "proof": {
+        "certificate_sha256": null,
+        "level": "NOT_CERTIFIED",
+        "replay_verified": false
+      },
+      "scenario_id": "S3",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "门店／班级整簇随机",
+      "source_case_explanation": "A4 not admitted",
+      "variant": "a4_missing",
+      "warning": "软件未认证 POINT；不等于已证明不可识别。"
+    },
+    {
+      "business_question": "三个部门分别固定一个试用名额，员工 a 试用且一名同事试用时的平均结果",
+      "business_semantics_independently_certified": false,
+      "case_id": "S4-point",
+      "category": "FORMAL_POINT",
+      "identification": {
+        "attempted_routes": [],
+        "formula": "mu_i^q(a,s|W)=E_exp[Y_i^obs|W,T_i=a,S_i=s]",
+        "reason_code": null,
+        "status": "POINT",
+        "support": "1/4",
+        "target": {
+          "assignment_kind": "multi_group_fixed_quotas",
+          "exposure_value": 1,
+          "functional": "mu_i^q(a,s|W)=E_exp[Y_i^obs|W,T_i=a,S_i=s]",
+          "group_node_ids": null,
+          "group_treated_quotas": null,
+          "grouping": "S_i=K_i;exact treated one-hop neighbor count",
+          "kind": "randomized_network_design_standardized_arm_mean",
+          "multi_group_node_ids": [
+            [
+              "a",
+              "b"
+            ],
+            [
+              "c",
+              "d"
+            ],
+            [
+              "e",
+              "f"
+            ]
+          ],
+          "multi_group_treated_quotas": [
+            1,
+            1,
+            1
+          ],
+          "network_fingerprint": "1897b9d7731caf744c1a08362a1d03f1f02047baba264e239fcdc97509831090",
+          "node_id": "a",
+          "outcome": "outcome",
+          "own_treatment_value": 1,
+          "semantics": "design_standardized_conditional_arm_mean_not_fixed_assignment",
+          "target_fingerprint": "4b5f0543596a5ca975d701b4c57a3b98ed9013b73bdf03ad3f290bb584a5bbbd",
+          "treated_quota": null,
+          "treatment": "treatment"
+        },
+        "theorem_route": "R1A_RANDOMIZED_ARM"
+      },
+      "inputs": {
+        "a4": "研究人员额外声明的合成 typed 总体算子；未从有限样本推定",
+        "a5": "随机实验：已知分配律、full-vector randomization、consistency、固定处理前网络；D6 另需第一阶段排除限制",
+        "design": "D5",
+        "exposure": "E4",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "当前为符号总体 POINT；有限样本数值估计不属于本模块。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "original_expected_status": "POINT",
+      "proof": {
+        "certificate_sha256": "b178e85f66710b21b39a09c9b25ae69d3739ccc380ba7d64f2acc29029c0ae79",
+        "level": "CORE_REPLAY_VERIFIED",
+        "replay_verified": true
+      },
+      "scenario_id": "S4",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "多部门固定配额",
+      "source_case_explanation": "3 groups, each 1 treated; cross-group peer possible",
+      "variant": "point",
+      "warning": "合成科学条件下的符号总体识别；不表示现实假设已得到证明。"
+    },
+    {
+      "business_question": "三个部门分别固定一个试用名额，员工 a 试用且一名同事试用时的平均结果",
+      "business_semantics_independently_certified": false,
+      "case_id": "S4-zero_support",
+      "category": "UNSUPPORTED",
+      "identification": {
+        "attempted_routes": [
+          {
+            "result": "ZERO_ARM_SUPPORT",
+            "route": "R1A_RANDOMIZED_ARM"
+          }
+        ],
+        "formula": null,
+        "reason_code": "ZERO_ARM_SUPPORT",
+        "status": "UNSUPPORTED",
+        "support": null,
+        "target": null,
+        "theorem_route": null
+      },
+      "inputs": {
+        "a4": "研究人员额外声明的合成 typed 总体算子；未从有限样本推定",
+        "a5": "随机实验：已知分配律、full-vector randomization、consistency、固定处理前网络；D6 另需第一阶段排除限制",
+        "design": "D5",
+        "exposure": "E4",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "检查目标 arm / 完整分配 / 局部签名的精确支持；必要时重新设计未来实验或调整合法目标。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "original_expected_status": "UNSUPPORTED",
+      "proof": {
+        "certificate_sha256": null,
+        "level": "NOT_CERTIFIED",
+        "replay_verified": false
+      },
+      "scenario_id": "S4",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "多部门固定配额",
+      "source_case_explanation": "a has own treatment and no spare treatment for peer b",
+      "variant": "zero_support",
+      "warning": "软件未认证 POINT；不等于已证明不可识别。"
+    },
+    {
+      "business_question": "三个部门分别固定一个试用名额，员工 a 试用且一名同事试用时的平均结果",
+      "business_semantics_independently_certified": false,
+      "case_id": "S4-a4_missing",
+      "category": "NEEDS_INPUT",
+      "identification": {
+        "attempted_routes": [
+          {
+            "result": "INTERFERENCE_STRUCTURE_UNRESOLVED",
+            "route": "R1A_RANDOMIZED_ARM"
+          }
+        ],
+        "formula": null,
+        "reason_code": "INTERFERENCE_STRUCTURE_UNRESOLVED",
+        "status": "NEEDS_INPUT",
+        "support": null,
+        "target": null,
+        "theorem_route": null
+      },
+      "inputs": {
+        "a4": "研究人员额外声明的合成 typed 总体算子；未从有限样本推定",
+        "a5": "随机实验：已知分配律、full-vector randomization、consistency、固定处理前网络；D6 另需第一阶段排除限制",
+        "design": "D5",
+        "exposure": "E4",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "当前路由未能完成认证；检查定理适用域、A4/A5/A6 或寻求独立数学研究。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "original_expected_status": "NEEDS_INPUT",
+      "proof": {
+        "certificate_sha256": null,
+        "level": "NOT_CERTIFIED",
+        "replay_verified": false
+      },
+      "scenario_id": "S4",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "多部门固定配额",
+      "source_case_explanation": "A4 not admitted",
+      "variant": "a4_missing",
+      "warning": "软件未认证 POINT；不等于已证明不可识别。"
+    },
+    {
+      "business_question": "先抽各组试用比例，再组内抽人；员工 a 自己试用且至少一个邻居试用的平均结果",
+      "business_semantics_independently_certified": false,
+      "case_id": "S5-point",
+      "category": "FORMAL_POINT",
+      "identification": {
+        "attempted_routes": [],
+        "formula": "mu_i^q(a,s|W)=E_exp[Y_i^obs|W,T_i=a,S_i=s]",
+        "reason_code": null,
+        "status": "POINT",
+        "support": "5/8",
+        "target": {
+          "assignment_kind": "two_stage_quota_mixture",
+          "exposure_value": 1,
+          "functional": "mu_i^q(a,s|W)=E_exp[Y_i^obs|W,T_i=a,S_i=s]",
+          "group_node_ids": null,
+          "group_treated_quotas": null,
+          "grouping": "S_i=1{K_i>0};any treated one-hop neighbor",
+          "kind": "randomized_network_design_standardized_arm_mean",
+          "network_fingerprint": "1897b9d7731caf744c1a08362a1d03f1f02047baba264e239fcdc97509831090",
+          "node_id": "a",
+          "outcome": "outcome",
+          "own_treatment_value": 1,
+          "semantics": "design_standardized_conditional_arm_mean_not_fixed_assignment",
+          "target_fingerprint": "4043f762baadc73de14bac7a6ad60fc41a5ac5aad5a5df4d20851d4801713a36",
+          "treated_quota": null,
+          "treatment": "treatment",
+          "two_stage_group_node_ids": [
+            [
+              "a",
+              "b"
+            ],
+            [
+              "c",
+              "d"
+            ],
+            [
+              "e",
+              "f"
+            ]
+          ],
+          "two_stage_profile_probabilities": [
+            "1/2",
+            "1/2"
+          ],
+          "two_stage_quota_profiles": [
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              2,
+              1,
+              0
+            ]
+          ]
+        },
+        "theorem_route": "R1A_RANDOMIZED_ARM"
+      },
+      "inputs": {
+        "a4": "研究人员额外声明的合成 typed 总体算子；未从有限样本推定",
+        "a5": "随机实验：已知分配律、full-vector randomization、consistency、固定处理前网络；D6 另需第一阶段排除限制",
+        "design": "D6",
+        "exposure": "E5",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "当前为符号总体 POINT；有限样本数值估计不属于本模块。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "original_expected_status": "POINT",
+      "proof": {
+        "certificate_sha256": "ecc09fbae7d501ac0cd3d0a93d008126f5d513f22c19cfeadcb17de8aee776be",
+        "level": "CORE_REPLAY_VERIFIED",
+        "replay_verified": true
+      },
+      "scenario_id": "S5",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "两阶段随机饱和度",
+      "source_case_explanation": "D6 quota-profile mixture, exclusion accepted",
+      "variant": "point",
+      "warning": "合成科学条件下的符号总体识别；不表示现实假设已得到证明。"
+    },
+    {
+      "business_question": "先抽各组试用比例，再组内抽人；员工 a 自己试用且至少一个邻居试用的平均结果",
+      "business_semantics_independently_certified": false,
+      "case_id": "S5-a5_missing",
+      "category": "NEEDS_INPUT",
+      "identification": {
+        "attempted_routes": [
+          {
+            "result": "D6_FIRST_STAGE_PROFILE_EXCLUSION_NOT_ADMITTED",
+            "route": "R1A_RANDOMIZED_ARM"
+          }
+        ],
+        "formula": null,
+        "reason_code": "D6_FIRST_STAGE_PROFILE_EXCLUSION_NOT_ADMITTED",
+        "status": "NEEDS_INPUT",
+        "support": null,
+        "target": null,
+        "theorem_route": null
+      },
+      "inputs": {
+        "a4": "研究人员额外声明的合成 typed 总体算子；未从有限样本推定",
+        "a5": "随机实验：已知分配律、full-vector randomization、consistency、固定处理前网络；D6 另需第一阶段排除限制",
+        "design": "D6",
+        "exposure": "E5",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "请审阅并明确接受所需因果假设；不得由模型自动批准。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "original_expected_status": "NEEDS_INPUT",
+      "proof": {
+        "certificate_sha256": null,
+        "level": "NOT_CERTIFIED",
+        "replay_verified": false
+      },
+      "scenario_id": "S5",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "两阶段随机饱和度",
+      "source_case_explanation": "stage-one direct effect not excluded",
+      "variant": "a5_missing",
+      "warning": "软件未认证 POINT；不等于已证明不可识别。"
+    },
+    {
+      "business_question": "先抽各组试用比例，再组内抽人；员工 a 自己试用且至少一个邻居试用的平均结果",
+      "business_semantics_independently_certified": false,
+      "case_id": "S5-zero_support",
+      "category": "UNSUPPORTED",
+      "identification": {
+        "attempted_routes": [
+          {
+            "result": "ZERO_ARM_SUPPORT",
+            "route": "R1A_RANDOMIZED_ARM"
+          }
+        ],
+        "formula": null,
+        "reason_code": "ZERO_ARM_SUPPORT",
+        "status": "UNSUPPORTED",
+        "support": null,
+        "target": null,
+        "theorem_route": null
+      },
+      "inputs": {
+        "a4": "研究人员额外声明的合成 typed 总体算子；未从有限样本推定",
+        "a5": "随机实验：已知分配律、full-vector randomization、consistency、固定处理前网络；D6 另需第一阶段排除限制",
+        "design": "D6",
+        "exposure": "E5",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "检查目标 arm / 完整分配 / 局部签名的精确支持；必要时重新设计未来实验或调整合法目标。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "original_expected_status": "UNSUPPORTED",
+      "proof": {
+        "certificate_sha256": null,
+        "level": "NOT_CERTIFIED",
+        "replay_verified": false
+      },
+      "scenario_id": "S5",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "两阶段随机饱和度",
+      "source_case_explanation": "under all profiles two treated neighbors impossible",
+      "variant": "zero_support",
+      "warning": "软件未认证 POINT；不等于已证明不可识别。"
+    },
+    {
+      "business_question": "员工自愿使用 AI，并基于本人及邻居的处理前协变量调整同伴 AI 溢出效应",
+      "business_semantics_independently_certified": false,
+      "case_id": "S6-point",
+      "category": "FORMAL_POINT",
+      "identification": {
+        "attempted_routes": [],
+        "formula": "(-1) * ((3/5) * E[Y_n2^obs | T_n2=1,S_n2^g=0,employee_pre_AI_skill_n2=0,neighbor_positive_employee_pre_AI_skill_count=2,W=w0] + (2/5) * E[Y_n2^obs | T_n2=1,S_n2^g=0,employee_pre_AI_skill_n2=1,neighbor_positive_employee_pre_AI_skill_count=2,W=w0]) + (1) * ((3/5) * E[Y_n2^obs | T_n2=1,S_n2^g=1,employee_pre_AI_skill_n2=0,neighbor_positive_employee_pre_AI_skill_count=2,W=w0] + (2/5) * E[Y_n2^obs | T_n2=1,S_n2^g=1,employee_pre_AI_skill_n2=1,neighbor_positive_employee_pre_AI_skill_count=2,W=w0])",
+        "reason_code": null,
+        "status": "POINT",
+        "support": [
+          [
+            {
+              "exposure": 0,
+              "local_strata": [
+                {
+                  "arm_support": "2443/7776",
+                  "neighbor_covariate_count": 2,
+                  "own_pretreatment_covariate": 0,
+                  "population_mass": "3/5"
+                },
+                {
+                  "arm_support": "31/96",
+                  "neighbor_covariate_count": 2,
+                  "own_pretreatment_covariate": 1,
+                  "population_mass": "2/5"
+                }
+              ],
+              "node": "n2",
+              "own_treatment": 1
+            },
+            {
+              "exposure": 1,
+              "local_strata": [
+                {
+                  "arm_support": "2885/7776",
+                  "neighbor_covariate_count": 2,
+                  "own_pretreatment_covariate": 0,
+                  "population_mass": "3/5"
+                },
+                {
+                  "arm_support": "11/32",
+                  "neighbor_covariate_count": 2,
+                  "own_pretreatment_covariate": 1,
+                  "population_mass": "2/5"
+                }
+              ],
+              "node": "n2",
+              "own_treatment": 1
+            }
+          ]
+        ],
+        "target": "NODEWISE_LOCAL_COVARIATE_ADJUSTED_EXPOSURE_POTENTIAL_OUTCOME",
+        "theorem_route": "R3_NODEWISE_EXPOSURE_ADJUSTED_EFFECTS"
+      },
+      "inputs": {
+        "a4": "研究人员额外声明的合成 typed 总体算子；未从有限样本推定",
+        "a5": "观测研究：明确接受的 exposure sufficient potential outcomes 与局部条件均值交换性",
+        "design": "OBS",
+        "exposure": "E5",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "当前为符号总体 POINT；有限样本数值估计不属于本模块。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "original_expected_status": "POINT",
+      "proof": {
+        "certificate_sha256": "54ab53a3f8575f2d757af67dd8ec30b78a43a7c37eea9f2c549319e672d132cf",
+        "level": "CORE_REPLAY_VERIFIED",
+        "replay_verified": true
+      },
+      "scenario_id": "S6",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "员工自选择 AI 使用",
+      "source_case_explanation": "hypothetical nodewise exchangeability and mixture A4",
+      "variant": "point",
+      "warning": "合成科学条件下的符号总体识别；不表示现实假设已得到证明。"
+    },
+    {
+      "business_question": "员工自愿使用 AI，并基于本人及邻居的处理前协变量调整同伴 AI 溢出效应",
+      "business_semantics_independently_certified": false,
+      "case_id": "S6-a5_missing",
+      "category": "NEEDS_INPUT",
+      "identification": {
+        "attempted_routes": [
+          {
+            "result": "NEEDS_INPUT",
+            "route": "R3_NODEWISE_EXPOSURE_ADJUSTED_EFFECTS"
+          }
+        ],
+        "formula": null,
+        "reason_code": "NEEDS_INPUT",
+        "status": "NEEDS_INPUT",
+        "support": null,
+        "target": null,
+        "theorem_route": null
+      },
+      "inputs": {
+        "a4": "研究人员额外声明的合成 typed 总体算子；未从有限样本推定",
+        "a5": "观测研究：明确接受的 exposure sufficient potential outcomes 与局部条件均值交换性",
+        "design": "OBS",
+        "exposure": "E5",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "当前路由未能完成认证；检查定理适用域、A4/A5/A6 或寻求独立数学研究。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "original_expected_status": "NEEDS_INPUT",
+      "proof": {
+        "certificate_sha256": null,
+        "level": "NOT_CERTIFIED",
+        "replay_verified": false
+      },
+      "scenario_id": "S6",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "员工自选择 AI 使用",
+      "source_case_explanation": "exchangeability cannot be inferred from propensity",
+      "variant": "a5_missing",
+      "warning": "软件未认证 POINT；不等于已证明不可识别。"
+    },
+    {
+      "business_question": "员工自愿使用 AI，并基于本人及邻居的处理前协变量调整同伴 AI 溢出效应",
+      "business_semantics_independently_certified": false,
+      "case_id": "S6-a4_sample_only",
+      "category": "NEEDS_INPUT",
+      "identification": {
+        "attempted_routes": [
+          {
+            "result": "A4_NODEWISE_POPULATION_OPERATOR_REQUIRED",
+            "route": "R3_NODEWISE_EXPOSURE_ADJUSTED_EFFECTS"
+          }
+        ],
+        "formula": null,
+        "reason_code": "A4_NODEWISE_POPULATION_OPERATOR_REQUIRED",
+        "status": "NEEDS_INPUT",
+        "support": null,
+        "target": null,
+        "theorem_route": null
+      },
+      "inputs": {
+        "a4": "研究人员额外声明的合成 typed 总体算子；未从有限样本推定",
+        "a5": "观测研究：明确接受的 exposure sufficient potential outcomes 与局部条件均值交换性",
+        "design": "OBS",
+        "exposure": "E5",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "请提供并独立审核目标所需的 typed 总体信息算子；仅样本统计不够。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "original_expected_status": "NEEDS_INPUT",
+      "proof": {
+        "certificate_sha256": null,
+        "level": "NOT_CERTIFIED",
+        "replay_verified": false
+      },
+      "scenario_id": "S6",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "员工自选择 AI 使用",
+      "source_case_explanation": "sample statistics are not population operator",
+      "variant": "a4_sample_only",
+      "warning": "软件未认证 POINT；不等于已证明不可识别。"
+    },
+    {
+      "business_question": "三节点路径：D2 固定两人、节点 0 的指定 Arm；单因素消融 base",
+      "business_semantics_independently_certified": false,
+      "case_id": "GOLDEN-base",
+      "category": "FORMAL_POINT",
+      "identification": {
+        "attempted_routes": [],
+        "formula": "mu_i^q(a,s|W)=E_exp[Y_i^obs|W,T_i=a,S_i=s]",
+        "reason_code": null,
+        "status": "POINT",
+        "support": "1/3",
+        "target": {
+          "assignment_kind": "complete_randomization",
+          "exposure_value": 1,
+          "functional": "mu_i^q(a,s|W)=E_exp[Y_i^obs|W,T_i=a,S_i=s]",
+          "group_node_ids": null,
+          "group_treated_quotas": null,
+          "grouping": "K_i>floor(degree_i/2);ties=0",
+          "kind": "randomized_network_design_standardized_arm_mean",
+          "network_fingerprint": "dc3f6bc48803e3eda14c006f088c9e77c91991af1f659d51c2717e581e294936",
+          "node_id": "0",
+          "outcome": "outcome",
+          "own_treatment_value": 1,
+          "semantics": "design_standardized_conditional_arm_mean_not_fixed_assignment",
+          "target_fingerprint": "4299383f680ecfec944377724672109af013d7b71933aec533780d87963df462",
+          "treated_quota": 2,
+          "treatment": "treatment"
+        },
+        "theorem_route": "R1A_RANDOMIZED_ARM"
+      },
+      "inputs": {
+        "a4": "合成 typed 人口总体节点 Arm 均值；消融时可移除",
+        "a5": "仅按指定消融修改 randomization / consistency 等许可",
+        "design": "D2",
+        "exposure": "strict_majority",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "当前为符号总体 POINT；有限样本数值估计不属于本模块。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "proof": {
+        "certificate_sha256": "53168086d5f6194eeb1d92a8d8e50f6fe7967831c1ef785af87c722c2138e01c",
+        "level": "CORE_REPLAY_VERIFIED",
+        "replay_verified": true
+      },
+      "scenario_id": "GOLDEN",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "三节点最简 Golden Case",
+      "variant": "base",
+      "warning": "合成科学条件下的符号总体识别；不表示现实假设已得到证明。"
+    },
+    {
+      "business_question": "三节点路径：D2 固定两人、节点 0 的指定 Arm；单因素消融 missing_a4",
+      "business_semantics_independently_certified": false,
+      "case_id": "GOLDEN-missing_a4",
+      "category": "NEEDS_INPUT",
+      "identification": {
+        "attempted_routes": [
+          {
+            "result": "CONDITIONAL_ARM_POPULATION_INFORMATION_REQUIRED",
+            "route": "R1A_RANDOMIZED_ARM"
+          }
+        ],
+        "formula": null,
+        "reason_code": "CONDITIONAL_ARM_POPULATION_INFORMATION_REQUIRED",
+        "status": "NEEDS_INPUT",
+        "support": null,
+        "target": null,
+        "theorem_route": null
+      },
+      "inputs": {
+        "a4": "合成 typed 人口总体节点 Arm 均值；消融时可移除",
+        "a5": "仅按指定消融修改 randomization / consistency 等许可",
+        "design": "D2",
+        "exposure": "strict_majority",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "请提供并独立审核目标所需的 typed 总体信息算子；仅样本统计不够。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "proof": {
+        "certificate_sha256": null,
+        "level": "NOT_CERTIFIED",
+        "replay_verified": false
+      },
+      "scenario_id": "GOLDEN",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "三节点最简 Golden Case",
+      "variant": "missing_a4",
+      "warning": "软件未认证 POINT；不等于已证明不可识别。"
+    },
+    {
+      "business_question": "三节点路径：D2 固定两人、节点 0 的指定 Arm；单因素消融 a4_not_admitted",
+      "business_semantics_independently_certified": false,
+      "case_id": "GOLDEN-a4_not_admitted",
+      "category": "NEEDS_INPUT",
+      "identification": {
+        "attempted_routes": [
+          {
+            "result": "CONDITIONAL_ARM_POPULATION_INFORMATION_REQUIRED",
+            "route": "R1A_RANDOMIZED_ARM"
+          }
+        ],
+        "formula": null,
+        "reason_code": "CONDITIONAL_ARM_POPULATION_INFORMATION_REQUIRED",
+        "status": "NEEDS_INPUT",
+        "support": null,
+        "target": null,
+        "theorem_route": null
+      },
+      "inputs": {
+        "a4": "合成 typed 人口总体节点 Arm 均值；消融时可移除",
+        "a5": "仅按指定消融修改 randomization / consistency 等许可",
+        "design": "D2",
+        "exposure": "strict_majority",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "请提供并独立审核目标所需的 typed 总体信息算子；仅样本统计不够。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "proof": {
+        "certificate_sha256": null,
+        "level": "NOT_CERTIFIED",
+        "replay_verified": false
+      },
+      "scenario_id": "GOLDEN",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "三节点最简 Golden Case",
+      "variant": "a4_not_admitted",
+      "warning": "软件未认证 POINT；不等于已证明不可识别。"
+    },
+    {
+      "business_question": "三节点路径：D2 固定两人、节点 0 的指定 Arm；单因素消融 a5_unresolved",
+      "business_semantics_independently_certified": false,
+      "case_id": "GOLDEN-a5_unresolved",
+      "category": "NEEDS_INPUT",
+      "identification": {
+        "attempted_routes": [
+          {
+            "result": "REQUIRED_ASSUMPTIONS_NOT_ADMITTED",
+            "route": "R1A_RANDOMIZED_ARM"
+          }
+        ],
+        "formula": null,
+        "reason_code": "REQUIRED_ASSUMPTIONS_NOT_ADMITTED",
+        "status": "NEEDS_INPUT",
+        "support": null,
+        "target": null,
+        "theorem_route": null
+      },
+      "inputs": {
+        "a4": "合成 typed 人口总体节点 Arm 均值；消融时可移除",
+        "a5": "仅按指定消融修改 randomization / consistency 等许可",
+        "design": "D2",
+        "exposure": "strict_majority",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "请审阅并明确接受所需因果假设；不得由模型自动批准。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "proof": {
+        "certificate_sha256": null,
+        "level": "NOT_CERTIFIED",
+        "replay_verified": false
+      },
+      "scenario_id": "GOLDEN",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "三节点最简 Golden Case",
+      "variant": "a5_unresolved",
+      "warning": "软件未认证 POINT；不等于已证明不可识别。"
+    },
+    {
+      "business_question": "三节点路径：D2 固定两人、节点 0 的指定 Arm；单因素消融 a5_rejected",
+      "business_semantics_independently_certified": false,
+      "case_id": "GOLDEN-a5_rejected",
+      "category": "UNSUPPORTED",
+      "identification": {
+        "attempted_routes": [
+          {
+            "result": "REQUIRED_ASSUMPTIONS_NOT_ADMITTED",
+            "route": "R1A_RANDOMIZED_ARM"
+          }
+        ],
+        "formula": null,
+        "reason_code": "REQUIRED_ASSUMPTIONS_NOT_ADMITTED",
+        "status": "UNSUPPORTED",
+        "support": null,
+        "target": null,
+        "theorem_route": null
+      },
+      "inputs": {
+        "a4": "合成 typed 人口总体节点 Arm 均值；消融时可移除",
+        "a5": "仅按指定消融修改 randomization / consistency 等许可",
+        "design": "D2",
+        "exposure": "strict_majority",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "请审阅并明确接受所需因果假设；不得由模型自动批准。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "proof": {
+        "certificate_sha256": null,
+        "level": "NOT_CERTIFIED",
+        "replay_verified": false
+      },
+      "scenario_id": "GOLDEN",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "三节点最简 Golden Case",
+      "variant": "a5_rejected",
+      "warning": "软件未认证 POINT；不等于已证明不可识别。"
+    },
+    {
+      "business_question": "三节点路径：D2 固定两人、节点 0 的指定 Arm；单因素消融 zero_quota",
+      "business_semantics_independently_certified": false,
+      "case_id": "GOLDEN-zero_quota",
+      "category": "UNSUPPORTED",
+      "identification": {
+        "attempted_routes": [
+          {
+            "result": "ZERO_ARM_SUPPORT",
+            "route": "R1A_RANDOMIZED_ARM"
+          }
+        ],
+        "formula": null,
+        "reason_code": "ZERO_ARM_SUPPORT",
+        "status": "UNSUPPORTED",
+        "support": null,
+        "target": null,
+        "theorem_route": null
+      },
+      "inputs": {
+        "a4": "合成 typed 人口总体节点 Arm 均值；消融时可移除",
+        "a5": "仅按指定消融修改 randomization / consistency 等许可",
+        "design": "D2",
+        "exposure": "strict_majority",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "检查目标 arm / 完整分配 / 局部签名的精确支持；必要时重新设计未来实验或调整合法目标。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "proof": {
+        "certificate_sha256": null,
+        "level": "NOT_CERTIFIED",
+        "replay_verified": false
+      },
+      "scenario_id": "GOLDEN",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "三节点最简 Golden Case",
+      "variant": "zero_quota",
+      "warning": "软件未认证 POINT；不等于已证明不可识别。"
+    },
+    {
+      "business_question": "三节点路径：D2 固定两人、节点 0 的指定 Arm；单因素消融 add_network_edge",
+      "business_semantics_independently_certified": false,
+      "case_id": "GOLDEN-add_network_edge",
+      "category": "UNSUPPORTED",
+      "identification": {
+        "attempted_routes": [
+          {
+            "result": "ZERO_ARM_SUPPORT",
+            "route": "R1A_RANDOMIZED_ARM"
+          }
+        ],
+        "formula": null,
+        "reason_code": "ZERO_ARM_SUPPORT",
+        "status": "UNSUPPORTED",
+        "support": null,
+        "target": null,
+        "theorem_route": null
+      },
+      "inputs": {
+        "a4": "合成 typed 人口总体节点 Arm 均值；消融时可移除",
+        "a5": "仅按指定消融修改 randomization / consistency 等许可",
+        "design": "D2",
+        "exposure": "strict_majority",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "检查目标 arm / 完整分配 / 局部签名的精确支持；必要时重新设计未来实验或调整合法目标。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "proof": {
+        "certificate_sha256": null,
+        "level": "NOT_CERTIFIED",
+        "replay_verified": false
+      },
+      "scenario_id": "GOLDEN",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "三节点最简 Golden Case",
+      "variant": "add_network_edge",
+      "warning": "软件未认证 POINT；不等于已证明不可识别。"
+    },
+    {
+      "business_question": "三节点路径：D2 固定两人、节点 0 的指定 Arm；单因素消融 different_exposure",
+      "business_semantics_independently_certified": false,
+      "case_id": "GOLDEN-different_exposure",
+      "category": "FORMAL_POINT",
+      "identification": {
+        "attempted_routes": [],
+        "formula": "mu_i^q(a,s|W)=E_exp[Y_i^obs|W,T_i=a,S_i=s]",
+        "reason_code": null,
+        "status": "POINT",
+        "support": "1/3",
+        "target": {
+          "assignment_kind": "complete_randomization",
+          "exposure_value": 2,
+          "functional": "mu_i^q(a,s|W)=E_exp[Y_i^obs|W,T_i=a,S_i=s]",
+          "group_node_ids": null,
+          "group_treated_quotas": null,
+          "grouping": "3K<d:low;d<=3K<2d:medium;3K>=2d:high;d>0",
+          "kind": "randomized_network_design_standardized_arm_mean",
+          "network_fingerprint": "dc3f6bc48803e3eda14c006f088c9e77c91991af1f659d51c2717e581e294936",
+          "node_id": "0",
+          "outcome": "outcome",
+          "own_treatment_value": 1,
+          "semantics": "design_standardized_conditional_arm_mean_not_fixed_assignment",
+          "target_fingerprint": "4f977f35ef52b43b959c985f7147279219c7b25588dc26e2b98a601975d17344",
+          "treated_quota": 2,
+          "treatment": "treatment"
+        },
+        "theorem_route": "R1A_RANDOMIZED_ARM"
+      },
+      "inputs": {
+        "a4": "合成 typed 人口总体节点 Arm 均值；消融时可移除",
+        "a5": "仅按指定消融修改 randomization / consistency 等许可",
+        "design": "D2",
+        "exposure": "three_level_treated_neighbor_fraction",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "当前为符号总体 POINT；有限样本数值估计不属于本模块。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "proof": {
+        "certificate_sha256": "3af2187dfe3aee39045bb5b5eb647aa0b2086bc5021784d1b685227a723dc10a",
+        "level": "CORE_REPLAY_VERIFIED",
+        "replay_verified": true
+      },
+      "scenario_id": "GOLDEN",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "三节点最简 Golden Case",
+      "variant": "different_exposure",
+      "warning": "合成科学条件下的符号总体识别；不表示现实假设已得到证明。"
+    },
+    {
+      "business_question": "三节点路径：D2 固定两人、节点 0 的指定 Arm；单因素消融 query_not_confirmed",
+      "business_semantics_independently_certified": false,
+      "case_id": "GOLDEN-query_not_confirmed",
+      "category": "UNSUPPORTED",
+      "identification": {
+        "attempted_routes": [
+          {
+            "result": "QUERY_NOT_CONFIRMED",
+            "route": "R1A_RANDOMIZED_ARM"
+          }
+        ],
+        "formula": null,
+        "reason_code": "QUERY_NOT_CONFIRMED",
+        "status": "UNSUPPORTED",
+        "support": null,
+        "target": null,
+        "theorem_route": null
+      },
+      "inputs": {
+        "a4": "合成 typed 人口总体节点 Arm 均值；消融时可移除",
+        "a5": "仅按指定消融修改 randomization / consistency 等许可",
+        "design": "D2",
+        "exposure": "strict_majority",
+        "provenance": "SYNTHETIC_APPROVED_FIXTURE"
+      },
+      "is_real_business_evidence": false,
+      "next_step": "当前路由未能完成认证；检查定理适用域、A4/A5/A6 或寻求独立数学研究。",
+      "nonidentification_proven": false,
+      "numeric_effect_estimate": null,
+      "proof": {
+        "certificate_sha256": null,
+        "level": "NOT_CERTIFIED",
+        "replay_verified": false
+      },
+      "scenario_id": "GOLDEN",
+      "schema_version": "cfm-id-identification-only-report-v1",
+      "setting": "三节点最简 Golden Case",
+      "variant": "query_not_confirmed",
+      "warning": "软件未认证 POINT；不等于已证明不可识别。"
+    }
+  ],
+  "coverage": {
+    "counts": {
+      "design": 6,
+      "design_exposure_cells": 30,
+      "exposure": 5,
+      "mechanisms": 4,
+      "premise_names": 11,
+      "routes": 10,
+      "topology_shapes": 9
+    },
+    "designs": [
+      {
+        "business": "用户/员工独立 A/B 灰度",
+        "family": "HeterogeneousBernoulliDesignV1",
+        "id": "D1",
+        "notes": "已知个体处理概率；适合单元级实验；群体曝光可能发生干扰",
+        "priority": "高",
+        "title": "独立 Bernoulli"
+      },
+      {
+        "business": "固定 100 名试用资格",
+        "family": "CompleteRandomizationDesignV1",
+        "id": "D2",
+        "notes": "所有节点统一配额；极端完整政策可能零支持",
+        "priority": "高",
+        "title": "固定总配额"
+      },
+      {
+        "business": "销售/客服两部门名额",
+        "family": "TwoGroupFixedQuotaDesignV1",
+        "id": "D3",
+        "notes": "两组特例；多部门可使用 D5",
+        "priority": "中",
+        "title": "两组独立配额"
+      },
+      {
+        "business": "门店/班级整体随机",
+        "family": "ClusterBernoulliDesignV24",
+        "id": "D4",
+        "notes": "簇内全同一 treatment，部分 spillover arms 必定零支持",
+        "priority": "高",
+        "title": "簇级 Bernoulli"
+      },
+      {
+        "business": "多部门独立试用名额",
+        "family": "MultiGroupFixedQuotaDesignV25",
+        "id": "D5",
+        "notes": "可处理 3–64 个处理前非空分组",
+        "priority": "高",
+        "title": "多组固定配额"
+      },
+      {
+        "business": "先随机饱和度，再组内配额",
+        "family": "TwoStageQuotaMixtureDesignV27",
+        "id": "D6",
+        "notes": "第一阶段 quota profile 可相关；必须额外接受无直接结果效应 A5",
+        "priority": "中",
+        "title": "两阶段配额混合"
+      }
+    ],
+    "exposures": [
+      {
+        "business": "多数同事启用 AI",
+        "grouping": "strict_majority_ties_low",
+        "id": "E1",
+        "notes": "阈值型；不是自动的充分性假设",
+        "title": "邻居严格多数"
+      },
+      {
+        "business": "同事启用比例低/中/高",
+        "grouping": "three_level_treated_neighbor_fraction",
+        "id": "E2",
+        "notes": "孤立节点三档定义无效",
+        "title": "邻居处理比例三档"
+      },
+      {
+        "business": "核心合作同事启用情况",
+        "grouping": "pretreatment_core_collaborator_majority",
+        "id": "E3",
+        "notes": "必须事前给定非空合法核心集合",
+        "title": "核心合作者多数"
+      },
+      {
+        "business": "恰有 k 位同事使用 AI",
+        "grouping": "exact_treated_neighbor_count",
+        "id": "E4",
+        "notes": "状态数量随度数变化；高阶支持可能困难",
+        "title": "精确处理邻居人数"
+      },
+      {
+        "business": "是否有任一同伴使用 AI",
+        "grouping": "any_treated_neighbor",
+        "id": "E5",
+        "notes": "粗粒度便于解释；R2/R3 不可因此默认充分性",
+        "title": "至少一位邻居处理"
+      }
+    ],
+    "routes": [
+      "R1A_RANDOMIZED_ARM",
+      "R1A_COMPOSITION",
+      "R1B_FULL_ASSIGNMENT",
+      "R1B_FINITE_POLICY",
+      "R2_MEAN_SIGNATURE",
+      "R3_FULL_ASSIGNMENT",
+      "R3_MEAN_SIGNATURE",
+      "R3_P_STANDARDIZED_EFFECTS",
+      "R3_EXPOSURE_ADJUSTED_EFFECTS",
+      "R3_NODEWISE_EXPOSURE_ADJUSTED_EFFECTS"
+    ],
+    "scenarios": [
+      {
+        "area": "广告/软件",
+        "name": "独立线上 A/B",
+        "notes": "单元级 Bernoulli 可用；需独立随机化、A4、arm support",
+        "route": "R1a",
+        "setting": "D1 / E1、E5",
+        "status": "条件支持"
+      },
+      {
+        "area": "企业 AI",
+        "name": "固定总人数灰度",
+        "notes": "完整政策不一定有 q>0；可识别的 arm 与 rollout 要区别",
+        "route": "R1a、R1b",
+        "setting": "D2 / E4、E5",
+        "status": "条件支持"
+      },
+      {
+        "area": "企业管理",
+        "name": "两部门配额",
+        "notes": "核心合作者集合需事前定义；R2 需独立 A5",
+        "route": "R1a、R2",
+        "setting": "D3 / E1、E3",
+        "status": "条件支持"
+      },
+      {
+        "area": "连锁零售",
+        "name": "门店整体试用",
+        "notes": "簇内处理相同，必须逐节点检查目标状态是否可达",
+        "route": "R1a、R1b",
+        "setting": "D4 / E1、E2",
+        "status": "条件支持"
+      },
+      {
+        "area": "企业 AI",
+        "name": "多部门分配资格",
+        "notes": "分组固定配额；全员 rollout 可能零支持",
+        "route": "R1a、R1b、R2",
+        "setting": "D5 / E4",
+        "status": "条件支持"
+      },
+      {
+        "area": "学校/社区",
+        "name": "两阶段饱和度",
+        "notes": "只能在配额混合子域下复用原定理；第一阶段直接效应需排除",
+        "route": "R1a、R2",
+        "setting": "D6 / E1、E5",
+        "status": "条件支持"
+      },
+      {
+        "area": "企业 AI",
+        "name": "实验支持内完整政策",
+        "notes": "必须有完整政策 q(z)>0 和 assignment-level A4",
+        "route": "R1b",
+        "setting": "任一合法 D / 完整向量",
+        "status": "条件支持"
+      },
+      {
+        "area": "企业 AI",
+        "name": "实验零支持政策",
+        "notes": "签名均值充分性 + 每个权重节点签名正支持",
+        "route": "R2",
+        "setting": "D2 / E1、E5",
+        "status": "强假设条件支持"
+      },
+      {
+        "area": "企业 AI",
+        "name": "观测性自选择网络",
+        "notes": "需独立接受交换性；不能从处理概率模型推出因果无混杂",
+        "route": "R3",
+        "setting": "观测总体 p / E1–E5",
+        "status": "强假设条件支持"
+      },
+      {
+        "area": "社交网络",
+        "name": "观测协变量调整",
+        "notes": "仅一个二元节点协变量/邻居正值计数及受限总体律",
+        "route": "R3",
+        "setting": "节点 X_i + 邻居 X 计数",
+        "status": "有限子域"
+      },
+      {
+        "area": "平台",
+        "name": "相互竞争的双边市场",
+        "notes": "二分图可用无向边表达，但竞争/均衡/多类处理缺独立定理",
+        "route": "未实现通用",
+        "setting": "买卖双方与库存/均衡",
+        "status": "仅部分可表达"
+      },
+      {
+        "area": "企业 AI",
+        "name": "主管影响员工更强",
+        "notes": "目前主要简单无向图，没有权重或方向的通用识别",
+        "route": "未实现通用",
+        "setting": "有向加权网络",
+        "status": "未实现"
+      },
+      {
+        "area": "社交媒体",
+        "name": "动态扩散与反复干预",
+        "notes": "不支持通用动态或处理改变网络",
+        "route": "未实现",
+        "setting": "多期动态网络",
+        "status": "未实现"
+      },
+      {
+        "area": "企业 AI",
+        "name": "员工获得不同 AI 剂量",
+        "notes": "目前处理变量为单时点二元",
+        "route": "未实现",
+        "setting": "多值/连续 treatment",
+        "status": "未实现"
+      },
+      {
+        "area": "跨企业",
+        "name": "跨公司推广政策",
+        "notes": "固定 W 结果不能自动推广到其他总体",
+        "route": "未实现通用",
+        "setting": "跨 W 与新网络总体",
+        "status": "未实现"
+      },
+      {
+        "area": "大型平台",
+        "name": "复杂随机 rollout",
+        "notes": "R1b 只支持固定分配与有限认证混合",
+        "route": "未实现通用",
+        "setting": "任意 stochastic policy kernel",
+        "status": "未实现"
+      }
+    ],
+    "topologies": [
+      {
+        "draw": "path",
+        "id": "path",
+        "notes": "链式接触、相邻干扰；固定无向图可表达",
+        "title": "路径型 Path"
+      },
+      {
+        "draw": "ring",
+        "id": "ring",
+        "notes": "循环合作、定期邻接；固定无向图可表达",
+        "title": "环型 Ring"
+      },
+      {
+        "draw": "star",
+        "id": "star",
+        "notes": "团队领导与外围成员；中心节点可能零签名支持",
+        "title": "星型 Star"
+      },
+      {
+        "draw": "complete",
+        "id": "complete",
+        "notes": "高度密集团队；多数 exposure 可能受配额限制",
+        "title": "完全连接 Complete"
+      },
+      {
+        "draw": "bipartite",
+        "id": "bipartite",
+        "notes": "买卖方连接仅在无向边层面可表示；非均衡理论",
+        "title": "二部图 Bipartite"
+      },
+      {
+        "draw": "community",
+        "id": "community",
+        "notes": "部门/群组关系；不可自动假设社群间无干扰",
+        "title": "社群 Community"
+      },
+      {
+        "draw": "smallworld",
+        "id": "small_world_like",
+        "notes": "局部密集与远距连接的测试图",
+        "title": "小世界 Small-world-like"
+      },
+      {
+        "draw": "hub",
+        "id": "hub_scale_free_like",
+        "notes": "核心节点高度连接，支持受配额影响",
+        "title": "Hub / Scale-free-like"
+      },
+      {
+        "draw": "isolate",
+        "id": "disconnected_with_isolate",
+        "notes": "E2 对孤立节点无定义；E3 必须有非空核心合作者",
+        "title": "断开/孤立节点"
+      }
+    ]
+  },
+  "presentation": {
+    "cases": {
+      "GOLDEN-a4_not_admitted": {
+        "business_context": "三名员工按链状合作，试验每次随机挑选两人使用工具。每次只改一个条件，看看识别结论如何变化。",
+        "conclusion": "信息虽存在，但未获准作为本次识别依据。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "原随机抽签机制已定义",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "信息虽存在，但未获准作为本次识别依据。",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "？ 还需补充",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "case_specific_explanation": "已接受本例所需的随机化与结果一致性前提",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "✓ 已提供/已确认",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "前置条件未通过，未形成完整认证结论",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "— 暂未检查",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "unchecked"
+          }
+        ],
+        "design_label": "固定人数随机抽签",
+        "exposure_label": "超过半数的直接同伴使用",
+        "headline": "对照：三人团队最小验证",
+        "next_step_plain": "补充或修订缺失条件，再提交正式数学识别；不能据此断言因果目标普遍不可识别。",
+        "question": "有一份总体结果信息，但尚未获准在本研究中使用，能直接给出结论吗？",
+        "replay_status": "尚未颁发数学识别证书",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "GOLDEN-a5_rejected": {
+        "business_context": "三名员工按链状合作，试验每次随机挑选两人使用工具。每次只改一个条件，看看识别结论如何变化。",
+        "conclusion": "已有必要前提被明确否认，原定理不能继续使用。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "原随机抽签机制已定义",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "合成研究使用了获准的总体结果算子，不是由样本自动推出",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "✓ 已提供/已确认",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "已有必要前提被明确否认，原定理不能继续使用。",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "× 不满足",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "failed"
+          },
+          {
+            "case_specific_explanation": "前置条件未通过，未形成完整认证结论",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "— 暂未检查",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "unchecked"
+          }
+        ],
+        "design_label": "固定人数随机抽签",
+        "exposure_label": "超过半数的直接同伴使用",
+        "headline": "对照：三人团队最小验证",
+        "next_step_plain": "补充或修订缺失条件，再提交正式数学识别；不能据此断言因果目标普遍不可识别。",
+        "question": "如果明确不接受原先需要的因果前提，还能使用原识别公式吗？",
+        "replay_status": "尚未颁发数学识别证书",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "GOLDEN-a5_unresolved": {
+        "business_context": "三名员工按链状合作，试验每次随机挑选两人使用工具。每次只改一个条件，看看识别结论如何变化。",
+        "conclusion": "研究者尚未确认必要的随机化与一致性等前提。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "原随机抽签机制已定义",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "合成研究使用了获准的总体结果算子，不是由样本自动推出",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "✓ 已提供/已确认",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "研究者尚未确认必要的随机化与一致性等前提。",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "？ 还需补充",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "missing"
+          },
+          {
+            "case_specific_explanation": "前置条件未通过，未形成完整认证结论",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "— 暂未检查",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "unchecked"
+          }
+        ],
+        "design_label": "固定人数随机抽签",
+        "exposure_label": "超过半数的直接同伴使用",
+        "headline": "对照：三人团队最小验证",
+        "next_step_plain": "补充或修订缺失条件，再提交正式数学识别；不能据此断言因果目标普遍不可识别。",
+        "question": "保留相同资料，但随机化与一致性等必要因果前提尚未确认，还能认证吗？",
+        "replay_status": "尚未颁发数学识别证书",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "GOLDEN-add_network_edge": {
+        "business_context": "三名员工按链状合作，试验每次随机挑选两人使用工具。每次只改一个条件，看看识别结论如何变化。",
+        "conclusion": "增加合作边后，同伴多数的定义发生变化，原配额无法实现目标状态。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "原随机抽签机制已定义",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "合成研究使用了获准的总体结果算子，不是由样本自动推出",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "✓ 已提供/已确认",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "已接受本例所需的随机化与结果一致性前提",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "✓ 已提供/已确认",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "目标状态在原处理分配机制下严格零支持",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "× 不满足",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "failed"
+          }
+        ],
+        "design_label": "固定人数随机抽签",
+        "exposure_label": "超过半数的直接同伴使用",
+        "headline": "对照：三人团队最小验证",
+        "next_step_plain": "补充或修订缺失条件，再提交正式数学识别；不能据此断言因果目标普遍不可识别。",
+        "question": "额外加一条合作边后，原先的“邻居严格多数使用”目标还会出现吗？",
+        "replay_status": "尚未颁发数学识别证书",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "GOLDEN-base": {
+        "business_context": "三名员工按链状合作，试验每次随机挑选两人使用工具。每次只改一个条件，看看识别结论如何变化。",
+        "conclusion": "本次合成研究已声明所需条件，正式数学程序通过核验；可以给出总体识别公式，但不是实际销售额或政策收益估计。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "原随机抽签机制已定义",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "合成研究使用了获准的总体结果算子，不是由样本自动推出",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "✓ 已提供/已确认",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "已接受本例所需的随机化与结果一致性前提",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "✓ 已提供/已确认",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "已精确核算支持概率 1/3",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "✓ 已提供/已确认",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "confirmed"
+          }
+        ],
+        "design_label": "固定人数随机抽签",
+        "exposure_label": "超过半数的直接同伴使用",
+        "headline": "三人团队最小验证",
+        "next_step_plain": "数学识别公式已经确定；若要估计现实金额，需另行使用有限样本方法。",
+        "question": "三名员工每次抽两人试用。指定员工本人试用且邻居中严格多数也试用时，平均结果能确定吗？",
+        "replay_status": "已完成独立数学复核",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "GOLDEN-different_exposure": {
+        "business_context": "三名员工按链状合作，试验每次随机挑选两人使用工具。每次只改一个条件，看看识别结论如何变化。",
+        "conclusion": "本次合成研究已声明所需条件，正式数学程序通过核验；可以给出总体识别公式，但不是实际销售额或政策收益估计。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "原随机抽签机制已定义",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "合成研究使用了获准的总体结果算子，不是由样本自动推出",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "✓ 已提供/已确认",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "已接受本例所需的随机化与结果一致性前提",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "✓ 已提供/已确认",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "已精确核算支持概率 1/3",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "✓ 已提供/已确认",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "confirmed"
+          }
+        ],
+        "design_label": "固定人数随机抽签",
+        "exposure_label": "直接同伴使用比例分为三档",
+        "headline": "三人团队最小验证",
+        "next_step_plain": "数学识别公式已经确定；若要估计现实金额，需另行使用有限样本方法。",
+        "question": "保持试验不变，改成用“邻居使用比例分档”定义同伴状态，目标会怎样改变？",
+        "replay_status": "已完成独立数学复核",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "GOLDEN-missing_a4": {
+        "business_context": "三名员工按链状合作，试验每次随机挑选两人使用工具。每次只改一个条件，看看识别结论如何变化。",
+        "conclusion": "已撤去目标状态的总体均值来源。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "原随机抽签机制已定义",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "已撤去目标状态的总体均值来源。",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "？ 还需补充",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "case_specific_explanation": "已接受本例所需的随机化与结果一致性前提",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "✓ 已提供/已确认",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "前置条件未通过，未形成完整认证结论",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "— 暂未检查",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "unchecked"
+          }
+        ],
+        "design_label": "固定人数随机抽签",
+        "exposure_label": "超过半数的直接同伴使用",
+        "headline": "对照：三人团队最小验证",
+        "next_step_plain": "补充或修订缺失条件，再提交正式数学识别；不能据此断言因果目标普遍不可识别。",
+        "question": "保留相同试验与问题，但撤去目标状态的总体结果信息，会发生什么？",
+        "replay_status": "尚未颁发数学识别证书",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "GOLDEN-query_not_confirmed": {
+        "business_context": "三名员工按链状合作，试验每次随机挑选两人使用工具。每次只改一个条件，看看识别结论如何变化。",
+        "conclusion": "负责人尚未批准该数学问题，不应直接颁发识别证书。",
+        "conditions": [
+          {
+            "case_specific_explanation": "这项数学问题尚未得到业务负责人确认",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "？ 还需补充",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "missing"
+          },
+          {
+            "case_specific_explanation": "原随机抽签机制已定义",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "合成研究使用了获准的总体结果算子，不是由样本自动推出",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "✓ 已提供/已确认",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "已接受本例所需的随机化与结果一致性前提",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "✓ 已提供/已确认",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "前置条件未通过，未形成完整认证结论",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "— 暂未检查",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "unchecked"
+          }
+        ],
+        "design_label": "固定人数随机抽签",
+        "exposure_label": "超过半数的直接同伴使用",
+        "headline": "对照：三人团队最小验证",
+        "next_step_plain": "补充或修订缺失条件，再提交正式数学识别；不能据此断言因果目标普遍不可识别。",
+        "question": "如果负责人尚未正式确认要回答这个问题，是否可以直接颁发识别结论？",
+        "replay_status": "尚未颁发数学识别证书",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "GOLDEN-zero_quota": {
+        "business_context": "三名员工按链状合作，试验每次随机挑选两人使用工具。每次只改一个条件，看看识别结论如何变化。",
+        "conclusion": "试用名额为零，目标却要求本人试用。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "原随机抽签机制已定义",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "合成研究使用了获准的总体结果算子，不是由样本自动推出",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "✓ 已提供/已确认",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "已接受本例所需的随机化与结果一致性前提",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "✓ 已提供/已确认",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "目标状态在原处理分配机制下严格零支持",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "× 不满足",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "failed"
+          }
+        ],
+        "design_label": "固定人数随机抽签",
+        "exposure_label": "超过半数的直接同伴使用",
+        "headline": "对照：三人团队最小验证",
+        "next_step_plain": "补充或修订缺失条件，再提交正式数学识别；不能据此断言因果目标普遍不可识别。",
+        "question": "把随机试用人数改为零，原来要求“本人试用”的目标还能出现吗？",
+        "replay_status": "尚未颁发数学识别证书",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "S1-a4_missing": {
+        "business_context": "一个六人关联用户网络中，平台独立随机给每位用户开放新推荐功能；已事先记录关联关系。",
+        "conclusion": "缺少被正式接受的总体信息，原有数据字段或有限记录不足以代替。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "原随机抽签机制已定义",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "缺少被正式接受的总体信息，原有数据字段或有限记录不足以代替。",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "？ 还需补充",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "case_specific_explanation": "已接受本例所需的随机化与结果一致性前提",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "✓ 已提供/已确认",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "前置条件未通过，未形成完整认证结论",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "— 暂未检查",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "unchecked"
+          }
+        ],
+        "design_label": "每人独立随机抽签",
+        "exposure_label": "至少一位直接同伴使用",
+        "headline": "对照：在线推荐功能试用",
+        "next_step_plain": "补充或修订缺失条件，再提交正式数学识别；不能据此断言因果目标普遍不可识别。",
+        "question": "仍问“自己和至少一名关联用户获得功能”的平均结果；如果没有正式认可的总体结果信息，还能判断吗？",
+        "replay_status": "尚未颁发数学识别证书",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "S1-point": {
+        "business_context": "一个六人关联用户网络中，平台独立随机给每位用户开放新推荐功能；已事先记录关联关系。",
+        "conclusion": "本次合成研究已声明所需条件，正式数学程序通过核验；可以给出总体识别公式，但不是实际销售额或政策收益估计。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "原随机抽签机制已定义",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "合成研究使用了获准的总体结果算子，不是由样本自动推出",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "✓ 已提供/已确认",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "已接受本例所需的随机化与结果一致性前提",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "✓ 已提供/已确认",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "已精确核算支持概率 3/8",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "✓ 已提供/已确认",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "confirmed"
+          }
+        ],
+        "design_label": "每人独立随机抽签",
+        "exposure_label": "至少一位直接同伴使用",
+        "headline": "在线推荐功能试用",
+        "next_step_plain": "数学识别公式已经确定；若要估计现实金额，需另行使用有限样本方法。",
+        "question": "指定用户自己获得新推荐功能，且至少一名关联用户也获得时，能否确定该类状态下的平均业务结果？",
+        "replay_status": "已完成独立数学复核",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "S1-point_e4": {
+        "business_context": "一个六人关联用户网络中，平台独立随机给每位用户开放新推荐功能；已事先记录关联关系。",
+        "conclusion": "本次合成研究已声明所需条件，正式数学程序通过核验；可以给出总体识别公式，但不是实际销售额或政策收益估计。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "原随机抽签机制已定义",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "合成研究使用了获准的总体结果算子，不是由样本自动推出",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "✓ 已提供/已确认",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "已接受本例所需的随机化与结果一致性前提",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "✓ 已提供/已确认",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "已精确核算支持概率 3/8",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "✓ 已提供/已确认",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "confirmed"
+          }
+        ],
+        "design_label": "每人独立随机抽签",
+        "exposure_label": "直接同伴中恰好几人使用",
+        "headline": "在线推荐功能试用",
+        "next_step_plain": "数学识别公式已经确定；若要估计现实金额，需另行使用有限样本方法。",
+        "question": "指定用户获得推荐功能，且恰好一位关联用户也获得时，能否确定对应的平均业务结果？",
+        "replay_status": "已完成独立数学复核",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "S2-a4_missing": {
+        "business_context": "一个六人协作团队只有三个试用名额，采用统一随机抽签；其中一名核心员工与其余五人合作。",
+        "conclusion": "缺少被正式接受的总体信息，原有数据字段或有限记录不足以代替。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "原随机抽签机制已定义",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "缺少被正式接受的总体信息，原有数据字段或有限记录不足以代替。",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "？ 还需补充",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "case_specific_explanation": "已接受本例所需的随机化与结果一致性前提",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "✓ 已提供/已确认",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "前置条件未通过，未形成完整认证结论",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "— 暂未检查",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "unchecked"
+          }
+        ],
+        "design_label": "固定人数随机抽签",
+        "exposure_label": "直接同伴中恰好几人使用",
+        "headline": "对照：销售团队 AI 试用名额",
+        "next_step_plain": "补充或修订缺失条件，再提交正式数学识别；不能据此断言因果目标普遍不可识别。",
+        "question": "仍问“核心员工自己和两位同事试用”的平均业务结果；如果研究信息未获认可，还能给出结论吗？",
+        "replay_status": "尚未颁发数学识别证书",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "S2-point": {
+        "business_context": "一个六人协作团队只有三个试用名额，采用统一随机抽签；其中一名核心员工与其余五人合作。",
+        "conclusion": "本次合成研究已声明所需条件，正式数学程序通过核验；可以给出总体识别公式，但不是实际销售额或政策收益估计。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "原随机抽签机制已定义",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "合成研究使用了获准的总体结果算子，不是由样本自动推出",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "✓ 已提供/已确认",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "已接受本例所需的随机化与结果一致性前提",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "✓ 已提供/已确认",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "已精确核算支持概率 1/2",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "✓ 已提供/已确认",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "confirmed"
+          }
+        ],
+        "design_label": "固定人数随机抽签",
+        "exposure_label": "直接同伴中恰好几人使用",
+        "headline": "销售团队 AI 试用名额",
+        "next_step_plain": "数学识别公式已经确定；若要估计现实金额，需另行使用有限样本方法。",
+        "question": "如果核心员工获得 AI 试用资格，且恰有两位合作同事试用，能否确定这一状态下的平均业务结果？",
+        "replay_status": "已完成独立数学复核",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "S2-zero_support": {
+        "business_context": "一个六人协作团队只有三个试用名额，采用统一随机抽签；其中一名核心员工与其余五人合作。",
+        "conclusion": "原分配机制不可能产生目标所要求的处理与同伴状态。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "原随机抽签机制已定义",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "合成研究使用了获准的总体结果算子，不是由样本自动推出",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "✓ 已提供/已确认",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "已接受本例所需的随机化与结果一致性前提",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "✓ 已提供/已确认",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "目标状态在原处理分配机制下严格零支持",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "× 不满足",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "failed"
+          }
+        ],
+        "design_label": "固定人数随机抽签",
+        "exposure_label": "直接同伴中恰好几人使用",
+        "headline": "对照：销售团队 AI 试用名额",
+        "next_step_plain": "补充或修订缺失条件，再提交正式数学识别；不能据此断言因果目标普遍不可识别。",
+        "question": "只抽三人试用，却要求核心员工自己试用且另外三名同事同时试用：原试验能出现这种情况吗？",
+        "replay_status": "尚未颁发数学识别证书",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "S3-a4_missing": {
+        "business_context": "六名成员分成三个事先确定的团队，每队两人；以团队为单位抽签，入选后全队使用新工具。",
+        "conclusion": "缺少被正式接受的总体信息，原有数据字段或有限记录不足以代替。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "原随机抽签机制已定义",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "缺少被正式接受的总体信息，原有数据字段或有限记录不足以代替。",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "？ 还需补充",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "case_specific_explanation": "已接受本例所需的随机化与结果一致性前提",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "✓ 已提供/已确认",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "前置条件未通过，未形成完整认证结论",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "— 暂未检查",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "unchecked"
+          }
+        ],
+        "design_label": "整个团队一起抽签",
+        "exposure_label": "至少一位直接同伴使用",
+        "headline": "对照：门店团队整体随机试用",
+        "next_step_plain": "补充或修订缺失条件，再提交正式数学识别；不能据此断言因果目标普遍不可识别。",
+        "question": "仍问“本人和关联同事都可能使用”的平均结果；缺少认可的总体信息时能给出结论吗？",
+        "replay_status": "尚未颁发数学识别证书",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "S3-point": {
+        "business_context": "六名成员分成三个事先确定的团队，每队两人；以团队为单位抽签，入选后全队使用新工具。",
+        "conclusion": "本次合成研究已声明所需条件，正式数学程序通过核验；可以给出总体识别公式，但不是实际销售额或政策收益估计。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "原随机抽签机制已定义",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "合成研究使用了获准的总体结果算子，不是由样本自动推出",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "✓ 已提供/已确认",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "已接受本例所需的随机化与结果一致性前提",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "✓ 已提供/已确认",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "已精确核算支持概率 1/2",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "✓ 已提供/已确认",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "confirmed"
+          }
+        ],
+        "design_label": "整个团队一起抽签",
+        "exposure_label": "至少一位直接同伴使用",
+        "headline": "门店团队整体随机试用",
+        "next_step_plain": "数学识别公式已经确定；若要估计现实金额，需另行使用有限样本方法。",
+        "question": "整个团队一起抽签。指定员工使用新工具且至少一名关联同事也使用时，能确定平均业务结果吗？",
+        "replay_status": "已完成独立数学复核",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "S3-zero_support": {
+        "business_context": "六名成员分成三个事先确定的团队，每队两人；以团队为单位抽签，入选后全队使用新工具。",
+        "conclusion": "原分配机制不可能产生目标所要求的处理与同伴状态。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "原随机抽签机制已定义",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "合成研究使用了获准的总体结果算子，不是由样本自动推出",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "✓ 已提供/已确认",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "已接受本例所需的随机化与结果一致性前提",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "✓ 已提供/已确认",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "目标状态在原处理分配机制下严格零支持",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "× 不满足",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "failed"
+          }
+        ],
+        "design_label": "整个团队一起抽签",
+        "exposure_label": "至少一位直接同伴使用",
+        "headline": "对照：门店团队整体随机试用",
+        "next_step_plain": "补充或修订缺失条件，再提交正式数学识别；不能据此断言因果目标普遍不可识别。",
+        "question": "以团队为单位同时开通工具：指定员工自己使用，但所有关联同事都没使用，这种状态可能出现吗？",
+        "replay_status": "尚未颁发数学识别证书",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "S4-a4_missing": {
+        "business_context": "六名员工分属三个部门，每个部门两人且各随机挑选一名试用；部门之间仍有合作关系。",
+        "conclusion": "缺少被正式接受的总体信息，原有数据字段或有限记录不足以代替。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "原随机抽签机制已定义",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "缺少被正式接受的总体信息，原有数据字段或有限记录不足以代替。",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "？ 还需补充",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "case_specific_explanation": "已接受本例所需的随机化与结果一致性前提",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "✓ 已提供/已确认",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "前置条件未通过，未形成完整认证结论",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "— 暂未检查",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "unchecked"
+          }
+        ],
+        "design_label": "多个部门分别固定名额",
+        "exposure_label": "直接同伴中恰好几人使用",
+        "headline": "对照：三个部门的固定试用名额",
+        "next_step_plain": "补充或修订缺失条件，再提交正式数学识别；不能据此断言因果目标普遍不可识别。",
+        "question": "仍问“自己与一位同事试用”的平均结果；若研究信息未获认可，还能确定吗？",
+        "replay_status": "尚未颁发数学识别证书",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "S4-point": {
+        "business_context": "六名员工分属三个部门，每个部门两人且各随机挑选一名试用；部门之间仍有合作关系。",
+        "conclusion": "本次合成研究已声明所需条件，正式数学程序通过核验；可以给出总体识别公式，但不是实际销售额或政策收益估计。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "原随机抽签机制已定义",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "合成研究使用了获准的总体结果算子，不是由样本自动推出",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "✓ 已提供/已确认",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "已接受本例所需的随机化与结果一致性前提",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "✓ 已提供/已确认",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "已精确核算支持概率 1/4",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "✓ 已提供/已确认",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "confirmed"
+          }
+        ],
+        "design_label": "多个部门分别固定名额",
+        "exposure_label": "直接同伴中恰好几人使用",
+        "headline": "三个部门的固定试用名额",
+        "next_step_plain": "数学识别公式已经确定；若要估计现实金额，需另行使用有限样本方法。",
+        "question": "三个部门各抽一人试用。指定员工使用工具，且恰好一名合作同事试用时，平均业务结果能确定吗？",
+        "replay_status": "已完成独立数学复核",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "S4-zero_support": {
+        "business_context": "六名员工分属三个部门，每个部门两人且各随机挑选一名试用；部门之间仍有合作关系。",
+        "conclusion": "原分配机制不可能产生目标所要求的处理与同伴状态。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "原随机抽签机制已定义",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "合成研究使用了获准的总体结果算子，不是由样本自动推出",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "✓ 已提供/已确认",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "已接受本例所需的随机化与结果一致性前提",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "✓ 已提供/已确认",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "目标状态在原处理分配机制下严格零支持",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "× 不满足",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "failed"
+          }
+        ],
+        "design_label": "多个部门分别固定名额",
+        "exposure_label": "直接同伴中恰好几人使用",
+        "headline": "对照：三个部门的固定试用名额",
+        "next_step_plain": "补充或修订缺失条件，再提交正式数学识别；不能据此断言因果目标普遍不可识别。",
+        "question": "三个部门各只抽一人。指定员工已经试用，还要求两名关联同事也试用，原设计支持吗？",
+        "replay_status": "尚未颁发数学识别证书",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "S5-a5_missing": {
+        "business_context": "六名员工分成三个部门。首先随机确定各部门试用名额方案，再在部门内部抽取试用员工。",
+        "conclusion": "相关因果前提还没有经研究者明确接受。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "原随机抽签机制已定义",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "合成研究使用了获准的总体结果算子，不是由样本自动推出",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "✓ 已提供/已确认",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "名额方案公告没有额外直接作用尚未获准",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "？ 还需补充",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "missing"
+          },
+          {
+            "case_specific_explanation": "前置条件未通过，未形成完整认证结论",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "— 暂未检查",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "unchecked"
+          }
+        ],
+        "design_label": "先抽部门名额，再抽员工",
+        "exposure_label": "至少一位直接同伴使用",
+        "headline": "对照：先选部门名额，再抽员工",
+        "next_step_plain": "补充或修订缺失条件，再提交正式数学识别；不能据此断言因果目标普遍不可识别。",
+        "question": "同一个问题，但如果“名额方案公告本身不会改变员工结果”尚未获得科学确认，还能判断吗？",
+        "replay_status": "尚未颁发数学识别证书",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "S5-point": {
+        "business_context": "六名员工分成三个部门。首先随机确定各部门试用名额方案，再在部门内部抽取试用员工。",
+        "conclusion": "本次合成研究已声明所需条件，正式数学程序通过核验；可以给出总体识别公式，但不是实际销售额或政策收益估计。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "原随机抽签机制已定义",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "合成研究使用了获准的总体结果算子，不是由样本自动推出",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "✓ 已提供/已确认",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "另已接受“第一阶段名额公告没有额外直接作用”的前提",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "✓ 已提供/已确认",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "已精确核算支持概率 5/8",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "✓ 已提供/已确认",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "confirmed"
+          }
+        ],
+        "design_label": "先抽部门名额，再抽员工",
+        "exposure_label": "至少一位直接同伴使用",
+        "headline": "先选部门名额，再抽员工",
+        "next_step_plain": "数学识别公式已经确定；若要估计现实金额，需另行使用有限样本方法。",
+        "question": "先随机分配部门名额，再抽员工。如果指定员工自己使用、至少一位同伴使用，能确定其平均结果吗？",
+        "replay_status": "已完成独立数学复核",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "S5-zero_support": {
+        "business_context": "六名员工分成三个部门。首先随机确定各部门试用名额方案，再在部门内部抽取试用员工。",
+        "conclusion": "原分配机制不可能产生目标所要求的处理与同伴状态。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "原随机抽签机制已定义",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "合成研究使用了获准的总体结果算子，不是由样本自动推出",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "✓ 已提供/已确认",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "另已接受“第一阶段名额公告没有额外直接作用”的前提",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "✓ 已提供/已确认",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "目标状态在原处理分配机制下严格零支持",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "× 不满足",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "failed"
+          }
+        ],
+        "design_label": "先抽部门名额，再抽员工",
+        "exposure_label": "至少一位直接同伴使用",
+        "headline": "对照：先选部门名额，再抽员工",
+        "next_step_plain": "补充或修订缺失条件，再提交正式数学识别；不能据此断言因果目标普遍不可识别。",
+        "question": "这套部门名额方案下，若要求指定员工自己使用，且恰好两位关联同事也使用，有可能发生吗？",
+        "replay_status": "尚未颁发数学识别证书",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "S6-a4_sample_only": {
+        "business_context": "六名员工自主选择是否使用 AI。研究者假定已经掌握某个处理前二元特征及其同伴汇总，用于调整。",
+        "conclusion": "样本日志不能直接当作已知的总体条件均值。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "观测采用行为的条件分配模型已给出",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "样本日志不能直接当作已知的总体条件均值。",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "？ 还需补充",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "case_specific_explanation": "已接受本例所需的暴露充分性与局部无混杂前提",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "✓ 已提供/已确认",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "前置条件未通过，未形成完整认证结论",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "— 暂未检查",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "unchecked"
+          }
+        ],
+        "design_label": "员工自主选择使用",
+        "exposure_label": "至少一位直接同伴使用",
+        "headline": "对照：员工自主选择 AI 工具",
+        "next_step_plain": "补充或修订缺失条件，再提交正式数学识别；不能据此断言因果目标普遍不可识别。",
+        "question": "仍问同伴使用 AI 的因果影响；如果只有有限员工日志、缺少需要的总体信息，能直接认证吗？",
+        "replay_status": "尚未颁发数学识别证书",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "S6-a5_missing": {
+        "business_context": "六名员工自主选择是否使用 AI。研究者假定已经掌握某个处理前二元特征及其同伴汇总，用于调整。",
+        "conclusion": "相关因果前提还没有经研究者明确接受。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "观测采用行为的条件分配模型已给出",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "合成研究使用了获准的总体结果算子，不是由样本自动推出",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "✓ 已提供/已确认",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "局部无混杂前提尚未被研究者接受",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "？ 还需补充",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "missing"
+          },
+          {
+            "case_specific_explanation": "前置条件未通过，未形成完整认证结论",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "— 暂未检查",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "unchecked"
+          }
+        ],
+        "design_label": "员工自主选择使用",
+        "exposure_label": "至少一位直接同伴使用",
+        "headline": "对照：员工自主选择 AI 工具",
+        "next_step_plain": "补充或修订缺失条件，再提交正式数学识别；不能据此断言因果目标普遍不可识别。",
+        "question": "仍问“自己使用 AI 的员工受到同伴影响多少”，但还没确认相关无混杂前提时，能给出因果结论吗？",
+        "replay_status": "尚未颁发数学识别证书",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      },
+      "S6-point": {
+        "business_context": "六名员工自主选择是否使用 AI。研究者假定已经掌握某个处理前二元特征及其同伴汇总，用于调整。",
+        "conclusion": "本次合成研究已声明所需条件，正式数学程序通过核验；可以给出总体识别公式，但不是实际销售额或政策收益估计。",
+        "conditions": [
+          {
+            "case_specific_explanation": "目标和比较方式已写入本次合成规格",
+            "definition": "本次要回答谁、什么处理、什么状态下的结果",
+            "display_status": "✓ 已提供/已确认",
+            "id": "target",
+            "label": "研究问题与比较对象",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "观测采用行为的条件分配模型已给出",
+            "definition": "如何发放试用资格，或员工怎样选择使用",
+            "display_status": "✓ 已提供/已确认",
+            "id": "setting",
+            "label": "实验安排或使用机制",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "使用已知固定网络，并明确同伴状态的定义",
+            "definition": "谁与谁有关联，以及“同伴使用”如何定义",
+            "display_status": "✓ 已提供/已确认",
+            "id": "network",
+            "label": "合作网络与同伴状态",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "合成研究使用了获准的总体结果算子，不是由样本自动推出",
+            "definition": "能否合法得到目标对应的总体条件均值，不是只有样本记录",
+            "display_status": "✓ 已提供/已确认",
+            "id": "information",
+            "label": "所需总体研究信息",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "已接受本例所需的暴露充分性与局部无混杂前提",
+            "definition": "随机化或无混杂等必要前提已由研究者在本例中接受",
+            "display_status": "✓ 已提供/已确认",
+            "id": "assumptions",
+            "label": "必要的因果前提",
+            "state": "confirmed"
+          },
+          {
+            "case_specific_explanation": "每个相关调整层的支持已核验",
+            "definition": "原试验或观测分配机制对目标状态有严格正支持",
+            "display_status": "✓ 已提供/已确认",
+            "id": "support",
+            "label": "目标状态能够出现",
+            "state": "confirmed"
+          }
+        ],
+        "design_label": "员工自主选择使用",
+        "exposure_label": "至少一位直接同伴使用",
+        "headline": "员工自主选择 AI 工具",
+        "next_step_plain": "数学识别公式已经确定；若要估计现实金额，需另行使用有限样本方法。",
+        "question": "员工自主使用 AI。如果员工本人已经使用 AI，当同伴从无人使用变为至少一人使用时，他的平均表现会怎样变化？",
+        "replay_status": "已完成独立数学复核",
+        "synthetic_provenance": "模拟网络与预先声明的研究条件；并非真实企业已审核结论"
+      }
+    },
+    "condition_legend": [
+      {
+        "meaning": "对应的合成数学输入或正式程序已经核对，不代表真实世界假设已被证明",
+        "status": "已提供/已确认",
+        "symbol": "✓"
+      },
+      {
+        "meaning": "当前查询缺少正式准入信息或科学确认",
+        "status": "还需补充",
+        "symbol": "？"
+      },
+      {
+        "meaning": "已知当前输入违背所用路线的必要条件",
+        "status": "不满足",
+        "symbol": "×"
+      },
+      {
+        "meaning": "因前置条件不足，尚未得到可验证结论",
+        "status": "暂未检查",
+        "symbol": "—"
+      }
+    ],
+    "display_contract": "cfm-id-v3-supervisor-readability-v1",
+    "nbib_business_questions": [
+      {
+        "display_conditions": [
+          {
+            "explanation": "题库给出候选问法，尚待负责人确认具体目标",
+            "label": "业务问题的数学含义",
+            "state": "missing"
+          },
+          {
+            "explanation": "资料描述了业务场景和处理安排，但不等于科学审核",
+            "label": "业务研究背景",
+            "state": "confirmed"
+          },
+          {
+            "explanation": "原业务题库明确标记没有提供正式总体信息",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未获得本次目标所需的独立科学确认",
+            "label": "必要因果前提",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未对该业务目标执行正式数学程序与独立复核",
+            "label": "支持与正式证书",
+            "state": "unchecked"
+          }
+        ],
+        "display_status": "业务语义题 · 尚未认证",
+        "id": "NBIB-001",
+        "industry": "企业销售",
+        "mathematical_status": "NOT_FORMALLY_CHECKED",
+        "needs": "需先独立确认业务目标、因果前提和所需总体信息，再运行正式定理。有限样本记录不能直接视为总体信息。",
+        "original_description": "一家区域销售公司有80名客户经理，团队之间长期互相分享客户线索，营销部在试点前整理了协作关系。上一季度公司按岗位等级设置不同抽签概率，每位经理独立决定是否获得AI助手权限。业务部门保存了审批方案、发放名单、培训前的销售基础水平及八周后的收入。管理团队希望知道：AI助手是否改善获准使用者自己的销售表现；没有获得权限的人是否也受附近合作同事的影响。这两个问题都会影响下一季度是否继续购买授权，但公司希望分别报告，而不是合成一个笼统的提升百分比。",
+        "questions": [
+          "AI助手是否改善获准使用者自己的销售表现",
+          "没有获得权限的人是否也受附近合作同事的影响"
+        ],
+        "study_type": "D1",
+        "title": "销售团队的 AI 助手试点"
+      },
+      {
+        "display_conditions": [
+          {
+            "explanation": "题库给出候选问法，尚待负责人确认具体目标",
+            "label": "业务问题的数学含义",
+            "state": "missing"
+          },
+          {
+            "explanation": "资料描述了业务场景和处理安排，但不等于科学审核",
+            "label": "业务研究背景",
+            "state": "confirmed"
+          },
+          {
+            "explanation": "原业务题库明确标记没有提供正式总体信息",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未获得本次目标所需的独立科学确认",
+            "label": "必要因果前提",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未对该业务目标执行正式数学程序与独立复核",
+            "label": "支持与正式证书",
+            "state": "unchecked"
+          }
+        ],
+        "display_status": "业务语义题 · 尚未认证",
+        "id": "NBIB-002",
+        "industry": "物流配送",
+        "mathematical_status": "NOT_FORMALLY_CHECKED",
+        "needs": "需先独立确认业务目标、因果前提和所需总体信息，再运行正式定理。有限样本记录不能直接视为总体信息。",
+        "original_description": "一家城市配送平台在环城的48个站点试用新排班系统，站点之间会临时调配司机。运营部门提前决定恰好选24个站点使用系统，并在全体站点中无放回公开抽签。试点前固定了互相支援的站点关系，现在已有排班表、处理名单及每站点日均延误分钟数。管理团队希望知道：当某站点已经使用系统并且恰有一个相邻站点使用时，它的平均延误水平如何。运营负责人希望这个状态与其他安排分开评估，避免把“邻近站点数量”粗略压缩为有没有邻居采用。",
+        "questions": [
+          "当某站点已经使用系统并且恰有一个相邻站点使用时，它的平均延误水平如何"
+        ],
+        "study_type": "D2",
+        "title": "配送站点固定名额试点"
+      },
+      {
+        "display_conditions": [
+          {
+            "explanation": "题库给出候选问法，尚待负责人确认具体目标",
+            "label": "业务问题的数学含义",
+            "state": "missing"
+          },
+          {
+            "explanation": "资料描述了业务场景和处理安排，但不等于科学审核",
+            "label": "业务研究背景",
+            "state": "confirmed"
+          },
+          {
+            "explanation": "原业务题库明确标记没有提供正式总体信息",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未获得本次目标所需的独立科学确认",
+            "label": "必要因果前提",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未对该业务目标执行正式数学程序与独立复核",
+            "label": "支持与正式证书",
+            "state": "unchecked"
+          }
+        ],
+        "display_status": "业务语义题 · 尚未认证",
+        "id": "NBIB-003",
+        "industry": "连锁零售",
+        "mathematical_status": "NOT_FORMALLY_CHECKED",
+        "needs": "需先独立确认业务目标、因果前提和所需总体信息，再运行正式定理。有限样本记录不能直接视为总体信息。",
+        "original_description": "一家连锁便利店在同一个城市经营72家门店，各门店存在会员互相转介，按预先划定的6个商圈组成试点单元。营销部不是逐店抽签，而是每个商圈独立抽签，若某商圈入选，该商圈所有门店同时发放新会员券。公司整理了门店之间的转介网络和试点期营业额。管理团队希望知道：没有发券的门店会不会因为相邻商圈有门店发券而获得更多订单。业务部门担心促销可能同时带来新增客流和跨店转移，因此希望先弄清是否存在外溢，而不是只比较入选与未入选商圈平均销售额。",
+        "questions": [
+          "没有发券的门店会不会因为相邻商圈有门店发券而获得更多订单"
+        ],
+        "study_type": "D4",
+        "title": "整片商圈会员券投放"
+      },
+      {
+        "display_conditions": [
+          {
+            "explanation": "题库给出候选问法，尚待负责人确认具体目标",
+            "label": "业务问题的数学含义",
+            "state": "missing"
+          },
+          {
+            "explanation": "资料描述了业务场景和处理安排，但不等于科学审核",
+            "label": "业务研究背景",
+            "state": "confirmed"
+          },
+          {
+            "explanation": "原业务题库明确标记没有提供正式总体信息",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未获得本次目标所需的独立科学确认",
+            "label": "必要因果前提",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未对该业务目标执行正式数学程序与独立复核",
+            "label": "支持与正式证书",
+            "state": "unchecked"
+          }
+        ],
+        "display_status": "业务语义题 · 尚未认证",
+        "id": "NBIB-004",
+        "industry": "医疗管理",
+        "mathematical_status": "NOT_FORMALLY_CHECKED",
+        "needs": "需先独立确认业务目标、因果前提和所需总体信息，再运行正式定理。有限样本记录不能直接视为总体信息。",
+        "original_description": "一个医疗集团在四个片区共管理48家社区医院，医院之间既有跨区转诊，也会共享夜间值班医生。集团在每个片区分别固定数字化培训名额，再从该片区医院中随机选取。集团掌握正式抽签记录、医院间协作关系、上线前门诊规模和试点后的平均等待时长。管理团队希望知道：接受培训的医院本院等候时间是否缩短；没有接受培训的医院会不会因合作医院更多采用新流程而改变等候时间。集团想分别看自身作用与转诊带来的连带作用，而不是认定四个地区互不影响。",
+        "questions": [
+          "接受培训的医院本院等候时间是否缩短",
+          "没有接受培训的医院会不会因合作医院更多采用新流程而改变等候时间"
+        ],
+        "study_type": "D5",
+        "title": "各地区医院固定培训名额"
+      },
+      {
+        "display_conditions": [
+          {
+            "explanation": "题库给出候选问法，尚待负责人确认具体目标",
+            "label": "业务问题的数学含义",
+            "state": "missing"
+          },
+          {
+            "explanation": "资料描述了业务场景和处理安排，但不等于科学审核",
+            "label": "业务研究背景",
+            "state": "confirmed"
+          },
+          {
+            "explanation": "原业务题库明确标记没有提供正式总体信息",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未获得本次目标所需的独立科学确认",
+            "label": "必要因果前提",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未对该业务目标执行正式数学程序与独立复核",
+            "label": "支持与正式证书",
+            "state": "unchecked"
+          }
+        ],
+        "display_status": "业务语义题 · 尚未认证",
+        "id": "NBIB-005",
+        "industry": "教育管理",
+        "mathematical_status": "NOT_FORMALLY_CHECKED",
+        "needs": "需先独立确认业务目标、因果前提和所需总体信息，再运行正式定理。有限样本记录不能直接视为总体信息。",
+        "original_description": "一所教育联盟在60个互相交流教学资料的班级试点线上辅导工具。项目先在三个区域可能的名额方案中随机选择一个，再按该方案在各区域内部抽出参加班级。联盟保留了两个阶段的抽签记录、教学合作关系和每班期末测评成绩。区域之间也会共享教案，因此不能简单当成完全隔离的实验。管理团队希望知道：班级自己获得辅导工具对学习成绩有什么影响；没有获得工具但合作班级使用了工具时成绩是否也受益。联盟想评估下一轮资助怎样分配；项目组认为名额公告本身不影响成绩，但需要研究负责人单独确认该建模假设。",
+        "questions": [
+          "班级自己获得辅导工具对学习成绩有什么影响",
+          "没有获得工具但合作班级使用了工具时成绩是否也受益"
+        ],
+        "study_type": "D6",
+        "title": "两阶段课后辅导名额实验"
+      },
+      {
+        "display_conditions": [
+          {
+            "explanation": "题库给出候选问法，尚待负责人确认具体目标",
+            "label": "业务问题的数学含义",
+            "state": "missing"
+          },
+          {
+            "explanation": "资料描述了业务场景和处理安排，但不等于科学审核",
+            "label": "业务研究背景",
+            "state": "confirmed"
+          },
+          {
+            "explanation": "原业务题库明确标记没有提供正式总体信息",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未获得本次目标所需的独立科学确认",
+            "label": "必要因果前提",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未对该业务目标执行正式数学程序与独立复核",
+            "label": "支持与正式证书",
+            "state": "unchecked"
+          }
+        ],
+        "display_status": "业务语义题 · 尚未认证",
+        "id": "NBIB-006",
+        "industry": "教育管理",
+        "mathematical_status": "NOT_FORMALLY_CHECKED",
+        "needs": "需先独立确认业务目标、因果前提和所需总体信息，再运行正式定理。有限样本记录不能直接视为总体信息。",
+        "original_description": "同一教育联盟继续分析三个区域的线上辅导试验，区域先抽名额方案，再决定具体班级名单，合作网络和班级数量不变。项目结束后，学校反馈说某些区域在第一阶段一得知“今年配额较多”时，就提前额外安排了辅导老师；即便最后某个班级没有中签，也可能受到这次公告的影响。管理团队希望知道：在这次含有提前公告影响的实验中，能否直接照旧解释班级获得工具的效果。业务部门希望了解原来答应采用的统计方法是否仍适用，并提供了班级名单、公告时间和成绩记录。",
+        "questions": [
+          "在这次含有提前公告影响的实验中，能否直接照旧解释班级获得工具的效果"
+        ],
+        "study_type": "D6",
+        "title": "两阶段辅导：配额公告可能改变行为"
+      },
+      {
+        "display_conditions": [
+          {
+            "explanation": "题库给出候选问法，尚待负责人确认具体目标",
+            "label": "业务问题的数学含义",
+            "state": "missing"
+          },
+          {
+            "explanation": "资料描述了业务场景和处理安排，但不等于科学审核",
+            "label": "业务研究背景",
+            "state": "confirmed"
+          },
+          {
+            "explanation": "原业务题库明确标记没有提供正式总体信息",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未获得本次目标所需的独立科学确认",
+            "label": "必要因果前提",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未对该业务目标执行正式数学程序与独立复核",
+            "label": "支持与正式证书",
+            "state": "unchecked"
+          }
+        ],
+        "display_status": "业务语义题 · 尚未认证",
+        "id": "NBIB-007",
+        "industry": "企业管理",
+        "mathematical_status": "NOT_FORMALLY_CHECKED",
+        "needs": "需先独立确认业务目标、因果前提和所需总体信息，再运行正式定理。有限样本记录不能直接视为总体信息。",
+        "original_description": "一家14人创业公司的工作高度协同，公司此前让每个人独立抽签决定是否试用新的协作平台，并保存了当时的概率、成员协作关系和一个月的交付质量记录。董事会现在关心的是下一季度所有员工同时上线的组织整体表现，而不是只看参加实验的人平均多交付了多少任务。管理团队希望知道：如果14名员工全部使用平台，公司整体交付质量会怎样变化。人力部门希望把这个情形与原试验的平均组间差异严格区分，并确认现有资料够不够支持答案。",
+        "questions": [
+          "如果14名员工全部使用平台，公司整体交付质量会怎样变化"
+        ],
+        "study_type": "D1",
+        "title": "创业公司全员采用线上协作工具"
+      },
+      {
+        "display_conditions": [
+          {
+            "explanation": "题库给出候选问法，尚待负责人确认具体目标",
+            "label": "业务问题的数学含义",
+            "state": "missing"
+          },
+          {
+            "explanation": "资料描述了业务场景和处理安排，但不等于科学审核",
+            "label": "业务研究背景",
+            "state": "confirmed"
+          },
+          {
+            "explanation": "原业务题库明确标记没有提供正式总体信息",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未获得本次目标所需的独立科学确认",
+            "label": "必要因果前提",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未对该业务目标执行正式数学程序与独立复核",
+            "label": "支持与正式证书",
+            "state": "unchecked"
+          }
+        ],
+        "display_status": "业务语义题 · 尚未认证",
+        "id": "NBIB-008",
+        "industry": "连锁经营",
+        "mathematical_status": "NOT_FORMALLY_CHECKED",
+        "needs": "需先独立确认业务目标、因果前提和所需总体信息，再运行正式定理。有限样本记录不能直接视为总体信息。",
+        "original_description": "一家公司以一间总部旗舰店和13家合作门店组成销售互助网络，旗舰店负责把客户介绍到其他门店。去年公司只购买了7套新的推荐系统授权，实验时从14家门店里固定抽出7家安装，其余门店保留旧系统。所有门店的销售数据、网络关系和抽签日志都已存档。管理团队希望知道：如果14家门店下季度全部安装新系统，公司整体收入会怎样。董事会希望明确哪些结论能从旧实验推出来，不接受以“试点门店平均效果”直接代替全员推广后的总收入。",
+        "questions": [
+          "如果14家门店下季度全部安装新系统，公司整体收入会怎样"
+        ],
+        "study_type": "D2",
+        "title": "固定名额试点无法直接评价全员推广"
+      },
+      {
+        "display_conditions": [
+          {
+            "explanation": "题库给出候选问法，尚待负责人确认具体目标",
+            "label": "业务问题的数学含义",
+            "state": "missing"
+          },
+          {
+            "explanation": "资料描述了业务场景和处理安排，但不等于科学审核",
+            "label": "业务研究背景",
+            "state": "confirmed"
+          },
+          {
+            "explanation": "原业务题库明确标记没有提供正式总体信息",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未获得本次目标所需的独立科学确认",
+            "label": "必要因果前提",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未对该业务目标执行正式数学程序与独立复核",
+            "label": "支持与正式证书",
+            "state": "unchecked"
+          }
+        ],
+        "display_status": "业务语义题 · 尚未认证",
+        "id": "NBIB-009",
+        "industry": "连锁经营",
+        "mathematical_status": "NOT_FORMALLY_CHECKED",
+        "needs": "需先独立确认业务目标、因果前提和所需总体信息，再运行正式定理。有限样本记录不能直接视为总体信息。",
+        "original_description": "还是上述由旗舰店连接13家合作门店的公司，去年只在14家中抽签安装了7套推荐系统，现在仍然要评估全员推广。研究团队在试验前写过一份机制说明，认为门店平均收入在固定门店特征以后，只依赖本店有没有系统，以及相邻门店是否至少一家有系统，而不取决于其他人的完整安装名单。管理团队希望知道：如果14家门店下季度全部安装新系统，公司整体收入会怎样。董事会希望知道，如果研究负责人愿意正式采用这项额外假设，旧试点是否可能支持这一目标，而不是将假设当成数据自动证实的事实。",
+        "questions": [
+          "如果14家门店下季度全部安装新系统，公司整体收入会怎样"
+        ],
+        "study_type": "D2",
+        "title": "同一固定名额试点增加一项结构假设"
+      },
+      {
+        "display_conditions": [
+          {
+            "explanation": "题库给出候选问法，尚待负责人确认具体目标",
+            "label": "业务问题的数学含义",
+            "state": "missing"
+          },
+          {
+            "explanation": "资料描述了业务场景和处理安排，但不等于科学审核",
+            "label": "业务研究背景",
+            "state": "confirmed"
+          },
+          {
+            "explanation": "原业务题库明确标记没有提供正式总体信息",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未获得本次目标所需的独立科学确认",
+            "label": "必要因果前提",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未对该业务目标执行正式数学程序与独立复核",
+            "label": "支持与正式证书",
+            "state": "unchecked"
+          }
+        ],
+        "display_status": "业务语义题 · 尚未认证",
+        "id": "NBIB-010",
+        "industry": "通信服务",
+        "mathematical_status": "NOT_FORMALLY_CHECKED",
+        "needs": "需先独立确认业务目标、因果前提和所需总体信息，再运行正式定理。有限样本记录不能直接视为总体信息。",
+        "original_description": "一家通信维护公司有16个相互支援的维修小组，曾通过独立抽签测试新的故障诊断软件。管理层已经设计好下季度两套完整名单：一种方案优先给夜间值班组，另一种优先给白天高负荷组。两套名单内部都不会临时更改，并计划在每个独立项目中以预先确定的比例选择其一。管理团队希望知道：如果以六成概率采用方案甲、四成概率采用方案乙，整体故障恢复表现如何。负责人关心的是这两套固定方案的预先确定混合，而不是让算法根据结果实时调整名单。公司保存了试验概率和小组支援网络。",
+        "questions": [
+          "如果以六成概率采用方案甲、四成概率采用方案乙，整体故障恢复表现如何"
+        ],
+        "study_type": "D1",
+        "title": "按固定比例轮换两种推广方案"
+      },
+      {
+        "display_conditions": [
+          {
+            "explanation": "题库给出候选问法，尚待负责人确认具体目标",
+            "label": "业务问题的数学含义",
+            "state": "missing"
+          },
+          {
+            "explanation": "资料描述了业务场景和处理安排，但不等于科学审核",
+            "label": "业务研究背景",
+            "state": "confirmed"
+          },
+          {
+            "explanation": "原业务题库明确标记没有提供正式总体信息",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未获得本次目标所需的独立科学确认",
+            "label": "必要因果前提",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未对该业务目标执行正式数学程序与独立复核",
+            "label": "支持与正式证书",
+            "state": "unchecked"
+          }
+        ],
+        "display_status": "业务语义题 · 尚未认证",
+        "id": "NBIB-011",
+        "industry": "平台经济",
+        "mathematical_status": "NOT_FORMALLY_CHECKED",
+        "needs": "需先独立确认业务目标、因果前提和所需总体信息，再运行正式定理。有限样本记录不能直接视为总体信息。",
+        "original_description": "一家本地生活平台与70个相互转介绍的商户合作，上季度平台开放了新的广告曝光工具，但商户自己决定是否开通。运营部门掌握开通记录、合作转介关系、试点前营业规模以及后续订单量，没有进行任何随机抽签。商户表示经营积极性会影响是否报名，平台过去并未系统记录这些因素。管理团队希望知道：如果下季度要求所有商户都使用推广工具，整个平台的订单总量会怎样。平台高层希望知道能否从现有记录直接回答，而不是把使用工具的商户和未使用商户简单比较就当成真实推广效果。",
+        "questions": [
+          "如果下季度要求所有商户都使用推广工具，整个平台的订单总量会怎样"
+        ],
+        "study_type": "O_CONF",
+        "title": "商户自主选择参与平台扶持"
+      },
+      {
+        "display_conditions": [
+          {
+            "explanation": "题库给出候选问法，尚待负责人确认具体目标",
+            "label": "业务问题的数学含义",
+            "state": "missing"
+          },
+          {
+            "explanation": "资料描述了业务场景和处理安排，但不等于科学审核",
+            "label": "业务研究背景",
+            "state": "confirmed"
+          },
+          {
+            "explanation": "原业务题库明确标记没有提供正式总体信息",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未获得本次目标所需的独立科学确认",
+            "label": "必要因果前提",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未对该业务目标执行正式数学程序与独立复核",
+            "label": "支持与正式证书",
+            "state": "unchecked"
+          }
+        ],
+        "display_status": "业务语义题 · 尚未认证",
+        "id": "NBIB-012",
+        "industry": "企业服务",
+        "mathematical_status": "NOT_FORMALLY_CHECKED",
+        "needs": "需先独立确认业务目标、因果前提和所需总体信息，再运行正式定理。有限样本记录不能直接视为总体信息。",
+        "original_description": "一家分布式客服企业有90名坐席，员工会通过固定的互助关系交流处理技巧。去年管理层开放了知识库插件，员工自主选择是否启用，团队采纳频率在不同岗位间有所不同。企业保留了岗位、互助网络、插件启用情况和服务满意度，数据团队愿意提供采纳概率模型的技术说明，但不能证明所有影响采纳和服务质量的因素都已观察到。管理团队希望知道：按照现有员工自发采纳方式，插件对员工自己满意度的平均影响如何。负责人特别希望分析“在现有采纳背景下”的自身效果，而非规定所有员工都必须使用插件的政策结果。",
+        "questions": [
+          "按照现有员工自发采纳方式，插件对员工自己满意度的平均影响如何"
+        ],
+        "study_type": "O_IND",
+        "title": "员工自主采纳软件时按现状标准化的效果"
+      },
+      {
+        "display_conditions": [
+          {
+            "explanation": "题库给出候选问法，尚待负责人确认具体目标",
+            "label": "业务问题的数学含义",
+            "state": "missing"
+          },
+          {
+            "explanation": "资料描述了业务场景和处理安排，但不等于科学审核",
+            "label": "业务研究背景",
+            "state": "confirmed"
+          },
+          {
+            "explanation": "原业务题库明确标记没有提供正式总体信息",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未获得本次目标所需的独立科学确认",
+            "label": "必要因果前提",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未对该业务目标执行正式数学程序与独立复核",
+            "label": "支持与正式证书",
+            "state": "unchecked"
+          }
+        ],
+        "display_status": "业务语义题 · 尚未认证",
+        "id": "NBIB-013",
+        "industry": "金融服务",
+        "mathematical_status": "NOT_FORMALLY_CHECKED",
+        "needs": "需先独立确认业务目标、因果前提和所需总体信息，再运行正式定理。有限样本记录不能直接视为总体信息。",
+        "original_description": "一家金融服务集团在若干彼此独立的区域市场复制了同一套48家网点的协作布局，每个区域市场只在一个季度观察一次。各市场在上线前被归为需求平稳或需求旺盛两档，网点自主开通线上预约助手。集团保存了每个市场的背景档次、网点互相转介的固定网络、启用记录和客户等待时间。管理团队希望知道：比较相同市场背景和邻近网点使用状态后，自己开通助手会怎样影响等候时间；比较相同市场背景后，邻近网点开通助手会不会影响尚未开通者的等候时间。集团希望把两个市场背景档次按预先约定的总体占比合在一起报告；研究团队另有专门的假设审核材料。",
+        "questions": [
+          "比较相同市场背景和邻近网点使用状态后，自己开通助手会怎样影响等候时间",
+          "比较相同市场背景后，邻近网点开通助手会不会影响尚未开通者的等候时间"
+        ],
+        "study_type": "O_B",
+        "title": "市场背景分层的门店协同调整"
+      },
+      {
+        "display_conditions": [
+          {
+            "explanation": "题库给出候选问法，尚待负责人确认具体目标",
+            "label": "业务问题的数学含义",
+            "state": "missing"
+          },
+          {
+            "explanation": "资料描述了业务场景和处理安排，但不等于科学审核",
+            "label": "业务研究背景",
+            "state": "confirmed"
+          },
+          {
+            "explanation": "原业务题库明确标记没有提供正式总体信息",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未获得本次目标所需的独立科学确认",
+            "label": "必要因果前提",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未对该业务目标执行正式数学程序与独立复核",
+            "label": "支持与正式证书",
+            "state": "unchecked"
+          }
+        ],
+        "display_status": "业务语义题 · 尚未认证",
+        "id": "NBIB-014",
+        "industry": "金融服务",
+        "mathematical_status": "NOT_FORMALLY_CHECKED",
+        "needs": "需先独立确认业务目标、因果前提和所需总体信息，再运行正式定理。有限样本记录不能直接视为总体信息。",
+        "original_description": "仍是这家拥有48家网点协作模板的金融集团，多个独立市场在需求平稳和旺盛的两类背景下自行开通线上预约助手。部门经理给出了区域市场编号、采纳清单、网点合作关系，以及每家网点本季度等待时长的CSV文件；因为业务系统只能导出当前样本，无法提供关于所有类似市场的总体条件结果关系。管理团队希望知道：考虑市场背景和邻近网点使用情况后，助手对本网点等待时间的影响能否现在确认。经理希望我们先判断缺的到底是什么，不要用这批真实风格的记录直接宣称已经算出可识别的总体效应。",
+        "questions": [
+          "考虑市场背景和邻近网点使用情况后，助手对本网点等待时间的影响能否现在确认"
+        ],
+        "study_type": "O_B",
+        "title": "市场背景分层：只提供有限业务表"
+      },
+      {
+        "display_conditions": [
+          {
+            "explanation": "题库给出候选问法，尚待负责人确认具体目标",
+            "label": "业务问题的数学含义",
+            "state": "missing"
+          },
+          {
+            "explanation": "资料描述了业务场景和处理安排，但不等于科学审核",
+            "label": "业务研究背景",
+            "state": "confirmed"
+          },
+          {
+            "explanation": "原业务题库明确标记没有提供正式总体信息",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未获得本次目标所需的独立科学确认",
+            "label": "必要因果前提",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未对该业务目标执行正式数学程序与独立复核",
+            "label": "支持与正式证书",
+            "state": "unchecked"
+          }
+        ],
+        "display_status": "业务语义题 · 尚未认证",
+        "id": "NBIB-015",
+        "industry": "金融服务",
+        "mathematical_status": "NOT_FORMALLY_CHECKED",
+        "needs": "需先独立确认业务目标、因果前提和所需总体信息，再运行正式定理。有限样本记录不能直接视为总体信息。",
+        "original_description": "还是前述48家网点组成的独立市场网络，市场需求被分成两类，每个网点自主决定是否用线上预约助手。审计人员提出疑问：负责人是否更愿意在团队效率较高时主动开通软件，而这种管理能力并没有被记录在市场背景变量中？集团不愿在这个问题澄清前接受“相同背景的开通者和未开通者可以比较”的假设。管理团队希望知道：在无法确认有无遗漏的管理能力影响时，是否能够宣称助手本身改善等候时间。业务方希望系统说明条件上的风险，而不是让软件自动宣布“已经控制了混杂”。",
+        "questions": [
+          "在无法确认有无遗漏的管理能力影响时，是否能够宣称助手本身改善等候时间"
+        ],
+        "study_type": "O_B",
+        "title": "市场背景分层：还有未记录的经营因素"
+      },
+      {
+        "display_conditions": [
+          {
+            "explanation": "题库给出候选问法，尚待负责人确认具体目标",
+            "label": "业务问题的数学含义",
+            "state": "missing"
+          },
+          {
+            "explanation": "资料描述了业务场景和处理安排，但不等于科学审核",
+            "label": "业务研究背景",
+            "state": "confirmed"
+          },
+          {
+            "explanation": "原业务题库明确标记没有提供正式总体信息",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未获得本次目标所需的独立科学确认",
+            "label": "必要因果前提",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未对该业务目标执行正式数学程序与独立复核",
+            "label": "支持与正式证书",
+            "state": "unchecked"
+          }
+        ],
+        "display_status": "业务语义题 · 尚未认证",
+        "id": "NBIB-016",
+        "industry": "金融服务",
+        "mathematical_status": "NOT_FORMALLY_CHECKED",
+        "needs": "需先独立确认业务目标、因果前提和所需总体信息，再运行正式定理。有限样本记录不能直接视为总体信息。",
+        "original_description": "另一家同类型金融集团也在多个独立区域使用相同的48网点布局，并把市场分成平稳、旺盛两类。但由于合规限制，在旺盛市场的这个季度，所有网点都不能开通线上预约助手。集团仍然保存了这两类市场的完整名单、合作关系、业务结果和相关政策限制。管理团队希望知道：如果想报告覆盖两类市场的开通助手效果，这些观察记录是否足够。集团负责人知道不能简单丢掉旺盛市场，因为未来推广范围就包括它们。",
+        "questions": [
+          "如果想报告覆盖两类市场的开通助手效果，这些观察记录是否足够"
+        ],
+        "study_type": "O_B_ZERO",
+        "title": "市场背景分层：某档市场无法接受处理"
+      },
+      {
+        "display_conditions": [
+          {
+            "explanation": "题库给出候选问法，尚待负责人确认具体目标",
+            "label": "业务问题的数学含义",
+            "state": "missing"
+          },
+          {
+            "explanation": "资料描述了业务场景和处理安排，但不等于科学审核",
+            "label": "业务研究背景",
+            "state": "confirmed"
+          },
+          {
+            "explanation": "原业务题库明确标记没有提供正式总体信息",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未获得本次目标所需的独立科学确认",
+            "label": "必要因果前提",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未对该业务目标执行正式数学程序与独立复核",
+            "label": "支持与正式证书",
+            "state": "unchecked"
+          }
+        ],
+        "display_status": "业务语义题 · 尚未认证",
+        "id": "NBIB-017",
+        "industry": "制造业协作",
+        "mathematical_status": "NOT_FORMALLY_CHECKED",
+        "needs": "需先独立确认业务目标、因果前提和所需总体信息，再运行正式定理。有限样本记录不能直接视为总体信息。",
+        "original_description": "一家制造集团的60条产线共享维修和质检人员。新调度系统上线后，产线之间开始动态重新分配维修队，原来的支援关系发生了变化；公司只保留了系统上线之后的合作记录，没有可靠的上线前固定网络。集团通过抽签决定初始上线名单，并保存了异常停机时长。管理团队希望知道：新系统对产线自身停机时长有怎样的因果影响；上线后重新形成的合作关系会不会传递给其他产线影响。工厂希望区分系统自身效果与网络关系发生变化后的影响，而不是假设所有合作边在试验前就存在。",
+        "questions": [
+          "新系统对产线自身停机时长有怎样的因果影响",
+          "上线后重新形成的合作关系会不会传递给其他产线影响"
+        ],
+        "study_type": "D1",
+        "title": "合作网络随着系统使用而改变"
+      },
+      {
+        "display_conditions": [
+          {
+            "explanation": "题库给出候选问法，尚待负责人确认具体目标",
+            "label": "业务问题的数学含义",
+            "state": "missing"
+          },
+          {
+            "explanation": "资料描述了业务场景和处理安排，但不等于科学审核",
+            "label": "业务研究背景",
+            "state": "confirmed"
+          },
+          {
+            "explanation": "原业务题库明确标记没有提供正式总体信息",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未获得本次目标所需的独立科学确认",
+            "label": "必要因果前提",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未对该业务目标执行正式数学程序与独立复核",
+            "label": "支持与正式证书",
+            "state": "unchecked"
+          }
+        ],
+        "display_status": "业务语义题 · 尚未认证",
+        "id": "NBIB-018",
+        "industry": "企业协作",
+        "mathematical_status": "NOT_FORMALLY_CHECKED",
+        "needs": "需先独立确认业务目标、因果前提和所需总体信息，再运行正式定理。有限样本记录不能直接视为总体信息。",
+        "original_description": "一家300名员工的全国服务公司在不同业务组间共享客户与技术支持。各组早已登记平时的合作关系以及每个人最常求助的核心同事，公司用独立抽签先测试了AI知识助手，并记录客户满意度。管理层需要同时评估员工自己的效果、核心伙伴获得助手时的带动作用，以及未来在100套授权的预算下怎样选人。管理团队希望知道：获得AI助手是否改善员工自己处理客户问题的表现；没有助手的人是否会因核心合作者使用助手而受益；只购买100套授权时应该给哪些员工才能让全公司满意度最高。第三个是实际决策优化问题，不能仅凭前两个效果就宣称已经找到最优名单。",
+        "questions": [
+          "获得AI助手是否改善员工自己处理客户问题的表现",
+          "没有助手的人是否会因核心合作者使用助手而受益",
+          "只购买100套授权时应该给哪些员工才能让全公司满意度最高"
+        ],
+        "study_type": "D1",
+        "title": "三百名员工与有限授权最优分配"
+      },
+      {
+        "display_conditions": [
+          {
+            "explanation": "题库给出候选问法，尚待负责人确认具体目标",
+            "label": "业务问题的数学含义",
+            "state": "missing"
+          },
+          {
+            "explanation": "资料描述了业务场景和处理安排，但不等于科学审核",
+            "label": "业务研究背景",
+            "state": "confirmed"
+          },
+          {
+            "explanation": "原业务题库明确标记没有提供正式总体信息",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未获得本次目标所需的独立科学确认",
+            "label": "必要因果前提",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未对该业务目标执行正式数学程序与独立复核",
+            "label": "支持与正式证书",
+            "state": "unchecked"
+          }
+        ],
+        "display_status": "业务语义题 · 尚未认证",
+        "id": "NBIB-019",
+        "industry": "内容平台",
+        "mathematical_status": "NOT_FORMALLY_CHECKED",
+        "needs": "需先独立确认业务目标、因果前提和所需总体信息，再运行正式定理。有限样本记录不能直接视为总体信息。",
+        "original_description": "一家内容平台为40个互相转发内容的创作者开放了新的推荐工具，创作者自行申请开通。平台发现开通者的播放达标率普遍较高，而且保存的网络、申请名单与实际播放记录都很齐全。但审核团队担心：本来就更积极的创作者既更愿意申请，也更容易获得较好结果，这种积极性没进入记录。管理团队希望知道：开通推荐工具本身是否提高创作者达到播放目标的概率。业务负责人希望区分“使用者表现更好”和“工具导致表现更好”，而不是用差异直接当因果作用。",
+        "questions": [
+          "开通推荐工具本身是否提高创作者达到播放目标的概率"
+        ],
+        "study_type": "O_WITNESS",
+        "title": "自发报名和经营积极性导致的识别歧义"
+      },
+      {
+        "display_conditions": [
+          {
+            "explanation": "题库给出候选问法，尚待负责人确认具体目标",
+            "label": "业务问题的数学含义",
+            "state": "missing"
+          },
+          {
+            "explanation": "资料描述了业务场景和处理安排，但不等于科学审核",
+            "label": "业务研究背景",
+            "state": "confirmed"
+          },
+          {
+            "explanation": "原业务题库明确标记没有提供正式总体信息",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未获得本次目标所需的独立科学确认",
+            "label": "必要因果前提",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未对该业务目标执行正式数学程序与独立复核",
+            "label": "支持与正式证书",
+            "state": "unchecked"
+          }
+        ],
+        "display_status": "业务语义题 · 尚未认证",
+        "id": "NBIB-020",
+        "industry": "连锁仓储",
+        "mathematical_status": "NOT_FORMALLY_CHECKED",
+        "needs": "需先独立确认业务目标、因果前提和所需总体信息，再运行正式定理。有限样本记录不能直接视为总体信息。",
+        "original_description": "一家物流集团有48个仓库，按管理区域划成四个试点单元，区域内部共享运输车队。公司当初只对每个完整区域抽签，决定该区域所有仓库是否统一使用新的补货系统，从未让同一区域内部一些仓库用、一部分不用。现在业务负责人希望在同一区域里根据仓库位置分配授权。管理团队希望知道：如果每个区域只让一半仓库启用补货系统，整个仓储网络的平均缺货情况会怎样。集团想知道旧试验能否直接评价这个新方案，并不想把“有任一邻居启用”自动假设为充分代表完整的补货网络。",
+        "questions": [
+          "如果每个区域只让一半仓库启用补货系统，整个仓储网络的平均缺货情况会怎样"
+        ],
+        "study_type": "D4",
+        "title": "整组上线试验与无法实施的分组政策"
+      },
+      {
+        "display_conditions": [
+          {
+            "explanation": "题库给出候选问法，尚待负责人确认具体目标",
+            "label": "业务问题的数学含义",
+            "state": "missing"
+          },
+          {
+            "explanation": "资料描述了业务场景和处理安排，但不等于科学审核",
+            "label": "业务研究背景",
+            "state": "confirmed"
+          },
+          {
+            "explanation": "原业务题库明确标记没有提供正式总体信息",
+            "label": "所需总体研究信息",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未获得本次目标所需的独立科学确认",
+            "label": "必要因果前提",
+            "state": "missing"
+          },
+          {
+            "explanation": "尚未对该业务目标执行正式数学程序与独立复核",
+            "label": "支持与正式证书",
+            "state": "unchecked"
+          }
+        ],
+        "display_status": "业务语义题 · 尚未认证",
+        "id": "NBIB-021",
+        "industry": "供应链管理",
+        "mathematical_status": "NOT_FORMALLY_CHECKED",
+        "needs": "需先独立确认业务目标、因果前提和所需总体信息，再运行正式定理。有限样本记录不能直接视为总体信息。",
+        "original_description": "一家供应链企业沿两条平行的运输走廊布置了64个仓储站点，每条走廊各32站，站点既会向同走廊相邻仓库借调车辆，也可能跨走廊共享装卸团队。去年公司分别给两条走廊固定智能补货系统的试点名额，再在各自名册中均匀抽签。业务方保存了抽签结果、仓库协作图、试点前库存与后续缺货记录。管理团队希望知道：站点自己使用补货系统是否减少缺货；没有安装系统的站点是否会被隔壁及对面仓库的采用情况影响。运营团队不希望把两条走廊误当成完全互不影响的区域，因为车队确实存在跨走廊支援。",
+        "questions": [
+          "站点自己使用补货系统是否减少缺货",
+          "没有安装系统的站点是否会被隔壁及对面仓库的采用情况影响"
+        ],
+        "study_type": "D3",
+        "title": "双区域固定名额的仓储协作试点"
+      }
+    ]
+  },
+  "release": "3.0.0",
+  "research_partial": {
+    "business_question": "固定三人试用的 Star7 员工协作网：全员启用 AI 的平均结果值域",
+    "business_semantics_independently_certified": false,
+    "case_id": "STAR7_RESEARCH_ONLY",
+    "category": "PARTIAL_RESEARCH_ONLY",
+    "identification": {
+      "formula": "[(Σ_{leaf i} μ_i(1,1))/7, (Σ_{leaf i} μ_i(1,1) + 1)/7]",
+      "illustrative_interval": [
+        "3/7",
+        "4/7"
+      ],
+      "reason_code": "ZERO_TARGET_SIGNATURE_SUPPORT",
+      "sharp_width": "1/7",
+      "status": "RESEARCH_ONLY",
+      "support": {
+        "hub": "0",
+        "leaf1": "1/7",
+        "leaf2": "1/7",
+        "leaf3": "1/7",
+        "leaf4": "1/7",
+        "leaf5": "1/7",
+        "leaf6": "1/7"
+      },
+      "theorem_route": null
+    },
+    "inputs": {
+      "a5": [
+        "full-vector randomization",
+        "consistency",
+        "fixed pretreatment network",
+        "mean-signature sufficiency for E1 strict-majority exposure",
+        "bounded outcome Y_i(z) in [0,1] for ALL relevant policies",
+        "population arm means exactly known for supported leaf signatures",
+        "NO other cross-node or cross-signature shape restrictions"
+      ],
+      "provenance": "SYNTHETIC_BOUND_RESEARCH"
+    },
+    "is_real_business_evidence": false,
+    "next_step": "要成为正式 PARTIAL，仍需独立数学合同、一般验证器和证书。",
+    "nonidentification_proven": false,
+    "numeric_effect_estimate": null,
+    "proof": {
+      "certificate_sha256": null,
+      "level": "RESEARCH_WITNESSES_ONLY",
+      "replay_verified": false
+    },
+    "schema_version": "cfm-id-identification-only-report-v1",
+    "setting": "D2_STAR7_RESEARCH",
+    "warning": "隔离 PARTIAL 研究演示：已核对界限与反例，但没有正式 PARTIAL 生产证书或 verifier。"
+  },
+  "schema_version": "cfm-id-v3-supervisor-trusted-gallery",
+  "statements": {
+    "candidate": "LLM candidate output was generated by MockProvider and is NOT a theorem.",
+    "numeric": "Population symbolic identification is not a finite-sample effect estimate.",
+    "partial": "Star7 is an isolated bounded-outcome research demonstration, not production R4.",
+    "point": "Only results issued by the mathematical Core and independently replayed are certified.",
+    "upload": "Uploading a new file does not automatically approve assumptions or certify a result."
+  },
+  "summary": {
+    "NEEDS_INPUT": 10,
+    "POINT": 9,
+    "UNSUPPORTED": 8
+  }
+}

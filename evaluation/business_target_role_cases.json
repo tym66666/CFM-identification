@@ -1,0 +1,48 @@
+{
+  "version": "business-target-role-cases-1",
+  "purpose": "Complete plain-business transfer and missing-condition cases. Expectations are evaluator-only, never scientific approvals.",
+  "cases": [
+    {
+      "id": "stores_baseline_pending_increase",
+      "business_question": "连锁店计划下个月第一周让全部六家门店使用新的补货提醒工具。我们想知道六家门店平均每天完成的订单量能比原安排增加多少，六家门店按相同权重计算。作为比较依据的原安排还没有选好，负责人会之后补充；请保留增加量这个问题，不要替我们选比较安排。",
+      "sources": [{"source_id":"operations","text":"六家门店会通过固定的调货名单互相补货，一家补得更及时可能改变另一家的缺货情况。调货名单在本次计划之前已确定。现有材料包含过去六周逐店的工具使用和每天完成订单量；过去是否使用工具由店长自己决定，没有给出总体均值，也没有规定怎样把合作门店的使用情况归并。"}],
+      "expected":{"kind":"TOTAL_EFFECT","query_count":1,"comparison_order":"INTERVENTION_MINUS_COMPARATOR","comparator":"MISSING","population":"六家等权","neighbor_exposure":"UNKNOWN","assignment_family":"OBSERVATIONAL","assignment_law":"店长决定","no_science":true}
+    },
+    {
+      "id": "kitchens_baseline_pending_reduction",
+      "business_question": "餐饮公司有东、西、南三个配餐点，计划下个月第一周都采用新的备餐通知系统。我们要看每天每单从接单到出餐的平均等待分钟数，在各点先分别算日均值，再按东点一半、西点三成、南点两成合并。希望报告新系统相对于原安排节省了多少等待分钟。原安排具体让哪些点使用系统还没有决定，这部分以后补充。",
+      "sources": [{"source_id":"operations","text":"东点与西点、西点与南点可以相互借调人员，东点与南点不能直接借调。某点备餐变快可能占用其他点原本可借用的人员。现有资料是过去四周各点每天的系统使用、订单和出餐时间记录。材料没有说明以前如何决定使用系统，也没有规定如何汇总合作点的使用情况。"}],
+      "expected":{"kind":"TOTAL_EFFECT","query_count":1,"comparison_order":"COMPARATOR_MINUS_INTERVENTION","comparator":"MISSING","weights":"东0.5西0.3南0.2，先点内每日每单均值","neighbor_exposure":"UNKNOWN","assignment_law":"MISSING","no_science":true}
+    },
+    {
+      "id": "labs_direction_pending",
+      "business_question": "检测机构有甲、乙、丙三个检验室，下个月第一周有两个安排：甲方案让甲和乙启用样本排程工具、丙不用；乙方案让丙启用、甲和乙不用。我们需要两个安排下平均每个检验室每天完成样本数的差额，三个检验室等权。报告究竟写甲方案比乙方案多多少，还是乙方案比甲方案多多少，还没有商定。请保留这两份明确的安排，不要替我们确定差额方向。",
+      "sources": [{"source_id":"operations","text":"甲与乙、乙与丙可相互转交样本，甲与丙不直接转交，转交名单在工具试用前已经固定。一个室排程改变可能影响另一个室收到样本的时间。过去八周每个室的启用由负责人自行决定，保留了逐室每天的启用、完成样本数和转交记录。没有给出总体均值。"}],
+      "expected":{"kind":"TOTAL_EFFECT","query_count":1,"comparison_order":"UNSPECIFIED","both_policies_known":true,"population":"三室等权","neighbor_exposure":"UNKNOWN","no_science":true}
+    },
+    {
+      "id": "courier_own_change_fixed_peers",
+      "business_question": "配送站有二十名快递员，大家会按固定搭班名单相互代送。我们想逐人比较下周本人使用和不使用新的路线助手时，平均每天能完成的包裹数增加多少。对每个人的这次比较，都把他的搭班同事保持在不使用助手的状态；不是让所有人同时改变使用情况。最后将二十个人的增加量按相同权重平均。",
+      "sources": [{"source_id":"operations","text":"搭班名单在原试用前已确定，试用期间没有变化。运营记录把每个人的搭班同事分成至少一人使用助手和全部不用两档，没有搭班同事的归入全部不用。过去由每名快递员自己决定是否使用助手，保存了六周逐人的使用、每日完成包裹数和搭班记录。"}],
+      "expected":{"kind":"DIRECT_EFFECT","query_count":1,"comparison_order":"INTERVENTION_MINUS_COMPARATOR","intervention":"本人用","comparator":"本人不用","neighbor_exposure":"两端同伴全部不用","policy_assignment":"NOT_APPLICABLE或UNKNOWN，不补全体共同名单","population":"二十人等权","assignment_family":"OBSERVATIONAL","no_science":true}
+    },
+    {
+      "id": "care_peer_change",
+      "business_question": "护理服务部有六个服务组，合作组之间会相互转交预约。我们想知道下个月第一周，一个组自己保持不使用新排程工具时，合作组中至少一个使用工具，相比合作组全部不用，会使本组平均每天完成的上门服务次数增加多少。逐组做这个比较，再将六个组的增加量等权平均，不比较本组自己启用工具的效果。",
+      "sources": [{"source_id":"operations","text":"合作组名单在试用前已确定，六个组都有合作组，试用期间名单不变。业务报表把每组的合作组使用情况分成至少一个使用和全部不用两档。此前各组主管自行决定是否使用工具，保存了七周逐组使用和每日服务次数记录。"}],
+      "expected":{"kind":"SPILLOVER_EFFECT","query_count":1,"comparison_order":"INTERVENTION_MINUS_COMPARATOR","own_state":"始终不用","neighbor_exposure":"至少一个合作组用减全不用","population":"六组等权","no_science":true}
+    },
+    {
+      "id": "repair_peer_average",
+      "business_question": "维修公司有五个班组，班组会借用合作组的设备。我们想逐组比较下个月第一周本组使用和不使用工单助手时，平均每天完成维修单量增加多少。每次比较都让其他合作组各自以一半机会使用助手，彼此独立，两边采用同一个抽取规则；需要把这些可能安排下的结果按该规则平均。最后再对五个班组的增加量等权平均，不是给全公司指定一份固定名单。",
+      "sources": [{"source_id":"operations","text":"合作名单在原试用前已确定，试用期间不变。报表记录合作组中使用助手的个数。历史试用中是否使用由各组负责人自行决定，并没有按一半机会抽取；一半机会是本次问题希望采用的比较口径。保存了八周逐组使用、每天维修单量以及试用前人数记录。"}],
+      "expected":{"kind":"DIRECT_EFFECT","query_count":1,"comparison_order":"INTERVENTION_MINUS_COMPARATOR","neighbor_exposure":"合作组独立一半概率使用，两端同分布平均","assignment_family":"OBSERVATIONAL","assignment_law":"历史负责人决定，不是目标的随机规则","population":"五组等权","covariates":["试用前人数"],"no_science":true}
+    },
+    {
+      "id": "dispatch_peer_condition_pending",
+      "business_question": "客服中心有四个小组，合作组之间会转交咨询单。我们想逐组比较下个月第一周本组使用和不使用回复助手时，平均每天完成咨询单量增加多少，再把四个组的增加量等权平均。两边让合作组都不用助手，还是按合作组可能使用的情况平均，目前尚未决定，请把这个未定条件保留下来。我们此时不要求比较两份全中心的完整名单。",
+      "sources": [{"source_id":"operations","text":"转交名单在原试点前已确定且期间不变。报表按合作组中至少一个使用助手和全部未使用分成两档；没有合作组的归入全部未使用。过去是否使用由各小组主管自行决定，保存了九周使用、咨询单量和转交记录。"}],
+      "expected":{"kind":"DIRECT_EFFECT","query_count":1,"comparison_order":"INTERVENTION_MINUS_COMPARATOR","neighbor_exposure":"MISSING；不能用二档定义填值","intervention":"本组用","comparator":"本组不用","population":"四组等权","required_stop":"同伴条件真实未定","no_science":true}
+    }
+  ]
+}

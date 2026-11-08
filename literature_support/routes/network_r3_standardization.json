@@ -1,0 +1,36 @@
+{
+  "schema_version": "literature-support-route-1",
+  "route_id": "R3_P_STANDARDIZED_EFFECTS",
+  "document_role": "LITERATURE_CONTEXT_AND_PROJECT_DERIVATION_MAP_NOT_NEW_THEOREM",
+  "native_route_ids": [
+    "R3_P_STANDARDIZED_EFFECTS"
+  ],
+  "runtime_coverage_authority": "cfm_id.capability_registry.inventory",
+  "literature_scope": {
+    "source_ids": [
+      "savje_exposure_definitions",
+      "forastiere_airoldi_mealli2021_network",
+      "bhadra_schweinberger2026_review"
+    ],
+    "role": "Need to declare weighting law and causal target. Literature supplies context, not the exact project p-standardized theorem.",
+    "limitations": [
+      "Not an exposure-potential-outcome adjusted target.",
+      "Changing the weighting distribution may change the target rather than weaken an assumption."
+    ]
+  },
+  "project_math_documents": [
+    "docs/NETWORK_R3_OBSERVATIONAL_STANDARDIZED_EFFECTS_ZH.md",
+    "docs/R3_OBSERVATIONAL_CORRELATED_MIXTURE_A4_ZH.md"
+  ],
+  "implementation": [
+    "pfn_pipeline/identification_observational_effects.py",
+    "pfn_pipeline/identification_observational_mixture_a4.py"
+  ],
+  "tests": [
+    "tests/test_observational_standardized_effects.py"
+  ],
+  "path_base": "source repository root",
+  "audit_date": "2026-10-31",
+  "verification_evidence": "Documentation pointers checked this round; no claim of rerunning mathematical or live-model acceptance.",
+  "production_admission": false
+}

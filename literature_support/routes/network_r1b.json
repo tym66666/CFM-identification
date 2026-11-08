@@ -1,0 +1,36 @@
+{
+  "schema_version": "literature-support-route-1",
+  "route_id": "R1B_FULL_ASSIGNMENT",
+  "document_role": "LITERATURE_CONTEXT_AND_PROJECT_DERIVATION_MAP_NOT_NEW_THEOREM",
+  "native_route_ids": [
+    "R1B_FULL_ASSIGNMENT",
+    "R1B_FINITE_POLICY"
+  ],
+  "runtime_coverage_authority": "cfm_id.capability_registry.inventory",
+  "literature_scope": {
+    "source_ids": [
+      "bhadra_schweinberger2026_review",
+      "aronow_samii2017_interference",
+      "hudgens_halloran2008_interference"
+    ],
+    "role": "Randomization and fully specified treatment strategies are background; project policy functional derived under explicit support and A4.",
+    "limitations": [
+      "No source states the entire project certificate or arbitrary policy-kernel implementation.",
+      "Fixed-quota design does not support every complete policy."
+    ]
+  },
+  "project_math_documents": [
+    "docs/R1B_VERIFIED_FULL_ASSIGNMENT_POLICY_ZH.md"
+  ],
+  "implementation": [
+    "pfn_pipeline/identification_policy_r1b.py",
+    "cfm_id/fixed_comparison.py"
+  ],
+  "tests": [
+    "tests_gateway/test_network_contrast_dispatch.py"
+  ],
+  "path_base": "source repository root",
+  "audit_date": "2026-10-31",
+  "verification_evidence": "Documentation pointers checked this round; no claim of rerunning mathematical or live-model acceptance.",
+  "production_admission": false
+}

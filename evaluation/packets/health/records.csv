@@ -1,0 +1,3 @@
+hospital_id,telemed_on,wait_time,transfer_count
+SYNTHETIC_A,0,1,2
+SYNTHETIC_B,1,2,3

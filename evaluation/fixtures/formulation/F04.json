@@ -1,0 +1,107 @@
+{
+  "schema_version": "cfm-id-draft-v0.1",
+  "target": {
+    "kind": "SPILLOVER_EFFECT",
+    "description": {
+      "value": "求跨组合作对销售外溢的设计标准化效应。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "求跨组合作对销售外溢的设计标准化效应。"
+        }
+      ]
+    },
+    "alternatives": []
+  },
+  "units_variables": {
+    "analysis_unit": {
+      "value": "业务描述中的员工、节点或团体",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "求跨组合作对销售外溢的设计标准化效应。"
+        }
+      ]
+    },
+    "treatment": {
+      "value": "描述中的AI干预",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前两组分别有四人，各组恰好两名 treatment；固定配额分层随机，网络允许跨组边。暴露由邻居中treated比例分为三档。"
+        }
+      ]
+    },
+    "outcome": {
+      "value": "描述中的销售或结果指标",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "求跨组合作对销售外溢的设计标准化效应。"
+        }
+      ]
+    }
+  },
+  "structure": {
+    "unit_network": {
+      "value": "被描述的网络",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前两组分别有四人，各组恰好两名 treatment；固定配额分层随机，网络允许跨组边。暴露由邻居中treated比例分为三档。"
+        }
+      ]
+    },
+    "exposure_mapping": {
+      "value": "描述中的网络暴露映射",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前两组分别有四人，各组恰好两名 treatment；固定配额分层随机，网络允许跨组边。暴露由邻居中treated比例分为三档。"
+        }
+      ]
+    }
+  },
+  "information_design": {
+    "assignment_family": "STRATIFIED_FIXED_QUOTAS",
+    "assignment_law": {
+      "value": "处理前两组分别有四人，各组恰好两名 treatment；固定配额分层随机，网络允许跨组边。暴露由邻居中treated比例分为三档。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前两组分别有四人，各组恰好两名 treatment；固定配额分层随机，网络允许跨组边。暴露由邻居中treated比例分为三档。"
+        }
+      ]
+    },
+    "population_information_level": "NODE_ARM_CONDITIONAL_MEANS",
+    "population_observable_operator": {
+      "value": "可用的总体观测信息仅为各节点 arm 条件均值 E[Y_i^obs|T_i=a,S_i=s,W]，并没有完整处理向量的联合律。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "information",
+          "quote": "可用的总体观测信息仅为各节点 arm 条件均值 E[Y_i^obs|T_i=a,S_i=s,W]，并没有完整处理向量的联合律。"
+        }
+      ]
+    },
+    "sample_data_description": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "assumptions": [],
+  "validity": {},
+  "ambiguities": [],
+  "clarifying_questions": [],
+  "normalization_notes": [
+    "MOCK TEST-ONLY fixture synthesized from benchmark reference; not model-generated"
+  ]
+}

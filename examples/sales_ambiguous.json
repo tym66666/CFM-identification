@@ -1,0 +1,6 @@
+{
+  "case_id": "sales_ambiguous",
+  "business_question": "我们有300名销售员，随机给一半人用AI；大家之间会交流线索。我们想知道给谁部署AI能提高总体销售额。",
+  "sources": [],
+  "response_language": "zh"
+}

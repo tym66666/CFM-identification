@@ -1,0 +1,13 @@
+* text=auto eol=lf
+*.pdf binary
+*.xlsx binary
+*.png binary
+*.jpg binary
+
+# Frozen benchmark registries bind the original bytes, including line endings.
+# Preserve them on every platform; do not update hashes to hide normalization.
+evaluation/nbib/public/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+evaluation/nbib_acceptance/public/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Offline compatibility replay verifies the raw bytes listed in provenance.json.
+examples/legacy/business_extension/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

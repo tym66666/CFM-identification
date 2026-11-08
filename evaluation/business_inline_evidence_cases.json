@@ -1,0 +1,10 @@
+{
+  "version": "business-inline-evidence-cases-1",
+  "purpose": "Plain-business transfer check. Evaluator expectations are not sent to models and are not scientific approvals.",
+  "cases": [{
+    "id": "claims_teams_known_negatives",
+    "business_question": "理赔中心有甲、乙、丙三个审核小组。下个月第一周，我们计划三个小组全部使用新的材料核对工具，想了解平均每个小组每天能办结多少件理赔。三个小组按相同权重计算，本次只需要这项安排下的办结水平，不要求与其他安排相减。",
+    "sources": [{"source_id":"operations","text":"甲组与乙组、乙组与丙组可以相互转交理赔材料，甲组与丙组不直接转交，没有其他转交关系。一个小组处理材料更快可能改变另一个小组收到的工作量。转交名单在原试用开始前已确定，八周试用期间没有新增或停止任何转交关系。原试用没有抽签，各组负责人根据本组上周待办件数决定本周是否使用工具。运营报表记录每组的合作组中使用工具的组数，可能是零、一或二；没有合作组时记为零。我们保存了八周逐组的工具使用、每天办结件数，以及每次决定是否使用之前已登记的上周待办件数。"}],
+    "expected": {"kind":"FIXED_POLICY_VALUE","query_count":1,"population":"三个小组等权","comparison_order":"NOT_APPLICABLE","assignment_family":"OBSERVATIONAL","assignment_law":"没有抽签，由负责人根据上周待办件数决定","network_time":"试用前已定，八周期间无新增/停止关系","exposure_mapping":"合作组使用数，零一二，无合作组零","covariates":["决定使用前已登记的上周待办件数"],"missing_information":"未明确声称缺少某字段，不编造缺失原因","sample_not_population":true,"no_scientific_approval":true}
+  }]
+}

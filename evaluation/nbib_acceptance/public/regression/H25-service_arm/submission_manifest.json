@@ -1,0 +1,12 @@
+{
+  "case_id": "H25-service_arm",
+  "synthetic": true,
+  "business_question_file": "business_question.md",
+  "supporting_files": [
+    "study_protocol.md",
+    "data_dictionary.md",
+    "units.csv",
+    "network_edges.csv",
+    "candidate_policies.csv"
+  ]
+}

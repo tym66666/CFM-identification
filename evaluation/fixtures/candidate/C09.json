@@ -1,0 +1,28 @@
+{
+  "schema_version": "cfm-id-candidate-draft-v0.3",
+  "target_kind": "NETWORK_DESIGN_STANDARDIZED_ARM_MEAN",
+  "target_description": "对加权网络暴露 S_i=1{sum w_ij T_j/sum w_ij>0.6}，识别本人AI且高暴露时的设计标准化均值。",
+  "claimed_identification": "POINT",
+  "scope": "AS_REVIEWED",
+  "a4_used": {
+    "source": "REVIEWED_OPERATOR",
+    "level": "FULL_JOINT_LAW",
+    "operator": "总体可观测信息算子明确为完整联合律 P(T,Yobs|W)，包括完整处理向量及所有结果；这是一个理论信息声明，不代表已知总体数值。"
+  },
+  "admitted_assumptions_used": [
+    "full_vector_randomization",
+    "consistency"
+  ],
+  "additional_requirements": [],
+  "candidate_expression": "mu_i^q(1,1)=E[Y_i^obs|T_i=1,S_i=1,W]（若pi_i(1,1)>0）。",
+  "nonidentification_witness": null,
+  "reasoning_steps": [
+    "分母非零、p=1/2且所有完整分配有支持，故高加权暴露arm在本基准里已有正支持；不需真实exposure充分性。"
+  ],
+  "caveats": [
+    "仅为离线FIXTURE，既非大模型推理结果也非数学认证"
+  ],
+  "suggested_checks": [
+    "进行独立数学证明或两个世界的完整可观测等价检查"
+  ]
+}

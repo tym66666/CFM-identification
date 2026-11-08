@@ -1,0 +1,15 @@
+{
+  "case_id": "biz_v08_education",
+  "business_question": "一个学区在部分学校安排课后辅导计划。不同学校的老师会交流教学材料，学生也会通过社团和线上群组接触其他学校的同学。学区保存了学校间的合作情况、辅导计划参与情况和学期末数学成绩。我们想知道没有安排辅导计划的学校，是否也可能因为附近学校的参与而受益；希望先梳理问题能否通过现有试验资料来回答。",
+  "response_language": "zh",
+  "attachments": [
+    {
+      "path": "study_protocol.txt",
+      "kind": "STUDY_PROTOCOL"
+    },
+    {
+      "path": "records.csv",
+      "kind": "DATA_DICTIONARY"
+    }
+  ]
+}

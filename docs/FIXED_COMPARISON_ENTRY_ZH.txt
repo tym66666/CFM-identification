@@ -1,0 +1,79 @@
+固定安排比较：本轮接通的范围（2026-10-23）
+
+普通业务问题示例：
+“只关心B和D，两个班组各占一半。如果从A、D使用助手，其余不用，
+换成B、C使用，其余不用，他们平均每天会多修多少台？”
+
+系统读取新安排、比较基准、评价名单和汇总方式。当前比较固定为
+first减second。“从甲改成乙增加多少”的方向是乙减甲，不能用文字首次
+出现顺序代替比较方向。相反方向必须保留为另一项问题。
+
+处理链：
+1. business_entry.prepare_request / read_once，显式选择FIXED_COMPARISON，
+   contract='fixed-assignment-id'。原有FIXED_POLICY及其他入口保持原行为。
+2. preview只保留模型实际读取，并提示缺项或待审核；不会生成科学许可。
+3. 两端各自具备既有业务意图、数学目标、A4来源、A5许可的独立绑定。
+   另由ReviewedComparison确认有序的两端和共同评价人群。原始分配规则
+   继续由assignment_review审核。worksheet只生成指纹，不授予批准。
+   如只批准其中几题，显式使用ReviewedComparisonScope和scoped_worksheet，
+   reviewed_query_ids按原问题顺序列出获批题。完整bundle和raw仍参与指纹，
+   两端packet、context和事实审核必须各自准确覆盖选中的题，不裁剪原文或raw。
+4. 两端分别调用现有R1b Core并重放其证书。
+5. 两端都POINT时，输出第一端公式减第二端公式及有符号项清单。
+   fixed_comparison.replay对照外部目标和绑定，再检查两端证书与组合。
+
+数学含义：
+若两端分别有 theta_a = F_a(P)、theta_b = F_b(P)，且来自同一科学合同，
+则目标差值为 theta_a - theta_b = F_a(P) - F_b(P)。
+组合记录是代数组合的核验凭据，不冒充新增Core定理证书，也不称为形式证明。
+统计估计、样本误差和Policy不在本轮范围中。
+
+当前主动收窄的边界：
+同一有限研究、同一原始均匀固定名额随机设计、同一评价名单、等权均值，
+R1B_FULL_ASSIGNMENT两端；两端A4总体信息和A5条件必须一致。
+只支持独立审核的合成协议。有限样本材料不会自动升级为完整总体分布；
+示例中的A4/A5是另外声明的假想科学前提，不能拿此示例自动批准真实材料。
+R2/R3、不同研究/人群、非等权或最优方案、多端线性组合暂未接入。
+这些限制不表示相关数学问题必然不可识别。
+
+异常与缺项：
+缺安排或名单 -> NEEDS_INPUT；可以沿用question_clarification生成中性追问，
+将自然语言回复附为新材料，然后重新读取和审核，不能手工补模型坐标。
+一端无正支持 -> 保留两端各自结果，不输出完整差值，不宣称数学非识别。
+业务目标或审核指纹不一致 -> CHECK_BLOCKED，调用Core前阻断。
+当前入口不自动触发第二LLM，不把未验证建议升级为识别结论。
+
+源码入口：
+cfm_id/business_entry.py
+cfm_id/intent_submission.py
+cfm_id/fixed_comparison.py
+独立合成协议：examples/fixed_comparison_fixture.py
+离线验收：python -B -m unittest tests_gateway.test_fixed_comparison -v
+逐题审核验收：python -B -m unittest tests_gateway.test_comparison_scope -v
+
+真实测试记录在交接包LOCAL_EVIDENCE_NOT_DISTRIBUTED。
+两种自然语言表述、每种5项问题，由DeepSeek与LongCat分别读取。
+科学参考不发给模型，语义不符时不发放合成审核，不修补模型回答。
+这是一个业务场景的开发验收，不能解释为大样本泛化准确率。
+
+本轮验收结论：差值组合与审核边界通过；真实模型阅读仍有未通过项。
+DeepSeek在重复和额外负例中出现方向和坐标错误，均保留原始记录；
+不同问题可以独立审核，但不能据此将整份业务阅读判为正确。
+详见LOCAL_EVIDENCE_NOT_DISTRIBUTED。
+
+2026-10-23 逐题提交补充：
+ReviewedComparison旧合同和证书格式保持不变，仍按全部完整比较问题审核。
+新合同ReviewedComparisonScope只让显式选中的完整问题进入提交校验。
+未选中的完整题显示REVIEW_REQUIRED/COMPARISON_NOT_IN_REVIEW_SCOPE；
+缺项题继续NEEDS_INPUT，不修改其未知值，也不推断“未选中”等于“读错”。
+选中题仍必须通过全部原有业务、原始随机设计、A4/A5、目标及证书核验。
+一个选中题校验失败会阻断本次选中集合；可为其他题建立独立单题审核重新提交。
+不能把旧审核直接复制到更大或更小的题集；完整材料或原回答任何变化均需重新审核。
+
+测试夹具reviews(bundle,raw,query_ids=[...])只用于预先声明的合成科学协议。
+真实应用必须从独立审核流程取得许可，不能调用此夹具自动批准业务或模型回答。
+审核记录不是认证用户身份的数字签名；身份鉴别属于调用应用的责任。
+
+本次重放24份冻结真实回答，旧路径24份结果完全复现，新路径解除2项连带阻断，
+不改善或重记模型语义准确率。6份冻结请求保持一致，新增API调用0次。
+详见LOCAL_EVIDENCE_NOT_DISTRIBUTED。

@@ -1,0 +1,55 @@
+{
+  "A4_population_operator_from_business_files": "NOT_PROVIDED",
+  "all_business_packet_provenance": "SYNTHETIC_OFFLINE_GENERATOR",
+  "assignment_family": "D1",
+  "case_id": "NBIB-007",
+  "conditional_route_only": [
+    "R1b_candidate"
+  ],
+  "data_is_finite_observations_not_A4": true,
+  "design_params": {
+    "p": "1/2"
+  },
+  "edge_count": 28,
+  "expected_blockers": [
+    "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+    "A5_NEEDS_SCIENTIFIC_REVIEW",
+    "R1B_NEEDS_FULL_ASSIGNMENT_A4"
+  ],
+  "exposure_rule": "E5",
+  "fixed_policy_support": [
+    {
+      "policy_id": "all_treated",
+      "q_full_assignment": "1/16384"
+    }
+  ],
+  "identification_library_status": "NOT_RUN_ON_THIS_GENERATED_CASE",
+  "industry": "企业管理",
+  "lower_is_better": false,
+  "n_nodes": 14,
+  "network_type": "small_world",
+  "number_independent_market_replicates": 1,
+  "outcome_metric_name": "delivery_quality",
+  "outcome_metric_unit": "质量评分",
+  "pair_family": null,
+  "query_targets": [
+    {
+      "exact_target_semantics": "R1B_FULL_ASSIGNMENT_FIXED_POLICY",
+      "kind": "FIXED_POLICY_VALUE",
+      "quote": "如果14名员工全部使用平台，公司整体交付质量会怎样变化"
+    }
+  ],
+  "scenario_title": "创业公司全员采用线上协作工具",
+  "scientific_reference_notes": "R1b在q(all-ones)>0但极稀疏时理论正支持；有限样本没有full-assignment A4，不能凭CSV直接报告POINT或者政策实际数值。",
+  "simulation_is_not_proof_of_scientific_assumptions": true,
+  "split": "test",
+  "support_checks": {
+    "exposure_rule": "E5",
+    "exposure_value": 1,
+    "focal_node": "unit_000",
+    "mathematical_support_only_not_IDENTIFICATION": true,
+    "own_treatment": 1,
+    "support_probability": "7/16"
+  },
+  "synthetic": true
+}

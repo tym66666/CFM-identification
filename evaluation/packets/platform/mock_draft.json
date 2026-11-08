@@ -1,0 +1,141 @@
+{
+  "schema_version": "cfm-id-draft-v0.1",
+  "target": {
+    "kind": "TOTAL_EFFECT",
+    "description": {
+      "value": "首页推荐对商家及其关联商家的总体因果影响候选",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "对商家的订单数有没有提升，也想考虑未获得推荐的商家会不会受到影响"
+        }
+      ]
+    },
+    "alternatives": []
+  },
+  "units_variables": {
+    "analysis_unit": {
+      "value": "商家",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "商家"
+        }
+      ]
+    },
+    "treatment": {
+      "value": "是否获得首页推荐位",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "首页推荐位"
+        }
+      ]
+    },
+    "outcome": {
+      "value": "订单数",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "订单数"
+        }
+      ]
+    },
+    "covariates": [],
+    "temporal_structure": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "structure": {
+    "unit_network": {
+      "value": "客户重叠关系",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "客户重叠关系"
+        }
+      ]
+    },
+    "variable_causal_graph": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "exposure_mapping": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "network_pretreatment_status": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "information_design": {
+    "assignment_family": "INDEPENDENT_BERNOULLI",
+    "assignment_law": {
+      "value": "每个商家独立随机分配是否获得首页推荐位",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "att_01",
+          "quote": "每个商家独立随机分配是否获得首页推荐位"
+        }
+      ]
+    },
+    "population_information_level": "FINITE_SAMPLE_DESCRIPTION",
+    "population_observable_operator": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "sample_data_description": {
+      "value": "试点数据表字段结构",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "att_02",
+          "quote": "表头字段：merchant_id, recommendation, orders, overlap_group"
+        }
+      ]
+    }
+  },
+  "assumptions": [
+    {
+      "name": "design_reported_by_protocol",
+      "statement": "每个商家独立随机分配是否获得首页推荐位",
+      "status": "PROPOSED",
+      "basis": "REPORTED_BY_SOURCE",
+      "evidence": [
+        {
+          "source_id": "att_01",
+          "quote": "每个商家独立随机分配是否获得首页推荐位"
+        }
+      ]
+    }
+  ],
+  "validity": {
+    "support_or_positivity": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "query_domain": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "other_conditions": []
+  },
+  "ambiguities": [],
+  "clarifying_questions": [],
+  "normalization_notes": []
+}

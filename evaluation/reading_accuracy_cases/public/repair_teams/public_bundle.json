@@ -1,0 +1,242 @@
+{
+  "case_id": "repair_teams",
+  "synthetic": true,
+  "documents": {
+    "business_question.md": "本案例为新写的合成业务。共有8个维修小组试用诊断助手，相互协作关系在试点前已经冻结。\r\n每组各自以一半概率抽签，一组是否中签不会改变其他组的中签概率，所有组的抽签相互独立。\r\n材料描述仍待研究者审核，并未授予科学许可；同伴使用可能影响本单位的结果。",
+    "study_protocol.md": "所有安排只在试点开始时决定一次。\r\n每组各自以一半概率抽签，一组是否中签不会改变其他组的中签概率，所有组的抽签相互独立。\r\n各单位中签概率见 design_probabilities.csv。\r\n当前问题按以下规则分组：协作维修小组中超过一半使用诊断助手是高暴露，否则是低暴露。",
+    "data_dictionary.md": "主要业务结果为 service_metric，含义是每周按时完工单数。\r\nunits.csv 是试点前完整名册。network_edges.csv 是试点前冻结的无向协作边。\r\nunit_group 只是管理标签，不表示整组抽签；有限记录不能代替总体均值或科学批准。",
+    "target_clarification.txt": "评价名册中全部8个维修小组，每个权重相同。\n在协作维修小组中超过一半使用诊断助手时，维修小组自己使用和不使用相比，每周按时完工单数平均相差多少，按使用减不使用计算？\n其余维修小组继续沿用原试点抽签规则，只在符合所问条件的安排中按原有概率取平均。"
+  },
+  "tables": {
+    "units.csv": {
+      "headers": [
+        "node_id",
+        "unit_group"
+      ],
+      "row_count": 8,
+      "rows": [
+        {
+          "node_id": "site_01",
+          "unit_group": "operations"
+        },
+        {
+          "node_id": "site_02",
+          "unit_group": "operations"
+        },
+        {
+          "node_id": "site_03",
+          "unit_group": "operations"
+        },
+        {
+          "node_id": "site_04",
+          "unit_group": "operations"
+        },
+        {
+          "node_id": "site_05",
+          "unit_group": "operations"
+        },
+        {
+          "node_id": "site_06",
+          "unit_group": "operations"
+        },
+        {
+          "node_id": "site_07",
+          "unit_group": "operations"
+        },
+        {
+          "node_id": "site_08",
+          "unit_group": "operations"
+        }
+      ]
+    },
+    "network_edges.csv": {
+      "headers": [
+        "source_id",
+        "target_id",
+        "frozen_before_rollout"
+      ],
+      "row_count": 8,
+      "rows": [
+        {
+          "source_id": "site_01",
+          "target_id": "site_02",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "site_02",
+          "target_id": "site_03",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "site_03",
+          "target_id": "site_04",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "site_04",
+          "target_id": "site_05",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "site_05",
+          "target_id": "site_06",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "site_06",
+          "target_id": "site_07",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "site_07",
+          "target_id": "site_08",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "site_08",
+          "target_id": "site_01",
+          "frozen_before_rollout": "1"
+        }
+      ]
+    },
+    "design_probabilities.csv": {
+      "headers": [
+        "node_id",
+        "randomization_probability"
+      ],
+      "row_count": 8,
+      "rows": [
+        {
+          "node_id": "site_01",
+          "randomization_probability": "1/2"
+        },
+        {
+          "node_id": "site_02",
+          "randomization_probability": "1/2"
+        },
+        {
+          "node_id": "site_03",
+          "randomization_probability": "1/2"
+        },
+        {
+          "node_id": "site_04",
+          "randomization_probability": "1/2"
+        },
+        {
+          "node_id": "site_05",
+          "randomization_probability": "1/2"
+        },
+        {
+          "node_id": "site_06",
+          "randomization_probability": "1/2"
+        },
+        {
+          "node_id": "site_07",
+          "randomization_probability": "1/2"
+        },
+        {
+          "node_id": "site_08",
+          "randomization_probability": "1/2"
+        }
+      ]
+    }
+  },
+  "file_inventory": {
+    "business_question.md": {
+      "sha256": "5b10d7d9f9225e5388909624e96ef82041b0a2f60fd4d26eb8d305cd064af0b0",
+      "bytes": 362
+    },
+    "study_protocol.md": {
+      "sha256": "65d0ab52a5203158b563bb4f9e274a7f82767bffadea7e8274b4a3b76b8f4ea6",
+      "bytes": 355
+    },
+    "data_dictionary.md": {
+      "sha256": "5b13b56a940a164f07ace16ab83b5979fbb99561897462acc2eeb0425833683b",
+      "bytes": 283
+    },
+    "units.csv": {
+      "sha256": "16368175be550add23b671a765a5c2991b93d247914723bb2aad9550f9527644",
+      "bytes": 180
+    },
+    "network_edges.csv": {
+      "sha256": "e41eb0441540d799d1b6c24df843447d4149b29cf98c30b5a2d58afc5d66c383",
+      "bytes": 195
+    },
+    "design_probabilities.csv": {
+      "sha256": "65e6ee1c1b7e653a8f36baaccf8de1f41d044c403ec63d42c294c8f7a5328723",
+      "bytes": 139
+    }
+  },
+  "structure": {
+    "nodes": [
+      "site_01",
+      "site_02",
+      "site_03",
+      "site_04",
+      "site_05",
+      "site_06",
+      "site_07",
+      "site_08"
+    ],
+    "edges": [
+      [
+        "site_01",
+        "site_02"
+      ],
+      [
+        "site_02",
+        "site_03"
+      ],
+      [
+        "site_03",
+        "site_04"
+      ],
+      [
+        "site_04",
+        "site_05"
+      ],
+      [
+        "site_05",
+        "site_06"
+      ],
+      [
+        "site_06",
+        "site_07"
+      ],
+      [
+        "site_07",
+        "site_08"
+      ],
+      [
+        "site_01",
+        "site_08"
+      ]
+    ],
+    "groups": {
+      "operations": [
+        "site_01",
+        "site_02",
+        "site_03",
+        "site_04",
+        "site_05",
+        "site_06",
+        "site_07",
+        "site_08"
+      ]
+    },
+    "cluster_rates": {},
+    "policies": {},
+    "units_with_cross_group_neighbors": []
+  },
+  "active_goal_document": "target_clarification.txt",
+  "question_slots": {
+    "q1": "在协作维修小组中超过一半使用诊断助手时，维修小组自己使用和不使用相比，每周按时完工单数平均相差多少，按使用减不使用计算？"
+  },
+  "original_business_unchanged": true,
+  "revision_kind": "EXPLICIT_CLARIFICATION",
+  "probability_binding": {
+    "source": "design_probabilities.csv",
+    "file_sha256": "65e6ee1c1b7e653a8f36baaccf8de1f41d044c403ec63d42c294c8f7a5328723",
+    "table_sha256": "c5c2e87c771b77fbcb35b92758d729c1df6b2918f1730bd3d32762b171a4e546"
+  }
+}

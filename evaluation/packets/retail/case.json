@@ -1,0 +1,19 @@
+{
+  "case_id": "biz_v08_retail",
+  "business_question": "我们在一家有80家门店的连锁零售企业测试新促销券。附近门店会互相影响，消费者也可能跨店购买。试点期间有一部分门店获得促销券，我们保存了门店分组规则、门店位置关系和试点前后的销售数据。管理层想评估如果下季度所有门店都使用新促销券，公司总销售额会怎样变化；我们暂时不是想预测一个具体增长数字，而是先确定现有材料能支持哪些因果分析。",
+  "response_language": "zh",
+  "attachments": [
+    {
+      "path": "study_protocol.txt",
+      "kind": "STUDY_PROTOCOL"
+    },
+    {
+      "path": "records.csv",
+      "kind": "DATA_DICTIONARY"
+    },
+    {
+      "path": "review_addendum.txt",
+      "kind": "OTHER"
+    }
+  ]
+}

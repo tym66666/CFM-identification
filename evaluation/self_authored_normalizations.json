@@ -1,0 +1,986 @@
+{
+  "type": "ASSISTANT_AUTHORED_ILLUSTRATIVE_NORMALIZATIONS_NOT_API_EVALUATION",
+  "method": "Eight manually authored interpretations; re-evaluated by deterministic Pydantic and verbatim quote audit.",
+  "independent_accuracy_claim": false,
+  "items": [
+    {
+      "id": "B01",
+      "source_question": "我们给部分销售员装了 AI 助手，大家会互相分享经验。用了 AI 的人业绩真的会更好吗？",
+      "self_authored_interpretation": {
+        "schema_version": "cfm-id-draft-v0.1",
+        "target": {
+          "kind": "DIRECT_EFFECT",
+          "description": {
+            "value": "使用 AI 是否会改善使用者的业绩；需澄清其他人的使用状态",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "用了 AI 的人业绩真的会更好吗"
+              }
+            ]
+          },
+          "alternatives": []
+        },
+        "units_variables": {
+          "analysis_unit": {
+            "value": "销售员",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "销售员"
+              }
+            ]
+          },
+          "treatment": {
+            "value": "销售员使用 AI 助手",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "装了 AI 助手"
+              }
+            ]
+          },
+          "outcome": {
+            "value": "销售员业绩",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "业绩"
+              }
+            ]
+          },
+          "covariates": [],
+          "temporal_structure": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          }
+        },
+        "structure": {
+          "unit_network": {
+            "value": "销售员分享经验，可能存在跨人影响",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "互相分享经验"
+              }
+            ]
+          },
+          "variable_causal_graph": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "exposure_mapping": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "network_pretreatment_status": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          }
+        },
+        "information_design": {
+          "assignment_family": "UNRESOLVED",
+          "assignment_law": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "population_information_level": "UNRESOLVED",
+          "population_observable_operator": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "sample_data_description": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          }
+        },
+        "assumptions": [],
+        "validity": {
+          "support_or_positivity": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "query_domain": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "other_conditions": []
+        },
+        "ambiguities": [],
+        "clarifying_questions": [],
+        "normalization_notes": []
+      },
+      "self_review_note": "我独立阅读业务句子后编写此候选；完整协议、网络、A4/A5 未从句子中得到保证。"
+    },
+    {
+      "id": "B03",
+      "source_question": "我们只能给 100 位销售员开通 AI，应该选谁才能让整个团队销售额更高？",
+      "self_authored_interpretation": {
+        "schema_version": "cfm-id-draft-v0.1",
+        "target": {
+          "kind": "POLICY_OPTIMIZATION",
+          "description": {
+            "value": "在最多 100 个名额内选择人选以提高团队总销售额",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "应该选谁才能让整个团队销售额更高"
+              }
+            ]
+          },
+          "alternatives": []
+        },
+        "units_variables": {
+          "analysis_unit": {
+            "value": "销售员",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "销售员"
+              }
+            ]
+          },
+          "treatment": {
+            "value": "为销售员开通 AI",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "开通 AI"
+              }
+            ]
+          },
+          "outcome": {
+            "value": "整体团队销售额",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "团队销售额"
+              }
+            ]
+          },
+          "covariates": [],
+          "temporal_structure": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          }
+        },
+        "structure": {
+          "unit_network": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "variable_causal_graph": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "exposure_mapping": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "network_pretreatment_status": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          }
+        },
+        "information_design": {
+          "assignment_family": "UNRESOLVED",
+          "assignment_law": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "population_information_level": "UNRESOLVED",
+          "population_observable_operator": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "sample_data_description": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          }
+        },
+        "assumptions": [],
+        "validity": {
+          "support_or_positivity": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "query_domain": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "other_conditions": []
+        },
+        "ambiguities": [],
+        "clarifying_questions": [],
+        "normalization_notes": []
+      },
+      "self_review_note": "我独立阅读业务句子后编写此候选；完整协议、网络、A4/A5 未从句子中得到保证。"
+    },
+    {
+      "id": "B08",
+      "source_question": "这次只随机选一半门店试新陈列，下一季全部推广，公司总销售会怎样？",
+      "self_authored_interpretation": {
+        "schema_version": "cfm-id-draft-v0.1",
+        "target": {
+          "kind": "FIXED_POLICY_VALUE",
+          "description": {
+            "value": "评估下一季全门店推广新陈列后的总销售",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "下一季全部推广，公司总销售会怎样"
+              }
+            ]
+          },
+          "alternatives": []
+        },
+        "units_variables": {
+          "analysis_unit": {
+            "value": "门店",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "门店"
+              }
+            ]
+          },
+          "treatment": {
+            "value": "门店采用新陈列",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "试新陈列"
+              }
+            ]
+          },
+          "outcome": {
+            "value": "公司总销售",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "公司总销售"
+              }
+            ]
+          },
+          "covariates": [],
+          "temporal_structure": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          }
+        },
+        "structure": {
+          "unit_network": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "variable_causal_graph": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "exposure_mapping": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "network_pretreatment_status": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          }
+        },
+        "information_design": {
+          "assignment_family": "UNRESOLVED",
+          "assignment_law": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "population_information_level": "UNRESOLVED",
+          "population_observable_operator": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "sample_data_description": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          }
+        },
+        "assumptions": [],
+        "validity": {
+          "support_or_positivity": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "query_domain": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "other_conditions": []
+        },
+        "ambiguities": [],
+        "clarifying_questions": [],
+        "normalization_notes": []
+      },
+      "self_review_note": "我独立阅读业务句子后编写此候选；完整协议、网络、A4/A5 未从句子中得到保证。"
+    },
+    {
+      "id": "B11",
+      "source_question": "如果明年给所有商家增加推荐流量，平台总体成交额会比现在高多少？",
+      "self_authored_interpretation": {
+        "schema_version": "cfm-id-draft-v0.1",
+        "target": {
+          "kind": "FIXED_POLICY_VALUE",
+          "description": {
+            "value": "评估全平台商家获得更多推荐流量时的整体成交额",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "给所有商家增加推荐流量，平台总体成交额会比现在高多少"
+              }
+            ]
+          },
+          "alternatives": []
+        },
+        "units_variables": {
+          "analysis_unit": {
+            "value": "商家",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "商家"
+              }
+            ]
+          },
+          "treatment": {
+            "value": "增加商家推荐流量",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "增加推荐流量"
+              }
+            ]
+          },
+          "outcome": {
+            "value": "平台总体成交额",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "平台总体成交额"
+              }
+            ]
+          },
+          "covariates": [],
+          "temporal_structure": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          }
+        },
+        "structure": {
+          "unit_network": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "variable_causal_graph": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "exposure_mapping": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "network_pretreatment_status": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          }
+        },
+        "information_design": {
+          "assignment_family": "UNRESOLVED",
+          "assignment_law": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "population_information_level": "UNRESOLVED",
+          "population_observable_operator": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "sample_data_description": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          }
+        },
+        "assumptions": [],
+        "validity": {
+          "support_or_positivity": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "query_domain": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "other_conditions": []
+        },
+        "ambiguities": [],
+        "clarifying_questions": [],
+        "normalization_notes": []
+      },
+      "self_review_note": "我独立阅读业务句子后编写此候选；完整协议、网络、A4/A5 未从句子中得到保证。"
+    },
+    {
+      "id": "B15",
+      "source_question": "学校按老师建议给成绩落后的学生安排辅导，后来成绩好了。能说辅导有效吗？",
+      "self_authored_interpretation": {
+        "schema_version": "cfm-id-draft-v0.1",
+        "target": {
+          "kind": "ATE",
+          "description": {
+            "value": "探索辅导是否导致成绩变化，而不仅是观察关联",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "能说辅导有效吗"
+              }
+            ]
+          },
+          "alternatives": []
+        },
+        "units_variables": {
+          "analysis_unit": {
+            "value": "学生",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "学生"
+              }
+            ]
+          },
+          "treatment": {
+            "value": "被安排辅导",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "安排辅导"
+              }
+            ]
+          },
+          "outcome": {
+            "value": "成绩",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "成绩好了"
+              }
+            ]
+          },
+          "covariates": [],
+          "temporal_structure": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          }
+        },
+        "structure": {
+          "unit_network": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "variable_causal_graph": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "exposure_mapping": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "network_pretreatment_status": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          }
+        },
+        "information_design": {
+          "assignment_family": "OBSERVATIONAL",
+          "assignment_law": {
+            "value": "根据老师建议安排辅导，不是声称随机化",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "按老师建议给成绩落后的学生安排辅导"
+              }
+            ]
+          },
+          "population_information_level": "FINITE_SAMPLE_DESCRIPTION",
+          "population_observable_operator": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "sample_data_description": {
+            "value": "业务叙述提到观察到结果变化，不是总体算子",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "后来成绩好了"
+              }
+            ]
+          }
+        },
+        "assumptions": [],
+        "validity": {
+          "support_or_positivity": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "query_domain": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "other_conditions": []
+        },
+        "ambiguities": [],
+        "clarifying_questions": [],
+        "normalization_notes": []
+      },
+      "self_review_note": "我独立阅读业务句子后编写此候选；完整协议、网络、A4/A5 未从句子中得到保证。"
+    },
+    {
+      "id": "B19",
+      "source_question": "医院之间会转诊。给一些医院增加远程会诊，会不会也减轻附近医院的排队压力？",
+      "self_authored_interpretation": {
+        "schema_version": "cfm-id-draft-v0.1",
+        "target": {
+          "kind": "SPILLOVER_EFFECT",
+          "description": {
+            "value": "医院远程会诊对附近医院排队压力的间接影响",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "会不会也减轻附近医院的排队压力"
+              }
+            ]
+          },
+          "alternatives": []
+        },
+        "units_variables": {
+          "analysis_unit": {
+            "value": "医院",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "医院"
+              }
+            ]
+          },
+          "treatment": {
+            "value": "给医院增加远程会诊",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "增加远程会诊"
+              }
+            ]
+          },
+          "outcome": {
+            "value": "其他医院排队压力",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "排队压力"
+              }
+            ]
+          },
+          "covariates": [],
+          "temporal_structure": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          }
+        },
+        "structure": {
+          "unit_network": {
+            "value": "医院通过转诊形成关联",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "医院之间会转诊"
+              }
+            ]
+          },
+          "variable_causal_graph": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "exposure_mapping": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "network_pretreatment_status": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          }
+        },
+        "information_design": {
+          "assignment_family": "UNRESOLVED",
+          "assignment_law": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "population_information_level": "UNRESOLVED",
+          "population_observable_operator": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "sample_data_description": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          }
+        },
+        "assumptions": [],
+        "validity": {
+          "support_or_positivity": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "query_domain": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "other_conditions": []
+        },
+        "ambiguities": [],
+        "clarifying_questions": [],
+        "normalization_notes": []
+      },
+      "self_review_note": "我独立阅读业务句子后编写此候选；完整协议、网络、A4/A5 未从句子中得到保证。"
+    },
+    {
+      "id": "B23",
+      "source_question": "我们只在两条生产线试用了 AI 质检。把它推广到全厂能减少多少报废成本？",
+      "self_authored_interpretation": {
+        "schema_version": "cfm-id-draft-v0.1",
+        "target": {
+          "kind": "FIXED_POLICY_VALUE",
+          "description": {
+            "value": "分析全厂部署 AI 质检后的报废成本",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "把它推广到全厂能减少多少报废成本"
+              }
+            ]
+          },
+          "alternatives": []
+        },
+        "units_variables": {
+          "analysis_unit": {
+            "value": "生产线",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "生产线"
+              }
+            ]
+          },
+          "treatment": {
+            "value": "生产线采用 AI 质检",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "试用了 AI 质检"
+              }
+            ]
+          },
+          "outcome": {
+            "value": "报废成本",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "报废成本"
+              }
+            ]
+          },
+          "covariates": [],
+          "temporal_structure": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          }
+        },
+        "structure": {
+          "unit_network": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "variable_causal_graph": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "exposure_mapping": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "network_pretreatment_status": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          }
+        },
+        "information_design": {
+          "assignment_family": "UNRESOLVED",
+          "assignment_law": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "population_information_level": "UNRESOLVED",
+          "population_observable_operator": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "sample_data_description": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          }
+        },
+        "assumptions": [],
+        "validity": {
+          "support_or_positivity": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "query_domain": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "other_conditions": []
+        },
+        "ambiguities": [],
+        "clarifying_questions": [],
+        "normalization_notes": []
+      },
+      "self_review_note": "我独立阅读业务句子后编写此候选；完整协议、网络、A4/A5 未从句子中得到保证。"
+    },
+    {
+      "id": "B24",
+      "source_question": "新排班由主管决定，产线之间还会借人。产出提高了，能否判断是排班造成的？",
+      "self_authored_interpretation": {
+        "schema_version": "cfm-id-draft-v0.1",
+        "target": {
+          "kind": "ATE",
+          "description": {
+            "value": "新排班是否因果性地提高了生产线产出",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "能否判断是排班造成的"
+              }
+            ]
+          },
+          "alternatives": []
+        },
+        "units_variables": {
+          "analysis_unit": {
+            "value": "生产线",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "产线"
+              }
+            ]
+          },
+          "treatment": {
+            "value": "实施新排班",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "新排班"
+              }
+            ]
+          },
+          "outcome": {
+            "value": "产出",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "产出提高了"
+              }
+            ]
+          },
+          "covariates": [],
+          "temporal_structure": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          }
+        },
+        "structure": {
+          "unit_network": {
+            "value": "产线之间互相借人",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "产线之间还会借人"
+              }
+            ]
+          },
+          "variable_causal_graph": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "exposure_mapping": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "network_pretreatment_status": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          }
+        },
+        "information_design": {
+          "assignment_family": "OBSERVATIONAL",
+          "assignment_law": {
+            "value": "主管决定实施新排班，而非随机实验",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "新排班由主管决定"
+              }
+            ]
+          },
+          "population_information_level": "FINITE_SAMPLE_DESCRIPTION",
+          "population_observable_operator": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "sample_data_description": {
+            "value": "业务叙述提到观察到结果变化，不是总体算子",
+            "basis": "INTERPRETATION",
+            "evidence": [
+              {
+                "source_id": "business_question",
+                "quote": "产出提高了"
+              }
+            ]
+          }
+        },
+        "assumptions": [],
+        "validity": {
+          "support_or_positivity": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "query_domain": {
+            "value": null,
+            "basis": "UNRESOLVED",
+            "evidence": []
+          },
+          "other_conditions": []
+        },
+        "ambiguities": [],
+        "clarifying_questions": [],
+        "normalization_notes": []
+      },
+      "self_review_note": "我独立阅读业务句子后编写此候选；完整协议、网络、A4/A5 未从句子中得到保证。"
+    }
+  ]
+}

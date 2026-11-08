@@ -1,0 +1,28 @@
+{
+  "schema_version": "cfm-id-candidate-draft-v0.3",
+  "target_kind": "FIXED_POLICY_VALUE",
+  "target_description": "在完全随机化恰好两人treated的网络中，没有定义任何 exposure sufficiency，求一个指定处理向量z=(1,1,0,0)的平均结果。",
+  "claimed_identification": "POINT",
+  "scope": "AS_REVIEWED",
+  "a4_used": {
+    "source": "REVIEWED_OPERATOR",
+    "level": "ASSIGNMENT_CONDITIONAL_MEANS",
+    "operator": "可用的总体条件均值算子为指定完整分配的 E[Y_i^obs|T=z,W]，不是其他分配的均值。"
+  },
+  "admitted_assumptions_used": [
+    "full_vector_randomization",
+    "consistency"
+  ],
+  "additional_requirements": [],
+  "candidate_expression": "V(z)=sum_i w_i E[Y_i^obs|T=z,W]，q(z)>0。",
+  "nonidentification_witness": null,
+  "reasoning_steps": [
+    "A4明确包含目标特定完整分配的均值；该分配在q下正支持。"
+  ],
+  "caveats": [
+    "仅为离线FIXTURE，既非大模型推理结果也非数学认证"
+  ],
+  "suggested_checks": [
+    "进行独立数学证明或两个世界的完整可观测等价检查"
+  ]
+}

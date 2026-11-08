@@ -1,0 +1,238 @@
+{
+  "cases": [
+    {
+      "blockers": [
+        "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+        "A5_NEEDS_SCIENTIFIC_REVIEW"
+      ],
+      "candidate_routes": [
+        "R1a_candidate"
+      ],
+      "id": "NBIB-001"
+    },
+    {
+      "blockers": [
+        "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+        "A5_NEEDS_SCIENTIFIC_REVIEW"
+      ],
+      "candidate_routes": [
+        "R1a_candidate"
+      ],
+      "id": "NBIB-002"
+    },
+    {
+      "blockers": [
+        "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+        "A5_NEEDS_SCIENTIFIC_REVIEW"
+      ],
+      "candidate_routes": [
+        "R1a_candidate"
+      ],
+      "id": "NBIB-003"
+    },
+    {
+      "blockers": [
+        "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+        "A5_NEEDS_SCIENTIFIC_REVIEW"
+      ],
+      "candidate_routes": [
+        "R1a_candidate"
+      ],
+      "id": "NBIB-004"
+    },
+    {
+      "blockers": [
+        "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+        "A5_NEEDS_SCIENTIFIC_REVIEW",
+        "D6_FIRST_STAGE_EXCLUSION_NOT_YET_ADMITTED"
+      ],
+      "candidate_routes": [
+        "R1a_candidate"
+      ],
+      "id": "NBIB-005"
+    },
+    {
+      "blockers": [
+        "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+        "A5_NEEDS_SCIENTIFIC_REVIEW",
+        "D6_FIRST_STAGE_EXCLUSION_CONTRADICTED"
+      ],
+      "candidate_routes": [
+        "R1a_D6_BLOCKED_BY_PROFILE_DIRECT_EFFECT"
+      ],
+      "id": "NBIB-006"
+    },
+    {
+      "blockers": [
+        "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+        "A5_NEEDS_SCIENTIFIC_REVIEW",
+        "R1B_NEEDS_FULL_ASSIGNMENT_A4"
+      ],
+      "candidate_routes": [
+        "R1b_candidate"
+      ],
+      "id": "NBIB-007"
+    },
+    {
+      "blockers": [
+        "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+        "A5_NEEDS_SCIENTIFIC_REVIEW",
+        "FULL_POLICY_ZERO_SUPPORT",
+        "R2_MEAN_SUFFICIENCY_NOT_ADMITTED"
+      ],
+      "candidate_routes": [
+        "R1b_candidate"
+      ],
+      "id": "NBIB-008"
+    },
+    {
+      "blockers": [
+        "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+        "A5_NEEDS_SCIENTIFIC_REVIEW",
+        "FULL_POLICY_ZERO_SUPPORT",
+        "R2_MEAN_SUFFICIENCY_REQUIRES_EXPLICIT_SCIENTIFIC_ADMISSION"
+      ],
+      "candidate_routes": [
+        "R1b_zero_support",
+        "R2_mean_signature_candidate"
+      ],
+      "id": "NBIB-009"
+    },
+    {
+      "blockers": [
+        "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+        "A5_NEEDS_SCIENTIFIC_REVIEW",
+        "R1B_NEEDS_FULL_ASSIGNMENT_A4_FOR_EACH_COMPONENT"
+      ],
+      "candidate_routes": [
+        "R1b_finite_policy_mixture_candidate"
+      ],
+      "id": "NBIB-010"
+    },
+    {
+      "blockers": [
+        "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+        "A5_NEEDS_SCIENTIFIC_REVIEW",
+        "OBSERVATIONAL_EXCHANGEABILITY_UNJUSTIFIED"
+      ],
+      "candidate_routes": [
+        "R3_observational_fixed_policy_candidate"
+      ],
+      "id": "NBIB-011"
+    },
+    {
+      "blockers": [
+        "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+        "A5_NEEDS_SCIENTIFIC_REVIEW",
+        "FULL_VECTOR_EXCHANGEABILITY_UNJUSTIFIED"
+      ],
+      "candidate_routes": [
+        "R3_p_standardized_candidate"
+      ],
+      "id": "NBIB-012"
+    },
+    {
+      "blockers": [
+        "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+        "A5_NEEDS_SCIENTIFIC_REVIEW",
+        "R3_P2_INDIVIDUAL_EXPOSURE_SUFFICIENCY_NOT_PROVEN"
+      ],
+      "candidate_routes": [
+        "R3_exposure_adjusted_candidate"
+      ],
+      "id": "NBIB-013"
+    },
+    {
+      "blockers": [
+        "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+        "A5_NEEDS_SCIENTIFIC_REVIEW",
+        "ONLY_FINITE_CSV_NO_A4"
+      ],
+      "candidate_routes": [
+        "R3_exposure_adjusted_candidate"
+      ],
+      "id": "NBIB-014"
+    },
+    {
+      "blockers": [
+        "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+        "A5_NEEDS_SCIENTIFIC_REVIEW",
+        "EXCHANGEABILITY_EXPLICITLY_WITHHELD"
+      ],
+      "candidate_routes": [
+        "R3_exposure_adjusted_candidate"
+      ],
+      "id": "NBIB-015"
+    },
+    {
+      "blockers": [
+        "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+        "A5_NEEDS_SCIENTIFIC_REVIEW",
+        "B_STRATUM_TREATED_ZERO_SUPPORT"
+      ],
+      "candidate_routes": [
+        "R3_exposure_adjusted_candidate"
+      ],
+      "id": "NBIB-016"
+    },
+    {
+      "blockers": [
+        "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+        "A5_NEEDS_SCIENTIFIC_REVIEW",
+        "NO_FIXED_PRETREATMENT_NETWORK",
+        "DYNAMIC_NETWORK_OUTSIDE_CORE"
+      ],
+      "candidate_routes": [
+        "OUT_OF_SCOPE_DYNAMIC_NETWORK"
+      ],
+      "id": "NBIB-017"
+    },
+    {
+      "blockers": [
+        "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+        "A5_NEEDS_SCIENTIFIC_REVIEW",
+        "POLICY_OPTIMIZATION_NOT_IDENTIFIED_BY_R1A"
+      ],
+      "candidate_routes": [
+        "R1a_candidate",
+        "POLICY_OPTIMIZATION_OUTSIDE_ID_CORE"
+      ],
+      "id": "NBIB-018"
+    },
+    {
+      "blockers": [
+        "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+        "A5_NEEDS_SCIENTIFIC_REVIEW",
+        "FORMAL_OBSERVATIONAL_EQUIVALENCE_WITNESS"
+      ],
+      "candidate_routes": [
+        "observational_nonidentification_witness_without_A5"
+      ],
+      "id": "NBIB-019"
+    },
+    {
+      "blockers": [
+        "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+        "A5_NEEDS_SCIENTIFIC_REVIEW",
+        "D4_INCOMPATIBLE_FULL_POLICY_ZERO_SUPPORT"
+      ],
+      "candidate_routes": [
+        "R1b_candidate"
+      ],
+      "id": "NBIB-020"
+    },
+    {
+      "blockers": [
+        "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+        "A5_NEEDS_SCIENTIFIC_REVIEW"
+      ],
+      "candidate_routes": [
+        "R1a_candidate"
+      ],
+      "id": "NBIB-021"
+    }
+  ],
+  "key": "Gold target semantics and exact support checks; NO v2.7 typed Identification/replay performed",
+  "oracle_executed_for_these_cases": false,
+  "version": "0.1.0"
+}

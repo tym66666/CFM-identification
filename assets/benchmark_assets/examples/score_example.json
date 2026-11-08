@@ -1,0 +1,53 @@
+{
+  "scorer_version": "NBIB-0.1",
+  "evaluation_kind": "STRUCTURED_PREDICTION_MATCH_ONLY",
+  "rated_cases": 2,
+  "available_cases": 20,
+  "target_kind_exact_count": 2,
+  "exact_target_semantics_count": 2,
+  "assignment_family_exact_count": 2,
+  "unsafe_verified_point_count": 0,
+  "unsafe_a4_claim_count": 0,
+  "not_automatically_scored": "scientific plausibility of A5, semantic correctness of prose evidence, true theorem eligibility",
+  "math_identification_accuracy": "NOT_MEASURED",
+  "business_cases": [
+    {
+      "case_id": "NBIB-001",
+      "target_kind": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "exact": true
+      },
+      "exact_target_semantics": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "exact": true
+      },
+      "design_family_exact": true,
+      "false_verified_point_from_raw_packet": false,
+      "false_a4_from_finite_business_data": false,
+      "human_review_needed": true
+    },
+    {
+      "case_id": "NBIB-007",
+      "target_kind": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "exact": true
+      },
+      "exact_target_semantics": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "exact": true
+      },
+      "design_family_exact": true,
+      "false_verified_point_from_raw_packet": false,
+      "false_a4_from_finite_business_data": false,
+      "human_review_needed": true
+    }
+  ]
+}

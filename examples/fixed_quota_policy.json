@@ -1,0 +1,12 @@
+{
+  "case_id": "fixed_quota_policy",
+  "business_question": "公司有300名员工，想评估让所有300人使用AI的固定政策下的真实平均业绩。",
+  "sources": [
+    {
+      "source_id": "protocol",
+      "kind": "STUDY_PROTOCOL",
+      "text": "处理前已经记录员工的固定合作网络。实验每次恰好给150人分配AI，随机抽取所有固定150人的配置。"
+    }
+  ],
+  "response_language": "zh"
+}

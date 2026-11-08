@@ -1,0 +1,213 @@
+{
+  "schema_version": "cfm-id-multiquery-v0.9",
+  "shared_draft": {
+    "schema_version": "cfm-id-draft-v0.1",
+    "target": {
+      "kind": "FIXED_POLICY_VALUE",
+      "description": {
+        "value": "全员使用AI销售助手时的公司整体销售表现（固定政策价值候选）",
+        "basis": "EXPLICIT_TEXT",
+        "evidence": [
+          {
+            "source_id": "business_question",
+            "quote": "如果今后让所有人使用AI助手，公司整体销售表现会怎样"
+          }
+        ]
+      },
+      "alternatives": []
+    },
+    "units_variables": {
+      "analysis_unit": {
+        "value": "销售员",
+        "basis": "EXPLICIT_TEXT",
+        "evidence": [
+          {
+            "source_id": "business_question",
+            "quote": "300名销售员"
+          }
+        ]
+      },
+      "treatment": {
+        "value": "是否使用AI销售助手",
+        "basis": "EXPLICIT_TEXT",
+        "evidence": [
+          {
+            "source_id": "business_question",
+            "quote": "使用AI销售助手"
+          }
+        ]
+      },
+      "outcome": {
+        "value": "公司整体销售表现",
+        "basis": "EXPLICIT_TEXT",
+        "evidence": [
+          {
+            "source_id": "business_question",
+            "quote": "公司整体销售表现"
+          }
+        ]
+      },
+      "covariates": [],
+      "temporal_structure": {
+        "value": "八周实验期",
+        "basis": "EXPLICIT_TEXT",
+        "evidence": [
+          {
+            "source_id": "att_01",
+            "quote": "eight-week pilot"
+          }
+        ]
+      }
+    },
+    "structure": {
+      "unit_network": {
+        "value": "销售员合作关系网络",
+        "basis": "EXPLICIT_TEXT",
+        "evidence": [
+          {
+            "source_id": "business_question",
+            "quote": "通过合作关系分享客户线索"
+          }
+        ]
+      },
+      "variable_causal_graph": {
+        "value": null,
+        "basis": "UNRESOLVED",
+        "evidence": []
+      },
+      "exposure_mapping": {
+        "value": null,
+        "basis": "UNRESOLVED",
+        "evidence": []
+      },
+      "network_pretreatment_status": {
+        "value": "合作网络于随机分配前记录",
+        "basis": "EXPLICIT_TEXT",
+        "evidence": [
+          {
+            "source_id": "att_01",
+            "quote": "Collaboration links were recorded before treatment assignment."
+          }
+        ]
+      }
+    },
+    "information_design": {
+      "assignment_family": "COMPLETE_RANDOMIZATION",
+      "assignment_law": {
+        "value": "从300名销售员中不放回均匀随机抽取恰好150人",
+        "basis": "EXPLICIT_TEXT",
+        "evidence": [
+          {
+            "source_id": "att_01",
+            "quote": "Exactly 150 of the 300 salespeople were selected uniformly without replacement."
+          }
+        ]
+      },
+      "population_information_level": "FINITE_SAMPLE_DESCRIPTION",
+      "population_observable_operator": {
+        "value": null,
+        "basis": "UNRESOLVED",
+        "evidence": []
+      },
+      "sample_data_description": {
+        "value": "有限实验的员工、处理与前后销售记录字段",
+        "basis": "EXPLICIT_TEXT",
+        "evidence": [
+          {
+            "source_id": "att_03",
+            "quote": "表头字段：employee_id, ai_access, sales_before, sales_after"
+          }
+        ]
+      }
+    },
+    "assumptions": [
+      {
+        "name": "protocol_reported_randomization",
+        "statement": "协议报告从300人中均匀随机选150人",
+        "status": "PROPOSED",
+        "basis": "REPORTED_BY_SOURCE",
+        "evidence": [
+          {
+            "source_id": "att_01",
+            "quote": "Exactly 150 of the 300 salespeople were selected uniformly without replacement."
+          }
+        ]
+      }
+    ],
+    "validity": {
+      "support_or_positivity": {
+        "value": null,
+        "basis": "UNRESOLVED",
+        "evidence": []
+      },
+      "query_domain": {
+        "value": null,
+        "basis": "UNRESOLVED",
+        "evidence": []
+      },
+      "other_conditions": []
+    },
+    "ambiguities": [],
+    "clarifying_questions": [],
+    "normalization_notes": [
+      "固定政策目标不应自动替换成四臂均值；人口级可观测信息和随机化的现实执行仍需独立核验。"
+    ]
+  },
+  "primary_query_id": "q1",
+  "queries": [
+    {
+      "query_id": "q1",
+      "business_goal": {
+        "value": "了解全员使用AI助手的整体销售表现",
+        "basis": "EXPLICIT_TEXT",
+        "evidence": [
+          {
+            "source_id": "business_question",
+            "quote": "如果今后让所有人使用AI助手，公司整体销售表现会怎样"
+          }
+        ]
+      },
+      "target": {
+        "kind": "FIXED_POLICY_VALUE",
+        "description": {
+          "value": "全员使用AI销售助手时的公司整体销售表现（固定政策价值候选）",
+          "basis": "EXPLICIT_TEXT",
+          "evidence": [
+            {
+              "source_id": "business_question",
+              "quote": "如果今后让所有人使用AI助手，公司整体销售表现会怎样"
+            }
+          ]
+        },
+        "alternatives": []
+      }
+    },
+    {
+      "query_id": "q2",
+      "business_goal": {
+        "value": "了解同事之间是否产生干扰效果",
+        "basis": "EXPLICIT_TEXT",
+        "evidence": [
+          {
+            "source_id": "business_question",
+            "quote": "也希望了解是否存在同事间的影响"
+          }
+        ]
+      },
+      "target": {
+        "kind": "SPILLOVER_EFFECT",
+        "description": {
+          "value": "同事间的影响",
+          "basis": "EXPLICIT_TEXT",
+          "evidence": [
+            {
+              "source_id": "business_question",
+              "quote": "也希望了解是否存在同事间的影响"
+            }
+          ]
+        },
+        "alternatives": []
+      }
+    }
+  ]
+}

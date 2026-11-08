@@ -1,0 +1,762 @@
+{
+  "offline_only": true,
+  "cases": 8,
+  "exact_probability_checks": 95,
+  "effect_coefficient_checks": 90,
+  "rows": [
+    {
+      "case": "H25-service_arm",
+      "node": "S_04",
+      "own": 1,
+      "peers": 2,
+      "probability": "1/8",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_01",
+      "own": 0,
+      "peers": 2,
+      "probability": "41/168",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_01",
+      "own": 1,
+      "peers": 2,
+      "probability": "1/8",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_02",
+      "own": 0,
+      "peers": 2,
+      "probability": "53/210",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_02",
+      "own": 1,
+      "peers": 2,
+      "probability": "41/280",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_03",
+      "own": 0,
+      "peers": 2,
+      "probability": "9/35",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_03",
+      "own": 1,
+      "peers": 2,
+      "probability": "33/280",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_04",
+      "own": 0,
+      "peers": 2,
+      "probability": "41/168",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_04",
+      "own": 1,
+      "peers": 2,
+      "probability": "1/8",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_05",
+      "own": 0,
+      "peers": 2,
+      "probability": "41/168",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_05",
+      "own": 1,
+      "peers": 2,
+      "probability": "1/8",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_06",
+      "own": 0,
+      "peers": 2,
+      "probability": "9/35",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_06",
+      "own": 1,
+      "peers": 2,
+      "probability": "33/280",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_07",
+      "own": 0,
+      "peers": 2,
+      "probability": "53/210",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_07",
+      "own": 1,
+      "peers": 2,
+      "probability": "41/280",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_08",
+      "own": 0,
+      "peers": 2,
+      "probability": "41/168",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_08",
+      "own": 1,
+      "peers": 2,
+      "probability": "1/8",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_09",
+      "own": 0,
+      "peers": 2,
+      "probability": "13/56",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_09",
+      "own": 1,
+      "peers": 2,
+      "probability": "23/168",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_10",
+      "own": 0,
+      "peers": 2,
+      "probability": "27/112",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_10",
+      "own": 1,
+      "peers": 2,
+      "probability": "15/112",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_11",
+      "own": 0,
+      "peers": 2,
+      "probability": "27/112",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_11",
+      "own": 1,
+      "peers": 2,
+      "probability": "15/112",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_12",
+      "own": 0,
+      "peers": 2,
+      "probability": "93/392",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_12",
+      "own": 1,
+      "peers": 2,
+      "probability": "61/392",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_13",
+      "own": 0,
+      "peers": 2,
+      "probability": "27/112",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_13",
+      "own": 1,
+      "peers": 2,
+      "probability": "15/112",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_14",
+      "own": 0,
+      "peers": 2,
+      "probability": "27/112",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_14",
+      "own": 1,
+      "peers": 2,
+      "probability": "15/112",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_15",
+      "own": 0,
+      "peers": 2,
+      "probability": "27/112",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_15",
+      "own": 1,
+      "peers": 2,
+      "probability": "15/112",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_16",
+      "own": 0,
+      "peers": 2,
+      "probability": "93/392",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_16",
+      "own": 1,
+      "peers": 2,
+      "probability": "61/392",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_17",
+      "own": 0,
+      "peers": 2,
+      "probability": "27/112",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_17",
+      "own": 1,
+      "peers": 2,
+      "probability": "15/112",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_18",
+      "own": 0,
+      "peers": 2,
+      "probability": "13/56",
+      "matches": true
+    },
+    {
+      "case": "H25-service_direct",
+      "node": "S_18",
+      "own": 1,
+      "peers": 2,
+      "probability": "23/168",
+      "matches": true
+    },
+    {
+      "case": "H25-service_spill",
+      "node": "S_02",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/42",
+      "matches": true
+    },
+    {
+      "case": "H25-service_spill",
+      "node": "S_02",
+      "own": 0,
+      "peers": 2,
+      "probability": "53/210",
+      "matches": true
+    },
+    {
+      "case": "H25-service_spill",
+      "node": "S_09",
+      "own": 0,
+      "peers": 0,
+      "probability": "5/84",
+      "matches": true
+    },
+    {
+      "case": "H25-service_spill",
+      "node": "S_09",
+      "own": 0,
+      "peers": 2,
+      "probability": "13/56",
+      "matches": true
+    },
+    {
+      "case": "H25-service_spill",
+      "node": "S_17",
+      "own": 0,
+      "peers": 0,
+      "probability": "5/112",
+      "matches": true
+    },
+    {
+      "case": "H25-service_spill",
+      "node": "S_17",
+      "own": 0,
+      "peers": 2,
+      "probability": "27/112",
+      "matches": true
+    },
+    {
+      "case": "H25-service_plan",
+      "kind": "full_assignment",
+      "probability": "1/11760",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_arm",
+      "node": "F_05",
+      "own": 0,
+      "peers": 1,
+      "probability": "1/2",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_01",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/12",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_01",
+      "own": 0,
+      "peers": 1,
+      "probability": "7/12",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_02",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/6",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_02",
+      "own": 0,
+      "peers": 1,
+      "probability": "1/2",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_03",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/12",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_03",
+      "own": 0,
+      "peers": 1,
+      "probability": "7/12",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_04",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/6",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_04",
+      "own": 0,
+      "peers": 1,
+      "probability": "1/2",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_05",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/6",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_05",
+      "own": 0,
+      "peers": 1,
+      "probability": "1/2",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_06",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/12",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_06",
+      "own": 0,
+      "peers": 1,
+      "probability": "7/12",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_07",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/12",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_07",
+      "own": 0,
+      "peers": 1,
+      "probability": "1/4",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_08",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/9",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_08",
+      "own": 0,
+      "peers": 1,
+      "probability": "2/9",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_09",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/9",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_09",
+      "own": 0,
+      "peers": 1,
+      "probability": "2/9",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_10",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/9",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_10",
+      "own": 0,
+      "peers": 1,
+      "probability": "2/9",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_11",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/12",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_11",
+      "own": 0,
+      "peers": 1,
+      "probability": "1/4",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_12",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/12",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_12",
+      "own": 0,
+      "peers": 1,
+      "probability": "1/4",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_13",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/12",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_13",
+      "own": 0,
+      "peers": 1,
+      "probability": "5/12",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_14",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/12",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_14",
+      "own": 0,
+      "peers": 1,
+      "probability": "5/12",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_15",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/8",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_15",
+      "own": 0,
+      "peers": 1,
+      "probability": "3/8",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_16",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/8",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_16",
+      "own": 0,
+      "peers": 1,
+      "probability": "3/8",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_17",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/8",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_17",
+      "own": 0,
+      "peers": 1,
+      "probability": "3/8",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_18",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/12",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_18",
+      "own": 0,
+      "peers": 1,
+      "probability": "5/12",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_19",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/12",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_19",
+      "own": 0,
+      "peers": 1,
+      "probability": "2/3",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_20",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/4",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_20",
+      "own": 0,
+      "peers": 1,
+      "probability": "1/2",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_21",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/4",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_21",
+      "own": 0,
+      "peers": 1,
+      "probability": "1/2",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_22",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/12",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_22",
+      "own": 0,
+      "peers": 1,
+      "probability": "2/3",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_23",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/4",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_23",
+      "own": 0,
+      "peers": 1,
+      "probability": "1/2",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_24",
+      "own": 0,
+      "peers": 0,
+      "probability": "1/12",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_spill",
+      "node": "F_24",
+      "own": 0,
+      "peers": 1,
+      "probability": "2/3",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_plan",
+      "kind": "full_assignment",
+      "probability": "1/18",
+      "matches": true
+    },
+    {
+      "case": "H25-factory_offsupport",
+      "kind": "full_assignment",
+      "probability": "0",
+      "matches": true
+    }
+  ]
+}

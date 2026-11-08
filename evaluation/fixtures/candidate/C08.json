@@ -1,0 +1,30 @@
+{
+  "schema_version": "cfm-id-candidate-draft-v0.3",
+  "target_kind": "CATE",
+  "target_description": "在观察性网络下，在给定X时计算员工AI的条件平均处理效应CATE。",
+  "claimed_identification": "POINT",
+  "scope": "AS_REVIEWED",
+  "a4_used": {
+    "source": "REVIEWED_OPERATOR",
+    "level": "FULL_JOINT_LAW",
+    "operator": "理论可用总体完整联合律 P(X,T,Yobs)，包含条件于X的处理与结果分布。"
+  },
+  "admitted_assumptions_used": [
+    "consistency",
+    "conditional_ignorability",
+    "positivity",
+    "no_interference_for_target"
+  ],
+  "additional_requirements": [],
+  "candidate_expression": "tau(x)=E[Yobs|T=1,X=x]-E[Yobs|T=0,X=x]。",
+  "nonidentification_witness": null,
+  "reasoning_steps": [
+    "在给定的无干扰/忽略性模型下传统backdoor可用；这些假设不能从观察数据证明。"
+  ],
+  "caveats": [
+    "仅为离线FIXTURE，既非大模型推理结果也非数学认证"
+  ],
+  "suggested_checks": [
+    "进行独立数学证明或两个世界的完整可观测等价检查"
+  ]
+}

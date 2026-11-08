@@ -1,0 +1,45 @@
+问题补充入口：question_clarification
+2026-10-23
+
+用途
+给 fixed-assignment-id 入口增加“读取缺项 → 中性追问 → 记录普通话补充 → 重新读取”的接口。
+它不调用 LLM 或数学 Core，不替模型补字段，也不批准业务语义或 A4/A5。
+追问基于当前模型回答的缺项，并不证明原材料缺少该信息；提示首先核对原材料，避免把模型遗漏直接归咎于用户。
+
+Python
+from cfm_id.question_clarification import clarification_plan, append_reply
+plan = clarification_plan(bundle, actual_candidate)
+item = plan['questions'][0]
+updated_bundle = append_reply(bundle, actual_candidate, plan, item['clarification_id'], ordinary_reply)
+
+CLI
+python -X utf8 -B -m cfm_id.question_clarification plan --bundle bundle.json --candidate candidate.json --output plan.json
+python -X utf8 -B -m cfm_id.question_clarification reply --bundle bundle.json --candidate candidate.json --plan plan.json --clarification-id clarify_实际ID --reply-file reply.txt --output updated_bundle.json
+
+之后使用原 business_entry.prepare_request/read_once，显式指定 contract='fixed-assignment-id'。
+接口不会创建 Provider 或追加自动调用。外部调用方继续负责授权、额度、独立审核和原有 submit 链路。
+输出文件必须使用新路径；CLI 不覆盖历史输出。
+
+材料更新方式
+保留全部原始文档和题目顺序，只在选定题目的当前文本末尾追加明确标记的用户补充。
+完整当前题目进入一个新文档，question_slots 指向这个可逐字定位的新文本。其余题目文字不改。
+question_clarifications 记录原材料/原候选指纹、追问、回复和来源位置；它是未经审批的来源记录。
+答复始终作为不可信业务材料提供给模型，不能改变 System Prompt、直接确认科学假设或执行识别。
+
+新鲜度
+追问计划绑定整个 bundle 与当前 candidate。材料或回答改变、计划被修改、追问 ID 不在当前计划中，都会拒绝接收。
+模型必须重新读取更新后的整个材料集。由于问题 ID 绑定整个 bundle，所有问题 ID 都更新，即使其他题目的文字未变。
+旧 candidate、事实审核、目标审核与材料/科学上下文不能直接沿用。重新读取也不自动继承审批。
+审核由原有独立接口重新做：原试点不变不意味着对新目标的支持条件或 A4/A5 适用性已经批准。
+
+范围和限制
+该接口处理当前目标的意图、安排、评价对象、汇总方式缺项。原试点分配冲突或科学假设审批仍走原审核流程。
+它不证明回复的语义已满足缺项。“还没决定”也会原样保存，下一次模型读取仍应保留未知。
+补齐目标后可能得到 POINT，也可能因支持不足得到 UNSUPPORTED；后者不是一般非识别定理。
+目前仍是显式选择的接口，不改变旧入口默认行为；不是自动发现所有问题边界的完整产品界面。
+
+测试
+python -X utf8 -B -m unittest tests_gateway.test_question_clarification
+覆盖原文保留、零 Core 调用、不推断缺项、错误/过期计划、全题 ID 更新、旧回答拒绝、多轮历史、Mock 一次读取和 CLI 不覆盖历史。
+真实闭环的冻结证据见 LOCAL_EVIDENCE_NOT_DISTRIBUTED。
+

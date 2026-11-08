@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Causal-IDFM · Identification</title><link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script><script src="/input-files.js" defer></script></head>
+<body><header><a class="brand" href="/">Causal<span>IDFM</span><small>CAUSAL IDENTIFICATION</small></a><nav>业务问题 <span>→</span> Identification</nav><span id="connection" class="tag">正在连接本地服务</span></header>
+<main><div class="intro"><div class="eyebrow">从问题出发 · 实时研究工作台</div><h1>这个业务问题，可以确定什么？</h1><p>输入问题和材料，后台完成理解与核对；只有需要澄清时才追问，最后展示识别公式、采用条件和证书结果。</p></div>
+<div class="layout"><section class="panel composer"><div class="section-head"><h2>01 <span>描述你的问题</span></h2><button class="text-button" id="clear-input">新建问题</button></div>
+<p id="input-guidance" class="input-guidance">像向业务同事介绍情况一样，尽量把你知道的写清楚。<strong>不知道或尚未决定的，请直接说明。</strong></p>
+<ul id="input-checklist" class="input-checklist" aria-label="描述问题时可以参考的六件事">
+<li><b>想比较什么</b><span>用与不用？方案 A 与方案 B？</span></li>
+<li><b>涉及哪些对象</b><span>多少人或门店？看全体还是其中一部分？</span></li>
+<li><b>看什么结果</b><span>哪项指标、什么单位、哪段时间？</span></li>
+<li><b>实际怎样安排</b><span>抽签、按规则分配，还是自己选择？</span></li>
+<li><b>手里有哪些记录</b><span>记录了谁、哪些内容？谁还没有记录？</span></li>
+<li><b>对象之间有何联系</b><span>谁与谁合作、交流或相互影响？</span></li>
+</ul>
+<label for="question" class="sr-only">业务问题</label><textarea id="question" rows="8" aria-describedby="input-guidance input-checklist" placeholder="我想比较……与……，看看……在……期间会怎样变化。&#10;&#10;涉及的对象与联系：……&#10;实际采取的安排：……&#10;已经拿到的记录：……&#10;还不清楚或尚未决定的事项：……"></textarea>
+<details id="writing-help" class="writing-help"><summary>不知道怎么写？看一个例子，以及可以附什么材料</summary>
+<blockquote>我们有80家门店，常互相调货。想比较全部门店都用补货助手和都不用时，试点周每家门店的缺货次数平均相差多少。本次试点每家店独立抽签，有一半机会用助手。我们有全部门店的使用记录和调货关系，但只拿到50家门店的缺货记录，另外30家尚未上报，原因还不清楚。</blockquote>
+<p>这是描述方式的示例。若已有分析方案，也请说明其中哪些前提已确定采用，哪些仍未决定。</p>
+<ul><li><b>试点或实施方案：</b>谁能参加、怎样决定谁使用、何时开始与结束。知道抽签概率或固定名额时，请写明。</li>
+<li><b>对象名单和关系：</b>名称与数据中的编号如何对应；哪些对象有联系。名单或关系只掌握一部分，也请注明。</li>
+<li><b>数据说明：</b>每列表示什么、指标单位、记录时间、哪些对象缺数据，以及已知的缺失原因。</li></ul>
+<p>材料不必一次齐全，系统会针对实际缺项追问。修改示例的人数、关系或安排时，也要核对随示例载入的材料。</p></details>
+<div id="selected-example" hidden></div><details id="example-documents" hidden><summary>查看随示例载入的研究材料</summary><div id="example-sources"></div></details>
+<div class="upload-grid"><label class="upload"><span class="upload-icon">＋</span><strong>添加补充材料</strong><span>试点方案或数据说明</span><small>TXT / MD / JSON / PDF / DOCX / CSV / TSV / XLSX</small><input id="documents" type="file" multiple accept=".txt,.md,.json,.pdf,.docx,.csv,.tsv,.xlsx"></label><div class="upload-info"><b>有现成材料，可以一起上传</b><p>普通观测表作为附件只提取列名和行数；表格中的变量解释请使用“字段说明表”，数值数据请使用“导入 CSV／Excel 数据”。要读取完整对象名单和关系，请使用下方“上传对象与关系表”。</p><p>单文件 ≤ 8 MB，总计 ≤ 20 MB。</p></div></div><div id="file-list"></div>
+<details class="optional"><summary>字段说明表 <span>可选 · 读取编码、单位和缺失说明</span></summary>
+<p>用于说明“每一列表示什么”的小表，不是逐条客户或观测记录。选定工作表的文字会随材料交给模型。</p>
+<label>字段说明文件<input id="dictionary-file" type="file" accept=".csv,.tsv,.xlsx"></label>
+<div class="paired"><label>工作表<select id="dictionary-sheet"></select></label><label>表头在第几行<input id="dictionary-header" type="number" min="1" value="1"></label></div><button id="dictionary-refresh" class="secondary" type="button">更新预览</button><div id="dictionary-preview"></div></details>
+<details class="optional"><summary>导入 CSV／Excel 数据 <span>可选 · 数值在本地处理</span></summary>
+<p>每行一个对象，每列一个变量；未回访对象仍保留一行，结果留空。需配套下方对象表与关系表。选择关键列和编码后，系统按编号对齐，不要求你制作 NPZ 或 JSON。独立 ID 页只核对记录范围，不计算估计。</p>
+<label>数据文件<input id="table-file" type="file" accept=".csv,.tsv,.xlsx"></label>
+<div class="paired"><label>工作表<select id="table-sheet"></select></label><label>表头在第几行<input id="table-header" type="number" min="1" value="1"></label></div><button id="table-refresh" type="button" class="secondary">更新预览</button><div id="table-preview"></div>
+<p>系统按列名提出对应，请核对以下选择。不会从数据自动推断随机化或无混杂等研究条件。</p>
+<div class="paired"><label>对象编号列<select id="map-id"></select></label><label>实际处理列<select id="map-treatment"></select></label><label>结果列<select id="map-outcome"></select></label><label>时期列（可选；本次只读一个时期）<select id="map-period"></select></label></div>
+<label>数值特征列（可多选）<select id="map-features" multiple size="5"></select></label>
+<div class="paired"><label>原表哪个值代表启用<input id="map-on" placeholder="例如：1 或 是"></label><label>哪个值代表未启用<input id="map-off" placeholder="例如：0 或 否"></label></div>
+<label>结果缺失的标记（空白已算缺失；其他标记用英文逗号分隔）<input id="map-missing" placeholder="例如：NA,未回访"></label>
+<div class="paired"><label>处理含义<input id="map-treatment-text" placeholder="例如：试点周是否启用经营助手"></label><label>结果含义、单位<input id="map-outcome-text" placeholder="例如：试点周经营评分，分，越高越好"></label></div>
+<div class="paired"><label>数据对应的时期和对象范围<input id="map-context" placeholder="例如：本周，完整名册内全部门店"></label><label>结果类型<select id="map-kind"><option value="">请选择</option><option value="CONTINUOUS">连续数值／评分</option><option value="BINARY">0/1结果</option><option value="COUNT">次数／人数等非负整数</option></select></label></div>
+<label>谁有结果记录、缺失原因<input id="map-observation" placeholder="例如：只回访部分门店；名单怎样选出尚不清楚"></label>
+<p class="muted">特征缺失、类别未编码、对象重复或多个时期会明确提示；不自动填零、缩放或合并。字段解释和记录范围交给模型，逐条测量值不发送。</p></details>
+<details id="network-input" class="optional"><summary>上传对象与关系表 <span>可选 · 无需逐条写进问题</span></summary>
+<p>例如门店合作、人员交流。程序读取完整名单和关系，供各网络识别路线核对；无需提交数值数据也能读取关系。当前支持无向、无权重关系，最多 2000 个对象、50000 条关系；这只是导入上限，具体识别方法还有各自适用范围。</p>
+<div class="paired"><label>对象表（包括没有联系的对象）<input id="network-nodes" type="file" accept=".csv,.tsv,.xlsx"></label><label>关系表（每行一对对象编号）<input id="network-edges" type="file" accept=".csv,.tsv,.xlsx"></label></div>
+<p class="muted">支持 CSV、TSV、单工作表 Excel。编号须一致，Excel 编号请保存为文本。<a href="/templates/network_nodes.csv" download>对象表模板</a> · <a href="/templates/network_edges.csv" download>关系表模板</a>。对象表使用 node_id（或对象编号），关系表使用 source、target（或对象1、对象2）；带权重或时间的事件表请先明确如何定义本次关系，不会自动删掉这些列。</p>
+<label>这些关系代表什么、记录于何时？<textarea id="network-description" rows="2" placeholder="例如：试点前一个月登记的门店相互调货关系，本次分析期间保持不变。不清楚的部分请注明。"></textarea></label>
+<div class="paired"><label>关系是否有方向？<select id="network-kind"><option value="">请选择</option><option value="UNDIRECTED">相互联系，不分方向</option><option value="DIRECTED">有方向（当前入口暂不支持）</option><option value="UNKNOWN">尚不清楚</option></select></label><label>上述范围的关系是否记录完整？<select id="network-completeness"><option value="UNKNOWN">尚不清楚</option><option value="COMPLETE">完整，未列出的对象对没有该类关系</option><option value="INCOMPLETE">只掌握部分关系</option></select></label></div>
+<p class="muted">额外对象属性留在原文件，不自动当作已审核的控制变量；名单与关系说明会用于模型读取。关系文件不替代实验方案或科学假设，也不作为变量因果图。</p></details>
+<details id="api-settings" class="optional"><summary>模型连接 <span id="key-status">尚未配置 API Key</span></summary><div class="paired"><label>服务与模型<select id="provider"><option value="longcat">LongCat · LongCat-2.5</option><option value="deepseek">学校接口 · deepseek-v4-flash</option></select></label><label>API Key<input id="api-key" type="password" autocomplete="off" placeholder="粘贴密钥，或从下方导入密钥文件"></label></div><div class="actions"><label class="file-button">从本地 .txt 文件导入<input id="key-file" type="file" accept=".txt"></label><button id="save-key" class="secondary">保存模型设置</button><button id="clear-key" class="text-button">清除密钥</button></div><p class="muted">密钥仅留在本机服务内存，关闭服务即清除；不写入页面、结果文件或浏览器存储。开始任务后才会向所选模型服务发出请求。</p></details>
+<button id="preview-input" type="button" class="secondary">检查文件读取（不调用模型）</button><div id="upload-receipt" aria-live="polite"></div><div class="run-options"><label><input id="synthetic" type="checkbox"> 这是一份合成研究示例，使用合成条件审核模式</label><label><input id="allow-send" type="checkbox"> 允许把业务文字及附件提取内容发送给所选模型</label></div><div class="start-row"><button id="start" class="primary">开始读取业务 <span>→</span></button><p>系统会在后台读取并核对，进度会显示在下方。<br>每次模型请求最长等待 5 分钟；缺少关键信息时再向你提问。</p></div><p id="input-message" class="message" role="status"></p>
+</section>
+<aside><details id="example-library" class="example-library" open><summary>示例与历史结果 <span>9 题 · 在栏内上下滚动 · 可收起</span></summary><div class="aside-heading"><p>7 个网络干扰（含 N60 和 2 个 PARTIAL）、2 个 DAG。载入后可修改问题及配套材料。</p></div><div id="examples"></div><div class="side-note"><span>如何读结果</span><dl><dt>POINT</dt><dd>在所审核条件下，目标唯一确定。</dd><dt>PARTIAL</dt><dd>得到经过验证的界限，是否 sharp 另行标明。</dd><dt>需要补充 / 当前未覆盖</dt><dd>说明停在哪里，不冒充不可识别证明。</dd></dl></div></details></aside></div>
+<section id="workspace" class="panel workspace" hidden><div class="section-head"><h2>02 <span id="workspace-title">正在分析你的问题</span></h2><span id="run-label" class="tag"></span></div><ol id="steps"><li>业务读取</li><li>目标与来源核对</li><li>条件审核与识别</li></ol><div id="progress" aria-live="polite"></div><div id="run-error" class="message error" hidden></div><button id="retry-reading" class="secondary" hidden>重新核对（再请求模型）</button><div id="query-select"></div><div id="material-summary"></div>
+<section id="review" hidden><div class="review-heading"><h3 id="review-title"></h3><p>核对下面的重点即可。若有疑点，这里会列出具体问题和处理入口；不需要填写技术审核表。</p></div><div id="compact-review"></div><p id="review-message" class="message error" role="status"></p><div id="review-issues" class="review-issues" hidden></div><button id="request-recheck" class="primary" hidden>让模型核对这些说明</button><button id="confirm-summary" class="primary" hidden>确认并继续</button><details id="review-details" class="optional"><summary>查看技术审核记录（可选）</summary><div class="paired"><label>审核者标识<input id="reviewer" placeholder="例如：演示研究负责人"></label><label>本阶段审核说明<input id="review-evidence" placeholder="说明你依据哪些材料作出判断（至少 12 个字符）"></label></div><div id="review-fields"></div><details class="optional"><summary>高级：完整审核记录</summary><p>仅在复杂记录需要时使用。修改后的记录仍经过原接口全部检查。</p><textarea id="review-json" rows="10" spellcheck="false"></textarea><label><input id="use-review-json" type="checkbox"> 提交此 JSON 记录</label></details><button class="primary" id="submit-review">提交本阶段审核并继续 →</button></details></section>
+<section id="clarification" class="review-issues" hidden><h3>还需要明确一件事</h3><div id="clarification-questions"></div><label for="clarification-answer">补充说明</label><textarea id="clarification-answer" rows="3" placeholder="用业务语言说明即可；不确定或尚未决定，也请直接说明。"></textarea><button id="send-clarification" class="primary">补充后继续</button><p id="clarification-message" class="message" role="status"></p></section><div id="result"></div><div id="downloads"></div><details class="optional"><summary>本次操作记录</summary><ol id="events"></ol></details></section>
+<section class="panel saved" id="saved" hidden><div class="section-head"><h2>已验收记录 <span id="saved-title"></span></h2><button id="close-saved" class="text-button">收起</button></div><p class="muted">这是此前保存的执行记录，不是当前输入的新调用结果。修改原文后请重新读取和审核。</p><div id="saved-result"></div></section>
+<footer>Causal-IDFM · Identification 演示 &nbsp;｜&nbsp; 展示识别公式、采用条件与独立证书重放；不计算效应估计或策略。</footer></main></body></html>

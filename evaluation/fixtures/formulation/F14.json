@@ -1,0 +1,107 @@
+{
+  "schema_version": "cfm-id-draft-v0.1",
+  "target": {
+    "kind": "NETWORK_DESIGN_STANDARDIZED_ARM_MEAN",
+    "description": {
+      "value": "求员工无AI、严格多数邻居有AI对应的设计标准化销售均值。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "求员工无AI、严格多数邻居有AI对应的设计标准化销售均值。"
+        }
+      ]
+    },
+    "alternatives": []
+  },
+  "units_variables": {
+    "analysis_unit": {
+      "value": "业务描述中的员工、节点或团体",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "求员工无AI、严格多数邻居有AI对应的设计标准化销售均值。"
+        }
+      ]
+    },
+    "treatment": {
+      "value": "描述中的AI干预",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前固定合作网络。实验协议：所有销售员分别独立地按 Bernoulli(1/2) 分配 AI。严格多数暴露S_i由处理前网络定义。"
+        }
+      ]
+    },
+    "outcome": {
+      "value": "描述中的销售或结果指标",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "求员工无AI、严格多数邻居有AI对应的设计标准化销售均值。"
+        }
+      ]
+    }
+  },
+  "structure": {
+    "unit_network": {
+      "value": "被描述的网络",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前固定合作网络。实验协议：所有销售员分别独立地按 Bernoulli(1/2) 分配 AI。严格多数暴露S_i由处理前网络定义。"
+        }
+      ]
+    },
+    "exposure_mapping": {
+      "value": "描述中的网络暴露映射",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前固定合作网络。实验协议：所有销售员分别独立地按 Bernoulli(1/2) 分配 AI。严格多数暴露S_i由处理前网络定义。"
+        }
+      ]
+    }
+  },
+  "information_design": {
+    "assignment_family": "INDEPENDENT_BERNOULLI",
+    "assignment_law": {
+      "value": "处理前固定合作网络。实验协议：所有销售员分别独立地按 Bernoulli(1/2) 分配 AI。严格多数暴露S_i由处理前网络定义。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前固定合作网络。实验协议：所有销售员分别独立地按 Bernoulli(1/2) 分配 AI。严格多数暴露S_i由处理前网络定义。"
+        }
+      ]
+    },
+    "population_information_level": "NODE_ARM_CONDITIONAL_MEANS",
+    "population_observable_operator": {
+      "value": "可用的总体观测信息仅为各节点 arm 条件均值 E[Y_i^obs|T_i=a,S_i=s,W]，并没有完整处理向量的联合律。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "information",
+          "quote": "可用的总体观测信息仅为各节点 arm 条件均值 E[Y_i^obs|T_i=a,S_i=s,W]，并没有完整处理向量的联合律。"
+        }
+      ]
+    },
+    "sample_data_description": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "assumptions": [],
+  "validity": {},
+  "ambiguities": [],
+  "clarifying_questions": [],
+  "normalization_notes": [
+    "MOCK TEST-ONLY fixture synthesized from benchmark reference; not model-generated"
+  ]
+}

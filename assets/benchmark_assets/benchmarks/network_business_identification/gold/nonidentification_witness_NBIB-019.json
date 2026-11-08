@@ -1,0 +1,27 @@
+{
+  "case_id": "NBIB-019",
+  "identification_conclusion": "Not identified without assumption excluding world B (e.g. appropriate exchangeability)",
+  "limitations": "Constructive witness for one specified target/model class, not a universal algorithm or a claim every R3 query is unidentified.",
+  "observed_joint_distribution_same": {
+    "P(T=0,Yobs=0)": "1/2",
+    "P(T=0,Yobs=1)": "0",
+    "P(T=1,Yobs=0)": "0",
+    "P(T=1,Yobs=1)": "1/2"
+  },
+  "population_unit": "one representative creator node, extend iid to 40 fixed-network nodes",
+  "setting": "U~Bernoulli(1/2), T=U, Yobs=Y(T); no scientific exchangeability assumption",
+  "world_A": {
+    "E_Y0": "0",
+    "E_Y1": "1",
+    "direct_effect": "1",
+    "potential_outcomes": "Y(0)=0; Y(1)=1",
+    "treatment_equation": "T=U"
+  },
+  "world_B": {
+    "E_Y0": "1/2",
+    "E_Y1": "1/2",
+    "direct_effect": "0",
+    "potential_outcomes": "Y(0)=U; Y(1)=U",
+    "treatment_equation": "T=U"
+  }
+}

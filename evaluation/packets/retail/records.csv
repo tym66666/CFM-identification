@@ -1,0 +1,3 @@
+store_id,promo_active,sales_before,sales_after
+SYNTHETIC_A,0,1,2
+SYNTHETIC_B,1,2,3

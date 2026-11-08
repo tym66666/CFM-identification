@@ -1,0 +1,6 @@
+{
+  "case_id": "missing_variables",
+  "business_question": "我们想分析邻居是否使用AI对结果的影响，但现在不知道有哪些数据字段。",
+  "sources": [],
+  "response_language": "zh"
+}

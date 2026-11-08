@@ -1,0 +1,141 @@
+{
+  "schema_version": "cfm-id-draft-v0.1",
+  "target": {
+    "kind": "FIXED_POLICY_VALUE",
+    "description": {
+      "value": "全厂采用AI质检的整体报废率政策目标候选",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "如果全厂都部署AI质检系统，整体报废率是否可能降低"
+        }
+      ]
+    },
+    "alternatives": []
+  },
+  "units_variables": {
+    "analysis_unit": {
+      "value": "生产线",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "生产线"
+        }
+      ]
+    },
+    "treatment": {
+      "value": "是否采用AI质检系统",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "AI质检系统"
+        }
+      ]
+    },
+    "outcome": {
+      "value": "全厂整体报废率",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "报废率"
+        }
+      ]
+    },
+    "covariates": [],
+    "temporal_structure": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "structure": {
+    "unit_network": {
+      "value": "员工与质量工程师会跨生产线协作",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "员工与质量工程师会跨生产线协作"
+        }
+      ]
+    },
+    "variable_causal_graph": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "exposure_mapping": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "network_pretreatment_status": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "information_design": {
+    "assignment_family": "COMPLETE_RANDOMIZATION",
+    "assignment_law": {
+      "value": "从12条生产线中恰好随机选取4条",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "att_01",
+          "quote": "从12条生产线中恰好随机选取4条"
+        }
+      ]
+    },
+    "population_information_level": "FINITE_SAMPLE_DESCRIPTION",
+    "population_observable_operator": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "sample_data_description": {
+      "value": "试点数据表字段结构",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "att_02",
+          "quote": "表头字段：line_id, quality_ai, scrap_rate_before, scrap_rate_after"
+        }
+      ]
+    }
+  },
+  "assumptions": [
+    {
+      "name": "design_reported_by_protocol",
+      "statement": "从12条生产线中恰好随机选取4条",
+      "status": "PROPOSED",
+      "basis": "REPORTED_BY_SOURCE",
+      "evidence": [
+        {
+          "source_id": "att_01",
+          "quote": "从12条生产线中恰好随机选取4条"
+        }
+      ]
+    }
+  ],
+  "validity": {
+    "support_or_positivity": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "query_domain": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "other_conditions": []
+  },
+  "ambiguities": [],
+  "clarifying_questions": [],
+  "normalization_notes": []
+}

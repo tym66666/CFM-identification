@@ -1,0 +1,858 @@
+{
+  "case_id": "NBIB-002-unit017-v046",
+  "synthetic": true,
+  "documents": {
+    "business_question.md": "# 配送站点固定名额试点（合成场景）\n\n一家城市配送平台在环城的48个站点试用新排班系统，站点之间会临时调配司机。运营部门提前决定恰好选24个站点使用系统，并在全体站点中无放回公开抽签。试点前固定了互相支援的站点关系，现在已有排班表、处理名单及每站点日均延误分钟数。管理团队希望知道：当某站点已经使用系统并且恰有一个相邻站点使用时，它的平均延误水平如何。运营负责人希望这个状态与其他安排分开评估，避免把“邻近站点数量”粗略压缩为有没有邻居采用。\n",
+    "data_dictionary.md": "# 数据字典与使用边界\n\n- 本案例主要结果指标：`delivery_delay`，单位为 `分钟/订单`，方向：越低越好。CSV使用通用列名 `metric_before` / `metric_after` 以便自动处理。\n- `units.csv`：试验前已知的单位特征。`unit_group` 在分层/簇设计中是分配单位，否则只是业务分组；`baseline_metric` 是有限样本前期记录，不是总体潜在结果。\n- `network_edges.csv`：若存在，试验前冻结的无向协作边，每条仅保存一次。模拟文件不会包含隐藏的潜在结果机制。\n- `network_after.csv`：仅动态网络场景存在，记录试验后观察到的合作关系，**不能当作处理前网络**。\n- `treatment.csv`：各独立市场实例中实际获得处理的单位。`tool_received=1` 表示接受处理；观察性研究中它不是随机分配。\n- `outcomes.csv`：每个单位的有限观察结果；单位仍有反事实潜在结果没有被观测到。\n- `market_episodes.csv`：每行是一个独立模拟市场实例。`environment_before_treatment` 是整个网络层面的处理前环境 B，**不是每个单位各自的 B_i**。对非分层场景只有一个市场。\n- `design_probabilities.csv`：如果存在，仅是研究设计中的已知抽签概率，不能把它当成观测倾向得分或因果许可。\n- `core_collaborators.csv`：如果存在，试验前指定每个单位的核心伙伴集合，且必须是原图邻居的非空子集。\n- `candidate_policies.csv`：如果存在，表示业务人员提出的明确政策，**不是在本轮数据里实施的处理**。\n\n所有 CSV 都是有确定随机种子的仿真样本。有限样本、可见列名、抽签日志、显著差异都**不能自动代替**总体 A4 信息和科学 A5 许可；也不代表已获 POINT / Estimation 认证。\n",
+    "study_protocol.md": "# 项目与实施说明（合成材料）\n\n48个站点依照预先锁定的名册均匀抽出恰好24个；站点 i 的邻接站点为固定的两个环形邻居。分析部门把邻站实际使用人数定义为0、1、2三种状态，并记录原分配方案。\n\n以下所有机构、人员及数据均为仿真；该文件是业务叙述材料，不构成科学假设已经成立的证明。\n",
+    "target_clarification.txt": "我们这次只单看unit_017这个站点。\n假如正好一家相邻站点用了新排班系统，它平均会延误多少分钟？该站点自己要不要使用还没有决定。\n其他站点仍照原来从48站中均匀抽24站的办法安排，只在符合刚才情形的抽签结果里按原来的概率取平均。"
+  },
+  "tables": {
+    "market_episodes.csv": {
+      "headers": [
+        "market_id",
+        "environment_before_treatment",
+        "selected_quota_profile",
+        "simulated_market_replication"
+      ],
+      "row_count": 1,
+      "rows": []
+    },
+    "network_edges.csv": {
+      "headers": [
+        "source_id",
+        "target_id",
+        "frozen_before_rollout"
+      ],
+      "row_count": 48,
+      "rows": [
+        {
+          "source_id": "unit_000",
+          "target_id": "unit_001",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_000",
+          "target_id": "unit_047",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_001",
+          "target_id": "unit_002",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_002",
+          "target_id": "unit_003",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_003",
+          "target_id": "unit_004",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_004",
+          "target_id": "unit_005",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_005",
+          "target_id": "unit_006",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_006",
+          "target_id": "unit_007",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_007",
+          "target_id": "unit_008",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_008",
+          "target_id": "unit_009",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_009",
+          "target_id": "unit_010",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_010",
+          "target_id": "unit_011",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_011",
+          "target_id": "unit_012",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_012",
+          "target_id": "unit_013",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_013",
+          "target_id": "unit_014",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_014",
+          "target_id": "unit_015",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_015",
+          "target_id": "unit_016",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_016",
+          "target_id": "unit_017",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_017",
+          "target_id": "unit_018",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_018",
+          "target_id": "unit_019",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_019",
+          "target_id": "unit_020",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_020",
+          "target_id": "unit_021",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_021",
+          "target_id": "unit_022",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_022",
+          "target_id": "unit_023",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_023",
+          "target_id": "unit_024",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_024",
+          "target_id": "unit_025",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_025",
+          "target_id": "unit_026",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_026",
+          "target_id": "unit_027",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_027",
+          "target_id": "unit_028",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_028",
+          "target_id": "unit_029",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_029",
+          "target_id": "unit_030",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_030",
+          "target_id": "unit_031",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_031",
+          "target_id": "unit_032",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_032",
+          "target_id": "unit_033",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_033",
+          "target_id": "unit_034",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_034",
+          "target_id": "unit_035",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_035",
+          "target_id": "unit_036",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_036",
+          "target_id": "unit_037",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_037",
+          "target_id": "unit_038",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_038",
+          "target_id": "unit_039",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_039",
+          "target_id": "unit_040",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_040",
+          "target_id": "unit_041",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_041",
+          "target_id": "unit_042",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_042",
+          "target_id": "unit_043",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_043",
+          "target_id": "unit_044",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_044",
+          "target_id": "unit_045",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_045",
+          "target_id": "unit_046",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "unit_046",
+          "target_id": "unit_047",
+          "frozen_before_rollout": "1"
+        }
+      ]
+    },
+    "outcomes.csv": {
+      "headers": [
+        "market_id",
+        "node_id",
+        "metric_before",
+        "metric_after",
+        "change"
+      ],
+      "row_count": 48,
+      "rows": []
+    },
+    "treatment.csv": {
+      "headers": [
+        "market_id",
+        "node_id",
+        "tool_received",
+        "assignment_group"
+      ],
+      "row_count": 48,
+      "rows": []
+    },
+    "units.csv": {
+      "headers": [
+        "node_id",
+        "unit_group",
+        "role_type",
+        "pretreatment_size",
+        "baseline_metric",
+        "pretreatment_load_index"
+      ],
+      "row_count": 48,
+      "rows": [
+        {
+          "node_id": "unit_000",
+          "unit_group": "0"
+        },
+        {
+          "node_id": "unit_001",
+          "unit_group": "0"
+        },
+        {
+          "node_id": "unit_002",
+          "unit_group": "0"
+        },
+        {
+          "node_id": "unit_003",
+          "unit_group": "0"
+        },
+        {
+          "node_id": "unit_004",
+          "unit_group": "0"
+        },
+        {
+          "node_id": "unit_005",
+          "unit_group": "0"
+        },
+        {
+          "node_id": "unit_006",
+          "unit_group": "0"
+        },
+        {
+          "node_id": "unit_007",
+          "unit_group": "0"
+        },
+        {
+          "node_id": "unit_008",
+          "unit_group": "0"
+        },
+        {
+          "node_id": "unit_009",
+          "unit_group": "0"
+        },
+        {
+          "node_id": "unit_010",
+          "unit_group": "0"
+        },
+        {
+          "node_id": "unit_011",
+          "unit_group": "0"
+        },
+        {
+          "node_id": "unit_012",
+          "unit_group": "1"
+        },
+        {
+          "node_id": "unit_013",
+          "unit_group": "1"
+        },
+        {
+          "node_id": "unit_014",
+          "unit_group": "1"
+        },
+        {
+          "node_id": "unit_015",
+          "unit_group": "1"
+        },
+        {
+          "node_id": "unit_016",
+          "unit_group": "1"
+        },
+        {
+          "node_id": "unit_017",
+          "unit_group": "1"
+        },
+        {
+          "node_id": "unit_018",
+          "unit_group": "1"
+        },
+        {
+          "node_id": "unit_019",
+          "unit_group": "1"
+        },
+        {
+          "node_id": "unit_020",
+          "unit_group": "1"
+        },
+        {
+          "node_id": "unit_021",
+          "unit_group": "1"
+        },
+        {
+          "node_id": "unit_022",
+          "unit_group": "1"
+        },
+        {
+          "node_id": "unit_023",
+          "unit_group": "1"
+        },
+        {
+          "node_id": "unit_024",
+          "unit_group": "2"
+        },
+        {
+          "node_id": "unit_025",
+          "unit_group": "2"
+        },
+        {
+          "node_id": "unit_026",
+          "unit_group": "2"
+        },
+        {
+          "node_id": "unit_027",
+          "unit_group": "2"
+        },
+        {
+          "node_id": "unit_028",
+          "unit_group": "2"
+        },
+        {
+          "node_id": "unit_029",
+          "unit_group": "2"
+        },
+        {
+          "node_id": "unit_030",
+          "unit_group": "2"
+        },
+        {
+          "node_id": "unit_031",
+          "unit_group": "2"
+        },
+        {
+          "node_id": "unit_032",
+          "unit_group": "2"
+        },
+        {
+          "node_id": "unit_033",
+          "unit_group": "2"
+        },
+        {
+          "node_id": "unit_034",
+          "unit_group": "2"
+        },
+        {
+          "node_id": "unit_035",
+          "unit_group": "2"
+        },
+        {
+          "node_id": "unit_036",
+          "unit_group": "3"
+        },
+        {
+          "node_id": "unit_037",
+          "unit_group": "3"
+        },
+        {
+          "node_id": "unit_038",
+          "unit_group": "3"
+        },
+        {
+          "node_id": "unit_039",
+          "unit_group": "3"
+        },
+        {
+          "node_id": "unit_040",
+          "unit_group": "3"
+        },
+        {
+          "node_id": "unit_041",
+          "unit_group": "3"
+        },
+        {
+          "node_id": "unit_042",
+          "unit_group": "3"
+        },
+        {
+          "node_id": "unit_043",
+          "unit_group": "3"
+        },
+        {
+          "node_id": "unit_044",
+          "unit_group": "3"
+        },
+        {
+          "node_id": "unit_045",
+          "unit_group": "3"
+        },
+        {
+          "node_id": "unit_046",
+          "unit_group": "3"
+        },
+        {
+          "node_id": "unit_047",
+          "unit_group": "3"
+        }
+      ]
+    }
+  },
+  "file_inventory": {
+    "business_question.md": {
+      "sha256": "7c78f0c8aff0cfa40c3b58ebc774da35a072dc2723feee8bc94ef8c72e1022f5",
+      "bytes": 651
+    },
+    "data_dictionary.md": {
+      "sha256": "a35d3df157dd436ed2f4f3dba460410c954ab2bdc41d5a09208334376b59edb4",
+      "bytes": 1827
+    },
+    "market_episodes.csv": {
+      "sha256": "b6a350bcdf01ea927ad5b2def2c569a0c2783937c7ae2ad60196cccaf6c09454",
+      "bytes": 124
+    },
+    "network_edges.csv": {
+      "sha256": "5d84621bd2c0c486beb1949605fb6859f107d1cd1491ba939c41f168e4c83142",
+      "bytes": 1054
+    },
+    "outcomes.csv": {
+      "sha256": "c168bf3bf637f4f33c6132daea65acf15d6847d2f346491279723527c9dca630",
+      "bytes": 2064
+    },
+    "study_protocol.md": {
+      "sha256": "9ed8975aee236c920f19406af2b0f0370e7404bbc073eae24f149b359c2638e5",
+      "bytes": 395
+    },
+    "treatment.csv": {
+      "sha256": "fd4e43418f6533d247cd13a99746a17a46e6e0f3ec288206bf9a4c13e6470997",
+      "bytes": 1253
+    },
+    "units.csv": {
+      "sha256": "ee724c1d421652c28a738d64f3c0ea7ae4d290e8714e800a46a898ef9b1ce607",
+      "bytes": 1543
+    },
+    "target_clarification.txt": {
+      "sha256": "2198936bd69186c5c32e7021546b1b329fefc8cd94f93b727702f78cd3a0bdba",
+      "bytes": 281
+    }
+  },
+  "structure": {
+    "nodes": [
+      "unit_000",
+      "unit_001",
+      "unit_002",
+      "unit_003",
+      "unit_004",
+      "unit_005",
+      "unit_006",
+      "unit_007",
+      "unit_008",
+      "unit_009",
+      "unit_010",
+      "unit_011",
+      "unit_012",
+      "unit_013",
+      "unit_014",
+      "unit_015",
+      "unit_016",
+      "unit_017",
+      "unit_018",
+      "unit_019",
+      "unit_020",
+      "unit_021",
+      "unit_022",
+      "unit_023",
+      "unit_024",
+      "unit_025",
+      "unit_026",
+      "unit_027",
+      "unit_028",
+      "unit_029",
+      "unit_030",
+      "unit_031",
+      "unit_032",
+      "unit_033",
+      "unit_034",
+      "unit_035",
+      "unit_036",
+      "unit_037",
+      "unit_038",
+      "unit_039",
+      "unit_040",
+      "unit_041",
+      "unit_042",
+      "unit_043",
+      "unit_044",
+      "unit_045",
+      "unit_046",
+      "unit_047"
+    ],
+    "edges": [
+      [
+        "unit_000",
+        "unit_001"
+      ],
+      [
+        "unit_000",
+        "unit_047"
+      ],
+      [
+        "unit_001",
+        "unit_002"
+      ],
+      [
+        "unit_002",
+        "unit_003"
+      ],
+      [
+        "unit_003",
+        "unit_004"
+      ],
+      [
+        "unit_004",
+        "unit_005"
+      ],
+      [
+        "unit_005",
+        "unit_006"
+      ],
+      [
+        "unit_006",
+        "unit_007"
+      ],
+      [
+        "unit_007",
+        "unit_008"
+      ],
+      [
+        "unit_008",
+        "unit_009"
+      ],
+      [
+        "unit_009",
+        "unit_010"
+      ],
+      [
+        "unit_010",
+        "unit_011"
+      ],
+      [
+        "unit_011",
+        "unit_012"
+      ],
+      [
+        "unit_012",
+        "unit_013"
+      ],
+      [
+        "unit_013",
+        "unit_014"
+      ],
+      [
+        "unit_014",
+        "unit_015"
+      ],
+      [
+        "unit_015",
+        "unit_016"
+      ],
+      [
+        "unit_016",
+        "unit_017"
+      ],
+      [
+        "unit_017",
+        "unit_018"
+      ],
+      [
+        "unit_018",
+        "unit_019"
+      ],
+      [
+        "unit_019",
+        "unit_020"
+      ],
+      [
+        "unit_020",
+        "unit_021"
+      ],
+      [
+        "unit_021",
+        "unit_022"
+      ],
+      [
+        "unit_022",
+        "unit_023"
+      ],
+      [
+        "unit_023",
+        "unit_024"
+      ],
+      [
+        "unit_024",
+        "unit_025"
+      ],
+      [
+        "unit_025",
+        "unit_026"
+      ],
+      [
+        "unit_026",
+        "unit_027"
+      ],
+      [
+        "unit_027",
+        "unit_028"
+      ],
+      [
+        "unit_028",
+        "unit_029"
+      ],
+      [
+        "unit_029",
+        "unit_030"
+      ],
+      [
+        "unit_030",
+        "unit_031"
+      ],
+      [
+        "unit_031",
+        "unit_032"
+      ],
+      [
+        "unit_032",
+        "unit_033"
+      ],
+      [
+        "unit_033",
+        "unit_034"
+      ],
+      [
+        "unit_034",
+        "unit_035"
+      ],
+      [
+        "unit_035",
+        "unit_036"
+      ],
+      [
+        "unit_036",
+        "unit_037"
+      ],
+      [
+        "unit_037",
+        "unit_038"
+      ],
+      [
+        "unit_038",
+        "unit_039"
+      ],
+      [
+        "unit_039",
+        "unit_040"
+      ],
+      [
+        "unit_040",
+        "unit_041"
+      ],
+      [
+        "unit_041",
+        "unit_042"
+      ],
+      [
+        "unit_042",
+        "unit_043"
+      ],
+      [
+        "unit_043",
+        "unit_044"
+      ],
+      [
+        "unit_044",
+        "unit_045"
+      ],
+      [
+        "unit_045",
+        "unit_046"
+      ],
+      [
+        "unit_046",
+        "unit_047"
+      ]
+    ],
+    "groups": {
+      "0": [
+        "unit_000",
+        "unit_001",
+        "unit_002",
+        "unit_003",
+        "unit_004",
+        "unit_005",
+        "unit_006",
+        "unit_007",
+        "unit_008",
+        "unit_009",
+        "unit_010",
+        "unit_011"
+      ],
+      "1": [
+        "unit_012",
+        "unit_013",
+        "unit_014",
+        "unit_015",
+        "unit_016",
+        "unit_017",
+        "unit_018",
+        "unit_019",
+        "unit_020",
+        "unit_021",
+        "unit_022",
+        "unit_023"
+      ],
+      "2": [
+        "unit_024",
+        "unit_025",
+        "unit_026",
+        "unit_027",
+        "unit_028",
+        "unit_029",
+        "unit_030",
+        "unit_031",
+        "unit_032",
+        "unit_033",
+        "unit_034",
+        "unit_035"
+      ],
+      "3": [
+        "unit_036",
+        "unit_037",
+        "unit_038",
+        "unit_039",
+        "unit_040",
+        "unit_041",
+        "unit_042",
+        "unit_043",
+        "unit_044",
+        "unit_045",
+        "unit_046",
+        "unit_047"
+      ]
+    },
+    "cluster_rates": {},
+    "policies": {},
+    "units_with_cross_group_neighbors": [
+      "unit_000",
+      "unit_011",
+      "unit_012",
+      "unit_023",
+      "unit_024",
+      "unit_035",
+      "unit_036",
+      "unit_047"
+    ]
+  },
+  "active_goal_document": "target_clarification.txt",
+  "question_slots": {
+    "q1": "假如正好一家相邻站点用了新排班系统，它平均会延误多少分钟？"
+  },
+  "original_business_unchanged": true,
+  "revision_kind": "EXPLICIT_CLARIFICATION"
+}

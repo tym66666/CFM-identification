@@ -1,0 +1,1 @@
+本条修订合成案例补充说明：units.csv的unit_group=0对应甲组，unit_group=1对应乙组。

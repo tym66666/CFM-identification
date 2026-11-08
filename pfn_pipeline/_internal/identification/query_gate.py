@@ -26,8 +26,38 @@ def query_semantics_implementation_gaps(query: QuerySpec) -> list[str]:
     """
 
     gaps: list[str] = []
-    if query.type not in {"NETWORK_RESPONSE_SURFACE", "NETWORK_MAJORITY_RESPONSE_POLICY_SCORE"} and query.response_target_fingerprint is not None:
+    if query.type not in {"NETWORK_RESPONSE_SURFACE", "NETWORK_MAJORITY_RESPONSE_POLICY_SCORE", "NETWORK_RANDOMIZED_ARM_MEAN"} and query.response_target_fingerprint is not None:
         gaps.append("response_target_fingerprint is only supported for NETWORK_RESPONSE_SURFACE")
+    if query.type == "NETWORK_RANDOMIZED_ARM_MEAN":
+        expected = {
+            "target_population": "fixed_network_conditional_context",
+            "target_exposure_semantics": "design_averaged_randomized_arm_mean",
+        }
+        for key, value in expected.items():
+            if getattr(query, key) != value:
+                gaps.append(f"{key} must equal {value!r}")
+        possible_exposures = {
+            "treated_neighbor_count_1hop": (0, 1),
+            "treated_neighbor_fraction_three_level": (0, 1, 2),
+            "treated_core_collaborator_count_1hop": (0, 1),
+            "treated_neighbor_count_1hop_exact": "nonnegative_integer",
+            "any_treated_neighbor_1hop": (0, 1),
+        }
+        allowed_states = possible_exposures.get(query.reference_exposure_definition)
+        if allowed_states is None:
+            gaps.append("randomized-network arm requires a supported declared exposure definition")
+        if (not query.target_node_id or
+            type(query.own_treatment_value) is not int or query.own_treatment_value not in (0, 1) or
+            type(query.exposure_value) is not int or
+            allowed_states is None or
+            (query.exposure_value not in allowed_states if allowed_states != "nonnegative_integer"
+             else query.exposure_value < 0) or
+            not query.response_target_fingerprint or query.conditioning_variables or
+            query.policy_description is not None or query.policy_fingerprint is not None):
+            gaps.append("An explicit node, binary own treatment, valid exposure arm, and bound target are required; no policy or subgroup query")
+        return gaps
+    if query.target_node_id is not None or query.own_treatment_value is not None:
+        gaps.append("target_node_id and own_treatment_value are only supported for NETWORK_RANDOMIZED_ARM_MEAN")
     if query.type == "NETWORK_MAJORITY_RESPONSE_POLICY_SCORE":
         expected = {"target_population": "fixed_network_conditional_context",
                     "reference_exposure_definition": "treated_neighbor_count_1hop",
@@ -130,6 +160,7 @@ def evaluate_query_before_identification(
     allow_policy_value_theory: bool = False,
     allow_network_direct_effect_theory: bool = False,
     allow_network_response_theory: bool = False,
+    allow_randomized_network_arm_theory: bool = False,
 ) -> IdentificationResult | None:
     """Return a blocking result, or ``None`` when formal ID may proceed.
 
@@ -145,6 +176,8 @@ def evaluate_query_before_identification(
         executable_query_types.add("POLICY_VALUE")
     if allow_network_response_theory:
         executable_query_types.update({"NETWORK_RESPONSE_SURFACE", "NETWORK_MAJORITY_RESPONSE_POLICY_SCORE"})
+    if allow_randomized_network_arm_theory:
+        executable_query_types.add("NETWORK_RANDOMIZED_ARM_MEAN")
     if allow_network_direct_effect_theory:
         executable_query_types.add("DIRECT_EFFECT")
 

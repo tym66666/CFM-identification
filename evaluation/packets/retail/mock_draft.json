@@ -1,0 +1,141 @@
+{
+  "schema_version": "cfm-id-draft-v0.1",
+  "target": {
+    "kind": "FIXED_POLICY_VALUE",
+    "description": {
+      "value": "所有门店使用新促销券时的总销售额目标候选",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "如果下季度所有门店都使用新促销券，公司总销售额会怎样变化"
+        }
+      ]
+    },
+    "alternatives": []
+  },
+  "units_variables": {
+    "analysis_unit": {
+      "value": "门店",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "80家门店"
+        }
+      ]
+    },
+    "treatment": {
+      "value": "是否发放新促销券",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "新促销券"
+        }
+      ]
+    },
+    "outcome": {
+      "value": "公司总销售额",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "总销售额"
+        }
+      ]
+    },
+    "covariates": [],
+    "temporal_structure": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "structure": {
+    "unit_network": {
+      "value": "附近门店会互相影响",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "附近门店会互相影响"
+        }
+      ]
+    },
+    "variable_causal_graph": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "exposure_mapping": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "network_pretreatment_status": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "information_design": {
+    "assignment_family": "COMPLETE_RANDOMIZATION",
+    "assignment_law": {
+      "value": "从80家门店中恰好随机抽取20家",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "att_01",
+          "quote": "从80家门店中恰好随机抽取20家"
+        }
+      ]
+    },
+    "population_information_level": "FINITE_SAMPLE_DESCRIPTION",
+    "population_observable_operator": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "sample_data_description": {
+      "value": "试点数据表字段结构",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "att_02",
+          "quote": "表头字段：store_id, promo_active, sales_before, sales_after"
+        }
+      ]
+    }
+  },
+  "assumptions": [
+    {
+      "name": "design_reported_by_protocol",
+      "statement": "从80家门店中恰好随机抽取20家",
+      "status": "PROPOSED",
+      "basis": "REPORTED_BY_SOURCE",
+      "evidence": [
+        {
+          "source_id": "att_01",
+          "quote": "从80家门店中恰好随机抽取20家"
+        }
+      ]
+    }
+  ],
+  "validity": {
+    "support_or_positivity": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "query_domain": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "other_conditions": []
+  },
+  "ambiguities": [],
+  "clarifying_questions": [],
+  "normalization_notes": []
+}

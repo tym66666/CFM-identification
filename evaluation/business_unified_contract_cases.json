@@ -1,0 +1,24 @@
+{
+  "version": "business-unified-contract-cases-1",
+  "purpose": "New plain-business transfer probes; development material, not independent holdout. Expected readings are private evaluator data, never approvals.",
+  "cases": [
+    {
+      "id": "hotel_two_complete_plans",
+      "business_question": "酒店集团有海湾、山景、城区三家酒店，前台可以按既定名单相互支援。下个月第一周，我们想把海湾和山景改为使用新的入住提醒工具、城区不用。比较安排是城区使用、另外两家不用。请问这项新安排能让客人从到达前台到办完入住的平均等待时间减少多少分钟？先在各酒店计算每天的平均等待分钟数，再按海湾六成、山景三成、城区一成合并。本次只要这一项减少量。",
+      "sources": [{"source_id":"operations","text":"海湾与山景、山景与城区能相互借调前台人员，海湾与城区不能直接借调，没有其他支援关系。支援名单在原试用开始前已确定，试用期间不变。过去由各店经理自行决定是否用工具。报表用合作酒店中使用工具的酒店个数概括合作方使用情况，没有合作酒店时记零。现有资料是八周逐店的工具使用、每天客人等待分钟数、支援记录，以及试用开始前已登记的客房数量。没有给出总体平均等待时间。"}],
+      "expected":{"kind":"TOTAL_EFFECT","query_count":1,"comparison_order":"COMPARATOR_MINUS_INTERVENTION","primary":"海湾用山景用城区不用","baseline":"城区用海湾山景不用","weights":"海湾0.6山景0.3城区0.1","neighbor_exposure":"UNKNOWN","assignment_family":"OBSERVATIONAL","available_information":"MISSING","covariates":"试用前客房数量","no_science":true}
+    },
+    {
+      "id": "volunteer_local_level",
+      "business_question": "社区有四个志愿服务组，合作组之间会互相转交当天的任务。我们想了解下周每个组自己不使用新的任务通知工具、但至少有一个合作组使用时，这个组平均每天能完成多少项任务。对四个组分别采用这个条件评价，再将四个组的平均完成量等权合并。这次只问该条件下的水平，不与其他条件相减，也不是给全社区指定一份同时实施的使用名单。",
+      "sources": [{"source_id":"operations","text":"合作名单在工具原试用前就确定了，六周试用期间没有变，每个组都有合作组。业务报表把合作方分为至少一个使用工具和全部不用两档。我们保留了六周逐组的工具使用、每天完成任务数和转交记录。以前怎样决定哪个组用工具没有记录，材料也没有提供总体完成量。"}],
+      "expected":{"kind":"NETWORK_DESIGN_STANDARDIZED_ARM_MEAN","query_count":1,"comparison_order":"NOT_APPLICABLE","intervention":"本人不用","neighbor_exposure":"至少一个合作组用","comparator":"NOT_APPLICABLE","policy_assignment":"NOT_APPLICABLE","assignment_family":"UNRESOLVED","assignment_law":"MISSING","available_information":"MISSING","covariates":[],"no_science":true}
+    },
+    {
+      "id": "renewal_variable_distribution",
+      "business_question": "保险公司想评价本月到期的客户。如果直接让这些客户都收到续费提醒，他们按期续费和没有按期续费的比例分别是多少？只报告收到提醒这一种做法下这两种结果各占多少，不要求与不提醒的做法相减，也不要求平均保费。",
+      "sources": [{"source_id":"research_note","text":"研究团队明确用三个变量描述直接因果关系：客户已投保年数影响是否收到提醒，也影响是否按期续费；是否收到提醒影响是否按期续费。团队声称这三个变量之间只有上述直接关系，并声称不存在其他共同原因；这些是待审核的研究声明。客户之间不会相互影响。历史上平台按客户已投保年数决定是否发送提醒。公司有过去三个月逐人的投保年数、提醒发送情况和是否按期续费记录，还声称已知这三个变量在本月到期客户总体中的联合分布，没有提供具体数值。"}],
+      "expected":{"kind":"INTERVENTIONAL_DISTRIBUTION","query_count":1,"comparison_order":"NOT_APPLICABLE","intervention":"收到提醒","population":"本月到期客户","comparator":"NOT_APPLICABLE","policy_assignment":"NOT_APPLICABLE","variable_causal_graph":"年数->提醒，年数->续费，提醒->续费，声明不等于批准","unit_network":"客户之间没有相互影响","assignment_family":"OBSERVATIONAL","covariates":"已投保年数","available_information":"声明总体联合分布，不因数值未提供而缺失","no_science":true}
+    }
+  ]
+}

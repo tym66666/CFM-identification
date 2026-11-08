@@ -1,0 +1,13 @@
+{
+  "case_id": "cold_chain",
+  "synthetic": true,
+  "business_question_file": "business_question.md",
+  "supporting_files": [
+    "study_protocol.md",
+    "data_dictionary.md",
+    "units.csv",
+    "network_edges.csv",
+    "design_probabilities.csv"
+  ],
+  "current_goal_file": "target_clarification.txt"
+}

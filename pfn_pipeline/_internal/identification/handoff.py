@@ -25,6 +25,12 @@ def compile_estimation_request(result: IdentificationResult, *, spec=None, popul
     if result.verification_status != VerificationStatus.VERIFIED:
         return None
 
+    if result.query.type == "NETWORK_RANDOMIZED_ARM_MEAN":
+        # Identification can be verified under complete randomization, but the
+        # frozen ER300 PFN handles only its legacy Bernoulli four-arm contract.
+        # Do not create an incompatible or fictitious EstimationRequest.
+        return None
+
     if result.query.type == "NETWORK_MAJORITY_RESPONSE_POLICY_SCORE":
         from .schemas import NetworkMajorityScoreEstimationRequestV1
         from .majority_score import response_dependency, verify_majority_score

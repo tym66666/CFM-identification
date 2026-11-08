@@ -1,0 +1,261 @@
+{
+  "schema_version": "mathematical-navigation-1",
+  "role": "NON_EXECUTABLE_NAVIGATION_NOT_A_BUSINESS_TAXONOMY",
+  "path_base": "source repository root",
+  "runtime_coverage_authority": "cfm_id.capability_registry.inventory",
+  "documentation_state_rule": "Mathematical definitions are read here; historical dates or release-status prose do not declare current runtime coverage.",
+  "project_wide_literature_review_complete": false,
+  "entries": [
+    {
+      "name": "随机化局部均值与线性组合",
+      "native_route_ids": [
+        "R1A_RANDOMIZED_ARM",
+        "R1A_COMPOSITION"
+      ],
+      "business_method_ids": [
+        "R1A_RANDOMIZED_ARM",
+        "R1A_COMPOSITION"
+      ],
+      "mathematical_documents": [
+        "docs/ABSTRACTION_RANDOMIZED_ARM_ZH.md",
+        "docs/R1A_VERIFIED_TARGET_COMPOSITION_ZH.md"
+      ],
+      "implementation_files": [
+        "pfn_pipeline/_internal/identification/randomized_network_arm.py",
+        "pfn_pipeline/identification_composition.py"
+      ],
+      "literature_maps": [
+        "literature_support/routes/network_r1a.json"
+      ]
+    },
+    {
+      "name": "随机化完整政策与有限政策混合",
+      "native_route_ids": [
+        "R1B_FULL_ASSIGNMENT",
+        "R1B_FINITE_POLICY"
+      ],
+      "business_method_ids": [
+        "R1B_FULL_ASSIGNMENT",
+        "R1B_FINITE_POLICY",
+        "R1B_ENDPOINT_DIFFERENCE"
+      ],
+      "mathematical_documents": [
+        "docs/R1B_VERIFIED_FULL_ASSIGNMENT_POLICY_ZH.md",
+        "docs/NETWORK_CONTRAST_DISPATCH_ZH.md"
+      ],
+      "implementation_files": [
+        "pfn_pipeline/identification_policy_r1b.py",
+        "cfm_id/fixed_comparison.py"
+      ],
+      "literature_maps": [
+        "literature_support/routes/network_r1b.json"
+      ]
+    },
+    {
+      "name": "均值签名充分性下的政策值与有序差值",
+      "native_route_ids": [
+        "R2_MEAN_SIGNATURE"
+      ],
+      "business_method_ids": [
+        "R2_MEAN_SIGNATURE",
+        "R2_ENDPOINT_DIFFERENCE"
+      ],
+      "mathematical_documents": [
+        "docs/R2_VERIFIED_MEAN_SIGNATURE_POLICY_ZH.md",
+        "docs/R2_POLICY_DIFFERENCE_CONTRACT_ZH.md"
+      ],
+      "implementation_files": [
+        "pfn_pipeline/identification_policy_r2.py",
+        "cfm_id/workflows/policy_difference.py"
+      ],
+      "literature_maps": [
+        "literature_support/routes/network_r2_policy_difference.json"
+      ]
+    },
+    {
+      "name": "观测完整政策与签名政策",
+      "native_route_ids": [
+        "R3_FULL_ASSIGNMENT",
+        "R3_MEAN_SIGNATURE"
+      ],
+      "business_method_ids": [
+        "R3_FULL_ASSIGNMENT",
+        "R3_MEAN_SIGNATURE"
+      ],
+      "mathematical_documents": [
+        "docs/R3_OBSERVATIONAL_FINITE_POLICY_AND_SIGNATURE_DIAGNOSTICS_ZH.md",
+        "docs/R3_POLICY_ENTRY_CONTRACT_ZH.md"
+      ],
+      "implementation_files": [
+        "pfn_pipeline/identification_observational_r3.py",
+        "cfm_id/network_observational_policy_dispatch.py",
+        "cfm_id_llm/network_observational_policy_reading.py"
+      ],
+      "literature_maps": [
+        "literature_support/routes/network_r3_policy.json"
+      ]
+    },
+    {
+      "name": "观测律标准化效应",
+      "native_route_ids": [
+        "R3_P_STANDARDIZED_EFFECTS"
+      ],
+      "business_method_ids": ["R3_P_STANDARDIZED_EFFECTS"],
+      "mathematical_documents": [
+        "docs/NETWORK_R3_OBSERVATIONAL_STANDARDIZED_EFFECTS_ZH.md",
+        "docs/R3_OBSERVATIONAL_CORRELATED_MIXTURE_A4_ZH.md"
+      ],
+      "implementation_files": [
+        "pfn_pipeline/identification_observational_effects.py",
+        "pfn_pipeline/identification_observational_mixture_a4.py"
+      ],
+      "literature_maps": [
+        "literature_support/routes/network_r3_standardization.json"
+      ]
+    },
+    {
+      "name": "观测暴露调整效应",
+      "native_route_ids": [
+        "R3_EXPOSURE_ADJUSTED_EFFECTS",
+        "R3_NODEWISE_EXPOSURE_ADJUSTED_EFFECTS"
+      ],
+      "business_method_ids": ["R3_EXPOSURE_ADJUSTED_EFFECTS", "R3_NODEWISE_EXPOSURE_ADJUSTED_EFFECTS"],
+      "mathematical_documents": [
+        "docs/R3_EXPOSURE_ADJUSTED_G_FORMULA_POSTRELEASE_P2_ZH.md",
+        "docs/R3_NODEWISE_NEIGHBOR_COVARIATE_ADJUSTMENT_ZH.md",
+        "docs/R3_NODEWISE_CONDITIONAL_MIXTURE_A4_ZH.md"
+      ],
+      "implementation_files": [
+        "pfn_pipeline/identification_observational_exposure_adjustment.py",
+        "pfn_pipeline/identification_observational_nodewise_adjustment.py",
+        "pfn_pipeline/identification_observational_nodewise_mixture_a4.py"
+      ],
+      "literature_maps": [
+        "literature_support/routes/network_r3_exposure.json"
+      ]
+    },
+    {
+      "name": "BOUNDED_POLICY_MEAN_D2_E1",
+      "native_route_ids": [
+        "BOUNDED_POLICY_MEAN_D2_E1"
+      ],
+      "business_method_ids": [
+        "BOUNDED_POLICY_MEAN_D2_E1"
+      ],
+      "mathematical_documents": [
+        "docs/BOUNDED_POLICY_MATH_ZH.md"
+      ],
+      "implementation_files": [
+        "cfm_id/bounded_policy_contract.py",
+        "cfm_id/bounded_policy_solver.py",
+        "cfm_id/bounded_policy_verify.py"
+      ],
+      "literature_maps": [
+        "literature_support/routes/bounded_policy_contrast.json"
+      ]
+    },
+    {
+      "name": "BOUNDED_POLICY_CONTRAST_D2_E1",
+      "native_route_ids": [
+        "BOUNDED_POLICY_CONTRAST_D2_E1"
+      ],
+      "business_method_ids": [
+        "BOUNDED_POLICY_CONTRAST_D2_E1"
+      ],
+      "mathematical_documents": [
+        "docs/BOUNDED_CONTRAST_MATH_ZH.txt"
+      ],
+      "implementation_files": [
+        "cfm_id/bounded_contrast_contract.py",
+        "cfm_id/bounded_contrast_solver.py",
+        "cfm_id/bounded_contrast_verify.py"
+      ],
+      "literature_maps": [
+        "literature_support/routes/bounded_policy_contrast.json"
+      ]
+    },
+    {
+      "name": "MEAN_ORDER_D2_E1",
+      "native_route_ids": [
+        "MEAN_ORDER_D2_E1"
+      ],
+      "business_method_ids": [
+        "MEAN_ORDER_D2_E1"
+      ],
+      "mathematical_documents": [
+        "docs/MEAN_ORDER_RESEARCH_ZH.txt"
+      ],
+      "implementation_files": [
+        "cfm_id/mean_order_contract.py",
+        "cfm_id/mean_order_solver.py",
+        "cfm_id/mean_order_verify.py",
+        "cfm_id/network_mean_order_dispatch.py"
+      ],
+      "literature_maps": [
+        "literature_support/routes/mean_order_research.json"
+      ]
+    },
+    {
+      "name": "DAG_CLASSICAL_BACKDOOR",
+      "native_route_ids": [
+        "DAG_CLASSICAL_BACKDOOR"
+      ],
+      "business_method_ids": [
+        "DAG_CLASSICAL_BACKDOOR"
+      ],
+      "mathematical_documents": [
+        "docs/DAG_BACKDOOR_RESEARCH_ZH.txt"
+      ],
+      "implementation_files": [
+        "cfm_id/dag_backdoor_contract.py",
+        "cfm_id/dag_backdoor_solver.py",
+        "cfm_id/dag_backdoor_verify.py"
+      ],
+      "literature_maps": [
+        "literature_support/routes/dag_classical_backdoor.json"
+      ]
+    },
+    {
+      "name": "DAG_ADJUSTMENT",
+      "native_route_ids": [
+        "DAG_ADJUSTMENT"
+      ],
+      "business_method_ids": [
+        "DAG_ADJUSTMENT"
+      ],
+      "mathematical_documents": [
+        "docs/DAG_ADJUSTMENT_RESEARCH_ZH.txt"
+      ],
+      "implementation_files": [
+        "cfm_id/dag_adjustment_contract.py",
+        "cfm_id/dag_adjustment_solver.py",
+        "cfm_id/dag_adjustment_verify.py"
+      ],
+      "literature_maps": [
+        "literature_support/routes/dag_adjustment.json"
+      ]
+    },
+    {
+      "name": "DAG_CLASSICAL_FRONTDOOR",
+      "native_route_ids": [
+        "DAG_CLASSICAL_FRONTDOOR"
+      ],
+      "business_method_ids": [
+        "DAG_CLASSICAL_FRONTDOOR"
+      ],
+      "mathematical_documents": [
+        "docs/DAG_FRONTDOOR_CONTRACT_ZH.txt"
+      ],
+      "implementation_files": [
+        "cfm_id/dag_frontdoor_contract.py",
+        "cfm_id/dag_frontdoor_solver.py",
+        "cfm_id/dag_frontdoor_verify.py"
+      ],
+      "literature_maps": [
+        "literature_support/routes/dag_classical_frontdoor.json"
+      ]
+    }
+  ],
+  "classification_guide": "literature_support/CLASSIFICATION_ZH.md",
+  "literature_mapping_scope": "Every entry now has a context/derivation map; this is not a completed theorem-by-theorem external literature audit."
+}

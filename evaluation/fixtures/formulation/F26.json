@@ -1,0 +1,107 @@
+{
+  "schema_version": "cfm-id-draft-v0.1",
+  "target": {
+    "kind": "TOTAL_EFFECT",
+    "description": {
+      "value": "求员工本人从无AI到有AI且同事暴露同时升高时的设计标准化总效应。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "求员工本人从无AI到有AI且同事暴露同时升高时的设计标准化总效应。"
+        }
+      ]
+    },
+    "alternatives": []
+  },
+  "units_variables": {
+    "analysis_unit": {
+      "value": "业务描述中的员工、节点或团体",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "求员工本人从无AI到有AI且同事暴露同时升高时的设计标准化总效应。"
+        }
+      ]
+    },
+    "treatment": {
+      "value": "描述中的AI干预",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前固定合作网络。实验协议：所有销售员分别独立地按 Bernoulli(1/2) 分配 AI。暴露为处理前邻居中treated超过半数。"
+        }
+      ]
+    },
+    "outcome": {
+      "value": "描述中的销售或结果指标",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "求员工本人从无AI到有AI且同事暴露同时升高时的设计标准化总效应。"
+        }
+      ]
+    }
+  },
+  "structure": {
+    "unit_network": {
+      "value": "被描述的网络",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前固定合作网络。实验协议：所有销售员分别独立地按 Bernoulli(1/2) 分配 AI。暴露为处理前邻居中treated超过半数。"
+        }
+      ]
+    },
+    "exposure_mapping": {
+      "value": "描述中的网络暴露映射",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前固定合作网络。实验协议：所有销售员分别独立地按 Bernoulli(1/2) 分配 AI。暴露为处理前邻居中treated超过半数。"
+        }
+      ]
+    }
+  },
+  "information_design": {
+    "assignment_family": "INDEPENDENT_BERNOULLI",
+    "assignment_law": {
+      "value": "处理前固定合作网络。实验协议：所有销售员分别独立地按 Bernoulli(1/2) 分配 AI。暴露为处理前邻居中treated超过半数。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前固定合作网络。实验协议：所有销售员分别独立地按 Bernoulli(1/2) 分配 AI。暴露为处理前邻居中treated超过半数。"
+        }
+      ]
+    },
+    "population_information_level": "NODE_FULL_LAW",
+    "population_observable_operator": {
+      "value": "理论总体观测律为每个员工的节点完整观测律 P(T,Y_i^obs|W)。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "information",
+          "quote": "理论总体观测律为每个员工的节点完整观测律 P(T,Y_i^obs|W)。"
+        }
+      ]
+    },
+    "sample_data_description": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "assumptions": [],
+  "validity": {},
+  "ambiguities": [],
+  "clarifying_questions": [],
+  "normalization_notes": [
+    "MOCK TEST-ONLY fixture synthesized from benchmark reference; not model-generated"
+  ]
+}

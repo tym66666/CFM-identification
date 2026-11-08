@@ -31,6 +31,17 @@ class IdentificationVerifier:
     """
 
     def verify(self, spec: IdentificationSpec, result: IdentificationResult, *, population_truth=None) -> IdentificationResult:
+        if result.certificate.get("rule_id") in {
+            "NETWORK_POLICY_VALUE_BERNOULLI_V1",
+            "NETWORK_DIRECT_EFFECT_THRESHOLD_POINT_V2",
+        }:
+            return self._reject(result.model_copy(deep=True),
+                "LEGACY_NETWORK_A4_UNVERIFIED: archived network rule cannot be replayed as production POINT")
+        if (spec.randomized_network_arm_theorem_contract is not None
+            or result.query.type == "NETWORK_RANDOMIZED_ARM_MEAN"
+            or result.certificate.get("rule_id") == "RANDOMIZED_NETWORK_ARM_MEAN_COMPLETE_V1"):
+            from .randomized_network_arm import verify_randomized_network_arm
+            return verify_randomized_network_arm(spec, result)
         if (spec.query.type == "NETWORK_MAJORITY_RESPONSE_POLICY_SCORE"
             or result.query.type == "NETWORK_MAJORITY_RESPONSE_POLICY_SCORE"
             or result.certificate.get("rule_id") == "NETWORK_MAJORITY_SCORE_COMPOSITION_V1"):

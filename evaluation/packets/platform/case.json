@@ -1,0 +1,15 @@
+{
+  "case_id": "biz_v08_platform",
+  "business_question": "我们的线上平台上有许多卖家，顾客会在不同店铺之间比较和分享商品信息。平台为部分商家开放首页推荐位，我们想知道首页推荐位对商家的订单数有没有提升，也想考虑未获得推荐的商家会不会受到影响。运营团队保存了商家流量记录、订单数以及客户重叠关系。请先帮助确认我们应当研究哪些因果效果、可以利用什么信息，再决定如何估计。",
+  "response_language": "zh",
+  "attachments": [
+    {
+      "path": "study_protocol.txt",
+      "kind": "STUDY_PROTOCOL"
+    },
+    {
+      "path": "records.csv",
+      "kind": "DATA_DICTIONARY"
+    }
+  ]
+}

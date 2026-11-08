@@ -19,6 +19,7 @@ from .schemas import (
     NetworkDirectEffectPointProgram,
     NetworkDirectEffectSensitivityBoundsProgram,
     NetworkPolicyValueProgram,
+    NetworkExposureSpec,
     OneArmATEBoundsProgram,
     ThresholdNetworkExposureSpec,
     TraceStep,
@@ -107,7 +108,7 @@ def _has_authorized_interference_structure(spec: IdentificationSpec) -> bool:
 def _interference_structure_preflight(spec: IdentificationSpec) -> IdentificationResult | None:
     """Return a structured abstention for unresolved/rejected I1 network input."""
 
-    if spec.query.type not in {"DIRECT_EFFECT", "POLICY_VALUE", "SPILLOVER_EFFECT", "NETWORK_RESPONSE_SURFACE", "NETWORK_MAJORITY_RESPONSE_POLICY_SCORE"}:
+    if spec.query.type not in {"DIRECT_EFFECT", "POLICY_VALUE", "SPILLOVER_EFFECT", "NETWORK_RESPONSE_SURFACE", "NETWORK_MAJORITY_RESPONSE_POLICY_SCORE", "NETWORK_RANDOMIZED_ARM_MEAN"}:
         return None
     if spec.network_exposure is None:
         return None
@@ -561,6 +562,38 @@ class BinaryManskiATEBackend:
         )
 
 
+def legacy_network_a4_quarantine(spec: IdentificationSpec) -> IdentificationResult | None:
+    """v2.2 fail-closed A4 policy for two *retired* network POINT backends.
+
+    Historical variable-list information signatures cannot establish the
+    population conditional operator, study coordinates or outcome-node coverage.
+    Do not equate quarantine with a mathematical non-identification theorem.
+    The new verified R1b/R2 APIs do not use these historical backends.
+    """
+    legacy_direct = (spec.query.type == "DIRECT_EFFECT" and
+                     isinstance(spec.network_exposure, ThresholdNetworkExposureSpec))
+    legacy_policy = (spec.query.type == "POLICY_VALUE" and
+                     isinstance(spec.network_exposure, NetworkExposureSpec) and
+                     spec.network_policy_mixture_theorem_contract is None)
+    if not (legacy_direct or legacy_policy):
+        return None
+    route = ("NETWORK_DIRECT_EFFECT_THRESHOLD_POINT_V2" if legacy_direct else
+             "NETWORK_POLICY_VALUE_BERNOULLI_V1")
+    return IdentificationResult(
+        status=IdentificationStatus.UNSUPPORTED, query=spec.query,
+        backend="legacy_network_a4_quarantine_v22", guarantee="none",
+        reason_code="LEGACY_NETWORK_A4_UNVERIFIED",
+        message=("The historical network POINT route is quarantined because its "
+                 "variable-list A4 check does not certify the required population "
+                 "conditional operator. Use a theorem with a typed A4 gate. "
+                 "This is a software-coverage decision, not a non-ID proof."),
+        verification_status=VerificationStatus.UNSUPPORTED,
+        verification_message="Historical theorem lacks reviewed typed A4 entitlement.",
+        trace=[TraceStep(step="legacy_a4_production_gate", outcome="FAIL",
+                         detail=f"Quarantined old route: {route}")],
+    )
+
+
 @dataclass
 class NetworkDirectEffectThresholdPointBackend:
     """Point-ID of an average direct effect when the threshold exposure mapping is correct.
@@ -576,6 +609,11 @@ class NetworkDirectEffectThresholdPointBackend:
     is_fallback: bool = False
 
     def supports(self, spec: IdentificationSpec) -> bool:
+        # v2.2: retired until a complete typed A4 theorem gate is implemented.
+        return False
+
+    def historical_supports_not_executable(self, spec: IdentificationSpec) -> bool:
+        raise RuntimeError("LEGACY_NETWORK_A4_UNVERIFIED: retired historical route")
         t, y = spec.query.treatment, spec.query.outcome
         network = spec.network_exposure
         return (
@@ -598,6 +636,19 @@ class NetworkDirectEffectThresholdPointBackend:
         )
 
     def solve(self, spec: IdentificationSpec) -> IdentificationResult:
+        # Direct calls are fail-closed too; old POINT receipts must not be issued.
+        return legacy_network_a4_quarantine(spec) or self._quarantined_unmatched(spec)
+
+    @staticmethod
+    def _quarantined_unmatched(spec: IdentificationSpec) -> IdentificationResult:
+        return IdentificationResult(status=IdentificationStatus.UNSUPPORTED,
+            query=spec.query, backend="legacy_network_a4_quarantine_v22",
+            guarantee="none", reason_code="LEGACY_NETWORK_A4_UNVERIFIED",
+            message="Historical network POINT backend is retired pending typed A4 migration.",
+            verification_status=VerificationStatus.UNSUPPORTED)
+
+    def historical_solve_not_executable(self, spec: IdentificationSpec) -> IdentificationResult:
+        raise RuntimeError("LEGACY_NETWORK_A4_UNVERIFIED: retired historical theorem")
         t, y = spec.query.treatment, spec.query.outcome
         network = spec.network_exposure
         assert isinstance(network, ThresholdNetworkExposureSpec)
@@ -809,6 +860,11 @@ class NetworkPolicyValueBernoulliBackend:
     is_fallback: bool = False
 
     def supports(self, spec: IdentificationSpec) -> bool:
+        # v2.2: retired until a complete typed A4 theorem gate is implemented.
+        return False
+
+    def historical_supports_not_executable(self, spec: IdentificationSpec) -> bool:
+        raise RuntimeError("LEGACY_NETWORK_A4_UNVERIFIED: retired historical route")
         t, y = spec.query.treatment, spec.query.outcome
         p = _assignment_probability(spec)
         network = spec.network_exposure
@@ -833,6 +889,19 @@ class NetworkPolicyValueBernoulliBackend:
         )
 
     def solve(self, spec: IdentificationSpec) -> IdentificationResult:
+        # Direct calls are fail-closed too; old POINT receipts must not be issued.
+        return legacy_network_a4_quarantine(spec) or self._quarantined_unmatched(spec)
+
+    @staticmethod
+    def _quarantined_unmatched(spec: IdentificationSpec) -> IdentificationResult:
+        return IdentificationResult(status=IdentificationStatus.UNSUPPORTED,
+            query=spec.query, backend="legacy_network_a4_quarantine_v22",
+            guarantee="none", reason_code="LEGACY_NETWORK_A4_UNVERIFIED",
+            message="Historical network POINT backend is retired pending typed A4 migration.",
+            verification_status=VerificationStatus.UNSUPPORTED)
+
+    def historical_solve_not_executable(self, spec: IdentificationSpec) -> IdentificationResult:
+        raise RuntimeError("LEGACY_NETWORK_A4_UNVERIFIED: retired historical theorem")
         t, y = spec.query.treatment, spec.query.outcome
         network = spec.network_exposure
         p = _assignment_probability(spec)
@@ -1033,9 +1102,11 @@ class IdentificationEngine:
     """
 
     def __init__(self, backends: list[IdentificationBackend] | None = None):
+        from .randomized_network_arm import RandomizedNetworkArmBackend
         from .majority_response import MajorityResponseBackend
         from .majority_score import MajorityScoreBackend
         self.backends = backends or [
+            RandomizedNetworkArmBackend(),
             MajorityScoreBackend(),
             MajorityResponseBackend(),
             RandomizedATEBackend(),
@@ -1065,10 +1136,14 @@ class IdentificationEngine:
             assumption_conflicts=spec.assumption_conflicts,
             allow_policy_value_theory=spec.network_exposure is not None,
             allow_network_response_theory=spec.majority_response_theorem_contract is not None,
+            allow_randomized_network_arm_theory=spec.randomized_network_arm_theorem_contract is not None,
             allow_network_direct_effect_theory=spec.query.type == "DIRECT_EFFECT" and spec.network_exposure is not None,
         )
         if gate_result is not None:
             return gate_result
+        quarantine = legacy_network_a4_quarantine(spec)
+        if quarantine is not None:
+            return quarantine
         if spec.network_policy_mixture_theorem_contract is not None:
             from .network_policy_mixture import propose_network_policy_mixture, _failure
             if population_truth is None:
@@ -1101,10 +1176,14 @@ class IdentificationEngine:
             assumption_conflicts=spec.assumption_conflicts,
             allow_policy_value_theory=spec.network_exposure is not None,
             allow_network_response_theory=spec.majority_response_theorem_contract is not None,
+            allow_randomized_network_arm_theory=spec.randomized_network_arm_theorem_contract is not None,
             allow_network_direct_effect_theory=spec.query.type == "DIRECT_EFFECT" and spec.network_exposure is not None,
         )
         if gate_result is not None:
             return gate_result
+        quarantine = legacy_network_a4_quarantine(spec)
+        if quarantine is not None:
+            return quarantine
         if spec.network_policy_mixture_theorem_contract is not None:
             from .network_policy_mixture import propose_network_policy_mixture, _failure
             if population_truth is None:

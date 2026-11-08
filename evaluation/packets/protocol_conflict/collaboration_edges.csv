@@ -1,0 +1,5 @@
+employee_from,employee_to,relationship_strength
+E001,E002,0.4
+E002,E003,0.8
+E003,E004,0.6
+E001,E004,0.9

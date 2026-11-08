@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Causal-IDFM · 已覆盖的业务范围</title><style>
+:root{--ink:#1d3644;--muted:#6c7f86;--line:#e0e8eb;--teal:#106e63}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:#f5f8f8;color:var(--ink);line-height:1.63}.shell{max-width:1120px;margin:auto;padding:30px 20px 65px}a{color:#17685a}header{background:white;border-bottom:1px solid #e0e8e8;padding:15px 30px}.brand{max-width:1120px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:12px}.brand strong{font-size:16px}h1{font-size:36px;letter-spacing:-1px;margin:13px 0}p{color:var(--muted)}h2{font-size:22px;margin:30px 0 12px}.pill{font-size:11px;border-radius:99px;background:#e6f2ef;color:#176d5e;padding:3px 9px;display:inline-block}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:25px 0}.metric{background:white;border:1px solid var(--line);border-radius:13px;padding:16px}.metric strong{font-size:27px;display:block}.metric span{font-size:12px;color:#677e85}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{background:#fff;border:1px solid var(--line);border-radius:13px;padding:18px;text-align:left}.card .id{display:block;font-size:11px;color:var(--teal);font-weight:730;letter-spacing:.7px}.card h3{font-size:17px;margin:4px 0 7px}.card p{font-size:13px;margin:0}.card small{color:#748790}.card button{background:white}.tabs{display:flex;flex-wrap:wrap;gap:7px;margin:22px 0}.tabs button{padding:9px 15px;border:1px solid #d1e0df;border-radius:10px;background:#fff;color:#2c5a60;cursor:pointer}.tabs button.sel{background:#176e62;color:#fff}.section{display:none}.section.active{display:block}.pair{margin:8px 0;padding:16px;background:#eaf4f1;border-radius:11px;font-size:14px}.matrix{overflow-x:auto;background:white;border:1px solid var(--line);border-radius:15px;padding:20px}.table{display:grid;grid-template-columns:170px repeat(5,minmax(120px,1fr));min-width:750px}.cell{padding:12px 9px;border-bottom:1px solid var(--line);border-right:1px solid #edf1f3;font-size:13px}.matrix button.cell{text-align:left;background:#f0f7f4;border:1px solid #d3e5df;margin:3px;border-radius:7px;cursor:pointer;color:#225c53}.matrix button.cell:hover,.matrix button.cell.sel{background:#d7eee6;border-color:#1c8073}.head{font-weight:700;background:#f3f6f8}.notice{padding:16px;background:#fcfaf3;border:1px solid #eee2bf;border-radius:12px;color:#6c5b3c;font-size:13px}.result{padding:18px;border:1px solid #c8e2d9;background:#f6faf9;border-radius:13px;margin:14px 0;min-height:72px}.scenario-toolbar{margin:12px 0}select{font:inherit;padding:10px;border:1px solid var(--line);border-radius:10px}footer{color:#778991;font-size:12px;padding-top:22px}@media(max-width:850px){.metrics{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr 1fr}}@media(max-width:540px){.grid{grid-template-columns:1fr}h1{font-size:28px}.shell{padding:24px 14px}}
+
+.coverage-legend{display:flex;gap:13px;flex-wrap:wrap;padding:13px 15px;background:white;border:1px solid #dfe8e8;border-radius:11px;margin-top:14px;font-size:13px}
+.coverage-legend b{color:#1b6f60}.pair-conditions{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}.pair-conditions div{background:white;border:1px solid #d8e6e1;border-radius:8px;padding:8px 10px;font-size:12px}
+@media(max-width:600px){.pair-conditions{grid-template-columns:1fr}}
+</style></head><body><header><div class="brand"><strong>CFM-ID <span style="color:#77949a">/ 我们可以分析哪些业务</span></strong><a href="CFM_ID_Supervisor_Results.html">← 返回判断结果</a></div></header><main class="shell"><span class="pill">V3.0 · 已实现能力地图</span><h1>我们能覆盖哪些网络干扰情况？</h1><p>用业务可以理解的语言，把“如何分配”“同事如何影响”“网络是什么形状”“可以问什么”分别列出来。<strong>覆盖的是分析方法的适用条件，不是任何组合都一定有确定答案。</strong></p><div class="metrics"><div class="metric"><strong>6</strong><span>常见实验安排</span></div><div class="metric"><strong>5</strong><span>同伴影响定义</span></div><div class="metric"><strong>9</strong><span>已测试网络形态</span></div><div class="metric"><strong>16</strong><span>业务类型示例</span></div></div>
+<div class="notice"><strong>先看结论：</strong>常见的个人 A/B、固定名额、部门配额、整组随机、两阶段实验，在已知网络和充分条件下都已有正式算法。员工自主选择是否使用 AI 也有若干严格的分析方法，但通常需要额外的因果假设。这里不宣称“覆盖多数真实世界问题”。</div><div class="coverage-legend"><span><b>✓ 已实现：</b>此类试验或同伴定义已有软件组件</span><span><b>？ 待逐例核对：</b>研究资料、因果前提与目标状态</span><span><b>× 不满足：</b>不能沿当前路线识别</span></div>
+<nav class="tabs"><button class="sel" data-t="design">如何安排试验</button><button data-t="exposure">同伴影响怎么定义</button><button data-t="topology">网络长什么样</button><button data-t="business">能问什么业务问题</button><button data-t="matrix">组合能力检查</button></nav>
+<section id="design" class="section active"><h2>实验是怎样分配给员工或用户的？</h2><div class="grid" id="design-cards"></div></section>
+<section id="exposure" class="section"><h2>我们如何描述同事的使用情况？</h2><p>这只是“同伴状态”的定义。如果要利用它外推真实政策结果，还必须另外确认它确实足够描述因果影响。</p><div class="grid" id="exposure-cards"></div></section>
+<section id="topology" class="section"><h2>哪些合作网络可以输入？</h2><p>以下网络形状都有过固定无向网络的测试；但某个实验状态是否发生仍取决于具体边、处理名额及暴露定义。</p><div class="grid" id="topology-cards"></div></section>
+<section id="business" class="section"><h2>常见业务问题的覆盖边界</h2><div class="scenario-toolbar"><label for="select-status">只看：</label> <select id="select-status"><option value="">所有问题</option><option value="条件支持">在条件下可分析</option><option value="强假设">需要强假设</option><option value="不支持">目前未正式支持</option></select></div><div class="grid" id="business-cards"></div></section>
+<section id="matrix" class="section"><h2>实验安排 × 同伴影响定义</h2><p>下表的 30 个单元格表示相应组件有实现；点击只解释该组合必须检查什么，<strong>不代表所有员工和所有情况都能给出确定结论</strong>。</p><div class="matrix"><div class="table" id="matrix-cells"></div></div><div class="result" id="pair-explain">点击一个组合，了解还必须核查哪些条件。</div></section>
+<footer>来源：已经验证的识别方法及已有测试记录。详细的数学条件和验证证据可由研究人员查阅。<br>页面不包含真实业务收益测算，也不代表上传材料已经获得科学审核。</footer></main>
+<!-- EMBED_DATA --><script>
+'use strict';
+const D=JSON.parse(document.getElementById('trusted-data').textContent).coverage;
+const E=x=>document.getElementById(x);
+const txt=(n,v)=>{let e=document.createElement(n);e.textContent=v??'';return e};
+const designs={D1:'每人独立随机抽签',D2:'固定人数随机抽签',D3:'两个部门分别抽签',D4:'整个团队一起抽签',D5:'多个部门各有固定名额',D6:'先抽各组名额，再抽员工'};
+const exposures={E1:'同伴中超过半数使用',E2:'同伴使用比例分三档',E3:'核心合作同事多数使用',E4:'恰好指定人数的同伴使用',E5:'至少一位同伴使用'};
+const networks={path:'链式合作',ring:'环状合作',star:'中心与外围成员',complete:'成员两两合作',bipartite:'两组之间合作',community:'部门与社群',smallworld:'局部密集、少量远距离合作',hub:'少数核心连接大量成员',isolate:'含孤立成员的网络'};
+function friendly(v){return String(v??'').replace(/A4\/A5/g,'总体信息和因果前提').replace(/A4/g,'总体研究信息').replace(/A5/g,'必要的因果前提').replace(/quota profile/gi,'各组试用名额方案').replace(/Bernoulli/gi,'随机抽签').replace(/support/gi,'支持条件').replace(/POINT/g,'点识别').replace(/rollout/gi,'全员推广').replace(/R1a|R1b|R2|R3/g,'既有数学识别路线')}
+let sections=[...document.querySelectorAll('section.section')];
+for(let b of document.querySelectorAll('[data-t]'))b.onclick=()=>{for(let x of document.querySelectorAll('[data-t]'))x.classList.toggle('sel',x===b);for(let s of sections)s.classList.toggle('active',s.id===b.dataset.t)};
+function cards(items,target,kind){let root=E(target);for(let c of items){let t=txt('article','');t.className='card';let intro=kind==='design'?designs[c.id]:kind==='exposure'?exposures[c.id]:networks[c.draw]||c.title;
+ let num=txt('span',kind==='network'?'已测试网络类型':c.id);num.className='id';t.append(num,txt('h3',intro),txt('p',friendly(c.business||c.notes||'')));
+ let more=txt('p',friendly(c.notes||''));more.style.marginTop='10px';more.style.color='#667f88';if(c.business)t.append(more);
+ const state=txt('span',kind==='network'?'✓ 该类固定无向网络已测试':'✓ 相关软件组件已实现');state.className='id';state.style.marginTop='10px';t.append(state);root.append(t)}}
+cards(D.designs,'design-cards','design');cards(D.exposures,'exposure-cards','exposure');cards(D.topologies,'topology-cards','network');
+function renderBusiness(){let root=E('business-cards');root.replaceChildren();let f=E('select-status').value;for(let c of D.scenarios){let state=c.status||'';if(f && !(f==='强假设'?state.includes('强'):(f==='不支持'?state.includes('不支持')||state.includes('未'):state==='条件支持')))continue;let t=txt('article','');t.className='card';let label=state==='条件支持'?'有条件可用':state.includes('强')?'需较强前提':state.includes('未')?'目前未覆盖':state;
+ let span=txt('span',label);span.className='pill';t.append(span,txt('h3',friendly(c.name)),txt('p',friendly(c.notes||'')));root.append(t)}if(!root.children.length)root.append(txt('p','没有符合条件的场景。'))}
+E('select-status').onchange=renderBusiness;renderBusiness();
+const matrix=E('matrix-cells');matrix.append(txt('div','实验方式'));
+for(let e of D.exposures){let c=txt('div',e.id+' · '+exposures[e.id]);c.className='cell head';matrix.append(c)}
+for(let d of D.designs){let label=txt('div',d.id+' · '+designs[d.id]);label.className='cell head';matrix.append(label);
+ for(let e of D.exposures){let b=txt('button','✓ 组件已实现');b.className='cell';b.type='button';b.setAttribute('aria-label',d.id+' 与 '+e.id+' 组合');
+ b.onclick=()=>{for(let x of matrix.querySelectorAll('button'))x.classList.toggle('sel',x===b);
+  const el=E('pair-explain');el.replaceChildren();el.append(txt('strong',designs[d.id]+' ＋ '+exposures[e.id]));
+  const g=txt('div','');g.className='pair-conditions';for(const t of [
+   '✓ 分配方式和同伴状态：已有实现',
+   '？ 实际网络与研究目标：需要确认',
+   '？ 所需总体研究信息：需要核对',
+   '？ 必要因果前提：需要研究者接受',
+   '？ 目标状态是否可能出现：需要精确计算',
+   '？ 若要外推固定政策：需额外的结构假设或完整政策支持'])g.append(txt('div',t));el.append(g);
+  el.append(txt('p','已有组件不等于这次查询可以点识别；真正结论必须进入正式数学程序并通过独立验证。'));
+ };matrix.append(b)}}
+</script></body></html>

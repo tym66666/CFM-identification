@@ -1,64 +1,18 @@
-## Assigned task
+## 问题与最终行为
 
-- Task ID:
-- Setting / branch:
+说明触发场景、原有问题与本次结果。
 
-## What changed?
+## 数学与接口
 
-Briefly describe the implementation and the main files changed.
+说明目标、信息、假设、适用域和证书是否变化；新能力链接文献、推导与合同。仅连接既有能力也请明确。
 
-## Identification argument
+## 实际验证
 
-### Target
+- 执行的命令和结果：
+- 正例、缺项/拒绝与证书重放：
+- 兼容性与安装检查：
+- 真实 LLM 首答/复查（未运行则注明）：
 
-What causal target does this task identify?
+## 未完成与边界
 
-### Assumptions
-
-Which assumptions are required, and where do they come from?
-
-### Support
-
-How is query-specific population support computed or verified?
-
-### Identification conclusion
-
-Why is the supported target POINT identified under the stated assumptions?
-If this PR is not a POINT task, explain the intended status explicitly.
-
-## Validation
-
-- [ ] Normal case
-- [ ] Small-N brute-force / exact oracle when applicable
-- [ ] Boundary case
-- [ ] Zero-support or invalid-input case
-- [ ] `test_identification_integration.py` passes
-- [ ] `test_pipeline_smoke.py` passes if shared contracts / handoff changed
-- [ ] Notebook/demo runs if this PR changes a demo
-
-Commands/results:
-
-```text
-paste the relevant test commands and short results here
-```
-
-## Files changed
-
-List the main files and why each one changed.
-
-## Scope check
-
-- [ ] I did not modify Estimation / Policy implementation unless the assigned task explicitly required an interface compatibility fix.
-- [ ] I did not commit checkpoints, outputs, caches, or notebook checkpoint files.
-- [ ] If I changed `pfn_pipeline/contracts.py`, I explain the compatibility impact below.
-
-Shared-contract impact (if any):
-
-## Reusability
-
-Which part of this PR should become shared Identification functionality rather than remain a task-specific implementation?
-Which other settings could reuse it?
-
-## Known limitations
-
-What does this PR intentionally not solve?
+列出不支持范围、已知问题和所需后续处理。不要把未运行的检查写成通过。

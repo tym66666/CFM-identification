@@ -1,0 +1,6 @@
+{
+  "target_kind": "SPILLOVER_EFFECT",
+  "assignment_family": "CLUSTER_RANDOMIZATION",
+  "expected_quality_codes": [],
+  "note": "This is an authored Mock fixture; no real LLM accuracy or mathematical proof."
+}

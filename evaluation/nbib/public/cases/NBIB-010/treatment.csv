@@ -1,0 +1,17 @@
+﻿market_id,node_id,tool_received,assignment_group
+market_000,unit_000,1,0
+market_000,unit_001,0,0
+market_000,unit_002,1,0
+market_000,unit_003,1,0
+market_000,unit_004,1,1
+market_000,unit_005,1,1
+market_000,unit_006,1,1
+market_000,unit_007,1,1
+market_000,unit_008,0,2
+market_000,unit_009,1,2
+market_000,unit_010,1,2
+market_000,unit_011,0,2
+market_000,unit_012,0,3
+market_000,unit_013,0,3
+market_000,unit_014,0,3
+market_000,unit_015,0,3

@@ -1,0 +1,60 @@
+固定政策差值 PARTIAL：运行与扩展说明
+完成日期：2026-10-24（北京时间）
+
+本轮交付
+业务比较保留 first 减 second、两份完整安排及共同评价群体。新入口显式接收
+两个经独立审核的 R2 inquiry 和同一精确总体信息；完整检查旧业务/科学审核后，
+在同一个有限 mean-box 上联合求界，独立证书通过才发布 POINT/PARTIAL。
+默认比较入口、数学 Core、Estimation/Policy 均未修改。
+
+先阅读
+1. literature_support/README_ZH.txt：文献卡片、阅读范围与追溯规则。
+2. docs/BOUNDED_CONTRAST_MATH_ZH.txt：唯一完整数学推导和引用适用边界。
+3. docs/BOUNDED_CONTRAST_INTEGRATION_REVIEW_ZH.txt：复用点与不能直接复用的接口。
+
+离线复现（在源码根目录运行；不需要 API Key）
+  python -B -m evaluation.partial_contrast_acceptance --output-dir contrast_acceptance_local
+输出目录必须不存在；不会覆盖此前结果。输出包括两条参考路线验收、逐题原始
+输入和审核后结果、三层假设变化证书及文件哈希。自动生成的科学审核仅代表明确
+的合成实验协议，不能用于批准真实企业材料，也不验证审核人身份。
+
+专项测试
+  python -B -m unittest tests_gateway.test_bounded_contrast tests_gateway.test_bounded_contrast_replay -v
+
+本轮相关回归命令
+  python -B -m unittest tests_gateway.test_bounded_contrast tests_gateway.test_bounded_contrast_replay tests_gateway.test_bounded_policy tests_gateway.test_bounded_policy_intake tests_gateway.test_fixed_comparison tests_gateway.test_comparison_scope tests_gateway.test_partial_extension_acceptance -v
+Windows 沙箱若拒绝 tempfile 目录写入，应将当前终端 TEMP/TMP 指向已获写入权限的
+工作区临时目录，再重跑失败测试；无需改变数学代码或跳过断言。
+
+实现位置
+cfm_id/bounded_contrast_contract.py：两端共同科学模型、权重和完整信息绑定。
+cfm_id/bounded_contrast_solver.py：先合并同坐标，再根据正负系数联合求界。
+cfm_id/bounded_contrast_verify.py：独立枚举设计支持、重算签名并验证共同世界。
+cfm_id/bounded_contrast.py：显式审核入口，保留实际比较读取和旧 Core 诊断。
+examples/bounded_contrast_fixture.py：独立合成业务、科学模型和审核参考。
+examples/partial_contrast_reference.py：复用六个 hook 的第二验收适配器与顶点枚举参考。
+evaluation/partial_contrast_acceptance.py：可复现离线结果及同题假设阶梯。
+
+本轮证明了什么
+新的比较目标可沿既有的六个 hook 和不变验收器接入。正负系数必须在同一个模型
+中处理，不能直接相减两个分别 sharp 的区间。非平凡反例中，两政策各自不是
+POINT，但共享未知均值抵消后差值为 1/5，证书可重放。
+这一结果验证的是同一 mean-box 几何中的第二种目标形式；尚未证明框架已经支持
+所有不同约束机制。当前业务读取是等权同一群体；数学层可接收共同非负归一化
+有理数权重。不能将数学可表达范围宣传成自然语言入口已支持的全部范围。
+
+逐步放宽假设
+固定四节点完整网络、固定名额2、相同全员使用对比全员不使用、同一评价群体、
+精确总体 A4 均值全部1/2，只放宽所有安排下的条件均值界：
+  [1/2,1/2] -> POINT {0}
+  [1/4,3/4] -> sharp PARTIAL [-1/2,1/2]
+  [0,1] -> sharp PARTIAL [-1,1]，只剩二元结果逻辑界
+第一层是很强假设强制零效应，不能说历史数据证明 AI 无效。第三层不等于无界或
+UNSUPPORTED。informative 仍衡量 A4 相对本层科学界的增益；本例三层都为 False，
+中间层变窄来自额外科学限制。每层均有重新绑定的独立合成审核与证书。
+
+下一步边界
+下一类真正不同的科学限制可研究单调均值反应。但先核对完整文献、声明顺序关系、
+推导联合可行集合和端点见证，再编写耦合约束模块。撤回均值充分性时要恢复完整
+安排坐标与 A4 聚合等式，不能在当前 box 模型上简单删除许可继续求界。
+本轮不调用 LLM API，离线业务参考不会被计作新的 LLM 准确率结果。

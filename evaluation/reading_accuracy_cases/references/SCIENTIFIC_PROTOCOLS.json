@@ -1,0 +1,150 @@
+{
+  "synthetic_only": true,
+  "no_production_approval": true,
+  "frozen_before_core_acceptance": true,
+  "already_observed_readings": true,
+  "scope": "Retrospective end-to-end regression of saved real model responses, not new blind model accuracy",
+  "cases": {
+    "cold_chain": {
+      "protocol_id": "SYNTHETIC_READING_SCIENCE_cold_chain",
+      "public_bundle_sha256": "a24d7e03cffa348757b4d26dc6af15425eaced2eb1180d654d1a451a0fd00dc9",
+      "node_order": [
+        "site_01",
+        "site_02",
+        "site_03",
+        "site_04",
+        "site_05",
+        "site_06"
+      ],
+      "population": [
+        "site_01",
+        "site_02",
+        "site_03",
+        "site_04",
+        "site_05",
+        "site_06"
+      ],
+      "exposure": "any_treated_neighbor",
+      "unit_word": "冷链站点",
+      "tool_word": "智能排车工具",
+      "network": "Frozen undirected cycle on the full roster, including units outside an evaluated subset",
+      "assignment": "Independent Bernoulli(1/2) for every unit in the full roster",
+      "target": "Equal mean of own 1 minus own 0 at high peer exposure; remaining assignments averaged under original design conditional on that event",
+      "a4": {
+        "reference": "SYNTHETIC_READING_cold_chain_EXACT_POPULATION_ARM_MEANS",
+        "operator": "NODE_ARM_MEANS",
+        "availability": "SYMBOLIC_POPULATION_OPERATOR",
+        "description": "Exact population E[Y_i | Z_i=a, E_i(Z)=e] for each roster unit and each a,e in {0,1}. Independently stipulated for this synthetic test; never inferred from finite records."
+      },
+      "a5": {
+        "reference": "SYNTHETIC_READING_cold_chain_EXPLICIT_FIVE_LICENSES",
+        "licenses": [
+          "known_assignment_law",
+          "full_vector_randomization",
+          "consistency",
+          "fixed_pretreatment_network",
+          "finite_conditional_first_moments"
+        ],
+        "description": "Entire assignment vector independent of the full potential-outcome schedule conditional on the fixed context; observed outcome equals its realized potential outcome. Network is fixed before assignment; conditional first moments exist.",
+        "exposure_sufficiency_assumed": false
+      },
+      "a6": "Every required own/exposure cell must have positive exact design probability; checked by Core and independent enumeration",
+      "expected_route": "R1A_COMPOSITION",
+      "expected_status": "CORE_POINT"
+    },
+    "repair_teams": {
+      "protocol_id": "SYNTHETIC_READING_SCIENCE_repair_teams",
+      "public_bundle_sha256": "626e932b407118d01420e46e41f41bbd544ded96cf478207dd38d7f843c873f4",
+      "node_order": [
+        "site_01",
+        "site_02",
+        "site_03",
+        "site_04",
+        "site_05",
+        "site_06",
+        "site_07",
+        "site_08"
+      ],
+      "population": [
+        "site_01",
+        "site_02",
+        "site_03",
+        "site_04",
+        "site_05",
+        "site_06",
+        "site_07",
+        "site_08"
+      ],
+      "exposure": "strict_majority",
+      "unit_word": "维修小组",
+      "tool_word": "诊断助手",
+      "network": "Frozen undirected cycle on the full roster, including units outside an evaluated subset",
+      "assignment": "Independent Bernoulli(1/2) for every unit in the full roster",
+      "target": "Equal mean of own 1 minus own 0 at high peer exposure; remaining assignments averaged under original design conditional on that event",
+      "a4": {
+        "reference": "SYNTHETIC_READING_repair_teams_EXACT_POPULATION_ARM_MEANS",
+        "operator": "NODE_ARM_MEANS",
+        "availability": "SYMBOLIC_POPULATION_OPERATOR",
+        "description": "Exact population E[Y_i | Z_i=a, E_i(Z)=e] for each roster unit and each a,e in {0,1}. Independently stipulated for this synthetic test; never inferred from finite records."
+      },
+      "a5": {
+        "reference": "SYNTHETIC_READING_repair_teams_EXPLICIT_FIVE_LICENSES",
+        "licenses": [
+          "known_assignment_law",
+          "full_vector_randomization",
+          "consistency",
+          "fixed_pretreatment_network",
+          "finite_conditional_first_moments"
+        ],
+        "description": "Entire assignment vector independent of the full potential-outcome schedule conditional on the fixed context; observed outcome equals its realized potential outcome. Network is fixed before assignment; conditional first moments exist.",
+        "exposure_sufficiency_assumed": false
+      },
+      "a6": "Every required own/exposure cell must have positive exact design probability; checked by Core and independent enumeration",
+      "expected_route": "R1A_COMPOSITION",
+      "expected_status": "CORE_POINT"
+    },
+    "cold_chain_subset": {
+      "protocol_id": "SYNTHETIC_READING_SCIENCE_cold_chain_subset",
+      "public_bundle_sha256": "7f161b141eb76fd7c96a5dd04de9c675791c75f05840e851e884439983e85002",
+      "node_order": [
+        "site_01",
+        "site_02",
+        "site_03",
+        "site_04",
+        "site_05",
+        "site_06"
+      ],
+      "population": [
+        "site_01",
+        "site_03"
+      ],
+      "exposure": "any_treated_neighbor",
+      "unit_word": "冷链站点",
+      "tool_word": "智能排车工具",
+      "network": "Frozen undirected cycle on the full roster, including units outside an evaluated subset",
+      "assignment": "Independent Bernoulli(1/2) for every unit in the full roster",
+      "target": "Equal mean of own 1 minus own 0 at high peer exposure; remaining assignments averaged under original design conditional on that event",
+      "a4": {
+        "reference": "SYNTHETIC_READING_cold_chain_subset_EXACT_POPULATION_ARM_MEANS",
+        "operator": "NODE_ARM_MEANS",
+        "availability": "SYMBOLIC_POPULATION_OPERATOR",
+        "description": "Exact population E[Y_i | Z_i=a, E_i(Z)=e] for each roster unit and each a,e in {0,1}. Independently stipulated for this synthetic test; never inferred from finite records."
+      },
+      "a5": {
+        "reference": "SYNTHETIC_READING_cold_chain_subset_EXPLICIT_FIVE_LICENSES",
+        "licenses": [
+          "known_assignment_law",
+          "full_vector_randomization",
+          "consistency",
+          "fixed_pretreatment_network",
+          "finite_conditional_first_moments"
+        ],
+        "description": "Entire assignment vector independent of the full potential-outcome schedule conditional on the fixed context; observed outcome equals its realized potential outcome. Network is fixed before assignment; conditional first moments exist.",
+        "exposure_sufficiency_assumed": false
+      },
+      "a6": "Every required own/exposure cell must have positive exact design probability; checked by Core and independent enumeration",
+      "expected_route": "R1A_COMPOSITION",
+      "expected_status": "CORE_POINT"
+    }
+  }
+}

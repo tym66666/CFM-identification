@@ -1,0 +1,58 @@
+[
+  {
+    "id": "sales_ambiguous",
+    "case_file": "examples/sales_ambiguous.json",
+    "mock_response": "examples/sales_ambiguous_mock_response.json",
+    "reference_target": "POLICY_OPTIMIZATION",
+    "reference_design": "UNRESOLVED",
+    "expect_review": "NEEDS_CLARIFICATION"
+  },
+  {
+    "id": "sales_iid_exposure",
+    "case_file": "examples/sales_iid_exposure.json",
+    "mock_response": "examples/sales_iid_exposure_mock_response.json",
+    "reference_target": "NETWORK_DESIGN_STANDARDIZED_ARM_MEAN",
+    "reference_design": "INDEPENDENT_BERNOULLI",
+    "expect_review": "NEEDS_CLARIFICATION"
+  },
+  {
+    "id": "fixed_quota_policy",
+    "case_file": "examples/fixed_quota_policy.json",
+    "mock_response": "examples/fixed_quota_policy_mock_response.json",
+    "reference_target": "FIXED_POLICY_VALUE",
+    "reference_design": "COMPLETE_RANDOMIZATION",
+    "expect_review": "NEEDS_CLARIFICATION"
+  },
+  {
+    "id": "missing_variables",
+    "case_file": "examples/missing_variables.json",
+    "mock_response": "examples/missing_variables_mock_response.json",
+    "reference_target": "SPILLOVER_EFFECT",
+    "reference_design": "UNRESOLVED",
+    "expect_review": "NEEDS_CLARIFICATION"
+  },
+  {
+    "id": "observational_spillover",
+    "case_file": "examples/observational_spillover.json",
+    "mock_response": "examples/observational_spillover_mock_response.json",
+    "reference_target": "SPILLOVER_EFFECT",
+    "reference_design": "OBSERVATIONAL",
+    "expect_review": "NEEDS_CLARIFICATION"
+  },
+  {
+    "id": "english_team_randomization",
+    "case_file": "examples/english_team_randomization.json",
+    "mock_response": "examples/english_team_randomization_mock_response.json",
+    "reference_target": "OTHER",
+    "reference_design": "UNRESOLVED",
+    "expect_review": "NEEDS_CLARIFICATION"
+  },
+  {
+    "id": "complete_formulation_demo",
+    "case_file": "examples/complete_formulation_demo.json",
+    "mock_response": "examples/complete_formulation_demo_mock_response.json",
+    "reference_target": "NETWORK_DESIGN_STANDARDIZED_ARM_MEAN",
+    "reference_design": "INDEPENDENT_BERNOULLI",
+    "expect_review": "DRAFT_READY_FOR_HUMAN_REVIEW"
+  }
+]

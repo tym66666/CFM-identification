@@ -1,0 +1,65 @@
+[
+  {
+    "case_id": "sales_ai_three_goals",
+    "business_question": "我们在一个300人的销售团队试用了AI助手，团队成员会互相分享线索。公司保存了合作关系、实验分配方案和八周的销售记录。我们想知道AI是否提高了实际使用者的业绩；没有用AI的人会不会也因为同事使用而受益；另外，如果把AI推广到所有销售员，公司总体销售表现会怎样？",
+    "expected": [
+      {"kind": "DIRECT_EFFECT", "quote": "AI是否提高了实际使用者的业绩"},
+      {"kind": "SPILLOVER_EFFECT", "quote": "没有用AI的人会不会也因为同事使用而受益"},
+      {"kind": "FIXED_POLICY_VALUE", "quote": "如果把AI推广到所有销售员，公司总体销售表现会怎样"}
+    ]
+  },
+  {
+    "case_id": "retail_two_questions",
+    "business_question": "我们有80家门店，商圈相近的门店可能争夺同一批客户。过去三个月只有部分门店推出新的会员折扣活动，门店分组方式写在试验计划里，也有门店间距离关系和销售数据。我们想知道参加活动的门店有没有提高销售额；如果全部门店一起采用折扣方案，公司总销售额会怎样变化？",
+    "expected": [
+      {"kind": "DIRECT_EFFECT", "quote": "参加活动的门店有没有提高销售额"},
+      {"kind": "FIXED_POLICY_VALUE", "quote": "如果全部门店一起采用折扣方案，公司总销售额会怎样变化"}
+    ]
+  },
+  {
+    "case_id": "platform_two_questions",
+    "business_question": "我们运营一个内容平台，有些创作者被邀请参加流量扶持计划，他们还会互相合作、转发和推荐作品。平台保留了扶持名单、关注关系和播放数据。业务团队想知道未入选的创作者是否因朋友受到扶持而增加曝光；下季度应该把有限扶持名额给哪些创作者才能让平台总体播放量更高？",
+    "expected": [
+      {"kind": "SPILLOVER_EFFECT", "quote": "未入选的创作者是否因朋友受到扶持而增加曝光"},
+      {"kind": "POLICY_OPTIMIZATION", "quote": "应该把有限扶持名额给哪些创作者才能让平台总体播放量更高"}
+    ]
+  },
+  {
+    "case_id": "hospital_two_questions",
+    "business_question": "几家合作医院试点了远程会诊系统，各医院会相互转诊患者。我们有系统启用时间、转诊记录和等待时长。管理人员想知道启用远程会诊是否缩短了本院患者的等待时间；其他没有启用系统的医院是否也受到影响？",
+    "expected": [
+      {"kind": "DIRECT_EFFECT", "quote": "启用远程会诊是否缩短了本院患者的等待时间"},
+      {"kind": "SPILLOVER_EFFECT", "quote": "其他没有启用系统的医院是否也受到影响"}
+    ]
+  },
+  {
+    "case_id": "schools_two_questions",
+    "business_question": "我们在多个班级试点了课后辅导，学生平时会结对学习。学校保留了参与名单、学习小组和学期考试成绩。我们想了解参加辅导的学生成绩是否真的提高了；那些没有参加辅导但和参加者同组的学生会不会也有进步？",
+    "expected": [
+      {"kind": "DIRECT_EFFECT", "quote": "参加辅导的学生成绩是否真的提高了"},
+      {"kind": "SPILLOVER_EFFECT", "quote": "没有参加辅导但和参加者同组的学生会不会也有进步"}
+    ]
+  },
+  {
+    "case_id": "manufacturing_two_questions",
+    "business_question": "一家制造公司先在部分产线引入AI质检设备，各产线共享维修人员和零件库存。工厂保留了改造记录、产线关系和报废率。我们既想知道安装设备是否降低本产线的报废率，也想评估如果全厂产线一起采用AI质检方案，整体报废成本会怎样变化。",
+    "expected": [
+      {"kind": "DIRECT_EFFECT", "quote": "安装设备是否降低本产线的报废率"},
+      {"kind": "FIXED_POLICY_VALUE", "quote": "如果全厂产线一起采用AI质检方案，整体报废成本会怎样变化"}
+    ]
+  },
+  {
+    "case_id": "marketing_one_question",
+    "business_question": "一家电商公司计划对相互推荐商品的用户发优惠券，预算只够覆盖一部分人。公司有历史优惠券发放记录、用户间的推荐关系和订单数据。营销团队想知道下次应该把优惠券给哪些用户，才能带来最大的总体增量订单。",
+    "expected": [
+      {"kind": "POLICY_OPTIMIZATION", "quote": "应该把优惠券给哪些用户，才能带来最大的总体增量订单"}
+    ]
+  },
+  {
+    "case_id": "transport_one_question",
+    "business_question": "我们的城市运输网络中有多条相邻公交线路，试验时只在一部分线路增加了班次，乘客可能在不同线路间转移。我们掌握调度方案、线路连接关系和客流记录。现在只想评估如果全部线路同时增加班次，所有线路的总客流量会如何变化。",
+    "expected": [
+      {"kind": "FIXED_POLICY_VALUE", "quote": "如果全部线路同时增加班次，所有线路的总客流量会如何变化"}
+    ]
+  }
+]

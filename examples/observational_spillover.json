@@ -1,0 +1,6 @@
+{
+  "case_id": "observational_spillover",
+  "business_question": "我们在合作网络中观察到某人使用AI与其邻居的业绩相关，想知道这是不是因果外溢效应。",
+  "sources": [],
+  "response_language": "zh"
+}

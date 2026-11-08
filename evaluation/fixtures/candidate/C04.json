@@ -1,0 +1,28 @@
+{
+  "schema_version": "cfm-id-candidate-draft-v0.3",
+  "target_kind": "FIXED_POLICY_VALUE",
+  "target_description": "在四节点网络恰好处理两人的原实验中，固定政策 z=(1,1,0,0) 的真实平均销售额能否识别？",
+  "claimed_identification": "POINT",
+  "scope": "AS_REVIEWED",
+  "a4_used": {
+    "source": "REVIEWED_OPERATOR",
+    "level": "FULL_JOINT_LAW",
+    "operator": "总体可观测信息算子明确为完整联合律 P(T,Yobs|W)，包括完整处理向量及所有结果；这是一个理论信息声明，不代表已知总体数值。"
+  },
+  "admitted_assumptions_used": [
+    "full_vector_randomization",
+    "consistency"
+  ],
+  "additional_requirements": [],
+  "candidate_expression": "V(z)=sum_i w_i E[Y_i^obs|T=z,W]，q(z)=1/C(4,2)>0。",
+  "nonidentification_witness": null,
+  "reasoning_steps": [
+    "z在q的支持内，完整赋值的条件结果均值可观测。"
+  ],
+  "caveats": [
+    "仅为离线FIXTURE，既非大模型推理结果也非数学认证"
+  ],
+  "suggested_checks": [
+    "进行独立数学证明或两个世界的完整可观测等价检查"
+  ]
+}

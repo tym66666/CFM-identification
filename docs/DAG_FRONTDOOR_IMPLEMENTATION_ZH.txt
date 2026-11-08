@@ -1,0 +1,139 @@
+经典前门数学层：实现、验收与下一步
+日期：2026-10-25
+状态：数学层已实现；后续显式业务读取与审核桥接也已接通，见DAG_FRONTDOOR_BUSINESS_ZH.txt。
+下述数学验收数字记录数学层交付阶段；新增业务/模型试测单独记录，不与数学检查混算。
+
+1. 现在完成了什么
+
+DAG_CLASSICAL_FRONTDOOR 已有独立问题合同、独立审核类型、求解器、证书、独立验证器和研究 adapter。
+它与经典后门、DAG 调整、网络均值顺序共用研究提交与结果接口，保持不同的数学证据。
+新前门路线只在明确选择后执行；不会在后门失败时静默自动改换路线。
+这是一条新增数学路线，原网络 Core、后门/调整求解器与验证器均未修改。
+
+它补上的能力：
+在 U→X、U→Y、X→M→Y、U不可观测的经典图中，观察调整无法消除 X—Y 混杂，
+而满足前门条件的 M 可导出可观测识别公式。该例已同时检验后门/调整停止和前门 POINT。
+这不意味着有中介变量就可以识别，也不意味着所有不可调整问题都可用前门。
+
+2. 数学依据与适用边界
+
+合同全文见 DAG_FRONTDOOR_CONTRACT_ZH.txt。
+文献映射见 literature_support/routes/dag_classical_frontdoor.json：
+- Pearl, Causality，校正版第3章，Definition 3.3.3、Theorem 3.3.4；
+  https://web.cs.ucla.edu/~kaoru/CAUSALITY-REPRINTED-W-CORRECTIONS-2013/causality-ch3-june2013.pdf
+- Jeong, Tian, Bareinboim, NeurIPS 2022，Definition 1、式(3)及第3节图变换；
+  https://proceedings.neurips.cc/paper_files/paper/2022/file/d67ac621411d6fa4dca682ce62f84ea7-Paper-Conference.pdf
+
+当前范围：已声明静态递归SCM、独立结构噪声、完备观测/潜变量划分；
+最多8个列出的二元节点，包括可以有父节点的潜变量；单个观测处理X与不同的观测结果Y。
+目标是整个干预分布 P(Y=y | do(X=x))，不是直接输出估计值。
+完整符号观测总体律及其与模型的相容性由独立科学审核声明。
+软件要求严格正的观测联合总体律；这是强于经典支持条件的保守软件边界，
+不要求潜变量的联合分布严格正，不引入线性、高斯或faithfulness。
+
+对于一个观测候选M：
+FD1：每条X到Y的有向路径都经过M。
+FD2：删除X出边后的图中，X与M被空集d分离。
+FD3：删除M出边后的图中，M与Y被X d分离。
+没有X到Y有向路径时，FD1可为空真；仍须检查另外两项，不额外断言M是中介机制。
+
+通过后发布：
+  P(Y=y | do(X=x))
+  = sum_m P(M=m | X=x) sum_x_prime P(Y=y | X=x_prime,M=m) P(X=x_prime).
+
+自由取值x与内层绑定变量x_prime分别命名为intervention_value、treatment_marginal_value。
+其他观测变量已在各因子内边缘化。最后的权重不能擅自变成P(X|M)。
+代码只接受这一固定规范泛函；不执行用户提供的数学表达式字符串。
+
+3. 文件与独立性
+
+cfm_id/dag_frontdoor_contract.py：
+  FrontdoorProblem 与 FrontdoorReview 独立定义；不继承含adjustment语义的问题类型。
+  复用既有图/总体信息形状检查；该复用不执行后门判据。
+  frontdoor_variable必须出现：字符串表示只检查指定变量；null表示允许单变量搜索。
+  请求不能携带adjustment字段，不能偷偷把“控制M”解释成“前门M”。
+
+cfm_id/dag_frontdoor_solver.py：
+  FD1使用删去M后的可达性；FD2/FD3复用既有祖先道德化分离原语。
+  搜索只在有限观测单变量中按确定顺序进行；不实现文献中的一般集合搜索算法。
+  指定变量失败时不自动替换为别的变量。
+
+cfm_id/dag_frontdoor_verify.py：
+  不导入任何求解器/生产公式构造函数。
+  独立枚举有向路径和无向简单路径，利用独立传递闭包检查碰撞点及其后代激活。
+  在对应删边图内重新计算；独立重建全部公式绑定及诊断轨迹。
+  同时核对原材料、问题、总体律、目标、变量选择、范围、正性标记、证书哈希。
+  公共形状检查和哈希仍然共享，因此这不是Lean/Coq等级的形式证明。
+
+cfm_id/dag_frontdoor.py 与 dag_frontdoor_adapter.py：
+  prepare只给待审核工作表；submit先核对独立审核，再求解、重放。
+  只有通过复核才发布POINT；审核待定、拒绝、过期或复核失败均不能发布证书。
+  对外保持production_admission=false、estimation_handoff_allowed=false。
+  外部审核是声明与哈希绑定，不是账号鉴权或对现实科学条件的自动证明。
+
+4. 实际验收结果
+
+319项相关测试通过，0失败、0错误、0跳过。
+包含新前门测试与原有DAG、网络POINT、单政策/政策差值PARTIAL、均值顺序及审核链回归。
+
+前门固定图例：17条，8条POINT、9条UNSUPPORTED，均符合事先规定的预期。
+图形检查：全部543个四节点DAG，加256次五至八节点DAG抽样；
+共1263次候选检查，生产端与独立路径判据全部一致；
+308次满足条件的候选证书通过复核。
+这些计数是检查次数，抽样/候选可共享图结构，不是独立业务样本量。
+
+精确算术：
+208次严格正有理数SCM实例检查，832次逐x/y比较全部相等；
+包含入口重复与同图参数变化，不作为208个独立科学场景或LLM准确率。
+分别仅破坏FD1、FD2、FD3，各检查16个参数模型，发现公式失败模型16、11、15个。
+报告保存完整具体CPT、干预分布和公式值，不把它们称作一般非识别的两世界证明。
+某些违反充分判据的参数实例仍偶然相等，不能据此批准整个模型族。
+
+另有两个公式错误的明确数值反例：
+- 把内层x_prime误换成干预取值x；
+- 把P(X=x_prime)误换成P(X=x_prime|M=m)。
+同样检查了删除入边/出边混淆、碰撞点后代激活、变量重命名、额外字段、
+证书篡改后重新计算哈希、旧路线证书、旧审核复用、正性未知/否定、样本数据冒充总体律等。
+
+统一研究入口现在有4条路线，共92条离线参考检查全部符合预期：
+POINT 18，PARTIAL 1，INCOMPATIBLE 1，REVIEW_REQUIRED 15，
+NEEDS_INPUT 4，UNSUPPORTED 31，CHECK_BLOCKED 22。
+20条带数学证据的结果均复核通过；其余72条按预期停止。
+这些检查与单元测试有重叠，不能相加报告成独立题量。
+没有真实LLM调用，没有新增模型准确率结论，也没有读取认证密钥。
+
+5. 可复现运行
+
+在源码根目录、使用已有项目依赖的Python：
+python -B -m unittest tests_gateway.test_dag_frontdoor tests_gateway.test_dag_frontdoor_acceptance -v
+python -B -m evaluation.dag_frontdoor_acceptance --allow-synthetic-reviews --output frontdoor_acceptance.json
+python -B -m evaluation.research_routes_cli schema --route DAG_CLASSICAL_FRONTDOOR --output frontdoor_schema.json
+python -B -m evaluation.research_routes_cli prepare --route DAG_CLASSICAL_FRONTDOOR --problem problem.json --output prepared.json
+python -B -m evaluation.research_routes_cli submit --route DAG_CLASSICAL_FRONTDOOR --problem problem.json --review review.json --select-research-protocol --output submitted.json
+python -B -m evaluation.research_routes_cli acceptance --allow-synthetic-reviews --output shared_acceptance.json
+
+输出必须使用新路径，旧证据不覆盖。CLI承诺源码树运行，未发布新的wheel。
+执行成功保存一个UNSUPPORTED等停止结果，不代表完成数学认证；应读取state和independent_replay。
+
+证据目录（相对源码根目录）：
+LOCAL_EVIDENCE_NOT_DISTRIBUTED
+- MATHEMATICAL_ACCEPTANCE.json：图与精确算术、具体失败反例。
+- SHARED_ACCEPTANCE.json：四路线与审核边界。
+- REGRESSION_TESTS.log：319项测试完整记录。
+- frontdoor_example/：真实CLI生成的schema、输入、准备与提交输出。
+  另有待审核、旧审核、直接路径绕过M的停止样例。
+- CLI_COMMANDS.json：5次真实离线CLI进程命令与退出码。
+- SOURCE_BEFORE.json / SOURCE_AFTER.json / RESULTS.json：来源追溯与汇总。
+示例synthetic_review.json只是该合成问题的审核，不可复制成真实业务的批准。
+
+6. 尚未完成与下一步
+
+已完成有限的自然语言前门桥接及小样本真实模型试测，见DAG_FRONTDOOR_BUSINESS_ZH.txt。
+未做：一般语言理解准确率验证、真实业务科学审核、多个前门变量/条件前门、
+连续变量、一般ID、IV、估计或政策优化。旧DAG reading-1仍只服务原有业务合同。
+不能在业务适配器中丢掉用户指定的adjustment再套前门公式。
+
+后续业务层已按最小必要范围增加dag-frontdoor-reading-2与独立角色审核，
+保留图、目标、来源和科学审核公共能力，显式区分“控制变量”与“拟用前门变量”。
+数学判据继续由代码计算，Prompt不负责判断FD1–FD3成立；接下来需做独立图结构与措辞的外部检验。
+

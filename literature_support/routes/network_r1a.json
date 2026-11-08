@@ -1,0 +1,38 @@
+{
+  "schema_version": "literature-support-route-1",
+  "route_id": "R1A_RANDOMIZED_ARM",
+  "document_role": "LITERATURE_CONTEXT_AND_PROJECT_DERIVATION_MAP_NOT_NEW_THEOREM",
+  "native_route_ids": [
+    "R1A_RANDOMIZED_ARM",
+    "R1A_COMPOSITION"
+  ],
+  "runtime_coverage_authority": "cfm_id.capability_registry.inventory",
+  "literature_scope": {
+    "source_ids": [
+      "aronow_samii2017_interference",
+      "savje_exposure_definitions",
+      "hudgens_halloran2008_interference"
+    ],
+    "role": "Design/exposure/estimand separation and design-standardized contrasts; exact project permission follows its own proof.",
+    "limitations": [
+      "Project R1a labels and all D×E combinations are not source taxonomies.",
+      "Project arm mean does not assume exposure sufficiency."
+    ]
+  },
+  "project_math_documents": [
+    "docs/ABSTRACTION_RANDOMIZED_ARM_ZH.md",
+    "docs/R1A_VERIFIED_TARGET_COMPOSITION_ZH.md"
+  ],
+  "implementation": [
+    "pfn_pipeline/_internal/identification/randomized_network_arm.py",
+    "pfn_pipeline/identification_composition.py"
+  ],
+  "tests": [
+    "tests/test_randomized_arm_abstraction.py",
+    "tests_gateway/test_network_effect_dispatch.py"
+  ],
+  "path_base": "source repository root",
+  "audit_date": "2026-10-31",
+  "verification_evidence": "Documentation pointers checked this round; no claim of rerunning mathematical or live-model acceptance.",
+  "production_admission": false
+}

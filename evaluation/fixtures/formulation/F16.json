@@ -1,0 +1,102 @@
+{
+  "schema_version": "cfm-id-draft-v0.1",
+  "target": {
+    "kind": "ATE",
+    "description": {
+      "value": "在员工合作网络上计算 AI 使用对销量的ATE。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "在员工合作网络上计算 AI 使用对销量的ATE。"
+        }
+      ]
+    },
+    "alternatives": []
+  },
+  "units_variables": {
+    "analysis_unit": {
+      "value": "业务描述中的员工、节点或团体",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "在员工合作网络上计算 AI 使用对销量的ATE。"
+        }
+      ]
+    },
+    "treatment": {
+      "value": "描述中的AI干预",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前固定合作网络。实验协议：所有销售员分别独立地按 Bernoulli(1/2) 分配 AI。"
+        }
+      ]
+    },
+    "outcome": {
+      "value": "描述中的销售或结果指标",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "在员工合作网络上计算 AI 使用对销量的ATE。"
+        }
+      ]
+    }
+  },
+  "structure": {
+    "unit_network": {
+      "value": "被描述的网络",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前固定合作网络。实验协议：所有销售员分别独立地按 Bernoulli(1/2) 分配 AI。"
+        }
+      ]
+    },
+    "exposure_mapping": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "information_design": {
+    "assignment_family": "INDEPENDENT_BERNOULLI",
+    "assignment_law": {
+      "value": "处理前固定合作网络。实验协议：所有销售员分别独立地按 Bernoulli(1/2) 分配 AI。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前固定合作网络。实验协议：所有销售员分别独立地按 Bernoulli(1/2) 分配 AI。"
+        }
+      ]
+    },
+    "population_information_level": "FULL_JOINT_LAW",
+    "population_observable_operator": {
+      "value": "总体可观测信息算子明确为完整联合律 P(T,Yobs|W)，包括完整处理向量及所有结果；这是一个理论信息声明，不代表已知总体数值。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "information",
+          "quote": "总体可观测信息算子明确为完整联合律 P(T,Yobs|W)，包括完整处理向量及所有结果；这是一个理论信息声明，不代表已知总体数值。"
+        }
+      ]
+    },
+    "sample_data_description": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "assumptions": [],
+  "validity": {},
+  "ambiguities": [],
+  "clarifying_questions": [],
+  "normalization_notes": [
+    "MOCK TEST-ONLY fixture synthesized from benchmark reference; not model-generated"
+  ]
+}

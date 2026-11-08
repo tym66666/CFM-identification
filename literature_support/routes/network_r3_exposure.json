@@ -1,0 +1,38 @@
+{
+  "schema_version": "literature-support-route-1",
+  "route_id": "R3_EXPOSURE_ADJUSTED_EFFECTS",
+  "document_role": "LITERATURE_CONTEXT_AND_PROJECT_DERIVATION_MAP_NOT_NEW_THEOREM",
+  "native_route_ids": [
+    "R3_EXPOSURE_ADJUSTED_EFFECTS",
+    "R3_NODEWISE_EXPOSURE_ADJUSTED_EFFECTS"
+  ],
+  "runtime_coverage_authority": "cfm_id.capability_registry.inventory",
+  "literature_scope": {
+    "source_ids": [
+      "forastiere_airoldi_mealli2021_network",
+      "forastiere_etal2022_network_gps",
+      "tchetgen_fulcher_shpitser2021_autog"
+    ],
+    "role": "Local interference and joint-treatment covariate adjustment; Auto-G is a distinct future model, not implemented by this map.",
+    "limitations": [
+      "Current finite shared-B/nodewise contracts are narrower than general network GPS.",
+      "Individual exposure sufficiency in this route is stronger than R2 mean sufficiency.",
+      "Treatment-law factorization does not imply causal exchangeability."
+    ]
+  },
+  "project_math_documents": [
+    "docs/R3_EXPOSURE_ADJUSTED_G_FORMULA_POSTRELEASE_P2_ZH.md",
+    "docs/R3_NODEWISE_NEIGHBOR_COVARIATE_ADJUSTMENT_ZH.md"
+  ],
+  "implementation": [
+    "pfn_pipeline/identification_observational_exposure_adjustment.py",
+    "pfn_pipeline/identification_observational_nodewise_adjustment.py"
+  ],
+  "tests": [
+    "tests/test_r3_observational_exposure_adjustment.py"
+  ],
+  "path_base": "source repository root",
+  "audit_date": "2026-10-31",
+  "verification_evidence": "Documentation pointers checked this round; no claim of rerunning mathematical or live-model acceptance.",
+  "production_admission": false
+}

@@ -1,0 +1,10 @@
+{
+  "version": "business-reading-config-1",
+  "reading_format": "compact",
+  "fact_format": "short_refs",
+  "assignment_semantics": null,
+  "target_summary_contract": null,
+  "a0_reference_contract": null,
+  "a0_response_contract": null,
+  "network_fact_contract": null
+}

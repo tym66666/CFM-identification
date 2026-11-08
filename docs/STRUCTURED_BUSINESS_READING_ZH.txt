@@ -1,0 +1,59 @@
+结构化业务读取入口（可选，尚未替换默认 CLI）
+
+1. 已接通的位置
+   cfm_id_llm/providers/openai_responses.py 负责 Responses 请求、完整返回检查、
+   严格 JSON 解码以及必需的本地验证回调。
+   cfm_id/structured_business_reading.py 的 StructuredBusinessReader 冻结
+   公开 bundle，生成当前可选提示与对应 schema，将本地校验绑定到同一份材料。
+   read_once() 只返回实际阅读候选和未审核预览，不批准科学条件，也不求解数学。
+
+2. 最小调用
+   import os
+   from cfm_id.structured_business_reading import StructuredBusinessReader
+
+   reader = StructuredBusinessReader(
+       public_bundle,
+       model="LongCat-2.5-Preview",
+       base_url="https://api.longcat.chat/openai/v1",
+       api_key=os.environ["CFM_ID_LLM_API_KEY"],
+       timeout=300,
+       max_output_tokens=8192,
+       reasoning_effort="none",
+   )
+   request_for_audit = reader.request()  # 不调用 API，仅公开提示和 schema
+   view = reader.read_once()            # 恰好一次请求，无自动重试
+   print(view["state"])
+
+   API 授权、调用额度、密钥配置由调用方管理；模块不读取密钥文件。
+   public_bundle 沿用现有业务材料入口，含自然语言文档、对象名册和问题定位。
+   这里只向模型发送公开业务材料；独立科学声明和测试参考标签不进入请求。
+
+3. 后续怎样接识别
+   view["reading_candidate"] 是原始解析值，没有用 schema、科学协议或参考答案补齐。
+   NEEDS_INPUT 先补材料；CHECK_BLOCKED 停止并定位错误；REVIEW_REQUIRED 等待独立审核。
+   当前 helper 是 fixed-assignment-id 单政策读取入口。完整比较仍保留比较与两端安排，
+   返回 UNSUPPORTED，不把它强改成水平；可以另行选择已经实现的比较入口，不能把
+   UNSUPPORTED 解读成数学不可识别。
+   对有限有界政策均值，继续按 docs/BOUNDED_POLICY_INTAKE_ZH.txt 走 prepare、
+   独立审核、compile_reviewed、submit 和证书重放。生产权限仍为 False。
+
+4. 失败与兼容性
+   服务端 JSON Schema 约束不能代替本地校验，更不能保证业务语义正确。
+   参数 reasoning_effort="none" 仅表示请求值；LongCat 实测仍会报告 reasoning_tokens。
+   store=False 仅表示发出的请求参数，不证明服务实际的数据保留政策。
+   timeout 是网络 I/O 等待限制；严格总时限应像实测 runner 一样另设父进程期限。
+   Provider 不调用工具、不跟随重定向、不修复 JSON、不自动回退其他模型。
+   回调可保存最终 JSON 原答，日志不保存认证头或推理内容。业务文本的保存由调用方控制。
+   目前真实集成只验证 LongCat-2.5-Preview；不据此推定校园 DeepSeek 转发支持 Responses。
+
+5. 本轮验证证据
+   LOCAL_EVIDENCE_NOT_DISTRIBUTED 下保存冻结计划、原始响应指针、
+   本地预览、科学审核后的结果、测试日志和调用账本审计。
+   六次真实请求对应五个输入：全体使用只评价一人；混合使用评价全体（重复一次）；
+   未提及其余人的安排；完整政策比较；原固定名额冲突。
+   这些是小规模集成验收，不能当作全 NBIB 准确率。离线模块测试与真实调用分别记录。
+
+6. 与 PARTIAL 扩展框架的关系
+   传输层和阅读层可复用。新问题族仍需其自己的目标合同、科学条件、
+   证明/证书与独立验证器。参见 docs/PARTIAL_EXTENSION_GUIDE_ZH.txt。
+

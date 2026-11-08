@@ -1,0 +1,57 @@
+后门与网络干扰：Prompt和代码如何复用
+2026-10-25
+
+结论
+不应把后门定理塞进网络干扰Prompt，让一个越来越长的Prompt直接判断识别。
+当前保留独立的网络干扰读取与DAG读取；二者共用工程基础和审核原则，数学语义分别定义。
+经典后门与新的DAG调整路线共用同一个DAG Prompt和候选schema。业务连接先保持Prompt不变完成试测，
+随后根据真实误读，仅补充两处共273字符的通用说明；网络干扰Prompt保持原样。
+
+当前实际共用的部分
+- 模型调用：cfm_id_llm/providers中的provider及generate_json接口；实际传输仍受各服务的能力约束。
+- 来源定位：cfm_id/source_locations.py的build_catalog/resolve_sources，引用可定位不等于语义正确。
+- 输入/证据哈希：cfm_id_bridge/scientific_binding.py的sha；按各路线合同绑定输入。
+- 研究执行接口：cfm_id/research_route_workflow.py；统一待审核、停止状态、证据、独立重放及研究输出边界。
+- 网络MEAN_ORDER和DAG通过不同adapter使用该研究接口。既有所有网络POINT入口并未因这次工作被迁移或重构。
+- DAG两条调整路线共用dag_reading.py、dag_business.py、dag_business_workflow.py及独立阅读审核类型。
+
+不共用的数学语义
+网络干扰：节点是人、设备、门店等研究对象，边表示同伴关联；另有处理安排律D1–D6、暴露映射E1–E5和潜在结果限制。
+DAG：节点是处理、结果、混杂等因果变量，边是直接因果影响；还须区分观测/潜变量、完整图、结构噪声与干预。
+网络路线的总体均值、支持和均值充分性，不会变成DAG的总体联合分布、严格正性或图假设。
+两者求解器、数学问题对象、科学审核及独立证书格式保持各自定义。
+把共享流程称作“共享数学Core”会掩盖这些区别，因此不这样表述，也不报没有严格口径的代码复用百分比。
+
+Prompt入口
+DAG：cfm_id_llm/dag_reading.py中的SYSTEM、DagReading字段说明和make_request。
+当前网络均值顺序研究入口：evaluation/mean_order_workflow.py
+  -> evaluation/mean_order_count_guidance.py
+  -> evaluation/mean_order_factored_reading.py及其底层读取合同。
+项目还有既有网络业务读取入口；这次没有替换或合并它们。
+新增DAG路径不向已有网络Prompt追加后门案例或数学答案。
+
+为什么经典后门与DAG调整不需要两个Prompt
+两条路线读取的都是相同问题：研究什么变量、什么干预分布、采用什么图和总体信息、用户指定哪些控制变量。
+“这个指定集合在当前准则下是否可用”交给数学后端，不要求LLM学会或证明图形判据。
+同一个真实候选可以送至显式选择的不同DAG路线，但每条路线要重新生成问题并绑定审核；旧审核不能跨路线复用。
+问题版本不同，问题哈希也不同；读懂材料的审核和科学审核均须对应实际提交的问题。
+运行时不根据一个业务词语、模型的识别建议或网络这个词自动猜路线。
+
+新增路线该如何扩展
+同一DAG模型和同一目标下，优先复用读取合同，只新增明确定义的数学合同、审核、求解和独立证书。
+若目标、可用信息或科学假设改变，再增加必要字段和说明，并做语义正负例。
+前门、一般ID、IV仍需逐项核对适用条件；不能只替换route_id就声称已实现。
+需要用户补充的条件继续追问；用户未声明的科学事实不能由模型补齐后自动识别。
+
+本轮证据
+tests_gateway/test_dag_adjustment_business.py验证两条DAG路线发送完全相同的system/user请求，
+但投影成不同版本的问题、不同问题哈希和科学审核合同，跨路线旧审核被拒绝。
+当前核心求解器、数学合同、独立验证器保持不变；cfm_id_llm中只有dag_reading.py的SYSTEM两处说明修改。
+一处区分“尚未确定”和“明确不成立”，另一处区分变量口径/计算要求与另外施加的科学限制。
+没有加入案例名称、答案、自动补条件或删除模型回复的修复规则。
+初始真实结果见LOCAL_EVIDENCE_NOT_DISTRIBUTED；
+后续定向检验见LOCAL_EVIDENCE_NOT_DISTRIBUTED。
+离线通过、定向改进和泛化准确率不是同一指标。
+后续已冻结当前Prompt，在dag_entry_closeout_20261025做两模型各5题同材料对照：
+LongCat严格4/5、DeepSeek严格3/5；两者最终状态均4/5。待批准声明仍存在误读，
+不能把这次小样本结果称为通用准确率或无人审核准入。详见DAG_ENTRY_CLOSEOUT_ZH.txt。

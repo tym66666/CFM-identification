@@ -1,0 +1,23 @@
+{
+  "predictions": [
+    {
+      "case_id": "NBIB-001",
+      "assignment_family": "D1",
+      "queries": [
+        {"kind": "DIRECT_EFFECT", "exact_target_semantics": "R1A_Q_STANDARDIZED_DIRECT"},
+        {"kind": "SPILLOVER_EFFECT", "exact_target_semantics": "R1A_Q_STANDARDIZED_SPILLOVER"}
+      ],
+      "claimed_verified_point": false,
+      "claims_a4_pop_available": false
+    },
+    {
+      "case_id": "NBIB-007",
+      "assignment_family": "D1",
+      "queries": [
+        {"kind": "FIXED_POLICY_VALUE", "exact_target_semantics": "R1B_FULL_ASSIGNMENT_FIXED_POLICY"}
+      ],
+      "claimed_verified_point": false,
+      "claims_a4_pop_available": false
+    }
+  ]
+}

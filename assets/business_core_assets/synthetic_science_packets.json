@@ -1,0 +1,110 @@
+{
+  "NBIB-001-R20": {
+    "mode": "SYNTHETIC_BENCHMARK_ONLY",
+    "study": {
+      "units": 80,
+      "graph": "ring",
+      "center": null,
+      "design": "independent",
+      "probability": "1/2",
+      "quota": null,
+      "exposure": "strict_majority",
+      "outcome": "每周销售额"
+    },
+    "science": {
+      "causal_licenses": "本轮只做合成理论练习：假定抽签规则已知，抽签与所有潜在结果独立，处理和结果按同一口径定义，实际结果对应实际分配；网络在试验前固定，结果均值有限。",
+      "population_information": "另外假定我们知道在上述试验中，各种有可能抽出的完整名单下，每个对象的总体结果分布。这是另外给定的理论信息，不是把一次试点的样本均值当总体均值。",
+      "mean_signature_sufficiency": null
+    }
+  },
+  "NBIB-002-R20": {
+    "mode": "SYNTHETIC_BENCHMARK_ONLY",
+    "study": {
+      "units": 48,
+      "graph": "ring",
+      "center": null,
+      "design": "fixed_count",
+      "probability": null,
+      "quota": 24,
+      "exposure": "exact_treated_neighbor_count",
+      "outcome": "平均延误"
+    },
+    "science": {
+      "causal_licenses": "本轮只做合成理论练习：假定抽签规则已知，抽签与所有潜在结果独立，处理和结果按同一口径定义，实际结果对应实际分配；网络在试验前固定，结果均值有限。",
+      "population_information": "另外假定我们知道在上述试验中，各种有可能抽出的完整名单下，每个对象的总体结果分布。这是另外给定的理论信息，不是把一次试点的样本均值当总体均值。",
+      "mean_signature_sufficiency": null
+    }
+  },
+  "NBIB-007-R20": {
+    "mode": "SYNTHETIC_BENCHMARK_ONLY",
+    "study": {
+      "units": 14,
+      "graph": "ring",
+      "center": null,
+      "design": "independent",
+      "probability": "1/2",
+      "quota": null,
+      "exposure": "any_treated_neighbor",
+      "outcome": "交付质量"
+    },
+    "science": {
+      "causal_licenses": "本轮只做合成理论练习：假定抽签规则已知，抽签与所有潜在结果独立，处理和结果按同一口径定义，实际结果对应实际分配；网络在试验前固定，结果均值有限。",
+      "population_information": "另外假定我们知道在上述试验中，各种有可能抽出的完整名单下，每个对象的总体结果分布。这是另外给定的理论信息，不是把一次试点的样本均值当总体均值。",
+      "mean_signature_sufficiency": null
+    }
+  },
+  "NBIB-008-R20": {
+    "mode": "SYNTHETIC_BENCHMARK_ONLY",
+    "study": {
+      "units": 14,
+      "graph": "star",
+      "center": "01",
+      "design": "fixed_count",
+      "probability": null,
+      "quota": 7,
+      "exposure": "any_treated_neighbor",
+      "outcome": "季度收入"
+    },
+    "science": {
+      "causal_licenses": "本轮只做合成理论练习：假定抽签规则已知，抽签与所有潜在结果独立，处理和结果按同一口径定义，实际结果对应实际分配；网络在试验前固定，结果均值有限。",
+      "population_information": "另外假定我们知道在上述试验中，各种有可能抽出的完整名单下，每个对象的总体结果分布。这是另外给定的理论信息，不是把一次试点的样本均值当总体均值。",
+      "mean_signature_sufficiency": null
+    }
+  },
+  "NBIB-009-R20": {
+    "mode": "SYNTHETIC_BENCHMARK_ONLY",
+    "study": {
+      "units": 14,
+      "graph": "star",
+      "center": "01",
+      "design": "fixed_count",
+      "probability": null,
+      "quota": 7,
+      "exposure": "any_treated_neighbor",
+      "outcome": "季度收入"
+    },
+    "science": {
+      "causal_licenses": "本轮只做合成理论练习：假定抽签规则已知，抽签与所有潜在结果独立，处理和结果按同一口径定义，实际结果对应实际分配；网络在试验前固定，结果均值有限。",
+      "population_information": "另外假定我们知道在上述试验中，各种有可能抽出的完整名单下，每个对象的总体结果分布。这是另外给定的理论信息，不是把一次试点的样本均值当总体均值。",
+      "mean_signature_sufficiency": "这道合成练习额外明确接受一个限制：每家店的收入均值只依赖本店是否安装、以及邻店中是否至少一家安装；其余具体名单不再影响收入均值。并另行给定各店所需的上述状态总体均值。这是本题的额外假设，不是数据证明的结论。"
+    }
+  },
+  "NBIB-007-R20-PARTIAL": {
+    "mode": "SYNTHETIC_BENCHMARK_ONLY",
+    "study": {
+      "units": 14,
+      "graph": "ring",
+      "center": null,
+      "design": "independent",
+      "probability": "1/2",
+      "quota": null,
+      "exposure": "any_treated_neighbor",
+      "outcome": "交付质量"
+    },
+    "science": {
+      "causal_licenses": "本轮只做合成理论练习：假定抽签规则已知，抽签与所有潜在结果独立，处理和结果按同一口径定义，实际结果对应实际分配；网络在试验前固定，结果均值有限。",
+      "population_information": "另外假定我们知道在上述试验中，各种有可能抽出的完整名单下，每个对象的总体结果分布。这是另外给定的理论信息，不是把一次试点的样本均值当总体均值。",
+      "mean_signature_sufficiency": null
+    }
+  }
+}

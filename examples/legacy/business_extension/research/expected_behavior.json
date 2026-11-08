@@ -1,0 +1,13 @@
+{
+  "track": "DEVELOPMENT_RECORDED_EXAMPLE; not a held-out benchmark",
+  "positive": {
+    "state": "REVIEW_REQUIRED",
+    "semantic_expectation": "unit_017, 单个, 本人使用, 恰好1个邻站使用, 原抽签条件平均",
+    "scientific_approval": false
+  },
+  "negative": {
+    "state": "NEEDS_INPUT",
+    "semantic_expectation": "同上，但本人状态未知；保留已知邻站人数；询问本站是否使用",
+    "scientific_approval": false
+  }
+}

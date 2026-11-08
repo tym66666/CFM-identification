@@ -1,0 +1,8 @@
+{
+  "target_kind": "FIXED_POLICY_VALUE",
+  "assignment_family": "COMPLETE_RANDOMIZATION",
+  "expected_quality_codes": [
+    "POTENTIAL_NETWORK_TIMING_CONFLICT"
+  ],
+  "note": "This is an authored Mock fixture; no real LLM accuracy or mathematical proof."
+}

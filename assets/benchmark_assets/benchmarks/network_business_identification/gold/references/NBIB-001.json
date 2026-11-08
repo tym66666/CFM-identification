@@ -1,0 +1,52 @@
+{
+  "A4_population_operator_from_business_files": "NOT_PROVIDED",
+  "all_business_packet_provenance": "SYNTHETIC_OFFLINE_GENERATOR",
+  "assignment_family": "D1",
+  "case_id": "NBIB-001",
+  "conditional_route_only": [
+    "R1a_candidate"
+  ],
+  "data_is_finite_observations_not_A4": true,
+  "design_params": {},
+  "edge_count": 266,
+  "expected_blockers": [
+    "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+    "A5_NEEDS_SCIENTIFIC_REVIEW"
+  ],
+  "exposure_rule": "E1",
+  "fixed_policy_support": [],
+  "identification_library_status": "NOT_RUN_ON_THIS_GENERATED_CASE",
+  "industry": "企业销售",
+  "lower_is_better": false,
+  "n_nodes": 80,
+  "network_type": "erdos_renyi",
+  "number_independent_market_replicates": 1,
+  "outcome_metric_name": "weekly_sales",
+  "outcome_metric_unit": "千元/周",
+  "pair_family": null,
+  "query_targets": [
+    {
+      "exact_target_semantics": "R1A_Q_STANDARDIZED_DIRECT",
+      "kind": "DIRECT_EFFECT",
+      "quote": "AI助手是否改善获准使用者自己的销售表现"
+    },
+    {
+      "exact_target_semantics": "R1A_Q_STANDARDIZED_SPILLOVER",
+      "kind": "SPILLOVER_EFFECT",
+      "quote": "没有获得权限的人是否也受附近合作同事的影响"
+    }
+  ],
+  "scenario_title": "销售团队的 AI 助手试点",
+  "scientific_reference_notes": "R1a；若已独立确认完整向量随机化、固定图、所求arm支持、匹配的A4总体条件算子及其余许可，能够条件性POINT。业务数据本身不提供总体算子。",
+  "simulation_is_not_proof_of_scientific_assumptions": true,
+  "split": "dev",
+  "support_checks": {
+    "exposure_rule": "E1",
+    "exposure_value": 1,
+    "focal_node": "unit_000",
+    "mathematical_support_only_not_IDENTIFICATION": true,
+    "own_treatment": 1,
+    "support_probability": "60895098/244140625"
+  },
+  "synthetic": true
+}

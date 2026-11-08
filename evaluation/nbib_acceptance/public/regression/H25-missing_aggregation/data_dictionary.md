@@ -1,0 +1,1 @@
+downtime_hours表示每条产线八周内的停机小时。

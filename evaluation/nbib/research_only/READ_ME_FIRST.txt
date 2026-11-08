@@ -1,0 +1,1 @@
+RESEARCH_ONLY: never include this directory in model prompts or copy it into input bundles. Reference labels are not formal Core POINT certifications. Some NBIB v0.1 public texts leak A4/A5 research terminology; review before blind evaluation.

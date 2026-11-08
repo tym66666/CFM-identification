@@ -1,0 +1,30 @@
+{
+  "scope": "Recorded reading examples; no new calls; no identification approval",
+  "records": [
+    {
+      "case": "positive",
+      "model": "LongCat-2.5-Preview",
+      "response_sha256": "099e439fef9ecf47ce33ea3ecfc995503e48fd09887e53796f214dbac56ef9d3"
+    },
+    {
+      "case": "negative",
+      "model": "LongCat-2.5-Preview",
+      "response_sha256": "be31ddd437911860a3478bbf8941de4592ad3b2fc5adab7e7a52e9a4e68479ac"
+    }
+  ],
+  "study_parent": {
+    "folder": "LOCAL_EVIDENCE_NOT_DISTRIBUTED",
+    "raw_sha256": "ab80d83d608bf61c69c1e68d88ab0ba23d4d68de71815e452f0b081439bf04e3",
+    "assessment_sha256": "4d7d0a93be8ef88eec0408a952a1d5bd881293fbb1a9973a978b46a548f73d01"
+  },
+  "files": {
+    "public/negative.txt": "a278965cd53365699fd3f911dff732fefddecbda846d43634875153ad45a3990",
+    "public/negative_bundle.json": "ba30f1188f2744ffd57d0b39efd640d4f245a0658a5ef87093e75f6d7323905d",
+    "public/positive.txt": "622a6d6a8d7d3664d9f53c054c053c0b92a3e488ad3ba4dad80d01ac45de9dc5",
+    "public/positive_bundle.json": "2b36f0dd5c02662d1d79606d55ebd5a2d3f874be978c248e29b9ce3d3a47ee14",
+    "recorded/negative_candidate.json": "be31ddd437911860a3478bbf8941de4592ad3b2fc5adab7e7a52e9a4e68479ac",
+    "recorded/positive_candidate.json": "099e439fef9ecf47ce33ea3ecfc995503e48fd09887e53796f214dbac56ef9d3",
+    "recorded/study_envelope.json": "5255cc3f1020c8602c8f9be5a720f0adf30f3690acf4d91a5d8b78e16d91b10b",
+    "research/expected_behavior.json": "894f1e8a49f969715bd766c822c5f373a1c0e0572ea2e3c8273dad8c2920cac6"
+  }
+}

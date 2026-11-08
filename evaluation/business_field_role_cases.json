@@ -1,0 +1,24 @@
+{
+  "version": "business-field-role-cases-1",
+  "purpose": "Fresh plain business cases. Expected roles are evaluator-only; no scientific approval or identification answers.",
+  "cases": [
+    {
+      "id": "service_groups_known_rules",
+      "business_question": "客服中心共有接待一组、二组、三组、四组。我们想评估下个月第一周只让一组和三组使用新回复助手、二组和四组不使用的安排。在这项安排下，四个小组平均每组每天完成的咨询单量是多少？四组按相同权重计算，这次不需要与其他安排比较。",
+      "sources": [{"source_id": "operations", "text": "一组与二组、二组与三组、三组与四组可以相互转交咨询单，没有其他组间转交关系。转交名单在原试点开始前一个月已经确定，整个试点期间没有调整。原试点每周把四组的名称各放一张签，充分混匀后抽一张，抽到的组使用助手，其他组不用，每组被抽到的机会相同。运营报表将每组分为两档：与它有转交关系的合作组中至少有一个使用助手，或这些合作组都未使用；没有合作组的也归入后一档。我们保存了八周的工具使用、咨询单量和转交记录，另外逐组登记了试点开始前的客服人数及平均工龄。"}],
+      "expected": {"kind": "FIXED_POLICY_VALUE", "assignment_law": "四组等机会每周抽一组", "network_pretreatment_status": "试点前一个月确定且试点期间不变", "unit_network": "三条转交关系", "variable_causal_graph": "UNKNOWN", "exposure_mapping": "合作组至少一组使用/全部未使用；无合作组归后一档", "neighbor_exposure": "UNKNOWN，不从完整名单计算", "covariates": ["试点前客服人数", "试点前平均工龄"], "available_information": "UNKNOWN，只有记录", "no_scientific_approval": true}
+    },
+    {
+      "id": "workshop_schedule_only",
+      "business_question": "维修中心有机修组、电工组、钣金组三个班组。我们计划下个月第一周让三个班组全部使用新的工单排序工具，想了解每组每天平均可以完工多少单，三个班组按相同权重计算。我们只问这项安排下的完工水平，不要求比较其他做法。",
+      "sources": [{"source_id": "operations", "text": "机修组与电工组、电工组与钣金组会相互借用设备，机修组与钣金组不直接借用。一组改变工单顺序，可能影响另一组何时能用到设备。这个项目还在准备，工具尚未试用；现有资料是三个班组过去一个月的每日完工记录。我们没有提供借用关系最初建立的时间，也没有规定如何把其他班组的工具使用情况归并成类别。"}],
+      "expected": {"kind": "FIXED_POLICY_VALUE", "assignment_family": "UNRESOLVED", "assignment_law": "UNKNOWN", "network_pretreatment_status": "UNKNOWN", "unit_network": "两条设备借用关系及影响", "variable_causal_graph": "UNKNOWN", "exposure_mapping": "UNKNOWN", "neighbor_exposure": "UNKNOWN", "covariates": [], "available_information": "UNKNOWN，只有每日记录", "no_scientific_approval": true}
+    },
+    {
+      "id": "retail_variable_relations",
+      "business_question": "我们想研究下个月第一周，将每位注册客户看到新品广告的次数设为每天三次后，客户一周购买金额的分布：希望知道各个金额区间分别会有多大比例的人，并不是只求平均购买金额。研究对象是该周开始时已经注册的全部客户。",
+      "sources": [{"source_id": "research_notes", "text": "业务分析人员提出以下解释，仍需进一步核查：客户此前的购买次数会影响运营人员给他安排多少次新品广告，也会影响他下一周的购买金额；广告展示次数本身也会影响下一周的购买金额。现有资料是最近十周逐位客户的广告次数和购买金额，以及各客户在首次记录前的购买次数。没有描述客户之间相互转发广告或互相影响，也没有给出过去如何统一分配广告次数的具体规则。"}],
+      "expected": {"kind": "INTERVENTIONAL_DISTRIBUTION", "assignment_family": "UNRESOLVED", "assignment_law": "UNKNOWN", "unit_network": "UNKNOWN，未描述不等于证明无干扰", "variable_causal_graph": "保留待核查的购买次数/广告次数/下周金额之间三条原文因果声明，不批准其正确性", "network_pretreatment_status": "UNKNOWN", "exposure_mapping": "UNKNOWN", "covariates": ["首次记录前购买次数"], "available_information": "UNKNOWN，只有逐人记录", "no_scientific_approval": true}
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "schema_version": "cfm-id-draft-v0.1",
+  "target": {
+    "kind": "POLICY_OPTIMIZATION",
+    "description": {
+      "value": "决定给哪些销售员部署AI，以提升总体销售额",
+      "basis": "INTERPRETATION",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "给谁部署AI能提高总体销售额"
+        }
+      ]
+    },
+    "alternatives": [
+      "FIXED_POLICY_VALUE"
+    ]
+  },
+  "units_variables": {
+    "analysis_unit": {
+      "value": "销售员",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "300名销售员"
+        }
+      ]
+    },
+    "treatment": {
+      "value": "是否使用AI",
+      "basis": "INTERPRETATION",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "用AI"
+        }
+      ]
+    },
+    "outcome": {
+      "value": "总体销售额",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "总体销售额"
+        }
+      ]
+    },
+    "covariates": [],
+    "temporal_structure": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "structure": {
+    "unit_network": {
+      "value": "销售员之间存在沟通网络，但未提供实际网络",
+      "basis": "INTERPRETATION",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "大家之间会交流线索"
+        }
+      ]
+    },
+    "variable_causal_graph": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "exposure_mapping": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "network_pretreatment_status": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "information_design": {
+    "assignment_family": "UNRESOLVED",
+    "assignment_law": {
+      "value": "随机给一半人用AI（分配机制歧义）",
+      "basis": "INTERPRETATION",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "随机给一半人用AI"
+        }
+      ]
+    },
+    "population_information_level": "UNRESOLVED",
+    "population_observable_operator": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "sample_data_description": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "assumptions": [],
+  "validity": {
+    "support_or_positivity": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "query_domain": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "other_conditions": []
+  },
+  "ambiguities": [
+    {
+      "field_path": "information_design.assignment_family",
+      "alternatives": [
+        "INDEPENDENT_BERNOULLI",
+        "COMPLETE_RANDOMIZATION"
+      ],
+      "description": "随机给一半未说明每人独立抽签还是恰好固定人数"
+    }
+  ],
+  "clarifying_questions": [
+    {
+      "field_path": "information_design.assignment_family",
+      "question": "是每位销售员独立50%概率处理，还是恰好150人处理？",
+      "reason": "两种设计的联合分配律不同",
+      "priority": "HIGH"
+    }
+  ],
+  "normalization_notes": []
+}

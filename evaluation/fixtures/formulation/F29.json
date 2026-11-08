@@ -1,0 +1,107 @@
+{
+  "schema_version": "cfm-id-draft-v0.1",
+  "target": {
+    "kind": "NETWORK_DESIGN_STANDARDIZED_ARM_MEAN",
+    "description": {
+      "value": "针对一个已知网络 Gibbs 随机分配律，研究多数暴露条件下的设计标准化arm均值。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "针对一个已知网络 Gibbs 随机分配律，研究多数暴露条件下的设计标准化arm均值。"
+        }
+      ]
+    },
+    "alternatives": []
+  },
+  "units_variables": {
+    "analysis_unit": {
+      "value": "业务描述中的员工、节点或团体",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "针对一个已知网络 Gibbs 随机分配律，研究多数暴露条件下的设计标准化arm均值。"
+        }
+      ]
+    },
+    "treatment": {
+      "value": "描述中的AI干预",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前合作网络固定，完整赋值律q(T|W)已知，由图相关Gibbs机制随机分配，不是个体独立分配；S_i为邻居treated严格多数。"
+        }
+      ]
+    },
+    "outcome": {
+      "value": "描述中的销售或结果指标",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "针对一个已知网络 Gibbs 随机分配律，研究多数暴露条件下的设计标准化arm均值。"
+        }
+      ]
+    }
+  },
+  "structure": {
+    "unit_network": {
+      "value": "被描述的网络",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前合作网络固定，完整赋值律q(T|W)已知，由图相关Gibbs机制随机分配，不是个体独立分配；S_i为邻居treated严格多数。"
+        }
+      ]
+    },
+    "exposure_mapping": {
+      "value": "描述中的网络暴露映射",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前合作网络固定，完整赋值律q(T|W)已知，由图相关Gibbs机制随机分配，不是个体独立分配；S_i为邻居treated严格多数。"
+        }
+      ]
+    }
+  },
+  "information_design": {
+    "assignment_family": "OTHER",
+    "assignment_law": {
+      "value": "处理前合作网络固定，完整赋值律q(T|W)已知，由图相关Gibbs机制随机分配，不是个体独立分配；S_i为邻居treated严格多数。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前合作网络固定，完整赋值律q(T|W)已知，由图相关Gibbs机制随机分配，不是个体独立分配；S_i为邻居treated严格多数。"
+        }
+      ]
+    },
+    "population_information_level": "FULL_JOINT_LAW",
+    "population_observable_operator": {
+      "value": "总体可观测信息算子明确为完整联合律 P(T,Yobs|W)，包括完整处理向量及所有结果；这是一个理论信息声明，不代表已知总体数值。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "information",
+          "quote": "总体可观测信息算子明确为完整联合律 P(T,Yobs|W)，包括完整处理向量及所有结果；这是一个理论信息声明，不代表已知总体数值。"
+        }
+      ]
+    },
+    "sample_data_description": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "assumptions": [],
+  "validity": {},
+  "ambiguities": [],
+  "clarifying_questions": [],
+  "normalization_notes": [
+    "MOCK TEST-ONLY fixture synthesized from benchmark reference; not model-generated"
+  ]
+}

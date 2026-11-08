@@ -1,0 +1,102 @@
+{
+  "schema_version": "cfm-id-draft-v0.1",
+  "target": {
+    "kind": "FIXED_POLICY_VALUE",
+    "description": {
+      "value": "求在观察性给AI机制下所有销售员开通AI的固定政策真实收益。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "求在观察性给AI机制下所有销售员开通AI的固定政策真实收益。"
+        }
+      ]
+    },
+    "alternatives": []
+  },
+  "units_variables": {
+    "analysis_unit": {
+      "value": "业务描述中的员工、节点或团体",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "求在观察性给AI机制下所有销售员开通AI的固定政策真实收益。"
+        }
+      ]
+    },
+    "treatment": {
+      "value": "描述中的AI干预",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "没有实施随机实验。公司根据员工和团队表现历史决定是否给 AI，属于观察性处理分配。"
+        }
+      ]
+    },
+    "outcome": {
+      "value": "描述中的销售或结果指标",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "求在观察性给AI机制下所有销售员开通AI的固定政策真实收益。"
+        }
+      ]
+    }
+  },
+  "structure": {
+    "unit_network": {
+      "value": "被描述的网络",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "没有实施随机实验。公司根据员工和团队表现历史决定是否给 AI，属于观察性处理分配。"
+        }
+      ]
+    },
+    "exposure_mapping": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "information_design": {
+    "assignment_family": "OBSERVATIONAL",
+    "assignment_law": {
+      "value": "没有实施随机实验。公司根据员工和团队表现历史决定是否给 AI，属于观察性处理分配。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "没有实施随机实验。公司根据员工和团队表现历史决定是否给 AI，属于观察性处理分配。"
+        }
+      ]
+    },
+    "population_information_level": "FINITE_SAMPLE_DESCRIPTION",
+    "population_observable_operator": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "sample_data_description": {
+      "value": "业务目前只提供一次实验的有限样本数据列 T_i、Y_i，没有声明任何总体观测律。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "information",
+          "quote": "业务目前只提供一次实验的有限样本数据列 T_i、Y_i，没有声明任何总体观测律。"
+        }
+      ]
+    }
+  },
+  "assumptions": [],
+  "validity": {},
+  "ambiguities": [],
+  "clarifying_questions": [],
+  "normalization_notes": [
+    "MOCK TEST-ONLY fixture synthesized from benchmark reference; not model-generated"
+  ]
+}

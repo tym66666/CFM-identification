@@ -1,0 +1,1270 @@
+{
+  "benchmark_version": "0.1.0",
+  "file_count_excluding_manifest": 252,
+  "files": [
+    {
+      "path": "README_ZH.md",
+      "sha256": "2363f02516c00eb917957266da5481f3211b38ad72537e400d1cdb4197f2c529",
+      "size_bytes": 777
+    },
+    {
+      "path": "gateway_target_only_cases.json",
+      "sha256": "1123d2043971da36ad6b573c690a9ce32ad4515451591902fb75ab7504701e48",
+      "size_bytes": 19958
+    },
+    {
+      "path": "gold/nonidentification_witness_NBIB-019.json",
+      "sha256": "e35ceab0b88fddf43112b4d0c804949327d9d3c3d5751e27b531dc90bce8cf6a",
+      "size_bytes": 950
+    },
+    {
+      "path": "gold/references/NBIB-001.json",
+      "sha256": "d61e4b0703bcf4fba283ec23e41bcc77c5c46030874884ed4f0e63f542835591",
+      "size_bytes": 1857
+    },
+    {
+      "path": "gold/references/NBIB-002.json",
+      "sha256": "f0950663b629a4e3883e541f77a49b675d50dbb12c772ef08612ffc9771c3492",
+      "size_bytes": 1651
+    },
+    {
+      "path": "gold/references/NBIB-003.json",
+      "sha256": "0d591b4471979f1595036f5198e9cd9cd183124fa3582747ea5011e676ba6f5a",
+      "size_bytes": 1629
+    },
+    {
+      "path": "gold/references/NBIB-004.json",
+      "sha256": "a47d29636076d8afe849d6a2113302474277ecdeb366efc2a9c75562b72c8f86",
+      "size_bytes": 1865
+    },
+    {
+      "path": "gold/references/NBIB-005.json",
+      "sha256": "b0a2511fc3e9f672833d0ee80a9d355e1c7b670e1a01b4c89e9245d850dac48c",
+      "size_bytes": 2159
+    },
+    {
+      "path": "gold/references/NBIB-006.json",
+      "sha256": "f64b084e2700f8eda976c23d1ad464db95d1cc784fda0cfdd22e19582212bade",
+      "size_bytes": 2024
+    },
+    {
+      "path": "gold/references/NBIB-007.json",
+      "sha256": "110ea75ac3d919437cec0b35ddb5bdc0cd6dd7e95abef0d4ea6d39066980aff1",
+      "size_bytes": 1798
+    },
+    {
+      "path": "gold/references/NBIB-008.json",
+      "sha256": "9f03ed51567b5ef85eaa3f6c9c378e03ae2abcec9702adce18db9847360dc730",
+      "size_bytes": 2212
+    },
+    {
+      "path": "gold/references/NBIB-009.json",
+      "sha256": "e97f18a371ac8e3e3ce6ecf0027878cbf9a0472e67c44eb8ea0674c764e1ec21",
+      "size_bytes": 2302
+    },
+    {
+      "path": "gold/references/NBIB-010.json",
+      "sha256": "5ce73424ca4b7b91d671e2a74389b64954c365e115fbcdf2f8e3307eea040dce",
+      "size_bytes": 1933
+    },
+    {
+      "path": "gold/references/NBIB-011.json",
+      "sha256": "90d565c865877afc27908418901c1d1cf22b4a5684f74c2d1503ab41e21c3e0b",
+      "size_bytes": 1800
+    },
+    {
+      "path": "gold/references/NBIB-012.json",
+      "sha256": "b8b8952f5f04c6acc6278ed91a76a34d72cde7f62ab5d5437cf1b2ad9d042f5f",
+      "size_bytes": 1737
+    },
+    {
+      "path": "gold/references/NBIB-013.json",
+      "sha256": "a2d7e35024cc53b8cbbe2c8120f1ed6269821faf574cf678712cc77b32efa9c3",
+      "size_bytes": 2069
+    },
+    {
+      "path": "gold/references/NBIB-014.json",
+      "sha256": "7d6558af8251401b471cb06975c0ba1abe7f0f365c06296562089295e8c7d8df",
+      "size_bytes": 1750
+    },
+    {
+      "path": "gold/references/NBIB-015.json",
+      "sha256": "0f99b88e875b8c1f6e13a98bad1de9d0d045e6bfc1d09907c785b808540f2d78",
+      "size_bytes": 1749
+    },
+    {
+      "path": "gold/references/NBIB-016.json",
+      "sha256": "1785138865f0585440301aef75a1daf7480d247a2a026430009d7c2d1f046de9",
+      "size_bytes": 1749
+    },
+    {
+      "path": "gold/references/NBIB-017.json",
+      "sha256": "9d5904c98faaa4c535d316fd4b0f7208a4a8d83847eb214f31030addd4d66e5f",
+      "size_bytes": 1819
+    },
+    {
+      "path": "gold/references/NBIB-018.json",
+      "sha256": "f4df5cd634ee64e56365cec865d0360b585bfd9f20e87a111819e416e10d09e0",
+      "size_bytes": 2148
+    },
+    {
+      "path": "gold/references/NBIB-019.json",
+      "sha256": "f67e7ece0dee70a843d069406b263bcbd92f467baca143effff2a7b0a1fd32c4",
+      "size_bytes": 1783
+    },
+    {
+      "path": "gold/references/NBIB-020.json",
+      "sha256": "86a21ddb6aec319f3a8c72027d3eb99bb1513782e8ae37f0a3f31fe4006294a5",
+      "size_bytes": 1809
+    },
+    {
+      "path": "gold/references/NBIB-021.json",
+      "sha256": "505e574f2886021dce18fc0410cbcb1dde001e1320873369807855f7ca46cc4a",
+      "size_bytes": 1883
+    },
+    {
+      "path": "gold/summary.json",
+      "sha256": "d5183ec67a0973c57c667319633d67b870e95fa573581477e8b9af48fd6f7564",
+      "size_bytes": 6272
+    },
+    {
+      "path": "oracle/generator_worlds/NBIB-001.json",
+      "sha256": "e0047c335626d9d9f9c60861dc59acff480fa3dc7fa7b2da053b57edab6aa24e",
+      "size_bytes": 1041
+    },
+    {
+      "path": "oracle/generator_worlds/NBIB-002.json",
+      "sha256": "088d5d4ac3baf99cfe6a8cf732b7544e1f03eca3641bdfdabb155a7f3b1ad2aa",
+      "size_bytes": 805
+    },
+    {
+      "path": "oracle/generator_worlds/NBIB-003.json",
+      "sha256": "a09e55d683946f66047aaec24e440261ab6b33c550d8ee4fb668be19da3e4a61",
+      "size_bytes": 983
+    },
+    {
+      "path": "oracle/generator_worlds/NBIB-004.json",
+      "sha256": "08d7e77b31fe4473af22f36b5eb1da89466df7a5c7750b6830f9b11ddc96e144",
+      "size_bytes": 805
+    },
+    {
+      "path": "oracle/generator_worlds/NBIB-005.json",
+      "sha256": "e447e89896268f6ee0f743b810c97b41170ffaf8427ca3c69bd75b3111f3e781",
+      "size_bytes": 894
+    },
+    {
+      "path": "oracle/generator_worlds/NBIB-006.json",
+      "sha256": "15b4986bf14456149619f1999de38f2bfa8c44e107a3e17e65ab3d7ee3de6255",
+      "size_bytes": 893
+    },
+    {
+      "path": "oracle/generator_worlds/NBIB-007.json",
+      "sha256": "17b55cd4037b4fa453e04ad9b99b64e61829c17cfa1381a445a3f662af0958ad",
+      "size_bytes": 545
+    },
+    {
+      "path": "oracle/generator_worlds/NBIB-008.json",
+      "sha256": "f0d1a3704c27f86dd65dd77a82e4c32a14a184c6307b79d1b77c63aa9ff2efcf",
+      "size_bytes": 543
+    },
+    {
+      "path": "oracle/generator_worlds/NBIB-009.json",
+      "sha256": "cb5b949af80124931d6b45cfd3152f41d9b860a712ea128f103c85947f1e850f",
+      "size_bytes": 543
+    },
+    {
+      "path": "oracle/generator_worlds/NBIB-010.json",
+      "sha256": "c2991d5b21c6875c8804a1fbb6ecd4f08b0edf769d23addf9e53ba9a7e9917ca",
+      "size_bytes": 563
+    },
+    {
+      "path": "oracle/generator_worlds/NBIB-011.json",
+      "sha256": "f061659960ac9d4b1b4db08ab637087139b4b0e7af11052e187c93afd7dfafc8",
+      "size_bytes": 966
+    },
+    {
+      "path": "oracle/generator_worlds/NBIB-012.json",
+      "sha256": "da904d19d288bfe56b501386a8eb4eea7e91b327954f9e64047076ea056572a4",
+      "size_bytes": 1116
+    },
+    {
+      "path": "oracle/generator_worlds/NBIB-013.json",
+      "sha256": "3ae2f41df3439057254a7aa52b8248e8bec65e7a77fb1b2b62c56d2a0617d9be",
+      "size_bytes": 810
+    },
+    {
+      "path": "oracle/generator_worlds/NBIB-014.json",
+      "sha256": "61b7ce4b4af1265a2e0830257914cc081137394ccb1db8fdef3d78188493d6c4",
+      "size_bytes": 810
+    },
+    {
+      "path": "oracle/generator_worlds/NBIB-015.json",
+      "sha256": "ba7c4798437fa776f7a751890b4b49dc975cbf713fdec9aebb81401da17c017c",
+      "size_bytes": 810
+    },
+    {
+      "path": "oracle/generator_worlds/NBIB-016.json",
+      "sha256": "84b4bb115ec0ba6cd2618208296e4190372dc3d3dc4fc5fc55fe7f846759767c",
+      "size_bytes": 810
+    },
+    {
+      "path": "oracle/generator_worlds/NBIB-017.json",
+      "sha256": "4f4a79cbc8b57747248fbaa1b75fa0cb07fb03c9f99b23b66d4599e86a78201c",
+      "size_bytes": 4675
+    },
+    {
+      "path": "oracle/generator_worlds/NBIB-018.json",
+      "sha256": "9af802e51f2c3a301390d6623c6ced01c0fa5a02fa48762af4b6d29978b66463",
+      "size_bytes": 2706
+    },
+    {
+      "path": "oracle/generator_worlds/NBIB-019.json",
+      "sha256": "cd8a4f8dfb101efd74fd1da9da853f7851261ec74926cb4b0a5ff04a525d5a92",
+      "size_bytes": 742
+    },
+    {
+      "path": "oracle/generator_worlds/NBIB-020.json",
+      "sha256": "22af6d8889c3cb16424b22bca3f3b87a342406437e54759e4dc9340e8cd9ec9e",
+      "size_bytes": 805
+    },
+    {
+      "path": "oracle/generator_worlds/NBIB-021.json",
+      "sha256": "d5ba5a1efe7d2b11463024a29748aa73795fc3ebdf369d703a889948f467e768",
+      "size_bytes": 924
+    },
+    {
+      "path": "public/case_index.json",
+      "sha256": "69c36498e2e1900e8131f2f11adc02a1067cefbdd89046ec12cbd86fa127f701",
+      "size_bytes": 17405
+    },
+    {
+      "path": "public/cases/NBIB-001/business_question.md",
+      "sha256": "73e014ecdb909be3c01981c2f81918bc6bc13bf7d0d6522fe5f50b1335d915cb",
+      "size_bytes": 705
+    },
+    {
+      "path": "public/cases/NBIB-001/data_dictionary.md",
+      "sha256": "bfcf7bf836c772f19af284a745f4e96bf682eb51a2918074d424a7960f305817",
+      "size_bytes": 1822
+    },
+    {
+      "path": "public/cases/NBIB-001/design_probabilities.csv",
+      "sha256": "ab189fe5d0d8ac79ebbfab8bed5b629ee97e172d781161da620e249fb1e92bd6",
+      "size_bytes": 1158
+    },
+    {
+      "path": "public/cases/NBIB-001/market_episodes.csv",
+      "sha256": "b6a350bcdf01ea927ad5b2def2c569a0c2783937c7ae2ad60196cccaf6c09454",
+      "size_bytes": 124
+    },
+    {
+      "path": "public/cases/NBIB-001/network_edges.csv",
+      "sha256": "efdbd8f93f899fa90d8854d4320e254de381d735a0a75044ef40dbf00dc766a0",
+      "size_bytes": 5632
+    },
+    {
+      "path": "public/cases/NBIB-001/outcomes.csv",
+      "sha256": "d32bba856c725d1a5e321ecd257e457396fd4c6f7a2920e6ff2c871abd293a61",
+      "size_bytes": 3332
+    },
+    {
+      "path": "public/cases/NBIB-001/study_protocol.md",
+      "sha256": "e7fd39a694b1cf6ff9615cddb7d2e74491b5da91bda5ddd0bc4bb7004f86b4d1",
+      "size_bytes": 411
+    },
+    {
+      "path": "public/cases/NBIB-001/submission_manifest.json",
+      "sha256": "29bb66a743eda9d6ea481bbb6ea94bbacd269559d31326c115a8b34faa5e30e0",
+      "size_bytes": 475
+    },
+    {
+      "path": "public/cases/NBIB-001/treatment.csv",
+      "sha256": "8d27bd59f887b8dc1d91915b4dd41d6895ed92b6a05e66221a80cb74031b7959",
+      "size_bytes": 2053
+    },
+    {
+      "path": "public/cases/NBIB-001/units.csv",
+      "sha256": "d1d3beebc5d2d7517cc3ac0f0cc3aee2df2273a235c786a35f1542deb3b9cebd",
+      "size_bytes": 2505
+    },
+    {
+      "path": "public/cases/NBIB-002/business_question.md",
+      "sha256": "7c78f0c8aff0cfa40c3b58ebc774da35a072dc2723feee8bc94ef8c72e1022f5",
+      "size_bytes": 651
+    },
+    {
+      "path": "public/cases/NBIB-002/data_dictionary.md",
+      "sha256": "a35d3df157dd436ed2f4f3dba460410c954ab2bdc41d5a09208334376b59edb4",
+      "size_bytes": 1827
+    },
+    {
+      "path": "public/cases/NBIB-002/market_episodes.csv",
+      "sha256": "b6a350bcdf01ea927ad5b2def2c569a0c2783937c7ae2ad60196cccaf6c09454",
+      "size_bytes": 124
+    },
+    {
+      "path": "public/cases/NBIB-002/network_edges.csv",
+      "sha256": "5d84621bd2c0c486beb1949605fb6859f107d1cd1491ba939c41f168e4c83142",
+      "size_bytes": 1054
+    },
+    {
+      "path": "public/cases/NBIB-002/outcomes.csv",
+      "sha256": "c168bf3bf637f4f33c6132daea65acf15d6847d2f346491279723527c9dca630",
+      "size_bytes": 2064
+    },
+    {
+      "path": "public/cases/NBIB-002/study_protocol.md",
+      "sha256": "9ed8975aee236c920f19406af2b0f0370e7404bbc073eae24f149b359c2638e5",
+      "size_bytes": 395
+    },
+    {
+      "path": "public/cases/NBIB-002/submission_manifest.json",
+      "sha256": "f8384ab876cbd74d8f11d82cbd1a2cd7efbd49c428991531430a0511d2599900",
+      "size_bytes": 442
+    },
+    {
+      "path": "public/cases/NBIB-002/treatment.csv",
+      "sha256": "fd4e43418f6533d247cd13a99746a17a46e6e0f3ec288206bf9a4c13e6470997",
+      "size_bytes": 1253
+    },
+    {
+      "path": "public/cases/NBIB-002/units.csv",
+      "sha256": "ee724c1d421652c28a738d64f3c0ea7ae4d290e8714e800a46a898ef9b1ce607",
+      "size_bytes": 1543
+    },
+    {
+      "path": "public/cases/NBIB-003/business_question.md",
+      "sha256": "2b31cd2a5a087f87fe0fb7b5264988cca96ee0475a3a654d48a6675b43c57569",
+      "size_bytes": 680
+    },
+    {
+      "path": "public/cases/NBIB-003/cluster_randomization.csv",
+      "sha256": "ad132fa909c101f631b150b02ecfbb378cc4b589f77d39bc4aec3224d4eafcce",
+      "size_bytes": 114
+    },
+    {
+      "path": "public/cases/NBIB-003/data_dictionary.md",
+      "sha256": "c693429631937eeb7c1a452d8e53b33755dc6fea4f3106ec4684ff8c51d6533a",
+      "size_bytes": 1823
+    },
+    {
+      "path": "public/cases/NBIB-003/market_episodes.csv",
+      "sha256": "b6a350bcdf01ea927ad5b2def2c569a0c2783937c7ae2ad60196cccaf6c09454",
+      "size_bytes": 124
+    },
+    {
+      "path": "public/cases/NBIB-003/network_edges.csv",
+      "sha256": "53ee5b4fada83e37e804f63c2c61fab11445b585fc3548dad3b4138d48814499",
+      "size_bytes": 2986
+    },
+    {
+      "path": "public/cases/NBIB-003/outcomes.csv",
+      "sha256": "a80325a790b5cee08f18dc52e10d64b0788e3cdb880fa848bd8e577e25500611",
+      "size_bytes": 3019
+    },
+    {
+      "path": "public/cases/NBIB-003/study_protocol.md",
+      "sha256": "b99e646a390f9b288d17c4d8f6e5291db70575fde14235f2ee9d486fb0df7528",
+      "size_bytes": 379
+    },
+    {
+      "path": "public/cases/NBIB-003/submission_manifest.json",
+      "sha256": "031ce4a81556c03ef35d484992365e82f9f727db46789af106e669cb9e8b5457",
+      "size_bytes": 472
+    },
+    {
+      "path": "public/cases/NBIB-003/treatment.csv",
+      "sha256": "d6959df3f314f9f08a25c5693c9ccf73f1f62f4c67e303c40d8ca1e17a3e9d86",
+      "size_bytes": 1853
+    },
+    {
+      "path": "public/cases/NBIB-003/units.csv",
+      "sha256": "e285cd9fc545daff5966b724d796e786ad2a2f6a3cfca8e2e09bc0793802c775",
+      "size_bytes": 2263
+    },
+    {
+      "path": "public/cases/NBIB-004/business_question.md",
+      "sha256": "b79beff17975d966263788f37fd637af141bcc5aa28be612e903b0599317d981",
+      "size_bytes": 676
+    },
+    {
+      "path": "public/cases/NBIB-004/data_dictionary.md",
+      "sha256": "3640ab6d7a09b0ca0b0c5c17e3042a820e74a45ac18bb032001ac8f962c61218",
+      "size_bytes": 1825
+    },
+    {
+      "path": "public/cases/NBIB-004/market_episodes.csv",
+      "sha256": "b6a350bcdf01ea927ad5b2def2c569a0c2783937c7ae2ad60196cccaf6c09454",
+      "size_bytes": 124
+    },
+    {
+      "path": "public/cases/NBIB-004/network_edges.csv",
+      "sha256": "0d58e966822a22caac93394e0f81674231ba8b29bf2102fd75b114e17d3e768b",
+      "size_bytes": 1768
+    },
+    {
+      "path": "public/cases/NBIB-004/outcomes.csv",
+      "sha256": "3689a1ae763e418b3802775b92ea632613d7dda701ebaeadb6462027f10fef22",
+      "size_bytes": 2055
+    },
+    {
+      "path": "public/cases/NBIB-004/study_protocol.md",
+      "sha256": "d41e70ed8b80ec6b746bf34fa5693a25862ef76c5c9050dc3ba15ab3a8c10949",
+      "size_bytes": 405
+    },
+    {
+      "path": "public/cases/NBIB-004/submission_manifest.json",
+      "sha256": "7b19008680d5a5576c3a5a8bdb927b5ba5417dab694d364e202b610d35b9040f",
+      "size_bytes": 445
+    },
+    {
+      "path": "public/cases/NBIB-004/treatment.csv",
+      "sha256": "11a194ab42ce7cebeb95b61aa7151b658c219c74c2d6753929dc34088922ec00",
+      "size_bytes": 1253
+    },
+    {
+      "path": "public/cases/NBIB-004/units.csv",
+      "sha256": "00d4fd5e197627a53869f2e41bb4015d4bef324c8000a52fc1a0b5e7dd202a07",
+      "size_bytes": 1539
+    },
+    {
+      "path": "public/cases/NBIB-005/business_question.md",
+      "sha256": "dcaa07d65380f6c4df19a304e893915bd51711e5bb6916b4738763c7e31c1a54",
+      "size_bytes": 754
+    },
+    {
+      "path": "public/cases/NBIB-005/data_dictionary.md",
+      "sha256": "7584b6515f5e9ec8d58a10769e1a7f2da6f465285f65f9b8fb9fccfa31691128",
+      "size_bytes": 1813
+    },
+    {
+      "path": "public/cases/NBIB-005/market_episodes.csv",
+      "sha256": "a695daaeff54c1e5d6d44e51931f54e7a2260fa9b615e4831adfba444a6b02df",
+      "size_bytes": 126
+    },
+    {
+      "path": "public/cases/NBIB-005/network_edges.csv",
+      "sha256": "2769dba45710297afe749392363712d1ac39992b43b19c29c7490c29276e4a38",
+      "size_bytes": 3448
+    },
+    {
+      "path": "public/cases/NBIB-005/outcomes.csv",
+      "sha256": "9286b3ac8ac028ba30ff7840d726c9e0ce49fe4abfccff0f4dd619a3364cf2a2",
+      "size_bytes": 2510
+    },
+    {
+      "path": "public/cases/NBIB-005/quota_profiles.csv",
+      "sha256": "8f7e218ba47b3fdb880b2b1f65856f90a7ac16c7e1f1721a0a1f5074580496f5",
+      "size_bytes": 121
+    },
+    {
+      "path": "public/cases/NBIB-005/study_protocol.md",
+      "sha256": "f20ff2f910b488ac88c74189516300d54dd3bb11b966d3362d9fb8a5d5311ce5",
+      "size_bytes": 495
+    },
+    {
+      "path": "public/cases/NBIB-005/submission_manifest.json",
+      "sha256": "aef981c02f83549a5516a31b27a9d7f4e13fb6ceb7446c1e88de23b4baca3ac0",
+      "size_bytes": 471
+    },
+    {
+      "path": "public/cases/NBIB-005/treatment.csv",
+      "sha256": "786869bd71206f4b57870f50770a737ae6ad705a6da9e3f2e60e50817234c802",
+      "size_bytes": 1553
+    },
+    {
+      "path": "public/cases/NBIB-005/units.csv",
+      "sha256": "87bc4aaf4fa10a9309234df0287b646318705b6ba8822ee4b78335091d0d34a0",
+      "size_bytes": 1909
+    },
+    {
+      "path": "public/cases/NBIB-006/business_question.md",
+      "sha256": "19a86f05910fe20c7ec27cad3ca261e9c8b7571e828278f28b9198e8c5b0f47b",
+      "size_bytes": 707
+    },
+    {
+      "path": "public/cases/NBIB-006/data_dictionary.md",
+      "sha256": "7584b6515f5e9ec8d58a10769e1a7f2da6f465285f65f9b8fb9fccfa31691128",
+      "size_bytes": 1813
+    },
+    {
+      "path": "public/cases/NBIB-006/market_episodes.csv",
+      "sha256": "a695daaeff54c1e5d6d44e51931f54e7a2260fa9b615e4831adfba444a6b02df",
+      "size_bytes": 126
+    },
+    {
+      "path": "public/cases/NBIB-006/network_edges.csv",
+      "sha256": "2769dba45710297afe749392363712d1ac39992b43b19c29c7490c29276e4a38",
+      "size_bytes": 3448
+    },
+    {
+      "path": "public/cases/NBIB-006/outcomes.csv",
+      "sha256": "926d611d0b6f9f184faec7d0ea0a0285541ba9f1318625bbf668bdfe7f4ffd96",
+      "size_bytes": 2509
+    },
+    {
+      "path": "public/cases/NBIB-006/quota_profiles.csv",
+      "sha256": "8f7e218ba47b3fdb880b2b1f65856f90a7ac16c7e1f1721a0a1f5074580496f5",
+      "size_bytes": 121
+    },
+    {
+      "path": "public/cases/NBIB-006/study_protocol.md",
+      "sha256": "802ce2bce38188c8bd6602e55c2f008b9ffac3421442edf6b4afd0b165c35202",
+      "size_bytes": 471
+    },
+    {
+      "path": "public/cases/NBIB-006/submission_manifest.json",
+      "sha256": "aa95e1756eba8d8fc3994fbc6bdf7b7edda6497979df59e4e96f713e35db9282",
+      "size_bytes": 486
+    },
+    {
+      "path": "public/cases/NBIB-006/treatment.csv",
+      "sha256": "786869bd71206f4b57870f50770a737ae6ad705a6da9e3f2e60e50817234c802",
+      "size_bytes": 1553
+    },
+    {
+      "path": "public/cases/NBIB-006/units.csv",
+      "sha256": "87bc4aaf4fa10a9309234df0287b646318705b6ba8822ee4b78335091d0d34a0",
+      "size_bytes": 1909
+    },
+    {
+      "path": "public/cases/NBIB-007/business_question.md",
+      "sha256": "1cefc31e3d493eec859973485986566cb13814a31061dd9b2f887765e988f57e",
+      "size_bytes": 657
+    },
+    {
+      "path": "public/cases/NBIB-007/candidate_policies.csv",
+      "sha256": "3912f95a0052d4d9b87f913078dbe743592481d5e394351a4c4a21b00f744246",
+      "size_bytes": 427
+    },
+    {
+      "path": "public/cases/NBIB-007/data_dictionary.md",
+      "sha256": "510f977f693a653fae31542a2291b3ece846c5e5053b4195e6d11fbdbe56fed3",
+      "size_bytes": 1828
+    },
+    {
+      "path": "public/cases/NBIB-007/design_probabilities.csv",
+      "sha256": "d2b7fbad2f1152d67a314cad2aa9f60f051123e47cdc9fc9027881c5ee82025d",
+      "size_bytes": 234
+    },
+    {
+      "path": "public/cases/NBIB-007/market_episodes.csv",
+      "sha256": "b6a350bcdf01ea927ad5b2def2c569a0c2783937c7ae2ad60196cccaf6c09454",
+      "size_bytes": 124
+    },
+    {
+      "path": "public/cases/NBIB-007/network_edges.csv",
+      "sha256": "0408ace5a97c866b597f7cd4e5dd54070c267f842e5342bcb1ed76539dff1340",
+      "size_bytes": 634
+    },
+    {
+      "path": "public/cases/NBIB-007/outcomes.csv",
+      "sha256": "2d371712bfd6f88de1d3fd4fcf46ae07afd14eba126d28ab52fbb644d8a20a07",
+      "size_bytes": 635
+    },
+    {
+      "path": "public/cases/NBIB-007/study_protocol.md",
+      "sha256": "6beb1dfe4f6f8a8afa4cd20b0d8041a5f1cb5424cf5c34baa45cb3298fe047fb",
+      "size_bytes": 405
+    },
+    {
+      "path": "public/cases/NBIB-007/submission_manifest.json",
+      "sha256": "2013adff343ae58750669043a543a5cc49d1d156803e21a9211eabd54b026bbe",
+      "size_bytes": 516
+    },
+    {
+      "path": "public/cases/NBIB-007/treatment.csv",
+      "sha256": "6114fe3644d2c2a3d96d8d7f9cf7bbfa057a085d6eb0d996557f74bf93f9e121",
+      "size_bytes": 403
+    },
+    {
+      "path": "public/cases/NBIB-007/units.csv",
+      "sha256": "f2cbe9ac6c4155defdfc8830dfd10bc62ca86132065c0effc41308472ec9cc77",
+      "size_bytes": 516
+    },
+    {
+      "path": "public/cases/NBIB-008/business_question.md",
+      "sha256": "da808f234a63f1f477022c63896ca2e58ba30f2dd5cf67f16f6f8159e80de5d1",
+      "size_bytes": 661
+    },
+    {
+      "path": "public/cases/NBIB-008/candidate_policies.csv",
+      "sha256": "3912f95a0052d4d9b87f913078dbe743592481d5e394351a4c4a21b00f744246",
+      "size_bytes": 427
+    },
+    {
+      "path": "public/cases/NBIB-008/data_dictionary.md",
+      "sha256": "3fdfcfd24e808530a48194cbbad625686ad7da503fa3ea13af5d4ff6e3153fa7",
+      "size_bytes": 1831
+    },
+    {
+      "path": "public/cases/NBIB-008/market_episodes.csv",
+      "sha256": "b6a350bcdf01ea927ad5b2def2c569a0c2783937c7ae2ad60196cccaf6c09454",
+      "size_bytes": 124
+    },
+    {
+      "path": "public/cases/NBIB-008/network_edges.csv",
+      "sha256": "7dc7d79e00fa7552ac6c67e0f5bbecbc3bc9768e220678d271296e5e88e4aea0",
+      "size_bytes": 319
+    },
+    {
+      "path": "public/cases/NBIB-008/outcomes.csv",
+      "sha256": "6074511f1e66bb17b8a721c55786512eec09507556dc70e3082bfde70fa5b811",
+      "size_bytes": 630
+    },
+    {
+      "path": "public/cases/NBIB-008/study_protocol.md",
+      "sha256": "9a4ac49550958dfa3890f36cd8450a0b9a0fb94a36d35036457fedf5ee7c55fb",
+      "size_bytes": 394
+    },
+    {
+      "path": "public/cases/NBIB-008/submission_manifest.json",
+      "sha256": "e886cfca3457472571adeb3aa79d51945d6b0102160702e2f43c209f7b34e921",
+      "size_bytes": 490
+    },
+    {
+      "path": "public/cases/NBIB-008/treatment.csv",
+      "sha256": "856634767120d6f19858341ca40428fa6918865c48c2cc2c45e52afccac82d33",
+      "size_bytes": 403
+    },
+    {
+      "path": "public/cases/NBIB-008/units.csv",
+      "sha256": "9c06d396295ab79e452ae8d5feb1eb6283ee63a08e189905a58a7cd9ffd3b6e9",
+      "size_bytes": 516
+    },
+    {
+      "path": "public/cases/NBIB-009/business_question.md",
+      "sha256": "afd3405e4874946f363545f939e575b9c19022f79daa615b06d067ae7ad4fa27",
+      "size_bytes": 741
+    },
+    {
+      "path": "public/cases/NBIB-009/candidate_policies.csv",
+      "sha256": "3912f95a0052d4d9b87f913078dbe743592481d5e394351a4c4a21b00f744246",
+      "size_bytes": 427
+    },
+    {
+      "path": "public/cases/NBIB-009/data_dictionary.md",
+      "sha256": "3fdfcfd24e808530a48194cbbad625686ad7da503fa3ea13af5d4ff6e3153fa7",
+      "size_bytes": 1831
+    },
+    {
+      "path": "public/cases/NBIB-009/market_episodes.csv",
+      "sha256": "b6a350bcdf01ea927ad5b2def2c569a0c2783937c7ae2ad60196cccaf6c09454",
+      "size_bytes": 124
+    },
+    {
+      "path": "public/cases/NBIB-009/network_edges.csv",
+      "sha256": "7dc7d79e00fa7552ac6c67e0f5bbecbc3bc9768e220678d271296e5e88e4aea0",
+      "size_bytes": 319
+    },
+    {
+      "path": "public/cases/NBIB-009/outcomes.csv",
+      "sha256": "6074511f1e66bb17b8a721c55786512eec09507556dc70e3082bfde70fa5b811",
+      "size_bytes": 630
+    },
+    {
+      "path": "public/cases/NBIB-009/study_protocol.md",
+      "sha256": "2b0ed66a7f25eddd66c3b4330d019ad02c0fe341c69f767a7ac0e04d3ccc4b4f",
+      "size_bytes": 467
+    },
+    {
+      "path": "public/cases/NBIB-009/submission_manifest.json",
+      "sha256": "3b8d09c511d9fda7ac27e4b3d701d87d5390a908935e200a066a0360983ee85f",
+      "size_bytes": 490
+    },
+    {
+      "path": "public/cases/NBIB-009/treatment.csv",
+      "sha256": "856634767120d6f19858341ca40428fa6918865c48c2cc2c45e52afccac82d33",
+      "size_bytes": 403
+    },
+    {
+      "path": "public/cases/NBIB-009/units.csv",
+      "sha256": "9c06d396295ab79e452ae8d5feb1eb6283ee63a08e189905a58a7cd9ffd3b6e9",
+      "size_bytes": 516
+    },
+    {
+      "path": "public/cases/NBIB-010/business_question.md",
+      "sha256": "c6425ddf13c32d1b07fee8153d77a4ea692dc5d1270590cf9110f301110188da",
+      "size_bytes": 721
+    },
+    {
+      "path": "public/cases/NBIB-010/candidate_policies.csv",
+      "sha256": "b591618247ea766e8461283ec0adc236fa99a7c79b36b088af6c1d70e7150d93",
+      "size_bytes": 799
+    },
+    {
+      "path": "public/cases/NBIB-010/data_dictionary.md",
+      "sha256": "cfe8026dc1d3eabce384b1d4c11e738aa9b803e7e9ba735805ecec1661dbcda2",
+      "size_bytes": 1829
+    },
+    {
+      "path": "public/cases/NBIB-010/design_probabilities.csv",
+      "sha256": "3124726541f4acf77be2c542c17e516a6b42e2859f18f74e801a5910540e61c1",
+      "size_bytes": 262
+    },
+    {
+      "path": "public/cases/NBIB-010/market_episodes.csv",
+      "sha256": "b6a350bcdf01ea927ad5b2def2c569a0c2783937c7ae2ad60196cccaf6c09454",
+      "size_bytes": 124
+    },
+    {
+      "path": "public/cases/NBIB-010/network_edges.csv",
+      "sha256": "722fc4f529287915a0808aa17e3793804fb7e869cc8499022378fabc3e07ae48",
+      "size_bytes": 697
+    },
+    {
+      "path": "public/cases/NBIB-010/outcomes.csv",
+      "sha256": "8c7692d4ab92e6b3d3caa80f1fd7cca440a15a9f704b1163adff58db3c4cb326",
+      "size_bytes": 729
+    },
+    {
+      "path": "public/cases/NBIB-010/study_protocol.md",
+      "sha256": "8f6c911da652419c36dd762d62a56751e702b8f86b62935e926fa4df44ecdfcf",
+      "size_bytes": 399
+    },
+    {
+      "path": "public/cases/NBIB-010/submission_manifest.json",
+      "sha256": "1555d47db41799a5ce141481223102c985448c650d834d67d5c6f249fb188e8a",
+      "size_bytes": 513
+    },
+    {
+      "path": "public/cases/NBIB-010/treatment.csv",
+      "sha256": "c99866995ced761d78ddc7a2451b603c9ad8be885c5444d1b48efa371330c00b",
+      "size_bytes": 453
+    },
+    {
+      "path": "public/cases/NBIB-010/units.csv",
+      "sha256": "702b49e363527fa70cc031ce9a020f45a56acd1a59cb6fcbe37aca86293af624",
+      "size_bytes": 573
+    },
+    {
+      "path": "public/cases/NBIB-011/business_question.md",
+      "sha256": "f85a6f4961465ea6ba8a69405ef72fee234f463bf2b8976164d9b107ee9faa5c",
+      "size_bytes": 715
+    },
+    {
+      "path": "public/cases/NBIB-011/candidate_policies.csv",
+      "sha256": "7cc5ed346cd81b7e3c3b36ef166c43d823d0d98f1df18790ae43552515575559",
+      "size_bytes": 1883
+    },
+    {
+      "path": "public/cases/NBIB-011/data_dictionary.md",
+      "sha256": "2dcdb7c37a96893b98e57f78b84bd33cdd2b07cd66408d5d0e26a0890b527212",
+      "size_bytes": 1822
+    },
+    {
+      "path": "public/cases/NBIB-011/market_episodes.csv",
+      "sha256": "b6a350bcdf01ea927ad5b2def2c569a0c2783937c7ae2ad60196cccaf6c09454",
+      "size_bytes": 124
+    },
+    {
+      "path": "public/cases/NBIB-011/network_edges.csv",
+      "sha256": "349cacfafbf9c227154faeae0e5e2cd35ca745db1026c67c879de11ddc29f2f6",
+      "size_bytes": 2356
+    },
+    {
+      "path": "public/cases/NBIB-011/outcomes.csv",
+      "sha256": "fc5c5ee2bcdc5786f2d36379cd6065bc385743227a68bc356b00fa737b8f10c0",
+      "size_bytes": 2961
+    },
+    {
+      "path": "public/cases/NBIB-011/study_protocol.md",
+      "sha256": "727ec1f2603c23025611a0aed72488a5aa058689f904fd15b97cf1f82e08c152",
+      "size_bytes": 391
+    },
+    {
+      "path": "public/cases/NBIB-011/submission_manifest.json",
+      "sha256": "7244c9933db531cf24ef88bc309981487cc68964d2a07daa794b64b9f9b7f8d3",
+      "size_bytes": 478
+    },
+    {
+      "path": "public/cases/NBIB-011/treatment.csv",
+      "sha256": "f270e847d09c22060e1d58d37d6f0c93a69d6d36f6750b10b8537226a6926f7f",
+      "size_bytes": 1803
+    },
+    {
+      "path": "public/cases/NBIB-011/units.csv",
+      "sha256": "adb1c0336f997c4c048629df1cdf77eb8f1de0f22e039ab920fb651cbc3781f4",
+      "size_bytes": 2212
+    },
+    {
+      "path": "public/cases/NBIB-012/business_question.md",
+      "sha256": "031b673f0382ad9f09573fe32bb0834d0b8743472216e807973651372bdb6666",
+      "size_bytes": 775
+    },
+    {
+      "path": "public/cases/NBIB-012/data_dictionary.md",
+      "sha256": "dbea3c9a64d48eee23337f8115f1788e75be355586196264ba805f4700e66d57",
+      "size_bytes": 1835
+    },
+    {
+      "path": "public/cases/NBIB-012/market_episodes.csv",
+      "sha256": "b6a350bcdf01ea927ad5b2def2c569a0c2783937c7ae2ad60196cccaf6c09454",
+      "size_bytes": 124
+    },
+    {
+      "path": "public/cases/NBIB-012/network_edges.csv",
+      "sha256": "f339b6cbce86d683ab8a7dda1a0ccf1e623bd1e069668ac65b6c0484a161fce7",
+      "size_bytes": 1936
+    },
+    {
+      "path": "public/cases/NBIB-012/outcomes.csv",
+      "sha256": "fa53a7f738851b7e9764f86806723c9bd6779d6ae0f7f391825060ba3c12f191",
+      "size_bytes": 3747
+    },
+    {
+      "path": "public/cases/NBIB-012/study_protocol.md",
+      "sha256": "6b65b46a9d49d065ff9d0d64db7aa1d64d0a4fc671724c989b58eb29b9814424",
+      "size_bytes": 377
+    },
+    {
+      "path": "public/cases/NBIB-012/submission_manifest.json",
+      "sha256": "fd2799b39cc15c3e132af8532c0106ccb224ebf9d64cf1976cd1d636eefdaa0a",
+      "size_bytes": 466
+    },
+    {
+      "path": "public/cases/NBIB-012/treatment.csv",
+      "sha256": "c46654f9e0688a6f85b847b5a2ca00e0b53ccf878fe404fca4005e27fc777833",
+      "size_bytes": 2303
+    },
+    {
+      "path": "public/cases/NBIB-012/units.csv",
+      "sha256": "5a105f27514da53ec5a9dba52da092b1cccc0a760cea00a17954cac177e66435",
+      "size_bytes": 2818
+    },
+    {
+      "path": "public/cases/NBIB-013/business_question.md",
+      "sha256": "41a89476a94471a3a87c28c0d87fafb59f0cdb947515df09cd08f095e4d712db",
+      "size_bytes": 814
+    },
+    {
+      "path": "public/cases/NBIB-013/data_dictionary.md",
+      "sha256": "8c55499e59c0db8415aeab2e28b117c706c94d0bbbc70fc0f6128d3bd4379352",
+      "size_bytes": 1821
+    },
+    {
+      "path": "public/cases/NBIB-013/market_episodes.csv",
+      "sha256": "6ca8b47ecb75a684a539e58045cec87f39e00e5481e9bf423e7e881c851c88da",
+      "size_bytes": 599
+    },
+    {
+      "path": "public/cases/NBIB-013/network_edges.csv",
+      "sha256": "0d58e966822a22caac93394e0f81674231ba8b29bf2102fd75b114e17d3e768b",
+      "size_bytes": 1768
+    },
+    {
+      "path": "public/cases/NBIB-013/outcomes.csv",
+      "sha256": "e2bc5e9aff160f4fa87f7e1d670004b4eb7933b2cf03a613bcd2d6e02b6996c7",
+      "size_bytes": 47891
+    },
+    {
+      "path": "public/cases/NBIB-013/study_protocol.md",
+      "sha256": "c6d404317a021a73301d742f4ea9bd23dfaf20ddcc9cf5cc5e501ada2e32d0d0",
+      "size_bytes": 484
+    },
+    {
+      "path": "public/cases/NBIB-013/submission_manifest.json",
+      "sha256": "bdc207c2417d3d5d1f62f4bd0d29942e3b299d2944a6eb24f4c3be32fbeecf4b",
+      "size_bytes": 451
+    },
+    {
+      "path": "public/cases/NBIB-013/treatment.csv",
+      "sha256": "c41a61602379af17b334df7d87c061d4d1d0df1332679efe77dd45fd22697131",
+      "size_bytes": 28853
+    },
+    {
+      "path": "public/cases/NBIB-013/units.csv",
+      "sha256": "49e6f9d9fc68df62831be816eaf132577aaa2064a6f6201abe0a88be3736ed3e",
+      "size_bytes": 1543
+    },
+    {
+      "path": "public/cases/NBIB-014/business_question.md",
+      "sha256": "c065701fa2a3117e7ae13ad7d2f1f91128ae76a49fcbedee7db4311f5eeacf8b",
+      "size_bytes": 739
+    },
+    {
+      "path": "public/cases/NBIB-014/data_dictionary.md",
+      "sha256": "8c55499e59c0db8415aeab2e28b117c706c94d0bbbc70fc0f6128d3bd4379352",
+      "size_bytes": 1821
+    },
+    {
+      "path": "public/cases/NBIB-014/market_episodes.csv",
+      "sha256": "6ca8b47ecb75a684a539e58045cec87f39e00e5481e9bf423e7e881c851c88da",
+      "size_bytes": 599
+    },
+    {
+      "path": "public/cases/NBIB-014/network_edges.csv",
+      "sha256": "0d58e966822a22caac93394e0f81674231ba8b29bf2102fd75b114e17d3e768b",
+      "size_bytes": 1768
+    },
+    {
+      "path": "public/cases/NBIB-014/outcomes.csv",
+      "sha256": "e2bc5e9aff160f4fa87f7e1d670004b4eb7933b2cf03a613bcd2d6e02b6996c7",
+      "size_bytes": 47891
+    },
+    {
+      "path": "public/cases/NBIB-014/study_protocol.md",
+      "sha256": "e4a07ec3e09434ae051c94be6bdafa97f3c83d9cf8dbe1a1f506469980d52d74",
+      "size_bytes": 377
+    },
+    {
+      "path": "public/cases/NBIB-014/submission_manifest.json",
+      "sha256": "bc5b35887d9e74b8781a8b5c314ab0aab76f625207080f1f0789db7be082e241",
+      "size_bytes": 457
+    },
+    {
+      "path": "public/cases/NBIB-014/treatment.csv",
+      "sha256": "c41a61602379af17b334df7d87c061d4d1d0df1332679efe77dd45fd22697131",
+      "size_bytes": 28853
+    },
+    {
+      "path": "public/cases/NBIB-014/units.csv",
+      "sha256": "49e6f9d9fc68df62831be816eaf132577aaa2064a6f6201abe0a88be3736ed3e",
+      "size_bytes": 1543
+    },
+    {
+      "path": "public/cases/NBIB-015/business_question.md",
+      "sha256": "6738f1166180c506c528adf1d820e1a0244988f5fffe1cdce512fa7232237ecf",
+      "size_bytes": 724
+    },
+    {
+      "path": "public/cases/NBIB-015/data_dictionary.md",
+      "sha256": "8c55499e59c0db8415aeab2e28b117c706c94d0bbbc70fc0f6128d3bd4379352",
+      "size_bytes": 1821
+    },
+    {
+      "path": "public/cases/NBIB-015/market_episodes.csv",
+      "sha256": "6ca8b47ecb75a684a539e58045cec87f39e00e5481e9bf423e7e881c851c88da",
+      "size_bytes": 599
+    },
+    {
+      "path": "public/cases/NBIB-015/network_edges.csv",
+      "sha256": "0d58e966822a22caac93394e0f81674231ba8b29bf2102fd75b114e17d3e768b",
+      "size_bytes": 1768
+    },
+    {
+      "path": "public/cases/NBIB-015/outcomes.csv",
+      "sha256": "e2bc5e9aff160f4fa87f7e1d670004b4eb7933b2cf03a613bcd2d6e02b6996c7",
+      "size_bytes": 47891
+    },
+    {
+      "path": "public/cases/NBIB-015/study_protocol.md",
+      "sha256": "96f0be87385ad2e23edd3b1c8634b035c397dc0d837bb3e24b92307cb0f43f9e",
+      "size_bytes": 337
+    },
+    {
+      "path": "public/cases/NBIB-015/submission_manifest.json",
+      "sha256": "7c2e99999141934932e43fe191ba604285e6431fc0d27c18df22483e2b2be0b2",
+      "size_bytes": 463
+    },
+    {
+      "path": "public/cases/NBIB-015/treatment.csv",
+      "sha256": "c41a61602379af17b334df7d87c061d4d1d0df1332679efe77dd45fd22697131",
+      "size_bytes": 28853
+    },
+    {
+      "path": "public/cases/NBIB-015/units.csv",
+      "sha256": "49e6f9d9fc68df62831be816eaf132577aaa2064a6f6201abe0a88be3736ed3e",
+      "size_bytes": 1543
+    },
+    {
+      "path": "public/cases/NBIB-016/business_question.md",
+      "sha256": "318d6ebeab9f413e0a8751960b2a2ba88d2bd205bb0663680d81fcab0636f5eb",
+      "size_bytes": 625
+    },
+    {
+      "path": "public/cases/NBIB-016/data_dictionary.md",
+      "sha256": "8c55499e59c0db8415aeab2e28b117c706c94d0bbbc70fc0f6128d3bd4379352",
+      "size_bytes": 1821
+    },
+    {
+      "path": "public/cases/NBIB-016/market_episodes.csv",
+      "sha256": "6ca8b47ecb75a684a539e58045cec87f39e00e5481e9bf423e7e881c851c88da",
+      "size_bytes": 599
+    },
+    {
+      "path": "public/cases/NBIB-016/network_edges.csv",
+      "sha256": "0d58e966822a22caac93394e0f81674231ba8b29bf2102fd75b114e17d3e768b",
+      "size_bytes": 1768
+    },
+    {
+      "path": "public/cases/NBIB-016/outcomes.csv",
+      "sha256": "756bf028738dcf2af9267df6ee4f6f9bcac0708cfecccf1f1b2cee7a03625ec0",
+      "size_bytes": 47501
+    },
+    {
+      "path": "public/cases/NBIB-016/study_protocol.md",
+      "sha256": "4b41cf206e9fd7935e8a05fffd45f55efe25af3306a41b2086f7e03ccf67f25f",
+      "size_bytes": 330
+    },
+    {
+      "path": "public/cases/NBIB-016/submission_manifest.json",
+      "sha256": "28732fa22e2f86ef767b47d8fd71763a3eb816e7606d83b1a7a9f6b44459a926",
+      "size_bytes": 463
+    },
+    {
+      "path": "public/cases/NBIB-016/treatment.csv",
+      "sha256": "09755e081729f7ee79a95e7ca21a6dd0ea8524de9ce72a8ed6d57188c791cd39",
+      "size_bytes": 28853
+    },
+    {
+      "path": "public/cases/NBIB-016/units.csv",
+      "sha256": "49e6f9d9fc68df62831be816eaf132577aaa2064a6f6201abe0a88be3736ed3e",
+      "size_bytes": 1543
+    },
+    {
+      "path": "public/cases/NBIB-017/business_question.md",
+      "sha256": "eeb8d70855d8a9cbfc8acf2435dec11faa4a654064b8b42317867ddee8c0c19f",
+      "size_bytes": 706
+    },
+    {
+      "path": "public/cases/NBIB-017/data_dictionary.md",
+      "sha256": "ff8bb6d2bc299db4ead5b2d79ed3be09de9329b3076003f92ac2fbe0b6d638ec",
+      "size_bytes": 1823
+    },
+    {
+      "path": "public/cases/NBIB-017/design_probabilities.csv",
+      "sha256": "84b3952c0988a2a442068b008f1e1fc72e97b1eb44315d59c5c381a24b797629",
+      "size_bytes": 878
+    },
+    {
+      "path": "public/cases/NBIB-017/market_episodes.csv",
+      "sha256": "b6a350bcdf01ea927ad5b2def2c569a0c2783937c7ae2ad60196cccaf6c09454",
+      "size_bytes": 124
+    },
+    {
+      "path": "public/cases/NBIB-017/network_after.csv",
+      "sha256": "32263f97cff2e91370a44cce4e0681bc8b4140bdbfb1ebbb25564857a35b0330",
+      "size_bytes": 2399
+    },
+    {
+      "path": "public/cases/NBIB-017/outcomes.csv",
+      "sha256": "66a344227c5fc94d7ab990a814b7104823a41cca2358b26dbcf28d9dda7e19fa",
+      "size_bytes": 2549
+    },
+    {
+      "path": "public/cases/NBIB-017/study_protocol.md",
+      "sha256": "5144468e87552f225509815dd92955b7448470b67cf6585f4d6e2bce54fd920c",
+      "size_bytes": 406
+    },
+    {
+      "path": "public/cases/NBIB-017/submission_manifest.json",
+      "sha256": "16455f0929418ced79de72b76cde3f9d898272126d591893d220732f90855f8f",
+      "size_bytes": 483
+    },
+    {
+      "path": "public/cases/NBIB-017/treatment.csv",
+      "sha256": "7059339cabc0850d3cd427e2833ed419b337def4b88f6f1f263695cb6f709c04",
+      "size_bytes": 1553
+    },
+    {
+      "path": "public/cases/NBIB-017/units.csv",
+      "sha256": "bf2c818763691b9af2fd8248304a10a45ede5a17f86c764829bf5f2b8a724c46",
+      "size_bytes": 1902
+    },
+    {
+      "path": "public/cases/NBIB-018/business_question.md",
+      "sha256": "827f3dd702706a942a81493ae228986ebdd00df7e0534f3334f9098580f4c33f",
+      "size_bytes": 813
+    },
+    {
+      "path": "public/cases/NBIB-018/core_collaborators.csv",
+      "sha256": "26dd6b1c686203970b141847e71c69cb67a6a77fab6af9fc542a6e865b0eb7f2",
+      "size_bytes": 15404
+    },
+    {
+      "path": "public/cases/NBIB-018/data_dictionary.md",
+      "sha256": "ba7f426e33e8ef4dbb32790a531810925edb15f192c103e01d16ca6b835acad0",
+      "size_bytes": 1839
+    },
+    {
+      "path": "public/cases/NBIB-018/design_probabilities.csv",
+      "sha256": "e4da92ada10b419c9e91232a29299e194b4eb0e0773ddc0cd1883bed536f2b0e",
+      "size_bytes": 4238
+    },
+    {
+      "path": "public/cases/NBIB-018/market_episodes.csv",
+      "sha256": "b6a350bcdf01ea927ad5b2def2c569a0c2783937c7ae2ad60196cccaf6c09454",
+      "size_bytes": 124
+    },
+    {
+      "path": "public/cases/NBIB-018/network_edges.csv",
+      "sha256": "4afb9267a69bfa06a7b75de1bfed0eb864c721ddf857e616db160f57581f40b4",
+      "size_bytes": 12856
+    },
+    {
+      "path": "public/cases/NBIB-018/outcomes.csv",
+      "sha256": "754f2858ba0aabe0c48d6b387994a85141831265eb1f1b2bbadce815ec500dbd",
+      "size_bytes": 12363
+    },
+    {
+      "path": "public/cases/NBIB-018/study_protocol.md",
+      "sha256": "1f34c83579c652b39ae46e0077c4f129d650e53d49cd1ef7c7991def67f1b852",
+      "size_bytes": 436
+    },
+    {
+      "path": "public/cases/NBIB-018/submission_manifest.json",
+      "sha256": "e07e4bce2cde084d9d08bfa28dfff4896f5f9084775cba89ad9c5747e2225ab3",
+      "size_bytes": 516
+    },
+    {
+      "path": "public/cases/NBIB-018/treatment.csv",
+      "sha256": "6e018fdcb17233bfebd6ea5315a15dce6f6a8292973025097e2983faebff514b",
+      "size_bytes": 7553
+    },
+    {
+      "path": "public/cases/NBIB-018/units.csv",
+      "sha256": "3898736449699ee4e93923a8aedf51c9cb5fc631ca3d53b3bece216bd6d19311",
+      "size_bytes": 9171
+    },
+    {
+      "path": "public/cases/NBIB-019/business_question.md",
+      "sha256": "79bbee6fafb8ff4b36513a9515f2e5b4ac0d8ebce70163c86215360edde8eb2d",
+      "size_bytes": 691
+    },
+    {
+      "path": "public/cases/NBIB-019/data_dictionary.md",
+      "sha256": "f1ea6da094aa3aebb49f61dd8a0fb6f93b8a99389e9eeb2c1772d4bce5165db3",
+      "size_bytes": 1831
+    },
+    {
+      "path": "public/cases/NBIB-019/market_episodes.csv",
+      "sha256": "b6a350bcdf01ea927ad5b2def2c569a0c2783937c7ae2ad60196cccaf6c09454",
+      "size_bytes": 124
+    },
+    {
+      "path": "public/cases/NBIB-019/network_edges.csv",
+      "sha256": "8ccfea41589643b31f1a51e3212e47c0dbd010856f5c197d82604adb9b733e24",
+      "size_bytes": 886
+    },
+    {
+      "path": "public/cases/NBIB-019/outcomes.csv",
+      "sha256": "b9681e410ee009c795fb9ab88d5fe86b30f675ccfd2c91567d9150e4b18f396e",
+      "size_bytes": 1307
+    },
+    {
+      "path": "public/cases/NBIB-019/study_protocol.md",
+      "sha256": "0ec3a3ef86b13d8de5af37956e450d919215166799c21a83695e933530363f0f",
+      "size_bytes": 414
+    },
+    {
+      "path": "public/cases/NBIB-019/submission_manifest.json",
+      "sha256": "430c18b5afa89d58a2946104e0c1d68e4014f6a039835045efaf4879d9b07915",
+      "size_bytes": 463
+    },
+    {
+      "path": "public/cases/NBIB-019/treatment.csv",
+      "sha256": "9d07212e92a554aa73f5d261ec34566f9ee1625e3c4bc6792dfa53f83bb0418c",
+      "size_bytes": 1053
+    },
+    {
+      "path": "public/cases/NBIB-019/units.csv",
+      "sha256": "0034b707ea2694b75943474ee44905e6e31cdb53cac014a61d30d644798cd2a2",
+      "size_bytes": 1105
+    },
+    {
+      "path": "public/cases/NBIB-020/business_question.md",
+      "sha256": "4e604c0f66b974ea56028dea304ba2648cf811a0c6b70302384cef4008d4c41e",
+      "size_bytes": 718
+    },
+    {
+      "path": "public/cases/NBIB-020/candidate_policies.csv",
+      "sha256": "05c9662ece2a47f466635273b685a1f074fd65a3943af75e88df0cc3c630c365",
+      "size_bytes": 1935
+    },
+    {
+      "path": "public/cases/NBIB-020/cluster_randomization.csv",
+      "sha256": "952360dca32ca5f703b5aa49df9e3b60549b0497e3b584dfd50552c42c6a4df9",
+      "size_bytes": 94
+    },
+    {
+      "path": "public/cases/NBIB-020/data_dictionary.md",
+      "sha256": "fd8a28f2b5f0448fda15c83d9bfeb07327a28aa097aac650947b4e6e8e9c4c45",
+      "size_bytes": 1834
+    },
+    {
+      "path": "public/cases/NBIB-020/market_episodes.csv",
+      "sha256": "b6a350bcdf01ea927ad5b2def2c569a0c2783937c7ae2ad60196cccaf6c09454",
+      "size_bytes": 124
+    },
+    {
+      "path": "public/cases/NBIB-020/network_edges.csv",
+      "sha256": "dcf9348937c97eabfdfb8bc4a49e301331efdf0b5db5319416beff2096cbd28a",
+      "size_bytes": 1621
+    },
+    {
+      "path": "public/cases/NBIB-020/outcomes.csv",
+      "sha256": "6b98c701f3170b836c4444e7c49126c819b1f3966f3bcad502209d4fcd7a49ff",
+      "size_bytes": 2064
+    },
+    {
+      "path": "public/cases/NBIB-020/study_protocol.md",
+      "sha256": "2a07f86e14463fcae89d7169bf18819d7dc6b391c43df6038783149f29165839",
+      "size_bytes": 408
+    },
+    {
+      "path": "public/cases/NBIB-020/submission_manifest.json",
+      "sha256": "170149677eb7adb742a139c170c3c705f0400803c1cb34634f72239c096279fa",
+      "size_bytes": 523
+    },
+    {
+      "path": "public/cases/NBIB-020/treatment.csv",
+      "sha256": "848955327d70a86a030cfe0c81c47e5b3691795f2135daf5f3048fc9dae57258",
+      "size_bytes": 1253
+    },
+    {
+      "path": "public/cases/NBIB-020/units.csv",
+      "sha256": "662578cd3209954bf6f85b196ae19e3c5357faed7f04cef41be3c925a89b5caa",
+      "size_bytes": 1544
+    },
+    {
+      "path": "public/cases/NBIB-021/business_question.md",
+      "sha256": "2d7fcb64ec67fdcab87f8d5e6b3757fb65fdba7137d951e1982d84c70c5966da",
+      "size_bytes": 738
+    },
+    {
+      "path": "public/cases/NBIB-021/data_dictionary.md",
+      "sha256": "fd8a28f2b5f0448fda15c83d9bfeb07327a28aa097aac650947b4e6e8e9c4c45",
+      "size_bytes": 1834
+    },
+    {
+      "path": "public/cases/NBIB-021/market_episodes.csv",
+      "sha256": "b6a350bcdf01ea927ad5b2def2c569a0c2783937c7ae2ad60196cccaf6c09454",
+      "size_bytes": 124
+    },
+    {
+      "path": "public/cases/NBIB-021/network_edges.csv",
+      "sha256": "88fd79cb1739fd129f1abd73968a6ad213146be9d5f27cd7e3a98e8e176e5a43",
+      "size_bytes": 2020
+    },
+    {
+      "path": "public/cases/NBIB-021/outcomes.csv",
+      "sha256": "18c8e09fbd7d3cb3b7121103068c8d565db07b658baaeadcdb7f38df236abb29",
+      "size_bytes": 2731
+    },
+    {
+      "path": "public/cases/NBIB-021/study_protocol.md",
+      "sha256": "f785ea9852643cc782dce6ea1dbf05ff74ff12fa32c43605c5d874134b2e596f",
+      "size_bytes": 482
+    },
+    {
+      "path": "public/cases/NBIB-021/submission_manifest.json",
+      "sha256": "69378426e4c218e6154b9e9976fc789753929e195840116982b4e528695517ba",
+      "size_bytes": 454
+    },
+    {
+      "path": "public/cases/NBIB-021/treatment.csv",
+      "sha256": "bc2aec74c1f416a70dd92961cbceb90edf689a6bde5463acca1f52ab838fe188",
+      "size_bytes": 1653
+    },
+    {
+      "path": "public/cases/NBIB-021/units.csv",
+      "sha256": "522b19d23737efdf13c6554860133f0a9d2184be71748a7e1a5e4beca39f2c2c",
+      "size_bytes": 2026
+    }
+  ],
+  "generated_case_count": 21,
+  "human_authored_case_catalog_sha256": "54c208f8843d089a1a5edeac6a4b19f32c21c9ffea6084fe4c0d3e52f7c0c786",
+  "note": "Do not put gold/ or oracle/ in any LLM prompt or end-user upload.",
+  "seed": 20261017
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "cfm-id-candidate-draft-v0.3",
+  "target_kind": "NETWORK_DESIGN_STANDARDIZED_ARM_MEAN",
+  "target_description": "一个节点被明确规定永远不能获得AI（p_i=0），却要求它本人使用AI时的设计标准化arm均值。",
+  "claimed_identification": "UNDETERMINED",
+  "scope": "AS_REVIEWED",
+  "a4_used": {
+    "source": "REVIEWED_OPERATOR",
+    "level": "FULL_JOINT_LAW",
+    "operator": "总体可观测信息算子明确为完整联合律 P(T,Yobs|W)，包括完整处理向量及所有结果；这是一个理论信息声明，不代表已知总体数值。"
+  },
+  "admitted_assumptions_used": [
+    "full_vector_randomization",
+    "consistency"
+  ],
+  "additional_requirements": [],
+  "candidate_expression": null,
+  "nonidentification_witness": null,
+  "reasoning_steps": [
+    "目标arm支持为0；按当前条件平均定义该arm未定义，而不是自动PARTIAL或POINT。"
+  ],
+  "caveats": [
+    "仅为离线FIXTURE，既非大模型推理结果也非数学认证"
+  ],
+  "suggested_checks": [
+    "进行独立数学证明或两个世界的完整可观测等价检查"
+  ]
+}

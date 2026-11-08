@@ -1,0 +1,7 @@
+{
+  "status": "POINT",
+  "route_id": "DEMO_R1A",
+  "identified_expression": "MOCK_ONLY expression",
+  "certificate": {"kind": "MOCK_TEST_ONLY"},
+  "replay_accept": false
+}

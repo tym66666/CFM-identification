@@ -1,0 +1,65 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CFM-ID · 四个业务问题的真实数学核验</title>
+<style>
+:root{--ink:#18333a;--green:#116f62;--dim:#627781;--bg:#f4f8f8;--line:#dce8e8;--orange:#895e13;--red:#9d4d47}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.65}button,select,textarea,input{font:inherit}button{cursor:pointer}a{color:var(--green)}.shell{max-width:1100px;margin:auto;padding:24px 18px 70px}header{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:14px 22px;background:white;border-bottom:1px solid var(--line)}header strong{font-size:17px}nav{display:flex;gap:18px;font-size:13px}h1{font-size:clamp(27px,4vw,38px);margin:8px 0 8px;line-height:1.3}h2{font-size:20px;margin:0 0 9px}p{margin:7px 0 13px}.small{font-size:12px;color:var(--dim)}.lead{max-width:760px;color:#4e6671}.panel{background:white;border:1px solid var(--line);border-radius:17px;padding:24px;margin-top:20px;box-shadow:0 5px 15px #132b2b07}.alert{padding:13px 16px;border-radius:10px;background:#fff8e8;border:1px solid #eadfbf;font-size:13px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.casebtn{text-align:left;border:1px solid #d5e3e0;border-radius:12px;padding:15px;background:#fff;min-height:95px}.casebtn:hover,.casebtn.selected{border-color:#188474;background:#eef8f5}.casebtn b{display:block;font-size:14px}.casebtn span{display:block;font-size:12px;color:var(--dim);margin-top:7px}.steps{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.step{padding:6px 11px;border-radius:99px;border:1px solid #dce8e6;font-size:12px;background:#fff}.layout{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:start}textarea{width:100%;min-height:175px;resize:vertical;border:1px solid #cddedc;border-radius:10px;padding:12px;font-size:13px;background:white}textarea:focus{outline:2px solid #40a18c}label.check{font-size:13px;display:flex;align-items:start;gap:9px;background:#f1f8f6;padding:13px;border-radius:10px;margin:12px 0}label.check input{margin-top:5px;flex:none}.actions{display:flex;gap:9px;flex-wrap:wrap}button.primary{background:var(--green);color:white;border:1px solid var(--green);padding:10px 17px;border-radius:9px;font-weight:750}button.secondary{background:#fff;border:1px solid #b6ceca;padding:10px 15px;border-radius:9px;color:var(--green)}button:disabled{opacity:.5;cursor:not-allowed}.result{border:1px solid #d7e8e2;background:#fbfefd;border-radius:12px;padding:17px;min-height:198px}.big{font-size:23px;font-weight:780;margin:7px 0}.ok{color:#176b4e}.no{color:var(--red)}.maybe{color:var(--orange)}.checkrow{padding:8px 0;border-bottom:1px solid #e9eff0;display:flex;align-items:start;gap:10px;font-size:13px}.symbol{font-weight:800;width:20px;flex:none;color:#16846a}.checkrow.unknown .symbol{color:#a66c20}.checkrow.failed .symbol{color:var(--red)}.checkrow small{display:block;color:var(--dim);font-size:11px}.note{font-size:12px;background:#f0f6f5;padding:10px;border-radius:8px}.code{word-break:break-word;font-size:12px;background:#f0f5f6;border-radius:8px;padding:12px;white-space:pre-wrap}details{border-top:1px solid var(--line);padding-top:13px;margin-top:18px}summary{cursor:pointer;font-weight:750}.bottom{margin-top:28px;font-size:12px;color:var(--dim)}@media(max-width:770px){.layout,.grid{grid-template-columns:1fr}.panel{padding:16px}header{padding:13px}nav{flex-wrap:wrap}}
+</style></head><body>
+<header><strong>CFM-ID · 真实 Core 演示</strong><nav><a href="CFM_ID_Supervisor_Results.html">业务结果总览</a><a href="CFM_ID_Coverage_Map.html">已覆盖范围</a></nav></header>
+<main class="shell"><small style="color:#117061;font-weight:760">NO API KEY · CURATED RESEARCH DEMO</small><h1>输入业务描述，看看数学上能确认什么</h1>
+<p class="lead">选择一份原 NBIB 业务描述，先查看“原始材料还缺什么”，再明确加载一套<strong>假设性研究条件</strong>，由本机 Python 数学程序真正判断并复核结果。</p>
+<div class="alert"><strong>特别说明：</strong>原始 NBIB 文件没有提供所需总体条件均值。这里的“可以识别”只针对额外声明的合成研究条件，不代表这家真实企业的结果已获认证，更没有估计销售额。上传任意新文件或改写原问题都不会自动获准。</div>
+<div class="steps"><span class="step">① 选择业务</span><span class="step">② 查看原文</span><span class="step">③ 明确示例前提</span><span class="step">④ Core 判定与独立复核</span></div>
+<section class="panel"><h2>1. 选择业务情境</h2><div class="grid" id="examples"></div></section>
+<div class="layout"><section class="panel"><h2>2. 业务原文和研究条件</h2><p class="small">可以直接修改，也可以上传原案例 .txt。只要修改导致文字不再与已确认示例完全一致，系统就会要求重新审核。</p>
+<textarea id="business-text" aria-label="业务描述"></textarea>
+<div class="actions" style="margin-top:9px"><label class="secondary" style="font-size:13px">导入 TXT / MD <input id="upload-text" type="file" accept=".txt,.md,text/plain" style="max-width:250px;font-size:12px"></label><button class="secondary" id="restore" type="button">恢复原文</button></div>
+<p class="small" id="digest"></p><h3 style="font-size:15px">示例额外提供了什么？</h3><p id="overlay" class="note"></p>
+<label class="check"><input id="synthetic" type="checkbox"><span>我知道下面运行的是<strong>额外补足总体信息与科学条件的合成研究示例</strong>，不是对原业务资料的直接认证。</span></label>
+<div class="actions"><button class="secondary" id="original" type="button">仅检查原始资料</button><button class="primary" id="calculate" type="button">按上述合成条件运行识别</button></div>
+<p id="runmode" class="small"></p></section>
+<section class="panel"><h2>3. 识别结果</h2><div id="output" class="result" aria-live="polite"><p class="small">选择一个业务案例，然后点击“仅检查原始资料”。</p></div></section></div>
+<section class="panel"><h2>现场演示时如何解释？</h2><p>老师看到的不是“填表后算法自动猜答案”，而是同一业务问题在不同研究条件下的正式结果：</p><p>原始材料缺总体信息 → 暂不能认证；补足合法合成科学条件 → 正式 Core 可以识别或因零支持拒绝；再额外引入经过明确接受的结构限制 → 某些完整政策可以识别。</p><details><summary>研究人员说明：识别不等于估计</summary><p class="small">这里的 POINT 是总体泛函可识别，绝非现实观测数据的数值估计。UNSUPPORTED 表示当前实现的定理无法认证，不等于一般数学意义上的非识别。本站不调用任何在线 LLM，也不创建假设批准记录。</p></details></section>
+<p class="bottom">所有数据仅包含原公开研究题库及预设合成数学方案。离线浏览时展示构建期的 Core 复核快照；需要现场重新计算请启动本机服务。</p></main>
+<!-- NBIB_CORE_SNAPSHOT -->
+<script>
+'use strict';
+const DATA=JSON.parse(document.getElementById('verified-gallery').textContent);
+const items=DATA.cases,byId=Object.fromEntries(items.map(x=>[x.catalog.case_id,x]));
+const $=s=>document.querySelector(s);let choice=items[0].catalog.case_id,live=false;
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function choose(id){choice=id;const c=byId[id].catalog;$('#business-text').value=c.business_text;$('#overlay').textContent=c.overlay;$('#digest').textContent='来源题目：'+id+' · 原文摘要：'+c.text_sha256.slice(0,14)+'…';$('#synthetic').checked=false;
+document.querySelectorAll('.casebtn').forEach(x=>x.classList.toggle('selected',x.dataset.cid===id));$('#output').innerHTML='<p class="small">当前仅载入原始业务描述，尚未颁发识别结果。</p>';}
+$('#examples').innerHTML=items.map((x,i)=>`<button class="casebtn" data-cid="${esc(x.catalog.case_id)}"><b>${i+1}. ${esc(x.catalog.title)}</b><span>${esc(x.catalog.case_id)} · ${esc(x.catalog.questions[0])}</span></button>`).join('');
+document.querySelectorAll('.casebtn').forEach(b=>b.onclick=()=>choose(b.dataset.cid));
+$('#restore').onclick=()=>choose(choice);choose(choice);
+$('#upload-text').onchange=async e=>{const f=e.target.files?.[0];if(!f)return;if(!/\.(txt|md)$/i.test(f.name)||f.size>20000){alert('仅支持不超过 20KB 的 TXT/MD 业务文字；PDF/DOCX 请使用业务资料整理入口。');return;}$('#business-text').value=await f.text();$('#output').textContent='文件已读取；若原文与审核模板不同，将进入待审核状态。';};
+function conditions(v){const rows=v.scientific_conditions||[
+{name:'业务问题',state:'confirmed',explanation:'载入了原案例，但未独立审核成数学目标'},
+{name:'所需总体研究信息',state:'missing',explanation:'原 NBIB 题库未提供'},
+{name:'科学前提',state:'missing',explanation:'原业务描述不等于接受因果假设'},
+{name:'支持与证书',state:'unchecked',explanation:'本次没有运行正式 Core'}];
+const sy={confirmed:'✓',missing:'?',failed:'×',unchecked:'—'};return rows.map(r=>`<div class="checkrow ${r.state==='confirmed'?'':r.state==='failed'?'failed':'unknown'}"><span class="symbol">${sy[r.state]||'—'}</span><div><b>${esc(r.name)}</b><small>${esc(r.explanation)}</small></div></div>`).join('')}
+function show(v,{fresh=false}={}){
+const point=v.status==='POINT'&&v.point_certified===true, blocked=v.status==='UNSUPPORTED';
+const label=point?'该合成问题可以点识别':blocked?'当前定理无法认证':'还需要信息或审核';
+const detail=point?'正式数学程序已得到识别公式并完成独立复核。':blocked?'原设计不支持所问的完整政策。不能据此断言在所有额外假设下都不可识别。':(v.reason||'不能从原始文字和样本自动推断因果公式。');
+let html=`<div class="small">${!v.core_called?'原始问题：未运行 Core':fresh?'本机 Python Core 刚刚运行':'离线构建时生成的 Core 结果快照'} · ${esc(v.case_id||choice)}</div><div class="big ${point?'ok':blocked?'no':'maybe'}">${label}</div><p>${esc(detail)}</p>${conditions(v)}`;
+if(v.core_called){html+=`<p class="note"><b>本次正式数学目标：</b>${esc(v.formal_target_plain||'预设合成数学目标')}</p><p class="note">来源：预设合成研究条件。${point?'已独立 replay。':'未颁发 POINT。'}实际业务尚未认证。</p>`;}
+if(point){html+=`<details><summary>查看正式数学公式与证书</summary><p class="small">路线：${esc(v.route)}</p><div class="code">${esc(v.identification?.formula||'识别公式详见 Core 对象')}</div><p class="small">精确支持：${esc(typeof v.identification?.support==='string'?v.identification.support:JSON.stringify(v.identification?.support))}</p><p class="small">证书摘要：${esc(v.proof?.certificate_sha256||'Core replay')}</p></details>`;}
+$('#output').innerHTML=html;}
+async function trigger(isSynthetic){
+if(isSynthetic&&!$('#synthetic').checked){$('#output').innerHTML='<p class="maybe">请先阅读并明确勾选“合成研究条件”说明。</p>';return;}
+const req={case_id:choice,business_text:$('#business-text').value,synthetic_protocol_selected:isSynthetic};
+let result,wasFresh=false;
+if(live){try{const r=await fetch('/api/no-key/identify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(req)});result=await r.json();if(!r.ok)throw Error(result.error||'调用失败');wasFresh=true;}catch(e){$('#output').textContent='本机识别服务暂时不可用：'+e.message;return;}}
+else{
+  const current=byId[choice];if($('#business-text').value!==current.catalog.business_text)result={status:'REVIEW_REQUIRED',reason:'输入文字与已确认题目不同，离线模式不能给出认证结果。',core_called:false,point_certified:false};
+  else result=isSynthetic?current.synthetic:current.original;
+}
+show(result,{fresh:wasFresh});}
+$('#original').onclick=()=>trigger(false);$('#calculate').onclick=()=>trigger(true);
+(async()=>{if(location.protocol==='file:'){$('#runmode').textContent='当前为离线模式：查看此前由真实 Core 运行并 replay 的快照；没有新的 Python 调用。';return;}
+try{const res=await fetch('/api/health');const d=await res.json();live=!!d.no_key_curated_core;
+$('#runmode').textContent=live?'本机服务已连接：点击运行会实时调用 Core 与 replay（不需要 API Key）。':'当前页面未连接现场 Core，仅显示构建时快照。';}
+catch{$('#runmode').textContent='未检测到本机 Core 服务；当前显示构建时预计算快照。';}})();
+</script></body></html>

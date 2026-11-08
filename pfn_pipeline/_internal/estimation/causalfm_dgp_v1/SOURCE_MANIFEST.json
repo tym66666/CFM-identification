@@ -1,6 +1,5 @@
 {
   "source": "https://github.com/yccm/CausalFM-toolkit",
-  "source_file": "causalfm/data/generators/standard.py",
   "source_file_sha256": "7d18fc308569e7c74bef87894b1ca14fae9d391f596ac2fb6e50e75f5d0a0d03",
   "extracted_class": "OutcomeGenerator",
   "source_lines": [
@@ -44,5 +43,6 @@
       "vendored_file": "_upstream_frontdoor.py"
     }
   ],
-  "v3_adaptation": "outcomes.py reuses original random network/parameter primitives for standard, dense and composition. All external inputs are x, neighbor_x, t, e; no U, instrument or observed mediator. Hidden-node noise disabled; additive epsilon only at observed Y. Composition fixes one inner/outer pair per task. IV additive outcome branch removed in v3_no_iv."
+  "v3_adaptation": "outcomes.py reuses original random network/parameter primitives for standard, dense and composition. All external inputs are x, neighbor_x, t, e; no U, instrument or observed mediator. Hidden-node noise disabled; additive epsilon only at observed Y. Composition fixes one inner/outer pair per task. IV additive outcome branch removed in v3_no_iv.",
+  "source_file": "causalfm/data/generators/standard.py"
 }

@@ -1,0 +1,72 @@
+{
+  "A4_population_operator_from_business_files": "NOT_PROVIDED",
+  "all_business_packet_provenance": "SYNTHETIC_OFFLINE_GENERATOR",
+  "assignment_family": "D6",
+  "case_id": "NBIB-006",
+  "conditional_route_only": [
+    "R1a_D6_BLOCKED_BY_PROFILE_DIRECT_EFFECT"
+  ],
+  "data_is_finite_observations_not_A4": true,
+  "design_params": {
+    "groups": 3,
+    "profile_probs": [
+      "1/3",
+      "1/3",
+      "1/3"
+    ],
+    "profiles": [
+      [
+        4,
+        6,
+        8
+      ],
+      [
+        8,
+        4,
+        6
+      ],
+      [
+        6,
+        8,
+        4
+      ]
+    ]
+  },
+  "edge_count": 162,
+  "expected_blockers": [
+    "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+    "A5_NEEDS_SCIENTIFIC_REVIEW",
+    "D6_FIRST_STAGE_EXCLUSION_CONTRADICTED"
+  ],
+  "exposure_rule": "E5",
+  "fixed_policy_support": [],
+  "identification_library_status": "NOT_RUN_ON_THIS_GENERATED_CASE",
+  "industry": "教育管理",
+  "lower_is_better": false,
+  "n_nodes": 60,
+  "network_type": "bipartite",
+  "number_independent_market_replicates": 1,
+  "outcome_metric_name": "exam_score",
+  "outcome_metric_unit": "分",
+  "pair_family": "two_stage_education",
+  "query_targets": [
+    {
+      "exact_target_semantics": "R1A_Q_STANDARDIZED_DIRECT",
+      "kind": "DIRECT_EFFECT",
+      "quote": "在这次含有提前公告影响的实验中，能否直接照旧解释班级获得工具的效果"
+    }
+  ],
+  "scenario_title": "两阶段辅导：配额公告可能改变行为",
+  "scientific_reference_notes": "D6 first-stage-profile-no-direct-outcome-effect 已有直接反例描述，当前固定Y(t)的D6 R1a route不可直接认证。不是一般因果非识别证明。",
+  "simulation_is_not_proof_of_scientific_assumptions": true,
+  "split": "test",
+  "support_checks": {
+    "exposure_rule": "E5",
+    "exposure_value": 1,
+    "focal_node": "unit_000",
+    "mathematical_support_only_not_IDENTIFICATION": true,
+    "own_treatment": 1,
+    "support_probability": "829/4275"
+  },
+  "synthetic": true
+}

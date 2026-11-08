@@ -1,0 +1,1 @@
+resolution_hours表示每个网点八周内的平均工单处理小时。

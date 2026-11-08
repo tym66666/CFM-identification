@@ -4,6 +4,7 @@ import hashlib
 import json
 import math
 from enum import Enum
+from fractions import Fraction
 from typing import Any, Literal, Union
 
 from pydantic import AliasChoices, BaseModel, ConfigDict, Field, StrictInt, model_validator
@@ -187,6 +188,7 @@ QueryType = Literal[
     "DISTRIBUTIONAL_EFFECT",
     "NETWORK_RESPONSE_SURFACE",
     "NETWORK_MAJORITY_RESPONSE_POLICY_SCORE",
+    "NETWORK_RANDOMIZED_ARM_MEAN",
     "UNRESOLVED",
 ]
 
@@ -227,8 +229,12 @@ class QuerySpec(StrictModel):
         "true_sufficient_exposure_state",
         "reference_exposure_state",
         "design_averaged_majority_response",
+        "design_averaged_randomized_arm_mean",
     ] | None = None
     exposure_value: int | float | str | None = None
+    # Only used by the new query-specific randomized-network arm-mean family.
+    target_node_id: str | None = None
+    own_treatment_value: int | None = None
     policy_description: str | None = None
     # Binds a confirmed policy query to the complete context-indexed action table.
     policy_fingerprint: str | None = None
@@ -290,6 +296,12 @@ class QuerySpec(StrictModel):
         elif self.type == "NETWORK_RESPONSE_SURFACE":
             self.expression = (f"NETWORK_RESPONSE_SURFACE[{self.outcome};{self.treatment}|"
                                f"design_averaged_majority;target={self.response_target_fingerprint}]")
+        elif self.type == "NETWORK_RANDOMIZED_ARM_MEAN":
+            self.expression = (
+                f"NETWORK_RANDOMIZED_ARM_MEAN[{self.outcome};{self.treatment}|"
+                f"node={self.target_node_id};a={self.own_treatment_value};"
+                f"s={self.exposure_value};design_averaged;target={self.response_target_fingerprint}]"
+            )
         elif self.type == "NETWORK_MAJORITY_RESPONSE_POLICY_SCORE":
             self.expression = (f"NETWORK_MAJORITY_RESPONSE_POLICY_SCORE[{self.outcome};{self.treatment}|"
                                f"response={self.response_target_fingerprint};policy_class={self.policy_fingerprint}]")
@@ -1099,6 +1111,64 @@ class InterferenceStructureOutput(StrictModel):
         )
 
 
+class RandomizedArmObservableV21(StrictModel):
+    """Explicit, admitted A4 population operator for Randomized-Network arm means.
+
+    These are declarations of *symbolic population information*, not sample
+    values, observational proofs of randomization, or provenance authentication.
+    Randomized-Network Arm and the legacy PFN MajorityResponse theorem
+    consume this field; unrelated historical families retain their own
+    information contracts or are explicitly quarantined.
+    """
+    operator: Literal["NODE_ARM_MEANS", "NODE_FULL_LAW", "FULL_JOINT_LAW"]
+    source_id: str
+    provenance: str
+    admission: Literal["CERTIFIED", "ADMITTED", "PROPOSED", "UNRESOLVED",
+                       "NOT_ADMITTED", "CONTRADICTED"]
+    availability: Literal["SYMBOLIC_POPULATION_OPERATOR", "EXACT_POPULATION_VALUE",
+                          "FINITE_SAMPLE_ESTIMATE"]
+    node_order: tuple[str, ...]
+    outcome_nodes: tuple[str, ...]
+    treatment: str
+    outcome: str
+    context_symbol: str
+    network_fingerprint: str
+    assignment_law_fingerprint: str
+    exposure_fingerprint: str | None = None
+    arm_coverage: Literal["ALL_NODE_ARMS", "EXPLICIT_CELLS"] | None = None
+    arm_cells: tuple[tuple[str, int, int], ...] = ()
+
+    @model_validator(mode="after")
+    def check_semantics(self):
+        if (not self.source_id.strip() or not self.provenance.strip()
+            or not self.node_order or len(set(self.node_order)) != len(self.node_order)
+            or not self.outcome_nodes or len(set(self.outcome_nodes)) != len(self.outcome_nodes)
+            or not set(self.outcome_nodes) <= set(self.node_order)):
+            raise ValueError("Invalid population operator provenance or node coordinates")
+        if any(not s or not s.strip() for s in (
+                self.treatment, self.outcome, self.context_symbol,
+                self.network_fingerprint, self.assignment_law_fingerprint)):
+            raise ValueError("Population operator requires nonempty scientific bindings")
+        if self.operator == "NODE_ARM_MEANS":
+            if not self.exposure_fingerprint or self.arm_coverage not in (
+                "ALL_NODE_ARMS", "EXPLICIT_CELLS"):
+                raise ValueError("Arm operator requires q/g binding and explicit coverage")
+            if self.arm_coverage == "ALL_NODE_ARMS" and self.arm_cells:
+                raise ValueError("All-arm coverage cannot also specify explicit cells")
+            if self.arm_coverage == "EXPLICIT_CELLS" and not self.arm_cells:
+                raise ValueError("Explicit arm coverage requires nonempty cells")
+            if len(set(self.arm_cells)) != len(self.arm_cells):
+                raise ValueError("Duplicate declared arm cells")
+            if any(n not in self.outcome_nodes or type(a) is not int or a not in (0,1)
+                   or type(s) is not int or s < 0 or s > 2 for n,a,s in self.arm_cells):
+                raise ValueError("Invalid arm cell")
+        elif self.exposure_fingerprint is not None or self.arm_coverage is not None or self.arm_cells:
+            raise ValueError("Full-law operators must not carry arm/exposure claims")
+        if self.operator == "FULL_JOINT_LAW" and set(self.outcome_nodes) != set(self.node_order):
+            raise ValueError("Full joint law requires all outcome nodes")
+        return self
+
+
 class InformationObject(StrictModel):
     name: str
     regime: Literal["experimental", "observational"]
@@ -1113,6 +1183,7 @@ class InformationObject(StrictModel):
     joint_scope: Literal["node_local_marginals_only", "whole_network_assignment"] | None = None
     outcome_representation: Literal["binary_mean_complete", "full_joint_law"] | None = None
     whole_network_assignment_law_available: bool | None = None
+    randomized_arm_observable: RandomizedArmObservableV21 | None = None
 
 
 class InformationSignature(StrictModel):
@@ -1566,6 +1637,225 @@ class MajorityResponseTheoremContractV1(StrictModel):
     information: Literal["node_conditional_majority_outcome_means"] = "node_conditional_majority_outcome_means"
 
 
+class CompleteRandomizationDesignV1(StrictModel):
+    """Exactly m uniformly chosen treated nodes, conditional on fixed W/network."""
+    kind: Literal["complete_randomization_binary_v1"] = "complete_randomization_binary_v1"
+    m: StrictInt = Field(ge=0)
+
+
+class TwoGroupFixedQuotaDesignV1(StrictModel):
+    """Independent uniform fixed-quota draws in two disjoint pretreatment groups.
+
+    The grouping is an *assignment* stratum partition, not an interference graph
+    partition: a node may have neighbors in either group.
+    """
+    kind: Literal["two_group_fixed_quota_binary_v1"] = "two_group_fixed_quota_binary_v1"
+    groups: tuple[tuple[str, ...], tuple[str, ...]]
+    treated_quotas: tuple[StrictInt, StrictInt]
+
+    @model_validator(mode="after")
+    def check_two_group_quota(self):
+        for members, quota in zip(self.groups, self.treated_quotas):
+            if not members or any(not isinstance(node, str) or not node.strip() for node in members):
+                raise ValueError("each pretreatment group must contain nonempty node identifiers")
+            if quota < 0 or quota > len(members):
+                raise ValueError("each treated quota must lie between 0 and its group size")
+        flat = self.groups[0] + self.groups[1]
+        if len(flat) != len(set(flat)):
+            raise ValueError("two pretreatment groups must be disjoint and have unique node identifiers")
+        return self
+
+
+class MultiGroupFixedQuotaDesignV25(StrictModel):
+    """D5: independent uniform within-stratum fixed quotas for 3..64 strata.
+
+    Strata are a PRETREATMENT assignment partition, not network components.
+    Edges across strata remain allowed. Canonicalization does not merge strata.
+    """
+    kind: Literal["multi_group_fixed_quota_binary_v2_5"] = "multi_group_fixed_quota_binary_v2_5"
+    groups: tuple[tuple[str, ...], ...]
+    treated_quotas: tuple[StrictInt, ...]
+
+    @model_validator(mode="after")
+    def validate_multi_quota(self):
+        if not 3 <= len(self.groups) <= 64 or len(self.treated_quotas) != len(self.groups):
+            raise ValueError("D5 requires 3..64 pretreatment strata with one quota each")
+        members = [node for group in self.groups for node in group]
+        if (any(not group for group in self.groups)
+            or any(not isinstance(node,str) or not node.strip() for node in members)
+            or len(members) != len(set(members))):
+            raise ValueError("D5 groups must contain unique, nonempty node identifiers")
+        for group, quota in zip(self.groups, self.treated_quotas):
+            if quota < 0 or quota > len(group):
+                raise ValueError("D5 quotas must be within stratum sizes")
+        paired = sorted((tuple(sorted(group)), quota)
+                        for group,quota in zip(self.groups,self.treated_quotas))
+        self.groups = tuple(group for group,_ in paired)
+        self.treated_quotas = tuple(quota for _,quota in paired)
+        return self
+
+
+class TwoStageQuotaMixtureDesignV27(StrictModel):
+    """D6: first-stage finite exact quota-profile lottery, then uniform within-group draws.
+
+    Groups are pretreatment assignment strata, NOT interference components.
+    A profile can correlate quotas across strata; second-stage allocations are
+    conditionally independent given the entire first-stage profile.  The profile
+    is assumed to have NO direct effect on Y beyond the realized full treatment
+    vector; that additional, scientifically substantive A5 license is checked
+    separately by each production theorem route.
+    """
+    kind: Literal["two_stage_quota_mixture_binary_v2_7"] = "two_stage_quota_mixture_binary_v2_7"
+    groups: tuple[tuple[str, ...], ...]
+    quota_profiles: tuple[tuple[StrictInt, ...], ...]
+    profile_probabilities: tuple[str, ...]
+
+    @model_validator(mode="after")
+    def canonical_exact_profiles(self):
+        h = len(self.groups)
+        if not 2 <= h <= 64:
+            raise ValueError("D6 requires 2..64 fixed pretreatment groups")
+        if not 1 <= len(self.quota_profiles) <= 64 or len(self.quota_profiles) != len(self.profile_probabilities):
+            raise ValueError("D6 requires 1..64 quota profiles with exact weights")
+        flattened = [node for g in self.groups for node in g]
+        if (any(not g for g in self.groups) or any(not isinstance(node,str) or not node.strip() for node in flattened)
+            or len(flattened) != len(set(flattened))):
+            raise ValueError("D6 group partition must be nonempty, disjoint pretreatment node IDs")
+        if any(len(q) != h or any(m < 0 or m > len(g) for m,g in zip(q,self.groups))
+               for q in self.quota_profiles):
+            raise ValueError("D6 quotas must fit every group size in every profile")
+        order = sorted(range(h), key=lambda j: tuple(sorted(self.groups[j])))
+        groups = tuple(tuple(sorted(self.groups[j])) for j in order)
+        by_profile = []
+        total = Fraction(0)
+        for q, raw in zip(self.quota_profiles, self.profile_probabilities):
+            if not isinstance(raw,str) or not raw.strip() or len(raw) > 128:
+                raise ValueError("D6 profile probability must be an exact rational string")
+            try:
+                prob = Fraction(raw)
+            except (ValueError,TypeError,ZeroDivisionError,OverflowError) as exc:
+                raise ValueError("D6 invalid rational first-stage probability") from exc
+            if prob <= 0 or prob > 1:
+                raise ValueError("D6 profiles must have strictly positive probability")
+            total += prob
+            by_profile.append((tuple(q[j] for j in order),str(prob)))
+        if len({x[0] for x in by_profile}) != len(by_profile):
+            raise ValueError("D6 duplicate quota profiles cannot silently double-count first stage")
+        if total != 1:
+            raise ValueError("D6 first-stage probabilities must sum exactly to one")
+        ordered = sorted(by_profile)
+        self.groups = groups
+        self.quota_profiles = tuple(x[0] for x in ordered)
+        self.profile_probabilities = tuple(x[1] for x in ordered)
+        return self
+
+
+class HeterogeneousBernoulliDesignV1(StrictModel):
+    """Known independent Bernoulli probabilities, one per pretreatment node.
+
+    Rational strings are stored in canonical form to preserve exact design
+    probabilities in support calculations and target fingerprints.  A zero or
+    one probability is allowed, but an impossible queried arm has zero support.
+    """
+    kind: Literal["heterogeneous_bernoulli_binary_v1"] = "heterogeneous_bernoulli_binary_v1"
+    propensities: dict[str, str]
+
+    @model_validator(mode="after")
+    def normalize_probabilities(self):
+        if not self.propensities:
+            raise ValueError("one pretreatment propensity per network node is required")
+        normalized = {}
+        for node, raw in self.propensities.items():
+            if not isinstance(node, str) or not node.strip():
+                raise ValueError("propensity node IDs must be nonempty strings")
+            if not isinstance(raw, str) or not raw.strip() or len(raw) > 128:
+                raise ValueError("each known propensity must be a finite numeric string")
+            try:
+                p = Fraction(raw)
+            except (ValueError, ZeroDivisionError, OverflowError) as exc:
+                raise ValueError("each known propensity must be a finite rational") from exc
+            if not 0 <= p <= 1:
+                raise ValueError("each known propensity must lie in [0, 1]")
+            normalized[node] = str(p)
+        self.propensities = dict(sorted(normalized.items()))
+        return self
+
+
+class ClusterBernoulliDesignV24(StrictModel):
+    """D4: partition of pretreatment nodes into nonempty clusters.
+
+    Every cluster receives ONE independent Bernoulli binary draw and all its
+    nodes share that treatment. Probabilities are exact rational strings.
+    The design is NOT cluster complete-randomization or two-stage saturation.
+    """
+    kind: Literal["cluster_bernoulli_binary_v2_4"] = "cluster_bernoulli_binary_v2_4"
+    clusters: tuple[tuple[str, ...], ...]
+    cluster_probabilities: tuple[str, ...]
+
+    @model_validator(mode="after")
+    def validate_cluster_design(self):
+        if (not self.clusters or len(self.clusters) != len(self.cluster_probabilities)
+                or any(not c for c in self.clusters)):
+            raise ValueError("D4 requires nonempty clusters and one probability per cluster")
+        members = [n for c in self.clusters for n in c]
+        if (any(not isinstance(n, str) or not n.strip() for n in members)
+                or len(members) != len(set(members))):
+            raise ValueError("D4 cluster node membership must be unique, nonempty strings")
+        normalized = []
+        for raw in self.cluster_probabilities:
+            if not isinstance(raw, str) or not raw.strip() or len(raw)>128:
+                raise ValueError("D4 probabilities must be exact numeric strings")
+            try:
+                p = Fraction(raw)
+            except (ValueError, TypeError, OverflowError, ZeroDivisionError) as exc:
+                raise ValueError("D4 probabilities must be finite rational numbers") from exc
+            if not 0 <= p <= 1:
+                raise ValueError("D4 probabilities must be in [0,1]")
+            normalized.append(str(p))
+        # Design-law identity is invariant to the input order of clusters and
+        # to member enumeration order. Preserve probability-to-cluster binding.
+        paired = sorted((tuple(sorted(cluster)), probability)
+                        for cluster, probability in zip(self.clusters, normalized))
+        self.clusters = tuple(item[0] for item in paired)
+        self.cluster_probabilities = tuple(item[1] for item in paired)
+        return self
+
+
+class RandomizedNetworkArmMeanContractV1(StrictModel):
+    """A single-node/single-arm population target, no estimator implied."""
+    version: Literal["randomized-network-arm-mean-theorem-v1"] = "randomized-network-arm-mean-theorem-v1"
+    design: CompleteRandomizationDesignV1 | TwoGroupFixedQuotaDesignV1 | MultiGroupFixedQuotaDesignV25 | HeterogeneousBernoulliDesignV1 | ClusterBernoulliDesignV24 | TwoStageQuotaMixtureDesignV27
+    grouping: Literal[
+        "strict_majority_ties_low", "three_level_treated_neighbor_fraction",
+        "pretreatment_core_collaborator_majority",
+        "exact_treated_neighbor_count", "any_treated_neighbor",
+    ] = "strict_majority_ties_low"
+    # E3 only: complete pre-treatment map i -> C_i, with nonempty C_i subset
+    # of actual neighbors.  Omit when None to preserve old E1/E2 serialized
+    # contracts and their target fingerprints byte-for-byte.
+    core_collaborators: dict[str, tuple[str, ...]] | None = Field(
+        default=None, exclude_if=lambda value: value is None,
+    )
+    target: Literal["design_standardized_conditional_arm_mean"] = "design_standardized_conditional_arm_mean"
+    information: Literal["node_conditional_arm_mean_of_experimental_law"] = (
+        "node_conditional_arm_mean_of_experimental_law"
+    )
+
+    @model_validator(mode="after")
+    def check_core_grouping(self):
+        if self.grouping == "pretreatment_core_collaborator_majority":
+            if not self.core_collaborators:
+                raise ValueError("E3 requires a declared pre-treatment C_i for every network node")
+            for node, members in self.core_collaborators.items():
+                if not isinstance(node, str) or not node.strip():
+                    raise ValueError("E3 core-map node IDs must be nonempty")
+                if not members or len(set(members)) != len(members):
+                    raise ValueError("E3 core collaborator sets must be nonempty with no duplicates")
+        elif self.core_collaborators is not None:
+            raise ValueError("core_collaborators is only permitted for E3")
+        return self
+
+
 class IdentificationSpec(StrictModel):
     causal_semantics: Literal["potential_outcomes"] = "potential_outcomes"
     structure: StructureSpec
@@ -1575,6 +1865,7 @@ class IdentificationSpec(StrictModel):
     interference_structure_receipt: InterferenceStructureReceipt | None = None
     reference_exposure_propensity_upper_bound_fact: ReferenceExposurePropensityUpperBoundFact | None = None
     majority_response_theorem_contract: MajorityResponseTheoremContractV1 | None = None
+    randomized_network_arm_theorem_contract: RandomizedNetworkArmMeanContractV1 | None = None
     network_policy_mixture_theorem_contract: NetworkPolicyMixtureTheoremContractV1 | None = None
     network_policy_mixture_assignment_design: IndependentBernoulliDesignV1 | None = None
     network_policy_mixture_information_contract: NodeContextWorkingExposureBinaryMeanInfoV1 | None = None
@@ -1594,6 +1885,25 @@ class IdentificationSpec(StrictModel):
     def validate_network_uncertainty_alignment(self):
         if self.majority_response_theorem_contract is not None and self.query.type not in {"NETWORK_RESPONSE_SURFACE", "NETWORK_MAJORITY_RESPONSE_POLICY_SCORE"}:
             raise ValueError("majority response theorem contract requires a response or majority-score query")
+        if self.randomized_network_arm_theorem_contract is not None:
+            if self.query.type != "NETWORK_RANDOMIZED_ARM_MEAN":
+                raise ValueError("randomized-network-arm contract requires a matching arm-mean query")
+            if not isinstance(self.network_exposure, NetworkExposureSpec):
+                raise ValueError("randomized-network-arm contract requires a fixed network")
+            design = self.randomized_network_arm_theorem_contract.design
+            if isinstance(design, CompleteRandomizationDesignV1):
+                if design.m > len(self.network_exposure.node_ids):
+                    raise ValueError("treated quota m must be <= network size N")
+            elif isinstance(design, TwoGroupFixedQuotaDesignV1):
+                group_nodes = design.groups[0] + design.groups[1]
+                if (len(group_nodes) != len(self.network_exposure.node_ids)
+                    or set(group_nodes) != set(self.network_exposure.node_ids)):
+                    raise ValueError("two pretreatment groups must partition the complete network node set")
+            elif isinstance(design, HeterogeneousBernoulliDesignV1):
+                if set(design.propensities) != set(self.network_exposure.node_ids):
+                    raise ValueError("heterogeneous Bernoulli propensities must cover precisely the network nodes")
+            if self.majority_response_theorem_contract is not None:
+                raise ValueError("cannot mix response and single-arm theorem contracts")
         if isinstance(self.exposure_uncertainty, ExposurePropensityRatioSensitivitySpec):
             if not isinstance(self.network_exposure, ThresholdNetworkExposureSpec):
                 raise ValueError(
@@ -1843,7 +2153,126 @@ class NetworkMajorityPolicyScoreProgram(StrictModel):
         return self.functional
 
 
-PointProgram = Union[NetworkMajorityPolicyScoreProgram, NetworkMajorityResponseProgram, DifferenceFunctional, NetworkPolicyValueProgram, NetworkDirectEffectPointProgram]
+class RandomizedNetworkArmMeanProgram(StrictModel):
+    """Canonical observable population functional for one queried network arm."""
+    kind: Literal["randomized_network_design_standardized_arm_mean"] = (
+        "randomized_network_design_standardized_arm_mean"
+    )
+    node_id: str
+    own_treatment_value: Literal[0, 1]
+    exposure_value: StrictInt = Field(ge=0)
+    treatment: str
+    outcome: str
+    target_fingerprint: str
+    network_fingerprint: str
+    assignment_kind: Literal["complete_randomization", "two_group_fixed_quotas", "heterogeneous_bernoulli", "cluster_bernoulli", "multi_group_fixed_quotas", "two_stage_quota_mixture"] = "complete_randomization"
+    treated_quota: StrictInt | None = Field(default=None, ge=0)
+    # Only populated for D3; the complete group allocation is bound to the
+    # target fingerprint and is part of the target kernel, not merely support.
+    group_node_ids: tuple[tuple[str, ...], tuple[str, ...]] | None = None
+    group_treated_quotas: tuple[StrictInt, StrictInt] | None = None
+    multi_group_node_ids: tuple[tuple[str, ...], ...] | None = Field(
+        default=None, exclude_if=lambda value: value is None)
+    multi_group_treated_quotas: tuple[StrictInt, ...] | None = Field(
+        default=None, exclude_if=lambda value: value is None)
+    # Exclude the field entirely for published D2/D3 outputs, maintaining their
+    # exact v0.6 serialization and proof-certificate representation.
+    propensities: dict[str, str] | None = Field(default=None, exclude_if=lambda value: value is None)
+    cluster_node_ids: tuple[tuple[str, ...], ...] | None = Field(default=None, exclude_if=lambda value: value is None)
+    cluster_probabilities: tuple[str, ...] | None = Field(default=None, exclude_if=lambda value: value is None)
+    two_stage_group_node_ids: tuple[tuple[str,...], ...] | None = Field(default=None, exclude_if=lambda value: value is None)
+    two_stage_quota_profiles: tuple[tuple[StrictInt,...], ...] | None = Field(default=None, exclude_if=lambda value: value is None)
+    two_stage_profile_probabilities: tuple[str,...] | None = Field(default=None, exclude_if=lambda value: value is None)
+    grouping: Literal[
+        "K_i>floor(degree_i/2);ties=0",
+        "3K<d:low;d<=3K<2d:medium;3K>=2d:high;d>0",
+        "K_i(C_i)>floor(|C_i|/2);ties=0;C_i fixed pretreatment",
+        "S_i=K_i;exact treated one-hop neighbor count",
+        "S_i=1{K_i>0};any treated one-hop neighbor",
+    ] = "K_i>floor(degree_i/2);ties=0"
+    # Explicitly expose the E3 query's reference set.  For previous E1/E2
+    # records this field is absent, preserving serialized proof artifacts.
+    core_neighbor_ids: tuple[str, ...] | None = Field(
+        default=None, exclude_if=lambda value: value is None,
+    )
+    functional: Literal["mu_i^q(a,s|W)=E_exp[Y_i^obs|W,T_i=a,S_i=s]"] = (
+        "mu_i^q(a,s|W)=E_exp[Y_i^obs|W,T_i=a,S_i=s]"
+    )
+    semantics: Literal["design_standardized_conditional_arm_mean_not_fixed_assignment"] = (
+        "design_standardized_conditional_arm_mean_not_fixed_assignment"
+    )
+
+    @model_validator(mode="after")
+    def ensure_assignment_fields_are_consistent(self):
+        if self.grouping not in {
+            "3K<d:low;d<=3K<2d:medium;3K>=2d:high;d>0",
+            "S_i=K_i;exact treated one-hop neighbor count",
+        } and self.exposure_value > 1:
+            raise ValueError("binary exposure grouping permits only exposure 0/1")
+        if self.grouping == "3K<d:low;d<=3K<2d:medium;3K>=2d:high;d>0" and self.exposure_value > 2:
+            raise ValueError("three-level exposure permits only 0/1/2")
+        if self.grouping == "K_i(C_i)>floor(|C_i|/2);ties=0;C_i fixed pretreatment":
+            if not self.core_neighbor_ids or len(set(self.core_neighbor_ids)) != len(self.core_neighbor_ids):
+                raise ValueError("E3 program requires unique, nonempty core_neighbor_ids")
+        elif self.core_neighbor_ids is not None:
+            raise ValueError("Only E3 programs may contain core_neighbor_ids")
+        d6_fields = (self.two_stage_group_node_ids,self.two_stage_quota_profiles,self.two_stage_profile_probabilities)
+        if self.assignment_kind == "two_stage_quota_mixture":
+            if (any(v is None for v in d6_fields) or
+                any(v is not None for v in (self.treated_quota,self.group_node_ids,
+                    self.group_treated_quotas,self.multi_group_node_ids,
+                    self.multi_group_treated_quotas,self.propensities,
+                    self.cluster_node_ids,self.cluster_probabilities))):
+                raise ValueError("D6 program requires only canonical two-stage profile fields")
+            # Reuse the public strict design parser so a forged program cannot
+            # contain malformed probabilities, partitions, or inconsistent quotas.
+            d = TwoStageQuotaMixtureDesignV27(groups=self.two_stage_group_node_ids,
+                quota_profiles=self.two_stage_quota_profiles,
+                profile_probabilities=self.two_stage_profile_probabilities)
+            if (d.groups,d.quota_profiles,d.profile_probabilities) != d6_fields:
+                raise ValueError("D6 program profile coordinates must be canonical")
+            return self
+        elif any(v is not None for v in d6_fields):
+            raise ValueError("Only D6 may have two-stage profile fields")
+        if self.assignment_kind == "multi_group_fixed_quotas":
+            if (self.multi_group_node_ids is None or self.multi_group_treated_quotas is None
+                or not 3 <= len(self.multi_group_node_ids) <= 64
+                or len(self.multi_group_node_ids) != len(self.multi_group_treated_quotas)
+                or any(x is not None for x in (
+                    self.treated_quota, self.group_node_ids,self.group_treated_quotas,
+                    self.propensities,self.cluster_node_ids,self.cluster_probabilities))):
+                raise ValueError("D5 requires only canonical multi-stratum quotas")
+        elif self.multi_group_node_ids is not None or self.multi_group_treated_quotas is not None:
+            raise ValueError("Only D5 may include multi-stratum quota fields")
+        if self.assignment_kind == "complete_randomization":
+            if (self.treated_quota is None or self.group_node_ids is not None
+                or self.group_treated_quotas is not None or self.propensities is not None
+                or self.cluster_node_ids is not None or self.cluster_probabilities is not None):
+                raise ValueError("complete randomization requires m but no group allocation")
+        elif self.assignment_kind == "two_group_fixed_quotas":
+            if (self.treated_quota is not None or self.group_node_ids is None
+                or self.group_treated_quotas is None or self.propensities is not None
+                or self.cluster_node_ids is not None or self.cluster_probabilities is not None):
+                raise ValueError("two-group fixed quota requires groups and quotas but no global m")
+        elif self.assignment_kind == "cluster_bernoulli":
+            if (self.cluster_node_ids is None or self.cluster_probabilities is None
+                or len(self.cluster_node_ids) != len(self.cluster_probabilities)
+                or self.propensities is not None or self.treated_quota is not None
+                or self.group_node_ids is not None or self.group_treated_quotas is not None):
+                raise ValueError("D4 requires cluster partition and probabilities")
+        elif self.assignment_kind == "multi_group_fixed_quotas":
+            pass
+        elif (self.propensities is None or self.treated_quota is not None
+              or self.group_node_ids is not None or self.group_treated_quotas is not None
+              or self.cluster_node_ids is not None or self.cluster_probabilities is not None):
+            raise ValueError("heterogeneous Bernoulli requires propensities and no quotas")
+        return self
+
+    def to_text(self) -> str:
+        return self.functional
+
+
+PointProgram = Union[RandomizedNetworkArmMeanProgram, NetworkMajorityPolicyScoreProgram, NetworkMajorityResponseProgram, DifferenceFunctional, NetworkPolicyValueProgram, NetworkDirectEffectPointProgram]
 
 
 class ManskiBinaryATEBoundsProgram(StrictModel):

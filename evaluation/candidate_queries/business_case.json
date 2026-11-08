@@ -1,0 +1,19 @@
+{
+  "case_id": "QA_SALES",
+  "business_question": "我们有300名销售员，大家通过合作网络分享客户。我们想知道全员推广后团队销售额如何，以及没有开通的同事是否受影响。",
+  "sources": [
+    {
+      "source_id": "protocol",
+      "kind": "STUDY_PROTOCOL",
+      "text": "从300名销售员中恰好随机抽取150名使用AI助手，实验持续8周。",
+      "label": null
+    },
+    {
+      "source_id": "dict",
+      "kind": "DATA_DICTIONARY",
+      "text": "表头：sales_before、sales_after，只有有限数据。",
+      "label": null
+    }
+  ],
+  "response_language": "zh"
+}

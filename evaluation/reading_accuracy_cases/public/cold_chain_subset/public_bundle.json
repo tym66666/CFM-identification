@@ -1,0 +1,208 @@
+{
+  "case_id": "cold_chain_subset",
+  "synthetic": true,
+  "documents": {
+    "business_question.md": "本案例为新写的合成业务。共有6个冷链站点试用智能排车工具，相互协作关系在试点前已经冻结。\r\n各站点分别抛一枚公平硬币决定是否使用，硬币彼此独立。\r\n材料描述仍待研究者审核，并未授予科学许可；同伴使用可能影响本单位的结果。",
+    "study_protocol.md": "所有安排只在试点开始时决定一次。\r\n各站点分别抛一枚公平硬币决定是否使用，硬币彼此独立。\r\n各单位中签概率见 design_probabilities.csv。\r\n当前问题按以下规则分组：协作冷链站点中至少一个使用智能排车工具是高暴露，否则是低暴露。",
+    "data_dictionary.md": "主要业务结果为 service_metric，含义是每周延误单数。\r\nunits.csv 是试点前完整名册。network_edges.csv 是试点前冻结的无向协作边。\r\nunit_group 只是管理标签，不表示整组抽签；有限记录不能代替总体均值或科学批准。",
+    "target_clarification.txt": "这次只评价编号为site_01和site_03的两个单位，两者权重相同。\n在协作冷链站点中至少一个使用智能排车工具时，冷链站点自己使用和不使用相比，每周延误单数平均相差多少，按使用减不使用计算？\n其余冷链站点继续沿用原试点抽签规则，只在符合所问条件的安排中按原有概率取平均。"
+  },
+  "tables": {
+    "units.csv": {
+      "headers": [
+        "node_id",
+        "unit_group"
+      ],
+      "row_count": 6,
+      "rows": [
+        {
+          "node_id": "site_01",
+          "unit_group": "operations"
+        },
+        {
+          "node_id": "site_02",
+          "unit_group": "operations"
+        },
+        {
+          "node_id": "site_03",
+          "unit_group": "operations"
+        },
+        {
+          "node_id": "site_04",
+          "unit_group": "operations"
+        },
+        {
+          "node_id": "site_05",
+          "unit_group": "operations"
+        },
+        {
+          "node_id": "site_06",
+          "unit_group": "operations"
+        }
+      ]
+    },
+    "network_edges.csv": {
+      "headers": [
+        "source_id",
+        "target_id",
+        "frozen_before_rollout"
+      ],
+      "row_count": 6,
+      "rows": [
+        {
+          "source_id": "site_01",
+          "target_id": "site_02",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "site_02",
+          "target_id": "site_03",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "site_03",
+          "target_id": "site_04",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "site_04",
+          "target_id": "site_05",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "site_05",
+          "target_id": "site_06",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "site_06",
+          "target_id": "site_01",
+          "frozen_before_rollout": "1"
+        }
+      ]
+    },
+    "design_probabilities.csv": {
+      "headers": [
+        "node_id",
+        "randomization_probability"
+      ],
+      "row_count": 6,
+      "rows": [
+        {
+          "node_id": "site_01",
+          "randomization_probability": "1/2"
+        },
+        {
+          "node_id": "site_02",
+          "randomization_probability": "1/2"
+        },
+        {
+          "node_id": "site_03",
+          "randomization_probability": "1/2"
+        },
+        {
+          "node_id": "site_04",
+          "randomization_probability": "1/2"
+        },
+        {
+          "node_id": "site_05",
+          "randomization_probability": "1/2"
+        },
+        {
+          "node_id": "site_06",
+          "randomization_probability": "1/2"
+        }
+      ]
+    }
+  },
+  "file_inventory": {
+    "business_question.md": {
+      "sha256": "b3dd243d615d5df2867975ee38853df87f9870155d4ed1cb38f861e741914d03",
+      "bytes": 320
+    },
+    "study_protocol.md": {
+      "sha256": "87b1c74cfb6fc93e14c71e55967f9e30b4b018dff6caae5d8d5f85db4238dcc2",
+      "bytes": 313
+    },
+    "data_dictionary.md": {
+      "sha256": "14aef64baf382be4e7c8971168d29e1944cdf6452503e8392219b0b0ba0b8ba2",
+      "bytes": 277
+    },
+    "units.csv": {
+      "sha256": "a01a75f19a1b9bc23fc7bae72f9e22db3ca6a193831b7b2afa0ac30bb328cf9c",
+      "bytes": 140
+    },
+    "network_edges.csv": {
+      "sha256": "6db6e642fa85effa50342f0cd10b0cd239aaafbfd8a96bb6b38eb449941d292f",
+      "bytes": 157
+    },
+    "design_probabilities.csv": {
+      "sha256": "ab743a8f22492c2b225207cffea838c70bfdc064c2283198779b444f75756409",
+      "bytes": 113
+    },
+    "target_clarification.txt": {
+      "sha256": "33cc3d1a215270587a9ff750f92651e8148f2bf09621b6a5581e60dfe86f64b6",
+      "bytes": 379
+    }
+  },
+  "structure": {
+    "nodes": [
+      "site_01",
+      "site_02",
+      "site_03",
+      "site_04",
+      "site_05",
+      "site_06"
+    ],
+    "edges": [
+      [
+        "site_01",
+        "site_02"
+      ],
+      [
+        "site_02",
+        "site_03"
+      ],
+      [
+        "site_03",
+        "site_04"
+      ],
+      [
+        "site_04",
+        "site_05"
+      ],
+      [
+        "site_05",
+        "site_06"
+      ],
+      [
+        "site_01",
+        "site_06"
+      ]
+    ],
+    "groups": {
+      "operations": [
+        "site_01",
+        "site_02",
+        "site_03",
+        "site_04",
+        "site_05",
+        "site_06"
+      ]
+    },
+    "cluster_rates": {},
+    "policies": {},
+    "units_with_cross_group_neighbors": []
+  },
+  "active_goal_document": "target_clarification.txt",
+  "question_slots": {
+    "q1": "在协作冷链站点中至少一个使用智能排车工具时，冷链站点自己使用和不使用相比，每周延误单数平均相差多少，按使用减不使用计算？"
+  },
+  "original_business_unchanged": false,
+  "revision_kind": "FROZEN_POPULATION_SUBSET_CONFIRMATION",
+  "probability_binding": {
+    "source": "design_probabilities.csv",
+    "file_sha256": "ab743a8f22492c2b225207cffea838c70bfdc064c2283198779b444f75756409",
+    "table_sha256": "cb269eeea235ed1e77582d87d95e2a645a5868cda7477b9eae931dd280832f24"
+  }
+}

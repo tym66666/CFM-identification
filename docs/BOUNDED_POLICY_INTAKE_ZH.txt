@@ -1,0 +1,88 @@
+通用固定政策 PARTIAL 合同入口（2026-10-23）
+
+目的
+同一问题族的业务输入应走同一个参数化编译器，不按 Star7、Chain4 或业务名称
+分派。新的 cfm_id/bounded_policy_intake.py 负责从当前实际业务读取和独立
+科学声明构造原有类型；没有增加识别定理，没有改动数学 Core、求解器或验证器。
+
+用户业务问题仍是自然语言。第一 LLM 仍使用原 FIXED_POLICY / fixed-assignment-id
+请求，读取政策、评价对象、汇总方式和原试点分配事实。科学声明不进入这个 Prompt。
+网络事实、精确总体信息、科学假设和边界来自另行提供及审核的材料。它们不是 LLM
+自动写出的证明。声明可以由上层表单或其他适配器提供，不要求最终用户手写 JSON；
+本轮交付的是 Python / JSON 接口，尚未新增表单界面或科学文档自动理解器。
+
+一次输入的处理
+1. prepare(bundle, actual_reading, query_id, declaration)：
+   检查原业务目标和固定名额事实是否齐全；检查网络、科学声明与参数范围。
+   生成未批准 worksheet 和目标坐标。没有审批标记，没有计算上下界。
+2. 外部审核者检查当前原文、实际 LLM 读取和科学声明：
+   对每一项科学条件分别给 ACCEPTED / PENDING / REJECTED，明确审核 A1、
+   网络与分配、精确 A4、结果含义与边界、完整模型中无未处理的额外约束。
+   全部输入及来源绑定哈希；来源或原文变化需要重新审核。
+3. compile_reviewed：
+   只在明确选择合成协议且外部审核齐全时，编译为 FixedPolicyInquiryV21 和
+   BoundedMeanInformation。目标取自实际读取的坐标，不从独立参考答案填补。
+   生成合同不等于识别成功；此时不发布 POINT/PARTIAL。
+4. submit：
+   新合同必须与原独立审核 context 中的 inquiry 完全一致，绝不覆盖该 context。
+   随后完整调用原 bounded_policy.submit。原材料、业务、A4/A5、分配、路由
+   审核及 POINT 检查全部保留。只有 R2 POINT 或实际零目标签名支持可进入有界求解。
+5. 精确求解与独立重放：
+   只有有效性和端点可达性均通过，才发布相应的 sharp 区间及证书。
+
+通用声明内容
+BoundedPolicyDeclaration 的所有字段显式提供，没有默认审批或默认科学条件：
+  study：对象顺序、简单无向边、原固定名额设计、处理前网络、E1 定义、变量与背景。
+  information：完整的已知签名单元均值清单、全部节点边界、边界种类与作用域、
+               结果定义/单位/期间、A4 与边界来源。
+  conditions：随机化、一致性、已知分配律、固定网络、有限一阶矩，以及额外的
+              全安排/全研究节点均值充分性；每项均有明确陈述、来源及范围。
+  additional_constraints：额外限制的清单。非空则拒绝此简单盒模型，不能悄悄丢弃。
+
+数学保真性
+编译器只作坐标和类型转换，不改变 docs/BOUNDED_POLICY_MATH_ZH.md 中的模型。
+
+目标为 V(z*) = sum_i w_i E[Y_i(z*) | W=w]。当前业务读取仅接入明确评价名单
+上的等权平均，数学后端另支持已声明的非负归一化权重。
+
+识别推导仍需同时使用：完整向量随机化、一致性、有限一阶矩，以及对于全部安排
+成立的均值充分性。E1 仅是暴露定义，不能推出均值充分性。原分配律 q、原 A4 条件
+事件和目标 z* 各有独立含义；政策不必位于原完整向量支持内。
+
+只有明确声明为精确总体信息的正概率条件均值，才转为相应 h_i 单元的等式。
+正支持目标缺少数值仍是 NEEDS_INPUT；不能改称零支持，也不能用样本均值代替。
+原数据包含完整联合分布、聚合等式或额外单调性等耦合限制时，本入口拒绝继续。
+这是为了保证“sharp”相对于完整已声明模型，而不是相对于删去限制后的更宽模型。
+
+在无额外耦合的均值盒模型内，端点是已知目标贡献加上未知目标贡献的对应边界。
+有效性通过精确等式和非负权重检验；上下端点通过完整合法均值表达到，保留所有
+A4 单元，包括非目标单元和零权重对象。区间内点由可行均值表的凸组合实现。
+二元结果使用合法 Bernoulli 潜在结果构造，不能把均值 1/2 当成二元结果本身。
+ALMOST_SURE_OUTCOME 与 CONDITIONAL_MEAN 边界严格区分。
+
+这些是声明条件下的数学结论。审核记录与输入哈希不证明现实科学假设为真，也不
+提供审核者身份认证。独立数值/代数重放仍共享输入类型校验，不称为形式证明系统。
+
+已验收与未验收范围
+本入口没有案例名称分支；网络、名额、完整目标政策、评价名单、已知均值和边界
+均为输入参数。额外提供参数化离线生成器，测试中才允许制造假想总体信息和审批。
+
+仍限于 D2 + E1、已知固定处理前简单无向图、单个固定政策均值、最多 12 个节点、
+一个非空精确均值 A4 来源。该节点上限是独立穷举重放的实现预算；本轮未放宽。
+全部审核仍明确属于合成研究模式，production_admission=False，不进入 Estimation。
+一般政策差值、多来源、其他 D/E、额外耦合限制及大网络的高效验证不在本轮范围。
+结构测试通过不能代替真实 LLM 阅读准确率或现实企业科学条件的审核。
+
+本地调用
+在源码目录中，使用本环境可用的 Python 和依赖：
+  python -B -m unittest tests_gateway.test_bounded_policy_intake tests_gateway.test_bounded_policy -v
+
+生成未审批表（输入均不含 API Key）：
+  python -B -m cfm_id.bounded_policy_intake --bundle bundle.json --candidate actual_reading.json --declaration declaration.json --query-id q1 --output new_worksheet.json
+
+可复现的离线结构验收，输出目录必须不存在：
+  python -B -m evaluation.bounded_policy_generalization --cases 1000 --seed 20261023 --full-chain-every 1 --output new_structural_results
+
+如需运行全量 Gateway 回归，沿用 BOUNDED_POLICY_ENTRY_ZH.txt 的 UTF-8 与工作区
+TEMP/TMP 设置。API Key 不参与上述步骤。独立科学审核与原审核链必须通过调用方
+显式提供；examples/bounded_policy_intake_fixture.py 仅为合成测试，不能替真实数据批准。

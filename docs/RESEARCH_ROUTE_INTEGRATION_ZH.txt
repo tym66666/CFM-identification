@@ -1,0 +1,116 @@
+研究路线目录与显式入口：本轮集成说明
+阅读提示：下文是早期三路线集成的历史记录。当前已注册四条研究数学路线，包含经典单变量前门；以 cfm_id/research_route_catalog.py 和 ENTRY_POINTS_ZH.md 为准。统一业务会话首版另见 RESEARCH_SESSION_ZH.md。历史“前门尚未实现”的表述不代表当前能力。
+日期：2026-10-25
+范围：当前工作源码；不涉及 ProjectCode 同步或展示页面改版。
+
+1. 这一步解决什么
+
+把已经实现的研究路线放进一个可查询、可复现、可验收的显式数学入口。
+调用者选择路线，提供该路线原有的完整问题合同和独立审核记录，系统才进行求解和证书复核。
+这里没有新增识别定理，也没有把网络干扰模型与变量 DAG 合并成一个数学模型。
+
+文件职责：
+- cfm_id/research_route_catalog.py：固定能力清单、原生输入/审核类型、原生 schema。
+- cfm_id/research_route_entry.py：只接受明确注册的路线，严格解析对应合同，再调用既有共享边界。
+- cfm_id/research_route_workflow.py：既有 prepare/submit/证书/独立 replay/结论一致性检查；本轮未改。
+- evaluation/research_routes_cli.py：离线目录查询、schema 导出、准备、显式提交、合成验收。
+- evaluation/research_route_acceptance.py：三路线及入口边界的 64 条离线参考验收。
+- tests_gateway/test_research_route_entry.py：新增命令行、类型、审核、证书失败等行为测试。
+
+2. 能力清单分为三类
+
+直接注册到此入口：
+- DAG_CLASSICAL_BACKDOOR：经典后门；当前单处理、单结果、最多八个二元节点（含显式潜变量），
+  已声明和审核的递归因果模型、完整观察总体联合分布与严格正性。输出符号干预分布公式。
+- DAG_ADJUSTMENT：既有 DAG 调整路线；沿用其图判据、适用范围和独立验证器。
+  与经典后门是不同路线，不在入口中偷偷切换，也不代表一般 ID 算法已完成。
+- MEAN_ORDER_D2_E1：既有固定网络、D2/E1、有限政策差值、精确总体均值及逐节点均值顺序合同。
+  保留原来的合成研究限定，输出精确 singleton、sharp interval 或约束不相容证据。
+
+沿用独立业务入口：
+- 网络 R1a/R1b/R2/R3 系列；
+- 有界单政策均值、同一模型的政策差值；
+- 受控的 LLM 未验证研究候选。
+目录记录它们的维护入口，但不通过此数学入口调用；它们依赖的业务、分配、科学条件审核仍须保留。
+这是当前维护入口的清单，不是历史上每一个实验后端的完整登记。
+
+尚不可调用：
+- 经典前门：已有设计合同，尚未实现求解与独立验证；
+- IV、一般图形 ID：本入口尚无已注册合同与实现。
+未知路线和规划中的路线不会由字符串动态导入，也不会交给 LLM 自动补成认证答案。
+
+3. 审核语义不能被统一接口抹平
+
+DAG 使用独立 BackdoorReview / AdjustmentReview，四项条件分别 ACCEPTED / PENDING / REJECTED。
+PENDING 保持待审核，REJECTED 阻断；已变更问题不能复用旧哈希绑定的审核。
+EXTERNAL_RESEARCH_REVIEW 目前是外部研究者的声明记录，不是账号鉴权或对科学真实性的自动证明。
+
+均值顺序使用原生 ReviewedMeanOrder：四项明确 true 的合成研究确认及 synthetic_fixture=true。
+不能删除该标志、把整数 1 当 true、或套用 DAG 的审核记录来获得真实业务准入。
+准备阶段不生成批准；从源材料读出“拟采用某假设”也不是批准该假设成立。
+
+各路线共用的是提交与验证边界，不是所有路线都具有同样的科学审核权限。
+
+4. 状态表示
+
+POINT：本路线证书所证明的点识别；DAG 为符号函数，均值路线可以是精确单点区间。
+PARTIAL：当前注册的均值路线为 sharp bounds，必须同时通过原生证书与端点/对偶复核。
+INCOMPATIBLE：约束不相容证据；不作为识别区间，也不作为 LLM 自行判断的“无法识别”。
+NEEDS_INPUT / REVIEW_REQUIRED / UNSUPPORTED / CHECK_BLOCKED：停止状态，不发布数学结论或顶层证书。
+尤其 UNSUPPORTED 只表示当前合同/路线未给出认证结果，不是一般的因果不可识别定理。
+
+统一结果的 mathematical_claim、certificate、independent_replay 是对外认证字段。
+native_result 可能保留原生诊断记录，不能把其中未经统一复核的嵌套内容当作最终认证结果。
+所有本入口结果均为研究用途，production_admission 和 estimation_handoff_allowed 保持 false。
+
+5. 实际可运行的命令
+
+在 仓库根目录 下，使用安装了项目依赖的 Python：
+python -m evaluation.research_routes_cli list --output local_runs/catalog.json
+python -m evaluation.research_routes_cli schema --route DAG_CLASSICAL_BACKDOOR --output local_runs/backdoor_schema.json
+python -m evaluation.research_routes_cli prepare --route DAG_CLASSICAL_BACKDOOR --problem problem.json --output local_runs/prepared.json
+python -m evaluation.research_routes_cli submit --route DAG_CLASSICAL_BACKDOOR --problem problem.json --review review.json --select-research-protocol --output local_runs/submitted.json
+python -m evaluation.research_routes_cli acceptance --allow-synthetic-reviews --output local_runs/acceptance.json
+
+输出文件必须是新文件；已有证据不会被覆盖。
+prepare 只检查输入并提供原生待审核工作表；submit 必须另交审核文件并明确选择研究协议。
+CLI 成功保存一个 CHECK_BLOCKED / UNSUPPORTED 结果也会正常退出；是否数学认证应读取结果状态和证据。
+损坏 JSON、重复键、NaN 或文件错误会失败，不保存结果，也不回显输入内容。
+本 CLI 不调用 API。合成 fixture 仅在显式选择 acceptance 时执行。
+
+本轮真实命令行证据在交接包 LOCAL_EVIDENCE_NOT_DISTRIBUTED
+三条路线各有 problem.json、synthetic_review.json、schema.json、prepared.json、submitted.json。
+这些都是合成验收材料，不能拿其中的审核代替实际问题的审核。
+同目录 COMMANDS.json 保存了本次 11 次离线 CLI 进程的命令与退出码。
+上级 REPRODUCE_CLI.py 接受 --source、一个全新的 --output 目录及 --allow-synthetic-reviews，可完整重做。
+
+6. 验证口径
+
+160 项相关单元/回归测试通过，包含原有 DAG 与均值顺序检验及新增 17 项入口测试。
+64 条统一离线参考验收：
+- 经典后门 21 条；
+- DAG 调整 27 条；
+- 均值顺序 12 条；
+- 未注册/独立业务入口边界 4 条。
+
+最终状态：POINT 10，PARTIAL 1，INCOMPATIBLE 1，REVIEW_REQUIRED 11，
+NEEDS_INPUT 3，UNSUPPORTED 21，CHECK_BLOCKED 17。
+所有 12 个带数学证据的结果都通过独立 replay；其余是按预期停止的正/负例。
+“64/64 符合预期”不等于“64 题都点识别”，也不是新增 64 道自然语言业务题或 LLM 准确率实验。
+验收覆盖原有图例、审核变化、材料变化、输入缺项、类型错误和错误入口，不构成任意模型域的形式证明。
+
+数学 Core、求解器、验证器、原生数学/审核合同、业务 Prompt、Estimation/Policy 均未修改；
+新增入口保留原生结果。此次 API 调用为 0。
+
+7. 下一条路线如何接入
+
+先完成文献—本项目推导—模型合同—输出/证书—独立验证器的对应，再实现路线 adapter。
+必须分别检验输入适用域、审核作用域、公式/界限与目标匹配、独立 replay 和负例。
+通过后才在 registrations 中添加固定类型和能力描述，扩展共享验收；不要让路线名字决定任意 import。
+注册只表示允许显式研究调用，不能替代真实业务理解层和独立科学审核。
+
+前门合同仍见 docs/DAG_FRONTDOOR_CONTRACT_ZH.txt 及 literature_support/designs/classical_frontdoor.json。
+既有路线数学依据继续见 docs/DAG_BACKDOOR_RESEARCH_ZH.txt、DAG_ADJUSTMENT_RESEARCH_ZH.txt、
+MEAN_ORDER_RESEARCH_ZH.txt 与对应 literature_support 映射。
+本轮公共边界已可复用，接下来可以按既有设计实现经典前门这一条有限路线，并完成同标准验收。
+

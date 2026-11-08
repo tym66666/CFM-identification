@@ -1,49 +1,36 @@
-# Python bytecode / caches
 __pycache__/
 *.py[cod]
-*$py.class
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
-.coverage
-.coverage.*
-htmlcov/
-
-# Virtual environments / local environment files
 .venv/
 venv/
-env/
-ENV/
 .env
 .env.*
-
-# Jupyter / IDE state
-.ipynb_checkpoints/
-.virtual_documents/
-.vscode/
-.idea/
-
-# Runtime outputs and caches
+!.env.example
+secrets/
+*_api_key.txt
+*.pem
+*.key
 outputs/
-.cache/
-cache/
-*.log
-
-# Model checkpoints / large local artifacts
-checkpoints/
-*.pt
-*.pth
-*.ckpt
-
-# Generated notebook exports
-notebooks/*.html
-
-# Build / packaging artifacts
+local_results/
+api_test_results/
+evaluation/reading_accuracy_cases/recorded/
 build/
 dist/
 *.egg-info/
+*.log
+.ipynb_checkpoints/
+checkpoints/
+.cache/
+showcase*/
+# demo/ contains the maintained ID-only web source. Runtime data goes to outputs/.
+local_*/
 
-# OS files
-.DS_Store
-Thumbs.db
-Desktop.ini
+# Internal task assignments and publication-excluded development history
+/docs/student_tasks/
+/docs/CLASSIFICATION_TASKS_ACCEPTANCE_ZH.md
+/docs/history/
+
+# Local acceptance machine reports are not public artifacts
+/docs/HANDOFF_ACCEPTANCE.json

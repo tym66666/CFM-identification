@@ -21,7 +21,7 @@ from math import comb
 
 from .schemas import (
     Assumption, AssumptionStatus, IdentificationResult, IdentificationSpec, IdentificationStatus,
-    InformationObject, InformationSignature, InterferenceStructureReceipt,
+    InformationObject, InformationSignature, RandomizedArmObservableV21, InterferenceStructureReceipt,
     MajorityResponseTheoremContractV1, NetworkExposureSpec,
     NetworkMajorityResponseProgram, QuerySpec, StructureSpec, TraceStep,
     VariableDomain, VerificationStatus, interference_structure_semantic_fingerprint,
@@ -65,6 +65,53 @@ def response_target_fingerprint(network: NetworkExposureSpec,
 
 def spec_fingerprint(spec: IdentificationSpec) -> str:
     return _hash(spec.model_dump(mode="json", warnings="error"))
+
+
+def majority_response_a4_reason(spec: IdentificationSpec) -> str | None:
+    """v2.2 explicit A4 for the *legacy ER/PFN response* (four-arms).
+
+    Never infer NODE_ARM_MEANS from variable names. Full joint/node laws entail
+    these means by conditioning on q-positive arms, but A4 is still a declared
+    population operator, not numerical outcomes or a license for A5 assumptions.
+    """
+    net, contract, query = (spec.network_exposure,
+                            spec.majority_response_theorem_contract, spec.query)
+    if not isinstance(net, NetworkExposureSpec) or contract is None:
+        return 'MAJORITY_A4_CONTRACT_REQUIRED'
+    fingerprint = net.semantic_fingerprint()
+    design_fp = _hash(contract.design.model_dump(mode='json', warnings='error'))
+    exposure_fp = _hash({'network': fingerprint, 'grouping':'strict_majority_ties_low'})
+    seen = {}
+    accepted = False
+    for obj in spec.information_signature.objects:
+        op = obj.randomized_arm_observable
+        if op is None or obj.regime != 'experimental':
+            continue
+        if op.source_id in seen and seen[op.source_id] != op.model_dump(mode='json'):
+            return 'MAJORITY_A4_CONFLICTING_SOURCE_ID'
+        seen[op.source_id] = op.model_dump(mode='json')
+        if op.admission not in ('ADMITTED','CERTIFIED') or op.availability not in (
+                'SYMBOLIC_POPULATION_OPERATOR','EXACT_POPULATION_VALUE'):
+            continue
+        if (op.node_order != tuple(net.node_ids) or set(op.outcome_nodes)!=set(net.node_ids)
+            or op.treatment!=query.treatment or op.outcome!=query.outcome
+            or op.context_symbol!='W' or op.network_fingerprint!=fingerprint
+            or op.assignment_law_fingerprint!=design_fp):
+            continue
+        if op.operator=='NODE_ARM_MEANS':
+            if op.exposure_fingerprint!=exposure_fp:
+                continue
+            if op.arm_coverage=='ALL_NODE_ARMS':
+                accepted=True
+            elif op.arm_coverage=='EXPLICIT_CELLS':
+                expected={(node,a,s) for node in net.node_ids for a in (0,1) for s in (0,1)}
+                if expected<=set(op.arm_cells):
+                    accepted=True
+        elif op.operator in ('NODE_FULL_LAW','FULL_JOINT_LAW'):
+            accepted=True
+    if not accepted:
+        return 'MAJORITY_RESPONSE_TYPED_A4_REQUIRED'
+    return None
 
 
 def make_majority_response_spec(
@@ -133,7 +180,23 @@ def make_majority_response_spec(
         information_signature=InformationSignature(objects=[InformationObject(
             name="P_exp(Y_i,T_i,S_i|W,G)", regime="experimental",
             variables=["treatment", "majority_exposure", "outcome", "context"],
-            description="Node-indexed conditional population laws in repeated experiments at fixed full network context; no numerical o is supplied.")]),
+            description="Symbolic POPULATION arm means; not finite-sample estimates.",
+            randomized_arm_observable=RandomizedArmObservableV21(
+                operator='NODE_ARM_MEANS',
+                source_id='official_majority_response_constructor_v22',
+                provenance=f'{source}: {evidence}',
+                admission=('CERTIFIED' if synthetic and admitted else 'ADMITTED'
+                           if admitted else 'UNRESOLVED'),
+                availability='SYMBOLIC_POPULATION_OPERATOR',
+                node_order=tuple(network.node_ids),outcome_nodes=tuple(network.node_ids),
+                treatment=query.treatment,outcome=query.outcome,context_symbol='W',
+                network_fingerprint=network.semantic_fingerprint(),
+                assignment_law_fingerprint=_hash(contract.design.model_dump(mode='json')),
+                exposure_fingerprint=_hash({'network':network.semantic_fingerprint(),
+                                           'grouping':'strict_majority_ties_low'}),
+                arm_coverage='ALL_NODE_ARMS',
+            ),
+        )]),
         query=query,
         support_domain={"analysis_unit": ["node"], "context_symbol": "W",
                         "context_semantics": "full_pretreatment_network_context",
@@ -184,8 +247,9 @@ def _eligibility_error(spec: IdentificationSpec) -> str | None:
         return "BINARY_TREATMENT_REQUIRED"
     if spec.domain(q.outcome) is None or spec.domain(q.outcome).kind not in {"continuous", "binary"}:
         return "INTEGRABLE_NUMERIC_OUTCOME_REQUIRED"
-    if not spec.information_signature.contains_variables([q.treatment, q.outcome, "majority_exposure", "context"], regime="experimental"):
-        return "CONDITIONAL_MAJORITY_POPULATION_INFORMATION_REQUIRED"
+    a4_failure=majority_response_a4_reason(spec)
+    if a4_failure is not None:
+        return a4_failure
     expected_domain = {"analysis_unit": ["node"], "context_symbol": "W",
                        "context_semantics": "full_pretreatment_network_context",
                        "target_context_distribution": "conditional_not_transport"}

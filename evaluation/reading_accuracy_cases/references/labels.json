@@ -1,0 +1,580 @@
+{
+  "cold_chain": {
+    "reading": {
+      "intents": {
+        "q1": {
+          "kind": "比较",
+          "quote": "在协作冷链站点中至少一个使用智能排车工具时，冷链站点自己使用和不使用相比，每周延误单数平均相差多少，按使用减不使用计算？"
+        }
+      },
+      "study": {
+        "design": "逐单位抽签",
+        "declared_independent": true,
+        "independence_source": "study_protocol.md:L2",
+        "probability_source": "design_probabilities.csv",
+        "design_sources": [
+          "study_protocol.md:L2"
+        ],
+        "exposure": "any_treated_neighbor",
+        "exposure_source": "study_protocol.md:L4",
+        "outcome": "service_metric"
+      },
+      "questions": {
+        "q1": {
+          "population": {
+            "selection": "全体",
+            "ids": []
+          },
+          "aggregation": "等权平均",
+          "population_source": "target_clarification.txt:L1",
+          "first": {
+            "own": "开通",
+            "neighbors": "至少一个",
+            "neighbor_count": null
+          },
+          "second": {
+            "own": "不开通",
+            "neighbors": "至少一个",
+            "neighbor_count": null
+          },
+          "remaining_source": "target_clarification.txt:L3",
+          "remaining_evidence_span": "其余冷链站点继续沿用原试点抽签规则，只在符合所问条件的安排中按原有概率取平均。",
+          "peer_evidence": {
+            "first": "在协作冷链站点中至少一个使用智能排车工具时，冷链站点自己使用和不使用相比，每周延误单数平均相差多少，按使用减不使用计算？",
+            "second": "在协作冷链站点中至少一个使用智能排车工具时，冷链站点自己使用和不使用相比，每周延误单数平均相差多少，按使用减不使用计算？"
+          }
+        }
+      }
+    },
+    "expected_preview_state": "REVIEW_REQUIRED",
+    "permitted_source_locations": {
+      "study": {
+        "independence_source": [
+          "business_question.md:L2",
+          "study_protocol.md:L2"
+        ],
+        "exposure_source": [
+          "study_protocol.md:L4"
+        ]
+      },
+      "questions": {
+        "q1": {
+          "population_source": [
+            "target_clarification.txt:L1"
+          ],
+          "remaining_source": [
+            "target_clarification.txt:L3"
+          ]
+        }
+      }
+    },
+    "target_reference": [
+      {
+        "kind": "comparison",
+        "nodes": [
+          "site_01",
+          "site_02",
+          "site_03",
+          "site_04",
+          "site_05",
+          "site_06"
+        ],
+        "aggregation": "equal_mean",
+        "situation": [
+          1,
+          1
+        ],
+        "reference": [
+          0,
+          1
+        ],
+        "remaining": "original_randomization",
+        "treated_nodes": null,
+        "unresolved": []
+      }
+    ]
+  },
+  "repair_teams": {
+    "reading": {
+      "intents": {
+        "q1": {
+          "kind": "比较",
+          "quote": "在协作维修小组中超过一半使用诊断助手时，维修小组自己使用和不使用相比，每周按时完工单数平均相差多少，按使用减不使用计算？"
+        }
+      },
+      "study": {
+        "design": "逐单位抽签",
+        "declared_independent": true,
+        "independence_source": "study_protocol.md:L2",
+        "probability_source": "design_probabilities.csv",
+        "design_sources": [
+          "study_protocol.md:L2"
+        ],
+        "exposure": "strict_majority",
+        "exposure_source": "study_protocol.md:L4",
+        "outcome": "service_metric"
+      },
+      "questions": {
+        "q1": {
+          "population": {
+            "selection": "全体",
+            "ids": []
+          },
+          "aggregation": "等权平均",
+          "population_source": "target_clarification.txt:L1",
+          "first": {
+            "own": "开通",
+            "neighbors": "超过一半",
+            "neighbor_count": null
+          },
+          "second": {
+            "own": "不开通",
+            "neighbors": "超过一半",
+            "neighbor_count": null
+          },
+          "remaining_source": "target_clarification.txt:L3",
+          "remaining_evidence_span": "其余维修小组继续沿用原试点抽签规则，只在符合所问条件的安排中按原有概率取平均。",
+          "peer_evidence": {
+            "first": "在协作维修小组中超过一半使用诊断助手时，维修小组自己使用和不使用相比，每周按时完工单数平均相差多少，按使用减不使用计算？",
+            "second": "在协作维修小组中超过一半使用诊断助手时，维修小组自己使用和不使用相比，每周按时完工单数平均相差多少，按使用减不使用计算？"
+          }
+        }
+      }
+    },
+    "expected_preview_state": "REVIEW_REQUIRED",
+    "permitted_source_locations": {
+      "study": {
+        "independence_source": [
+          "business_question.md:L2",
+          "study_protocol.md:L2"
+        ],
+        "exposure_source": [
+          "study_protocol.md:L4"
+        ]
+      },
+      "questions": {
+        "q1": {
+          "population_source": [
+            "target_clarification.txt:L1"
+          ],
+          "remaining_source": [
+            "target_clarification.txt:L3"
+          ]
+        }
+      }
+    },
+    "target_reference": [
+      {
+        "kind": "comparison",
+        "nodes": [
+          "site_01",
+          "site_02",
+          "site_03",
+          "site_04",
+          "site_05",
+          "site_06",
+          "site_07",
+          "site_08"
+        ],
+        "aggregation": "equal_mean",
+        "situation": [
+          1,
+          1
+        ],
+        "reference": [
+          0,
+          1
+        ],
+        "remaining": "original_randomization",
+        "treated_nodes": null,
+        "unresolved": []
+      }
+    ]
+  },
+  "convenience_stores": {
+    "reading": {
+      "intents": {
+        "q1": {
+          "kind": "比较",
+          "quote": "在协作便利店中至少一个使用补货助手时，便利店自己使用和不使用相比，每周缺货小时数平均相差多少，按使用减不使用计算？"
+        }
+      },
+      "study": {
+        "design": "逐单位抽签",
+        "declared_independent": null,
+        "independence_source": null,
+        "probability_source": "design_probabilities.csv",
+        "design_sources": [
+          "study_protocol.md:L2"
+        ],
+        "exposure": "any_treated_neighbor",
+        "exposure_source": "study_protocol.md:L4",
+        "outcome": "service_metric"
+      },
+      "questions": {
+        "q1": {
+          "population": {
+            "selection": "全体",
+            "ids": []
+          },
+          "aggregation": "等权平均",
+          "population_source": "target_clarification.txt:L1",
+          "first": {
+            "own": "开通",
+            "neighbors": "至少一个",
+            "neighbor_count": null
+          },
+          "second": {
+            "own": "不开通",
+            "neighbors": "至少一个",
+            "neighbor_count": null
+          },
+          "remaining_source": "target_clarification.txt:L3",
+          "remaining_evidence_span": "其余便利店继续沿用原试点抽签规则，只在符合所问条件的安排中按原有概率取平均。",
+          "peer_evidence": {
+            "first": "在协作便利店中至少一个使用补货助手时，便利店自己使用和不使用相比，每周缺货小时数平均相差多少，按使用减不使用计算？",
+            "second": "在协作便利店中至少一个使用补货助手时，便利店自己使用和不使用相比，每周缺货小时数平均相差多少，按使用减不使用计算？"
+          }
+        }
+      }
+    },
+    "expected_preview_state": "NEEDS_INPUT",
+    "permitted_source_locations": {
+      "study": {
+        "independence_source": [
+          null
+        ],
+        "exposure_source": [
+          "study_protocol.md:L4"
+        ]
+      },
+      "questions": {
+        "q1": {
+          "population_source": [
+            "target_clarification.txt:L1"
+          ],
+          "remaining_source": [
+            "target_clarification.txt:L3"
+          ]
+        }
+      }
+    },
+    "target_reference": [
+      {
+        "kind": "comparison",
+        "nodes": [
+          "site_01",
+          "site_02",
+          "site_03",
+          "site_04",
+          "site_05",
+          "site_06",
+          "site_07",
+          "site_08",
+          "site_09",
+          "site_10"
+        ],
+        "aggregation": "equal_mean",
+        "situation": [
+          1,
+          1
+        ],
+        "reference": [
+          0,
+          1
+        ],
+        "remaining": "original_randomization",
+        "treated_nodes": null,
+        "unresolved": []
+      }
+    ]
+  },
+  "service_points": {
+    "reading": {
+      "intents": {
+        "q1": {
+          "kind": "比较",
+          "quote": "在协作服务点中超过一半使用工单助手时，服务点自己使用和不使用相比，每周积压单数平均相差多少，按使用减不使用计算？"
+        }
+      },
+      "study": {
+        "design": "逐单位抽签",
+        "declared_independent": false,
+        "independence_source": "study_protocol.md:L2",
+        "probability_source": "design_probabilities.csv",
+        "design_sources": [
+          "study_protocol.md:L2"
+        ],
+        "exposure": "strict_majority",
+        "exposure_source": "study_protocol.md:L4",
+        "outcome": "service_metric"
+      },
+      "questions": {
+        "q1": {
+          "population": {
+            "selection": "全体",
+            "ids": []
+          },
+          "aggregation": "等权平均",
+          "population_source": "target_clarification.txt:L1",
+          "first": {
+            "own": "开通",
+            "neighbors": "超过一半",
+            "neighbor_count": null
+          },
+          "second": {
+            "own": "不开通",
+            "neighbors": "超过一半",
+            "neighbor_count": null
+          },
+          "remaining_source": "target_clarification.txt:L3",
+          "remaining_evidence_span": "其余服务点继续沿用原试点抽签规则，只在符合所问条件的安排中按原有概率取平均。",
+          "peer_evidence": {
+            "first": "在协作服务点中超过一半使用工单助手时，服务点自己使用和不使用相比，每周积压单数平均相差多少，按使用减不使用计算？",
+            "second": "在协作服务点中超过一半使用工单助手时，服务点自己使用和不使用相比，每周积压单数平均相差多少，按使用减不使用计算？"
+          }
+        }
+      }
+    },
+    "expected_preview_state": "NEEDS_INPUT",
+    "permitted_source_locations": {
+      "study": {
+        "independence_source": [
+          "business_question.md:L2",
+          "study_protocol.md:L2"
+        ],
+        "exposure_source": [
+          "study_protocol.md:L4"
+        ]
+      },
+      "questions": {
+        "q1": {
+          "population_source": [
+            "target_clarification.txt:L1"
+          ],
+          "remaining_source": [
+            "target_clarification.txt:L3"
+          ]
+        }
+      }
+    },
+    "target_reference": [
+      {
+        "kind": "comparison",
+        "nodes": [
+          "site_01",
+          "site_02",
+          "site_03",
+          "site_04",
+          "site_05",
+          "site_06",
+          "site_07",
+          "site_08",
+          "site_09",
+          "site_10",
+          "site_11",
+          "site_12"
+        ],
+        "aggregation": "equal_mean",
+        "situation": [
+          1,
+          1
+        ],
+        "reference": [
+          0,
+          1
+        ],
+        "remaining": "original_randomization",
+        "treated_nodes": null,
+        "unresolved": []
+      }
+    ]
+  },
+  "cold_chain_subset": {
+    "reading": {
+      "intents": {
+        "q1": {
+          "kind": "比较",
+          "quote": "在协作冷链站点中至少一个使用智能排车工具时，冷链站点自己使用和不使用相比，每周延误单数平均相差多少，按使用减不使用计算？"
+        }
+      },
+      "study": {
+        "design": "逐单位抽签",
+        "declared_independent": true,
+        "independence_source": "study_protocol.md:L2",
+        "probability_source": "design_probabilities.csv",
+        "design_sources": [
+          "study_protocol.md:L2"
+        ],
+        "exposure": "any_treated_neighbor",
+        "exposure_source": "study_protocol.md:L4",
+        "outcome": "service_metric"
+      },
+      "questions": {
+        "q1": {
+          "population": {
+            "selection": "指定",
+            "ids": [
+              "site_01",
+              "site_03"
+            ]
+          },
+          "aggregation": "等权平均",
+          "population_source": "target_clarification.txt:L1",
+          "first": {
+            "own": "开通",
+            "neighbors": "至少一个",
+            "neighbor_count": null
+          },
+          "second": {
+            "own": "不开通",
+            "neighbors": "至少一个",
+            "neighbor_count": null
+          },
+          "remaining_source": "target_clarification.txt:L3",
+          "remaining_evidence_span": "其余冷链站点继续沿用原试点抽签规则，只在符合所问条件的安排中按原有概率取平均。",
+          "peer_evidence": {
+            "first": "在协作冷链站点中至少一个使用智能排车工具时，冷链站点自己使用和不使用相比，每周延误单数平均相差多少，按使用减不使用计算？",
+            "second": "在协作冷链站点中至少一个使用智能排车工具时，冷链站点自己使用和不使用相比，每周延误单数平均相差多少，按使用减不使用计算？"
+          }
+        }
+      }
+    },
+    "expected_preview_state": "REVIEW_REQUIRED",
+    "permitted_source_locations": {
+      "study": {
+        "independence_source": [
+          "business_question.md:L2",
+          "study_protocol.md:L2"
+        ],
+        "exposure_source": [
+          "study_protocol.md:L4"
+        ]
+      },
+      "questions": {
+        "q1": {
+          "population_source": [
+            "target_clarification.txt:L1"
+          ],
+          "remaining_source": [
+            "target_clarification.txt:L3"
+          ]
+        }
+      }
+    },
+    "target_reference": [
+      {
+        "kind": "comparison",
+        "nodes": [
+          "site_01",
+          "site_03"
+        ],
+        "aggregation": "equal_mean",
+        "situation": [
+          1,
+          1
+        ],
+        "reference": [
+          0,
+          1
+        ],
+        "remaining": "original_randomization",
+        "treated_nodes": null,
+        "unresolved": []
+      }
+    ]
+  },
+  "convenience_stores_subset": {
+    "reading": {
+      "intents": {
+        "q1": {
+          "kind": "比较",
+          "quote": "在协作便利店中至少一个使用补货助手时，便利店自己使用和不使用相比，每周缺货小时数平均相差多少，按使用减不使用计算？"
+        }
+      },
+      "study": {
+        "design": "逐单位抽签",
+        "declared_independent": null,
+        "independence_source": null,
+        "probability_source": "design_probabilities.csv",
+        "design_sources": [
+          "study_protocol.md:L2"
+        ],
+        "exposure": "any_treated_neighbor",
+        "exposure_source": "study_protocol.md:L4",
+        "outcome": "service_metric"
+      },
+      "questions": {
+        "q1": {
+          "population": {
+            "selection": "指定",
+            "ids": [
+              "site_01",
+              "site_03"
+            ]
+          },
+          "aggregation": "等权平均",
+          "population_source": "target_clarification.txt:L1",
+          "first": {
+            "own": "开通",
+            "neighbors": "至少一个",
+            "neighbor_count": null
+          },
+          "second": {
+            "own": "不开通",
+            "neighbors": "至少一个",
+            "neighbor_count": null
+          },
+          "remaining_source": "target_clarification.txt:L3",
+          "remaining_evidence_span": "其余便利店继续沿用原试点抽签规则，只在符合所问条件的安排中按原有概率取平均。",
+          "peer_evidence": {
+            "first": "在协作便利店中至少一个使用补货助手时，便利店自己使用和不使用相比，每周缺货小时数平均相差多少，按使用减不使用计算？",
+            "second": "在协作便利店中至少一个使用补货助手时，便利店自己使用和不使用相比，每周缺货小时数平均相差多少，按使用减不使用计算？"
+          }
+        }
+      }
+    },
+    "expected_preview_state": "NEEDS_INPUT",
+    "permitted_source_locations": {
+      "study": {
+        "independence_source": [
+          null
+        ],
+        "exposure_source": [
+          "study_protocol.md:L4"
+        ]
+      },
+      "questions": {
+        "q1": {
+          "population_source": [
+            "target_clarification.txt:L1"
+          ],
+          "remaining_source": [
+            "target_clarification.txt:L3"
+          ]
+        }
+      }
+    },
+    "target_reference": [
+      {
+        "kind": "comparison",
+        "nodes": [
+          "site_01",
+          "site_03"
+        ],
+        "aggregation": "equal_mean",
+        "situation": [
+          1,
+          1
+        ],
+        "reference": [
+          0,
+          1
+        ],
+        "remaining": "original_randomization",
+        "treated_nodes": null,
+        "unresolved": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "questions": {
+    "q1": {
+      "operation": "水平",
+      "population": {
+        "selection": "指定",
+        "ids": [
+          "unit_017"
+        ]
+      },
+      "aggregation": "单个",
+      "population_source": "target_clarification.txt:L1",
+      "first": {
+        "own": "开通",
+        "neighbors": "恰好人数",
+        "neighbor_count": 1
+      },
+      "second": null,
+      "remaining": {
+        "rule": "原抽签条件平均",
+        "source": "target_clarification.txt:L3",
+        "quote": "其他站点仍照原来从48站中均匀抽24站的办法安排，只在符合刚才情形的抽签结果里按原来的概率取平均。"
+      },
+      "peer_evidence": {
+        "first": "假如它用了新排班系统，而且正好一家相邻站点也用了，它平均会延误多少分钟？",
+        "second": null
+      }
+    }
+  }
+}

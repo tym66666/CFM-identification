@@ -1,0 +1,67 @@
+有限固定政策 PARTIAL：显式审核入口（2026-10-23）
+
+业务问题仍用自然语言，例如：
+“原试点从七个服务小组中等概率抽三个使用AI助手。如果所有小组都使用，
+每个小组同样重要，平均按时完成率是多少？”
+网络、结果定义和原试点规则放在普通业务材料里。当前 first LLM 只读取
+所问政策、评价名单、汇总方式和原始分配事实；不会批准 A4/A5 或边界。
+
+可复现的离线命令（在 identification 子目录运行）：
+  python -B -m examples.bounded_policy_fixture
+  python -B -m unittest tests_gateway.test_bounded_policy -v
+
+Windows PowerShell 在隔离环境运行全量 Gateway 回归前，显式指定可写临时
+目录和 UTF-8（临时目录应位于自己的工作区；不要使用 secrets 目录）：
+  $env:PYTHONUTF8 = '1'
+  $env:PYTHONIOENCODING = 'utf-8'
+  $env:PYTHONDONTWRITEBYTECODE = '1'
+  $env:TEMP = Join-Path (Get-Location).Path 'outputs\bounded_policy_tests'
+  $env:TMP = $env:TEMP
+  New-Item -ItemType Directory -Path $env:TEMP -Force | Out-Null
+  python -B -m unittest discover -s tests_gateway -q
+本轮第一次未设置上述环境的全量回归失败，日志保留；设置后重新完成验收。
+
+第一条运行预先声明的合成 Mock 和独立合成科学审核：
+  Star7 七选三，全员政策均值：PARTIAL [3/7,4/7]
+  Chain4 四选二，全员政策均值：PARTIAL [1/4,3/4]
+  Star5 五选四，全员政策均值：POINT [1/2,1/2]
+这里的 1/2 是另外给定的假想精确总体均值。不是 API 输出或样本估计。
+
+处理链：
+1. business_entry.prepare_request/read_once 继续使用 FIXED_POLICY，
+   contract='fixed-assignment-id'。Prompt 不含数学参考答案或科学审批。
+2. 原独立业务/材料/原始分配/A4/A5 审核全部保留。
+3. 另提供 BoundedMeanInformation：精确均值清单、对应既有 A4 source，
+   全节点科学边界、边界种类/作用域、结果定义/单位/期间和来源。
+4. bounded_policy.worksheet 仅生成指纹。ReviewedBoundedPolicy 必须独立
+   明确确认信息清单完整、边界科学有效、没有被忽略的额外耦合约束。
+   完整业务 bundle、原始模型回复、既有 context、inquiry 和信息合同均绑定。
+5. 显式调用 bounded_policy.submit；先通过原 intent_submission 链。
+   只处理已审核 R2 POINT 或 R2 确认的 ZERO_POLICY_SIGNATURE_SUPPORT。
+   其他失败原因不自动变成 PARTIAL。
+6. bounded_policy_solver 给出精确界、证明项、上下端点完整均值表。
+   bounded_policy_verify 独立枚举并核验。失败不发布区间。
+7. 原 POINT 检查结果保存在 point_assessment。新结果在 bounded_result，
+   并有单独的 bounded_certificate_replayed，不冒充原 Core 的 POINT 证书。
+
+类型与职责：
+  bounded_policy_contract.py  类型、范围、相容性与原 R2 输入校验复用
+  bounded_policy_solver.py    既有支持算法 + 精确盒界 + 端点构造
+  bounded_policy_verify.py    完整分配枚举、A4 重放、界限有效性/端点可达性
+  bounded_policy.py           现有业务/科学审核链之后的显式提交适配
+  examples/bounded_policy_fixture.py  仅供测试的独立合成协议
+
+首轮限制：
+D2 均匀固定名额、E1 严格多数、固定处理前简单无向图、最多12个节点、
+单个固定政策均值、一个仅含精确签名单元均值的 A4 来源。所有正权重
+且有支持的目标单元必须有精确值。二元或允许区间内任意实值的连续结果。
+业务读取仍只适配明确名单的等权平均；数学层另验收了非等权权重。
+
+完整联合分布/其他 A4 来源/额外 A5 约束被拒绝，不能删去后继续称 sharp。
+有界性未审核仍阻断。原有 POINT Core、原证书格式、历史研究示例及网页
+保持原样；不调用 Estimation/Policy，不允许估计交接。仅合成审核模式。
+审核是外部明确提供的断言，不是模型自我批准，也不是身份数字签名。
+
+本轮重点是把已研究的数学合同接到可复核的离线链路。真实模型阅读准确率
+必须另行测试；Mock、54组数学交叉检查和原 Gateway 回归不能算 API 成功率。
+精确假设、证明与文献位置：docs/BOUNDED_POLICY_MATH_ZH.md。

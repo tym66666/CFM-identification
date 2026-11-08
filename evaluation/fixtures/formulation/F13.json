@@ -1,0 +1,102 @@
+{
+  "schema_version": "cfm-id-draft-v0.1",
+  "target": {
+    "kind": "FIXED_POLICY_VALUE",
+    "description": {
+      "value": "求固定政策 z=(1,1,0,0) 下真实销售收益。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "求固定政策 z=(1,1,0,0) 下真实销售收益。"
+        }
+      ]
+    },
+    "alternatives": []
+  },
+  "units_variables": {
+    "analysis_unit": {
+      "value": "业务描述中的员工、节点或团体",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "求固定政策 z=(1,1,0,0) 下真实销售收益。"
+        }
+      ]
+    },
+    "treatment": {
+      "value": "描述中的AI干预",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前固定合作网络。实验协议：所有销售员分别独立地按 Bernoulli(1/2) 分配 AI。"
+        }
+      ]
+    },
+    "outcome": {
+      "value": "描述中的销售或结果指标",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "求固定政策 z=(1,1,0,0) 下真实销售收益。"
+        }
+      ]
+    }
+  },
+  "structure": {
+    "unit_network": {
+      "value": "被描述的网络",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前固定合作网络。实验协议：所有销售员分别独立地按 Bernoulli(1/2) 分配 AI。"
+        }
+      ]
+    },
+    "exposure_mapping": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "information_design": {
+    "assignment_family": "INDEPENDENT_BERNOULLI",
+    "assignment_law": {
+      "value": "处理前固定合作网络。实验协议：所有销售员分别独立地按 Bernoulli(1/2) 分配 AI。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前固定合作网络。实验协议：所有销售员分别独立地按 Bernoulli(1/2) 分配 AI。"
+        }
+      ]
+    },
+    "population_information_level": "ASSIGNMENT_CONDITIONAL_MEANS",
+    "population_observable_operator": {
+      "value": "可用的总体条件均值算子为指定完整分配的 E[Y_i^obs|T=z,W]，不是其他分配的均值。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "information",
+          "quote": "可用的总体条件均值算子为指定完整分配的 E[Y_i^obs|T=z,W]，不是其他分配的均值。"
+        }
+      ]
+    },
+    "sample_data_description": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "assumptions": [],
+  "validity": {},
+  "ambiguities": [],
+  "clarifying_questions": [],
+  "normalization_notes": [
+    "MOCK TEST-ONLY fixture synthesized from benchmark reference; not model-generated"
+  ]
+}

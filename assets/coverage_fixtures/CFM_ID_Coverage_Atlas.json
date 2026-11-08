@@ -1,0 +1,450 @@
+{
+  "assumptions": [
+    {
+      "description": "Exact joint experimental treatment law q(T|W) is specified.",
+      "layer": "A4_DESIGN",
+      "machine_verifiability": "Exact protocol syntax and probabilities checkable; real adherence not automatically verifiable.",
+      "name": "known_assignment_law",
+      "scientific_scope": "Randomized experiments D1-D6 only; legacy also records an admission."
+    },
+    {
+      "description": "The full realized randomized allocation is conditionally independent of all potential outcomes.",
+      "layer": "A5",
+      "machine_verifiability": "Protocol declaration/replay only; not a test of implementation fidelity.",
+      "name": "full_vector_randomization",
+      "scientific_scope": "R1a/R1b/R2, not an observational self-selection guarantee."
+    },
+    {
+      "description": "Observed outcome equals the potential outcome under the actually realized intervention version.",
+      "layer": "A5",
+      "machine_verifiability": "Cannot establish real-world intervention-version consistency from a typed claim.",
+      "name": "consistency",
+      "scientific_scope": "All current R1/R2/R3 POINT mechanisms."
+    },
+    {
+      "description": "Network and exposure reference sets are defined before the intervention.",
+      "layer": "A3_A5",
+      "machine_verifiability": "Typed topology/timing record checkable; exogeneity is a scientific claim.",
+      "name": "fixed_pretreatment_network",
+      "scientific_scope": "Current single-time, fixed, simple undirected network routes."
+    },
+    {
+      "description": "Required conditional expectations exist and are finite.",
+      "layer": "A5_ANALYTIC",
+      "machine_verifiability": "Declared integrability, not universally testable from finite samples.",
+      "name": "finite_conditional_first_moments",
+      "scientific_scope": "Current mean-valued targets."
+    },
+    {
+      "description": "For each covered node, E[Y_i(t)|W] is constant across full allocations with equal (t_i,g_i(t,W)).",
+      "layer": "A5_STRUCTURAL",
+      "machine_verifiability": "Typed licence and provenance checks; cannot prove the structural restriction empirically.",
+      "name": "mean_signature_sufficiency",
+      "scientific_scope": "R2 policy and R3-Signature policy only; signature/node/study bindings required."
+    },
+    {
+      "description": "Given W, observational allocation is independent of the full potential-outcome vector.",
+      "layer": "A5_OBSERVATIONAL",
+      "machine_verifiability": "Requires explicit reviewed admission; observational data cannot by itself establish it.",
+      "name": "full_vector_conditional_exchangeability",
+      "scientific_scope": "R3-Full, R3-Signature and R3 p-standardized effects."
+    },
+    {
+      "description": "Holding final complete T fixed, stage-one quota/profile U has no additional direct outcome effect.",
+      "layer": "A5_D6_EXTRA",
+      "machine_verifiability": "Dedicated explicit source/status gate; not implied by known D6 randomization.",
+      "name": "first_stage_profile_no_direct_outcome_effect",
+      "scientific_scope": "D6 randomized-design routes in addition to the ordinary R1/R2 conditions."
+    },
+    {
+      "description": "Y_i(t) equals Y_i(t_i,g_i(t,G)) for all complete assignments, licensed nodes.",
+      "layer": "A5_STRUCTURAL",
+      "machine_verifiability": "Scoped admitted license checked; scientific truth not proven.",
+      "name": "potential_outcome_exposure_sufficiency",
+      "scientific_scope": "R3 exposure-adjustment subroute only; stronger than R2 mean sufficiency."
+    },
+    {
+      "description": "Conditional mean ignorability of exposure potential outcomes given B,W.",
+      "layer": "A5_OBSERVATIONAL",
+      "machine_verifiability": "Scoped admitted license checked; observational data alone cannot prove it.",
+      "name": "exposure_level_conditional_exchangeability",
+      "scientific_scope": "R3 exposure-adjustment subroute only; not full-vector ignorability."
+    },
+    {
+      "description": "E[Y_i(a,s)|Ti=a,Si=s,C_i,W]=E[Y_i(a,s)|C_i,W] where C_i=(X_i, neighbor positive X count).",
+      "layer": "A5_OBSERVATIONAL",
+      "machine_verifiability": "Scoped license checked; scientific truth not proven.",
+      "name": "local_covariate_exposure_mean_exchangeability",
+      "scientific_scope": "R3 v2.8 node-specific local covariate adjustment only."
+    }
+  ],
+  "caveat": "NOT empirical business coverage; each case requires A4/A5/A6 checks; no observed business effects",
+  "core_math": "v2.8 postrelease P1.1 (unchanged)",
+  "counts": {
+    "design": 6,
+    "design_exposure_cells": 30,
+    "exposure": 5,
+    "mechanisms": 4,
+    "premise_names": 11,
+    "routes": 10,
+    "topology_shapes": 9
+  },
+  "designs": [
+    {
+      "business": "用户/员工独立 A/B 灰度",
+      "family": "HeterogeneousBernoulliDesignV1",
+      "id": "D1",
+      "notes": "已知个体处理概率；适合单元级实验；群体曝光可能发生干扰",
+      "priority": "高",
+      "title": "独立 Bernoulli"
+    },
+    {
+      "business": "固定 100 名试用资格",
+      "family": "CompleteRandomizationDesignV1",
+      "id": "D2",
+      "notes": "所有节点统一配额；极端完整政策可能零支持",
+      "priority": "高",
+      "title": "固定总配额"
+    },
+    {
+      "business": "销售/客服两部门名额",
+      "family": "TwoGroupFixedQuotaDesignV1",
+      "id": "D3",
+      "notes": "两组特例；多部门可使用 D5",
+      "priority": "中",
+      "title": "两组独立配额"
+    },
+    {
+      "business": "门店/班级整体随机",
+      "family": "ClusterBernoulliDesignV24",
+      "id": "D4",
+      "notes": "簇内全同一 treatment，部分 spillover arms 必定零支持",
+      "priority": "高",
+      "title": "簇级 Bernoulli"
+    },
+    {
+      "business": "多部门独立试用名额",
+      "family": "MultiGroupFixedQuotaDesignV25",
+      "id": "D5",
+      "notes": "可处理 3–64 个处理前非空分组",
+      "priority": "高",
+      "title": "多组固定配额"
+    },
+    {
+      "business": "先随机饱和度，再组内配额",
+      "family": "TwoStageQuotaMixtureDesignV27",
+      "id": "D6",
+      "notes": "第一阶段 quota profile 可相关；必须额外接受无直接结果效应 A5",
+      "priority": "中",
+      "title": "两阶段配额混合"
+    }
+  ],
+  "exposures": [
+    {
+      "business": "多数同事启用 AI",
+      "grouping": "strict_majority_ties_low",
+      "id": "E1",
+      "notes": "阈值型；不是自动的充分性假设",
+      "title": "邻居严格多数"
+    },
+    {
+      "business": "同事启用比例低/中/高",
+      "grouping": "three_level_treated_neighbor_fraction",
+      "id": "E2",
+      "notes": "孤立节点三档定义无效",
+      "title": "邻居处理比例三档"
+    },
+    {
+      "business": "核心合作同事启用情况",
+      "grouping": "pretreatment_core_collaborator_majority",
+      "id": "E3",
+      "notes": "必须事前给定非空合法核心集合",
+      "title": "核心合作者多数"
+    },
+    {
+      "business": "恰有 k 位同事使用 AI",
+      "grouping": "exact_treated_neighbor_count",
+      "id": "E4",
+      "notes": "状态数量随度数变化；高阶支持可能困难",
+      "title": "精确处理邻居人数"
+    },
+    {
+      "business": "是否有任一同伴使用 AI",
+      "grouping": "any_treated_neighbor",
+      "id": "E5",
+      "notes": "粗粒度便于解释；R2/R3 不可因此默认充分性",
+      "title": "至少一位邻居处理"
+    }
+  ],
+  "mechanisms": [
+    {
+      "assumptions": "已知 q、全向量随机化、consistency、A4 arm 均值、联合 arm 正支持",
+      "confidence": "正式实现",
+      "example": "本人使用 AI vs 不用；邻居多数已处理时的差异",
+      "focus": "实验 q 标准化效应",
+      "id": "R1a",
+      "title": "随机实验的 Exposure Arm/Contrasts"
+    },
+    {
+      "assumptions": "已知 q、完整政策正支持、完整 assignment A4",
+      "confidence": "正式实现",
+      "example": "指定全公司 AI 开通向量的平均结果",
+      "focus": "真实固定政策值与有限混合",
+      "id": "R1b",
+      "title": "有支持的完整分配政策"
+    },
+    {
+      "assumptions": "随机化条件 + 独立接受 mean-signature sufficiency + 签名支持",
+      "confidence": "正式实现，强结构假设",
+      "example": "实验固定名额，但业务询问全员使用 AI",
+      "focus": "部分 off-support 真实政策",
+      "id": "R2",
+      "title": "均值 Signature 结构外推"
+    },
+    {
+      "assumptions": "full-vector 或 exposure-level 交换性、必要结构限制、typed 总体律及逐层支持",
+      "confidence": "正式有限子域；不能自动证明无混杂",
+      "example": "员工自选是否启用 AI，控制处理前个人与邻居特征",
+      "focus": "观测政策、p 标准化与局部调整效应",
+      "id": "R3",
+      "title": "观测网络条件交换性/调整"
+    }
+  ],
+  "references": [
+    {
+      "title": "Aronow & Samii (2017)",
+      "url": "https://arxiv.org/abs/1305.6156",
+      "use": "Exposure × Design × Estimand；设计标准化与支持条件"
+    },
+    {
+      "title": "Hudgens & Halloran (2008)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2600548/",
+      "use": "部分干扰、两阶段实验与直接/间接效应"
+    },
+    {
+      "title": "LinkedIn Engineering (2018)",
+      "url": "https://www.linkedin.com/blog/engineering/ab-testing-experimentation/detecting-interference-an-a-b-test-of-a-b-tests",
+      "use": "个体随机 vs 社交图簇随机的实际平台案例"
+    },
+    {
+      "title": "LinkedIn Engineering (2020)",
+      "url": "https://www.linkedin.com/blog/engineering/ab-testing-experimentation/a-b-testing-variant-assignment",
+      "use": "在线随机分配与哈希分桶工程实践"
+    },
+    {
+      "title": "Airbnb / Management Science (2024)",
+      "url": "https://pubsonline.informs.org/doi/10.1287/mnsc.2020.01157",
+      "use": "双边平台干扰偏差与 cluster randomized 实验"
+    },
+    {
+      "title": "Biometrics: Two-stage randomized experiments",
+      "url": "https://academic.oup.com/biometrics/article/79/3/2370/7513883",
+      "use": "两阶段直接/溢出效应及效能分析"
+    },
+    {
+      "title": "Forastiere, Airoldi & Mealli (2021)",
+      "url": "https://arxiv.org/abs/1609.06245",
+      "use": "观测网络个人/邻居协变量与无混杂假设"
+    }
+  ],
+  "routes": [
+    "R1A_RANDOMIZED_ARM",
+    "R1A_COMPOSITION",
+    "R1B_FULL_ASSIGNMENT",
+    "R1B_FINITE_POLICY",
+    "R2_MEAN_SIGNATURE",
+    "R3_FULL_ASSIGNMENT",
+    "R3_MEAN_SIGNATURE",
+    "R3_P_STANDARDIZED_EFFECTS",
+    "R3_EXPOSURE_ADJUSTED_EFFECTS",
+    "R3_NODEWISE_EXPOSURE_ADJUSTED_EFFECTS"
+  ],
+  "scenarios": [
+    {
+      "area": "广告/软件",
+      "name": "独立线上 A/B",
+      "notes": "单元级 Bernoulli 可用；需独立随机化、A4、arm support",
+      "route": "R1a",
+      "setting": "D1 / E1、E5",
+      "status": "条件支持"
+    },
+    {
+      "area": "企业 AI",
+      "name": "固定总人数灰度",
+      "notes": "完整政策不一定有 q>0；可识别的 arm 与 rollout 要区别",
+      "route": "R1a、R1b",
+      "setting": "D2 / E4、E5",
+      "status": "条件支持"
+    },
+    {
+      "area": "企业管理",
+      "name": "两部门配额",
+      "notes": "核心合作者集合需事前定义；R2 需独立 A5",
+      "route": "R1a、R2",
+      "setting": "D3 / E1、E3",
+      "status": "条件支持"
+    },
+    {
+      "area": "连锁零售",
+      "name": "门店整体试用",
+      "notes": "簇内处理相同，必须逐节点检查目标状态是否可达",
+      "route": "R1a、R1b",
+      "setting": "D4 / E1、E2",
+      "status": "条件支持"
+    },
+    {
+      "area": "企业 AI",
+      "name": "多部门分配资格",
+      "notes": "分组固定配额；全员 rollout 可能零支持",
+      "route": "R1a、R1b、R2",
+      "setting": "D5 / E4",
+      "status": "条件支持"
+    },
+    {
+      "area": "学校/社区",
+      "name": "两阶段饱和度",
+      "notes": "只能在配额混合子域下复用原定理；第一阶段直接效应需排除",
+      "route": "R1a、R2",
+      "setting": "D6 / E1、E5",
+      "status": "条件支持"
+    },
+    {
+      "area": "企业 AI",
+      "name": "实验支持内完整政策",
+      "notes": "必须有完整政策 q(z)>0 和 assignment-level A4",
+      "route": "R1b",
+      "setting": "任一合法 D / 完整向量",
+      "status": "条件支持"
+    },
+    {
+      "area": "企业 AI",
+      "name": "实验零支持政策",
+      "notes": "签名均值充分性 + 每个权重节点签名正支持",
+      "route": "R2",
+      "setting": "D2 / E1、E5",
+      "status": "强假设条件支持"
+    },
+    {
+      "area": "企业 AI",
+      "name": "观测性自选择网络",
+      "notes": "需独立接受交换性；不能从处理概率模型推出因果无混杂",
+      "route": "R3",
+      "setting": "观测总体 p / E1–E5",
+      "status": "强假设条件支持"
+    },
+    {
+      "area": "社交网络",
+      "name": "观测协变量调整",
+      "notes": "仅一个二元节点协变量/邻居正值计数及受限总体律",
+      "route": "R3",
+      "setting": "节点 X_i + 邻居 X 计数",
+      "status": "有限子域"
+    },
+    {
+      "area": "平台",
+      "name": "相互竞争的双边市场",
+      "notes": "二分图可用无向边表达，但竞争/均衡/多类处理缺独立定理",
+      "route": "未实现通用",
+      "setting": "买卖双方与库存/均衡",
+      "status": "仅部分可表达"
+    },
+    {
+      "area": "企业 AI",
+      "name": "主管影响员工更强",
+      "notes": "目前主要简单无向图，没有权重或方向的通用识别",
+      "route": "未实现通用",
+      "setting": "有向加权网络",
+      "status": "未实现"
+    },
+    {
+      "area": "社交媒体",
+      "name": "动态扩散与反复干预",
+      "notes": "不支持通用动态或处理改变网络",
+      "route": "未实现",
+      "setting": "多期动态网络",
+      "status": "未实现"
+    },
+    {
+      "area": "企业 AI",
+      "name": "员工获得不同 AI 剂量",
+      "notes": "目前处理变量为单时点二元",
+      "route": "未实现",
+      "setting": "多值/连续 treatment",
+      "status": "未实现"
+    },
+    {
+      "area": "跨企业",
+      "name": "跨公司推广政策",
+      "notes": "固定 W 结果不能自动推广到其他总体",
+      "route": "未实现通用",
+      "setting": "跨 W 与新网络总体",
+      "status": "未实现"
+    },
+    {
+      "area": "大型平台",
+      "name": "复杂随机 rollout",
+      "notes": "R1b 只支持固定分配与有限认证混合",
+      "route": "未实现通用",
+      "setting": "任意 stochastic policy kernel",
+      "status": "未实现"
+    }
+  ],
+  "topologies": [
+    {
+      "draw": "path",
+      "id": "path",
+      "notes": "链式接触、相邻干扰；固定无向图可表达",
+      "title": "路径型 Path"
+    },
+    {
+      "draw": "ring",
+      "id": "ring",
+      "notes": "循环合作、定期邻接；固定无向图可表达",
+      "title": "环型 Ring"
+    },
+    {
+      "draw": "star",
+      "id": "star",
+      "notes": "团队领导与外围成员；中心节点可能零签名支持",
+      "title": "星型 Star"
+    },
+    {
+      "draw": "complete",
+      "id": "complete",
+      "notes": "高度密集团队；多数 exposure 可能受配额限制",
+      "title": "完全连接 Complete"
+    },
+    {
+      "draw": "bipartite",
+      "id": "bipartite",
+      "notes": "买卖方连接仅在无向边层面可表示；非均衡理论",
+      "title": "二部图 Bipartite"
+    },
+    {
+      "draw": "community",
+      "id": "community",
+      "notes": "部门/群组关系；不可自动假设社群间无干扰",
+      "title": "社群 Community"
+    },
+    {
+      "draw": "smallworld",
+      "id": "small_world_like",
+      "notes": "局部密集与远距连接的测试图",
+      "title": "小世界 Small-world-like"
+    },
+    {
+      "draw": "hub",
+      "id": "hub_scale_free_like",
+      "notes": "核心节点高度连接，支持受配额影响",
+      "title": "Hub / Scale-free-like"
+    },
+    {
+      "draw": "isolate",
+      "id": "disconnected_with_isolate",
+      "notes": "E2 对孤立节点无定义；E3 必须有非空核心合作者",
+      "title": "断开/孤立节点"
+    }
+  ],
+  "verified_by": "implemented_assumption_catalog_v28, AssignmentDesign union, ExposureGrouping Literal",
+  "version": "v2.9.2-research-coverage-map"
+}

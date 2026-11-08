@@ -1,0 +1,77 @@
+{
+  "A4_population_operator_from_business_files": "NOT_PROVIDED",
+  "all_business_packet_provenance": "SYNTHETIC_OFFLINE_GENERATOR",
+  "assignment_family": "D6",
+  "case_id": "NBIB-005",
+  "conditional_route_only": [
+    "R1a_candidate"
+  ],
+  "data_is_finite_observations_not_A4": true,
+  "design_params": {
+    "groups": 3,
+    "profile_probs": [
+      "1/3",
+      "1/3",
+      "1/3"
+    ],
+    "profiles": [
+      [
+        4,
+        6,
+        8
+      ],
+      [
+        8,
+        4,
+        6
+      ],
+      [
+        6,
+        8,
+        4
+      ]
+    ]
+  },
+  "edge_count": 162,
+  "expected_blockers": [
+    "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+    "A5_NEEDS_SCIENTIFIC_REVIEW",
+    "D6_FIRST_STAGE_EXCLUSION_NOT_YET_ADMITTED"
+  ],
+  "exposure_rule": "E5",
+  "fixed_policy_support": [],
+  "identification_library_status": "NOT_RUN_ON_THIS_GENERATED_CASE",
+  "industry": "教育管理",
+  "lower_is_better": false,
+  "n_nodes": 60,
+  "network_type": "bipartite",
+  "number_independent_market_replicates": 1,
+  "outcome_metric_name": "exam_score",
+  "outcome_metric_unit": "分",
+  "pair_family": "two_stage_education",
+  "query_targets": [
+    {
+      "exact_target_semantics": "R1A_Q_STANDARDIZED_DIRECT",
+      "kind": "DIRECT_EFFECT",
+      "quote": "班级自己获得辅导工具对学习成绩有什么影响"
+    },
+    {
+      "exact_target_semantics": "R1A_Q_STANDARDIZED_SPILLOVER",
+      "kind": "SPILLOVER_EFFECT",
+      "quote": "没有获得工具但合作班级使用了工具时成绩是否也受益"
+    }
+  ],
+  "scenario_title": "两阶段课后辅导名额实验",
+  "scientific_reference_notes": "D6的第一阶段profile本身不得直接影响Y是额外A5，当前只建议、未科学准入；条件充分时R1a可POINT，不能因两阶段均随机就自动准入。",
+  "simulation_is_not_proof_of_scientific_assumptions": true,
+  "split": "test",
+  "support_checks": {
+    "exposure_rule": "E5",
+    "exposure_value": 1,
+    "focal_node": "unit_000",
+    "mathematical_support_only_not_IDENTIFICATION": true,
+    "own_treatment": 1,
+    "support_probability": "829/4275"
+  },
+  "synthetic": true
+}

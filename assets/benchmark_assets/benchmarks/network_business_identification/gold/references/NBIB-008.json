@@ -1,0 +1,74 @@
+{
+  "A4_population_operator_from_business_files": "NOT_PROVIDED",
+  "all_business_packet_provenance": "SYNTHETIC_OFFLINE_GENERATOR",
+  "assignment_family": "D2",
+  "case_id": "NBIB-008",
+  "conditional_route_only": [
+    "R1b_candidate"
+  ],
+  "data_is_finite_observations_not_A4": true,
+  "design_params": {
+    "quota": 7
+  },
+  "edge_count": 13,
+  "expected_blockers": [
+    "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+    "A5_NEEDS_SCIENTIFIC_REVIEW",
+    "FULL_POLICY_ZERO_SUPPORT",
+    "R2_MEAN_SUFFICIENCY_NOT_ADMITTED"
+  ],
+  "exposure_rule": "E5",
+  "fixed_policy_support": [
+    {
+      "policy_id": "all_treated",
+      "q_full_assignment": "0"
+    }
+  ],
+  "identification_library_status": "NOT_RUN_ON_THIS_GENERATED_CASE",
+  "industry": "连锁经营",
+  "lower_is_better": false,
+  "n_nodes": 14,
+  "network_type": "star",
+  "number_independent_market_replicates": 1,
+  "outcome_metric_name": "monthly_store_revenue",
+  "outcome_metric_unit": "千元/月",
+  "pair_family": "fixed_quota_rollout",
+  "query_targets": [
+    {
+      "exact_target_semantics": "R1B_OR_R2_FIXED_POLICY",
+      "kind": "FIXED_POLICY_VALUE",
+      "quote": "如果14家门店下季度全部安装新系统，公司整体收入会怎样"
+    }
+  ],
+  "scenario_title": "固定名额试点无法直接评价全员推广",
+  "scientific_reference_notes": "全员政策q(z)=0，R1b不适用；R2 mean-signature suff 未准入，不能仅据E5定义使用R2。此状态不等于通用非识别证明。",
+  "simulation_is_not_proof_of_scientific_assumptions": true,
+  "split": "test",
+  "support_checks": {
+    "exposure_rule": "E5",
+    "exposure_value": 1,
+    "focal_node": "unit_000",
+    "full_rollout_E5_minimum_signature_probability": "3/13",
+    "full_rollout_E5_signature_probabilities_by_node": [
+      "1/2",
+      "3/13",
+      "3/13",
+      "3/13",
+      "3/13",
+      "3/13",
+      "3/13",
+      "3/13",
+      "3/13",
+      "3/13",
+      "3/13",
+      "3/13",
+      "3/13",
+      "3/13"
+    ],
+    "full_rollout_E5_signatures_all_nodes_supported": true,
+    "mathematical_support_only_not_IDENTIFICATION": true,
+    "own_treatment": 1,
+    "support_probability": "1/2"
+  },
+  "synthetic": true
+}

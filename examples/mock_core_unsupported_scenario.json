@@ -1,0 +1,4 @@
+{
+  "status": "UNSUPPORTED",
+  "reason": "Mock only: weighted exposure not covered by E1-E3 calculators"
+}

@@ -1,0 +1,141 @@
+{
+  "schema_version": "cfm-id-draft-v0.1",
+  "target": {
+    "kind": "SPILLOVER_EFFECT",
+    "description": {
+      "value": "课后辅导计划对未处理学校的邻校影响候选",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "没有安排辅导计划的学校，是否也可能因为附近学校的参与而受益"
+        }
+      ]
+    },
+    "alternatives": []
+  },
+  "units_variables": {
+    "analysis_unit": {
+      "value": "学校",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "学校"
+        }
+      ]
+    },
+    "treatment": {
+      "value": "是否实施课后辅导",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "课后辅导计划"
+        }
+      ]
+    },
+    "outcome": {
+      "value": "学期末数学成绩",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "数学成绩"
+        }
+      ]
+    },
+    "covariates": [],
+    "temporal_structure": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "structure": {
+    "unit_network": {
+      "value": "不同学校的老师会交流教学材料",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "不同学校的老师会交流教学材料"
+        }
+      ]
+    },
+    "variable_causal_graph": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "exposure_mapping": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "network_pretreatment_status": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "information_design": {
+    "assignment_family": "CLUSTER_RANDOMIZATION",
+    "assignment_law": {
+      "value": "按学校为单位整校随机分配",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "att_01",
+          "quote": "按学校为单位整校随机分配"
+        }
+      ]
+    },
+    "population_information_level": "FINITE_SAMPLE_DESCRIPTION",
+    "population_observable_operator": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "sample_data_description": {
+      "value": "试点数据表字段结构",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "att_02",
+          "quote": "表头字段：school_id, tutoring_on, math_score, neighbor_school_count"
+        }
+      ]
+    }
+  },
+  "assumptions": [
+    {
+      "name": "design_reported_by_protocol",
+      "statement": "按学校为单位整校随机分配",
+      "status": "PROPOSED",
+      "basis": "REPORTED_BY_SOURCE",
+      "evidence": [
+        {
+          "source_id": "att_01",
+          "quote": "按学校为单位整校随机分配"
+        }
+      ]
+    }
+  ],
+  "validity": {
+    "support_or_positivity": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "query_domain": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "other_conditions": []
+  },
+  "ambiguities": [],
+  "clarifying_questions": [],
+  "normalization_notes": []
+}

@@ -1,0 +1,15 @@
+{
+  "case_id": "biz_v08_manufacturing",
+  "business_question": "一家工厂有12条生产线，员工与质量工程师会跨生产线协作，改进经验也会互相传播。最近工厂试用了AI质检系统，保存了各生产线的试点记录、生产线协作信息和报废率。现在厂长希望知道如果全厂都部署AI质检系统，整体报废率是否可能降低；请先整理成可以检验的因果问题，不要直接给出省下多少钱的估计。",
+  "response_language": "zh",
+  "attachments": [
+    {
+      "path": "study_protocol.txt",
+      "kind": "STUDY_PROTOCOL"
+    },
+    {
+      "path": "records.csv",
+      "kind": "DATA_DICTIONARY"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": "cfm-id-candidate-business-review-v0.11",
+  "case_id": "QA_SALES",
+  "input_sha256": "adf635c512aa2b1fe051311724857700ad0ca0f970234d1bffaebd36432069d1",
+  "draft_sha256": "1bd4972c7f3f944d4002e0bc09a07eb8717e22f003262b9bf6c0f342d81435b9",
+  "confirmed_query_ids": [
+    "q1",
+    "q2"
+  ],
+  "reviewed_by": "SYNTHETIC_RESEARCH_REVIEWER",
+  "decision": "CONFIRMED",
+  "review_note": "仅为离线模拟，业务确认不等于 A4/A5 科学批准。"
+}

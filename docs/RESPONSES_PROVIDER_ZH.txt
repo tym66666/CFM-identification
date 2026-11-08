@@ -1,0 +1,63 @@
+可选 Responses 结构化输出 Provider
+
+用途
+这是 LLM Gateway 的一种传输入口，供显式选择支持 Responses API / JSON Schema 的服务。
+现有 Chat Completions Provider、默认 CLI 和数学识别模块均未替换。
+服务端的 Schema 约束只约束输出形状；不会证明业务语义正确、科学假设成立或因果量可识别。
+
+最小接法
+
+    from cfm_id_llm.providers.openai_responses import OpenAICompatibleResponsesProvider
+    from cfm_id.question_bound_assignment import resolve_reading
+
+    # bundle 和 schema 必须由本地已确认的业务输入及输出合同产生。
+    provider = OpenAICompatibleResponsesProvider(
+        model="LongCat-2.5-Preview",
+        base_url="https://api.longcat.chat/openai/v1",
+        schema=schema,
+        schema_name="business_reading",
+        local_validator=lambda draft: resolve_reading(bundle, draft),
+        timeout=300,
+        max_output_tokens=8192,
+        reasoning_effort="none",
+    )
+    raw = provider.generate_json(system_prompt=system_prompt, user_prompt=user_prompt)
+
+认证沿用 CFM_ID_LLM_API_KEY / OPENAI_API_KEY，也支持由获准的本地认证进程传入 api_key。
+Provider 不读取密钥文件，不记录认证头。上例仅展示装配方式，不执行请求。
+
+local_validator 是必需参数：在输入不合法时必须抛异常（或返回 False）。
+回调收到原始 JSON 的深拷贝；其成功返回值被忽略。Provider 返回原始答案，绝不以回调生成的对象替换答案。
+服务器声称 strict=true、返回合法 JSON，都不能绕过这个本地检查。
+不同业务入口应提供各自的严格字段与来源绑定检查；本文件不提供一套宽松的通用 Schema 验证替代品。
+业务意图复核、科学条件审批、typed inquiry 编译、数学求解、独立证书重放仍在后续链路完成。
+
+传输与失败边界
+1. 单次 POST /responses，非流式，text.format.type=json_schema、strict=true、store=false。
+   store=false 仅是发给服务的请求参数，不作为服务端实际保留策略的证明。
+2. 不重试、不回退到 Chat、不跟随重定向、不修复 JSON、不自动解包代码围栏。
+3. 要求响应 object=response、status=completed，且没有 error/incomplete_details。
+4. 只接受一个位于 output 最后的 assistant message；之前可以有 reasoning 项，但不会读取或保存其中内容。
+   message 若声明 status，必须为 completed；按服务文档允许该字段缺省。
+   任何工具调用、拒绝内容或其他非 output_text 内容都失败；不能从混合输出里挑一段 JSON 当成功。
+5. JSON 重复键、NaN、Infinity、数值溢出、非对象、无效 UTF-8 均拒绝。
+6. 默认响应体上限 2,000,000 字节；最终文本另限 350,000 字节。
+   timeout 是网络 I/O 等待上限，不是严格的全程墙钟期限；严控总时长的实验仍由父进程设定期限。
+7. 可注入 transport 便于离线测试和请求额度登记。这个可信钩子也必须禁止自动重试和重定向。
+
+诊断与观察
+last_diagnostics 仅包含本地阶段、状态、耗时、大小、HTTP 状态、受限模型标识及数值 token 计数。
+reasoning_tokens 只是计数，不包含推理内容；HTTP 错误正文、header、response ID、metadata 均不记录。
+可选 final_content_observer 在严格 JSON 解析成功之后、本地字段验证之前调用，可保留模型的结构错误原答。
+观察器仅收到最终 JSON 文本；认证字符串会先替换为 [REDACTED]。文本可能包含业务资料，保存位置由调用方负责。
+观察器异常会阻断本次结果，且不把异常内容写入 ProviderError。
+
+服务兼容性依据
+LongCat 官方 Responses API 文档（2026-10-23 核对）：
+https://longcat.chat/platform/docs/api/responses
+该接口支持的字段不应推定为所有 OpenAI 兼容转发站均支持；使用前应显式选择已验证的配置。
+
+离线测试
+python -m unittest tests_gateway.test_openai_responses tests_gateway.test_provider tests_gateway.test_strict_provider_json -v
+测试覆盖请求参数、严格解析、局部结构验证、完整响应限制、工具/拒绝阻断、额度相关的单次派发、
+超时/HTTP 失败、大小上限、诊断脱敏以及既有 Chat 兼容性。离线通过不等价于真实模型语义准确。

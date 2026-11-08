@@ -1,0 +1,59 @@
+{
+  "A4_population_operator_from_business_files": "NOT_PROVIDED",
+  "all_business_packet_provenance": "SYNTHETIC_OFFLINE_GENERATOR",
+  "assignment_family": "D1",
+  "case_id": "NBIB-010",
+  "conditional_route_only": [
+    "R1b_finite_policy_mixture_candidate"
+  ],
+  "data_is_finite_observations_not_A4": true,
+  "design_params": {
+    "p": "1/2"
+  },
+  "edge_count": 31,
+  "expected_blockers": [
+    "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+    "A5_NEEDS_SCIENTIFIC_REVIEW",
+    "R1B_NEEDS_FULL_ASSIGNMENT_A4_FOR_EACH_COMPONENT"
+  ],
+  "exposure_rule": "E5",
+  "fixed_policy_support": [
+    {
+      "policy_id": "plan_A",
+      "q_full_assignment": "1/65536"
+    },
+    {
+      "policy_id": "plan_B",
+      "q_full_assignment": "1/65536"
+    }
+  ],
+  "identification_library_status": "NOT_RUN_ON_THIS_GENERATED_CASE",
+  "industry": "通信服务",
+  "lower_is_better": true,
+  "n_nodes": 16,
+  "network_type": "small_world",
+  "number_independent_market_replicates": 1,
+  "outcome_metric_name": "fault_recovery_duration",
+  "outcome_metric_unit": "分钟",
+  "pair_family": null,
+  "query_targets": [
+    {
+      "exact_target_semantics": "R1B_FINITE_FIXED_POLICY_MIXTURE",
+      "kind": "STOCHASTIC_POLICY_VALUE",
+      "quote": "如果以六成概率采用方案甲、四成概率采用方案乙，整体故障恢复表现如何"
+    }
+  ],
+  "scenario_title": "按固定比例轮换两种推广方案",
+  "scientific_reference_notes": "R1b有限混合；每个权重非零的完整政策需独立q(z)>0和assignment-resolution A4，不等价于任意adaptive stochastic policy。",
+  "simulation_is_not_proof_of_scientific_assumptions": true,
+  "split": "test",
+  "support_checks": {
+    "exposure_rule": "E5",
+    "exposure_value": 1,
+    "focal_node": "unit_000",
+    "mathematical_support_only_not_IDENTIFICATION": true,
+    "own_treatment": 1,
+    "support_probability": "15/32"
+  },
+  "synthetic": true
+}

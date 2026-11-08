@@ -1,0 +1,30 @@
+{
+  "schema_version": "literature-support-route-1",
+  "route_id": "R2_ENDPOINT_DIFFERENCE",
+  "document_role": "EXISTING_THEOREM_COMPOSITION_NOT_NEW_CORE_METHOD",
+  "runtime_coverage_authority": "cfm_id.capability_registry.inventory",
+  "theorem": {
+    "attribution": "Ordered subtraction of two independently replayed existing R2 policy means; project algebraic derivation, no claim of novelty or verbatim external theorem.",
+    "derivation_path": "../../docs/R2_POLICY_DIFFERENCE_CONTRACT_ZH.md",
+    "single_endpoint_derivation_path": "../../docs/R2_VERIFIED_MEAN_SIGNATURE_POLICY_ZH.md",
+    "duplicate_proof_in_catalog": false
+  },
+  "literature_scope": {
+    "source_ids": [
+      "aronow_samii2017_interference"
+    ],
+    "role": "Existing catalog context for separating design, exposure mapping and estimand; not attribution of this weaker mean-sufficiency contract or software receipt to that paper.",
+    "new_external_sources_reviewed": false
+  },
+  "implementation": [
+    "cfm_id/network_contrast_dispatch.py",
+    "cfm_id/workflows/policy_difference.py",
+    "pfn_pipeline/identification_policy_r2.py"
+  ],
+  "tests": [
+    "tests_gateway/test_network_r2_contrast.py"
+  ],
+  "verification_evidence": "docs/R2_CONTRAST_INTEGRATION_ZH.md",
+  "path_base": "implementation/tests relative to source repository root",
+  "production_admission": false
+}

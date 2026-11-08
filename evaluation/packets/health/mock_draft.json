@@ -1,0 +1,141 @@
+{
+  "schema_version": "cfm-id-draft-v0.1",
+  "target": {
+    "kind": "POLICY_OPTIMIZATION",
+    "description": {
+      "value": "选择远程会诊平台的后续推广方案以减少候诊时长",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "如何安排下一轮远程会诊平台的推广，才能减少患者候诊时长"
+        }
+      ]
+    },
+    "alternatives": []
+  },
+  "units_variables": {
+    "analysis_unit": {
+      "value": "医院",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "医院"
+        }
+      ]
+    },
+    "treatment": {
+      "value": "是否上线远程会诊平台",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "远程会诊平台"
+        }
+      ]
+    },
+    "outcome": {
+      "value": "患者候诊时长",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "候诊时长"
+        }
+      ]
+    },
+    "covariates": [],
+    "temporal_structure": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "structure": {
+    "unit_network": {
+      "value": "医院之间会互相转诊",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "医院之间会互相转诊"
+        }
+      ]
+    },
+    "variable_causal_graph": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "exposure_mapping": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "network_pretreatment_status": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "information_design": {
+    "assignment_family": "OBSERVATIONAL",
+    "assignment_law": {
+      "value": "并非随机分配",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "att_01",
+          "quote": "并非随机分配"
+        }
+      ]
+    },
+    "population_information_level": "FINITE_SAMPLE_DESCRIPTION",
+    "population_observable_operator": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "sample_data_description": {
+      "value": "试点数据表字段结构",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "att_02",
+          "quote": "表头字段：hospital_id, telemed_on, wait_time, transfer_count"
+        }
+      ]
+    }
+  },
+  "assumptions": [
+    {
+      "name": "design_reported_by_protocol",
+      "statement": "并非随机分配",
+      "status": "PROPOSED",
+      "basis": "REPORTED_BY_SOURCE",
+      "evidence": [
+        {
+          "source_id": "att_01",
+          "quote": "并非随机分配"
+        }
+      ]
+    }
+  ],
+  "validity": {
+    "support_or_positivity": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "query_domain": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "other_conditions": []
+  },
+  "ambiguities": [],
+  "clarifying_questions": [],
+  "normalization_notes": []
+}

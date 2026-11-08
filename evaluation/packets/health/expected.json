@@ -1,0 +1,6 @@
+{
+  "target_kind": "POLICY_OPTIMIZATION",
+  "assignment_family": "OBSERVATIONAL",
+  "expected_quality_codes": [],
+  "note": "This is an authored Mock fixture; no real LLM accuracy or mathematical proof."
+}

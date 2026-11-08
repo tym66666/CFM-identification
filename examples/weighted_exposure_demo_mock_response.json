@@ -1,0 +1,160 @@
+{
+  "schema_version": "cfm-id-draft-v0.1",
+  "target": {
+    "kind": "NETWORK_DESIGN_STANDARDIZED_ARM_MEAN",
+    "description": {
+      "value": "销售员本人使用AI且伙伴加权treated暴露超过0.6时的设计标准化销售均值",
+      "basis": "INTERPRETATION",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "销售员本人使用AI且其合作伙伴加权treated暴露超过0.6时的设计标准化销售均值"
+        }
+      ]
+    },
+    "alternatives": []
+  },
+  "units_variables": {
+    "analysis_unit": {
+      "value": "销售员",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "销售员"
+        }
+      ]
+    },
+    "treatment": {
+      "value": "是否使用AI",
+      "basis": "INTERPRETATION",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "使用AI"
+        }
+      ]
+    },
+    "outcome": {
+      "value": "销售均值",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "销售均值"
+        }
+      ]
+    },
+    "covariates": [],
+    "temporal_structure": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "structure": {
+    "unit_network": {
+      "value": "处理前固定的加权合作网络",
+      "basis": "INTERPRETATION",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "合作权重w_ij在分配前固定"
+        }
+      ]
+    },
+    "variable_causal_graph": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "exposure_mapping": {
+      "value": "S_i=1{sum_j w_ij T_j / sum_j w_ij > 0.6}",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "加权暴露S_i=1{sum_j w_ij T_j / sum_j w_ij > 0.6}"
+        }
+      ]
+    },
+    "network_pretreatment_status": {
+      "value": "权重w_ij在分配前固定",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "合作权重w_ij在分配前固定"
+        }
+      ]
+    }
+  },
+  "information_design": {
+    "assignment_family": "INDEPENDENT_BERNOULLI",
+    "assignment_law": {
+      "value": "T_i独立按已知Bernoulli(p_i)随机分配AI",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "各销售员T_i独立按已知Bernoulli(p_i)随机分配AI"
+        }
+      ]
+    },
+    "population_information_level": "FULL_JOINT_LAW",
+    "population_observable_operator": {
+      "value": "完整联合律P(T,Yobs|W)",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "information_contract",
+          "quote": "总体信息算子是完整联合律P(T,Yobs|W)"
+        }
+      ]
+    },
+    "sample_data_description": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "assumptions": [
+    {
+      "name": "full_vector_randomization",
+      "statement": "处理向量与完整潜在结果表条件独立，需真实协议确认",
+      "status": "PROPOSED",
+      "basis": "REPORTED_BY_SOURCE",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "各销售员T_i独立按已知Bernoulli(p_i)随机分配AI"
+        }
+      ]
+    },
+    {
+      "name": "consistency",
+      "statement": "一致性Yobs_i=Y_i(T)，尚待单独确认",
+      "status": "PROPOSED",
+      "basis": "LLM_SUGGESTION",
+      "evidence": []
+    }
+  ],
+  "validity": {
+    "support_or_positivity": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "query_domain": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "other_conditions": []
+  },
+  "ambiguities": [],
+  "clarifying_questions": [],
+  "normalization_notes": [
+    "总体信息声明是理论条件；暴露加权规则是业务目标分组，不假设充分暴露。"
+  ]
+}

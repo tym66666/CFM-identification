@@ -1,0 +1,18 @@
+{
+  "business_question_file": "business_question.md",
+  "case_id": "NBIB-017",
+  "gold_oracle_location": "OUTSIDE_PUBLIC_CASE_DIRECTORY",
+  "llm_access_scope": "PUBLIC_CASE_FILES_ONLY",
+  "supporting_files": [
+    "data_dictionary.md",
+    "design_probabilities.csv",
+    "market_episodes.csv",
+    "network_after.csv",
+    "outcomes.csv",
+    "study_protocol.md",
+    "treatment.csv",
+    "units.csv"
+  ],
+  "synthetic": true,
+  "title": "合作网络随着系统使用而改变"
+}

@@ -1,0 +1,11 @@
+{
+  "schema_version": "cfm-id-human-review-v0.2",
+  "input_sha256": "2bb811845155552c6037e56f38f93291937f4596e934e40de08466f12c164834",
+  "draft_sha256": "6057b2fa0bfa661802abf802413fa922224ffcd4cb90361b1485a76921401e35",
+  "reviewed_by": "DEMO_FIXTURE_NOT_REAL_PERSON",
+  "decision": "CONFIRMED",
+  "review_note": "TEST ONLY: synthetic reviewer for offline routing demonstration; no scientific assumption verification",
+  "admitted_assumptions": [
+    "full_vector_randomization"
+  ]
+}

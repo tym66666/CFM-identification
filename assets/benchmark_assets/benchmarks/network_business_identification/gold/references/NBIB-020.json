@@ -1,0 +1,55 @@
+{
+  "A4_population_operator_from_business_files": "NOT_PROVIDED",
+  "all_business_packet_provenance": "SYNTHETIC_OFFLINE_GENERATOR",
+  "assignment_family": "D4",
+  "case_id": "NBIB-020",
+  "conditional_route_only": [
+    "R1b_candidate"
+  ],
+  "data_is_finite_observations_not_A4": true,
+  "design_params": {
+    "groups": 4
+  },
+  "edge_count": 75,
+  "expected_blockers": [
+    "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+    "A5_NEEDS_SCIENTIFIC_REVIEW",
+    "D4_INCOMPATIBLE_FULL_POLICY_ZERO_SUPPORT"
+  ],
+  "exposure_rule": "E5",
+  "fixed_policy_support": [
+    {
+      "policy_id": "half_within_each_cluster",
+      "q_full_assignment": "0"
+    }
+  ],
+  "identification_library_status": "NOT_RUN_ON_THIS_GENERATED_CASE",
+  "industry": "连锁仓储",
+  "lower_is_better": true,
+  "n_nodes": 48,
+  "network_type": "communities",
+  "number_independent_market_replicates": 1,
+  "outcome_metric_name": "warehouse_stockout",
+  "outcome_metric_unit": "缺货小时/月",
+  "pair_family": null,
+  "query_targets": [
+    {
+      "exact_target_semantics": "R1B_FULL_ASSIGNMENT_FIXED_POLICY",
+      "kind": "FIXED_POLICY_VALUE",
+      "quote": "如果每个区域只让一半仓库启用补货系统，整个仓储网络的平均缺货情况会怎样"
+    }
+  ],
+  "scenario_title": "整组上线试验与无法实施的分组政策",
+  "scientific_reference_notes": "R1b q(z)=0；没有独立确认R2 mean suff时不能输出POINT；只是当前route support失败。",
+  "simulation_is_not_proof_of_scientific_assumptions": true,
+  "split": "test",
+  "support_checks": {
+    "exposure_rule": "E5",
+    "exposure_value": 1,
+    "focal_node": "unit_000",
+    "mathematical_support_only_not_IDENTIFICATION": true,
+    "own_treatment": 1,
+    "support_probability": "1/2"
+  },
+  "synthetic": true
+}

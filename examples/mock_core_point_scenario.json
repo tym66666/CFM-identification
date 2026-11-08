@@ -1,0 +1,7 @@
+{
+  "status": "POINT",
+  "route_id": "DEMO_R1A",
+  "identified_expression": "E[Y_i^obs | W, T_i=1, S_i=1] [MOCK ONLY]",
+  "certificate": {"kind": "MOCK_TEST_ONLY", "do_not_use_as_proof": true},
+  "reason": "A simulated R1a-like response; NOT a mathematical certificate"
+}

@@ -1,0 +1,10 @@
+{
+  "version": "business-reading-config-1",
+  "reading_format": "compact",
+  "fact_format": "short_refs",
+  "assignment_semantics": "joint-assignment-law-1",
+  "target_summary_contract": "target-summary-3",
+  "a0_reference_contract": "compact-source-selectors-1",
+  "a0_response_contract": "inline-unified-contract-5",
+  "network_fact_contract": "network-source-selections-remainder-1"
+}

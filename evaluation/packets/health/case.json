@@ -1,0 +1,15 @@
+{
+  "case_id": "biz_v08_health",
+  "business_question": "我们管理数家医院，医院之间会互相转诊，也会共享紧急会诊专家。有些医院较早使用远程会诊平台，另外一些还没有上线。我们希望知道如何安排下一轮远程会诊平台的推广，才能减少患者候诊时长，同时不把病人压力单纯转移到邻近医院。我们可以提供现有各医院的系统上线记录、转诊关系和候诊数据，以及内部部署决策的说明。",
+  "response_language": "zh",
+  "attachments": [
+    {
+      "path": "study_protocol.txt",
+      "kind": "STUDY_PROTOCOL"
+    },
+    {
+      "path": "records.csv",
+      "kind": "DATA_DICTIONARY"
+    }
+  ]
+}

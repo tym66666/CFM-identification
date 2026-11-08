@@ -1,0 +1,107 @@
+{
+  "schema_version": "cfm-id-draft-v0.1",
+  "target": {
+    "kind": "SPILLOVER_EFFECT",
+    "description": {
+      "value": "考察同团队治疗比例变化对应的外溢效应。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "考察同团队治疗比例变化对应的外溢效应。"
+        }
+      ]
+    },
+    "alternatives": []
+  },
+  "units_variables": {
+    "analysis_unit": {
+      "value": "业务描述中的员工、节点或团体",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "考察同团队治疗比例变化对应的外溢效应。"
+        }
+      ]
+    },
+    "treatment": {
+      "value": "描述中的AI干预",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "实验以预先确定的整个团队为随机化单元，按团队独立随机分配，组内所有成员同处理。暴露定义为团队里获得AI的员工比例。"
+        }
+      ]
+    },
+    "outcome": {
+      "value": "描述中的销售或结果指标",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "考察同团队治疗比例变化对应的外溢效应。"
+        }
+      ]
+    }
+  },
+  "structure": {
+    "unit_network": {
+      "value": "被描述的网络",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "实验以预先确定的整个团队为随机化单元，按团队独立随机分配，组内所有成员同处理。暴露定义为团队里获得AI的员工比例。"
+        }
+      ]
+    },
+    "exposure_mapping": {
+      "value": "描述中的网络暴露映射",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "实验以预先确定的整个团队为随机化单元，按团队独立随机分配，组内所有成员同处理。暴露定义为团队里获得AI的员工比例。"
+        }
+      ]
+    }
+  },
+  "information_design": {
+    "assignment_family": "CLUSTER_RANDOMIZATION",
+    "assignment_law": {
+      "value": "实验以预先确定的整个团队为随机化单元，按团队独立随机分配，组内所有成员同处理。暴露定义为团队里获得AI的员工比例。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "实验以预先确定的整个团队为随机化单元，按团队独立随机分配，组内所有成员同处理。暴露定义为团队里获得AI的员工比例。"
+        }
+      ]
+    },
+    "population_information_level": "NODE_ARM_CONDITIONAL_MEANS",
+    "population_observable_operator": {
+      "value": "可用的总体观测信息仅为各节点 arm 条件均值 E[Y_i^obs|T_i=a,S_i=s,W]，并没有完整处理向量的联合律。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "information",
+          "quote": "可用的总体观测信息仅为各节点 arm 条件均值 E[Y_i^obs|T_i=a,S_i=s,W]，并没有完整处理向量的联合律。"
+        }
+      ]
+    },
+    "sample_data_description": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "assumptions": [],
+  "validity": {},
+  "ambiguities": [],
+  "clarifying_questions": [],
+  "normalization_notes": [
+    "MOCK TEST-ONLY fixture synthesized from benchmark reference; not model-generated"
+  ]
+}

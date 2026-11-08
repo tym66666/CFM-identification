@@ -1,0 +1,59 @@
+{
+  "A4_population_operator_from_business_files": "NOT_PROVIDED",
+  "all_business_packet_provenance": "SYNTHETIC_OFFLINE_GENERATOR",
+  "assignment_family": "D1",
+  "case_id": "NBIB-018",
+  "conditional_route_only": [
+    "R1a_candidate",
+    "POLICY_OPTIMIZATION_OUTSIDE_ID_CORE"
+  ],
+  "data_is_finite_observations_not_A4": true,
+  "design_params": {},
+  "edge_count": 610,
+  "expected_blockers": [
+    "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+    "A5_NEEDS_SCIENTIFIC_REVIEW",
+    "POLICY_OPTIMIZATION_NOT_IDENTIFIED_BY_R1A"
+  ],
+  "exposure_rule": "E3",
+  "fixed_policy_support": [],
+  "identification_library_status": "NOT_RUN_ON_THIS_GENERATED_CASE",
+  "industry": "企业协作",
+  "lower_is_better": false,
+  "n_nodes": 300,
+  "network_type": "communities",
+  "number_independent_market_replicates": 1,
+  "outcome_metric_name": "customer_service_quality",
+  "outcome_metric_unit": "满意度评分",
+  "pair_family": null,
+  "query_targets": [
+    {
+      "exact_target_semantics": "R1A_Q_STANDARDIZED_DIRECT",
+      "kind": "DIRECT_EFFECT",
+      "quote": "获得AI助手是否改善员工自己处理客户问题的表现"
+    },
+    {
+      "exact_target_semantics": "R1A_Q_STANDARDIZED_SPILLOVER",
+      "kind": "SPILLOVER_EFFECT",
+      "quote": "没有助手的人是否会因核心合作者使用助手而受益"
+    },
+    {
+      "exact_target_semantics": "POLICY_OPTIMIZATION_NOT_IDENTIFICATION_RESULT",
+      "kind": "POLICY_OPTIMIZATION",
+      "quote": "只购买100套授权时应该给哪些员工才能让全公司满意度最高"
+    }
+  ],
+  "scenario_title": "三百名员工与有限授权最优分配",
+  "scientific_reference_notes": "前两目标可在相关A4/A5和arm支持下尝试R1a；第三个是policy optimization，现有识别认证不自动给优化器。",
+  "simulation_is_not_proof_of_scientific_assumptions": true,
+  "split": "test",
+  "support_checks": {
+    "exposure_rule": "E3",
+    "exposure_value": 1,
+    "focal_node": "unit_000",
+    "mathematical_support_only_not_IDENTIFICATION": true,
+    "own_treatment": 1,
+    "support_probability": "88/625"
+  },
+  "synthetic": true
+}

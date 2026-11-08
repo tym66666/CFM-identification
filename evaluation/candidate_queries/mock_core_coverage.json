@@ -1,0 +1,50 @@
+[
+  {
+    "case_id": "QA_SALES",
+    "input_sha256": "adf635c512aa2b1fe051311724857700ad0ca0f970234d1bffaebd36432069d1",
+    "draft_sha256": "1bd4972c7f3f944d4002e0bc09a07eb8717e22f003262b9bf6c0f342d81435b9",
+    "query_id": "q1",
+    "target_sha256": "01c3f3a9ed438c59ef2b8d0b89cbc34ea5166a4afb7cdb8b6249970bc77485a2",
+    "business_review_sha256": "de20feaeaf278c5175c808102dda695a215103987e37115fdfd327361823274d",
+    "source_mode": "MOCK",
+    "core_version": "MOCK_NOT_CONNECTED",
+    "adapter_id": "MOCK_ONLY_PREVIEW",
+    "status": "POINT",
+    "fallback": "NOT_NEEDED",
+    "reason_code": "SYNTHETIC_ALREADY_COVERED",
+    "science_scope": {
+      "scientific_review_sha256": "5324b08046fb067988ac7a9d52269e349624aa11369f5d478ee8fe69f21a0785",
+      "a4_sources": [],
+      "a5_licenses": [
+        {
+          "name": "consistency",
+          "typed_assumption_sha256": "447cf5e9fca459f6f4d565e3985d0ea873e9a4f49a89f89cc3a2134674d693dc"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "QA_SALES",
+    "input_sha256": "adf635c512aa2b1fe051311724857700ad0ca0f970234d1bffaebd36432069d1",
+    "draft_sha256": "1bd4972c7f3f944d4002e0bc09a07eb8717e22f003262b9bf6c0f342d81435b9",
+    "query_id": "q2",
+    "target_sha256": "b9fa43525a9b4b2952adcac1eda88f6d59416c0d3075dfe50b682e975ee451e0",
+    "business_review_sha256": "de20feaeaf278c5175c808102dda695a215103987e37115fdfd327361823274d",
+    "source_mode": "MOCK",
+    "core_version": "MOCK_NOT_CONNECTED",
+    "adapter_id": "MOCK_ONLY_PREVIEW",
+    "status": "UNSUPPORTED",
+    "fallback": "ELIGIBLE_NOT_EXECUTED",
+    "reason_code": "NO_REGISTERED_THEOREM",
+    "science_scope": {
+      "scientific_review_sha256": "5324b08046fb067988ac7a9d52269e349624aa11369f5d478ee8fe69f21a0785",
+      "a4_sources": [],
+      "a5_licenses": [
+        {
+          "name": "consistency",
+          "typed_assumption_sha256": "447cf5e9fca459f6f4d565e3985d0ea873e9a4f49a89f89cc3a2134674d693dc"
+        }
+      ]
+    }
+  }
+]

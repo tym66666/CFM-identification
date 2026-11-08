@@ -1,0 +1,900 @@
+{
+  "schema_version": "literature-support-catalog-1",
+  "updated_on": "2026-10-31",
+  "scope": "Selected source cards, classification provenance and project-to-literature mappings. Includes new planning sources for IV and ID, which do not declare executable capabilities. Full literature review and theorem audits remain incomplete.",
+  "project_wide_literature_review_complete": false,
+  "contains_downloaded_articles": false,
+  "source_cards": [
+    {
+      "id": "perkovic_etal2018_adjustment",
+      "title": "Complete Graphical Characterization and Construction of Adjustment Sets in Markov Equivalence Classes of Ancestral Graphs",
+      "authors": [
+        "Emilija Perković",
+        "Johannes Textor",
+        "Markus Kalisch",
+        "Marloes H. Maathuis"
+      ],
+      "year": 2018,
+      "venue": "Journal of Machine Learning Research",
+      "volume": "18",
+      "issue": "220",
+      "pages": "1–62",
+      "article_type": "Journal research article",
+      "doi": null,
+      "urls": {
+        "publisher_page": "https://jmlr.org/papers/v18/16-319.html",
+        "publisher_full_text": "https://jmlr.org/papers/volume18/16-319/16-319.pdf"
+      },
+      "read_scope": {
+        "level": "selected_full_text_sections",
+        "read_on": "2026-10-25",
+        "inspected": [
+          "Definition 1: adjustment functional",
+          "Definition 18: Pearl's classical backdoor criterion",
+          "Section 5.1: limits of the classical criterion, including Y parent of X",
+          "Definitions 3, 4, 6 and Theorem 7: forbidden set and proper back-door graph equivalence",
+          "Definition 55 and Theorem 58: DAG adjustment sufficiency",
+          "Theorem 57: necessity proof uses linear Gaussian constructions, not adopted as a binary necessity proof"
+        ],
+        "not_inspected": [
+          "Every generalized-adjustment theorem and proof",
+          "Full software implementation"
+        ],
+        "full_text_verified": false
+      },
+      "supports": [
+        "The classical backdoor sufficient criterion and its observable adjustment functional.",
+        "Failure of the classical criterion is not a proof of general nonidentification.",
+        "The published DAG criterion supplies a sufficient adjustment identity for the declared binary SCM subclass."
+      ],
+      "does_not_support": [
+        "No project claim of MAG, CPDAG, PAG or general ID completeness, or of necessity inside the restricted binary subclass.",
+        "No automatic approval of a business causal graph, population law or positivity assumption.",
+        "No proof of the project's software or claim that the software's eight-node cap is a theorem restriction."
+      ],
+      "project_use": "Classical and DAG adjustment sufficient theorem references; separate explicit research adapters with independent finite graph replay. Not novel identification theorems."
+    },
+    {
+      "id": "shpitser_etal2010_adjustment",
+      "title": "On the Validity of Covariate Adjustment for Estimating Causal Effects",
+      "authors": [
+        "Ilya Shpitser",
+        "Tyler VanderWeele",
+        "James M. Robins"
+      ],
+      "year": 2010,
+      "venue": "Proceedings of the Twenty-Sixth Conference on Uncertainty in Artificial Intelligence",
+      "pages": "527–536",
+      "article_type": "Conference research article; author version deposited in 2012",
+      "doi": null,
+      "urls": {
+        "author_manuscript": "https://arxiv.org/abs/1203.3515",
+        "author_full_text": "https://arxiv.org/pdf/1203.3515"
+      },
+      "read_scope": {
+        "level": "selected_full_text_sections",
+        "read_on": "2026-10-25",
+        "inspected": [
+          "Definition 5",
+          "Theorems 3 and 4",
+          "Corollary 1"
+        ],
+        "not_inspected": [
+          "Every proof and further model-class extension"
+        ],
+        "full_text_verified": false
+      },
+      "supports": [
+        "Source DAG adjustment criterion and sufficient adjustment identity."
+      ],
+      "does_not_support": [
+        "No automatic scientific approval.",
+        "No claim of a verified universal positive binary counterexample generator."
+      ],
+      "project_use": "Theorem source; bounded implementation and independent replay are separate project obligations."
+    },
+    {
+      "id": "textor_liskiewicz2011_adjustment",
+      "title": "Adjustment Criteria in Causal Diagrams: An Algorithmic Perspective",
+      "authors": [
+        "Johannes Textor",
+        "Maciej Liśkiewicz"
+      ],
+      "year": 2011,
+      "venue": "Proceedings of the Twenty-Seventh Conference on Uncertainty in Artificial Intelligence",
+      "pages": "681–688",
+      "article_type": "Conference research article; author version deposited in 2012",
+      "doi": null,
+      "urls": {
+        "author_manuscript": "https://arxiv.org/abs/1202.3764",
+        "author_full_text": "https://arxiv.org/pdf/1202.3764"
+      },
+      "read_scope": {
+        "level": "selected_full_text_sections",
+        "read_on": "2026-10-25",
+        "inspected": [
+          "Theorem 4.4: minimal sets for X-loop-free graphs",
+          "Section 5: enumeration with latent or unavailable covariates"
+        ],
+        "not_inspected": [
+          "Every algorithm complexity proof and software implementation"
+        ],
+        "full_text_verified": false
+      },
+      "supports": [
+        "Minimal adjustment sets coincide with minimal classical backdoor sets in the current singleton-treatment setting."
+      ],
+      "does_not_support": [
+        "No claim that new admissible nonminimal sets increase the set of identifiable targets.",
+        "No project claim of implementing polynomial-delay enumeration."
+      ],
+      "project_use": "Interpret coverage increments accurately; only finite deterministic search is implemented."
+    },
+    {
+      "id": "manski1990_nonparametric_bounds",
+      "title": "Nonparametric Bounds on Treatment Effects",
+      "authors": [
+        "Charles F. Manski"
+      ],
+      "year": 1990,
+      "venue": "American Economic Review",
+      "volume": "80",
+      "issue": "2",
+      "pages": "319–323",
+      "article_type": "Papers and Proceedings article; not an ordinary full-length AER research article",
+      "doi": null,
+      "urls": {
+        "original_article": "https://www.jstor.org/stable/2006592",
+        "publisher_issue_contents": "https://www.jstor.org/stable/i334562"
+      },
+      "read_scope": {
+        "level": "metadata_and_indexed_first_page_excerpt",
+        "read_on": "2026-10-23",
+        "inspected": [
+          "Original issue contents and article bibliographic identity",
+          "Search-indexed first-page excerpt"
+        ],
+        "not_inspected": [
+          "Full five-page article",
+          "All equations and proofs"
+        ],
+        "full_text_verified": false
+      },
+      "supports": [
+        "Historical foundation for nonparametric treatment-effect bounds and separating unidentified counterfactuals from observed outcomes."
+      ],
+      "does_not_support": [
+        "No claim that the article states or proves this project's D2/E1 signed mean-box contrast theorem.",
+        "No project code or certificate verification."
+      ],
+      "project_use": "Historical and methodological background; no uninspected theorem is imported."
+    },
+    {
+      "id": "manski1997_monotone_response",
+      "title": "Monotone Treatment Response",
+      "authors": [
+        "Charles F. Manski"
+      ],
+      "year": 1997,
+      "venue": "Econometrica",
+      "volume": "65",
+      "issue": "6",
+      "pages": "1311–1334",
+      "article_type": "Journal research article",
+      "doi": "10.2307/2171738",
+      "urls": {
+        "original_article": "https://www.jstor.org/stable/2171738",
+        "publisher_page": "https://www.econometricsociety.org/publications/econometrica/1997/11/01/monotone-treatment-response"
+      },
+      "read_scope": {
+        "level": "publisher_abstract_and_metadata",
+        "read_on": "2026-10-23",
+        "inspected": [
+          "Econometric Society official abstract and bibliographic metadata"
+        ],
+        "not_inspected": [
+          "Full article",
+          "Individual proposition statements and proofs"
+        ],
+        "full_text_verified": false
+      },
+      "supports": [
+        "Monotone, semimonotone and concave-monotone response restrictions as distinct scientific restrictions in partial identification."
+      ],
+      "does_not_support": [
+        "Does not automatically authorize monotonicity from an exposure definition or randomized design.",
+        "No claimed implementation of MTR in the current box-only route.",
+        "No claim of having checked an original proposition line by line."
+      ],
+      "project_use": "Candidate future coupling mechanism and careful distinction between mean monotonicity and individual potential-outcome monotonicity."
+    },
+    {
+      "id": "kim_kwon_kwon_lee2018_smoothness",
+      "title": "The identification power of smoothness assumptions in models with counterfactual outcomes",
+      "authors": [
+        "Wooyoung Kim",
+        "Koohyun Kwon",
+        "Soonwoo Kwon",
+        "Sokbae Lee"
+      ],
+      "year": 2018,
+      "venue": "Quantitative Economics",
+      "volume": "9",
+      "issue": "2",
+      "pages": "617–642",
+      "article_type": "Journal research article",
+      "doi": "10.3982/QE545",
+      "urls": {
+        "doi": "https://doi.org/10.3982/QE545",
+        "publisher_page": "https://onlinelibrary.wiley.com/doi/abs/10.3982/QE545",
+        "publisher_full_text": "https://onlinelibrary.wiley.com/doi/pdf/10.3982/QE545",
+        "author_page": "https://soonwookwon.github.io/"
+      },
+      "read_scope": {
+        "level": "selected_full_text_sections",
+        "read_on": "2026-10-24",
+        "inspected": [
+          "Section 1, pages 618–619: conditional counterfactual means and information setting",
+          "Section 3, pages 622–624: Assumption 3.1 and equations (3.1)–(3.3), distinguishing conditional-mean monotonicity from individual MTR",
+          "Section 4, page 630: equation (4.1), distinguishing monotone treatment selection from response monotonicity"
+        ],
+        "not_inspected": [
+          "Complete supplementary sharpness proofs",
+          "Full empirical replication and inference analysis"
+        ],
+        "full_text_verified": false,
+        "section_text_available": true
+      },
+      "supports": [
+        "Conditional-mean response restrictions can be stated separately from individual potential-outcome monotonicity.",
+        "Response monotonicity and treatment-selection monotonicity constrain different arguments of the conditional counterfactual mean."
+      ],
+      "does_not_support": [
+        "No network, D2/E1, or project certificate theorem is imported from this paper.",
+        "The paper's SMTR includes a known Lipschitz bound; the proposed MEAN_ORDER route does not implicitly adopt that smoothness restriction.",
+        "SMTR here means smooth monotone treatment response, not Manski (2013)'s semi-monotone treatment response.",
+        "The project finite mean-order joint feasible set and sharpness require a separate complete derivation and replay."
+      ],
+      "project_use": "Mathematical pre-research supporting explicit mean-level scientific restrictions and terminology; this card is not an implementation or scientific-approval claim."
+    },
+    {
+      "id": "aronow_samii2017_interference",
+      "title": "Estimating Average Causal Effects Under General Interference, with Application to a Social Network Experiment",
+      "authors": [
+        "Peter M. Aronow",
+        "Cyrus Samii"
+      ],
+      "year": 2017,
+      "venue": "Annals of Applied Statistics",
+      "volume": "11",
+      "issue": "4",
+      "pages": "1912–1947",
+      "article_type": "Journal research article",
+      "doi": "10.1214/16-AOAS1005",
+      "urls": {
+        "doi": "https://doi.org/10.1214/16-AOAS1005",
+        "author_manuscript": "https://arxiv.org/pdf/1305.6156",
+        "author_institution_page": "https://isps.yale.edu/resource/estimating-average-causal-effects-under-general-interference-with-application-to-a-social"
+      },
+      "read_scope": {
+        "level": "selected_full_text_sections",
+        "read_on": "2026-10-23",
+        "inspected": [
+          "Sections 3–4: assignment design, exposure probability and estimand",
+          "Conditions 1–2: exposure specification and consistency",
+          "Section 8: misspecified exposures and weighted potential-outcome interpretation"
+        ],
+        "not_inspected": [
+          "Complete empirical replication",
+          "All estimator and asymptotic proofs"
+        ],
+        "full_text_verified": false,
+        "section_text_available": true
+      },
+      "supports": [
+        "Separate assignment design, exposure mapping and estimand.",
+        "Compute exposure probabilities from a known allocation law.",
+        "Correctly specified exposure restrictions and consistency have explicit mathematical roles."
+      ],
+      "does_not_support": [
+        "Support-based IPW results do not establish sharp bounds for unsupported fixed policy assignments.",
+        "The project's all-assignment mean sufficiency is not imported from a condition restricted to the paper's assignment support.",
+        "No extension of Estimation/Policy is implied."
+      ],
+      "project_use": "Definitions and architecture; not the proof of the project's signed-box bounds."
+    },
+    {
+      "id": "manski2013_social_interactions",
+      "title": "Identification of treatment response with social interactions",
+      "authors": [
+        "Charles F. Manski"
+      ],
+      "year": 2013,
+      "venue": "Econometrics Journal",
+      "volume": "16",
+      "pages": "S1–S23",
+      "article_type": "Journal research article",
+      "doi": "10.1111/j.1368-423X.2012.00368.x",
+      "urls": {
+        "doi": "https://doi.org/10.1111/j.1368-423X.2012.00368.x",
+        "article_pdf": "https://www.treatment-effects.com/Manski-2013.pdf"
+      },
+      "read_scope": {
+        "level": "selected_full_text_sections",
+        "read_on": "2026-10-24",
+        "inspected": [
+          "Section 2.1: constant treatment response (CTR), inspected on 2026-10-23",
+          "Section 3.1, pages S8–S9: semi-monotone treatment response, equations (3.1)–(3.5), rechecked on 2026-10-24",
+          "Section 3.2, pages S9–S10: reinforcing interactions and componentwise treatment order, inspected on 2026-10-24",
+          "Sections 5.1–5.2, pages S19–S20: Proposition SI and equation (5.3), rechecked on 2026-10-24"
+        ],
+        "not_inspected": [
+          "All structural-interaction derivations and applications"
+        ],
+        "full_text_verified": false,
+        "section_text_available": true
+      },
+      "supports": [
+        "Interference can be modeled through effective treatments with separately stated response restrictions.",
+        "Supported and unsupported effective treatments have different identifying content.",
+        "Additional shape restrictions can narrow identified sets."
+      ],
+      "does_not_support": [
+        "Individual-outcome CTR or SMTR is not silently substituted for this project's mean sufficiency.",
+        "No claim that the article already proves this project's finite D2/E1 signed contrast certificate."
+      ],
+      "project_use": "Direct interference-identification context and selected source propositions; the project proof remains independent."
+    },
+    {
+      "id": "savje_exposure_definitions",
+      "title": "Causal inference with misspecified exposure mappings: separating definitions and assumptions",
+      "authors": [
+        "Fredrik Sävje"
+      ],
+      "year": 2023,
+      "year_basis": "Author-manuscript revision date; this card does not assert journal publication metadata.",
+      "venue": "Author manuscript, arXiv:2103.06471 v2",
+      "article_type": "Author manuscript",
+      "doi": "10.48550/arXiv.2103.06471",
+      "urls": {
+        "author_manuscript": "https://arxiv.org/abs/2103.06471",
+        "versioned_manuscript": "https://arxiv.org/abs/2103.06471v2"
+      },
+      "read_scope": {
+        "level": "abstract_and_metadata",
+        "read_on": "2026-10-23",
+        "inspected": [
+          "Author abstract and manuscript history"
+        ],
+        "not_inspected": [
+          "Full article and all propositions"
+        ],
+        "full_text_verified": false
+      },
+      "supports": [
+        "Exposure definitions and restrictions on the interference structure should be distinguished."
+      ],
+      "does_not_support": [
+        "Defining E1 does not establish all-assignment mean sufficiency.",
+        "No contribution to the algebraic sharpness proof is claimed from abstract-only reading."
+      ],
+      "project_use": "Explicit distinction between exposure definitions and independent scientific approval of A5."
+    },
+    {
+      "id": "pearl_causality_ch3_frontdoor",
+      "title": "Causality: Models, Reasoning, and Inference, Chapter 3",
+      "authors": [
+        "Judea Pearl"
+      ],
+      "year": 2009,
+      "venue": "Cambridge University Press",
+      "article_type": "Research monograph; author-hosted corrected 2013 chapter reprint",
+      "doi": null,
+      "urls": {
+        "author_full_text": "https://web.cs.ucla.edu/~kaoru/CAUSALITY-REPRINTED-W-CORRECTIONS-2013/causality-ch3-june2013.pdf"
+      },
+      "read_scope": {
+        "level": "selected_full_text_sections",
+        "read_on": "2026-10-25",
+        "inspected": [
+          "Section 3.2.1: structural models and interventions",
+          "Definition 3.3.3; Theorem 3.3.4; equations (3.22)-(3.29), book pages 81-83"
+        ],
+        "not_inspected": [
+          "Every proof in the book",
+          "Original Biometrika 1995 full text"
+        ],
+        "full_text_verified": false
+      },
+      "supports": [
+        "Classical front-door sufficient identification and its observed nested-sum formula with P(x,m)>0."
+      ],
+      "does_not_support": [
+        "No automatic approval of business causal graphs.",
+        "No proof of project implementation or necessity of the criterion."
+      ],
+      "project_use": "Sufficient theorem for the implemented single-front-door-variable binary SCM mathematical research route; stronger observed-joint positivity is an explicit software boundary."
+    },
+    {
+      "id": "jeong_tian_bareinboim2022_frontdoor",
+      "title": "Finding and Listing Front-door Adjustment Sets",
+      "authors": [
+        "Hyunchai Jeong",
+        "Jin Tian",
+        "Elias Bareinboim"
+      ],
+      "year": 2022,
+      "venue": "Advances in Neural Information Processing Systems 35",
+      "article_type": "Conference research article",
+      "doi": null,
+      "urls": {
+        "publisher_page": "https://papers.neurips.cc/paper_files/paper/2022/hash/d67ac621411d6fa4dca682ce62f84ea7-Abstract-Conference.html",
+        "publisher_full_text": "https://proceedings.neurips.cc/paper_files/paper/2022/file/d67ac621411d6fa4dca682ce62f84ea7-Paper-Conference.pdf"
+      },
+      "read_scope": {
+        "level": "selected_full_text_sections",
+        "read_on": "2026-10-25",
+        "inspected": [
+          "Definition 1 and equation (3)",
+          "Section 2 graph/path notation",
+          "Section 3 search contract and deleted-outgoing-edge test for condition 2"
+        ],
+        "not_inspected": [
+          "All search and enumeration proofs",
+          "Authors software implementation"
+        ],
+        "full_text_verified": false
+      },
+      "supports": [
+        "Classical front-door criterion and formula.",
+        "Separation between testing a supplied front-door set and finding/enumerating sets."
+      ],
+      "does_not_support": [
+        "No claim that project implements the paper algorithms.",
+        "No general ID or software correctness guarantee."
+      ],
+      "project_use": "Graph criterion and formula for singleton checking/search and independent finite checks. The paper's set-search algorithms are not implemented."
+    },
+    {
+      "id": "bhadra_schweinberger2026_review",
+      "title": "Causal Inference Under Network Interference",
+      "authors": [
+        "Subhankar Bhadra",
+        "Michael Schweinberger"
+      ],
+      "year": 2026,
+      "venue": "arXiv:2508.06808v2, revised 2026-08-09",
+      "article_type": "Review preprint; not a claimed journal publication",
+      "doi": "10.48550/arXiv.2508.06808",
+      "urls": {
+        "versioned_manuscript": "https://arxiv.org/abs/2508.06808v2",
+        "html": "https://arxiv.org/html/2508.06808v2"
+      },
+      "read_scope": {
+        "level": "selected_full_text_sections",
+        "read_on": "2026-10-31",
+        "inspected": [
+          "Abstract and table of contents; end of section 3.3; sections 4.1–4.2; section 7 headings"
+        ],
+        "not_inspected": [
+          "All proofs, supplements and author software; no full-paper verification claimed."
+        ],
+        "full_text_verified": false
+      },
+      "supports": [
+        "研究维度：实验/观测、固定/随机潜在结果、固定/随机干扰图及结论范围。",
+        "Bernoulli、完全随机化和簇随机化的背景。"
+      ],
+      "does_not_support": [
+        "没有提供本项目 R/D/E 编号、A0–A6 流程或六人分工。",
+        "综述中的识别表述不免除具体目标的支持条件；不证明当前软件覆盖。"
+      ],
+      "project_use": "恢复旧交接 B01 的概念来源；本次只核对所列部分。"
+    },
+    {
+      "id": "halloran_hudgens2016_review",
+      "title": "Dependent Happenings: A Recent Methodological Review",
+      "authors": [
+        "M. Elizabeth Halloran",
+        "Michael G. Hudgens"
+      ],
+      "year": 2016,
+      "venue": "Current Epidemiology Reports 3(4):297–305",
+      "article_type": "Journal review article",
+      "doi": "10.1007/s40471-016-0086-4",
+      "urls": {
+        "publisher": "https://doi.org/10.1007/s40471-016-0086-4",
+        "pubmed": "https://pubmed.ncbi.nlm.nih.gov/28133589/",
+        "author_manuscript": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5267358/"
+      },
+      "read_scope": {
+        "level": "abstract_and_metadata",
+        "read_on": "2026-10-31",
+        "inspected": [
+          "PubMed metadata/abstract; indexed author-manuscript overview (full page access challenged)"
+        ],
+        "not_inspected": [
+          "All proofs, supplements and author software; no full-paper verification claimed."
+        ],
+        "full_text_verified": false
+      },
+      "supports": [
+        "干扰下直接、间接/溢出等效应的综述背景。"
+      ],
+      "does_not_support": [
+        "不能据摘要认证项目任一具体效应定义或推导。",
+        "不是本项目 R1–R3 的分类来源。"
+      ],
+      "project_use": "新补充的已发表综述阅读起点；学生应再核对相关正文。"
+    },
+    {
+      "id": "hudgens_halloran2008_interference",
+      "title": "Toward Causal Inference With Interference",
+      "authors": [
+        "Michael G. Hudgens",
+        "M. Elizabeth Halloran"
+      ],
+      "year": 2008,
+      "venue": "Journal of the American Statistical Association 103(482):832–842",
+      "article_type": "Journal research article",
+      "doi": "10.1198/016214508000000292",
+      "urls": {
+        "author_manuscript": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2600548/",
+        "doi": "https://doi.org/10.1198/016214508000000292"
+      },
+      "read_scope": {
+        "level": "selected_full_text_sections",
+        "read_on": "2026-10-31",
+        "inspected": [
+          "Abstract, introduction, section 4.2.1 (stratified interference)"
+        ],
+        "not_inspected": [
+          "All proofs, supplements and author software; no full-paper verification claimed."
+        ],
+        "full_text_verified": false
+      },
+      "supports": [
+        "组内干扰、两阶段随机化与直接/间接/总/总体效应的经典参照。"
+      ],
+      "does_not_support": [
+        "不证明项目 D6 覆盖所有两阶段设计。",
+        "分层干扰假设不能自动附加到设计本身；不等同项目均值充分性。"
+      ],
+      "project_use": "恢复旧交接 B03，作为实验设计/效应目标与假设分离的来源。"
+    },
+    {
+      "id": "forastiere_airoldi_mealli2021_network",
+      "title": "Identification and Estimation of Treatment and Interference Effects in Observational Studies on Networks",
+      "authors": [
+        "Laura Forastiere",
+        "Edoardo M. Airoldi",
+        "Fabrizia Mealli"
+      ],
+      "year": 2021,
+      "venue": "Journal of the American Statistical Association 116(534):901–918",
+      "article_type": "Journal research article; this audit reads the 2018 author version",
+      "doi": "10.1080/01621459.2020.1768100",
+      "urls": {
+        "publisher": "https://doi.org/10.1080/01621459.2020.1768100",
+        "author_manuscript": "https://arxiv.org/abs/1609.06245v4",
+        "author_html": "https://arxiv.org/html/1609.06245v4"
+      },
+      "read_scope": {
+        "level": "selected_full_text_sections",
+        "read_on": "2026-10-31",
+        "inspected": [
+          "Author-version section 2 headings; sections 2.4–2.5, Assumption 3 and Theorem 1; final-paper metadata inherited from handoff"
+        ],
+        "not_inspected": [
+          "All proofs, supplements and author software; no full-paper verification claimed."
+        ],
+        "full_text_verified": false
+      },
+      "supports": [
+        "本人/邻域处理的联合无混杂、协变量调整和明确标准化目标。"
+      ],
+      "does_not_support": [
+        "不等同 R3_FULL_ASSIGNMENT 或项目 p-standardized 合同。",
+        "不能把项目均值层交换性升级为文中完整独立性，也不能把样本频数当总体律。"
+      ],
+      "project_use": "R3 暴露调整的相关定理来源；有限 shared-B/nodewise 实现须另读项目证明。"
+    },
+    {
+      "id": "forastiere_etal2022_network_gps",
+      "title": "Estimating Causal Effects under Network Interference with Bayesian Generalized Propensity Scores",
+      "authors": [
+        "Laura Forastiere",
+        "Fabrizia Mealli",
+        "Albert Wu",
+        "Edoardo M. Airoldi"
+      ],
+      "year": 2022,
+      "venue": "Journal of Machine Learning Research 23(289):1–61",
+      "article_type": "Journal research article",
+      "doi": null,
+      "urls": {
+        "publisher": "https://www.jmlr.org/papers/v23/18-711.html",
+        "full_text": "https://www.jmlr.org/papers/volume23/18-711/18-711.pdf"
+      },
+      "read_scope": {
+        "level": "selected_full_text_sections",
+        "read_on": "2026-10-31",
+        "inspected": [
+          "Publisher abstract; PDF first pages and section 2 unconfoundedness/GPS background"
+        ],
+        "not_inspected": [
+          "All proofs, supplements and author software; no full-paper verification claimed."
+        ],
+        "full_text_verified": false
+      },
+      "supports": [
+        "观测网络中邻域干扰与联合无混杂分别声明的研究依据。"
+      ],
+      "does_not_support": [
+        "当前项目不实现该文完整 Bayesian GPS 估计流程。",
+        "协变量调整与处理概率因子分解不能互相代替。"
+      ],
+      "project_use": "恢复旧交接 B07；识别与估计职责的边界参考。"
+    },
+    {
+      "id": "tchetgen_fulcher_shpitser2021_autog",
+      "title": "Auto-G-Computation of Causal Effects on a Network",
+      "authors": [
+        "Eric J. Tchetgen Tchetgen",
+        "Isabel R. Fulcher",
+        "Ilya Shpitser"
+      ],
+      "year": 2021,
+      "venue": "Journal of the American Statistical Association 116(534):833–844",
+      "article_type": "Journal research article",
+      "doi": "10.1080/01621459.2020.1811098",
+      "urls": {
+        "author_manuscript": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8345318/",
+        "doi": "https://doi.org/10.1080/01621459.2020.1811098"
+      },
+      "read_scope": {
+        "level": "selected_full_text_sections",
+        "read_on": "2026-10-31",
+        "inspected": [
+          "Abstract and introduction/related-work discussion only"
+        ],
+        "not_inspected": [
+          "All proofs, supplements and author software; no full-paper verification claimed."
+        ],
+        "full_text_verified": false
+      },
+      "supports": [
+        "网络中的观测混杂和较远依赖需要另立模型，不能仅改现有 R3 名称。"
+      ],
+      "does_not_support": [
+        "没有逐条核对 chain-graph/auto-g 定理；本项目没有该通用后端。"
+      ],
+      "project_use": "恢复旧交接 B08，标示 R3 扩展边界而非现有能力。"
+    },
+    {
+      "id": "imbens_angrist1994_late",
+      "title": "Identification and Estimation of Local Average Treatment Effects",
+      "authors": [
+        "Guido W. Imbens",
+        "Joshua D. Angrist"
+      ],
+      "year": 1994,
+      "venue": "Econometrica 62(2):467–475",
+      "article_type": "Journal research article; related NBER working-paper record is dated 1995",
+      "doi": null,
+      "urls": {
+        "related_working_paper": "https://www.nber.org/papers/t0118",
+        "working_paper_pdf": "https://www.nber.org/system/files/working_papers/t0118/t0118.pdf"
+      },
+      "read_scope": {
+        "level": "metadata_and_indexed_abstract",
+        "read_on": "2026-10-31",
+        "inspected": [
+          "NBER indexed abstract and published-version year; direct full text returned 403"
+        ],
+        "not_inspected": [
+          "All proofs, supplements and author software; no full-paper verification claimed."
+        ],
+        "full_text_verified": false
+      },
+      "supports": [
+        "有效 IV 还需额外条件才能识别特定遵从人群的平均效应。"
+      ],
+      "does_not_support": [
+        "本轮未逐条核验原刊假设/证明；任务4必须先完成该阅读。",
+        "LATE 不自动等于总体 ATE；不支持网络 IV 的自动迁移。"
+      ],
+      "project_use": "任务4的首要原始文献；未登记为运行能力。"
+    },
+    {
+      "id": "balke_pearl1997_bounds",
+      "title": "Bounds on Treatment Effects From Studies With Imperfect Compliance",
+      "authors": [
+        "Alexander Balke",
+        "Judea Pearl"
+      ],
+      "year": 1997,
+      "venue": "Journal of the American Statistical Association 92(439):1171–1176",
+      "article_type": "Journal research article",
+      "doi": "10.1080/01621459.1997.10474074",
+      "urls": {
+        "author_full_text": "https://ftp.cs.ucla.edu/pub/stat_ser/r199-jasa.pdf",
+        "publisher": "https://doi.org/10.1080/01621459.1997.10474074"
+      },
+      "read_scope": {
+        "level": "metadata_and_indexed_first_page_excerpt",
+        "read_on": "2026-10-31",
+        "inspected": [
+          "Publisher metadata and indexed author-PDF abstract/problem-setting excerpt; scanned PDF not fully text-extracted"
+        ],
+        "not_inspected": [
+          "All proofs, supplements and author software; no full-paper verification claimed."
+        ],
+        "full_text_verified": false
+      },
+      "supports": [
+        "二元不完全依从模型中 ATE sharp bounds 的经典来源。"
+      ],
+      "does_not_support": [
+        "不是任意 IV、连续结果或网络 IV 的通用界。",
+        "原文闭式界和 sharpness 仍须任务4逐项复核后实现。"
+      ],
+      "project_use": "任务4的 PARTIAL 文献起点，软件和证书尚未实现。"
+    },
+    {
+      "id": "shpitser_pearl2006_id",
+      "title": "Identification of Joint Interventional Distributions in Recursive Semi-Markovian Causal Models",
+      "authors": [
+        "Ilya Shpitser",
+        "Judea Pearl"
+      ],
+      "year": 2006,
+      "venue": "Proceedings of AAAI 2006:1219–1226",
+      "article_type": "Conference research article",
+      "doi": null,
+      "urls": {
+        "publisher_full_text": "https://cdn.aaai.org/AAAI/2006/AAAI06-191.pdf",
+        "author_full_text": "https://ftp.cs.ucla.edu/pub/stat_ser/r327.pdf",
+        "repository": "https://escholarship.org/uc/item/9598x714"
+      },
+      "read_scope": {
+        "level": "selected_full_text_sections",
+        "read_on": "2026-10-31",
+        "inspected": [
+          "Introduction/model domains and support caveats; Definition 6, Theorem 4; Figure 3 ID algorithm; completeness/hedge discussion"
+        ],
+        "not_inspected": [
+          "All proofs, supplements and author software; no full-paper verification claimed."
+        ],
+        "full_text_verified": false
+      },
+      "supports": [
+        "指定半马尔可夫模型下的图识别算法及 hedge 非识别依据。"
+      ],
+      "does_not_support": [
+        "不是全部图模型、条件干预分布、反事实或迁移识别。",
+        "图层不可识别不等于在任意特定观测分布/附加限制下均有相同歧义；本次未验证软件。"
+      ],
+      "project_use": "任务5的新能力来源；完整证明和独立验证合同须先完成。"
+    },
+    {
+      "id": "duarte_etal2024_discrete",
+      "title": "An Automated Approach to Causal Inference in Discrete Settings",
+      "authors": [
+        "Guilherme Duarte",
+        "Noam Finkelstein",
+        "Dean Knox",
+        "Jonathan Mummolo",
+        "Ilya Shpitser"
+      ],
+      "year": 2024,
+      "venue": "Journal of the American Statistical Association 119(547):1778–1793; online 2023",
+      "article_type": "Journal research article",
+      "doi": "10.1080/01621459.2023.2216909",
+      "urls": {
+        "author_manuscript": "https://arxiv.org/abs/2109.13471",
+        "author_archive": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11566246/",
+        "doi": "https://doi.org/10.1080/01621459.2023.2216909"
+      },
+      "read_scope": {
+        "level": "abstract_and_indexed_selected_sections",
+        "read_on": "2026-10-31",
+        "inspected": [
+          "Abstract and indexed sections 2/4 including Theorem 1 statement; no complete proof audit"
+        ],
+        "not_inspected": [
+          "All proofs, supplements and author software; no full-paper verification claimed."
+        ],
+        "full_text_verified": false
+      },
+      "supports": [
+        "显式分开目标、模型限制与可用信息，再优化相容模型的研究依据。",
+        "区分 sharp 界、有效外界与未完成计算。"
+      ],
+      "does_not_support": [
+        "其一般多项式优化不是本项目有限线性均值模型。",
+        "不为 A0–A6 编号或本项目证书提供外部正确性证明。"
+      ],
+      "project_use": "为项目 Problem/Information/Assumptions/Result 分离补方法论支撑。"
+    }
+  ],
+  "route_maps": [
+    {
+      "route_id": "DAG_CLASSICAL_FRONTDOOR",
+      "file": "routes/dag_classical_frontdoor.json",
+      "historical_development_status": "EXPLICIT_RESEARCH_BUSINESS_BRIDGE_NOT_DEFAULT_REGISTERED",
+      "runtime_status_is_not_declared_here": true
+    },
+    {
+      "route_id": "DAG_ADJUSTMENT",
+      "file": "routes/dag_adjustment.json",
+      "historical_development_status": "EXPLICIT_RESEARCH_BUSINESS_BRIDGE_NOT_DEFAULT_REGISTERED",
+      "runtime_status_is_not_declared_here": true
+    },
+    {
+      "route_id": "DAG_CLASSICAL_BACKDOOR",
+      "file": "routes/dag_classical_backdoor.json",
+      "historical_development_status": "EXPLICIT_RESEARCH_BUSINESS_BRIDGE_NOT_DEFAULT_REGISTERED",
+      "runtime_status_is_not_declared_here": true
+    },
+    {
+      "route_id": "BOUNDED_POLICY_CONTRAST_D2_E1",
+      "file": "routes/bounded_policy_contrast.json",
+      "runtime_status_is_not_declared_here": true
+    },
+    {
+      "route_id": "MEAN_ORDER_D2_E1_RESEARCH",
+      "file": "routes/mean_order_research.json",
+      "historical_development_status": "MATHEMATICAL_RESEARCH_ONLY_NOT_REGISTERED",
+      "runtime_status_is_not_declared_here": true
+    },
+    {
+      "route_id": "R2_ENDPOINT_DIFFERENCE",
+      "file": "routes/network_r2_policy_difference.json",
+      "runtime_status_is_not_declared_here": true
+    },
+    {
+      "route_id": "R1A_RANDOMIZED_ARM",
+      "file": "routes/network_r1a.json",
+      "runtime_status_is_not_declared_here": true
+    },
+    {
+      "route_id": "R1B_FULL_ASSIGNMENT",
+      "file": "routes/network_r1b.json",
+      "runtime_status_is_not_declared_here": true
+    },
+    {
+      "route_id": "R3_FULL_ASSIGNMENT",
+      "file": "routes/network_r3_policy.json",
+      "runtime_status_is_not_declared_here": true
+    },
+    {
+      "route_id": "R3_P_STANDARDIZED_EFFECTS",
+      "file": "routes/network_r3_standardization.json",
+      "runtime_status_is_not_declared_here": true
+    },
+    {
+      "route_id": "R3_EXPOSURE_ADJUSTED_EFFECTS",
+      "file": "routes/network_r3_exposure.json",
+      "runtime_status_is_not_declared_here": true
+    }
+  ],
+  "evidence_rules": [
+    "Literature metadata or an abstract is not evidence of a fully checked theorem.",
+    "A project-derived theorem must be labeled as such and linked to its complete derivation.",
+    "A literature card cannot replace independent scientific approval, target binding, or executable replay.",
+    "A path to a test is not a claim that the test passed; read the dated result report.",
+    "This catalog covers selected finite mean-box, contrast, mean-order and DAG adjustment research; not all Identification literature."
+  ],
+  "design_maps": [
+    {
+      "route_id": "DAG_CLASSICAL_FRONTDOOR",
+      "file": "designs/classical_frontdoor.json",
+      "development_status": "BUSINESS_RESEARCH_BRIDGE_IMPLEMENTED_SEE_ROUTE_MAP"
+    }
+  ],
+  "runtime_coverage_authority": "cfm_id.capability_registry.inventory",
+  "mathematical_navigation": "mathematical_contracts.json",
+  "classification_guide": "CLASSIFICATION_ZH.md",
+  "classification_map": "classification_map.json"
+}

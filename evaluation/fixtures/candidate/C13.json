@@ -1,0 +1,32 @@
+{
+  "schema_version": "cfm-id-candidate-draft-v0.3",
+  "target_kind": "INTERVENTIONAL_DISTRIBUTION",
+  "target_description": "在观察性社交网络下，只有完整观测律，求在同一人的一项AI干预后得到的潜在结果分布。",
+  "claimed_identification": "NOT_POINT",
+  "scope": "AS_REVIEWED",
+  "a4_used": {
+    "source": "REVIEWED_OPERATOR",
+    "level": "FULL_JOINT_LAW",
+    "operator": "总体可观测信息算子明确为完整联合律 P(T,Yobs|W)，包括完整处理向量及所有结果；这是一个理论信息声明，不代表已知总体数值。"
+  },
+  "admitted_assumptions_used": [
+    "consistency"
+  ],
+  "additional_requirements": [],
+  "candidate_expression": null,
+  "nonidentification_witness": {
+    "world_a": "构造与所有可观测配置一致的潜在结果世界A",
+    "world_b": "构造可观测配置不变但目标配置结果不同的潜在结果世界B",
+    "why_observables_match": "两者对已观察条件下所有结果一致，从而观察律完全相同",
+    "why_targets_differ": "同一观察分布下可有混杂模型 Y=U,T=U 和因果模型Y=T，两者干预分布不同。"
+  },
+  "reasoning_steps": [
+    "一般观察分布不能识别干预分布。"
+  ],
+  "caveats": [
+    "仅为离线FIXTURE，既非大模型推理结果也非数学认证"
+  ],
+  "suggested_checks": [
+    "进行独立数学证明或两个世界的完整可观测等价检查"
+  ]
+}

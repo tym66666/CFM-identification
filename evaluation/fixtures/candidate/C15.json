@@ -1,0 +1,28 @@
+{
+  "schema_version": "cfm-id-candidate-draft-v0.3",
+  "target_kind": "INTERVENTIONAL_DISTRIBUTION",
+  "target_description": "在处理前网络中，所有人独立随机分配AI，求给定固定处理向量z时员工i潜在结果的总体分布。",
+  "claimed_identification": "POINT",
+  "scope": "AS_REVIEWED",
+  "a4_used": {
+    "source": "REVIEWED_OPERATOR",
+    "level": "FULL_JOINT_LAW",
+    "operator": "总体可观测信息算子明确为完整联合律 P(T,Yobs|W)，包括完整处理向量及所有结果；这是一个理论信息声明，不代表已知总体数值。"
+  },
+  "admitted_assumptions_used": [
+    "full_vector_randomization",
+    "consistency"
+  ],
+  "additional_requirements": [],
+  "candidate_expression": "P(Y_i(z)∈B|W)=P(Y_i^obs∈B|T=z,W)，q(z)>0。",
+  "nonidentification_witness": null,
+  "reasoning_steps": [
+    "完整赋值每个配置支持均大于0，随机化识别分布而不仅是均值。"
+  ],
+  "caveats": [
+    "仅为离线FIXTURE，既非大模型推理结果也非数学认证"
+  ],
+  "suggested_checks": [
+    "进行独立数学证明或两个世界的完整可观测等价检查"
+  ]
+}

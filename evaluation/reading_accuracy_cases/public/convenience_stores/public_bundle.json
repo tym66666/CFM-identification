@@ -1,0 +1,280 @@
+{
+  "case_id": "convenience_stores",
+  "synthetic": true,
+  "documents": {
+    "business_question.md": "本案例为新写的合成业务。共有10个便利店试用补货助手，相互协作关系在试点前已经冻结。\r\n每家店中签概率均为一半；同一轮里这些抽签之间是什么关系，方案没有说明。\r\n材料描述仍待研究者审核，并未授予科学许可；同伴使用可能影响本单位的结果。",
+    "study_protocol.md": "所有安排只在试点开始时决定一次。\r\n每家店中签概率均为一半；同一轮里这些抽签之间是什么关系，方案没有说明。\r\n各单位中签概率见 design_probabilities.csv。\r\n当前问题按以下规则分组：协作便利店中至少一个使用补货助手是高暴露，否则是低暴露。",
+    "data_dictionary.md": "主要业务结果为 service_metric，含义是每周缺货小时数。\r\nunits.csv 是试点前完整名册。network_edges.csv 是试点前冻结的无向协作边。\r\nunit_group 只是管理标签，不表示整组抽签；有限记录不能代替总体均值或科学批准。",
+    "target_clarification.txt": "评价名册中全部10个便利店，每个权重相同。\n在协作便利店中至少一个使用补货助手时，便利店自己使用和不使用相比，每周缺货小时数平均相差多少，按使用减不使用计算？\n其余便利店继续沿用原试点抽签规则，只在符合所问条件的安排中按原有概率取平均。"
+  },
+  "tables": {
+    "units.csv": {
+      "headers": [
+        "node_id",
+        "unit_group"
+      ],
+      "row_count": 10,
+      "rows": [
+        {
+          "node_id": "site_01",
+          "unit_group": "operations"
+        },
+        {
+          "node_id": "site_02",
+          "unit_group": "operations"
+        },
+        {
+          "node_id": "site_03",
+          "unit_group": "operations"
+        },
+        {
+          "node_id": "site_04",
+          "unit_group": "operations"
+        },
+        {
+          "node_id": "site_05",
+          "unit_group": "operations"
+        },
+        {
+          "node_id": "site_06",
+          "unit_group": "operations"
+        },
+        {
+          "node_id": "site_07",
+          "unit_group": "operations"
+        },
+        {
+          "node_id": "site_08",
+          "unit_group": "operations"
+        },
+        {
+          "node_id": "site_09",
+          "unit_group": "operations"
+        },
+        {
+          "node_id": "site_10",
+          "unit_group": "operations"
+        }
+      ]
+    },
+    "network_edges.csv": {
+      "headers": [
+        "source_id",
+        "target_id",
+        "frozen_before_rollout"
+      ],
+      "row_count": 10,
+      "rows": [
+        {
+          "source_id": "site_01",
+          "target_id": "site_02",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "site_02",
+          "target_id": "site_03",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "site_03",
+          "target_id": "site_04",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "site_04",
+          "target_id": "site_05",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "site_05",
+          "target_id": "site_06",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "site_06",
+          "target_id": "site_07",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "site_07",
+          "target_id": "site_08",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "site_08",
+          "target_id": "site_09",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "site_09",
+          "target_id": "site_10",
+          "frozen_before_rollout": "1"
+        },
+        {
+          "source_id": "site_10",
+          "target_id": "site_01",
+          "frozen_before_rollout": "1"
+        }
+      ]
+    },
+    "design_probabilities.csv": {
+      "headers": [
+        "node_id",
+        "randomization_probability"
+      ],
+      "row_count": 10,
+      "rows": [
+        {
+          "node_id": "site_01",
+          "randomization_probability": "1/2"
+        },
+        {
+          "node_id": "site_02",
+          "randomization_probability": "1/2"
+        },
+        {
+          "node_id": "site_03",
+          "randomization_probability": "1/2"
+        },
+        {
+          "node_id": "site_04",
+          "randomization_probability": "1/2"
+        },
+        {
+          "node_id": "site_05",
+          "randomization_probability": "1/2"
+        },
+        {
+          "node_id": "site_06",
+          "randomization_probability": "1/2"
+        },
+        {
+          "node_id": "site_07",
+          "randomization_probability": "1/2"
+        },
+        {
+          "node_id": "site_08",
+          "randomization_probability": "1/2"
+        },
+        {
+          "node_id": "site_09",
+          "randomization_probability": "1/2"
+        },
+        {
+          "node_id": "site_10",
+          "randomization_probability": "1/2"
+        }
+      ]
+    }
+  },
+  "file_inventory": {
+    "business_question.md": {
+      "sha256": "20d237a2e223007a27e87a804e550d70e932b7a6495cc9c62650309d2c654bad",
+      "bytes": 339
+    },
+    "study_protocol.md": {
+      "sha256": "c9e76603f16d112e260507d99d08b90a7d02f60dd4f30f09ee9b398cb15cbc43",
+      "bytes": 331
+    },
+    "data_dictionary.md": {
+      "sha256": "b8c58091992722a4c1879e227256bc9f0c15ebfc6756f1bf14eb7c4d4a63ed67",
+      "bytes": 280
+    },
+    "units.csv": {
+      "sha256": "3db0fc3c9fe3b1eff5a13ce0ed9d1ffa799a0d172af07e3be3926307eef55388",
+      "bytes": 220
+    },
+    "network_edges.csv": {
+      "sha256": "4118575418f16096617149358cfb7d2b6a169611f315387bda9a3e976de9019f",
+      "bytes": 233
+    },
+    "design_probabilities.csv": {
+      "sha256": "43f50634d2ef2d7e5ec13d59f2dcf7afa51725837e9c7b6945f723ed1bd31290",
+      "bytes": 165
+    }
+  },
+  "structure": {
+    "nodes": [
+      "site_01",
+      "site_02",
+      "site_03",
+      "site_04",
+      "site_05",
+      "site_06",
+      "site_07",
+      "site_08",
+      "site_09",
+      "site_10"
+    ],
+    "edges": [
+      [
+        "site_01",
+        "site_02"
+      ],
+      [
+        "site_02",
+        "site_03"
+      ],
+      [
+        "site_03",
+        "site_04"
+      ],
+      [
+        "site_04",
+        "site_05"
+      ],
+      [
+        "site_05",
+        "site_06"
+      ],
+      [
+        "site_06",
+        "site_07"
+      ],
+      [
+        "site_07",
+        "site_08"
+      ],
+      [
+        "site_08",
+        "site_09"
+      ],
+      [
+        "site_09",
+        "site_10"
+      ],
+      [
+        "site_01",
+        "site_10"
+      ]
+    ],
+    "groups": {
+      "operations": [
+        "site_01",
+        "site_02",
+        "site_03",
+        "site_04",
+        "site_05",
+        "site_06",
+        "site_07",
+        "site_08",
+        "site_09",
+        "site_10"
+      ]
+    },
+    "cluster_rates": {},
+    "policies": {},
+    "units_with_cross_group_neighbors": []
+  },
+  "active_goal_document": "target_clarification.txt",
+  "question_slots": {
+    "q1": "在协作便利店中至少一个使用补货助手时，便利店自己使用和不使用相比，每周缺货小时数平均相差多少，按使用减不使用计算？"
+  },
+  "original_business_unchanged": true,
+  "revision_kind": "EXPLICIT_CLARIFICATION",
+  "probability_binding": {
+    "source": "design_probabilities.csv",
+    "file_sha256": "43f50634d2ef2d7e5ec13d59f2dcf7afa51725837e9c7b6945f723ed1bd31290",
+    "table_sha256": "69ffff56421b435d9b864300d806b3c7f078b1aacdceff82c977bf415cebeece"
+  }
+}

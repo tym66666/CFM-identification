@@ -1,0 +1,51 @@
+{
+  "track": "DEVELOPMENT_PARAPHRASE_V055",
+  "original_21_unchanged": true,
+  "held_out_math_scenarios": false,
+  "entries": [
+    {
+      "case": "sales_positive",
+      "source_case": "sales",
+      "public_document": "target_clarification.txt"
+    },
+    {
+      "case": "core_positive",
+      "source_case": "core_positive",
+      "public_document": "target_clarification.txt"
+    },
+    {
+      "case": "station_positive",
+      "source_case": "station",
+      "public_document": "target_clarification.txt"
+    },
+    {
+      "case": "store_positive",
+      "source_case": "store",
+      "public_document": "target_clarification.txt"
+    },
+    {
+      "case": "sales_negative",
+      "source_case": "sales",
+      "public_document": "target_clarification.txt"
+    },
+    {
+      "case": "core_negative",
+      "source_case": "core_positive",
+      "public_document": "target_clarification.txt"
+    },
+    {
+      "case": "station_negative",
+      "source_case": "station",
+      "public_document": "target_clarification.txt"
+    },
+    {
+      "case": "store_negative",
+      "source_case": "store",
+      "public_document": "target_clarification.txt"
+    }
+  ],
+  "files": {
+    "public_bundles.json": "edfda99931f807c709601023e69968459a04ea2f4cd249a4a2a272f792e038fc",
+    "research_references.json": "8db4af8fabed249194e011a26b6ffc7c5e1a5d24d15477c0a8e93516faef53e3"
+  }
+}

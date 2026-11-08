@@ -44,6 +44,10 @@ def query_execution_payload(query: QuerySpec) -> dict[str, Any]:
         payload["policy_fingerprint"] = normalized.policy_fingerprint
     if normalized.exposure_value is not None:
         payload["exposure_value"] = normalized.exposure_value
+    if normalized.target_node_id is not None:
+        payload["target_node_id"] = normalized.target_node_id
+    if normalized.own_treatment_value is not None:
+        payload["own_treatment_value"] = normalized.own_treatment_value
     return payload
 
 

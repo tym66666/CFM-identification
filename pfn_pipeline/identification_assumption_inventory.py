@@ -1,0 +1,134 @@
+"""Read-only finite catalog of *implemented* network POINT theorem requirements.
+
+NOT a catalog of all scientifically possible assumptions, and NOT a source of
+causal licences.  Never use this metadata to bypass a theorem's native checks.
+"""
+from __future__ import annotations
+
+from dataclasses import dataclass, asdict
+
+# A4 design information is intentionally distinguished from the scientific A5.
+# The legacy model records known_assignment_law among accepted assumption
+# records; the underlying known q is an independently required design object.
+_EXPERIMENT = (
+    'known_assignment_law', 'full_vector_randomization', 'consistency',
+    'fixed_pretreatment_network', 'finite_conditional_first_moments',
+)
+_OBSERVATIONAL = (
+    'full_vector_conditional_exchangeability', 'consistency',
+    'fixed_pretreatment_network', 'finite_conditional_first_moments',
+)
+_D6 = 'first_stage_profile_no_direct_outcome_effect'
+_SIGNATURE = 'mean_signature_sufficiency'
+
+# Only keys recognized by the deployed formal business-route dispatcher.
+_ROUTES = {
+    'R1A_RANDOMIZED_ARM': (
+        'q_standardized_node_arm', _EXPERIMENT, 'positive_joint_arm_support',
+        'typed population node-arm mean or legitimate full-law entailment'),
+    'R1A_COMPOSITION': (
+        'q_standardized_linear_effect_bundle', _EXPERIMENT, 'positive_support_for_every_nonzero_term',
+        'typed population arm means for all constituent terms'),
+    'R1B_FULL_ASSIGNMENT': (
+        'fixed_full_assignment_policy_value', _EXPERIMENT, 'positive_q_of_full_target_assignment',
+        'assignment-resolved node means for the target vector'),
+    'R1B_FINITE_POLICY': (
+        'finite_mixture_of_verified_fixed_policies', _EXPERIMENT, 'each_positive_weight_component_certified',
+        'separate certified R1b population operator for every component'),
+    'R2_MEAN_SIGNATURE': (
+        'fixed_policy_with_q_signature_reduction', _EXPERIMENT + (_SIGNATURE,),
+        'positive_target_signature_for_every_nonzero_weight_node',
+        'typed population signature means matching the accepted signature'),
+    'R3_FULL_ASSIGNMENT': (
+        'observational_fixed_policy_value', _OBSERVATIONAL,
+        'positive_pobs_of_full_target_assignment',
+        'exact finite p_obs(T|W) and assignment-conditioned outcome means'),
+    'R3_MEAN_SIGNATURE': (
+        'observational_fixed_policy_with_signature_reduction', _OBSERVATIONAL + (_SIGNATURE,),
+        'positive_pobs_target_signature_each_weighted_node',
+        'exact finite p_obs and signature-node outcome means'),
+    'R3_P_STANDARDIZED_EFFECTS': (
+        'pobs_standardized_arm_linear_contrasts', _OBSERVATIONAL,
+        'positive_pobs_arm_support_for_each_nonzero_term',
+        'Either: exact finite p_obs plus assignment-node population means; or a separately ADMITTED exact nodewise-factorized observational p_obs plus typed population arm means (v2.7 P1).'),
+}
+
+@dataclass(frozen=True)
+class ImplementedAssumptionV27:
+    name: str
+    layer: str
+    description: str
+    scientific_scope: str
+    machine_verifiability: str
+
+_ASSUMPTIONS = (
+    ImplementedAssumptionV27('known_assignment_law','A4_DESIGN',
+        'Exact joint experimental treatment law q(T|W) is specified.',
+        'Randomized experiments D1-D6 only; legacy also records an admission.',
+        'Exact protocol syntax and probabilities checkable; real adherence not automatically verifiable.'),
+    ImplementedAssumptionV27('full_vector_randomization','A5',
+        'The full realized randomized allocation is conditionally independent of all potential outcomes.',
+        'R1a/R1b/R2, not an observational self-selection guarantee.',
+        'Protocol declaration/replay only; not a test of implementation fidelity.'),
+    ImplementedAssumptionV27('consistency','A5',
+        'Observed outcome equals the potential outcome under the actually realized intervention version.',
+        'All current R1/R2/R3 POINT mechanisms.',
+        'Cannot establish real-world intervention-version consistency from a typed claim.'),
+    ImplementedAssumptionV27('fixed_pretreatment_network','A3_A5',
+        'Network and exposure reference sets are defined before the intervention.',
+        'Current single-time, fixed, simple undirected network routes.',
+        'Typed topology/timing record checkable; exogeneity is a scientific claim.'),
+    ImplementedAssumptionV27('finite_conditional_first_moments','A5_ANALYTIC',
+        'Required conditional expectations exist and are finite.',
+        'Current mean-valued targets.',
+        'Declared integrability, not universally testable from finite samples.'),
+    ImplementedAssumptionV27('mean_signature_sufficiency','A5_STRUCTURAL',
+        'For each covered node, E[Y_i(t)|W] is constant across full allocations with equal (t_i,g_i(t,W)).',
+        'R2 policy and R3-Signature policy only; signature/node/study bindings required.',
+        'Typed licence and provenance checks; cannot prove the structural restriction empirically.'),
+    ImplementedAssumptionV27('full_vector_conditional_exchangeability','A5_OBSERVATIONAL',
+        'Given W, observational allocation is independent of the full potential-outcome vector.',
+        'R3-Full, R3-Signature and R3 p-standardized effects.',
+        'Requires explicit reviewed admission; observational data cannot by itself establish it.'),
+    ImplementedAssumptionV27(_D6,'A5_D6_EXTRA',
+        'Holding final complete T fixed, stage-one quota/profile U has no additional direct outcome effect.',
+        'D6 randomized-design routes in addition to the ordinary R1/R2 conditions.',
+        'Dedicated explicit source/status gate; not implied by known D6 randomization.'),
+)
+
+
+def implemented_assumption_catalog_v27() -> dict:
+    """Return documented assumptions, not an admission or a truth test."""
+    return {
+        'contract': 'CFM-ID-IMPLEMENTED-ASSUMPTIONS-v2.7-P0',
+        'universal_finite_catalog': False,
+        'scope': 'Implemented, fixed-network, single-time binary-treatment POINT routes only',
+        'assumptions': [asdict(a) for a in _ASSUMPTIONS],
+        'route_ids': list(_ROUTES),
+        'warning': 'Admitted/provenance/verified software does NOT certify scientific truth.',
+    }
+
+
+def requirements_for_route_v27(route: str, *, design_kind: str | None = None) -> dict:
+    """Describe necessary route premises, NEVER assert they are satisfied."""
+    if route not in _ROUTES:
+        raise ValueError(f'Unknown implemented theorem route: {route!r}')
+    target, base, support, information = _ROUTES[route]
+    experimental = route.startswith(('R1A_', 'R1B_', 'R2_'))
+    d6 = design_kind == 'two_stage_quota_mixture_binary_v2_7'
+    if d6 and not experimental:
+        raise ValueError('D6 is an experimental design, not an observational R3 assignment')
+    return {
+        'route': route, 'target_semantics': target,
+        'required_names': list(base) + ([_D6] if d6 else []),
+        'conditionally_required_if_D6': _D6 if experimental and not d6 else None,
+        'A4_required': information, 'A6_required': support,
+        'requires_mean_signature_sufficiency': _SIGNATURE in base,
+        'exposure_mapping_does_not_certify_sufficiency': True,
+        'premises_checked_by': 'ORIGINAL_ROUTE_THEOREM_AND_INDEPENDENT_REPLAY_ONLY',
+        'scientific_validity_certified_by_software': False,
+        'no_assumption_discovery': True,
+    }
+
+
+__all__ = ['implemented_assumption_catalog_v27', 'requirements_for_route_v27']

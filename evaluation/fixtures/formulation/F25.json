@@ -1,0 +1,92 @@
+{
+  "schema_version": "cfm-id-draft-v0.1",
+  "target": {
+    "kind": "UNRESOLVED",
+    "description": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "alternatives": []
+  },
+  "units_variables": {
+    "analysis_unit": {
+      "value": "业务描述中的员工、节点或团体",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "这是一个A/B实验，我们想知道加AI后会怎样。"
+        }
+      ]
+    },
+    "treatment": {
+      "value": "描述中的AI干预",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "团队只提供了“A/B测试”这个名字，没有记录谁独立随机、是否按团队随机、是否固定人数。"
+        }
+      ]
+    },
+    "outcome": {
+      "value": "描述中的销售或结果指标",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "这是一个A/B实验，我们想知道加AI后会怎样。"
+        }
+      ]
+    }
+  },
+  "structure": {
+    "unit_network": {
+      "value": "被描述的网络",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "团队只提供了“A/B测试”这个名字，没有记录谁独立随机、是否按团队随机、是否固定人数。"
+        }
+      ]
+    },
+    "exposure_mapping": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "information_design": {
+    "assignment_family": "UNRESOLVED",
+    "assignment_law": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "population_information_level": "FINITE_SAMPLE_DESCRIPTION",
+    "population_observable_operator": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "sample_data_description": {
+      "value": "业务目前只提供一次实验的有限样本数据列 T_i、Y_i，没有声明任何总体观测律。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "information",
+          "quote": "业务目前只提供一次实验的有限样本数据列 T_i、Y_i，没有声明任何总体观测律。"
+        }
+      ]
+    }
+  },
+  "assumptions": [],
+  "validity": {},
+  "ambiguities": [],
+  "clarifying_questions": [],
+  "normalization_notes": [
+    "MOCK TEST-ONLY fixture synthesized from benchmark reference; not model-generated"
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "schema_version": "cfm-id-draft-v0.1",
+  "target": {
+    "kind": "NETWORK_DESIGN_STANDARDIZED_ARM_MEAN",
+    "description": {
+      "value": "本人使用AI且邻居严格多数使用AI的设计标准化销售均值",
+      "basis": "INTERPRETATION",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "本人使用AI且严格多数邻居使用AI时的设计标准化销售均值"
+        }
+      ]
+    },
+    "alternatives": []
+  },
+  "units_variables": {
+    "analysis_unit": {
+      "value": "销售员",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "销售员"
+        }
+      ]
+    },
+    "treatment": {
+      "value": "使用AI",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "使用AI"
+        }
+      ]
+    },
+    "outcome": {
+      "value": "销售均值",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "销售均值"
+        }
+      ]
+    },
+    "covariates": [],
+    "temporal_structure": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "structure": {
+    "unit_network": {
+      "value": "实验前固定的合作网络",
+      "basis": "INTERPRETATION",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "实验前合作网络已固定"
+        }
+      ]
+    },
+    "variable_causal_graph": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "exposure_mapping": {
+      "value": "邻居严格多数获得AI时S_i=1",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "邻居中严格多数获得AI时，暴露状态S_i=1"
+        }
+      ]
+    },
+    "network_pretreatment_status": {
+      "value": "实验前已固定",
+      "basis": "INTERPRETATION",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "实验前合作网络已固定"
+        }
+      ]
+    }
+  },
+  "information_design": {
+    "assignment_family": "INDEPENDENT_BERNOULLI",
+    "assignment_law": {
+      "value": "每名销售员独立以概率1/2分配AI",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "每名销售员独立以概率1/2分配AI"
+        }
+      ]
+    },
+    "population_information_level": "FULL_JOINT_LAW",
+    "population_observable_operator": {
+      "value": "总体可观测信息算子为完整联合分布 P(T,Yobs|W)",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "information_contract",
+          "quote": "总体可观测信息算子为完整联合分布 P(T,Yobs|W)"
+        }
+      ]
+    },
+    "sample_data_description": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "assumptions": [
+    {
+      "name": "full_vector_randomization",
+      "statement": "由独立实验随机化产生；依赖真实协议核验",
+      "status": "PROPOSED",
+      "basis": "REPORTED_BY_SOURCE",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "每名销售员独立以概率1/2分配AI"
+        }
+      ]
+    },
+    {
+      "name": "consistency",
+      "statement": "需要研究者确认的潜在结果一致性",
+      "status": "PROPOSED",
+      "basis": "LLM_SUGGESTION",
+      "evidence": []
+    }
+  ],
+  "validity": {
+    "support_or_positivity": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "query_domain": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    },
+    "other_conditions": []
+  },
+  "ambiguities": [],
+  "clarifying_questions": [],
+  "normalization_notes": [
+    "A4 是理论信息算子的声明，不是已测量的真实总体数值。"
+  ]
+}

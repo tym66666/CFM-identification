@@ -1,0 +1,102 @@
+{
+  "schema_version": "cfm-id-draft-v0.1",
+  "target": {
+    "kind": "FIXED_POLICY_VALUE",
+    "description": {
+      "value": "在均值签名充分性假设下，求全体员工都获得AI时的真实政策收益。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "在均值签名充分性假设下，求全体员工都获得AI时的真实政策收益。"
+        }
+      ]
+    },
+    "alternatives": []
+  },
+  "units_variables": {
+    "analysis_unit": {
+      "value": "业务描述中的员工、节点或团体",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "在均值签名充分性假设下，求全体员工都获得AI时的真实政策收益。"
+        }
+      ]
+    },
+    "treatment": {
+      "value": "描述中的AI干预",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前固定合作网络。完全随机化实验每次恰好从四名员工中随机选两人分配 AI，其余两人不分配。暴露仅取处理前每名员工指定的一位核心伙伴的T，且研究者拟接受 mean-signature sufficiency。"
+        }
+      ]
+    },
+    "outcome": {
+      "value": "描述中的销售或结果指标",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "business_question",
+          "quote": "在均值签名充分性假设下，求全体员工都获得AI时的真实政策收益。"
+        }
+      ]
+    }
+  },
+  "structure": {
+    "unit_network": {
+      "value": "被描述的网络",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前固定合作网络。完全随机化实验每次恰好从四名员工中随机选两人分配 AI，其余两人不分配。暴露仅取处理前每名员工指定的一位核心伙伴的T，且研究者拟接受 mean-signature sufficiency。"
+        }
+      ]
+    },
+    "exposure_mapping": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "information_design": {
+    "assignment_family": "COMPLETE_RANDOMIZATION",
+    "assignment_law": {
+      "value": "处理前固定合作网络。完全随机化实验每次恰好从四名员工中随机选两人分配 AI，其余两人不分配。暴露仅取处理前每名员工指定的一位核心伙伴的T，且研究者拟接受 mean-signature sufficiency。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "protocol",
+          "quote": "处理前固定合作网络。完全随机化实验每次恰好从四名员工中随机选两人分配 AI，其余两人不分配。暴露仅取处理前每名员工指定的一位核心伙伴的T，且研究者拟接受 mean-signature sufficiency。"
+        }
+      ]
+    },
+    "population_information_level": "SIGNATURE_CONDITIONAL_MEANS",
+    "population_observable_operator": {
+      "value": "可用的总体信息为节点签名条件均值 E[Y_i^obs|T_i=a,S_i=s,W]，所有有支持签名均已定义。",
+      "basis": "EXPLICIT_TEXT",
+      "evidence": [
+        {
+          "source_id": "information",
+          "quote": "可用的总体信息为节点签名条件均值 E[Y_i^obs|T_i=a,S_i=s,W]，所有有支持签名均已定义。"
+        }
+      ]
+    },
+    "sample_data_description": {
+      "value": null,
+      "basis": "UNRESOLVED",
+      "evidence": []
+    }
+  },
+  "assumptions": [],
+  "validity": {},
+  "ambiguities": [],
+  "clarifying_questions": [],
+  "normalization_notes": [
+    "MOCK TEST-ONLY fixture synthesized from benchmark reference; not model-generated"
+  ]
+}

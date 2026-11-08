@@ -1,0 +1,13 @@
+{
+  "case_id": "H25-factory_plan",
+  "synthetic": true,
+  "business_question_file": "business_question.md",
+  "supporting_files": [
+    "study_protocol.md",
+    "data_dictionary.md",
+    "units.csv",
+    "network_edges.csv",
+    "candidate_policies.csv",
+    "cluster_randomization.csv"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": "cfm-id-candidate-draft-v0.3",
+  "target_kind": "FIXED_POLICY_VALUE",
+  "target_description": "四节点环形合作网络，固定政策 z=(1,1,1,1) 的真实总体收益。",
+  "claimed_identification": "POINT",
+  "scope": "AS_REVIEWED",
+  "a4_used": {
+    "source": "REVIEWED_OPERATOR",
+    "level": "SIGNATURE_CONDITIONAL_MEANS",
+    "operator": "可用的总体信息为节点签名条件均值 E[Y_i^obs|T_i=a,S_i=s,W]，所有有支持签名均已定义。"
+  },
+  "admitted_assumptions_used": [
+    "full_vector_randomization",
+    "consistency",
+    "mean_signature_sufficiency"
+  ],
+  "additional_requirements": [],
+  "candidate_expression": "通过签名均值充分性将E[Y_i(z)]化为E[Y_i^obs|T_i=1,S_i=1]；支持由m=2保证。",
+  "nonidentification_witness": null,
+  "reasoning_steps": [
+    "每个目标签名(1,1)在m=2时有支持，虽然z本身零支持。"
+  ],
+  "caveats": [
+    "仅为离线FIXTURE，既非大模型推理结果也非数学认证"
+  ],
+  "suggested_checks": [
+    "进行独立数学证明或两个世界的完整可观测等价检查"
+  ]
+}

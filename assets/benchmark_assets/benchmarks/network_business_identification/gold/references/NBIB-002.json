@@ -1,0 +1,49 @@
+{
+  "A4_population_operator_from_business_files": "NOT_PROVIDED",
+  "all_business_packet_provenance": "SYNTHETIC_OFFLINE_GENERATOR",
+  "assignment_family": "D2",
+  "case_id": "NBIB-002",
+  "conditional_route_only": [
+    "R1a_candidate"
+  ],
+  "data_is_finite_observations_not_A4": true,
+  "design_params": {
+    "quota": 24
+  },
+  "edge_count": 48,
+  "expected_blockers": [
+    "A4_POPULATION_OPERATOR_NOT_ESTABLISHED_FROM_FINITE_SAMPLE",
+    "A5_NEEDS_SCIENTIFIC_REVIEW"
+  ],
+  "exposure_rule": "E4",
+  "fixed_policy_support": [],
+  "identification_library_status": "NOT_RUN_ON_THIS_GENERATED_CASE",
+  "industry": "物流配送",
+  "lower_is_better": true,
+  "n_nodes": 48,
+  "network_type": "ring",
+  "number_independent_market_replicates": 1,
+  "outcome_metric_name": "delivery_delay",
+  "outcome_metric_unit": "分钟/订单",
+  "pair_family": null,
+  "query_targets": [
+    {
+      "exact_target_semantics": "R1A_Q_STANDARDIZED_ARM_MEAN",
+      "kind": "NETWORK_DESIGN_STANDARDIZED_ARM_MEAN",
+      "quote": "当某站点已经使用系统并且恰有一个相邻站点使用时，它的平均延误水平如何"
+    }
+  ],
+  "scenario_title": "配送站点固定名额试点",
+  "scientific_reference_notes": "R1a D2×E4；须精确计算自己treated且K=1的联合支持，不得按逐站点独立抽签计算。",
+  "simulation_is_not_proof_of_scientific_assumptions": true,
+  "split": "dev",
+  "support_checks": {
+    "exposure_rule": "E4",
+    "exposure_value": 1,
+    "focal_node": "unit_000",
+    "mathematical_support_only_not_IDENTIFICATION": true,
+    "own_treatment": 1,
+    "support_probability": "12/47"
+  },
+  "synthetic": true
+}

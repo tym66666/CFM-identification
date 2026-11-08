@@ -1,0 +1,3 @@
+merchant_id,recommendation,orders,overlap_group
+SYNTHETIC_A,0,1,2
+SYNTHETIC_B,1,2,3
