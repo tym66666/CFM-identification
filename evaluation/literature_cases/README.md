@@ -53,6 +53,11 @@ actual_run         系统实际输出了什么
   - 运行性质：`api_calls=0`，显式合成审核，不调用 LLM。
   - 复核：`PENDING_TEACHER`。
 
+- `LIT-NET-02`：Hudgens & Halloran (2008) 疫苗间接保护案例。
+  - 状态：原题 POINT（3 人接种减 1 人接种），证书重放通过；缺第一阶段排除声明版 `NEEDS_INPUT`；反向比较 POINT。
+  - 运行性质：`api_calls=0`，两阶段名额混合 + 精确邻居接种人数，不调用 LLM。
+  - 复核：`PENDING_TEACHER`。
+
 ## 新增案例的最小步骤
 
 1. 在 `literature_support/cases/` 写来源卡和案例说明。

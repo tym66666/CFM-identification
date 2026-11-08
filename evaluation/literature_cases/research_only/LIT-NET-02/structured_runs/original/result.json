@@ -1,0 +1,4211 @@
+{
+  "state": "POINT",
+  "reason_code": null,
+  "backend_called": true,
+  "independent_replay": true,
+  "mathematical_claim": {
+    "kind": "POINT",
+    "representation": "DESIGN_STANDARDIZED_EFFECT_OBSERVED_FUNCTIONAL",
+    "target": {
+      "kind": "SPILLOVER_EFFECT",
+      "node_order": [
+        "甲1",
+        "甲2",
+        "甲3",
+        "甲4",
+        "乙1",
+        "乙2",
+        "乙3",
+        "乙4"
+      ],
+      "evaluation_population": [
+        "甲1",
+        "甲2",
+        "甲3",
+        "甲4",
+        "乙1",
+        "乙2",
+        "乙3",
+        "乙4"
+      ],
+      "unit_weights": [
+        "1/8",
+        "1/8",
+        "1/8",
+        "1/8",
+        "1/8",
+        "1/8",
+        "1/8",
+        "1/8"
+      ],
+      "first": [
+        0,
+        3
+      ],
+      "second": [
+        0,
+        1
+      ],
+      "operation": "FIRST_MINUS_SECOND",
+      "remaining_assignment": "ORIGINAL_DESIGN_CONDITIONAL",
+      "assignment": {
+        "kind": "TWO_STAGE_QUOTA_MIXTURE",
+        "groups": [
+          [
+            "甲1",
+            "甲2",
+            "甲3",
+            "甲4"
+          ],
+          [
+            "乙1",
+            "乙2",
+            "乙3",
+            "乙4"
+          ]
+        ],
+        "quota_profiles": [
+          [
+            1,
+            3
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "profile_probabilities": [
+          "1/2",
+          "1/2"
+        ]
+      },
+      "exposure": "EXACT_TREATED_NEIGHBOR_COUNT",
+      "treatment": "接种本次疫苗记1，接受安慰剂记0",
+      "outcome": "随访一年内是否感染，感染记1，未感染记0",
+      "context": "结果评价期间为随访的一年，两端保持相同；没有另行指定的背景分层或条件筛选。",
+      "native_symbol_mapping": {
+        "treatment": "treatment",
+        "outcome": "outcome",
+        "context": "W"
+      }
+    },
+    "target_fingerprint": "472bf8f954149ce7aab364d1316551324f9258a2dc82b403861f1330c33b80ce",
+    "expression": "-1/8*E[Y_甲1^obs | W, T_甲1=0, S_甲1=1] + 1/8*E[Y_甲1^obs | W, T_甲1=0, S_甲1=3] - 1/8*E[Y_甲2^obs | W, T_甲2=0, S_甲2=1] + 1/8*E[Y_甲2^obs | W, T_甲2=0, S_甲2=3] - 1/8*E[Y_甲3^obs | W, T_甲3=0, S_甲3=1] + 1/8*E[Y_甲3^obs | W, T_甲3=0, S_甲3=3] - 1/8*E[Y_甲4^obs | W, T_甲4=0, S_甲4=1] + 1/8*E[Y_甲4^obs | W, T_甲4=0, S_甲4=3] - 1/8*E[Y_乙1^obs | W, T_乙1=0, S_乙1=1] + 1/8*E[Y_乙1^obs | W, T_乙1=0, S_乙1=3] - 1/8*E[Y_乙2^obs | W, T_乙2=0, S_乙2=1] + 1/8*E[Y_乙2^obs | W, T_乙2=0, S_乙2=3] - 1/8*E[Y_乙3^obs | W, T_乙3=0, S_乙3=1] + 1/8*E[Y_乙3^obs | W, T_乙3=0, S_乙3=3] - 1/8*E[Y_乙4^obs | W, T_乙4=0, S_乙4=1] + 1/8*E[Y_乙4^obs | W, T_乙4=0, S_乙4=3]",
+    "numeric_value": null
+  },
+  "certificate": {
+    "verification_status": "VERIFIED",
+    "query_count": 1,
+    "source_batch_sha256": "843905d9d23c44281b3d9218354d09b882f4d7c9ec536d254de572cd6f5ca26d",
+    "bundle_sha256": "0a295b7249468bdb56dfeb281172b5815fd2277e55ed15c0c1af53fea7eebdbb",
+    "results": [
+      {
+        "status": "POINT",
+        "verification_status": "VERIFIED",
+        "kind": "SPILLOVER",
+        "term_count": 16,
+        "identified_functional": "-1/8*E[Y_甲1^obs | W, T_甲1=0, S_甲1=1] + 1/8*E[Y_甲1^obs | W, T_甲1=0, S_甲1=3] - 1/8*E[Y_甲2^obs | W, T_甲2=0, S_甲2=1] + 1/8*E[Y_甲2^obs | W, T_甲2=0, S_甲2=3] - 1/8*E[Y_甲3^obs | W, T_甲3=0, S_甲3=1] + 1/8*E[Y_甲3^obs | W, T_甲3=0, S_甲3=3] - 1/8*E[Y_甲4^obs | W, T_甲4=0, S_甲4=1] + 1/8*E[Y_甲4^obs | W, T_甲4=0, S_甲4=3] - 1/8*E[Y_乙1^obs | W, T_乙1=0, S_乙1=1] + 1/8*E[Y_乙1^obs | W, T_乙1=0, S_乙1=3] - 1/8*E[Y_乙2^obs | W, T_乙2=0, S_乙2=1] + 1/8*E[Y_乙2^obs | W, T_乙2=0, S_乙2=3] - 1/8*E[Y_乙3^obs | W, T_乙3=0, S_乙3=1] + 1/8*E[Y_乙3^obs | W, T_乙3=0, S_乙3=3] - 1/8*E[Y_乙4^obs | W, T_乙4=0, S_乙4=1] + 1/8*E[Y_乙4^obs | W, T_乙4=0, S_乙4=3]",
+        "target_fingerprint": "472bf8f954149ce7aab364d1316551324f9258a2dc82b403861f1330c33b80ce",
+        "source_batch_sha256": "843905d9d23c44281b3d9218354d09b882f4d7c9ec536d254de572cd6f5ca26d",
+        "a4_source_id": "reviewed_effect_source_0",
+        "constituent_arms": [
+          {
+            "node_id": "甲1",
+            "own_treatment": 0,
+            "exposure_state": 1,
+            "coefficient": "-1/8",
+            "joint_support": "3/8",
+            "arm_target_fingerprint": "557118bb302749341bbb186437e879d559a046d4d5941d75e54a310888bd7056"
+          },
+          {
+            "node_id": "甲1",
+            "own_treatment": 0,
+            "exposure_state": 3,
+            "coefficient": "1/8",
+            "joint_support": "1/8",
+            "arm_target_fingerprint": "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21"
+          },
+          {
+            "node_id": "甲2",
+            "own_treatment": 0,
+            "exposure_state": 1,
+            "coefficient": "-1/8",
+            "joint_support": "3/8",
+            "arm_target_fingerprint": "04040bd3ebddb3ce1aae10a57f061d108eb4eef1cbd3a0e5b0df390459db3e10"
+          },
+          {
+            "node_id": "甲2",
+            "own_treatment": 0,
+            "exposure_state": 3,
+            "coefficient": "1/8",
+            "joint_support": "1/8",
+            "arm_target_fingerprint": "f5777cc661c96eba809dc45ffc2f368cfd20cd096d89f873750ef0031db89a3d"
+          },
+          {
+            "node_id": "甲3",
+            "own_treatment": 0,
+            "exposure_state": 1,
+            "coefficient": "-1/8",
+            "joint_support": "3/8",
+            "arm_target_fingerprint": "dd75b6e6f16af8a37c155ba6998139556800efa7d907c60c0deb136d42b1fb77"
+          },
+          {
+            "node_id": "甲3",
+            "own_treatment": 0,
+            "exposure_state": 3,
+            "coefficient": "1/8",
+            "joint_support": "1/8",
+            "arm_target_fingerprint": "f0911fb68bbdba59a6e697d53bc704c0f1a76e333d9114116f86fba157a0ab7c"
+          },
+          {
+            "node_id": "甲4",
+            "own_treatment": 0,
+            "exposure_state": 1,
+            "coefficient": "-1/8",
+            "joint_support": "3/8",
+            "arm_target_fingerprint": "024a16654570f8a7de1803327506bf6e2b40f23c463bfaaf0f5489fcfae299b0"
+          },
+          {
+            "node_id": "甲4",
+            "own_treatment": 0,
+            "exposure_state": 3,
+            "coefficient": "1/8",
+            "joint_support": "1/8",
+            "arm_target_fingerprint": "e3cdc6f27a402ce94c27f0288034c56c07d5399f0b3f0a3c2634861a89d300da"
+          },
+          {
+            "node_id": "乙1",
+            "own_treatment": 0,
+            "exposure_state": 1,
+            "coefficient": "-1/8",
+            "joint_support": "3/8",
+            "arm_target_fingerprint": "526a6e07d7a015653af3038e47abc931ad1cddf7b14c07f35addd9c1058b6ea2"
+          },
+          {
+            "node_id": "乙1",
+            "own_treatment": 0,
+            "exposure_state": 3,
+            "coefficient": "1/8",
+            "joint_support": "1/8",
+            "arm_target_fingerprint": "6c61e13165f5cbcc8b4082470f67f8921aaaa54917265a3c56f7b78d674b0ba3"
+          },
+          {
+            "node_id": "乙2",
+            "own_treatment": 0,
+            "exposure_state": 1,
+            "coefficient": "-1/8",
+            "joint_support": "3/8",
+            "arm_target_fingerprint": "5c18881f064d3e8d31358327dec4bfa4a896e62c9f935c707443d4c0e27d7908"
+          },
+          {
+            "node_id": "乙2",
+            "own_treatment": 0,
+            "exposure_state": 3,
+            "coefficient": "1/8",
+            "joint_support": "1/8",
+            "arm_target_fingerprint": "8700988cdaa83aa6f674f5d212000cc50958b6c603a5b1c71d8b2708e2c8e4bc"
+          },
+          {
+            "node_id": "乙3",
+            "own_treatment": 0,
+            "exposure_state": 1,
+            "coefficient": "-1/8",
+            "joint_support": "3/8",
+            "arm_target_fingerprint": "87c38c239a691730098fe26815db8cb0a583418d279424d0db6ae4fdcd2510f4"
+          },
+          {
+            "node_id": "乙3",
+            "own_treatment": 0,
+            "exposure_state": 3,
+            "coefficient": "1/8",
+            "joint_support": "1/8",
+            "arm_target_fingerprint": "87a7c6f41ed2991dcdebfe2bf5bf14eb2a7a9be488a4e9ca0be2301fe0de5e60"
+          },
+          {
+            "node_id": "乙4",
+            "own_treatment": 0,
+            "exposure_state": 1,
+            "coefficient": "-1/8",
+            "joint_support": "3/8",
+            "arm_target_fingerprint": "c18b5ee83dcd2150a5e576c1d8e14c5315cd97ac4fa0803a7926e64a955c6a33"
+          },
+          {
+            "node_id": "乙4",
+            "own_treatment": 0,
+            "exposure_state": 3,
+            "coefficient": "1/8",
+            "joint_support": "1/8",
+            "arm_target_fingerprint": "4f2d09d65b3986ce1d4bf2b075a6bc9befb009d3958d44965bcefa7bcfbe020b"
+          }
+        ],
+        "a4_rule_id": "A4_NODE_FULL_LAW_TO_ARM_V1",
+        "assumptions_used": [
+          "consistency",
+          "finite_conditional_first_moments",
+          "fixed_pretreatment_network",
+          "full_vector_randomization",
+          "known_assignment_law"
+        ],
+        "validity_note": "All nonzero constituent arms must have verified positive q-support; all refer to the same W/q/g; a reviewed population observable must supply every conditional arm mean.",
+        "certificate_sha256": "07ad36b38b12b2c26c2aa4244e18f22ba26ce3afb857126fe822e352aac6acba",
+        "estimation_request": null
+      }
+    ],
+    "estimation_request": null
+  },
+  "answers": [
+    {
+      "method": "R1A_COMPOSITION",
+      "mathematical_claim": {
+        "kind": "POINT",
+        "representation": "DESIGN_STANDARDIZED_EFFECT_OBSERVED_FUNCTIONAL",
+        "target": {
+          "kind": "SPILLOVER_EFFECT",
+          "node_order": [
+            "甲1",
+            "甲2",
+            "甲3",
+            "甲4",
+            "乙1",
+            "乙2",
+            "乙3",
+            "乙4"
+          ],
+          "evaluation_population": [
+            "甲1",
+            "甲2",
+            "甲3",
+            "甲4",
+            "乙1",
+            "乙2",
+            "乙3",
+            "乙4"
+          ],
+          "unit_weights": [
+            "1/8",
+            "1/8",
+            "1/8",
+            "1/8",
+            "1/8",
+            "1/8",
+            "1/8",
+            "1/8"
+          ],
+          "first": [
+            0,
+            3
+          ],
+          "second": [
+            0,
+            1
+          ],
+          "operation": "FIRST_MINUS_SECOND",
+          "remaining_assignment": "ORIGINAL_DESIGN_CONDITIONAL",
+          "assignment": {
+            "kind": "TWO_STAGE_QUOTA_MIXTURE",
+            "groups": [
+              [
+                "甲1",
+                "甲2",
+                "甲3",
+                "甲4"
+              ],
+              [
+                "乙1",
+                "乙2",
+                "乙3",
+                "乙4"
+              ]
+            ],
+            "quota_profiles": [
+              [
+                1,
+                3
+              ],
+              [
+                3,
+                1
+              ]
+            ],
+            "profile_probabilities": [
+              "1/2",
+              "1/2"
+            ]
+          },
+          "exposure": "EXACT_TREATED_NEIGHBOR_COUNT",
+          "treatment": "接种本次疫苗记1，接受安慰剂记0",
+          "outcome": "随访一年内是否感染，感染记1，未感染记0",
+          "context": "结果评价期间为随访的一年，两端保持相同；没有另行指定的背景分层或条件筛选。",
+          "native_symbol_mapping": {
+            "treatment": "treatment",
+            "outcome": "outcome",
+            "context": "W"
+          }
+        },
+        "target_fingerprint": "472bf8f954149ce7aab364d1316551324f9258a2dc82b403861f1330c33b80ce",
+        "expression": "-1/8*E[Y_甲1^obs | W, T_甲1=0, S_甲1=1] + 1/8*E[Y_甲1^obs | W, T_甲1=0, S_甲1=3] - 1/8*E[Y_甲2^obs | W, T_甲2=0, S_甲2=1] + 1/8*E[Y_甲2^obs | W, T_甲2=0, S_甲2=3] - 1/8*E[Y_甲3^obs | W, T_甲3=0, S_甲3=1] + 1/8*E[Y_甲3^obs | W, T_甲3=0, S_甲3=3] - 1/8*E[Y_甲4^obs | W, T_甲4=0, S_甲4=1] + 1/8*E[Y_甲4^obs | W, T_甲4=0, S_甲4=3] - 1/8*E[Y_乙1^obs | W, T_乙1=0, S_乙1=1] + 1/8*E[Y_乙1^obs | W, T_乙1=0, S_乙1=3] - 1/8*E[Y_乙2^obs | W, T_乙2=0, S_乙2=1] + 1/8*E[Y_乙2^obs | W, T_乙2=0, S_乙2=3] - 1/8*E[Y_乙3^obs | W, T_乙3=0, S_乙3=1] + 1/8*E[Y_乙3^obs | W, T_乙3=0, S_乙3=3] - 1/8*E[Y_乙4^obs | W, T_乙4=0, S_乙4=1] + 1/8*E[Y_乙4^obs | W, T_乙4=0, S_乙4=3]",
+        "numeric_value": null
+      },
+      "certificate": {
+        "verification_status": "VERIFIED",
+        "query_count": 1,
+        "source_batch_sha256": "843905d9d23c44281b3d9218354d09b882f4d7c9ec536d254de572cd6f5ca26d",
+        "bundle_sha256": "0a295b7249468bdb56dfeb281172b5815fd2277e55ed15c0c1af53fea7eebdbb",
+        "results": [
+          {
+            "status": "POINT",
+            "verification_status": "VERIFIED",
+            "kind": "SPILLOVER",
+            "term_count": 16,
+            "identified_functional": "-1/8*E[Y_甲1^obs | W, T_甲1=0, S_甲1=1] + 1/8*E[Y_甲1^obs | W, T_甲1=0, S_甲1=3] - 1/8*E[Y_甲2^obs | W, T_甲2=0, S_甲2=1] + 1/8*E[Y_甲2^obs | W, T_甲2=0, S_甲2=3] - 1/8*E[Y_甲3^obs | W, T_甲3=0, S_甲3=1] + 1/8*E[Y_甲3^obs | W, T_甲3=0, S_甲3=3] - 1/8*E[Y_甲4^obs | W, T_甲4=0, S_甲4=1] + 1/8*E[Y_甲4^obs | W, T_甲4=0, S_甲4=3] - 1/8*E[Y_乙1^obs | W, T_乙1=0, S_乙1=1] + 1/8*E[Y_乙1^obs | W, T_乙1=0, S_乙1=3] - 1/8*E[Y_乙2^obs | W, T_乙2=0, S_乙2=1] + 1/8*E[Y_乙2^obs | W, T_乙2=0, S_乙2=3] - 1/8*E[Y_乙3^obs | W, T_乙3=0, S_乙3=1] + 1/8*E[Y_乙3^obs | W, T_乙3=0, S_乙3=3] - 1/8*E[Y_乙4^obs | W, T_乙4=0, S_乙4=1] + 1/8*E[Y_乙4^obs | W, T_乙4=0, S_乙4=3]",
+            "target_fingerprint": "472bf8f954149ce7aab364d1316551324f9258a2dc82b403861f1330c33b80ce",
+            "source_batch_sha256": "843905d9d23c44281b3d9218354d09b882f4d7c9ec536d254de572cd6f5ca26d",
+            "a4_source_id": "reviewed_effect_source_0",
+            "constituent_arms": [
+              {
+                "node_id": "甲1",
+                "own_treatment": 0,
+                "exposure_state": 1,
+                "coefficient": "-1/8",
+                "joint_support": "3/8",
+                "arm_target_fingerprint": "557118bb302749341bbb186437e879d559a046d4d5941d75e54a310888bd7056"
+              },
+              {
+                "node_id": "甲1",
+                "own_treatment": 0,
+                "exposure_state": 3,
+                "coefficient": "1/8",
+                "joint_support": "1/8",
+                "arm_target_fingerprint": "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21"
+              },
+              {
+                "node_id": "甲2",
+                "own_treatment": 0,
+                "exposure_state": 1,
+                "coefficient": "-1/8",
+                "joint_support": "3/8",
+                "arm_target_fingerprint": "04040bd3ebddb3ce1aae10a57f061d108eb4eef1cbd3a0e5b0df390459db3e10"
+              },
+              {
+                "node_id": "甲2",
+                "own_treatment": 0,
+                "exposure_state": 3,
+                "coefficient": "1/8",
+                "joint_support": "1/8",
+                "arm_target_fingerprint": "f5777cc661c96eba809dc45ffc2f368cfd20cd096d89f873750ef0031db89a3d"
+              },
+              {
+                "node_id": "甲3",
+                "own_treatment": 0,
+                "exposure_state": 1,
+                "coefficient": "-1/8",
+                "joint_support": "3/8",
+                "arm_target_fingerprint": "dd75b6e6f16af8a37c155ba6998139556800efa7d907c60c0deb136d42b1fb77"
+              },
+              {
+                "node_id": "甲3",
+                "own_treatment": 0,
+                "exposure_state": 3,
+                "coefficient": "1/8",
+                "joint_support": "1/8",
+                "arm_target_fingerprint": "f0911fb68bbdba59a6e697d53bc704c0f1a76e333d9114116f86fba157a0ab7c"
+              },
+              {
+                "node_id": "甲4",
+                "own_treatment": 0,
+                "exposure_state": 1,
+                "coefficient": "-1/8",
+                "joint_support": "3/8",
+                "arm_target_fingerprint": "024a16654570f8a7de1803327506bf6e2b40f23c463bfaaf0f5489fcfae299b0"
+              },
+              {
+                "node_id": "甲4",
+                "own_treatment": 0,
+                "exposure_state": 3,
+                "coefficient": "1/8",
+                "joint_support": "1/8",
+                "arm_target_fingerprint": "e3cdc6f27a402ce94c27f0288034c56c07d5399f0b3f0a3c2634861a89d300da"
+              },
+              {
+                "node_id": "乙1",
+                "own_treatment": 0,
+                "exposure_state": 1,
+                "coefficient": "-1/8",
+                "joint_support": "3/8",
+                "arm_target_fingerprint": "526a6e07d7a015653af3038e47abc931ad1cddf7b14c07f35addd9c1058b6ea2"
+              },
+              {
+                "node_id": "乙1",
+                "own_treatment": 0,
+                "exposure_state": 3,
+                "coefficient": "1/8",
+                "joint_support": "1/8",
+                "arm_target_fingerprint": "6c61e13165f5cbcc8b4082470f67f8921aaaa54917265a3c56f7b78d674b0ba3"
+              },
+              {
+                "node_id": "乙2",
+                "own_treatment": 0,
+                "exposure_state": 1,
+                "coefficient": "-1/8",
+                "joint_support": "3/8",
+                "arm_target_fingerprint": "5c18881f064d3e8d31358327dec4bfa4a896e62c9f935c707443d4c0e27d7908"
+              },
+              {
+                "node_id": "乙2",
+                "own_treatment": 0,
+                "exposure_state": 3,
+                "coefficient": "1/8",
+                "joint_support": "1/8",
+                "arm_target_fingerprint": "8700988cdaa83aa6f674f5d212000cc50958b6c603a5b1c71d8b2708e2c8e4bc"
+              },
+              {
+                "node_id": "乙3",
+                "own_treatment": 0,
+                "exposure_state": 1,
+                "coefficient": "-1/8",
+                "joint_support": "3/8",
+                "arm_target_fingerprint": "87c38c239a691730098fe26815db8cb0a583418d279424d0db6ae4fdcd2510f4"
+              },
+              {
+                "node_id": "乙3",
+                "own_treatment": 0,
+                "exposure_state": 3,
+                "coefficient": "1/8",
+                "joint_support": "1/8",
+                "arm_target_fingerprint": "87a7c6f41ed2991dcdebfe2bf5bf14eb2a7a9be488a4e9ca0be2301fe0de5e60"
+              },
+              {
+                "node_id": "乙4",
+                "own_treatment": 0,
+                "exposure_state": 1,
+                "coefficient": "-1/8",
+                "joint_support": "3/8",
+                "arm_target_fingerprint": "c18b5ee83dcd2150a5e576c1d8e14c5315cd97ac4fa0803a7926e64a955c6a33"
+              },
+              {
+                "node_id": "乙4",
+                "own_treatment": 0,
+                "exposure_state": 3,
+                "coefficient": "1/8",
+                "joint_support": "1/8",
+                "arm_target_fingerprint": "4f2d09d65b3986ce1d4bf2b075a6bc9befb009d3958d44965bcefa7bcfbe020b"
+              }
+            ],
+            "a4_rule_id": "A4_NODE_FULL_LAW_TO_ARM_V1",
+            "assumptions_used": [
+              "consistency",
+              "finite_conditional_first_moments",
+              "fixed_pretreatment_network",
+              "full_vector_randomization",
+              "known_assignment_law"
+            ],
+            "validity_note": "All nonzero constituent arms must have verified positive q-support; all refer to the same W/q/g; a reviewed population observable must supply every conditional arm mean.",
+            "certificate_sha256": "07ad36b38b12b2c26c2aa4244e18f22ba26ce3afb857126fe822e352aac6acba",
+            "estimation_request": null
+          }
+        ],
+        "estimation_request": null
+      },
+      "independent_replay": true,
+      "reviewed_input_sha256": "5da8275b592f2445c8b70cd30b049a1a74605ac0d6032277b3135a633072c196",
+      "native_evidence": {
+        "query_type": "EFFECT_BUNDLE",
+        "status": "POINT",
+        "route": "R1A_COMPOSITION",
+        "reason_code": null,
+        "result": {
+          "source_batch": {
+            "template": {
+              "name": "D6-E4 arm mean: node=甲1, a=0, s=3",
+              "target_id": "randomized-network-arm-甲1-0-3-E4",
+              "estimand": "NETWORK_RANDOMIZED_ARM_MEAN",
+              "target_semantics": "design_standardized_conditional_arm_mean_not_fixed_assignment",
+              "node_ids": [
+                "甲1",
+                "甲2",
+                "甲3",
+                "甲4",
+                "乙1",
+                "乙2",
+                "乙3",
+                "乙4"
+              ],
+              "adjacency": [
+                [
+                  0,
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1,
+                  0,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1,
+                  0
+                ]
+              ],
+              "assignment_design": {
+                "design_type": "randomized_experiment",
+                "assignment_scheme": "two_stage_quota_mixture",
+                "groups": [
+                  [
+                    "乙1",
+                    "乙2",
+                    "乙3",
+                    "乙4"
+                  ],
+                  [
+                    "甲1",
+                    "甲2",
+                    "甲3",
+                    "甲4"
+                  ]
+                ],
+                "quota_profiles": [
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    3,
+                    1
+                  ]
+                ],
+                "profile_probabilities": [
+                  "1/2",
+                  "1/2"
+                ]
+              },
+              "exposure_definition": "exact_treated_neighbor_count",
+              "outcome_kind": "binary",
+              "x": null,
+              "treatment": null,
+              "outcome": null,
+              "assumptions": [],
+              "identification_spec": {
+                "causal_semantics": "potential_outcomes",
+                "structure": {
+                  "representation_type": "fixed_network_interference",
+                  "variables": [
+                    "treatment",
+                    "exact_count_exposure",
+                    "outcome",
+                    "context"
+                  ],
+                  "directed_edges": [],
+                  "bidirected_edges": [],
+                  "source": "human_specified",
+                  "notes": "Unit-level fixed network; no variable-level causal DAG required."
+                },
+                "network_exposure": {
+                  "network_id": "effect_5f5f276e58aaccaaeb212236e6b09414c901de013529acc692add8be594731e0",
+                  "node_ids": [
+                    "甲1",
+                    "甲2",
+                    "甲3",
+                    "甲4",
+                    "乙1",
+                    "乙2",
+                    "乙3",
+                    "乙4"
+                  ],
+                  "undirected_edges": [
+                    [
+                      "甲1",
+                      "甲2"
+                    ],
+                    [
+                      "甲1",
+                      "甲3"
+                    ],
+                    [
+                      "甲1",
+                      "甲4"
+                    ],
+                    [
+                      "甲2",
+                      "甲3"
+                    ],
+                    [
+                      "甲2",
+                      "甲4"
+                    ],
+                    [
+                      "甲3",
+                      "甲4"
+                    ],
+                    [
+                      "乙1",
+                      "乙2"
+                    ],
+                    [
+                      "乙1",
+                      "乙3"
+                    ],
+                    [
+                      "乙1",
+                      "乙4"
+                    ],
+                    [
+                      "乙2",
+                      "乙3"
+                    ],
+                    [
+                      "乙2",
+                      "乙4"
+                    ],
+                    [
+                      "乙3",
+                      "乙4"
+                    ]
+                  ],
+                  "exposure_mapping": "treated_neighbor_count_1hop",
+                  "fixed_network": true
+                },
+                "exposure_mapping_claim": "UNSPECIFIED",
+                "exposure_uncertainty": null,
+                "interference_structure_receipt": {
+                  "contract_version": "interference-structure-v2",
+                  "provider_id": "declared_fixed_network_grouping_v1",
+                  "source_status": "SYNTHETIC_GROUND_TRUTH",
+                  "analysis_status": "ACCEPTED_AS_ASSUMPTION",
+                  "semantic_fingerprint": "df9c427246bd41da4e91de43ba5782d10f03e3c5372f927010b4c7ad25e6ca11",
+                  "provenance": {
+                    "source": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                  },
+                  "qualification_evidence": [
+                    "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                  ]
+                },
+                "reference_exposure_propensity_upper_bound_fact": null,
+                "majority_response_theorem_contract": null,
+                "randomized_network_arm_theorem_contract": {
+                  "version": "randomized-network-arm-mean-theorem-v1",
+                  "design": {
+                    "kind": "two_stage_quota_mixture_binary_v2_7",
+                    "groups": [
+                      [
+                        "乙1",
+                        "乙2",
+                        "乙3",
+                        "乙4"
+                      ],
+                      [
+                        "甲1",
+                        "甲2",
+                        "甲3",
+                        "甲4"
+                      ]
+                    ],
+                    "quota_profiles": [
+                      [
+                        1,
+                        3
+                      ],
+                      [
+                        3,
+                        1
+                      ]
+                    ],
+                    "profile_probabilities": [
+                      "1/2",
+                      "1/2"
+                    ]
+                  },
+                  "grouping": "exact_treated_neighbor_count",
+                  "target": "design_standardized_conditional_arm_mean",
+                  "information": "node_conditional_arm_mean_of_experimental_law"
+                },
+                "network_policy_mixture_theorem_contract": null,
+                "network_policy_mixture_assignment_design": null,
+                "network_policy_mixture_information_contract": null,
+                "network_policy_mixture_population_facts": null,
+                "deterministic_policy_oracle": null,
+                "variable_domains": {
+                  "treatment": {
+                    "kind": "binary",
+                    "values": [
+                      0,
+                      1
+                    ],
+                    "lower": 0.0,
+                    "upper": 1.0
+                  },
+                  "outcome": {
+                    "kind": "binary",
+                    "values": [
+                      0,
+                      1
+                    ],
+                    "lower": 0.0,
+                    "upper": 1.0
+                  }
+                },
+                "assumptions": [
+                  {
+                    "name": "known_assignment_law",
+                    "source": "study_protocol",
+                    "confirmed": true,
+                    "status": "CERTIFIED",
+                    "evidence": [
+                      "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                    ],
+                    "details": "Known exact first-stage lottery among 2 quota profiles; given profile, independent uniform fixed quotas in 2 groups; marginal assignment law mixes group quotas. Direct first-stage outcome effects are separately excluded by an explicit A5 scientific admission. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                  },
+                  {
+                    "name": "full_vector_randomization",
+                    "source": "study_protocol",
+                    "confirmed": true,
+                    "status": "CERTIFIED",
+                    "evidence": [
+                      "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                    ],
+                    "details": "The complete assignment vector is randomized independently of the full potential-outcome schedule conditional on W. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                  },
+                  {
+                    "name": "consistency",
+                    "source": "demo_specification",
+                    "confirmed": true,
+                    "status": "CERTIFIED",
+                    "evidence": [
+                      "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                    ],
+                    "details": "The observed outcome equals Y_i(T) at the realized full assignment; no exposure-sufficiency condition. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                  },
+                  {
+                    "name": "fixed_pretreatment_network",
+                    "source": "study_protocol",
+                    "confirmed": true,
+                    "status": "CERTIFIED",
+                    "evidence": [
+                      "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                    ],
+                    "details": "The fixed network and one-hop neighbor-count signature were defined before treatment. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                  },
+                  {
+                    "name": "finite_conditional_first_moments",
+                    "source": "deterministic_derivation",
+                    "confirmed": true,
+                    "status": "DERIVED",
+                    "evidence": [
+                      "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                    ],
+                    "details": "Relevant potential-outcome absolute first moments are finite conditional on W. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                  },
+                  {
+                    "name": "first_stage_profile_no_direct_outcome_effect",
+                    "source": "demo_specification",
+                    "confirmed": true,
+                    "status": "CERTIFIED",
+                    "evidence": [
+                      "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                    ],
+                    "details": "Scientifically accepted exclusion: given final treatment vector, the publicly assigned stage-one quota profile has no independent effect on outcomes; no profile-dependent versions of treatment. Software does not verify this scientific premise. Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                  }
+                ],
+                "assumption_conflicts": [],
+                "information_signature": {
+                  "objects": [
+                    {
+                      "name": "P_exp(Y_i,T_i,S_i|W,G)",
+                      "regime": "experimental",
+                      "variables": [
+                        "treatment",
+                        "exact_count_exposure",
+                        "outcome",
+                        "context"
+                      ],
+                      "description": "Explicitly declared complete node/arm POPULATION conditional means; not actual finite-sample measurements or a fitted estimator.",
+                      "basis": null,
+                      "joint_scope": null,
+                      "outcome_representation": null,
+                      "whole_network_assignment_law_available": null,
+                      "randomized_arm_observable": {
+                        "operator": "NODE_ARM_MEANS",
+                        "source_id": "official_randomized_arm_task_constructor_v21",
+                        "provenance": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402: Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a",
+                        "admission": "CERTIFIED",
+                        "availability": "SYMBOLIC_POPULATION_OPERATOR",
+                        "node_order": [
+                          "甲1",
+                          "甲2",
+                          "甲3",
+                          "甲4",
+                          "乙1",
+                          "乙2",
+                          "乙3",
+                          "乙4"
+                        ],
+                        "outcome_nodes": [
+                          "甲1",
+                          "甲2",
+                          "甲3",
+                          "甲4",
+                          "乙1",
+                          "乙2",
+                          "乙3",
+                          "乙4"
+                        ],
+                        "treatment": "treatment",
+                        "outcome": "outcome",
+                        "context_symbol": "W",
+                        "network_fingerprint": "41b0b8c2403f61ed34297d04a7c34e9690afb93d0e95a536043b7e305420eeef",
+                        "assignment_law_fingerprint": "7ed18ab5f62af62c53a0854b3328df30220e9075c3e8a96edfcbcd6949c57b88",
+                        "exposure_fingerprint": "62310cbb19447ecbdbdfb7b52e022a47b9b95154d1daff97f5a77d4dd092d482",
+                        "arm_coverage": "ALL_NODE_ARMS",
+                        "arm_cells": []
+                      }
+                    }
+                  ]
+                },
+                "query": {
+                  "type": "NETWORK_RANDOMIZED_ARM_MEAN",
+                  "treatment": "treatment",
+                  "outcome": "outcome",
+                  "expression": "NETWORK_RANDOMIZED_ARM_MEAN[outcome;treatment|node=甲1;a=0;s=3;design_averaged;target=f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21]",
+                  "target_population": "fixed_network_conditional_context",
+                  "conditioning_variables": [],
+                  "reference_exposure_definition": "treated_neighbor_count_1hop_exact",
+                  "target_exposure_semantics": "design_averaged_randomized_arm_mean",
+                  "exposure_value": 3,
+                  "target_node_id": "甲1",
+                  "own_treatment_value": 0,
+                  "policy_description": null,
+                  "policy_fingerprint": null,
+                  "response_target_fingerprint": "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21",
+                  "evidence": [
+                    "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                  ],
+                  "confidence": 1.0,
+                  "alternatives": [],
+                  "resolution": "RESOLVED",
+                  "authority": "TRUSTED_FIXTURE",
+                  "interpretation_notes": "Single node/arm design-standardized mean under the original two-stage pretreatment quota-profile mixture law conditioned on own treatment and exact treated-neighbor count. No exposure sufficiency or fixed-allocation policy welfare is asserted."
+                },
+                "support_domain": {
+                  "analysis_unit": [
+                    "node"
+                  ],
+                  "context_symbol": "W",
+                  "context_semantics": "full_pretreatment_network_context",
+                  "target_context_distribution": "conditional_not_transport"
+                },
+                "provenance": {
+                  "mode": "synthetic_source_contract",
+                  "source": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402",
+                  "population_values": "not_supplied",
+                  "finite_sample_status": "not_used_to_confirm_causal_assumptions"
+                }
+              },
+              "target_fingerprint": "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21",
+              "budget": null,
+              "budget_mode": "at_most",
+              "metadata": {
+                "setting": "D6xE4",
+                "source": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402",
+                "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+              }
+            },
+            "anchor": {
+              "task": {
+                "name": "D6-E4 arm mean: node=甲1, a=0, s=3",
+                "target_id": "randomized-network-arm-甲1-0-3-E4",
+                "estimand": "NETWORK_RANDOMIZED_ARM_MEAN",
+                "target_semantics": "design_standardized_conditional_arm_mean_not_fixed_assignment",
+                "node_ids": [
+                  "甲1",
+                  "甲2",
+                  "甲3",
+                  "甲4",
+                  "乙1",
+                  "乙2",
+                  "乙3",
+                  "乙4"
+                ],
+                "adjacency": [
+                  [
+                    0,
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    1,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    1,
+                    1
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    1,
+                    1
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    1,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    1,
+                    1,
+                    0
+                  ]
+                ],
+                "assignment_design": {
+                  "design_type": "randomized_experiment",
+                  "assignment_scheme": "two_stage_quota_mixture",
+                  "groups": [
+                    [
+                      "乙1",
+                      "乙2",
+                      "乙3",
+                      "乙4"
+                    ],
+                    [
+                      "甲1",
+                      "甲2",
+                      "甲3",
+                      "甲4"
+                    ]
+                  ],
+                  "quota_profiles": [
+                    [
+                      1,
+                      3
+                    ],
+                    [
+                      3,
+                      1
+                    ]
+                  ],
+                  "profile_probabilities": [
+                    "1/2",
+                    "1/2"
+                  ]
+                },
+                "exposure_definition": "exact_treated_neighbor_count",
+                "outcome_kind": "binary",
+                "x": null,
+                "treatment": null,
+                "outcome": null,
+                "assumptions": [],
+                "identification_spec": {
+                  "causal_semantics": "potential_outcomes",
+                  "structure": {
+                    "representation_type": "fixed_network_interference",
+                    "variables": [
+                      "treatment",
+                      "exact_count_exposure",
+                      "outcome",
+                      "context"
+                    ],
+                    "directed_edges": [],
+                    "bidirected_edges": [],
+                    "source": "human_specified",
+                    "notes": "Unit-level fixed network; no variable-level causal DAG required."
+                  },
+                  "network_exposure": {
+                    "network_id": "effect_5f5f276e58aaccaaeb212236e6b09414c901de013529acc692add8be594731e0",
+                    "node_ids": [
+                      "甲1",
+                      "甲2",
+                      "甲3",
+                      "甲4",
+                      "乙1",
+                      "乙2",
+                      "乙3",
+                      "乙4"
+                    ],
+                    "undirected_edges": [
+                      [
+                        "甲1",
+                        "甲2"
+                      ],
+                      [
+                        "甲1",
+                        "甲3"
+                      ],
+                      [
+                        "甲1",
+                        "甲4"
+                      ],
+                      [
+                        "甲2",
+                        "甲3"
+                      ],
+                      [
+                        "甲2",
+                        "甲4"
+                      ],
+                      [
+                        "甲3",
+                        "甲4"
+                      ],
+                      [
+                        "乙1",
+                        "乙2"
+                      ],
+                      [
+                        "乙1",
+                        "乙3"
+                      ],
+                      [
+                        "乙1",
+                        "乙4"
+                      ],
+                      [
+                        "乙2",
+                        "乙3"
+                      ],
+                      [
+                        "乙2",
+                        "乙4"
+                      ],
+                      [
+                        "乙3",
+                        "乙4"
+                      ]
+                    ],
+                    "exposure_mapping": "treated_neighbor_count_1hop",
+                    "fixed_network": true
+                  },
+                  "exposure_mapping_claim": "UNSPECIFIED",
+                  "exposure_uncertainty": null,
+                  "interference_structure_receipt": {
+                    "contract_version": "interference-structure-v2",
+                    "provider_id": "declared_fixed_network_grouping_v1",
+                    "source_status": "SYNTHETIC_GROUND_TRUTH",
+                    "analysis_status": "ACCEPTED_AS_ASSUMPTION",
+                    "semantic_fingerprint": "df9c427246bd41da4e91de43ba5782d10f03e3c5372f927010b4c7ad25e6ca11",
+                    "provenance": {
+                      "source": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                    },
+                    "qualification_evidence": [
+                      "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                    ]
+                  },
+                  "reference_exposure_propensity_upper_bound_fact": null,
+                  "majority_response_theorem_contract": null,
+                  "randomized_network_arm_theorem_contract": {
+                    "version": "randomized-network-arm-mean-theorem-v1",
+                    "design": {
+                      "kind": "two_stage_quota_mixture_binary_v2_7",
+                      "groups": [
+                        [
+                          "乙1",
+                          "乙2",
+                          "乙3",
+                          "乙4"
+                        ],
+                        [
+                          "甲1",
+                          "甲2",
+                          "甲3",
+                          "甲4"
+                        ]
+                      ],
+                      "quota_profiles": [
+                        [
+                          1,
+                          3
+                        ],
+                        [
+                          3,
+                          1
+                        ]
+                      ],
+                      "profile_probabilities": [
+                        "1/2",
+                        "1/2"
+                      ]
+                    },
+                    "grouping": "exact_treated_neighbor_count",
+                    "target": "design_standardized_conditional_arm_mean",
+                    "information": "node_conditional_arm_mean_of_experimental_law"
+                  },
+                  "network_policy_mixture_theorem_contract": null,
+                  "network_policy_mixture_assignment_design": null,
+                  "network_policy_mixture_information_contract": null,
+                  "network_policy_mixture_population_facts": null,
+                  "deterministic_policy_oracle": null,
+                  "variable_domains": {
+                    "treatment": {
+                      "kind": "binary",
+                      "values": [
+                        0,
+                        1
+                      ],
+                      "lower": 0.0,
+                      "upper": 1.0
+                    },
+                    "outcome": {
+                      "kind": "binary",
+                      "values": [
+                        0,
+                        1
+                      ],
+                      "lower": 0.0,
+                      "upper": 1.0
+                    }
+                  },
+                  "assumptions": [
+                    {
+                      "name": "known_assignment_law",
+                      "source": "study_protocol",
+                      "confirmed": true,
+                      "status": "CERTIFIED",
+                      "evidence": [
+                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                      ],
+                      "details": "Known exact first-stage lottery among 2 quota profiles; given profile, independent uniform fixed quotas in 2 groups; marginal assignment law mixes group quotas. Direct first-stage outcome effects are separately excluded by an explicit A5 scientific admission. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                    },
+                    {
+                      "name": "full_vector_randomization",
+                      "source": "study_protocol",
+                      "confirmed": true,
+                      "status": "CERTIFIED",
+                      "evidence": [
+                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                      ],
+                      "details": "The complete assignment vector is randomized independently of the full potential-outcome schedule conditional on W. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                    },
+                    {
+                      "name": "consistency",
+                      "source": "demo_specification",
+                      "confirmed": true,
+                      "status": "CERTIFIED",
+                      "evidence": [
+                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                      ],
+                      "details": "The observed outcome equals Y_i(T) at the realized full assignment; no exposure-sufficiency condition. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                    },
+                    {
+                      "name": "fixed_pretreatment_network",
+                      "source": "study_protocol",
+                      "confirmed": true,
+                      "status": "CERTIFIED",
+                      "evidence": [
+                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                      ],
+                      "details": "The fixed network and one-hop neighbor-count signature were defined before treatment. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                    },
+                    {
+                      "name": "finite_conditional_first_moments",
+                      "source": "deterministic_derivation",
+                      "confirmed": true,
+                      "status": "DERIVED",
+                      "evidence": [
+                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                      ],
+                      "details": "Relevant potential-outcome absolute first moments are finite conditional on W. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                    },
+                    {
+                      "name": "first_stage_profile_no_direct_outcome_effect",
+                      "source": "demo_specification",
+                      "confirmed": true,
+                      "status": "CERTIFIED",
+                      "evidence": [
+                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                      ],
+                      "details": "Scientifically accepted exclusion: given final treatment vector, the publicly assigned stage-one quota profile has no independent effect on outcomes; no profile-dependent versions of treatment. Software does not verify this scientific premise. Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                    }
+                  ],
+                  "assumption_conflicts": [],
+                  "information_signature": {
+                    "objects": [
+                      {
+                        "name": "P_exp(Y_i,T_i,S_i|W,G)",
+                        "regime": "experimental",
+                        "variables": [
+                          "treatment",
+                          "exact_count_exposure",
+                          "outcome",
+                          "context"
+                        ],
+                        "description": "Explicitly declared complete node/arm POPULATION conditional means; not actual finite-sample measurements or a fitted estimator.",
+                        "basis": null,
+                        "joint_scope": null,
+                        "outcome_representation": null,
+                        "whole_network_assignment_law_available": null,
+                        "randomized_arm_observable": {
+                          "operator": "NODE_ARM_MEANS",
+                          "source_id": "official_randomized_arm_task_constructor_v21",
+                          "provenance": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402: Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a",
+                          "admission": "CERTIFIED",
+                          "availability": "SYMBOLIC_POPULATION_OPERATOR",
+                          "node_order": [
+                            "甲1",
+                            "甲2",
+                            "甲3",
+                            "甲4",
+                            "乙1",
+                            "乙2",
+                            "乙3",
+                            "乙4"
+                          ],
+                          "outcome_nodes": [
+                            "甲1",
+                            "甲2",
+                            "甲3",
+                            "甲4",
+                            "乙1",
+                            "乙2",
+                            "乙3",
+                            "乙4"
+                          ],
+                          "treatment": "treatment",
+                          "outcome": "outcome",
+                          "context_symbol": "W",
+                          "network_fingerprint": "41b0b8c2403f61ed34297d04a7c34e9690afb93d0e95a536043b7e305420eeef",
+                          "assignment_law_fingerprint": "7ed18ab5f62af62c53a0854b3328df30220e9075c3e8a96edfcbcd6949c57b88",
+                          "exposure_fingerprint": "62310cbb19447ecbdbdfb7b52e022a47b9b95154d1daff97f5a77d4dd092d482",
+                          "arm_coverage": "ALL_NODE_ARMS",
+                          "arm_cells": []
+                        }
+                      }
+                    ]
+                  },
+                  "query": {
+                    "type": "NETWORK_RANDOMIZED_ARM_MEAN",
+                    "treatment": "treatment",
+                    "outcome": "outcome",
+                    "expression": "NETWORK_RANDOMIZED_ARM_MEAN[outcome;treatment|node=甲1;a=0;s=3;design_averaged;target=f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21]",
+                    "target_population": "fixed_network_conditional_context",
+                    "conditioning_variables": [],
+                    "reference_exposure_definition": "treated_neighbor_count_1hop_exact",
+                    "target_exposure_semantics": "design_averaged_randomized_arm_mean",
+                    "exposure_value": 3,
+                    "target_node_id": "甲1",
+                    "own_treatment_value": 0,
+                    "policy_description": null,
+                    "policy_fingerprint": null,
+                    "response_target_fingerprint": "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21",
+                    "evidence": [
+                      "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                    ],
+                    "confidence": 1.0,
+                    "alternatives": [],
+                    "resolution": "RESOLVED",
+                    "authority": "TRUSTED_FIXTURE",
+                    "interpretation_notes": "Single node/arm design-standardized mean under the original two-stage pretreatment quota-profile mixture law conditioned on own treatment and exact treated-neighbor count. No exposure sufficiency or fixed-allocation policy welfare is asserted."
+                  },
+                  "support_domain": {
+                    "analysis_unit": [
+                      "node"
+                    ],
+                    "context_symbol": "W",
+                    "context_semantics": "full_pretreatment_network_context",
+                    "target_context_distribution": "conditional_not_transport"
+                  },
+                  "provenance": {
+                    "mode": "synthetic_source_contract",
+                    "source": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402",
+                    "population_values": "not_supplied",
+                    "finite_sample_status": "not_used_to_confirm_causal_assumptions"
+                  }
+                },
+                "target_fingerprint": "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21",
+                "budget": null,
+                "budget_mode": "at_most",
+                "metadata": {
+                  "setting": "D6xE4",
+                  "source": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402",
+                  "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                }
+              },
+              "result": {
+                "status": "POINT",
+                "query": {
+                  "type": "NETWORK_RANDOMIZED_ARM_MEAN",
+                  "treatment": "treatment",
+                  "outcome": "outcome",
+                  "expression": "NETWORK_RANDOMIZED_ARM_MEAN[outcome;treatment|node=甲1;a=0;s=3;design_averaged;target=f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21]",
+                  "target_population": "fixed_network_conditional_context",
+                  "conditioning_variables": [],
+                  "reference_exposure_definition": "treated_neighbor_count_1hop_exact",
+                  "target_exposure_semantics": "design_averaged_randomized_arm_mean",
+                  "exposure_value": 3,
+                  "target_node_id": "甲1",
+                  "own_treatment_value": 0,
+                  "policy_description": null,
+                  "policy_fingerprint": null,
+                  "response_target_fingerprint": "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21",
+                  "evidence": [
+                    "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                  ],
+                  "confidence": 1.0,
+                  "alternatives": [],
+                  "resolution": "RESOLVED",
+                  "authority": "TRUSTED_FIXTURE",
+                  "interpretation_notes": "Single node/arm design-standardized mean under the original two-stage pretreatment quota-profile mixture law conditioned on own treatment and exact treated-neighbor count. No exposure sufficiency or fixed-allocation policy welfare is asserted."
+                },
+                "backend": "randomized_network_arm_mean_v1",
+                "identified_functional": {
+                  "kind": "randomized_network_design_standardized_arm_mean",
+                  "node_id": "甲1",
+                  "own_treatment_value": 0,
+                  "exposure_value": 3,
+                  "treatment": "treatment",
+                  "outcome": "outcome",
+                  "target_fingerprint": "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21",
+                  "network_fingerprint": "41b0b8c2403f61ed34297d04a7c34e9690afb93d0e95a536043b7e305420eeef",
+                  "assignment_kind": "two_stage_quota_mixture",
+                  "treated_quota": null,
+                  "group_node_ids": null,
+                  "group_treated_quotas": null,
+                  "two_stage_group_node_ids": [
+                    [
+                      "乙1",
+                      "乙2",
+                      "乙3",
+                      "乙4"
+                    ],
+                    [
+                      "甲1",
+                      "甲2",
+                      "甲3",
+                      "甲4"
+                    ]
+                  ],
+                  "two_stage_quota_profiles": [
+                    [
+                      1,
+                      3
+                    ],
+                    [
+                      3,
+                      1
+                    ]
+                  ],
+                  "two_stage_profile_probabilities": [
+                    "1/2",
+                    "1/2"
+                  ],
+                  "grouping": "S_i=K_i;exact treated one-hop neighbor count",
+                  "functional": "mu_i^q(a,s|W)=E_exp[Y_i^obs|W,T_i=a,S_i=s]",
+                  "semantics": "design_standardized_conditional_arm_mean_not_fixed_assignment"
+                },
+                "bound_program": null,
+                "set_program": null,
+                "identified_set": null,
+                "network_policy_mixture_proof": null,
+                "network_exposure": {
+                  "network_id": "effect_5f5f276e58aaccaaeb212236e6b09414c901de013529acc692add8be594731e0",
+                  "node_ids": [
+                    "甲1",
+                    "甲2",
+                    "甲3",
+                    "甲4",
+                    "乙1",
+                    "乙2",
+                    "乙3",
+                    "乙4"
+                  ],
+                  "undirected_edges": [
+                    [
+                      "甲1",
+                      "甲2"
+                    ],
+                    [
+                      "甲1",
+                      "甲3"
+                    ],
+                    [
+                      "甲1",
+                      "甲4"
+                    ],
+                    [
+                      "甲2",
+                      "甲3"
+                    ],
+                    [
+                      "甲2",
+                      "甲4"
+                    ],
+                    [
+                      "甲3",
+                      "甲4"
+                    ],
+                    [
+                      "乙1",
+                      "乙2"
+                    ],
+                    [
+                      "乙1",
+                      "乙3"
+                    ],
+                    [
+                      "乙1",
+                      "乙4"
+                    ],
+                    [
+                      "乙2",
+                      "乙3"
+                    ],
+                    [
+                      "乙2",
+                      "乙4"
+                    ],
+                    [
+                      "乙3",
+                      "乙4"
+                    ]
+                  ],
+                  "exposure_mapping": "treated_neighbor_count_1hop",
+                  "fixed_network": true
+                },
+                "exposure_uncertainty": null,
+                "required_population_objects": [
+                  "E_exp[outcome_i^obs | W,G,treatment_i=0,S_i=3], i=甲1"
+                ],
+                "estimation_nuisance_objects": [],
+                "known_design_objects": [
+                  "known_two_stage_quota_profile_mixture(H=2, profiles=2)",
+                  "q(t|W)=sum_u pi(u|W) prod_h 1{quota_h(t)=m_h(u)}/C(n_h,m_h(u))",
+                  "profile is marginalized; direct effect of profile excluded by separate A5 license",
+                  "S_i(u)=sum_{j in N(i)}u_j;exact one-hop treated-neighbor count",
+                  "kappa_i,a,s(u|W)=q(u|W)1{u_i=a,S_i(u)=s}/pi_i(a,s|W)"
+                ],
+                "assumptions_used": [
+                  "known_assignment_law",
+                  "full_vector_randomization",
+                  "consistency",
+                  "fixed_pretreatment_network",
+                  "finite_conditional_first_moments",
+                  "first_stage_profile_no_direct_outcome_effect"
+                ],
+                "validity_domain": {
+                  "network_fingerprint": "41b0b8c2403f61ed34297d04a7c34e9690afb93d0e95a536043b7e305420eeef",
+                  "target_fingerprint": "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21",
+                  "context": "full_pretreatment_network_context",
+                  "population_information_basis": "node_conditional_arm_mean_of_experimental_law",
+                  "target_semantics": "design_standardized_conditional_arm_mean_not_fixed_assignment",
+                  "query_arm_support": "1/8",
+                  "finite_sample_estimator_verified": false,
+                  "executable_estimation_adapter": false,
+                  "deterministic_policy_value_identified": false
+                },
+                "guarantee": "point_identified",
+                "certificate": {
+                  "rule_id": "RANDOMIZED_NETWORK_ARM_TWO_STAGE_QUOTA_MIXTURE_V27",
+                  "version": "randomized-network-arm-two-stage-v2.7",
+                  "group_node_ids": [
+                    [
+                      "乙1",
+                      "乙2",
+                      "乙3",
+                      "乙4"
+                    ],
+                    [
+                      "甲1",
+                      "甲2",
+                      "甲3",
+                      "甲4"
+                    ]
+                  ],
+                  "quota_profiles": [
+                    [
+                      1,
+                      3
+                    ],
+                    [
+                      3,
+                      1
+                    ]
+                  ],
+                  "profile_probabilities": [
+                    "1/2",
+                    "1/2"
+                  ],
+                  "support_method": "stage_one_posterior_weighted_conditional_hypergeometric_convolution",
+                  "exposure_grouping": "exact_treated_neighbor_count",
+                  "exposure_states": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  "source_spec_sha256": "2636be904fc17ad6947c9a1e150334592e7192a252ee534bedbc0c1f9363e699",
+                  "node_degree": 3,
+                  "network_size": 8,
+                  "query_node_id": "甲1",
+                  "query_arm": [
+                    0,
+                    3
+                  ],
+                  "joint_arm_support_probability": "1/8"
+                },
+                "trace": [
+                  {
+                    "step": "engine_selection",
+                    "outcome": "INFO",
+                    "detail": "Selected among independently verified compatible results; informativeness is compared only after verification."
+                  },
+                  {
+                    "step": "target_semantics",
+                    "outcome": "PASS",
+                    "detail": "Condition on own treatment AND exposure under the original joint fixed-quota assignment law."
+                  },
+                  {
+                    "step": "support",
+                    "outcome": "PASS",
+                    "detail": "Exact joint arm support pi_i(a,s|W)=1/8 is positive."
+                  },
+                  {
+                    "step": "randomization_identification",
+                    "outcome": "PASS",
+                    "detail": "Full-vector randomization + consistency identify E[Y_i^obs|W,T_i=a,S_i=s] without exposure sufficiency."
+                  }
+                ],
+                "reason_code": null,
+                "message": "The single queried randomized-network arm mean is POINT identified from the experimental population conditional law. This result does not certify estimation precision or deterministic rollout welfare.",
+                "verification_status": "VERIFIED",
+                "verification_message": "D6 verified by independent original-assignment integer polynomial counting; the first-stage no-direct-effect assumption is externally admitted, not tested."
+              },
+              "estimation_request": null,
+              "diagnostics": {
+                "workflow_status": "IDENTIFIED_NO_ESTIMATION_ADAPTER",
+                "handoff_gap": "The randomized-network arm mean is POINT identified at population level, but the current frozen PFN has no matching estimator contract. No EstimationRequest is emitted."
+              }
+            },
+            "node_ids": [
+              "甲1",
+              "甲2",
+              "甲3",
+              "甲4",
+              "乙1",
+              "乙2",
+              "乙3",
+              "乙4"
+            ],
+            "exposure_states": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "population_joint_support": [
+              [
+                [
+                  "0",
+                  "3/8",
+                  "0",
+                  "1/8"
+                ],
+                [
+                  "1/8",
+                  "0",
+                  "3/8",
+                  "0"
+                ]
+              ],
+              [
+                [
+                  "0",
+                  "3/8",
+                  "0",
+                  "1/8"
+                ],
+                [
+                  "1/8",
+                  "0",
+                  "3/8",
+                  "0"
+                ]
+              ],
+              [
+                [
+                  "0",
+                  "3/8",
+                  "0",
+                  "1/8"
+                ],
+                [
+                  "1/8",
+                  "0",
+                  "3/8",
+                  "0"
+                ]
+              ],
+              [
+                [
+                  "0",
+                  "3/8",
+                  "0",
+                  "1/8"
+                ],
+                [
+                  "1/8",
+                  "0",
+                  "3/8",
+                  "0"
+                ]
+              ],
+              [
+                [
+                  "0",
+                  "3/8",
+                  "0",
+                  "1/8"
+                ],
+                [
+                  "1/8",
+                  "0",
+                  "3/8",
+                  "0"
+                ]
+              ],
+              [
+                [
+                  "0",
+                  "3/8",
+                  "0",
+                  "1/8"
+                ],
+                [
+                  "1/8",
+                  "0",
+                  "3/8",
+                  "0"
+                ]
+              ],
+              [
+                [
+                  "0",
+                  "3/8",
+                  "0",
+                  "1/8"
+                ],
+                [
+                  "1/8",
+                  "0",
+                  "3/8",
+                  "0"
+                ]
+              ],
+              [
+                [
+                  "0",
+                  "3/8",
+                  "0",
+                  "1/8"
+                ],
+                [
+                  "1/8",
+                  "0",
+                  "3/8",
+                  "0"
+                ]
+              ]
+            ],
+            "arm_status": [
+              [
+                [
+                  "UNSUPPORTED",
+                  "POINT",
+                  "UNSUPPORTED",
+                  "POINT"
+                ],
+                [
+                  "POINT",
+                  "UNSUPPORTED",
+                  "POINT",
+                  "UNSUPPORTED"
+                ]
+              ],
+              [
+                [
+                  "UNSUPPORTED",
+                  "POINT",
+                  "UNSUPPORTED",
+                  "POINT"
+                ],
+                [
+                  "POINT",
+                  "UNSUPPORTED",
+                  "POINT",
+                  "UNSUPPORTED"
+                ]
+              ],
+              [
+                [
+                  "UNSUPPORTED",
+                  "POINT",
+                  "UNSUPPORTED",
+                  "POINT"
+                ],
+                [
+                  "POINT",
+                  "UNSUPPORTED",
+                  "POINT",
+                  "UNSUPPORTED"
+                ]
+              ],
+              [
+                [
+                  "UNSUPPORTED",
+                  "POINT",
+                  "UNSUPPORTED",
+                  "POINT"
+                ],
+                [
+                  "POINT",
+                  "UNSUPPORTED",
+                  "POINT",
+                  "UNSUPPORTED"
+                ]
+              ],
+              [
+                [
+                  "UNSUPPORTED",
+                  "POINT",
+                  "UNSUPPORTED",
+                  "POINT"
+                ],
+                [
+                  "POINT",
+                  "UNSUPPORTED",
+                  "POINT",
+                  "UNSUPPORTED"
+                ]
+              ],
+              [
+                [
+                  "UNSUPPORTED",
+                  "POINT",
+                  "UNSUPPORTED",
+                  "POINT"
+                ],
+                [
+                  "POINT",
+                  "UNSUPPORTED",
+                  "POINT",
+                  "UNSUPPORTED"
+                ]
+              ],
+              [
+                [
+                  "UNSUPPORTED",
+                  "POINT",
+                  "UNSUPPORTED",
+                  "POINT"
+                ],
+                [
+                  "POINT",
+                  "UNSUPPORTED",
+                  "POINT",
+                  "UNSUPPORTED"
+                ]
+              ],
+              [
+                [
+                  "UNSUPPORTED",
+                  "POINT",
+                  "UNSUPPORTED",
+                  "POINT"
+                ],
+                [
+                  "POINT",
+                  "UNSUPPORTED",
+                  "POINT",
+                  "UNSUPPORTED"
+                ]
+              ]
+            ],
+            "arm_reason": [
+              [
+                [
+                  "ZERO_ARM_SUPPORT",
+                  null,
+                  "ZERO_ARM_SUPPORT",
+                  null
+                ],
+                [
+                  null,
+                  "ZERO_ARM_SUPPORT",
+                  null,
+                  "ZERO_ARM_SUPPORT"
+                ]
+              ],
+              [
+                [
+                  "ZERO_ARM_SUPPORT",
+                  null,
+                  "ZERO_ARM_SUPPORT",
+                  null
+                ],
+                [
+                  null,
+                  "ZERO_ARM_SUPPORT",
+                  null,
+                  "ZERO_ARM_SUPPORT"
+                ]
+              ],
+              [
+                [
+                  "ZERO_ARM_SUPPORT",
+                  null,
+                  "ZERO_ARM_SUPPORT",
+                  null
+                ],
+                [
+                  null,
+                  "ZERO_ARM_SUPPORT",
+                  null,
+                  "ZERO_ARM_SUPPORT"
+                ]
+              ],
+              [
+                [
+                  "ZERO_ARM_SUPPORT",
+                  null,
+                  "ZERO_ARM_SUPPORT",
+                  null
+                ],
+                [
+                  null,
+                  "ZERO_ARM_SUPPORT",
+                  null,
+                  "ZERO_ARM_SUPPORT"
+                ]
+              ],
+              [
+                [
+                  "ZERO_ARM_SUPPORT",
+                  null,
+                  "ZERO_ARM_SUPPORT",
+                  null
+                ],
+                [
+                  null,
+                  "ZERO_ARM_SUPPORT",
+                  null,
+                  "ZERO_ARM_SUPPORT"
+                ]
+              ],
+              [
+                [
+                  "ZERO_ARM_SUPPORT",
+                  null,
+                  "ZERO_ARM_SUPPORT",
+                  null
+                ],
+                [
+                  null,
+                  "ZERO_ARM_SUPPORT",
+                  null,
+                  "ZERO_ARM_SUPPORT"
+                ]
+              ],
+              [
+                [
+                  "ZERO_ARM_SUPPORT",
+                  null,
+                  "ZERO_ARM_SUPPORT",
+                  null
+                ],
+                [
+                  null,
+                  "ZERO_ARM_SUPPORT",
+                  null,
+                  "ZERO_ARM_SUPPORT"
+                ]
+              ],
+              [
+                [
+                  "ZERO_ARM_SUPPORT",
+                  null,
+                  "ZERO_ARM_SUPPORT",
+                  null
+                ],
+                [
+                  null,
+                  "ZERO_ARM_SUPPORT",
+                  null,
+                  "ZERO_ARM_SUPPORT"
+                ]
+              ]
+            ],
+            "target_fingerprints": [
+              [
+                [
+                  "adaa7ed95e33f99a22c76ccddef17dbb5bee106a8e7aa9cc3dfeabfa6baa28dd",
+                  "557118bb302749341bbb186437e879d559a046d4d5941d75e54a310888bd7056",
+                  "47bff9e6fa8783349af1ebe695dbadd4ad613c349ef37ef59911068ad3b6626f",
+                  "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21"
+                ],
+                [
+                  "16674d29d5ae89f75faec32b4711025d0d42b1c8ed2d598a52e5328407f452da",
+                  "b286e2abe56ce3dcca4152f357045267af1690ed1831e7a52122dd6ebd15cc08",
+                  "f1cd18ea53568b0a957050ed2ebd91aecf88bbdb78c83be78e1740b28419d04d",
+                  "ca13b06e76d36422e53eee80bf6b645b718cb1470a7e81ef5c5f7af763372049"
+                ]
+              ],
+              [
+                [
+                  "dea90c6ac53c8a84cd02bd0633362e5d3088cf9b4c2517b87e3f0e7afa713883",
+                  "04040bd3ebddb3ce1aae10a57f061d108eb4eef1cbd3a0e5b0df390459db3e10",
+                  "d348c4be50b7d6c91f35bcc11f79fd2ca9deb68da51bff61ce80b4a3db621308",
+                  "f5777cc661c96eba809dc45ffc2f368cfd20cd096d89f873750ef0031db89a3d"
+                ],
+                [
+                  "abefd1e14237211e1b95260b71d01f8930c69ffaf9c5a5982486e9d8e6103d52",
+                  "8f8573eec16ef9fbfb3076d606ed7e8330441efa6649e045d69590e37c061444",
+                  "1ca697c630e6c4880ca6bd21ff8d2b37e86c4901b2590353bac18543f23cc371",
+                  "d89337688ad66384a440c8460271e01cfad1f84435a882182bef4ff85b538a9a"
+                ]
+              ],
+              [
+                [
+                  "e265a0c624aca13d860983e8099b4ab32092416a230871db44e47afc5f7447ca",
+                  "dd75b6e6f16af8a37c155ba6998139556800efa7d907c60c0deb136d42b1fb77",
+                  "1389767c0fc3c221aa50a01f4296364271590aca89e8eb2f745e0cb0016d9f6d",
+                  "f0911fb68bbdba59a6e697d53bc704c0f1a76e333d9114116f86fba157a0ab7c"
+                ],
+                [
+                  "af87c8b70471bb99d49bc8c6756671b680344166d4a886a999679344f7aed4e3",
+                  "c89b1134a7b2766177dfa22d633ac117926e48f2200336244f381cf0b24a64fa",
+                  "ed28c8ad4165c6ace4b69d06cbd8baa1b4db90a62dd18b779378d006f11da0bb",
+                  "56fc78429fce435cfb84e4ffe1510a1c260605e1854896d16c5e420ae7b50b5a"
+                ]
+              ],
+              [
+                [
+                  "d290bb50e88661324048ac879d229840e3d8419fb42fbbf2d81e9989e09d6fe6",
+                  "024a16654570f8a7de1803327506bf6e2b40f23c463bfaaf0f5489fcfae299b0",
+                  "70c5386b2e6439c0909d23350832a7c1f18375dd08bb65671209b890a6ec9ca3",
+                  "e3cdc6f27a402ce94c27f0288034c56c07d5399f0b3f0a3c2634861a89d300da"
+                ],
+                [
+                  "f7a3d93829598e10d1ca260f8102a86cd401747f8c5445cdb408cc896b367d73",
+                  "2bd260366a1e06c4442c361d9c9cd55a3259172ac4dc7f0d5864919ad46c19e3",
+                  "290b2e4c1617e36763c6fd27ad2bf6ec8e7ab04a870a1c15fa779a9c5f419b14",
+                  "32f8fd6ad0e80d06d043b1af7a5e865310bd9491c4ab73b893114c1b41e17b5e"
+                ]
+              ],
+              [
+                [
+                  "7999770e07e11cbf5b9b4e50416c5fcbe0a049c2115b1b9dd07ca3bb5710410a",
+                  "526a6e07d7a015653af3038e47abc931ad1cddf7b14c07f35addd9c1058b6ea2",
+                  "62f26c4ac100db8c441ab46cf6d04e17cfe72d1bdaddf800997c18e0f97830cf",
+                  "6c61e13165f5cbcc8b4082470f67f8921aaaa54917265a3c56f7b78d674b0ba3"
+                ],
+                [
+                  "3251c6a6ca54e5117d141b08652643257d32ebb02eac48ed40a7e382df4c6cf5",
+                  "4dcb06a2ab5fca65b9818145f02a63653e76cf48b8b4da35b1f0ac0304c48871",
+                  "132e91ceb74bab8fc86a3b318dc8c078ac634a4f23093392d3b7e9d1477a58f6",
+                  "6842349b1ba4b68ad5ea4caa738c8f943374b4233cf50f15857f214836445312"
+                ]
+              ],
+              [
+                [
+                  "2bdbd43393fbca0f1773a1c069dd0aff59e6c04f0f275ecc1c6c030cf0a95387",
+                  "5c18881f064d3e8d31358327dec4bfa4a896e62c9f935c707443d4c0e27d7908",
+                  "1cfae98af4a1d1617ba4aa3c11a631dbd031e911615a5e410769e43fa77f3b4a",
+                  "8700988cdaa83aa6f674f5d212000cc50958b6c603a5b1c71d8b2708e2c8e4bc"
+                ],
+                [
+                  "661fff2398f185e058f18c2fcb9b1e3e58612f8df9aacc520a02a723b5517700",
+                  "e5e6924d8fb80e38c207270c93a2adecc4d7319ad4fc63cde7d85145d4e7d373",
+                  "ecb83bdf66ae697b8ea21c5e3290905e8b650ebd7697f87404edc53a361991c1",
+                  "4984a5f91dce8c3d54f5ad74adcc611123327a7bee322a812e40734238c65ce4"
+                ]
+              ],
+              [
+                [
+                  "9022609d5576013b9efc293665b3e90cb866aac930dd6ec243bd7653d90a6ad4",
+                  "87c38c239a691730098fe26815db8cb0a583418d279424d0db6ae4fdcd2510f4",
+                  "b8225e660de3230734b8b3648747da72e407aee598c5bd9a0f3402a2602116ae",
+                  "87a7c6f41ed2991dcdebfe2bf5bf14eb2a7a9be488a4e9ca0be2301fe0de5e60"
+                ],
+                [
+                  "1160b0e402cb1bb86c91cbee03fb51ddd4ff72cd342130aebdc880144a8500e8",
+                  "a6d1d699fa0883871c6a91fdc0ae836e02f496bad1ff25921334be7232c4e35f",
+                  "a8ec887ec2876d2eb36b28d9eb5cd3f704f04bc327fba2a3852ceca05a813c1b",
+                  "994431c7e73400f00b2290d71a8eaa655e4553b5ddeb8eaa631018a9fb7504e5"
+                ]
+              ],
+              [
+                [
+                  "243d0e8684c740501b8b5d2b671b3b4f741b9ca960546a23ef29fe0fa24b9e01",
+                  "c18b5ee83dcd2150a5e576c1d8e14c5315cd97ac4fa0803a7926e64a955c6a33",
+                  "13ae16e7db1d8b229b6fe0e42089e611424f788f5a2c3bd0bea68f5e80edcdaa",
+                  "4f2d09d65b3986ce1d4bf2b075a6bc9befb009d3958d44965bcefa7bcfbe020b"
+                ],
+                [
+                  "e6f7b64e1824821c794967acbc1e0db350cded598094d46cb7b29dd82a0267a9",
+                  "30f5f6503a9473571b83f1cb660c27d7818bb0024f943591faf8d337de1254fb",
+                  "31938bc8675e86dbda630eae71386c5487767c562a69bb24c4b19b6bacf6808d",
+                  "5212b538fa9170c8bd3d82ffa430a31e7a9a7869c2a8e8fdead0616fdacec281"
+                ]
+              ]
+            ],
+            "source_spec_sha256": "2636be904fc17ad6947c9a1e150334592e7192a252ee534bedbc0c1f9363e699",
+            "batch_sha256": "843905d9d23c44281b3d9218354d09b882f4d7c9ec536d254de572cd6f5ca26d",
+            "coverage_status": "SOME_ARMS_UNSUPPORTED",
+            "verification_status": "VERIFIED",
+            "contract_version": "randomized-network-full-arm-batch-v1",
+            "estimation_request": null
+          },
+          "a4_source": {
+            "source_id": "reviewed_effect_source_0",
+            "operator": "NODE_FULL_LAW",
+            "provenance": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402",
+            "admission": "ADMITTED",
+            "availability": "SYMBOLIC_POPULATION_OPERATOR",
+            "regime": "experimental",
+            "source_spec_fingerprint": "2636be904fc17ad6947c9a1e150334592e7192a252ee534bedbc0c1f9363e699",
+            "network_fingerprint": "41b0b8c2403f61ed34297d04a7c34e9690afb93d0e95a536043b7e305420eeef",
+            "assignment_law_fingerprint": "7ed18ab5f62af62c53a0854b3328df30220e9075c3e8a96edfcbcd6949c57b88",
+            "node_order": [
+              "甲1",
+              "甲2",
+              "甲3",
+              "甲4",
+              "乙1",
+              "乙2",
+              "乙3",
+              "乙4"
+            ],
+            "context": "W",
+            "outcome": "outcome",
+            "outcome_averaging": "population_conditional_mean_given_W",
+            "outcome_nodes": [
+              "甲1",
+              "甲2",
+              "甲3",
+              "甲4",
+              "乙1",
+              "乙2",
+              "乙3",
+              "乙4"
+            ],
+            "exposure_fingerprint": null,
+            "arm_cells": [],
+            "assignment_cells": []
+          },
+          "requests": [
+            {
+              "kind": "SPILLOVER",
+              "node_weights": [
+                [
+                  "甲1",
+                  "1/8"
+                ],
+                [
+                  "甲2",
+                  "1/8"
+                ],
+                [
+                  "甲3",
+                  "1/8"
+                ],
+                [
+                  "甲4",
+                  "1/8"
+                ],
+                [
+                  "乙1",
+                  "1/8"
+                ],
+                [
+                  "乙2",
+                  "1/8"
+                ],
+                [
+                  "乙3",
+                  "1/8"
+                ],
+                [
+                  "乙4",
+                  "1/8"
+                ]
+              ],
+              "reference_exposure": 1,
+              "comparison_exposure": 3,
+              "spillover_own_treatment": 0,
+              "cohort_authority": "TRUSTED_FIXTURE",
+              "cohort_evidence": "Reviewed fixed evaluation population: src_88e9a3da05443fdcf3e4f8e4f68506383262f5bc0f9ea1028f01deade643c557"
+            }
+          ],
+          "results": [
+            {
+              "source_batch": {
+                "template": {
+                  "name": "D6-E4 arm mean: node=甲1, a=0, s=3",
+                  "target_id": "randomized-network-arm-甲1-0-3-E4",
+                  "estimand": "NETWORK_RANDOMIZED_ARM_MEAN",
+                  "target_semantics": "design_standardized_conditional_arm_mean_not_fixed_assignment",
+                  "node_ids": [
+                    "甲1",
+                    "甲2",
+                    "甲3",
+                    "甲4",
+                    "乙1",
+                    "乙2",
+                    "乙3",
+                    "乙4"
+                  ],
+                  "adjacency": [
+                    [
+                      0,
+                      1,
+                      1,
+                      1,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      1,
+                      0,
+                      1,
+                      1,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      1,
+                      1,
+                      0,
+                      1,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      1,
+                      1,
+                      1,
+                      0,
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      0,
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      1,
+                      0,
+                      1,
+                      1
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      1,
+                      1,
+                      0,
+                      1
+                    ],
+                    [
+                      0,
+                      0,
+                      0,
+                      0,
+                      1,
+                      1,
+                      1,
+                      0
+                    ]
+                  ],
+                  "assignment_design": {
+                    "design_type": "randomized_experiment",
+                    "assignment_scheme": "two_stage_quota_mixture",
+                    "groups": [
+                      [
+                        "乙1",
+                        "乙2",
+                        "乙3",
+                        "乙4"
+                      ],
+                      [
+                        "甲1",
+                        "甲2",
+                        "甲3",
+                        "甲4"
+                      ]
+                    ],
+                    "quota_profiles": [
+                      [
+                        1,
+                        3
+                      ],
+                      [
+                        3,
+                        1
+                      ]
+                    ],
+                    "profile_probabilities": [
+                      "1/2",
+                      "1/2"
+                    ]
+                  },
+                  "exposure_definition": "exact_treated_neighbor_count",
+                  "outcome_kind": "binary",
+                  "x": null,
+                  "treatment": null,
+                  "outcome": null,
+                  "assumptions": [],
+                  "identification_spec": {
+                    "causal_semantics": "potential_outcomes",
+                    "structure": {
+                      "representation_type": "fixed_network_interference",
+                      "variables": [
+                        "treatment",
+                        "exact_count_exposure",
+                        "outcome",
+                        "context"
+                      ],
+                      "directed_edges": [],
+                      "bidirected_edges": [],
+                      "source": "human_specified",
+                      "notes": "Unit-level fixed network; no variable-level causal DAG required."
+                    },
+                    "network_exposure": {
+                      "network_id": "effect_5f5f276e58aaccaaeb212236e6b09414c901de013529acc692add8be594731e0",
+                      "node_ids": [
+                        "甲1",
+                        "甲2",
+                        "甲3",
+                        "甲4",
+                        "乙1",
+                        "乙2",
+                        "乙3",
+                        "乙4"
+                      ],
+                      "undirected_edges": [
+                        [
+                          "甲1",
+                          "甲2"
+                        ],
+                        [
+                          "甲1",
+                          "甲3"
+                        ],
+                        [
+                          "甲1",
+                          "甲4"
+                        ],
+                        [
+                          "甲2",
+                          "甲3"
+                        ],
+                        [
+                          "甲2",
+                          "甲4"
+                        ],
+                        [
+                          "甲3",
+                          "甲4"
+                        ],
+                        [
+                          "乙1",
+                          "乙2"
+                        ],
+                        [
+                          "乙1",
+                          "乙3"
+                        ],
+                        [
+                          "乙1",
+                          "乙4"
+                        ],
+                        [
+                          "乙2",
+                          "乙3"
+                        ],
+                        [
+                          "乙2",
+                          "乙4"
+                        ],
+                        [
+                          "乙3",
+                          "乙4"
+                        ]
+                      ],
+                      "exposure_mapping": "treated_neighbor_count_1hop",
+                      "fixed_network": true
+                    },
+                    "exposure_mapping_claim": "UNSPECIFIED",
+                    "exposure_uncertainty": null,
+                    "interference_structure_receipt": {
+                      "contract_version": "interference-structure-v2",
+                      "provider_id": "declared_fixed_network_grouping_v1",
+                      "source_status": "SYNTHETIC_GROUND_TRUTH",
+                      "analysis_status": "ACCEPTED_AS_ASSUMPTION",
+                      "semantic_fingerprint": "df9c427246bd41da4e91de43ba5782d10f03e3c5372f927010b4c7ad25e6ca11",
+                      "provenance": {
+                        "source": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                      },
+                      "qualification_evidence": [
+                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                      ]
+                    },
+                    "reference_exposure_propensity_upper_bound_fact": null,
+                    "majority_response_theorem_contract": null,
+                    "randomized_network_arm_theorem_contract": {
+                      "version": "randomized-network-arm-mean-theorem-v1",
+                      "design": {
+                        "kind": "two_stage_quota_mixture_binary_v2_7",
+                        "groups": [
+                          [
+                            "乙1",
+                            "乙2",
+                            "乙3",
+                            "乙4"
+                          ],
+                          [
+                            "甲1",
+                            "甲2",
+                            "甲3",
+                            "甲4"
+                          ]
+                        ],
+                        "quota_profiles": [
+                          [
+                            1,
+                            3
+                          ],
+                          [
+                            3,
+                            1
+                          ]
+                        ],
+                        "profile_probabilities": [
+                          "1/2",
+                          "1/2"
+                        ]
+                      },
+                      "grouping": "exact_treated_neighbor_count",
+                      "target": "design_standardized_conditional_arm_mean",
+                      "information": "node_conditional_arm_mean_of_experimental_law"
+                    },
+                    "network_policy_mixture_theorem_contract": null,
+                    "network_policy_mixture_assignment_design": null,
+                    "network_policy_mixture_information_contract": null,
+                    "network_policy_mixture_population_facts": null,
+                    "deterministic_policy_oracle": null,
+                    "variable_domains": {
+                      "treatment": {
+                        "kind": "binary",
+                        "values": [
+                          0,
+                          1
+                        ],
+                        "lower": 0.0,
+                        "upper": 1.0
+                      },
+                      "outcome": {
+                        "kind": "binary",
+                        "values": [
+                          0,
+                          1
+                        ],
+                        "lower": 0.0,
+                        "upper": 1.0
+                      }
+                    },
+                    "assumptions": [
+                      {
+                        "name": "known_assignment_law",
+                        "source": "study_protocol",
+                        "confirmed": true,
+                        "status": "CERTIFIED",
+                        "evidence": [
+                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                        ],
+                        "details": "Known exact first-stage lottery among 2 quota profiles; given profile, independent uniform fixed quotas in 2 groups; marginal assignment law mixes group quotas. Direct first-stage outcome effects are separately excluded by an explicit A5 scientific admission. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                      },
+                      {
+                        "name": "full_vector_randomization",
+                        "source": "study_protocol",
+                        "confirmed": true,
+                        "status": "CERTIFIED",
+                        "evidence": [
+                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                        ],
+                        "details": "The complete assignment vector is randomized independently of the full potential-outcome schedule conditional on W. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                      },
+                      {
+                        "name": "consistency",
+                        "source": "demo_specification",
+                        "confirmed": true,
+                        "status": "CERTIFIED",
+                        "evidence": [
+                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                        ],
+                        "details": "The observed outcome equals Y_i(T) at the realized full assignment; no exposure-sufficiency condition. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                      },
+                      {
+                        "name": "fixed_pretreatment_network",
+                        "source": "study_protocol",
+                        "confirmed": true,
+                        "status": "CERTIFIED",
+                        "evidence": [
+                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                        ],
+                        "details": "The fixed network and one-hop neighbor-count signature were defined before treatment. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                      },
+                      {
+                        "name": "finite_conditional_first_moments",
+                        "source": "deterministic_derivation",
+                        "confirmed": true,
+                        "status": "DERIVED",
+                        "evidence": [
+                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                        ],
+                        "details": "Relevant potential-outcome absolute first moments are finite conditional on W. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                      },
+                      {
+                        "name": "first_stage_profile_no_direct_outcome_effect",
+                        "source": "demo_specification",
+                        "confirmed": true,
+                        "status": "CERTIFIED",
+                        "evidence": [
+                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                        ],
+                        "details": "Scientifically accepted exclusion: given final treatment vector, the publicly assigned stage-one quota profile has no independent effect on outcomes; no profile-dependent versions of treatment. Software does not verify this scientific premise. Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                      }
+                    ],
+                    "assumption_conflicts": [],
+                    "information_signature": {
+                      "objects": [
+                        {
+                          "name": "P_exp(Y_i,T_i,S_i|W,G)",
+                          "regime": "experimental",
+                          "variables": [
+                            "treatment",
+                            "exact_count_exposure",
+                            "outcome",
+                            "context"
+                          ],
+                          "description": "Explicitly declared complete node/arm POPULATION conditional means; not actual finite-sample measurements or a fitted estimator.",
+                          "basis": null,
+                          "joint_scope": null,
+                          "outcome_representation": null,
+                          "whole_network_assignment_law_available": null,
+                          "randomized_arm_observable": {
+                            "operator": "NODE_ARM_MEANS",
+                            "source_id": "official_randomized_arm_task_constructor_v21",
+                            "provenance": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402: Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a",
+                            "admission": "CERTIFIED",
+                            "availability": "SYMBOLIC_POPULATION_OPERATOR",
+                            "node_order": [
+                              "甲1",
+                              "甲2",
+                              "甲3",
+                              "甲4",
+                              "乙1",
+                              "乙2",
+                              "乙3",
+                              "乙4"
+                            ],
+                            "outcome_nodes": [
+                              "甲1",
+                              "甲2",
+                              "甲3",
+                              "甲4",
+                              "乙1",
+                              "乙2",
+                              "乙3",
+                              "乙4"
+                            ],
+                            "treatment": "treatment",
+                            "outcome": "outcome",
+                            "context_symbol": "W",
+                            "network_fingerprint": "41b0b8c2403f61ed34297d04a7c34e9690afb93d0e95a536043b7e305420eeef",
+                            "assignment_law_fingerprint": "7ed18ab5f62af62c53a0854b3328df30220e9075c3e8a96edfcbcd6949c57b88",
+                            "exposure_fingerprint": "62310cbb19447ecbdbdfb7b52e022a47b9b95154d1daff97f5a77d4dd092d482",
+                            "arm_coverage": "ALL_NODE_ARMS",
+                            "arm_cells": []
+                          }
+                        }
+                      ]
+                    },
+                    "query": {
+                      "type": "NETWORK_RANDOMIZED_ARM_MEAN",
+                      "treatment": "treatment",
+                      "outcome": "outcome",
+                      "expression": "NETWORK_RANDOMIZED_ARM_MEAN[outcome;treatment|node=甲1;a=0;s=3;design_averaged;target=f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21]",
+                      "target_population": "fixed_network_conditional_context",
+                      "conditioning_variables": [],
+                      "reference_exposure_definition": "treated_neighbor_count_1hop_exact",
+                      "target_exposure_semantics": "design_averaged_randomized_arm_mean",
+                      "exposure_value": 3,
+                      "target_node_id": "甲1",
+                      "own_treatment_value": 0,
+                      "policy_description": null,
+                      "policy_fingerprint": null,
+                      "response_target_fingerprint": "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21",
+                      "evidence": [
+                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                      ],
+                      "confidence": 1.0,
+                      "alternatives": [],
+                      "resolution": "RESOLVED",
+                      "authority": "TRUSTED_FIXTURE",
+                      "interpretation_notes": "Single node/arm design-standardized mean under the original two-stage pretreatment quota-profile mixture law conditioned on own treatment and exact treated-neighbor count. No exposure sufficiency or fixed-allocation policy welfare is asserted."
+                    },
+                    "support_domain": {
+                      "analysis_unit": [
+                        "node"
+                      ],
+                      "context_symbol": "W",
+                      "context_semantics": "full_pretreatment_network_context",
+                      "target_context_distribution": "conditional_not_transport"
+                    },
+                    "provenance": {
+                      "mode": "synthetic_source_contract",
+                      "source": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402",
+                      "population_values": "not_supplied",
+                      "finite_sample_status": "not_used_to_confirm_causal_assumptions"
+                    }
+                  },
+                  "target_fingerprint": "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21",
+                  "budget": null,
+                  "budget_mode": "at_most",
+                  "metadata": {
+                    "setting": "D6xE4",
+                    "source": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402",
+                    "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                  }
+                },
+                "anchor": {
+                  "task": {
+                    "name": "D6-E4 arm mean: node=甲1, a=0, s=3",
+                    "target_id": "randomized-network-arm-甲1-0-3-E4",
+                    "estimand": "NETWORK_RANDOMIZED_ARM_MEAN",
+                    "target_semantics": "design_standardized_conditional_arm_mean_not_fixed_assignment",
+                    "node_ids": [
+                      "甲1",
+                      "甲2",
+                      "甲3",
+                      "甲4",
+                      "乙1",
+                      "乙2",
+                      "乙3",
+                      "乙4"
+                    ],
+                    "adjacency": [
+                      [
+                        0,
+                        1,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0
+                      ],
+                      [
+                        1,
+                        0,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0
+                      ],
+                      [
+                        1,
+                        1,
+                        0,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0
+                      ],
+                      [
+                        1,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                      ],
+                      [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        1,
+                        1
+                      ],
+                      [
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        1,
+                        1
+                      ],
+                      [
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        1,
+                        0,
+                        1
+                      ],
+                      [
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        1,
+                        1,
+                        0
+                      ]
+                    ],
+                    "assignment_design": {
+                      "design_type": "randomized_experiment",
+                      "assignment_scheme": "two_stage_quota_mixture",
+                      "groups": [
+                        [
+                          "乙1",
+                          "乙2",
+                          "乙3",
+                          "乙4"
+                        ],
+                        [
+                          "甲1",
+                          "甲2",
+                          "甲3",
+                          "甲4"
+                        ]
+                      ],
+                      "quota_profiles": [
+                        [
+                          1,
+                          3
+                        ],
+                        [
+                          3,
+                          1
+                        ]
+                      ],
+                      "profile_probabilities": [
+                        "1/2",
+                        "1/2"
+                      ]
+                    },
+                    "exposure_definition": "exact_treated_neighbor_count",
+                    "outcome_kind": "binary",
+                    "x": null,
+                    "treatment": null,
+                    "outcome": null,
+                    "assumptions": [],
+                    "identification_spec": {
+                      "causal_semantics": "potential_outcomes",
+                      "structure": {
+                        "representation_type": "fixed_network_interference",
+                        "variables": [
+                          "treatment",
+                          "exact_count_exposure",
+                          "outcome",
+                          "context"
+                        ],
+                        "directed_edges": [],
+                        "bidirected_edges": [],
+                        "source": "human_specified",
+                        "notes": "Unit-level fixed network; no variable-level causal DAG required."
+                      },
+                      "network_exposure": {
+                        "network_id": "effect_5f5f276e58aaccaaeb212236e6b09414c901de013529acc692add8be594731e0",
+                        "node_ids": [
+                          "甲1",
+                          "甲2",
+                          "甲3",
+                          "甲4",
+                          "乙1",
+                          "乙2",
+                          "乙3",
+                          "乙4"
+                        ],
+                        "undirected_edges": [
+                          [
+                            "甲1",
+                            "甲2"
+                          ],
+                          [
+                            "甲1",
+                            "甲3"
+                          ],
+                          [
+                            "甲1",
+                            "甲4"
+                          ],
+                          [
+                            "甲2",
+                            "甲3"
+                          ],
+                          [
+                            "甲2",
+                            "甲4"
+                          ],
+                          [
+                            "甲3",
+                            "甲4"
+                          ],
+                          [
+                            "乙1",
+                            "乙2"
+                          ],
+                          [
+                            "乙1",
+                            "乙3"
+                          ],
+                          [
+                            "乙1",
+                            "乙4"
+                          ],
+                          [
+                            "乙2",
+                            "乙3"
+                          ],
+                          [
+                            "乙2",
+                            "乙4"
+                          ],
+                          [
+                            "乙3",
+                            "乙4"
+                          ]
+                        ],
+                        "exposure_mapping": "treated_neighbor_count_1hop",
+                        "fixed_network": true
+                      },
+                      "exposure_mapping_claim": "UNSPECIFIED",
+                      "exposure_uncertainty": null,
+                      "interference_structure_receipt": {
+                        "contract_version": "interference-structure-v2",
+                        "provider_id": "declared_fixed_network_grouping_v1",
+                        "source_status": "SYNTHETIC_GROUND_TRUTH",
+                        "analysis_status": "ACCEPTED_AS_ASSUMPTION",
+                        "semantic_fingerprint": "df9c427246bd41da4e91de43ba5782d10f03e3c5372f927010b4c7ad25e6ca11",
+                        "provenance": {
+                          "source": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                        },
+                        "qualification_evidence": [
+                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                        ]
+                      },
+                      "reference_exposure_propensity_upper_bound_fact": null,
+                      "majority_response_theorem_contract": null,
+                      "randomized_network_arm_theorem_contract": {
+                        "version": "randomized-network-arm-mean-theorem-v1",
+                        "design": {
+                          "kind": "two_stage_quota_mixture_binary_v2_7",
+                          "groups": [
+                            [
+                              "乙1",
+                              "乙2",
+                              "乙3",
+                              "乙4"
+                            ],
+                            [
+                              "甲1",
+                              "甲2",
+                              "甲3",
+                              "甲4"
+                            ]
+                          ],
+                          "quota_profiles": [
+                            [
+                              1,
+                              3
+                            ],
+                            [
+                              3,
+                              1
+                            ]
+                          ],
+                          "profile_probabilities": [
+                            "1/2",
+                            "1/2"
+                          ]
+                        },
+                        "grouping": "exact_treated_neighbor_count",
+                        "target": "design_standardized_conditional_arm_mean",
+                        "information": "node_conditional_arm_mean_of_experimental_law"
+                      },
+                      "network_policy_mixture_theorem_contract": null,
+                      "network_policy_mixture_assignment_design": null,
+                      "network_policy_mixture_information_contract": null,
+                      "network_policy_mixture_population_facts": null,
+                      "deterministic_policy_oracle": null,
+                      "variable_domains": {
+                        "treatment": {
+                          "kind": "binary",
+                          "values": [
+                            0,
+                            1
+                          ],
+                          "lower": 0.0,
+                          "upper": 1.0
+                        },
+                        "outcome": {
+                          "kind": "binary",
+                          "values": [
+                            0,
+                            1
+                          ],
+                          "lower": 0.0,
+                          "upper": 1.0
+                        }
+                      },
+                      "assumptions": [
+                        {
+                          "name": "known_assignment_law",
+                          "source": "study_protocol",
+                          "confirmed": true,
+                          "status": "CERTIFIED",
+                          "evidence": [
+                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                          ],
+                          "details": "Known exact first-stage lottery among 2 quota profiles; given profile, independent uniform fixed quotas in 2 groups; marginal assignment law mixes group quotas. Direct first-stage outcome effects are separately excluded by an explicit A5 scientific admission. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                        },
+                        {
+                          "name": "full_vector_randomization",
+                          "source": "study_protocol",
+                          "confirmed": true,
+                          "status": "CERTIFIED",
+                          "evidence": [
+                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                          ],
+                          "details": "The complete assignment vector is randomized independently of the full potential-outcome schedule conditional on W. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                        },
+                        {
+                          "name": "consistency",
+                          "source": "demo_specification",
+                          "confirmed": true,
+                          "status": "CERTIFIED",
+                          "evidence": [
+                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                          ],
+                          "details": "The observed outcome equals Y_i(T) at the realized full assignment; no exposure-sufficiency condition. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                        },
+                        {
+                          "name": "fixed_pretreatment_network",
+                          "source": "study_protocol",
+                          "confirmed": true,
+                          "status": "CERTIFIED",
+                          "evidence": [
+                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                          ],
+                          "details": "The fixed network and one-hop neighbor-count signature were defined before treatment. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                        },
+                        {
+                          "name": "finite_conditional_first_moments",
+                          "source": "deterministic_derivation",
+                          "confirmed": true,
+                          "status": "DERIVED",
+                          "evidence": [
+                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                          ],
+                          "details": "Relevant potential-outcome absolute first moments are finite conditional on W. Source: Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                        },
+                        {
+                          "name": "first_stage_profile_no_direct_outcome_effect",
+                          "source": "demo_specification",
+                          "confirmed": true,
+                          "status": "CERTIFIED",
+                          "evidence": [
+                            "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                          ],
+                          "details": "Scientifically accepted exclusion: given final treatment vector, the publicly assigned stage-one quota profile has no independent effect on outcomes; no profile-dependent versions of treatment. Software does not verify this scientific premise. Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402"
+                        }
+                      ],
+                      "assumption_conflicts": [],
+                      "information_signature": {
+                        "objects": [
+                          {
+                            "name": "P_exp(Y_i,T_i,S_i|W,G)",
+                            "regime": "experimental",
+                            "variables": [
+                              "treatment",
+                              "exact_count_exposure",
+                              "outcome",
+                              "context"
+                            ],
+                            "description": "Explicitly declared complete node/arm POPULATION conditional means; not actual finite-sample measurements or a fitted estimator.",
+                            "basis": null,
+                            "joint_scope": null,
+                            "outcome_representation": null,
+                            "whole_network_assignment_law_available": null,
+                            "randomized_arm_observable": {
+                              "operator": "NODE_ARM_MEANS",
+                              "source_id": "official_randomized_arm_task_constructor_v21",
+                              "provenance": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402: Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a",
+                              "admission": "CERTIFIED",
+                              "availability": "SYMBOLIC_POPULATION_OPERATOR",
+                              "node_order": [
+                                "甲1",
+                                "甲2",
+                                "甲3",
+                                "甲4",
+                                "乙1",
+                                "乙2",
+                                "乙3",
+                                "乙4"
+                              ],
+                              "outcome_nodes": [
+                                "甲1",
+                                "甲2",
+                                "甲3",
+                                "甲4",
+                                "乙1",
+                                "乙2",
+                                "乙3",
+                                "乙4"
+                              ],
+                              "treatment": "treatment",
+                              "outcome": "outcome",
+                              "context_symbol": "W",
+                              "network_fingerprint": "41b0b8c2403f61ed34297d04a7c34e9690afb93d0e95a536043b7e305420eeef",
+                              "assignment_law_fingerprint": "7ed18ab5f62af62c53a0854b3328df30220e9075c3e8a96edfcbcd6949c57b88",
+                              "exposure_fingerprint": "62310cbb19447ecbdbdfb7b52e022a47b9b95154d1daff97f5a77d4dd092d482",
+                              "arm_coverage": "ALL_NODE_ARMS",
+                              "arm_cells": []
+                            }
+                          }
+                        ]
+                      },
+                      "query": {
+                        "type": "NETWORK_RANDOMIZED_ARM_MEAN",
+                        "treatment": "treatment",
+                        "outcome": "outcome",
+                        "expression": "NETWORK_RANDOMIZED_ARM_MEAN[outcome;treatment|node=甲1;a=0;s=3;design_averaged;target=f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21]",
+                        "target_population": "fixed_network_conditional_context",
+                        "conditioning_variables": [],
+                        "reference_exposure_definition": "treated_neighbor_count_1hop_exact",
+                        "target_exposure_semantics": "design_averaged_randomized_arm_mean",
+                        "exposure_value": 3,
+                        "target_node_id": "甲1",
+                        "own_treatment_value": 0,
+                        "policy_description": null,
+                        "policy_fingerprint": null,
+                        "response_target_fingerprint": "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21",
+                        "evidence": [
+                          "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                        ],
+                        "confidence": 1.0,
+                        "alternatives": [],
+                        "resolution": "RESOLVED",
+                        "authority": "TRUSTED_FIXTURE",
+                        "interpretation_notes": "Single node/arm design-standardized mean under the original two-stage pretreatment quota-profile mixture law conditioned on own treatment and exact treated-neighbor count. No exposure sufficiency or fixed-allocation policy welfare is asserted."
+                      },
+                      "support_domain": {
+                        "analysis_unit": [
+                          "node"
+                        ],
+                        "context_symbol": "W",
+                        "context_semantics": "full_pretreatment_network_context",
+                        "target_context_distribution": "conditional_not_transport"
+                      },
+                      "provenance": {
+                        "mode": "synthetic_source_contract",
+                        "source": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402",
+                        "population_values": "not_supplied",
+                        "finite_sample_status": "not_used_to_confirm_causal_assumptions"
+                      }
+                    },
+                    "target_fingerprint": "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21",
+                    "budget": null,
+                    "budget_mode": "at_most",
+                    "metadata": {
+                      "setting": "D6xE4",
+                      "source": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402",
+                      "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                    }
+                  },
+                  "result": {
+                    "status": "POINT",
+                    "query": {
+                      "type": "NETWORK_RANDOMIZED_ARM_MEAN",
+                      "treatment": "treatment",
+                      "outcome": "outcome",
+                      "expression": "NETWORK_RANDOMIZED_ARM_MEAN[outcome;treatment|node=甲1;a=0;s=3;design_averaged;target=f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21]",
+                      "target_population": "fixed_network_conditional_context",
+                      "conditioning_variables": [],
+                      "reference_exposure_definition": "treated_neighbor_count_1hop_exact",
+                      "target_exposure_semantics": "design_averaged_randomized_arm_mean",
+                      "exposure_value": 3,
+                      "target_node_id": "甲1",
+                      "own_treatment_value": 0,
+                      "policy_description": null,
+                      "policy_fingerprint": null,
+                      "response_target_fingerprint": "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21",
+                      "evidence": [
+                        "Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=f9a053d21d18f64b6047f2b9a04c7e39ba5abff7cb2654427f73a01076f61e6a"
+                      ],
+                      "confidence": 1.0,
+                      "alternatives": [],
+                      "resolution": "RESOLVED",
+                      "authority": "TRUSTED_FIXTURE",
+                      "interpretation_notes": "Single node/arm design-standardized mean under the original two-stage pretreatment quota-profile mixture law conditioned on own treatment and exact treated-neighbor count. No exposure sufficiency or fixed-allocation policy welfare is asserted."
+                    },
+                    "backend": "randomized_network_arm_mean_v1",
+                    "identified_functional": {
+                      "kind": "randomized_network_design_standardized_arm_mean",
+                      "node_id": "甲1",
+                      "own_treatment_value": 0,
+                      "exposure_value": 3,
+                      "treatment": "treatment",
+                      "outcome": "outcome",
+                      "target_fingerprint": "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21",
+                      "network_fingerprint": "41b0b8c2403f61ed34297d04a7c34e9690afb93d0e95a536043b7e305420eeef",
+                      "assignment_kind": "two_stage_quota_mixture",
+                      "treated_quota": null,
+                      "group_node_ids": null,
+                      "group_treated_quotas": null,
+                      "two_stage_group_node_ids": [
+                        [
+                          "乙1",
+                          "乙2",
+                          "乙3",
+                          "乙4"
+                        ],
+                        [
+                          "甲1",
+                          "甲2",
+                          "甲3",
+                          "甲4"
+                        ]
+                      ],
+                      "two_stage_quota_profiles": [
+                        [
+                          1,
+                          3
+                        ],
+                        [
+                          3,
+                          1
+                        ]
+                      ],
+                      "two_stage_profile_probabilities": [
+                        "1/2",
+                        "1/2"
+                      ],
+                      "grouping": "S_i=K_i;exact treated one-hop neighbor count",
+                      "functional": "mu_i^q(a,s|W)=E_exp[Y_i^obs|W,T_i=a,S_i=s]",
+                      "semantics": "design_standardized_conditional_arm_mean_not_fixed_assignment"
+                    },
+                    "bound_program": null,
+                    "set_program": null,
+                    "identified_set": null,
+                    "network_policy_mixture_proof": null,
+                    "network_exposure": {
+                      "network_id": "effect_5f5f276e58aaccaaeb212236e6b09414c901de013529acc692add8be594731e0",
+                      "node_ids": [
+                        "甲1",
+                        "甲2",
+                        "甲3",
+                        "甲4",
+                        "乙1",
+                        "乙2",
+                        "乙3",
+                        "乙4"
+                      ],
+                      "undirected_edges": [
+                        [
+                          "甲1",
+                          "甲2"
+                        ],
+                        [
+                          "甲1",
+                          "甲3"
+                        ],
+                        [
+                          "甲1",
+                          "甲4"
+                        ],
+                        [
+                          "甲2",
+                          "甲3"
+                        ],
+                        [
+                          "甲2",
+                          "甲4"
+                        ],
+                        [
+                          "甲3",
+                          "甲4"
+                        ],
+                        [
+                          "乙1",
+                          "乙2"
+                        ],
+                        [
+                          "乙1",
+                          "乙3"
+                        ],
+                        [
+                          "乙1",
+                          "乙4"
+                        ],
+                        [
+                          "乙2",
+                          "乙3"
+                        ],
+                        [
+                          "乙2",
+                          "乙4"
+                        ],
+                        [
+                          "乙3",
+                          "乙4"
+                        ]
+                      ],
+                      "exposure_mapping": "treated_neighbor_count_1hop",
+                      "fixed_network": true
+                    },
+                    "exposure_uncertainty": null,
+                    "required_population_objects": [
+                      "E_exp[outcome_i^obs | W,G,treatment_i=0,S_i=3], i=甲1"
+                    ],
+                    "estimation_nuisance_objects": [],
+                    "known_design_objects": [
+                      "known_two_stage_quota_profile_mixture(H=2, profiles=2)",
+                      "q(t|W)=sum_u pi(u|W) prod_h 1{quota_h(t)=m_h(u)}/C(n_h,m_h(u))",
+                      "profile is marginalized; direct effect of profile excluded by separate A5 license",
+                      "S_i(u)=sum_{j in N(i)}u_j;exact one-hop treated-neighbor count",
+                      "kappa_i,a,s(u|W)=q(u|W)1{u_i=a,S_i(u)=s}/pi_i(a,s|W)"
+                    ],
+                    "assumptions_used": [
+                      "known_assignment_law",
+                      "full_vector_randomization",
+                      "consistency",
+                      "fixed_pretreatment_network",
+                      "finite_conditional_first_moments",
+                      "first_stage_profile_no_direct_outcome_effect"
+                    ],
+                    "validity_domain": {
+                      "network_fingerprint": "41b0b8c2403f61ed34297d04a7c34e9690afb93d0e95a536043b7e305420eeef",
+                      "target_fingerprint": "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21",
+                      "context": "full_pretreatment_network_context",
+                      "population_information_basis": "node_conditional_arm_mean_of_experimental_law",
+                      "target_semantics": "design_standardized_conditional_arm_mean_not_fixed_assignment",
+                      "query_arm_support": "1/8",
+                      "finite_sample_estimator_verified": false,
+                      "executable_estimation_adapter": false,
+                      "deterministic_policy_value_identified": false
+                    },
+                    "guarantee": "point_identified",
+                    "certificate": {
+                      "rule_id": "RANDOMIZED_NETWORK_ARM_TWO_STAGE_QUOTA_MIXTURE_V27",
+                      "version": "randomized-network-arm-two-stage-v2.7",
+                      "group_node_ids": [
+                        [
+                          "乙1",
+                          "乙2",
+                          "乙3",
+                          "乙4"
+                        ],
+                        [
+                          "甲1",
+                          "甲2",
+                          "甲3",
+                          "甲4"
+                        ]
+                      ],
+                      "quota_profiles": [
+                        [
+                          1,
+                          3
+                        ],
+                        [
+                          3,
+                          1
+                        ]
+                      ],
+                      "profile_probabilities": [
+                        "1/2",
+                        "1/2"
+                      ],
+                      "support_method": "stage_one_posterior_weighted_conditional_hypergeometric_convolution",
+                      "exposure_grouping": "exact_treated_neighbor_count",
+                      "exposure_states": [
+                        0,
+                        1,
+                        2,
+                        3
+                      ],
+                      "source_spec_sha256": "2636be904fc17ad6947c9a1e150334592e7192a252ee534bedbc0c1f9363e699",
+                      "node_degree": 3,
+                      "network_size": 8,
+                      "query_node_id": "甲1",
+                      "query_arm": [
+                        0,
+                        3
+                      ],
+                      "joint_arm_support_probability": "1/8"
+                    },
+                    "trace": [
+                      {
+                        "step": "engine_selection",
+                        "outcome": "INFO",
+                        "detail": "Selected among independently verified compatible results; informativeness is compared only after verification."
+                      },
+                      {
+                        "step": "target_semantics",
+                        "outcome": "PASS",
+                        "detail": "Condition on own treatment AND exposure under the original joint fixed-quota assignment law."
+                      },
+                      {
+                        "step": "support",
+                        "outcome": "PASS",
+                        "detail": "Exact joint arm support pi_i(a,s|W)=1/8 is positive."
+                      },
+                      {
+                        "step": "randomization_identification",
+                        "outcome": "PASS",
+                        "detail": "Full-vector randomization + consistency identify E[Y_i^obs|W,T_i=a,S_i=s] without exposure sufficiency."
+                      }
+                    ],
+                    "reason_code": null,
+                    "message": "The single queried randomized-network arm mean is POINT identified from the experimental population conditional law. This result does not certify estimation precision or deterministic rollout welfare.",
+                    "verification_status": "VERIFIED",
+                    "verification_message": "D6 verified by independent original-assignment integer polynomial counting; the first-stage no-direct-effect assumption is externally admitted, not tested."
+                  },
+                  "estimation_request": null,
+                  "diagnostics": {
+                    "workflow_status": "IDENTIFIED_NO_ESTIMATION_ADAPTER",
+                    "handoff_gap": "The randomized-network arm mean is POINT identified at population level, but the current frozen PFN has no matching estimator contract. No EstimationRequest is emitted."
+                  }
+                },
+                "node_ids": [
+                  "甲1",
+                  "甲2",
+                  "甲3",
+                  "甲4",
+                  "乙1",
+                  "乙2",
+                  "乙3",
+                  "乙4"
+                ],
+                "exposure_states": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "population_joint_support": [
+                  [
+                    [
+                      "0",
+                      "3/8",
+                      "0",
+                      "1/8"
+                    ],
+                    [
+                      "1/8",
+                      "0",
+                      "3/8",
+                      "0"
+                    ]
+                  ],
+                  [
+                    [
+                      "0",
+                      "3/8",
+                      "0",
+                      "1/8"
+                    ],
+                    [
+                      "1/8",
+                      "0",
+                      "3/8",
+                      "0"
+                    ]
+                  ],
+                  [
+                    [
+                      "0",
+                      "3/8",
+                      "0",
+                      "1/8"
+                    ],
+                    [
+                      "1/8",
+                      "0",
+                      "3/8",
+                      "0"
+                    ]
+                  ],
+                  [
+                    [
+                      "0",
+                      "3/8",
+                      "0",
+                      "1/8"
+                    ],
+                    [
+                      "1/8",
+                      "0",
+                      "3/8",
+                      "0"
+                    ]
+                  ],
+                  [
+                    [
+                      "0",
+                      "3/8",
+                      "0",
+                      "1/8"
+                    ],
+                    [
+                      "1/8",
+                      "0",
+                      "3/8",
+                      "0"
+                    ]
+                  ],
+                  [
+                    [
+                      "0",
+                      "3/8",
+                      "0",
+                      "1/8"
+                    ],
+                    [
+                      "1/8",
+                      "0",
+                      "3/8",
+                      "0"
+                    ]
+                  ],
+                  [
+                    [
+                      "0",
+                      "3/8",
+                      "0",
+                      "1/8"
+                    ],
+                    [
+                      "1/8",
+                      "0",
+                      "3/8",
+                      "0"
+                    ]
+                  ],
+                  [
+                    [
+                      "0",
+                      "3/8",
+                      "0",
+                      "1/8"
+                    ],
+                    [
+                      "1/8",
+                      "0",
+                      "3/8",
+                      "0"
+                    ]
+                  ]
+                ],
+                "arm_status": [
+                  [
+                    [
+                      "UNSUPPORTED",
+                      "POINT",
+                      "UNSUPPORTED",
+                      "POINT"
+                    ],
+                    [
+                      "POINT",
+                      "UNSUPPORTED",
+                      "POINT",
+                      "UNSUPPORTED"
+                    ]
+                  ],
+                  [
+                    [
+                      "UNSUPPORTED",
+                      "POINT",
+                      "UNSUPPORTED",
+                      "POINT"
+                    ],
+                    [
+                      "POINT",
+                      "UNSUPPORTED",
+                      "POINT",
+                      "UNSUPPORTED"
+                    ]
+                  ],
+                  [
+                    [
+                      "UNSUPPORTED",
+                      "POINT",
+                      "UNSUPPORTED",
+                      "POINT"
+                    ],
+                    [
+                      "POINT",
+                      "UNSUPPORTED",
+                      "POINT",
+                      "UNSUPPORTED"
+                    ]
+                  ],
+                  [
+                    [
+                      "UNSUPPORTED",
+                      "POINT",
+                      "UNSUPPORTED",
+                      "POINT"
+                    ],
+                    [
+                      "POINT",
+                      "UNSUPPORTED",
+                      "POINT",
+                      "UNSUPPORTED"
+                    ]
+                  ],
+                  [
+                    [
+                      "UNSUPPORTED",
+                      "POINT",
+                      "UNSUPPORTED",
+                      "POINT"
+                    ],
+                    [
+                      "POINT",
+                      "UNSUPPORTED",
+                      "POINT",
+                      "UNSUPPORTED"
+                    ]
+                  ],
+                  [
+                    [
+                      "UNSUPPORTED",
+                      "POINT",
+                      "UNSUPPORTED",
+                      "POINT"
+                    ],
+                    [
+                      "POINT",
+                      "UNSUPPORTED",
+                      "POINT",
+                      "UNSUPPORTED"
+                    ]
+                  ],
+                  [
+                    [
+                      "UNSUPPORTED",
+                      "POINT",
+                      "UNSUPPORTED",
+                      "POINT"
+                    ],
+                    [
+                      "POINT",
+                      "UNSUPPORTED",
+                      "POINT",
+                      "UNSUPPORTED"
+                    ]
+                  ],
+                  [
+                    [
+                      "UNSUPPORTED",
+                      "POINT",
+                      "UNSUPPORTED",
+                      "POINT"
+                    ],
+                    [
+                      "POINT",
+                      "UNSUPPORTED",
+                      "POINT",
+                      "UNSUPPORTED"
+                    ]
+                  ]
+                ],
+                "arm_reason": [
+                  [
+                    [
+                      "ZERO_ARM_SUPPORT",
+                      null,
+                      "ZERO_ARM_SUPPORT",
+                      null
+                    ],
+                    [
+                      null,
+                      "ZERO_ARM_SUPPORT",
+                      null,
+                      "ZERO_ARM_SUPPORT"
+                    ]
+                  ],
+                  [
+                    [
+                      "ZERO_ARM_SUPPORT",
+                      null,
+                      "ZERO_ARM_SUPPORT",
+                      null
+                    ],
+                    [
+                      null,
+                      "ZERO_ARM_SUPPORT",
+                      null,
+                      "ZERO_ARM_SUPPORT"
+                    ]
+                  ],
+                  [
+                    [
+                      "ZERO_ARM_SUPPORT",
+                      null,
+                      "ZERO_ARM_SUPPORT",
+                      null
+                    ],
+                    [
+                      null,
+                      "ZERO_ARM_SUPPORT",
+                      null,
+                      "ZERO_ARM_SUPPORT"
+                    ]
+                  ],
+                  [
+                    [
+                      "ZERO_ARM_SUPPORT",
+                      null,
+                      "ZERO_ARM_SUPPORT",
+                      null
+                    ],
+                    [
+                      null,
+                      "ZERO_ARM_SUPPORT",
+                      null,
+                      "ZERO_ARM_SUPPORT"
+                    ]
+                  ],
+                  [
+                    [
+                      "ZERO_ARM_SUPPORT",
+                      null,
+                      "ZERO_ARM_SUPPORT",
+                      null
+                    ],
+                    [
+                      null,
+                      "ZERO_ARM_SUPPORT",
+                      null,
+                      "ZERO_ARM_SUPPORT"
+                    ]
+                  ],
+                  [
+                    [
+                      "ZERO_ARM_SUPPORT",
+                      null,
+                      "ZERO_ARM_SUPPORT",
+                      null
+                    ],
+                    [
+                      null,
+                      "ZERO_ARM_SUPPORT",
+                      null,
+                      "ZERO_ARM_SUPPORT"
+                    ]
+                  ],
+                  [
+                    [
+                      "ZERO_ARM_SUPPORT",
+                      null,
+                      "ZERO_ARM_SUPPORT",
+                      null
+                    ],
+                    [
+                      null,
+                      "ZERO_ARM_SUPPORT",
+                      null,
+                      "ZERO_ARM_SUPPORT"
+                    ]
+                  ],
+                  [
+                    [
+                      "ZERO_ARM_SUPPORT",
+                      null,
+                      "ZERO_ARM_SUPPORT",
+                      null
+                    ],
+                    [
+                      null,
+                      "ZERO_ARM_SUPPORT",
+                      null,
+                      "ZERO_ARM_SUPPORT"
+                    ]
+                  ]
+                ],
+                "target_fingerprints": [
+                  [
+                    [
+                      "adaa7ed95e33f99a22c76ccddef17dbb5bee106a8e7aa9cc3dfeabfa6baa28dd",
+                      "557118bb302749341bbb186437e879d559a046d4d5941d75e54a310888bd7056",
+                      "47bff9e6fa8783349af1ebe695dbadd4ad613c349ef37ef59911068ad3b6626f",
+                      "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21"
+                    ],
+                    [
+                      "16674d29d5ae89f75faec32b4711025d0d42b1c8ed2d598a52e5328407f452da",
+                      "b286e2abe56ce3dcca4152f357045267af1690ed1831e7a52122dd6ebd15cc08",
+                      "f1cd18ea53568b0a957050ed2ebd91aecf88bbdb78c83be78e1740b28419d04d",
+                      "ca13b06e76d36422e53eee80bf6b645b718cb1470a7e81ef5c5f7af763372049"
+                    ]
+                  ],
+                  [
+                    [
+                      "dea90c6ac53c8a84cd02bd0633362e5d3088cf9b4c2517b87e3f0e7afa713883",
+                      "04040bd3ebddb3ce1aae10a57f061d108eb4eef1cbd3a0e5b0df390459db3e10",
+                      "d348c4be50b7d6c91f35bcc11f79fd2ca9deb68da51bff61ce80b4a3db621308",
+                      "f5777cc661c96eba809dc45ffc2f368cfd20cd096d89f873750ef0031db89a3d"
+                    ],
+                    [
+                      "abefd1e14237211e1b95260b71d01f8930c69ffaf9c5a5982486e9d8e6103d52",
+                      "8f8573eec16ef9fbfb3076d606ed7e8330441efa6649e045d69590e37c061444",
+                      "1ca697c630e6c4880ca6bd21ff8d2b37e86c4901b2590353bac18543f23cc371",
+                      "d89337688ad66384a440c8460271e01cfad1f84435a882182bef4ff85b538a9a"
+                    ]
+                  ],
+                  [
+                    [
+                      "e265a0c624aca13d860983e8099b4ab32092416a230871db44e47afc5f7447ca",
+                      "dd75b6e6f16af8a37c155ba6998139556800efa7d907c60c0deb136d42b1fb77",
+                      "1389767c0fc3c221aa50a01f4296364271590aca89e8eb2f745e0cb0016d9f6d",
+                      "f0911fb68bbdba59a6e697d53bc704c0f1a76e333d9114116f86fba157a0ab7c"
+                    ],
+                    [
+                      "af87c8b70471bb99d49bc8c6756671b680344166d4a886a999679344f7aed4e3",
+                      "c89b1134a7b2766177dfa22d633ac117926e48f2200336244f381cf0b24a64fa",
+                      "ed28c8ad4165c6ace4b69d06cbd8baa1b4db90a62dd18b779378d006f11da0bb",
+                      "56fc78429fce435cfb84e4ffe1510a1c260605e1854896d16c5e420ae7b50b5a"
+                    ]
+                  ],
+                  [
+                    [
+                      "d290bb50e88661324048ac879d229840e3d8419fb42fbbf2d81e9989e09d6fe6",
+                      "024a16654570f8a7de1803327506bf6e2b40f23c463bfaaf0f5489fcfae299b0",
+                      "70c5386b2e6439c0909d23350832a7c1f18375dd08bb65671209b890a6ec9ca3",
+                      "e3cdc6f27a402ce94c27f0288034c56c07d5399f0b3f0a3c2634861a89d300da"
+                    ],
+                    [
+                      "f7a3d93829598e10d1ca260f8102a86cd401747f8c5445cdb408cc896b367d73",
+                      "2bd260366a1e06c4442c361d9c9cd55a3259172ac4dc7f0d5864919ad46c19e3",
+                      "290b2e4c1617e36763c6fd27ad2bf6ec8e7ab04a870a1c15fa779a9c5f419b14",
+                      "32f8fd6ad0e80d06d043b1af7a5e865310bd9491c4ab73b893114c1b41e17b5e"
+                    ]
+                  ],
+                  [
+                    [
+                      "7999770e07e11cbf5b9b4e50416c5fcbe0a049c2115b1b9dd07ca3bb5710410a",
+                      "526a6e07d7a015653af3038e47abc931ad1cddf7b14c07f35addd9c1058b6ea2",
+                      "62f26c4ac100db8c441ab46cf6d04e17cfe72d1bdaddf800997c18e0f97830cf",
+                      "6c61e13165f5cbcc8b4082470f67f8921aaaa54917265a3c56f7b78d674b0ba3"
+                    ],
+                    [
+                      "3251c6a6ca54e5117d141b08652643257d32ebb02eac48ed40a7e382df4c6cf5",
+                      "4dcb06a2ab5fca65b9818145f02a63653e76cf48b8b4da35b1f0ac0304c48871",
+                      "132e91ceb74bab8fc86a3b318dc8c078ac634a4f23093392d3b7e9d1477a58f6",
+                      "6842349b1ba4b68ad5ea4caa738c8f943374b4233cf50f15857f214836445312"
+                    ]
+                  ],
+                  [
+                    [
+                      "2bdbd43393fbca0f1773a1c069dd0aff59e6c04f0f275ecc1c6c030cf0a95387",
+                      "5c18881f064d3e8d31358327dec4bfa4a896e62c9f935c707443d4c0e27d7908",
+                      "1cfae98af4a1d1617ba4aa3c11a631dbd031e911615a5e410769e43fa77f3b4a",
+                      "8700988cdaa83aa6f674f5d212000cc50958b6c603a5b1c71d8b2708e2c8e4bc"
+                    ],
+                    [
+                      "661fff2398f185e058f18c2fcb9b1e3e58612f8df9aacc520a02a723b5517700",
+                      "e5e6924d8fb80e38c207270c93a2adecc4d7319ad4fc63cde7d85145d4e7d373",
+                      "ecb83bdf66ae697b8ea21c5e3290905e8b650ebd7697f87404edc53a361991c1",
+                      "4984a5f91dce8c3d54f5ad74adcc611123327a7bee322a812e40734238c65ce4"
+                    ]
+                  ],
+                  [
+                    [
+                      "9022609d5576013b9efc293665b3e90cb866aac930dd6ec243bd7653d90a6ad4",
+                      "87c38c239a691730098fe26815db8cb0a583418d279424d0db6ae4fdcd2510f4",
+                      "b8225e660de3230734b8b3648747da72e407aee598c5bd9a0f3402a2602116ae",
+                      "87a7c6f41ed2991dcdebfe2bf5bf14eb2a7a9be488a4e9ca0be2301fe0de5e60"
+                    ],
+                    [
+                      "1160b0e402cb1bb86c91cbee03fb51ddd4ff72cd342130aebdc880144a8500e8",
+                      "a6d1d699fa0883871c6a91fdc0ae836e02f496bad1ff25921334be7232c4e35f",
+                      "a8ec887ec2876d2eb36b28d9eb5cd3f704f04bc327fba2a3852ceca05a813c1b",
+                      "994431c7e73400f00b2290d71a8eaa655e4553b5ddeb8eaa631018a9fb7504e5"
+                    ]
+                  ],
+                  [
+                    [
+                      "243d0e8684c740501b8b5d2b671b3b4f741b9ca960546a23ef29fe0fa24b9e01",
+                      "c18b5ee83dcd2150a5e576c1d8e14c5315cd97ac4fa0803a7926e64a955c6a33",
+                      "13ae16e7db1d8b229b6fe0e42089e611424f788f5a2c3bd0bea68f5e80edcdaa",
+                      "4f2d09d65b3986ce1d4bf2b075a6bc9befb009d3958d44965bcefa7bcfbe020b"
+                    ],
+                    [
+                      "e6f7b64e1824821c794967acbc1e0db350cded598094d46cb7b29dd82a0267a9",
+                      "30f5f6503a9473571b83f1cb660c27d7818bb0024f943591faf8d337de1254fb",
+                      "31938bc8675e86dbda630eae71386c5487767c562a69bb24c4b19b6bacf6808d",
+                      "5212b538fa9170c8bd3d82ffa430a31e7a9a7869c2a8e8fdead0616fdacec281"
+                    ]
+                  ]
+                ],
+                "source_spec_sha256": "2636be904fc17ad6947c9a1e150334592e7192a252ee534bedbc0c1f9363e699",
+                "batch_sha256": "843905d9d23c44281b3d9218354d09b882f4d7c9ec536d254de572cd6f5ca26d",
+                "coverage_status": "SOME_ARMS_UNSUPPORTED",
+                "verification_status": "VERIFIED",
+                "contract_version": "randomized-network-full-arm-batch-v1",
+                "estimation_request": null
+              },
+              "a4_source": {
+                "source_id": "reviewed_effect_source_0",
+                "operator": "NODE_FULL_LAW",
+                "provenance": "Reviewed original source locators: src_5f86590e247f5610f631dfae86fd91c4e5e9ede7cafd9d2898cd81d1eff0c3fd,src_13ae1cb884441fe4f198373d939c3dbb318c573f649eb5970228b89ffcf24402",
+                "admission": "ADMITTED",
+                "availability": "SYMBOLIC_POPULATION_OPERATOR",
+                "regime": "experimental",
+                "source_spec_fingerprint": "2636be904fc17ad6947c9a1e150334592e7192a252ee534bedbc0c1f9363e699",
+                "network_fingerprint": "41b0b8c2403f61ed34297d04a7c34e9690afb93d0e95a536043b7e305420eeef",
+                "assignment_law_fingerprint": "7ed18ab5f62af62c53a0854b3328df30220e9075c3e8a96edfcbcd6949c57b88",
+                "node_order": [
+                  "甲1",
+                  "甲2",
+                  "甲3",
+                  "甲4",
+                  "乙1",
+                  "乙2",
+                  "乙3",
+                  "乙4"
+                ],
+                "context": "W",
+                "outcome": "outcome",
+                "outcome_averaging": "population_conditional_mean_given_W",
+                "outcome_nodes": [
+                  "甲1",
+                  "甲2",
+                  "甲3",
+                  "甲4",
+                  "乙1",
+                  "乙2",
+                  "乙3",
+                  "乙4"
+                ],
+                "exposure_fingerprint": null,
+                "arm_cells": [],
+                "assignment_cells": []
+              },
+              "recipe": {
+                "kind": "SPILLOVER",
+                "node_weights": [
+                  [
+                    "甲1",
+                    "1/8"
+                  ],
+                  [
+                    "甲2",
+                    "1/8"
+                  ],
+                  [
+                    "甲3",
+                    "1/8"
+                  ],
+                  [
+                    "甲4",
+                    "1/8"
+                  ],
+                  [
+                    "乙1",
+                    "1/8"
+                  ],
+                  [
+                    "乙2",
+                    "1/8"
+                  ],
+                  [
+                    "乙3",
+                    "1/8"
+                  ],
+                  [
+                    "乙4",
+                    "1/8"
+                  ]
+                ],
+                "reference_exposure": 1,
+                "comparison_exposure": 3,
+                "spillover_own_treatment": 0,
+                "supplied_terms": [],
+                "cohort_authority": "TRUSTED_FIXTURE",
+                "cohort_evidence": "Reviewed fixed evaluation population: src_88e9a3da05443fdcf3e4f8e4f68506383262f5bc0f9ea1028f01deade643c557"
+              },
+              "terms": [
+                {
+                  "node_id": "甲1",
+                  "own_treatment": 0,
+                  "exposure_state": 1,
+                  "coefficient": "-1/8"
+                },
+                {
+                  "node_id": "甲1",
+                  "own_treatment": 0,
+                  "exposure_state": 3,
+                  "coefficient": "1/8"
+                },
+                {
+                  "node_id": "甲2",
+                  "own_treatment": 0,
+                  "exposure_state": 1,
+                  "coefficient": "-1/8"
+                },
+                {
+                  "node_id": "甲2",
+                  "own_treatment": 0,
+                  "exposure_state": 3,
+                  "coefficient": "1/8"
+                },
+                {
+                  "node_id": "甲3",
+                  "own_treatment": 0,
+                  "exposure_state": 1,
+                  "coefficient": "-1/8"
+                },
+                {
+                  "node_id": "甲3",
+                  "own_treatment": 0,
+                  "exposure_state": 3,
+                  "coefficient": "1/8"
+                },
+                {
+                  "node_id": "甲4",
+                  "own_treatment": 0,
+                  "exposure_state": 1,
+                  "coefficient": "-1/8"
+                },
+                {
+                  "node_id": "甲4",
+                  "own_treatment": 0,
+                  "exposure_state": 3,
+                  "coefficient": "1/8"
+                },
+                {
+                  "node_id": "乙1",
+                  "own_treatment": 0,
+                  "exposure_state": 1,
+                  "coefficient": "-1/8"
+                },
+                {
+                  "node_id": "乙1",
+                  "own_treatment": 0,
+                  "exposure_state": 3,
+                  "coefficient": "1/8"
+                },
+                {
+                  "node_id": "乙2",
+                  "own_treatment": 0,
+                  "exposure_state": 1,
+                  "coefficient": "-1/8"
+                },
+                {
+                  "node_id": "乙2",
+                  "own_treatment": 0,
+                  "exposure_state": 3,
+                  "coefficient": "1/8"
+                },
+                {
+                  "node_id": "乙3",
+                  "own_treatment": 0,
+                  "exposure_state": 1,
+                  "coefficient": "-1/8"
+                },
+                {
+                  "node_id": "乙3",
+                  "own_treatment": 0,
+                  "exposure_state": 3,
+                  "coefficient": "1/8"
+                },
+                {
+                  "node_id": "乙4",
+                  "own_treatment": 0,
+                  "exposure_state": 1,
+                  "coefficient": "-1/8"
+                },
+                {
+                  "node_id": "乙4",
+                  "own_treatment": 0,
+                  "exposure_state": 3,
+                  "coefficient": "1/8"
+                }
+              ],
+              "population_arm_support": [
+                "3/8",
+                "1/8",
+                "3/8",
+                "1/8",
+                "3/8",
+                "1/8",
+                "3/8",
+                "1/8",
+                "3/8",
+                "1/8",
+                "3/8",
+                "1/8",
+                "3/8",
+                "1/8",
+                "3/8",
+                "1/8"
+              ],
+              "constituent_target_fingerprints": [
+                "557118bb302749341bbb186437e879d559a046d4d5941d75e54a310888bd7056",
+                "f80cac91e4bbe4eb4ab599d445113461bbed90e61ee277bd318e0558f9065a21",
+                "04040bd3ebddb3ce1aae10a57f061d108eb4eef1cbd3a0e5b0df390459db3e10",
+                "f5777cc661c96eba809dc45ffc2f368cfd20cd096d89f873750ef0031db89a3d",
+                "dd75b6e6f16af8a37c155ba6998139556800efa7d907c60c0deb136d42b1fb77",
+                "f0911fb68bbdba59a6e697d53bc704c0f1a76e333d9114116f86fba157a0ab7c",
+                "024a16654570f8a7de1803327506bf6e2b40f23c463bfaaf0f5489fcfae299b0",
+                "e3cdc6f27a402ce94c27f0288034c56c07d5399f0b3f0a3c2634861a89d300da",
+                "526a6e07d7a015653af3038e47abc931ad1cddf7b14c07f35addd9c1058b6ea2",
+                "6c61e13165f5cbcc8b4082470f67f8921aaaa54917265a3c56f7b78d674b0ba3",
+                "5c18881f064d3e8d31358327dec4bfa4a896e62c9f935c707443d4c0e27d7908",
+                "8700988cdaa83aa6f674f5d212000cc50958b6c603a5b1c71d8b2708e2c8e4bc",
+                "87c38c239a691730098fe26815db8cb0a583418d279424d0db6ae4fdcd2510f4",
+                "87a7c6f41ed2991dcdebfe2bf5bf14eb2a7a9be488a4e9ca0be2301fe0de5e60",
+                "c18b5ee83dcd2150a5e576c1d8e14c5315cd97ac4fa0803a7926e64a955c6a33",
+                "4f2d09d65b3986ce1d4bf2b075a6bc9befb009d3958d44965bcefa7bcfbe020b"
+              ],
+              "required_population_objects": [
+                "E[Y_甲1^obs | W,T_甲1=0,S_甲1=1]",
+                "E[Y_甲1^obs | W,T_甲1=0,S_甲1=3]",
+                "E[Y_甲2^obs | W,T_甲2=0,S_甲2=1]",
+                "E[Y_甲2^obs | W,T_甲2=0,S_甲2=3]",
+                "E[Y_甲3^obs | W,T_甲3=0,S_甲3=1]",
+                "E[Y_甲3^obs | W,T_甲3=0,S_甲3=3]",
+                "E[Y_甲4^obs | W,T_甲4=0,S_甲4=1]",
+                "E[Y_甲4^obs | W,T_甲4=0,S_甲4=3]",
+                "E[Y_乙1^obs | W,T_乙1=0,S_乙1=1]",
+                "E[Y_乙1^obs | W,T_乙1=0,S_乙1=3]",
+                "E[Y_乙2^obs | W,T_乙2=0,S_乙2=1]",
+                "E[Y_乙2^obs | W,T_乙2=0,S_乙2=3]",
+                "E[Y_乙3^obs | W,T_乙3=0,S_乙3=1]",
+                "E[Y_乙3^obs | W,T_乙3=0,S_乙3=3]",
+                "E[Y_乙4^obs | W,T_乙4=0,S_乙4=1]",
+                "E[Y_乙4^obs | W,T_乙4=0,S_乙4=3]"
+              ],
+              "identified_functional": "-1/8*E[Y_甲1^obs | W, T_甲1=0, S_甲1=1] + 1/8*E[Y_甲1^obs | W, T_甲1=0, S_甲1=3] - 1/8*E[Y_甲2^obs | W, T_甲2=0, S_甲2=1] + 1/8*E[Y_甲2^obs | W, T_甲2=0, S_甲2=3] - 1/8*E[Y_甲3^obs | W, T_甲3=0, S_甲3=1] + 1/8*E[Y_甲3^obs | W, T_甲3=0, S_甲3=3] - 1/8*E[Y_甲4^obs | W, T_甲4=0, S_甲4=1] + 1/8*E[Y_甲4^obs | W, T_甲4=0, S_甲4=3] - 1/8*E[Y_乙1^obs | W, T_乙1=0, S_乙1=1] + 1/8*E[Y_乙1^obs | W, T_乙1=0, S_乙1=3] - 1/8*E[Y_乙2^obs | W, T_乙2=0, S_乙2=1] + 1/8*E[Y_乙2^obs | W, T_乙2=0, S_乙2=3] - 1/8*E[Y_乙3^obs | W, T_乙3=0, S_乙3=1] + 1/8*E[Y_乙3^obs | W, T_乙3=0, S_乙3=3] - 1/8*E[Y_乙4^obs | W, T_乙4=0, S_乙4=1] + 1/8*E[Y_乙4^obs | W, T_乙4=0, S_乙4=3]",
+              "a4_rule_id": "A4_NODE_FULL_LAW_TO_ARM_V1",
+              "a4_operations": [
+                "DERIVE_EXPOSURE_FROM_FULL_T",
+                "CONDITION_ON_ARM",
+                "TAKE_NODE_MEAN",
+                "LINEAR_COMBINATION"
+              ],
+              "target_fingerprint": "472bf8f954149ce7aab364d1316551324f9258a2dc82b403861f1330c33b80ce",
+              "certificate_sha256": "07ad36b38b12b2c26c2aa4244e18f22ba26ce3afb857126fe822e352aac6acba",
+              "contract_version": "randomized-network-verified-linear-composition-v1.8",
+              "status": "POINT",
+              "verification_status": "VERIFIED",
+              "assumptions_used": [
+                "consistency",
+                "finite_conditional_first_moments",
+                "fixed_pretreatment_network",
+                "full_vector_randomization",
+                "known_assignment_law"
+              ],
+              "validity_note": "All nonzero constituent arms must have verified positive q-support; all refer to the same W/q/g; a reviewed population observable must supply every conditional arm mean.",
+              "estimation_request": null
+            }
+          ],
+          "bundle_sha256": "0a295b7249468bdb56dfeb281172b5815fd2277e55ed15c0c1af53fea7eebdbb",
+          "contract_version": "randomized-network-verified-linear-composition-v1.8",
+          "verification_status": "VERIFIED",
+          "estimation_request": null
+        },
+        "attempted_routes": []
+      }
+    }
+  ],
+  "clarification_questions": [],
+  "evidence_status": "CURRENT_READING_NOT_PROVEN_SOURCE_ABSENCE",
+  "production_admission": false,
+  "estimation_handoff_allowed": false,
+  "query_id": "q1",
+  "remaining_query_ids": [],
+  "result_scope": "SELECTED_QUERY_ONLY",
+  "fact_family": "NETWORK_RANDOMIZED_EFFECT_FACTS",
+  "plan_sha256": "3e046298dc64006055fb67ab6bba47ff9eca85d270953cf2ab912b6ab61dda68",
+  "attempts": [
+    {
+      "stage": "ANCHOR",
+      "state": "POINT",
+      "reason_code": null
+    },
+    {
+      "stage": "COMPOSITION",
+      "state": "POINT",
+      "reason_code": null
+    }
+  ],
+  "assumption_choices_review": {
+    "method": "R1A_COMPOSITION",
+    "required_conditions": [
+      "a4_operator_scope_and_provenance",
+      "consistency",
+      "finite_conditional_first_moments",
+      "fixed_pretreatment_network",
+      "full_vector_randomization",
+      "known_assignment_law"
+    ],
+    "missing": [],
+    "blocked": [],
+    "retained": [],
+    "scientific_approval": false
+  },
+  "primary_method": "R1A_COMPOSITION",
+  "partial_fallback_performed": false
+}

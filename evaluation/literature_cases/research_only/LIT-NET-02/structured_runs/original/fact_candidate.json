@@ -1,0 +1,237 @@
+{
+  "version": "network-randomized-effect-reading-1",
+  "reference_context": "c5c713f24456e",
+  "study": {
+    "nodes": [
+      "甲1",
+      "甲2",
+      "甲3",
+      "甲4",
+      "乙1",
+      "乙2",
+      "乙3",
+      "乙4"
+    ],
+    "edges": [
+      [
+        "甲1",
+        "甲2"
+      ],
+      [
+        "甲1",
+        "甲3"
+      ],
+      [
+        "甲1",
+        "甲4"
+      ],
+      [
+        "甲2",
+        "甲3"
+      ],
+      [
+        "甲2",
+        "甲4"
+      ],
+      [
+        "甲3",
+        "甲4"
+      ],
+      [
+        "乙1",
+        "乙2"
+      ],
+      [
+        "乙1",
+        "乙3"
+      ],
+      [
+        "乙1",
+        "乙4"
+      ],
+      [
+        "乙2",
+        "乙3"
+      ],
+      [
+        "乙2",
+        "乙4"
+      ],
+      [
+        "乙3",
+        "乙4"
+      ]
+    ],
+    "graph_kind": "SIMPLE_UNDIRECTED",
+    "edge_list_complete": true,
+    "treatment": "接种本次疫苗记1，接受安慰剂记0",
+    "outcome": "随访一年内是否感染，感染记1，未感染记0",
+    "outcome_kind": "BINARY",
+    "context": "结果评价期间为随访的一年，两端保持相同；没有另行指定的背景分层或条件筛选。",
+    "source_ids": [
+      "s0001",
+      "s0002",
+      "s0005"
+    ]
+  },
+  "assignment": {
+    "kind": "TWO_STAGE_QUOTA_MIXTURE",
+    "probabilities": null,
+    "fixed_count": null,
+    "groups": [
+      [
+        "甲1",
+        "甲2",
+        "甲3",
+        "甲4"
+      ],
+      [
+        "乙1",
+        "乙2",
+        "乙3",
+        "乙4"
+      ]
+    ],
+    "quota_profiles": [
+      [
+        1,
+        3
+      ],
+      [
+        3,
+        1
+      ]
+    ],
+    "profile_probabilities": [
+      "1/2",
+      "1/2"
+    ],
+    "source_ids": [
+      "s0003",
+      "s0001"
+    ]
+  },
+  "exposure": {
+    "kind": "EXACT_TREATED_NEIGHBOR_COUNT",
+    "core_collaborators": null,
+    "source_ids": [
+      "s0008"
+    ]
+  },
+  "first_stage_exclusion": {
+    "status": "PROPOSED",
+    "source_ids": [
+      "s0010"
+    ]
+  },
+  "information": [
+    {
+      "operator": "NODE_FULL_LAW",
+      "availability": "SYMBOLIC_POPULATION_OPERATOR",
+      "outcome_nodes": [
+        "甲1",
+        "甲2",
+        "甲3",
+        "甲4",
+        "乙1",
+        "乙2",
+        "乙3",
+        "乙4"
+      ],
+      "source_ids": [
+        "s0009",
+        "s0001"
+      ],
+      "arm_cells": []
+    }
+  ],
+  "additional_restrictions": [],
+  "unresolved": [],
+  "target": {
+    "kind": "SPILLOVER_EFFECT",
+    "operation": "FIRST_MINUS_SECOND",
+    "first": {
+      "own": 0,
+      "exposure": 3,
+      "source_ids": [
+        "s0012",
+        "s0008",
+        "s0001"
+      ]
+    },
+    "second": {
+      "own": 0,
+      "exposure": 1,
+      "source_ids": [
+        "s0012",
+        "s0008",
+        "s0001"
+      ]
+    },
+    "population": [
+      "甲1",
+      "甲2",
+      "甲3",
+      "甲4",
+      "乙1",
+      "乙2",
+      "乙3",
+      "乙4"
+    ],
+    "aggregation": "EQUAL_MEAN",
+    "population_fixed_before_assignment": {
+      "value": true,
+      "source_ids": [
+        "s0004"
+      ]
+    },
+    "remaining_assignment": "ORIGINAL_DESIGN_CONDITIONAL",
+    "remaining_source_ids": [
+      "s0006"
+    ],
+    "shared_outcome_and_context": {
+      "value": true,
+      "source_ids": [
+        "s0005"
+      ]
+    },
+    "source_ids": [
+      "s0012",
+      "s0004"
+    ]
+  },
+  "design_facts": {
+    "assignment_rule_available": {
+      "value": true,
+      "source_ids": [
+        "s0003"
+      ]
+    },
+    "network_fixed_before_treatment": {
+      "value": true,
+      "source_ids": [
+        "s0002"
+      ]
+    }
+  },
+  "scientific_statements": {
+    "assignment_outcome_independence": {
+      "status": "PROPOSED",
+      "source_ids": [
+        "s0007"
+      ]
+    },
+    "consistency": {
+      "status": "PROPOSED",
+      "source_ids": [
+        "s0007"
+      ]
+    },
+    "finite_conditional_means": {
+      "status": "PROPOSED",
+      "source_ids": [
+        "s0007"
+      ]
+    }
+  }
+}
