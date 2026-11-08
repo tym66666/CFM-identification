@@ -63,6 +63,11 @@ actual_run         系统实际输出了什么
   - 运行性质：`api_calls=0`，项目自建有限均值模型，不调用 LLM。
   - 复核：`PENDING_TEACHER`。
 
+- `LIT-NET-04`：Manski (2013) 均值顺序背景下的四店两政策差值案例。
+  - 状态：原题 PARTIAL，sharp 区间 `[1/5,1]`；缺同伴均值顺序版 `NEEDS_INPUT`；单对象目标变化版 POINT `1/5`。
+  - 运行性质：`api_calls=0`，项目自建有限均值顺序模型，不调用 LLM。
+  - 复核：`PENDING_TEACHER`。
+
 ## 新增案例的最小步骤
 
 1. 在 `literature_support/cases/` 写来源卡和案例说明。
