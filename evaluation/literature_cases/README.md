@@ -58,6 +58,11 @@ actual_run         系统实际输出了什么
   - 运行性质：`api_calls=0`，两阶段名额混合 + 精确邻居接种人数，不调用 LLM。
   - 复核：`PENDING_TEACHER`。
 
+- `LIT-NET-03`：Manski (2013) 部分识别背景下的七网点 PARTIAL 案例。
+  - 状态：原题 PARTIAL，sharp 区间 `[3/7,4/7]`，证书重放通过；缺完整模型声明版 `NEEDS_INPUT`；额外单调性限制版 `ADAPTER_NOT_CONNECTED`。
+  - 运行性质：`api_calls=0`，项目自建有限均值模型，不调用 LLM。
+  - 复核：`PENDING_TEACHER`。
+
 ## 新增案例的最小步骤
 
 1. 在 `literature_support/cases/` 写来源卡和案例说明。

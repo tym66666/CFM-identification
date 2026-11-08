@@ -1,0 +1,871 @@
+{
+  "state": "REVIEW_REQUIRED",
+  "reason_code": null,
+  "backend_called": false,
+  "independent_replay": false,
+  "mathematical_claim": null,
+  "certificate": null,
+  "answers": [],
+  "clarification_questions": [],
+  "evidence_status": "CURRENT_READING_NOT_PROVEN_SOURCE_ABSENCE",
+  "production_admission": false,
+  "estimation_handoff_allowed": false,
+  "query_id": "q1",
+  "result_scope": "SELECTED_QUERY_ONLY",
+  "remaining_query_ids": [],
+  "fact_family": "NETWORK_FIXED_POLICY_FACTS",
+  "request_sha256": "b10952b7c67b2b92b384a5fb5fc4ef2dc5415aaae605201d9f39909bdd13c8e8",
+  "methods": [
+    {
+      "method": "BOUNDED_POLICY_MEAN_D2_E1",
+      "source_indices": [
+        0
+      ],
+      "applicability": "NOT_CHECKED_BEFORE_SCIENCE_REVIEW",
+      "reading_worksheet": {
+        "version": "business-dispatch-review-1",
+        "binding_sha256": "5b71969f780e8dbd2422370c323aec0f3a86d978e50dcfcfda675666ad9a1fc3",
+        "decisions": {
+          "target_policy_population_and_weights": "PENDING",
+          "network_assignment_and_variable_meaning": "PENDING",
+          "all_information_and_restrictions_preserved": "PENDING",
+          "source_entailment": "PENDING"
+        },
+        "is_approval": false
+      },
+      "science_worksheet": {
+        "version": "business-dispatch-review-1",
+        "binding_sha256": "5b71969f780e8dbd2422370c323aec0f3a86d978e50dcfcfda675666ad9a1fc3",
+        "decisions": {
+          "known_assignment_law": "PENDING",
+          "full_vector_randomization": "PENDING",
+          "consistency": "PENDING",
+          "fixed_pretreatment_network": "PENDING",
+          "finite_conditional_first_moments": "PENDING",
+          "a4_source_0": "PENDING",
+          "exact_a4_values_and_complete_information_scope": "PENDING",
+          "scientific_bounds_kind_scope_units_and_all_nodes": "PENDING",
+          "no_additional_coupling_constraints": "PENDING",
+          "mean_sufficiency_all_assignments_and_all_model_nodes": "PENDING"
+        },
+        "is_approval": false
+      }
+    }
+  ],
+  "exclusions": [],
+  "method_matching": "NOT_CHECKED_BEFORE_SCIENCE_REVIEW",
+  "query_review": {
+    "version": "business-dispatch-review-1",
+    "binding_sha256": "5d82c23e45b5a8ae8ae1aed6a36021a75e6cf3d7227addbd3cd2b65d2b53926b",
+    "reviewer": "Independent synthetic protocol reviewer",
+    "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.",
+    "authority": "SYNTHETIC_TEST",
+    "decisions": {
+      "business_target_and_population": "ACCEPTED",
+      "research_structure": "ACCEPTED",
+      "source_entailment": "ACCEPTED"
+    }
+  },
+  "facts": {
+    "version": "network-policy-reading-1",
+    "reference_context": "ce69355a5003b",
+    "study": {
+      "source_ids": [
+        "src_1dcd45ebb956306abc0ee5caa74bf19eae4d1a58047560bdcd8a4455f6fc4381",
+        "src_65da84e211367047f0e9cba8c3e614b46d2612d35bebb5d567c406861965a034"
+      ],
+      "nodes": [
+        "中心",
+        "网点1",
+        "网点2",
+        "网点3",
+        "网点4",
+        "网点5",
+        "网点6"
+      ],
+      "edges": [
+        [
+          "中心",
+          "网点1"
+        ],
+        [
+          "中心",
+          "网点2"
+        ],
+        [
+          "中心",
+          "网点3"
+        ],
+        [
+          "中心",
+          "网点4"
+        ],
+        [
+          "中心",
+          "网点5"
+        ],
+        [
+          "中心",
+          "网点6"
+        ]
+      ],
+      "graph_kind": "SIMPLE_UNDIRECTED",
+      "edge_list_complete": true,
+      "treatment": "使用AI",
+      "outcome": "本周任务是否按时完成",
+      "outcome_kind": "BINARY",
+      "context": "本周服务网点"
+    },
+    "assignment": {
+      "source_ids": [
+        "src_2758d800011033d90d241292c37f2461f2a058a2bbf7176019b1c321df4ae154"
+      ],
+      "kind": "UNIFORM_FIXED_QUOTA",
+      "probabilities": null,
+      "fixed_count": 3,
+      "groups": null,
+      "treated_quotas": null,
+      "clusters": null,
+      "cluster_probabilities": null,
+      "quota_profiles": null,
+      "profile_probabilities": null
+    },
+    "first_stage_exclusion": null,
+    "target": {
+      "source_ids": [
+        "src_75250d8e3db7cc2120e283f2a1ca05d84b9ad8b4523abb37ffcc352506e0234d"
+      ],
+      "kind": "FIXED_POLICY_MEAN",
+      "assignment": {
+        "中心": 1,
+        "网点1": 1,
+        "网点2": 1,
+        "网点3": 1,
+        "网点4": 1,
+        "网点5": 1,
+        "网点6": 1
+      },
+      "population": [
+        "中心",
+        "网点1",
+        "网点2",
+        "网点3",
+        "网点4",
+        "网点5",
+        "网点6"
+      ],
+      "aggregation": "EQUAL_MEAN"
+    },
+    "assumptions": {
+      "known_assignment_law": {
+        "source_ids": [
+          "src_59fc705ea1fbed4a332e400c3ca2efa442168015dfca75452d5711cf3425c40b"
+        ],
+        "value": true
+      },
+      "full_vector_randomization": {
+        "source_ids": [
+          "src_59fc705ea1fbed4a332e400c3ca2efa442168015dfca75452d5711cf3425c40b"
+        ],
+        "value": true
+      },
+      "consistency": {
+        "source_ids": [
+          "src_59fc705ea1fbed4a332e400c3ca2efa442168015dfca75452d5711cf3425c40b"
+        ],
+        "value": true
+      },
+      "fixed_pretreatment_network": {
+        "source_ids": [
+          "src_59fc705ea1fbed4a332e400c3ca2efa442168015dfca75452d5711cf3425c40b"
+        ],
+        "value": true
+      },
+      "finite_conditional_first_moments": {
+        "source_ids": [
+          "src_59fc705ea1fbed4a332e400c3ca2efa442168015dfca75452d5711cf3425c40b"
+        ],
+        "value": true
+      }
+    },
+    "exposure": {
+      "source_ids": [
+        "src_e64bb57158f3cf40644aa5d611bebb2a2c572db123448aab36290f4b941c79a6"
+      ],
+      "kind": "STRICT_MAJORITY_TIES_LOW",
+      "core_collaborators": null
+    },
+    "mean_sufficiency": {
+      "source_ids": [
+        "src_47a34a4f5da9213ff0d41884378430fbbfa17cb06fd5f4d6ce4ecaea85047651"
+      ],
+      "value": true,
+      "scope": "ALL_BINARY_ASSIGNMENTS",
+      "covered_nodes": [
+        "中心",
+        "网点1",
+        "网点2",
+        "网点3",
+        "网点4",
+        "网点5",
+        "网点6"
+      ]
+    },
+    "information": [
+      {
+        "source_ids": [
+          "src_a3863aafb505c3035eb01e875b641ff812f39e63f9a70e0c69f3b121f36dc670",
+          "src_baac54d33d47c4a540e482d62d91364a09c3312823968d19629ae1ad098bb8c8",
+          "src_eee8408865e7eb080603cab5501659e045ccd459c03b77119610dc19f084a3a6",
+          "src_64f119fba505c8f5476f74ab9e6de7d0eebd70340274dc685059f049798a28d8",
+          "src_0bef876f42917c03e7143affe0deaff12a1eec5441efca90196b87a90919be8c",
+          "src_09ecbe0f517b3a8dadde183bc2473a15f7784751eac3ca19cd84b0dff29342a1",
+          "src_bdfc21e98510097fd274f40d02222feaa7fb98800b3d247869bcc4a174b47c6f",
+          "src_52493fbd187178f5581bb1e4acd6c26e4c894ed5988b811ba1910f2ab4301691"
+        ],
+        "operator": "NODE_SIGNATURE_MEANS",
+        "availability": "EXACT_POPULATION_VALUE",
+        "outcome_nodes": [
+          "中心",
+          "网点1",
+          "网点2",
+          "网点3",
+          "网点4",
+          "网点5",
+          "网点6"
+        ],
+        "assignment_cells": [],
+        "signature_cells": [
+          {
+            "node": "中心",
+            "own": 0,
+            "exposure": 0,
+            "value": "1/2"
+          },
+          {
+            "node": "网点1",
+            "own": 1,
+            "exposure": 1,
+            "value": "1/2"
+          },
+          {
+            "node": "网点2",
+            "own": 1,
+            "exposure": 1,
+            "value": "1/2"
+          },
+          {
+            "node": "网点3",
+            "own": 1,
+            "exposure": 1,
+            "value": "1/2"
+          },
+          {
+            "node": "网点4",
+            "own": 1,
+            "exposure": 1,
+            "value": "1/2"
+          },
+          {
+            "node": "网点5",
+            "own": 1,
+            "exposure": 1,
+            "value": "1/2"
+          },
+          {
+            "node": "网点6",
+            "own": 1,
+            "exposure": 1,
+            "value": "1/2"
+          }
+        ]
+      }
+    ],
+    "additional_restrictions": [],
+    "unresolved": [],
+    "bounded_model": {
+      "source_ids": [
+        "src_c4a464d98e91bc0cc87ce0f5f3c1a0cce6d5671360d7d4258e51818c13ddd017",
+        "src_1ed17f00ffe8328dce52153b772e4e213db2ece2dfc7f6ea2b1848f5b7d979d4",
+        "src_bdad11ba73560d4d36342e3162385190cf034134273fcaa16ea6bba5946d23c6",
+        "src_d148f0bac9a04698fb617f46515ec0a6376d537e49442da68f5d0d3d76252c54",
+        "src_af916019fc1cefa2aa9e757a54f9288bf427482e7ee2480872096e00a07a8984",
+        "src_735ddc6ffc44d0196f864812cac6bb711aa3393b9b0ada4c1d2c9243a9a52725",
+        "src_15d0452d3e0e9cbfe9acbd617cf04d0d16cc01c64cccfadc31345a3b17c33080",
+        "src_35bffc729fe5f95fe198d6161217fba6f15ed940a12c05f8daa4016545f6cdea"
+      ],
+      "bounds_kind": "CONDITIONAL_MEAN",
+      "bounds_scope": "ALL_BINARY_ASSIGNMENTS_CONDITIONAL_ON_STUDY_CONTEXT",
+      "bounds": [
+        {
+          "source_ids": [
+            "src_c4a464d98e91bc0cc87ce0f5f3c1a0cce6d5671360d7d4258e51818c13ddd017",
+            "src_1ed17f00ffe8328dce52153b772e4e213db2ece2dfc7f6ea2b1848f5b7d979d4",
+            "src_bdad11ba73560d4d36342e3162385190cf034134273fcaa16ea6bba5946d23c6",
+            "src_d148f0bac9a04698fb617f46515ec0a6376d537e49442da68f5d0d3d76252c54",
+            "src_af916019fc1cefa2aa9e757a54f9288bf427482e7ee2480872096e00a07a8984",
+            "src_735ddc6ffc44d0196f864812cac6bb711aa3393b9b0ada4c1d2c9243a9a52725",
+            "src_15d0452d3e0e9cbfe9acbd617cf04d0d16cc01c64cccfadc31345a3b17c33080",
+            "src_35bffc729fe5f95fe198d6161217fba6f15ed940a12c05f8daa4016545f6cdea"
+          ],
+          "node": "中心",
+          "lower": "0",
+          "upper": "1"
+        },
+        {
+          "source_ids": [
+            "src_c4a464d98e91bc0cc87ce0f5f3c1a0cce6d5671360d7d4258e51818c13ddd017",
+            "src_1ed17f00ffe8328dce52153b772e4e213db2ece2dfc7f6ea2b1848f5b7d979d4",
+            "src_bdad11ba73560d4d36342e3162385190cf034134273fcaa16ea6bba5946d23c6",
+            "src_d148f0bac9a04698fb617f46515ec0a6376d537e49442da68f5d0d3d76252c54",
+            "src_af916019fc1cefa2aa9e757a54f9288bf427482e7ee2480872096e00a07a8984",
+            "src_735ddc6ffc44d0196f864812cac6bb711aa3393b9b0ada4c1d2c9243a9a52725",
+            "src_15d0452d3e0e9cbfe9acbd617cf04d0d16cc01c64cccfadc31345a3b17c33080",
+            "src_35bffc729fe5f95fe198d6161217fba6f15ed940a12c05f8daa4016545f6cdea"
+          ],
+          "node": "网点1",
+          "lower": "0",
+          "upper": "1"
+        },
+        {
+          "source_ids": [
+            "src_c4a464d98e91bc0cc87ce0f5f3c1a0cce6d5671360d7d4258e51818c13ddd017",
+            "src_1ed17f00ffe8328dce52153b772e4e213db2ece2dfc7f6ea2b1848f5b7d979d4",
+            "src_bdad11ba73560d4d36342e3162385190cf034134273fcaa16ea6bba5946d23c6",
+            "src_d148f0bac9a04698fb617f46515ec0a6376d537e49442da68f5d0d3d76252c54",
+            "src_af916019fc1cefa2aa9e757a54f9288bf427482e7ee2480872096e00a07a8984",
+            "src_735ddc6ffc44d0196f864812cac6bb711aa3393b9b0ada4c1d2c9243a9a52725",
+            "src_15d0452d3e0e9cbfe9acbd617cf04d0d16cc01c64cccfadc31345a3b17c33080",
+            "src_35bffc729fe5f95fe198d6161217fba6f15ed940a12c05f8daa4016545f6cdea"
+          ],
+          "node": "网点2",
+          "lower": "0",
+          "upper": "1"
+        },
+        {
+          "source_ids": [
+            "src_c4a464d98e91bc0cc87ce0f5f3c1a0cce6d5671360d7d4258e51818c13ddd017",
+            "src_1ed17f00ffe8328dce52153b772e4e213db2ece2dfc7f6ea2b1848f5b7d979d4",
+            "src_bdad11ba73560d4d36342e3162385190cf034134273fcaa16ea6bba5946d23c6",
+            "src_d148f0bac9a04698fb617f46515ec0a6376d537e49442da68f5d0d3d76252c54",
+            "src_af916019fc1cefa2aa9e757a54f9288bf427482e7ee2480872096e00a07a8984",
+            "src_735ddc6ffc44d0196f864812cac6bb711aa3393b9b0ada4c1d2c9243a9a52725",
+            "src_15d0452d3e0e9cbfe9acbd617cf04d0d16cc01c64cccfadc31345a3b17c33080",
+            "src_35bffc729fe5f95fe198d6161217fba6f15ed940a12c05f8daa4016545f6cdea"
+          ],
+          "node": "网点3",
+          "lower": "0",
+          "upper": "1"
+        },
+        {
+          "source_ids": [
+            "src_c4a464d98e91bc0cc87ce0f5f3c1a0cce6d5671360d7d4258e51818c13ddd017",
+            "src_1ed17f00ffe8328dce52153b772e4e213db2ece2dfc7f6ea2b1848f5b7d979d4",
+            "src_bdad11ba73560d4d36342e3162385190cf034134273fcaa16ea6bba5946d23c6",
+            "src_d148f0bac9a04698fb617f46515ec0a6376d537e49442da68f5d0d3d76252c54",
+            "src_af916019fc1cefa2aa9e757a54f9288bf427482e7ee2480872096e00a07a8984",
+            "src_735ddc6ffc44d0196f864812cac6bb711aa3393b9b0ada4c1d2c9243a9a52725",
+            "src_15d0452d3e0e9cbfe9acbd617cf04d0d16cc01c64cccfadc31345a3b17c33080",
+            "src_35bffc729fe5f95fe198d6161217fba6f15ed940a12c05f8daa4016545f6cdea"
+          ],
+          "node": "网点4",
+          "lower": "0",
+          "upper": "1"
+        },
+        {
+          "source_ids": [
+            "src_c4a464d98e91bc0cc87ce0f5f3c1a0cce6d5671360d7d4258e51818c13ddd017",
+            "src_1ed17f00ffe8328dce52153b772e4e213db2ece2dfc7f6ea2b1848f5b7d979d4",
+            "src_bdad11ba73560d4d36342e3162385190cf034134273fcaa16ea6bba5946d23c6",
+            "src_d148f0bac9a04698fb617f46515ec0a6376d537e49442da68f5d0d3d76252c54",
+            "src_af916019fc1cefa2aa9e757a54f9288bf427482e7ee2480872096e00a07a8984",
+            "src_735ddc6ffc44d0196f864812cac6bb711aa3393b9b0ada4c1d2c9243a9a52725",
+            "src_15d0452d3e0e9cbfe9acbd617cf04d0d16cc01c64cccfadc31345a3b17c33080",
+            "src_35bffc729fe5f95fe198d6161217fba6f15ed940a12c05f8daa4016545f6cdea"
+          ],
+          "node": "网点5",
+          "lower": "0",
+          "upper": "1"
+        },
+        {
+          "source_ids": [
+            "src_c4a464d98e91bc0cc87ce0f5f3c1a0cce6d5671360d7d4258e51818c13ddd017",
+            "src_1ed17f00ffe8328dce52153b772e4e213db2ece2dfc7f6ea2b1848f5b7d979d4",
+            "src_bdad11ba73560d4d36342e3162385190cf034134273fcaa16ea6bba5946d23c6",
+            "src_d148f0bac9a04698fb617f46515ec0a6376d537e49442da68f5d0d3d76252c54",
+            "src_af916019fc1cefa2aa9e757a54f9288bf427482e7ee2480872096e00a07a8984",
+            "src_735ddc6ffc44d0196f864812cac6bb711aa3393b9b0ada4c1d2c9243a9a52725",
+            "src_15d0452d3e0e9cbfe9acbd617cf04d0d16cc01c64cccfadc31345a3b17c33080",
+            "src_35bffc729fe5f95fe198d6161217fba6f15ed940a12c05f8daa4016545f6cdea"
+          ],
+          "node": "网点6",
+          "lower": "0",
+          "upper": "1"
+        }
+      ],
+      "outcome_definition": "本周任务按时完成记1、未完成记0",
+      "outcome_unit": "0/1指标",
+      "outcome_period": "本周",
+      "listed_means_are_complete_information": {
+        "source_ids": [
+          "src_f616a9ca0e00043c56b82712363e1450077db56e973d71d55dd6e828621a5513"
+        ],
+        "value": true
+      },
+      "no_additional_coupling_constraints": {
+        "source_ids": [
+          "src_f616a9ca0e00043c56b82712363e1450077db56e973d71d55dd6e828621a5513"
+        ],
+        "value": true
+      }
+    }
+  },
+  "reference_binding": {
+    "context": "ce69355a5003b",
+    "context_sha256": "e69355a5003bbc606954db6176c524a91fe697946546bafbab64e233f70dc22f",
+    "aliases": {
+      "s0001": "src_1dcd45ebb956306abc0ee5caa74bf19eae4d1a58047560bdcd8a4455f6fc4381",
+      "s0002": "src_65da84e211367047f0e9cba8c3e614b46d2612d35bebb5d567c406861965a034",
+      "s0003": "src_2758d800011033d90d241292c37f2461f2a058a2bbf7176019b1c321df4ae154",
+      "s0004": "src_59fc705ea1fbed4a332e400c3ca2efa442168015dfca75452d5711cf3425c40b",
+      "s0005": "src_a3863aafb505c3035eb01e875b641ff812f39e63f9a70e0c69f3b121f36dc670",
+      "s0006": "src_baac54d33d47c4a540e482d62d91364a09c3312823968d19629ae1ad098bb8c8",
+      "s0007": "src_eee8408865e7eb080603cab5501659e045ccd459c03b77119610dc19f084a3a6",
+      "s0008": "src_64f119fba505c8f5476f74ab9e6de7d0eebd70340274dc685059f049798a28d8",
+      "s0009": "src_0bef876f42917c03e7143affe0deaff12a1eec5441efca90196b87a90919be8c",
+      "s0010": "src_09ecbe0f517b3a8dadde183bc2473a15f7784751eac3ca19cd84b0dff29342a1",
+      "s0011": "src_bdfc21e98510097fd274f40d02222feaa7fb98800b3d247869bcc4a174b47c6f",
+      "s0012": "src_52493fbd187178f5581bb1e4acd6c26e4c894ed5988b811ba1910f2ab4301691",
+      "s0013": "src_e64bb57158f3cf40644aa5d611bebb2a2c572db123448aab36290f4b941c79a6",
+      "s0014": "src_47a34a4f5da9213ff0d41884378430fbbfa17cb06fd5f4d6ce4ecaea85047651",
+      "s0015": "src_c4a464d98e91bc0cc87ce0f5f3c1a0cce6d5671360d7d4258e51818c13ddd017",
+      "s0016": "src_1ed17f00ffe8328dce52153b772e4e213db2ece2dfc7f6ea2b1848f5b7d979d4",
+      "s0017": "src_bdad11ba73560d4d36342e3162385190cf034134273fcaa16ea6bba5946d23c6",
+      "s0018": "src_d148f0bac9a04698fb617f46515ec0a6376d537e49442da68f5d0d3d76252c54",
+      "s0019": "src_af916019fc1cefa2aa9e757a54f9288bf427482e7ee2480872096e00a07a8984",
+      "s0020": "src_735ddc6ffc44d0196f864812cac6bb711aa3393b9b0ada4c1d2c9243a9a52725",
+      "s0021": "src_15d0452d3e0e9cbfe9acbd617cf04d0d16cc01c64cccfadc31345a3b17c33080",
+      "s0022": "src_35bffc729fe5f95fe198d6161217fba6f15ed940a12c05f8daa4016545f6cdea",
+      "s0023": "src_f616a9ca0e00043c56b82712363e1450077db56e973d71d55dd6e828621a5513",
+      "s0024": "src_8be72fd905805a334a860f2c635f50168bb8ba2900eb6f1cf0e0c54ca32722ee",
+      "s0025": "src_75250d8e3db7cc2120e283f2a1ca05d84b9ad8b4523abb37ffcc352506e0234d"
+    }
+  },
+  "reading_candidate": {
+    "version": "network-policy-reading-1",
+    "reference_context": "ce69355a5003b",
+    "study": {
+      "nodes": [
+        "中心",
+        "网点1",
+        "网点2",
+        "网点3",
+        "网点4",
+        "网点5",
+        "网点6"
+      ],
+      "edges": [
+        [
+          "中心",
+          "网点1"
+        ],
+        [
+          "中心",
+          "网点2"
+        ],
+        [
+          "中心",
+          "网点3"
+        ],
+        [
+          "中心",
+          "网点4"
+        ],
+        [
+          "中心",
+          "网点5"
+        ],
+        [
+          "中心",
+          "网点6"
+        ]
+      ],
+      "graph_kind": "SIMPLE_UNDIRECTED",
+      "edge_list_complete": true,
+      "treatment": "使用AI",
+      "outcome": "本周任务是否按时完成",
+      "outcome_kind": "BINARY",
+      "context": "本周服务网点",
+      "source_ids": [
+        "s0001",
+        "s0002"
+      ]
+    },
+    "assignment": {
+      "kind": "UNIFORM_FIXED_QUOTA",
+      "probabilities": null,
+      "fixed_count": 3,
+      "source_ids": [
+        "s0003"
+      ]
+    },
+    "target": {
+      "kind": "FIXED_POLICY_MEAN",
+      "assignment": {
+        "中心": 1,
+        "网点1": 1,
+        "网点2": 1,
+        "网点3": 1,
+        "网点4": 1,
+        "网点5": 1,
+        "网点6": 1
+      },
+      "population": [
+        "中心",
+        "网点1",
+        "网点2",
+        "网点3",
+        "网点4",
+        "网点5",
+        "网点6"
+      ],
+      "aggregation": "EQUAL_MEAN",
+      "source_ids": [
+        "s0025"
+      ]
+    },
+    "assumptions": {
+      "known_assignment_law": {
+        "value": true,
+        "source_ids": [
+          "s0004"
+        ]
+      },
+      "full_vector_randomization": {
+        "value": true,
+        "source_ids": [
+          "s0004"
+        ]
+      },
+      "consistency": {
+        "value": true,
+        "source_ids": [
+          "s0004"
+        ]
+      },
+      "fixed_pretreatment_network": {
+        "value": true,
+        "source_ids": [
+          "s0004"
+        ]
+      },
+      "finite_conditional_first_moments": {
+        "value": true,
+        "source_ids": [
+          "s0004"
+        ]
+      }
+    },
+    "exposure": {
+      "kind": "STRICT_MAJORITY_TIES_LOW",
+      "source_ids": [
+        "s0013"
+      ]
+    },
+    "mean_sufficiency": {
+      "value": true,
+      "scope": "ALL_BINARY_ASSIGNMENTS",
+      "covered_nodes": [
+        "中心",
+        "网点1",
+        "网点2",
+        "网点3",
+        "网点4",
+        "网点5",
+        "网点6"
+      ],
+      "source_ids": [
+        "s0014"
+      ]
+    },
+    "information": [
+      {
+        "operator": "NODE_SIGNATURE_MEANS",
+        "availability": "EXACT_POPULATION_VALUE",
+        "outcome_nodes": [
+          "中心",
+          "网点1",
+          "网点2",
+          "网点3",
+          "网点4",
+          "网点5",
+          "网点6"
+        ],
+        "assignment_cells": [],
+        "signature_cells": [
+          {
+            "node": "中心",
+            "own": 0,
+            "exposure": 0,
+            "value": "1/2"
+          },
+          {
+            "node": "网点1",
+            "own": 1,
+            "exposure": 1,
+            "value": "1/2"
+          },
+          {
+            "node": "网点2",
+            "own": 1,
+            "exposure": 1,
+            "value": "1/2"
+          },
+          {
+            "node": "网点3",
+            "own": 1,
+            "exposure": 1,
+            "value": "1/2"
+          },
+          {
+            "node": "网点4",
+            "own": 1,
+            "exposure": 1,
+            "value": "1/2"
+          },
+          {
+            "node": "网点5",
+            "own": 1,
+            "exposure": 1,
+            "value": "1/2"
+          },
+          {
+            "node": "网点6",
+            "own": 1,
+            "exposure": 1,
+            "value": "1/2"
+          }
+        ],
+        "source_ids": [
+          "s0005",
+          "s0006",
+          "s0007",
+          "s0008",
+          "s0009",
+          "s0010",
+          "s0011",
+          "s0012"
+        ]
+      }
+    ],
+    "additional_restrictions": [],
+    "unresolved": [],
+    "bounded_model": {
+      "source_ids": [
+        "s0015",
+        "s0016",
+        "s0017",
+        "s0018",
+        "s0019",
+        "s0020",
+        "s0021",
+        "s0022"
+      ],
+      "bounds_kind": "CONDITIONAL_MEAN",
+      "bounds_scope": "ALL_BINARY_ASSIGNMENTS_CONDITIONAL_ON_STUDY_CONTEXT",
+      "outcome_definition": "本周任务按时完成记1、未完成记0",
+      "outcome_unit": "0/1指标",
+      "outcome_period": "本周",
+      "bounds": [
+        {
+          "node": "中心",
+          "lower": "0",
+          "upper": "1",
+          "source_ids": [
+            "s0015",
+            "s0016",
+            "s0017",
+            "s0018",
+            "s0019",
+            "s0020",
+            "s0021",
+            "s0022"
+          ]
+        },
+        {
+          "node": "网点1",
+          "lower": "0",
+          "upper": "1",
+          "source_ids": [
+            "s0015",
+            "s0016",
+            "s0017",
+            "s0018",
+            "s0019",
+            "s0020",
+            "s0021",
+            "s0022"
+          ]
+        },
+        {
+          "node": "网点2",
+          "lower": "0",
+          "upper": "1",
+          "source_ids": [
+            "s0015",
+            "s0016",
+            "s0017",
+            "s0018",
+            "s0019",
+            "s0020",
+            "s0021",
+            "s0022"
+          ]
+        },
+        {
+          "node": "网点3",
+          "lower": "0",
+          "upper": "1",
+          "source_ids": [
+            "s0015",
+            "s0016",
+            "s0017",
+            "s0018",
+            "s0019",
+            "s0020",
+            "s0021",
+            "s0022"
+          ]
+        },
+        {
+          "node": "网点4",
+          "lower": "0",
+          "upper": "1",
+          "source_ids": [
+            "s0015",
+            "s0016",
+            "s0017",
+            "s0018",
+            "s0019",
+            "s0020",
+            "s0021",
+            "s0022"
+          ]
+        },
+        {
+          "node": "网点5",
+          "lower": "0",
+          "upper": "1",
+          "source_ids": [
+            "s0015",
+            "s0016",
+            "s0017",
+            "s0018",
+            "s0019",
+            "s0020",
+            "s0021",
+            "s0022"
+          ]
+        },
+        {
+          "node": "网点6",
+          "lower": "0",
+          "upper": "1",
+          "source_ids": [
+            "s0015",
+            "s0016",
+            "s0017",
+            "s0018",
+            "s0019",
+            "s0020",
+            "s0021",
+            "s0022"
+          ]
+        }
+      ],
+      "listed_means_are_complete_information": {
+        "value": true,
+        "source_ids": [
+          "s0023"
+        ]
+      },
+      "no_additional_coupling_constraints": {
+        "value": true,
+        "source_ids": [
+          "s0023"
+        ]
+      }
+    }
+  },
+  "bundle": {
+    "case_id": "network_D2_7_3_True",
+    "documents": {
+      "study": "本周有7个服务网点，名单为中心、网点1、网点2、网点3、网点4、网点5、网点6。每个网点使用AI记1、不使用记0；结果是本周任务是否按时完成，完成记1、未完成记0。",
+      "network": "合作网络为固定的处理前简单无向网络，完整边为中心—网点1、中心—网点2、中心—网点3、中心—网点4、中心—网点5、中心—网点6，没有其他边。",
+      "assignment": "原试点每轮均匀随机抽取恰好3个网点使用AI；所有同人数名单等概率。",
+      "science": "研究明确采用：已知上述完整分配律；完整处理向量与所有网点在所有完整安排下的潜在结果独立；一致性，即观察结果等于实际安排下的潜在结果；处理前固定网络；所需条件一阶矩有限。",
+      "information": "以下是本题声明可用的精确总体条件均值，不是有限样本估计：\n中心，自身处理=0、同伴暴露=0时，本周按时完成指标的总体条件均值=1/2。\n网点1，自身处理=1、同伴暴露=1时，本周按时完成指标的总体条件均值=1/2。\n网点2，自身处理=1、同伴暴露=1时，本周按时完成指标的总体条件均值=1/2。\n网点3，自身处理=1、同伴暴露=1时，本周按时完成指标的总体条件均值=1/2。\n网点4，自身处理=1、同伴暴露=1时，本周按时完成指标的总体条件均值=1/2。\n网点5，自身处理=1、同伴暴露=1时，本周按时完成指标的总体条件均值=1/2。\n网点6，自身处理=1、同伴暴露=1时，本周按时完成指标的总体条件均值=1/2。",
+      "exposure": "同伴暴露定义为合作邻居中严格超过一半使用AI时为1，否则为0；平票为0，孤立节点为0。",
+      "sufficiency": "研究另行拟采用：对全部网点、所有完整二元安排，每个网点的潜在结果均值只依赖自身处理与上述同伴暴露。",
+      "bounds": "界限与上文研究背景相同，对每个对象、每一种完整二元安排均成立，限制潜在结果均值。结果定义为本周任务按时完成记1、未完成记0；单位为0/1指标，期间为本周。\n中心的下界为0，上界为1。\n网点1的下界为0，上界为1。\n网点2的下界为0，上界为1。\n网点3的下界为0，上界为1。\n网点4的下界为0，上界为1。\n网点5的下界为0，上界为1。\n网点6的下界为0，上界为1。",
+      "complete_model": "本研究明确约定：总体信息只有以上逐项列出的精确总体均值，不包含完整联合分布、其他总体信息或额外聚合均值；除前述随机化、一致性、固定网络、有限矩、全安排均值暴露充分性以及上述界限外，没有跨对象、跨情境的额外耦合限制。",
+      "business_question": "如果这7个网点都使用AI助手，评价全部这些网点、每个网点权重相同，平均按时完成率能否由现有总体信息唯一确定？"
+    },
+    "question": "如果这7个网点都使用AI助手，评价全部这些网点、每个网点权重相同，平均按时完成率能否由现有总体信息唯一确定？"
+  },
+  "unsupported_reasons": [],
+  "proposed_target": {
+    "kind": "FIXED_FULL_ASSIGNMENT_POLICY_MEAN",
+    "node_order": [
+      "中心",
+      "网点1",
+      "网点2",
+      "网点3",
+      "网点4",
+      "网点5",
+      "网点6"
+    ],
+    "assignment": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "unit_weights": [
+      "1/7",
+      "1/7",
+      "1/7",
+      "1/7",
+      "1/7",
+      "1/7",
+      "1/7"
+    ],
+    "treatment": "使用AI",
+    "outcome": "本周任务是否按时完成",
+    "context": "本周服务网点"
+  },
+  "a4_projection": {
+    "kind": "DISJOINT_EXACT_CELLS_FROM_ONE_SOURCE_DOCUMENT",
+    "source_documents": [
+      "information"
+    ],
+    "original_entry_indices": [
+      0
+    ],
+    "cell_count": 7
+  },
+  "plan_sha256": "08e8a6b2a63f800ab9beb7e0160ebb2eb89a39f30a2a61fc3e8fdc145fa628cd",
+  "plan_worksheet": {
+    "version": "business-dispatch-review-1",
+    "binding_sha256": "08e8a6b2a63f800ab9beb7e0160ebb2eb89a39f30a2a61fc3e8fdc145fa628cd",
+    "decisions": {
+      "selected_query_matches_native_target": "PENDING",
+      "complete_model_and_constraints_preserved": "PENDING",
+      "method_requests_and_projections_preserved": "PENDING"
+    },
+    "is_approval": false
+  }
+}
