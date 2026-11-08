@@ -106,10 +106,13 @@ def main(argv=None) -> int:
     for entry in registry["cases"]:
         errors = check_case(entry)
         networks = {}
-        for variant in entry["variants"]:
-            networks[variant["name"]] = check_network(
-                ROOT / entry["public_directory"] / variant["name"]
-            )
+        if entry.get("family") == "NETWORK":
+            for variant in entry["variants"]:
+                networks[variant["name"]] = check_network(
+                    ROOT / entry["public_directory"] / variant["name"]
+                )
+        else:
+            networks = {"not_applicable": f"family={entry.get('family')}"}
         report["cases"].append({
             "case_id": entry["case_id"],
             "status": entry.get("status"),

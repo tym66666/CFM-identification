@@ -1,0 +1,17 @@
+{
+  "case_id": "LIT-IV-01",
+  "variant": "missing_condition",
+  "paper_id": "imbens_angrist1994_late",
+  "title": "培训资格抽签：不能排除反向参与",
+  "synthetic": true,
+  "gold_oracle_location": "OUTSIDE_PUBLIC_CASE_DIRECTORY",
+  "llm_access_scope": "PUBLIC_CASE_FILES_ONLY",
+  "business_question_file": "business_question.md",
+  "supporting_files": [
+    "study_protocol.md",
+    "data_dictionary.md",
+    "observed_joint_counts.csv"
+  ],
+  "heldout": false,
+  "notes": "从原题删除单调性，明确允许 defiers；用于检查系统是否发现 LATE 条件不成立，而不是继续套公式。"
+}

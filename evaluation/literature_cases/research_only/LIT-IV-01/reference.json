@@ -1,0 +1,110 @@
+{
+  "case_id": "LIT-IV-01",
+  "paper_id": "imbens_angrist1994_late",
+  "paper": {
+    "authors": [
+      "Guido W. Imbens",
+      "Joshua D. Angrist"
+    ],
+    "year": 1994,
+    "title": "Identification and Estimation of Local Average Treatment Effects",
+    "venue": "Econometrica",
+    "volume": "62",
+    "issue": "2",
+    "pages": "467-475",
+    "doi": "10.2307/2951620",
+    "version_checked": "JSTOR scan, Econometrica 62(2), March 1994"
+  },
+  "paper_reference": {
+    "paper_question": "在二元工具变量、二元参与和二元结果下，仅工具变量有效能否识别有意义的平均处理效应？需要什么额外条件？",
+    "target": "遵从者的局部平均处理效应 LATE：E[Y_i(1)-Y_i(0) | D_i(1) != D_i(0)]。",
+    "source_location": "Imbens & Angrist (1994), Econometrica 62(2):467-475, Conditions 1-2 and Theorem 1, pp. 468-470.",
+    "formula": "LATE = (E[Y|Z=1]-E[Y|Z=0]) / (E[D|Z=1]-E[D|Z=0]), with a nonzero positive denominator. For general z,w: alpha_{z,w} = (E[Y|Z=z]-E[Y|Z=w]) / (P(z)-P(w)), P(z)=E[D|Z=z].",
+    "conditions": [
+      "Condition 1: (Y_i(0),Y_i(1),D_i(w)) is jointly independent of Z_i for every w; P(w)=E[D_i|Z_i=w] is a nontrivial function of w.",
+      "Condition 2 (monotonicity): for all z,w, either D_i(z)>=D_i(w) for all i or D_i(z)<=D_i(w) for all i; no defiers.",
+      "Positive compliance: the denominator P(z)-P(w) is nonzero and positive for the chosen direction.",
+      "Finite conditional expectations for the outcomes used in the ratio."
+    ],
+    "sample_analog": {
+      "counts_file": "observed_joint_counts.csv",
+      "n": 200,
+      "E_Y_given_Z1": "19/50",
+      "E_Y_given_Z0": "6/25",
+      "E_D_given_Z1": "2/5",
+      "E_D_given_Z0": "1/5",
+      "numerator": "7/50",
+      "denominator": "1/5",
+      "late": "7/10",
+      "late_decimal": 0.7,
+      "note": "This is a sample analog for checking the formula and sign. It is not the paper's data and not a population LATE."
+    },
+    "what_paper_supports": [
+      "Condition 1 alone is not sufficient to identify an average treatment effect.",
+      "Conditions 1 and 2 identify LATE for compliers.",
+      "LATE is not the population ATE.",
+      "The IV estimand is a weighted average of LATEs when the instrument has multiple values."
+    ],
+    "what_paper_does_not_support": [
+      "It does not identify ATE for the whole population.",
+      "It does not justify LATE without monotonicity.",
+      "It does not support network IV, continuous instruments, weak-instrument inference, or 2SLS extensions.",
+      "It does not show that the current software has an IV backend."
+    ]
+  },
+  "available_information_a4": {
+    "sample": "200 observed (Z,D,Y) records in observed_joint_counts.csv.",
+    "population": "No population joint law or population conditional means are provided; the table is a finite sample.",
+    "instrument": "Binary eligibility Z, randomized with probability 1/2.",
+    "treatment": "Binary actual participation D.",
+    "outcome": "Binary employment improvement Y."
+  },
+  "scientific_assumptions_a5": {
+    "status": "PROPOSED_AND_REQUIRES_INDEPENDENT_REVIEW",
+    "items": [
+      "Condition 1 independence/exclusion of the instrument.",
+      "Condition 2 monotonicity (no defiers).",
+      "Positive compliance probability.",
+      "Stable treatment and outcome definitions."
+    ],
+    "not_adopted": [
+      "No constant-treatment-effect assumption.",
+      "No assumption that LATE equals ATE.",
+      "No assumption that the finite sample is the population."
+    ]
+  },
+  "software_expected": {
+    "original": {
+      "status": "UNSUPPORTED",
+      "reason": "The current repository has no registered IV reader or IV mathematical backend. The paper's LATE formula is a paper reference, not a current software capability."
+    },
+    "missing_condition": {
+      "status": "UNSUPPORTED",
+      "reason": "The paper's LATE is not identified without monotonicity; the software has no IV backend either. The system should not return a LATE number."
+    },
+    "changed_target": {
+      "status": "UNSUPPORTED",
+      "reason": "The paper identifies LATE, not the population ATE. ATE bounds require separate literature (e.g., Balke-Pearl 1997) and a separate implementation; current software has no IV backend."
+    }
+  },
+  "actual_run": {
+    "method": "CAPABILITY_CATALOG_CHECK_ONLY",
+    "source": "capability_check.json",
+    "system_status": "UNSUPPORTED",
+    "details": {
+      "iv_route_status": "NO_REGISTERED_CONTRACT_IN_THIS_ENTRY",
+      "callable_here": false,
+      "implemented_route_ids": [
+        "DAG_CLASSICAL_BACKDOOR",
+        "DAG_ADJUSTMENT",
+        "MEAN_ORDER_D2_E1",
+        "DAG_CLASSICAL_FRONTDOOR"
+      ]
+    },
+    "note": "No IV business run was attempted because there is no IV reader/backend. This is an honest UNSUPPORTED, not a proof of non-identification."
+  },
+  "review_status": "PENDING_TEACHER",
+  "reviewer": "teacher (to be completed)",
+  "holdout": false,
+  "notes": "Software expectation is UNSUPPORTED for all three variants. The paper reference is recorded separately and is not turned into a software result."
+}

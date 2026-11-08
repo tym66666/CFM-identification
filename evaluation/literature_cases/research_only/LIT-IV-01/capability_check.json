@@ -1,0 +1,21 @@
+{
+  "checked_on": "2026-11-08",
+  "code_version": "992fdf9598b1b18a16aaa5887490174f6b6e5868",
+  "command": ".venv/Scripts/python -c \"from cfm_id.research_route_catalog import inventory; ...\"",
+  "api_calls": 0,
+  "route_catalog_version": "research-route-catalog-2",
+  "iv_route": {
+    "route_id": "IV",
+    "status": "NO_REGISTERED_CONTRACT_IN_THIS_ENTRY",
+    "callable_here": false
+  },
+  "implemented_route_ids": [
+    "DAG_CLASSICAL_BACKDOOR",
+    "DAG_ADJUSTMENT",
+    "MEAN_ORDER_D2_E1",
+    "DAG_CLASSICAL_FRONTDOOR"
+  ],
+  "system_status": "UNSUPPORTED",
+  "reason": "The current repository has no registered IV reader or IV mathematical backend. It must not route this case to a network or DAG method.",
+  "boundary": "UNSUPPORTED is not a proof of non-identification. The paper gives a LATE formula under Conditions 1-2; the software simply has not implemented IV."
+}

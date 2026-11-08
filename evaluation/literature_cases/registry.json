@@ -31,6 +31,37 @@
       "heldout": false,
       "review_status": "PENDING_TEACHER",
       "status": "PILOT_RUN_COMPLETE"
+    },
+    {
+      "case_id": "LIT-IV-01",
+      "paper_id": "imbens_angrist1994_late",
+      "family": "IV",
+      "title": "培训资格抽签：实际参加者的局部平均效应",
+      "public_directory": "evaluation/literature_cases/public/LIT-IV-01",
+      "research_directory": "evaluation/literature_cases/research_only/LIT-IV-01",
+      "variants": [
+        {
+          "name": "original",
+          "expected_status": "UNSUPPORTED",
+          "actual_status": "UNSUPPORTED",
+          "actual_source": "capability_check.json (2026-11-08)"
+        },
+        {
+          "name": "missing_condition",
+          "expected_status": "UNSUPPORTED",
+          "actual_status": "UNSUPPORTED",
+          "actual_source": "capability_check.json (2026-11-08)"
+        },
+        {
+          "name": "changed_target",
+          "expected_status": "UNSUPPORTED",
+          "actual_status": "UNSUPPORTED",
+          "actual_source": "capability_check.json (2026-11-08)"
+        }
+      ],
+      "heldout": false,
+      "review_status": "PENDING_TEACHER",
+      "status": "PILOT_UNSUPPORTED_RECORDED"
     }
   ]
 }

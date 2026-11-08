@@ -43,6 +43,11 @@ actual_run         系统实际输出了什么
   - 运行性质：`api_calls=0`，显式合成审核，不调用 LLM。
   - 复核：`PENDING_TEACHER`。
 
+- `LIT-IV-01`：Imbens & Angrist (1994) 培训资格 LATE 案例。
+  - 状态：论文参考完成；当前仓库没有 IV 读取器/数学后端，三个版本均如实记为 `UNSUPPORTED`。
+  - 运行性质：`api_calls=0`，只做能力目录检查，没有伪造 IV 求解。
+  - 复核：`PENDING_TEACHER`。
+
 ## 新增案例的最小步骤
 
 1. 在 `literature_support/cases/` 写来源卡和案例说明。
