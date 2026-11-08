@@ -1,0 +1,72 @@
+{
+  "api_calls": 0,
+  "synthetic_reviews": true,
+  "rows": [
+    {
+      "variant": "original",
+      "expected": "POINT",
+      "final_state": "POINT",
+      "passed": true,
+      "score": {
+        "passed": true,
+        "structure": true,
+        "fields": {
+          "version": true,
+          "variables": true,
+          "relations": true,
+          "target": true,
+          "scope": true,
+          "information": true,
+          "adjustment": true,
+          "additional_restrictions": true
+        },
+        "citation_coverage": true
+      },
+      "reason": null
+    },
+    {
+      "variant": "missing_condition",
+      "expected": "NEEDS_INPUT",
+      "final_state": "NEEDS_INPUT",
+      "passed": true,
+      "score": {
+        "passed": true,
+        "structure": true,
+        "fields": {
+          "version": true,
+          "variables": true,
+          "relations": true,
+          "target": true,
+          "scope": true,
+          "information": true,
+          "adjustment": true,
+          "additional_restrictions": true
+        },
+        "citation_coverage": true
+      },
+      "reason": "MISSING_OR_AMBIGUOUS_DAG_DECLARATIONS"
+    },
+    {
+      "variant": "changed_target",
+      "expected": "UNSUPPORTED",
+      "final_state": "UNSUPPORTED",
+      "passed": true,
+      "score": {
+        "passed": true,
+        "structure": true,
+        "fields": {
+          "version": true,
+          "variables": true,
+          "relations": true,
+          "target": true,
+          "scope": true,
+          "information": true,
+          "adjustment": true,
+          "additional_restrictions": true
+        },
+        "citation_coverage": true
+      },
+      "reason": "ADJUSTMENT_CONTAINS_TREATMENT_DESCENDANT"
+    }
+  ]
+}

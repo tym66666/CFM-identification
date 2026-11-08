@@ -1,0 +1,117 @@
+{
+  "version": "dag-reading-1",
+  "variables": [
+    {
+      "name": "资深员工",
+      "observation": "OBSERVED",
+      "domain": "BINARY",
+      "source_ids": [
+        "src_dcfa49c36e82da22e85b73e3113760609c28ce61191922e42c06a53a4a9c2ef2"
+      ]
+    },
+    {
+      "name": "参加培训",
+      "observation": "OBSERVED",
+      "domain": "BINARY",
+      "source_ids": [
+        "src_ca1cda04f4fa25855acb6158cc9eba6fe40eced7318f3675b6804bbb81be4d8e"
+      ]
+    },
+    {
+      "name": "业绩达标",
+      "observation": "OBSERVED",
+      "domain": "BINARY",
+      "source_ids": [
+        "src_ebaaabcef920d2186b5d533b1c2bd29c48d4fd7c54e46992e9fb9316bad2c811"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "cause": "资深员工",
+      "effect": "参加培训",
+      "kind": "DIRECT_CAUSE",
+      "source_ids": [
+        "src_38244c0a3783cba5ea84845e73bfe88cff0bfce39aa6d55852ed7e3cf748a7a2"
+      ]
+    },
+    {
+      "cause": "资深员工",
+      "effect": "业绩达标",
+      "kind": "DIRECT_CAUSE",
+      "source_ids": [
+        "src_9188187484ac9508e44873c6a10d1736154a03beeeb31095a7f9b9b10d099d2c"
+      ]
+    },
+    {
+      "cause": "参加培训",
+      "effect": "业绩达标",
+      "kind": "DIRECT_CAUSE",
+      "source_ids": [
+        "src_f5f7ba942ed7d560ab7a6ec62c897fc58504de7d792e9b6cee682da09f1d23c3"
+      ]
+    }
+  ],
+  "target": {
+    "kind": "INTERVENTIONAL_DISTRIBUTION",
+    "treatment": "参加培训",
+    "outcome": "业绩达标",
+    "context": "本季度销售团队",
+    "source_ids": [
+      "src_5e54d8bb532b6829a6771e91e405d14b8303070efdf52dd9f2083d471e87342f"
+    ]
+  },
+  "scope": {
+    "static_acyclic": {
+      "value": true,
+      "source_ids": [
+        "src_a5f0cd95acbc375bbea249d25858ec96500f3ba228fc767eb1ed029504a09cea"
+      ]
+    },
+    "graph_complete": {
+      "value": true,
+      "source_ids": [
+        "src_496f9dbec337438d89da16ceab844c785109bafc44539a2094df873b7873bf11"
+      ]
+    },
+    "latent_causes_accounted": {
+      "value": true,
+      "source_ids": [
+        "src_d82217953d4f287c8f5847b324328d013aa2ea7c200432a4716a33f0798899eb"
+      ]
+    },
+    "independent_errors": {
+      "value": true,
+      "source_ids": [
+        "src_5c181a83314b455fa5973ac42d409a177326bfe088537229fd998f5bbfad07f7"
+      ]
+    },
+    "perfect_intervention": {
+      "value": true,
+      "source_ids": [
+        "src_7e6a14219f1e8b9852e95d8f53f2151b1a0ff84e576489800404cae927ae5009"
+      ]
+    }
+  },
+  "information": {
+    "kind": "FULL_JOINT_POPULATION_LAW",
+    "variables": [
+      "资深员工",
+      "参加培训",
+      "业绩达标"
+    ],
+    "source_ids": [
+      "src_b1d1b1fd2044994db7969e28ad8e1d3265d4d1ced9eec0f354a8c027104c5847"
+    ],
+    "positivity": {
+      "value": true,
+      "source_ids": [
+        "src_342878eb1634aaf6b96d790a9ef068d8a38986c178f76954d17b0cfe7a05fe6b"
+      ]
+    }
+  },
+  "adjustment": null,
+  "adjustment_source_ids": [],
+  "additional_restrictions": [],
+  "unresolved": []
+}

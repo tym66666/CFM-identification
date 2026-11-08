@@ -48,6 +48,11 @@ actual_run         系统实际输出了什么
   - 运行性质：`api_calls=0`，只做能力目录检查，没有伪造 IV 求解。
   - 复核：`PENDING_TEACHER`。
 
+- `LIT-DAG-01`：Pearl (1995) 后门准则案例。
+  - 状态：原题 POINT，调整集合 `["资深员工"]`，证书重放通过；缺图条件版 `NEEDS_INPUT`；控制治疗后中介版 `UNSUPPORTED`。
+  - 运行性质：`api_calls=0`，显式合成审核，不调用 LLM。
+  - 复核：`PENDING_TEACHER`。
+
 ## 新增案例的最小步骤
 
 1. 在 `literature_support/cases/` 写来源卡和案例说明。

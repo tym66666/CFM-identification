@@ -1,0 +1,19 @@
+{
+  "case_id": "LIT-DAG-01",
+  "variant": "changed_target",
+  "paper_id": "pearl1995_backdoor",
+  "title": "培训、业绩与资深员工：后门调整",
+  "synthetic": true,
+  "gold_oracle_location": "OUTSIDE_PUBLIC_CASE_DIRECTORY",
+  "llm_access_scope": "PUBLIC_CASE_FILES_ONLY",
+  "business_question_file": "business_question.md",
+  "supporting_files": [
+    "variables.md",
+    "graph.md",
+    "model.md",
+    "information.md",
+    "data_dictionary.md"
+  ],
+  "heldout": false,
+  "notes": "Pearl (1995) 后门准则的合成业务应用；不是现实医学事实，也不是论文数据复现。"
+}
