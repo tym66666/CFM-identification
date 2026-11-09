@@ -51,6 +51,24 @@
 - 不支撑把单对象有限结果外推到论文总体；
 - 不支撑把朋友参加当作随机处理。
 
+## 4.5 实际摘录
+
+Assumption 3（Unconfoundedness of Individual and Neighborhood Treatment）：
+
+> \(Y_i(z,g)\perp (Z_i,G_i)\mid X_i\) for \(z\in\{0,1\}\), \(g\in\mathcal{G}_i\).
+
+Theorem 1（Identification of ADRF）：
+
+> Under Assumptions 1–3,  
+> \[
+> \mathbb{E}[Y_i(z,g)\mid i\in V_g]
+> =
+> \sum_x \mathbb{E}[Y_i\mid Z_i=z,G_i=g,X_i=x,i\in V_g]\,P(X_i=x\mid i\in V_g).
+> \]
+> 即式 (7)。
+
+本案例只借用“本人/邻居协变量调整”的结构，做单对象有限均值版本；不是论文整体 ADRF 或 Add Health 复现。
+
 ## 5. 阅读级别
 
 `selected_sections_and_demo_alignment`，不是 `full_text_verified`。

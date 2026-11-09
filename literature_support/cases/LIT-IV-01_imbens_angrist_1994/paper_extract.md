@@ -2,8 +2,8 @@
 
 > 这不是论文全文，只保留本案例核对所需的短摘录和公式。
 >
-> 版本：JSTOR 扫描版，*Econometrica* 62(2), March 1994, pp. 467–475。  
-> 核对位置：pp. 468–470。
+> 版本：JSTOR 扫描版，*Econometrica* 62(2), March 1994, pp. 467–475；本地另有 NBER t0118 扫描 PDF。  
+> 核对位置：pp. 468–470（Condition 1、Condition 2、Theorem 1）。
 
 ## 1. 潜在参与与工具变量
 

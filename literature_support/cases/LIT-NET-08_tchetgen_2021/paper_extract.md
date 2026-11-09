@@ -24,6 +24,16 @@
 - 不支撑把本案例接到 R1/R2/R3 的现有网络 POINT 路线；
 - 不支撑从四节点外推到真实网络。
 
+## 4.5 实际摘录
+
+Abstract：
+
+> “In this paper, we develop new statistical methods for causal inference based on a single realization of a network of connected units for which neither assumption (i) nor (ii) holds... arbitrary forms of interference... and long range dependence...”
+
+§3.1 把网络数据写成 chain graph；auto-G-computation 在该 chain graph 上计算干预分布。论文的识别/估计依赖网络联合律和 chain graph 结构，不是把节点当独立对象。
+
+本案例只记录这条路线和“当前软件未实现”，不声称复现 Auto-G 的算法、证明或模拟。
+
 ## 5. 阅读级别
 
 `selected_full_text_sections`。已核对 arXiv:1709.01577v3 的 Abstract、§3.1 chain graph 和 auto-G-computation algorithm 相关段落；不是 `full_text_verified`。

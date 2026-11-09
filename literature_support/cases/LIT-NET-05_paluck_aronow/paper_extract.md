@@ -37,6 +37,20 @@
 - 不支撑把合成结果当作论文表 2 的复现；
 - 不支撑把其他学校的比较直接迁移到本案例。
 
+## 4.5 实际摘录
+
+Abstract：
+
+> “An experiment tested these theories by randomizing an anticonflict intervention across 56 schools with 24,191 students... randomly selected seed groups of 20–32 students... disciplinary reports of student conflict at treatment schools were reduced by 30% over 1 year.”
+
+Methods：
+
+> “Twenty-four percent of seed students did not accept our invitation... we used a conservative intention-to-treat approach that counts noncompliers as directly treated seeds.”
+
+Methods 还明确列出四类暴露：控制学校、无朋友是 seed、有朋友是 non-referent seed、有朋友是 social-referent seed；并说明用已知暴露概率做 IPW。
+
+本案例只借用“邀请/暴露”结构，不复制 56 所学校数据、30% 效应或 IPW 估计。
+
 ## 5. 阅读级别
 
 `selected_full_text_sections`。已核对 PNAS 113(3):566–571 的 Abstract、Methods and Materials、Results 相关段落；未逐页核对 SI Appendix 和全部回归表，也没有重新证明 Aronow–Samii 的定理。
