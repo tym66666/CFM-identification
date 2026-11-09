@@ -39,4 +39,4 @@
 
 ## 5. 阅读级别
 
-`selected_sections_and_demo_alignment`。没有逐页核对 Paluck 原文全部表格，也没有重新证明 Aronow–Samii 的定理。
+`selected_full_text_sections`。已核对 PNAS 113(3):566–571 的 Abstract、Methods and Materials、Results 相关段落；未逐页核对 SI Appendix 和全部回归表，也没有重新证明 Aronow–Samii 的定理。

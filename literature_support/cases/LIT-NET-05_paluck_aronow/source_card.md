@@ -7,7 +7,7 @@
 
 ## 2. 阅读范围
 
-阅读级别：`selected_sections_and_demo_alignment`。
+阅读级别：`selected_full_text_sections`。核对版本：PMC4725542 全文，PNAS 113(3):566–571（2016）。实际读到 Abstract、Methods and Materials、Results 中与随机化、网络暴露、手环和 ITT 相关的段落；未逐页核对 SI Appendix 和全部回归表。
 
 - Paluck et al.：项目 demo 的文献对照说明；未逐页核对原文全部表格。
 - Aronow–Samii：§8 式 (16)、Corollary 8.1；§10 手环/间接暴露讨论。

@@ -4,7 +4,7 @@
 
 - Tchetgen Tchetgen, E. J., Fulcher, I. R., & Shpitser, I. (2021). *Auto-G-Computation of Causal Effects on a Network*. *JASA* 116(534):833–844。
 - DOI/链接：项目文献卡记录为 JASA 2021；本卡核对范围仅为题录、摘要和项目路线说明。
-- 未逐页核对 Auto-G 的全部算法、证明和估计细节。
+- 核对版本：arXiv:1709.01577v3（2019-08-22），实际读到 Abstract、§3.1 chain graph representation、auto-G-computation algorithm 相关段落；未逐页核对全部证明、模拟和估计细节。
 
 ## 2. 论文问题
 

@@ -3,7 +3,7 @@
 ## 1. 文献信息
 
 - Beaman, L., BenYishay, A., Magruder, J., & Mobarak, A. M. (2021). *Can Network Theory-Based Targeting Increase Technology Adoption?* *American Economic Review*. DOI: 10.1257/aer.20200295。
-- 本卡核对范围：项目 demo 的文献对照说明和论文题录；未逐页核对原文全部模型与实证。
+- 核对版本：作者稿 `BBMM_Jan2021.pdf`，60 页；实际读到 Abstract、Introduction 中 200 个 Malawi 村庄、seed farmers、网络中心性与技术采用的部分；未逐页核对全部实证表和结构模型。
 
 ## 2. 案例与论文的关系
 

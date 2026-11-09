@@ -5,7 +5,7 @@
 - Balke, A., & Pearl, J. (1997). *Bounds on Treatment Effects From Studies With Imperfect Compliance*. *JASA* 92(439):1171–1176。
 - DOI：10.1080/01621459.1997.10474074。
 - 作者公开稿：https://ftp.cs.ucla.edu/pub/stat_ser/r199-jasa.pdf。
-- 本卡核对范围：题录、摘要/问题设定和项目文献卡；未逐页核对全部闭式界与 sharpness 证明。
+- 本卡核对范围：题录、摘要/问题设定和项目文献卡；已下载 UCLA 作者扫描 PDF（6 页），但该 PDF 没有可提取文字层，OCR 尚未完成；未逐页核对全部闭式界与 sharpness 证明。
 
 ## 2. 论文问题
 

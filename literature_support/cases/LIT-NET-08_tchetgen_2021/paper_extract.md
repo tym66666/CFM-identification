@@ -26,4 +26,4 @@
 
 ## 5. 阅读级别
 
-`metadata_and_project_alignment`。不是 `full_text_verified`。
+`selected_full_text_sections`。已核对 arXiv:1709.01577v3 的 Abstract、§3.1 chain graph 和 auto-G-computation algorithm 相关段落；不是 `full_text_verified`。

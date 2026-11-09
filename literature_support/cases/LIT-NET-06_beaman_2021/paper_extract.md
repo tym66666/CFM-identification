@@ -37,4 +37,4 @@
 
 ## 4. 阅读级别
 
-`demo_alignment_and_metadata`。论文的完整模型和实证没有逐页核验。
+`selected_full_text_sections`。已核对作者稿 `BBMM_Jan2021.pdf` 的 Abstract 和 Introduction 中 200 个村庄、seed farmers、网络中心性相关段落；完整实证表和结构模型未逐页核验。

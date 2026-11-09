@@ -36,4 +36,4 @@
 
 ## 6. 阅读级别
 
-`metadata_and_abstract_alignment`，不是 `full_text_verified`。
+`metadata_and_scanned_pdf_ocr_pending`。扫描 PDF 已下载，但没有文字层，OCR 尚未完成；不是 `full_text_verified`。

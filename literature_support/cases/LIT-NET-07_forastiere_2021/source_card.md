@@ -4,7 +4,7 @@
 
 - Forastiere, L., Airoldi, E. M., & Mealli, F. (2021). *Identification and Estimation of Treatment and Interference Effects in Observational Studies on Networks*. *JASA*. DOI: 10.1080/01621459.2020.1768100。
 - 作者公开稿：arXiv:1609.06245。
-- 核对位置：作者稿定理 1、式 (7) 的调整结构；项目 demo 的有限单对象改编。
+- 核对版本：arXiv:1609.06245v4（2018-03-30），实际读到 Assumption 3、Theorem 1、式 (7) 的调整结构；未逐页核对附录和全部模拟。
 
 ## 2. 案例与论文的关系
 
