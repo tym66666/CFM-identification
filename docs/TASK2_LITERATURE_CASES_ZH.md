@@ -48,6 +48,8 @@ evaluation/literature_cases/registry.json    案例登记
 
 它们的参考答案已冻结，开发时不能用来调材料。
 
+> holdout 范围是“开发 holdout”：不用于调材料，但部分来源材料在 demo 历史中出现过，因此不是对仓库历史的盲测。
+
 ## 5. 运行性质
 
 - `LIT-NET-01/02/03/04/05/06`、`LIT-DAG-01/02`：2026-11-08/09 结构化运行，`api_calls=0`，显式合成审核；

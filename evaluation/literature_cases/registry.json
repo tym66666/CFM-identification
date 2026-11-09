@@ -278,7 +278,8 @@
       ],
       "heldout": true,
       "review_status": "PENDING_TEACHER",
-      "status": "PILOT_RUN_COMPLETE"
+      "status": "PILOT_RUN_COMPLETE",
+      "holdout_scope": "DEVELOPMENT_HOLDOUT_NOT_BLIND_TO_REPO_HISTORY"
     },
     {
       "case_id": "LIT-DAG-02",
@@ -309,7 +310,8 @@
       ],
       "heldout": true,
       "review_status": "PENDING_TEACHER",
-      "status": "PILOT_RUN_COMPLETE"
+      "status": "PILOT_RUN_COMPLETE",
+      "holdout_scope": "DEVELOPMENT_HOLDOUT_NOT_BLIND_TO_REPO_HISTORY"
     },
     {
       "case_id": "LIT-NET-08",
@@ -340,7 +342,8 @@
       ],
       "heldout": true,
       "review_status": "PENDING_TEACHER",
-      "status": "PILOT_UNSUPPORTED_RECORDED"
+      "status": "PILOT_UNSUPPORTED_RECORDED",
+      "holdout_scope": "DEVELOPMENT_HOLDOUT_NOT_BLIND_TO_REPO_HISTORY"
     },
     {
       "case_id": "LIT-IV-02",
@@ -371,7 +374,9 @@
       ],
       "heldout": true,
       "review_status": "PENDING_TEACHER",
-      "status": "PILOT_UNSUPPORTED_RECORDED"
+      "status": "PILOT_UNSUPPORTED_RECORDED",
+      "holdout_scope": "DEVELOPMENT_HOLDOUT_NOT_BLIND_TO_REPO_HISTORY"
     }
-  ]
+  ],
+  "holdout_policy": "Development holdout only: references frozen and not used for tuning. Some source materials already appear in demo history; not blind against repository history."
 }
