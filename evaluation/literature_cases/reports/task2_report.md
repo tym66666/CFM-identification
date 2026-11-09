@@ -16,18 +16,18 @@
 - `LIT-NET-02`：疫苗 POINT；缺第一阶段排除 `NEEDS_INPUT`；反向 POINT。
 - `LIT-NET-03`：PARTIAL `[3/7,4/7]`；缺模型 `NEEDS_INPUT`；额外限制 `ADAPTER_NOT_CONNECTED`。
 - `LIT-NET-04`：PARTIAL `[1/5,1]`；缺同伴顺序 `NEEDS_INPUT`；单对象 POINT `1/5`。
+- `LIT-NET-05`：校园邀请 POINT；缺设计 `NEEDS_INPUT`；反向 POINT。
+- `LIT-NET-06`：示范农户 POINT；缺概率 `NEEDS_INPUT`；换政策 POINT。
 - `LIT-DAG-01`：后门 POINT；缺图 `NEEDS_INPUT`；控制中介 `UNSUPPORTED`。
+- `LIT-DAG-02`：前门 POINT；缺中介 `NEEDS_INPUT`；加直接边 `UNSUPPORTED`（holdout）。
 
 以上均为 `api_calls=0`，显式合成审核，不是 LLM 准确率。
 
-### 历史保存运行 + 参考改动版
+### 历史保存运行（holdout）
 
-- `LIT-NET-05`：校园邀请 POINT；缺设计 `NEEDS_INPUT`；反向 POINT。
-- `LIT-NET-06`：示范农户 POINT；缺概率 `NEEDS_INPUT`；换政策 POINT。
 - `LIT-NET-07`：观察性网络 POINT；缺交换性 `NEEDS_INPUT`；反向 POINT。
-- `LIT-DAG-02`：前门 POINT；缺中介 `NEEDS_INPUT`；加直接边 `UNSUPPORTED`。
 
-原题实际来自 2026-11-04 demo 保存运行；改动版目前为参考答案/预期，标为 `NOT_RUN`。
+原题来自历史 demo 保存运行；改动版刻意未运行，以保持 holdout。
 
 ### 当前软件未支持
 
@@ -63,7 +63,7 @@
 
 ## 5. 主要边界
 
-- `LIT-NET-05/06/07`、`LIT-DAG-02` 的改动版尚未实际运行；
+- `LIT-NET-07` 的改动版尚未实际运行，作为 holdout 保留；
 - 当前没有真实 LLM 首答准确率；
 - `UNSUPPORTED` 不等于不可识别；
 - 论文参考与软件结果分开；
@@ -73,6 +73,6 @@
 ## 6. 后续
 
 1. 老师复核 12 个案例；
-2. 补跑 4 个 `NOT_RUN` 的改动版；
+2. 最终评测时再运行 `LIT-NET-07` 的 holdout；
 3. 真实 LLM 读取实验由任务 6 单独负责；
 4. 最终 PR 前再跑完整测试和安装检查。

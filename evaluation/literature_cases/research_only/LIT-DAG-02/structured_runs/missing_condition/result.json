@@ -1,0 +1,10 @@
+{
+  "entry": "DAG_CLASSICAL_FRONTDOOR",
+  "state": "NEEDS_INPUT",
+  "backend_called": false,
+  "certificate_replayed": false,
+  "review_recorded": false,
+  "production_admission": false,
+  "estimation_handoff_allowed": false,
+  "reason_code": "CAUSAL_GRAPH_NOT_DECLARED"
+}

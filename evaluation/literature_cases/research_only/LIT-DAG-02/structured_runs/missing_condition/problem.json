@@ -1,0 +1,57 @@
+{
+  "version": "dag-frontdoor-1",
+  "model": "RECURSIVE_SCM_EXPLICIT_LATENTS_INDEPENDENT_ERRORS",
+  "variable_domain": "BINARY",
+  "nodes": [
+    "体质",
+    "吸烟",
+    "焦油",
+    "肺癌"
+  ],
+  "observed": [
+    "吸烟",
+    "焦油",
+    "肺癌"
+  ],
+  "latent": [
+    "体质"
+  ],
+  "edges": [
+    [
+      "体质",
+      "吸烟"
+    ],
+    [
+      "体质",
+      "肺癌"
+    ],
+    [
+      "吸烟",
+      "焦油"
+    ],
+    [
+      "焦油",
+      "肺癌"
+    ]
+  ],
+  "graph_status": "UNKNOWN",
+  "graph_source": "Synthetic front-door graph declared by the case author",
+  "materials_sha256": "987cf278ab77ad96e220aa9ce75df4639f759a3b530570860ea291b9b529fb89",
+  "context": "同一随访人群与随访期",
+  "treatment": "吸烟",
+  "outcome": "肺癌",
+  "frontdoor_variable": "焦油",
+  "information": {
+    "source_id": "lit_dag_02_synthetic_law",
+    "source_sha256": "113050de50b0c4945b911d78f6ca08ad026978d1212505d5d05c767e05b302a7",
+    "variables": [
+      "吸烟",
+      "焦油",
+      "肺癌"
+    ],
+    "availability": "SYMBOLIC_POPULATION_LAW",
+    "strictly_positive_joint": true,
+    "provenance": "Hypothetical complete observed population law for the synthetic case"
+  },
+  "additional_restrictions": []
+}

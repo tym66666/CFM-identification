@@ -1,0 +1,720 @@
+{
+  "state": "POINT",
+  "reason_code": null,
+  "backend_called": true,
+  "independent_replay": true,
+  "mathematical_claim": {
+    "kind": "POINT",
+    "representation": "NATIVE_NETWORK_OBSERVED_FUNCTIONAL",
+    "target": {
+      "node_order": [
+        "甲",
+        "乙",
+        "丙",
+        "丁"
+      ],
+      "population": [
+        "甲",
+        "乙",
+        "丙",
+        "丁"
+      ],
+      "unit_weights": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "treatment": "接受示范培训记1，未接受记0",
+      "outcome": "下一季采用新技术记1，未采用记0",
+      "context": "下一季；四户同一交流网络",
+      "kind": "FINITE_POLICY_MEAN",
+      "policies": [
+        {
+          "assignment": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "weight": "1/2"
+        },
+        {
+          "assignment": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "weight": "1/2"
+        }
+      ]
+    },
+    "target_fingerprint": "101ab75f5ec4f492d2b4ed442894259f555c425f812e21e86ec25cec02abd336",
+    "expression": "1/2 * (1/4 * E[Y_{甲}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)] + 1/4 * E[Y_{乙}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)] + 1/4 * E[Y_{丙}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)] + 1/4 * E[Y_{丁}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)]) + 1/2 * (1/4 * E[Y_{甲}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)] + 1/4 * E[Y_{乙}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)] + 1/4 * E[Y_{丙}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)] + 1/4 * E[Y_{丁}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)])",
+    "numeric_value": null
+  },
+  "certificate": {
+    "theorem_id": "R1B_FINITE_SUPPORT_STOCHASTIC_POLICY_POINT_V1",
+    "status": "POINT",
+    "verification_status": "VERIFIED",
+    "target_fingerprint": "101ab75f5ec4f492d2b4ed442894259f555c425f812e21e86ec25cec02abd336",
+    "policy_support": [
+      {
+        "assignment": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "policy_probability": "1/2",
+        "experimental_assignment_probability": "1/16",
+        "fixed_policy_certificate": "a4c8a24cc75efef8451a6774f061be8fef0330191b4016d82c5daaa280b618e7"
+      },
+      {
+        "assignment": [
+          1,
+          1,
+          0,
+          0
+        ],
+        "policy_probability": "1/2",
+        "experimental_assignment_probability": "1/16",
+        "fixed_policy_certificate": "14aa765cccc77c4d407d23d804fac010c12dc3a1f4eb4f0ac06249bf78933cbb"
+      }
+    ],
+    "identified_functional": "1/2 * (1/4 * E[Y_{甲}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)] + 1/4 * E[Y_{乙}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)] + 1/4 * E[Y_{丙}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)] + 1/4 * E[Y_{丁}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)]) + 1/2 * (1/4 * E[Y_{甲}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)] + 1/4 * E[Y_{乙}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)] + 1/4 * E[Y_{丙}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)] + 1/4 * E[Y_{丁}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)])",
+    "certificate_sha256": "50bb36ea5a86d0e416727246a76cc8c24588ba601c916a4acf615a8741815507",
+    "estimation_request": null,
+    "warning": "Finite mixture of full-assignment population means; no PFN value is estimated"
+  },
+  "answers": [
+    {
+      "method": "R1B_FINITE_POLICY",
+      "mathematical_claim": {
+        "kind": "POINT",
+        "representation": "NATIVE_NETWORK_OBSERVED_FUNCTIONAL",
+        "target": {
+          "node_order": [
+            "甲",
+            "乙",
+            "丙",
+            "丁"
+          ],
+          "population": [
+            "甲",
+            "乙",
+            "丙",
+            "丁"
+          ],
+          "unit_weights": [
+            "1/4",
+            "1/4",
+            "1/4",
+            "1/4"
+          ],
+          "treatment": "接受示范培训记1，未接受记0",
+          "outcome": "下一季采用新技术记1，未采用记0",
+          "context": "下一季；四户同一交流网络",
+          "kind": "FINITE_POLICY_MEAN",
+          "policies": [
+            {
+              "assignment": [
+                1,
+                1,
+                0,
+                0
+              ],
+              "weight": "1/2"
+            },
+            {
+              "assignment": [
+                0,
+                0,
+                1,
+                1
+              ],
+              "weight": "1/2"
+            }
+          ]
+        },
+        "target_fingerprint": "101ab75f5ec4f492d2b4ed442894259f555c425f812e21e86ec25cec02abd336",
+        "expression": "1/2 * (1/4 * E[Y_{甲}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)] + 1/4 * E[Y_{乙}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)] + 1/4 * E[Y_{丙}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)] + 1/4 * E[Y_{丁}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)]) + 1/2 * (1/4 * E[Y_{甲}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)] + 1/4 * E[Y_{乙}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)] + 1/4 * E[Y_{丙}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)] + 1/4 * E[Y_{丁}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)])",
+        "numeric_value": null
+      },
+      "certificate": {
+        "theorem_id": "R1B_FINITE_SUPPORT_STOCHASTIC_POLICY_POINT_V1",
+        "status": "POINT",
+        "verification_status": "VERIFIED",
+        "target_fingerprint": "101ab75f5ec4f492d2b4ed442894259f555c425f812e21e86ec25cec02abd336",
+        "policy_support": [
+          {
+            "assignment": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "policy_probability": "1/2",
+            "experimental_assignment_probability": "1/16",
+            "fixed_policy_certificate": "a4c8a24cc75efef8451a6774f061be8fef0330191b4016d82c5daaa280b618e7"
+          },
+          {
+            "assignment": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "policy_probability": "1/2",
+            "experimental_assignment_probability": "1/16",
+            "fixed_policy_certificate": "14aa765cccc77c4d407d23d804fac010c12dc3a1f4eb4f0ac06249bf78933cbb"
+          }
+        ],
+        "identified_functional": "1/2 * (1/4 * E[Y_{甲}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)] + 1/4 * E[Y_{乙}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)] + 1/4 * E[Y_{丙}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)] + 1/4 * E[Y_{丁}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)]) + 1/2 * (1/4 * E[Y_{甲}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)] + 1/4 * E[Y_{乙}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)] + 1/4 * E[Y_{丙}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)] + 1/4 * E[Y_{丁}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)])",
+        "certificate_sha256": "50bb36ea5a86d0e416727246a76cc8c24588ba601c916a4acf615a8741815507",
+        "estimation_request": null,
+        "warning": "Finite mixture of full-assignment population means; no PFN value is estimated"
+      },
+      "independent_replay": true,
+      "reviewed_input_sha256": "c17080ac9f574830cd5d8523374f94fb5b82af755081dec31a4ec83745a56c4d",
+      "native_evidence": {
+        "query_type": "FINITE_POLICY_MIXTURE",
+        "status": "POINT",
+        "route": "R1B_FINITE_POLICY",
+        "reason_code": null,
+        "result": {
+          "components": [
+            {
+              "study": {
+                "network_id": "network_f8f7b6e967aa31a9ea832e6c6d3422210e06812c02651236efe462050f683020",
+                "node_order": [
+                  "甲",
+                  "乙",
+                  "丙",
+                  "丁"
+                ],
+                "undirected_edges": [
+                  [
+                    "甲",
+                    "乙"
+                  ],
+                  [
+                    "乙",
+                    "丙"
+                  ],
+                  [
+                    "丙",
+                    "丁"
+                  ]
+                ],
+                "treatment_variable": "接受示范培训记1，未接受记0",
+                "outcome_variable": "下一季采用新技术记1，未采用记0",
+                "outcome_kind": "binary",
+                "context_reference": "下一季；四户同一交流网络",
+                "observation_regime": "experimental",
+                "assignment_design_json": "{\"kind\":\"heterogeneous_bernoulli_binary_v1\",\"propensities\":{\"丁\":\"1/2\",\"丙\":\"1/2\",\"乙\":\"1/2\",\"甲\":\"1/2\"}}",
+                "protocol_provenance": "Reviewed original source locators: src_323153696b17d5343252bf850785c3b2b24dd00bffd32e0bef12e96c330420de,src_cd7c500b9c395a762772e8fe0e846e0261cfc8abb8b2828902e1f63706433f67,src_d7cd0fb837a90f3321105141b1b9a35ed70651068e1201e5ce7232e1075b436c,src_4eb73856cdf642affbac50de8f0d2fb6beef6e9d8285739903a86117adb8432d,src_d1a457afb5c963f048e6ec5c2102c3f799d273c8dc84d8c57a8ea52f20ea153c,src_08dc99d06069171409e21f53a3ad8cf6b7e82f0b6d85d4537a26de9c18471100,src_536210af59d174c576cfda82a9a3c48427e8237fb09f540bac8b961f8c2b72dc,src_6f452ead4ab1bf8aca218453d0fe8a94e70602134f6dce3f56d4c0fb5cd4f974,src_47afbd17b5f862cb1ef001a422fdd09420bb9fe366165e348e80d0f72c017c6c,src_1c9b09a2be5f1cad8d5de2007d3a573841f2b3f307d445b391bf2cd30c7d5dcc; Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=c72c57d87d3a9582e8ea950f311509518a7ce0614669c2ebeb194a2bdb3ff5b6",
+                "network_provenance": "Reviewed original source locators: src_323153696b17d5343252bf850785c3b2b24dd00bffd32e0bef12e96c330420de,src_cd7c500b9c395a762772e8fe0e846e0261cfc8abb8b2828902e1f63706433f67,src_d7cd0fb837a90f3321105141b1b9a35ed70651068e1201e5ce7232e1075b436c,src_4eb73856cdf642affbac50de8f0d2fb6beef6e9d8285739903a86117adb8432d,src_d1a457afb5c963f048e6ec5c2102c3f799d273c8dc84d8c57a8ea52f20ea153c,src_08dc99d06069171409e21f53a3ad8cf6b7e82f0b6d85d4537a26de9c18471100,src_536210af59d174c576cfda82a9a3c48427e8237fb09f540bac8b961f8c2b72dc,src_6f452ead4ab1bf8aca218453d0fe8a94e70602134f6dce3f56d4c0fb5cd4f974,src_47afbd17b5f862cb1ef001a422fdd09420bb9fe366165e348e80d0f72c017c6c,src_1c9b09a2be5f1cad8d5de2007d3a573841f2b3f307d445b391bf2cd30c7d5dcc; Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=c72c57d87d3a9582e8ea950f311509518a7ce0614669c2ebeb194a2bdb3ff5b6",
+                "graph_timing_claim": "DECLARED_PRETREATMENT_FIXED"
+              },
+              "target": {
+                "kind": "FIXED_FULL_ASSIGNMENT_POLICY_MEAN",
+                "network_fingerprint": "0789a5ee55617a7b4e2a1da96c8382bd46b7b8ba43f1041e1bbac6af43573811",
+                "node_order": [
+                  "甲",
+                  "乙",
+                  "丙",
+                  "丁"
+                ],
+                "outcome": "下一季采用新技术记1，未采用记0",
+                "context": "下一季；四户同一交流网络",
+                "averaging_scope": "population_conditional_mean_given_W",
+                "authority": "TRUSTED_FIXTURE",
+                "query_resolution": "RESOLVED",
+                "assignment_law_fingerprint": null,
+                "exposure_fingerprint": null,
+                "node_id": null,
+                "arm": null,
+                "policy_assignment": [
+                  0,
+                  0,
+                  1,
+                  1
+                ],
+                "unit_weights": [
+                  "1/4",
+                  "1/4",
+                  "1/4",
+                  "1/4"
+                ],
+                "target_digest": "e6a7e7d9123ee9afc89a3d31b1c5e0020d6fd409079d7e67d513aacc239ba8c0"
+              },
+              "sources": [
+                {
+                  "source_id": "source_83a67fc835b89471ae7bbf86090d0b00a60e8022eb9159dd080bca6ab7046fd5",
+                  "operator": "NODE_FULL_LAW",
+                  "provenance": "Reviewed original source locators: src_323153696b17d5343252bf850785c3b2b24dd00bffd32e0bef12e96c330420de,src_cd7c500b9c395a762772e8fe0e846e0261cfc8abb8b2828902e1f63706433f67,src_d7cd0fb837a90f3321105141b1b9a35ed70651068e1201e5ce7232e1075b436c,src_4eb73856cdf642affbac50de8f0d2fb6beef6e9d8285739903a86117adb8432d,src_d1a457afb5c963f048e6ec5c2102c3f799d273c8dc84d8c57a8ea52f20ea153c,src_08dc99d06069171409e21f53a3ad8cf6b7e82f0b6d85d4537a26de9c18471100,src_536210af59d174c576cfda82a9a3c48427e8237fb09f540bac8b961f8c2b72dc,src_6f452ead4ab1bf8aca218453d0fe8a94e70602134f6dce3f56d4c0fb5cd4f974,src_47afbd17b5f862cb1ef001a422fdd09420bb9fe366165e348e80d0f72c017c6c,src_1c9b09a2be5f1cad8d5de2007d3a573841f2b3f307d445b391bf2cd30c7d5dcc; Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=c72c57d87d3a9582e8ea950f311509518a7ce0614669c2ebeb194a2bdb3ff5b6",
+                  "admission": "ADMITTED",
+                  "availability": "SYMBOLIC_POPULATION_OPERATOR",
+                  "regime": "experimental",
+                  "shared_scope_digest": "cf6cbada861a109511970eb4440f3bdae45e6e47300a507efcf1e540a0a5e355",
+                  "protocol_digest": "13c9886e9ed96f28ef42e082c77ba8bfec194a8ab65a507d175197ed644b4a03",
+                  "node_order": [
+                    "甲",
+                    "乙",
+                    "丙",
+                    "丁"
+                  ],
+                  "outcome": "下一季采用新技术记1，未采用记0",
+                  "context": "下一季；四户同一交流网络",
+                  "outcome_nodes": [
+                    "甲",
+                    "乙",
+                    "丙",
+                    "丁"
+                  ],
+                  "assignment_cells": [],
+                  "exposure_fingerprint": null
+                }
+              ],
+              "assumptions": [
+                {
+                  "name": "known_assignment_law",
+                  "source": "demo_specification",
+                  "confirmed": true,
+                  "status": "ADMITTED",
+                  "evidence": [
+                    "Reviewed original source locators: src_323153696b17d5343252bf850785c3b2b24dd00bffd32e0bef12e96c330420de,src_cd7c500b9c395a762772e8fe0e846e0261cfc8abb8b2828902e1f63706433f67,src_d7cd0fb837a90f3321105141b1b9a35ed70651068e1201e5ce7232e1075b436c,src_4eb73856cdf642affbac50de8f0d2fb6beef6e9d8285739903a86117adb8432d,src_d1a457afb5c963f048e6ec5c2102c3f799d273c8dc84d8c57a8ea52f20ea153c; Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=c72c57d87d3a9582e8ea950f311509518a7ce0614669c2ebeb194a2bdb3ff5b6",
+                    "Independent synthetic protocol reviewer"
+                  ],
+                  "details": ""
+                },
+                {
+                  "name": "full_vector_randomization",
+                  "source": "demo_specification",
+                  "confirmed": true,
+                  "status": "ADMITTED",
+                  "evidence": [
+                    "Reviewed original source locators: src_323153696b17d5343252bf850785c3b2b24dd00bffd32e0bef12e96c330420de,src_cd7c500b9c395a762772e8fe0e846e0261cfc8abb8b2828902e1f63706433f67,src_d7cd0fb837a90f3321105141b1b9a35ed70651068e1201e5ce7232e1075b436c,src_4eb73856cdf642affbac50de8f0d2fb6beef6e9d8285739903a86117adb8432d,src_d1a457afb5c963f048e6ec5c2102c3f799d273c8dc84d8c57a8ea52f20ea153c; Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=c72c57d87d3a9582e8ea950f311509518a7ce0614669c2ebeb194a2bdb3ff5b6",
+                    "Independent synthetic protocol reviewer"
+                  ],
+                  "details": ""
+                },
+                {
+                  "name": "consistency",
+                  "source": "demo_specification",
+                  "confirmed": true,
+                  "status": "ADMITTED",
+                  "evidence": [
+                    "Reviewed original source locators: src_323153696b17d5343252bf850785c3b2b24dd00bffd32e0bef12e96c330420de,src_cd7c500b9c395a762772e8fe0e846e0261cfc8abb8b2828902e1f63706433f67,src_d7cd0fb837a90f3321105141b1b9a35ed70651068e1201e5ce7232e1075b436c,src_4eb73856cdf642affbac50de8f0d2fb6beef6e9d8285739903a86117adb8432d,src_d1a457afb5c963f048e6ec5c2102c3f799d273c8dc84d8c57a8ea52f20ea153c; Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=c72c57d87d3a9582e8ea950f311509518a7ce0614669c2ebeb194a2bdb3ff5b6",
+                    "Independent synthetic protocol reviewer"
+                  ],
+                  "details": ""
+                },
+                {
+                  "name": "fixed_pretreatment_network",
+                  "source": "demo_specification",
+                  "confirmed": true,
+                  "status": "ADMITTED",
+                  "evidence": [
+                    "Reviewed original source locators: src_323153696b17d5343252bf850785c3b2b24dd00bffd32e0bef12e96c330420de,src_cd7c500b9c395a762772e8fe0e846e0261cfc8abb8b2828902e1f63706433f67,src_d7cd0fb837a90f3321105141b1b9a35ed70651068e1201e5ce7232e1075b436c,src_4eb73856cdf642affbac50de8f0d2fb6beef6e9d8285739903a86117adb8432d,src_d1a457afb5c963f048e6ec5c2102c3f799d273c8dc84d8c57a8ea52f20ea153c; Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=c72c57d87d3a9582e8ea950f311509518a7ce0614669c2ebeb194a2bdb3ff5b6",
+                    "Independent synthetic protocol reviewer"
+                  ],
+                  "details": ""
+                },
+                {
+                  "name": "finite_conditional_first_moments",
+                  "source": "demo_specification",
+                  "confirmed": true,
+                  "status": "ADMITTED",
+                  "evidence": [
+                    "Reviewed original source locators: src_323153696b17d5343252bf850785c3b2b24dd00bffd32e0bef12e96c330420de,src_cd7c500b9c395a762772e8fe0e846e0261cfc8abb8b2828902e1f63706433f67,src_d7cd0fb837a90f3321105141b1b9a35ed70651068e1201e5ce7232e1075b436c,src_4eb73856cdf642affbac50de8f0d2fb6beef6e9d8285739903a86117adb8432d,src_d1a457afb5c963f048e6ec5c2102c3f799d273c8dc84d8c57a8ea52f20ea153c; Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=c72c57d87d3a9582e8ea950f311509518a7ce0614669c2ebeb194a2bdb3ff5b6",
+                    "Independent synthetic protocol reviewer"
+                  ],
+                  "details": ""
+                }
+              ],
+              "route_receipt": {
+                "version": "non-arm-network-inquiry-shadow-v1.7",
+                "study_digest": "29228d8110e0cc8d468a9e69410725ab81136b35042d7a000fd3a20ac919b896",
+                "study_declaration_digest": "33b7024f4fb18ff1bb9ec43bd09398072e0ebecd681ff74cf5357755c0c9eed7",
+                "assumption_evidence_digest": "a186b9c3d8ef14f2e1e0209d7081510d77326f76c049791950c20223f734ea8a",
+                "policy_assignment_probability": "1/16",
+                "target_digest": "e6a7e7d9123ee9afc89a3d31b1c5e0020d6fd409079d7e67d513aacc239ba8c0",
+                "target_authority": "TRUSTED_FIXTURE",
+                "target_resolution": "RESOLVED",
+                "family_id": "randomized_full_assignment_policy_mean_candidate_v0",
+                "route_status": "THEOREM_BACKEND_UNAVAILABLE",
+                "target_match": "MATCHED",
+                "information_status": "SATISFIED",
+                "assumption_status": "ADMITTED",
+                "validity_status": "POSITIVE_UNDER_DECLARED_Q",
+                "backend_capability": "CANDIDATE_NOT_REGISTERED",
+                "required_observable": {
+                  "operator": "NODE_ASSIGNMENT_MEANS_FOR_POLICY",
+                  "network_fingerprint": "0789a5ee55617a7b4e2a1da96c8382bd46b7b8ba43f1041e1bbac6af43573811",
+                  "node_order": [
+                    "甲",
+                    "乙",
+                    "丙",
+                    "丁"
+                  ],
+                  "outcome": "下一季采用新技术记1，未采用记0",
+                  "context": "下一季；四户同一交流网络",
+                  "node_ids": [
+                    "甲",
+                    "乙",
+                    "丙",
+                    "丁"
+                  ],
+                  "arm_cell": null,
+                  "assignment_cell": [
+                    0,
+                    0,
+                    1,
+                    1
+                  ],
+                  "assignment_law_fingerprint": null,
+                  "exposure_fingerprint": null,
+                  "availability": "SYMBOLIC_POPULATION_OPERATOR"
+                },
+                "source_results": [
+                  {
+                    "source_id": "source_83a67fc835b89471ae7bbf86090d0b00a60e8022eb9159dd080bca6ab7046fd5",
+                    "source_digest": "8c5afe8aee68678200809bfa79dd22b3be8f12f1a76ef70ea100212a7fd93f2e",
+                    "information_status": "SATISFIED",
+                    "reason": null,
+                    "rule_id": "A4_NODE_FULL_LAW_TO_ASSIGNMENT_MEAN_V17"
+                  }
+                ],
+                "blockers": [
+                  "NO_REGISTERED_GENERAL_FIXED_POLICY_THEOREM_OR_VERIFIER"
+                ],
+                "warnings": [
+                  "A4_SATISFIED_DOES_NOT_AUTHORIZE_CAUSAL_IDENTIFICATION"
+                ],
+                "mathematical_identification_from_router": null,
+                "digest": "eec0c87b4d970413a40633717a54309ff6b6233637fc2154e2fd63230e3023e5"
+              },
+              "selected_a4_source_id": "source_83a67fc835b89471ae7bbf86090d0b00a60e8022eb9159dd080bca6ab7046fd5",
+              "selected_a4_source_digest": "8c5afe8aee68678200809bfa79dd22b3be8f12f1a76ef70ea100212a7fd93f2e",
+              "a4_rule_id": "A4_NODE_FULL_LAW_TO_ASSIGNMENT_MEAN_V17",
+              "assignment_probability": "1/16",
+              "weighted_nodes": [
+                "甲",
+                "乙",
+                "丙",
+                "丁"
+              ],
+              "node_weights": [
+                "1/4",
+                "1/4",
+                "1/4",
+                "1/4"
+              ],
+              "required_observables": [
+                "E[Y_{甲}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)]",
+                "E[Y_{乙}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)]",
+                "E[Y_{丙}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)]",
+                "E[Y_{丁}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)]"
+              ],
+              "identified_functional": "1/4 * E[Y_{甲}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)] + 1/4 * E[Y_{乙}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)] + 1/4 * E[Y_{丙}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)] + 1/4 * E[Y_{丁}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)]",
+              "target_fingerprint": "4c28694a574e99ea1390eeab06d84f94027b5235015cfc80eb6c688fac05880e",
+              "theorem_id": "R1B_RANDOMIZED_FULL_ASSIGNMENT_POLICY_POINT_V1",
+              "certificate_sha256": "a4c8a24cc75efef8451a6774f061be8fef0330191b4016d82c5daaa280b618e7",
+              "version": "randomized-network-fixed-full-assignment-policy-point-v1.9",
+              "status": "POINT",
+              "verification_status": "VERIFIED",
+              "estimation_request": null
+            },
+            {
+              "study": {
+                "network_id": "network_f8f7b6e967aa31a9ea832e6c6d3422210e06812c02651236efe462050f683020",
+                "node_order": [
+                  "甲",
+                  "乙",
+                  "丙",
+                  "丁"
+                ],
+                "undirected_edges": [
+                  [
+                    "甲",
+                    "乙"
+                  ],
+                  [
+                    "乙",
+                    "丙"
+                  ],
+                  [
+                    "丙",
+                    "丁"
+                  ]
+                ],
+                "treatment_variable": "接受示范培训记1，未接受记0",
+                "outcome_variable": "下一季采用新技术记1，未采用记0",
+                "outcome_kind": "binary",
+                "context_reference": "下一季；四户同一交流网络",
+                "observation_regime": "experimental",
+                "assignment_design_json": "{\"kind\":\"heterogeneous_bernoulli_binary_v1\",\"propensities\":{\"丁\":\"1/2\",\"丙\":\"1/2\",\"乙\":\"1/2\",\"甲\":\"1/2\"}}",
+                "protocol_provenance": "Reviewed original source locators: src_323153696b17d5343252bf850785c3b2b24dd00bffd32e0bef12e96c330420de,src_cd7c500b9c395a762772e8fe0e846e0261cfc8abb8b2828902e1f63706433f67,src_d7cd0fb837a90f3321105141b1b9a35ed70651068e1201e5ce7232e1075b436c,src_4eb73856cdf642affbac50de8f0d2fb6beef6e9d8285739903a86117adb8432d,src_d1a457afb5c963f048e6ec5c2102c3f799d273c8dc84d8c57a8ea52f20ea153c,src_08dc99d06069171409e21f53a3ad8cf6b7e82f0b6d85d4537a26de9c18471100,src_536210af59d174c576cfda82a9a3c48427e8237fb09f540bac8b961f8c2b72dc,src_6f452ead4ab1bf8aca218453d0fe8a94e70602134f6dce3f56d4c0fb5cd4f974,src_47afbd17b5f862cb1ef001a422fdd09420bb9fe366165e348e80d0f72c017c6c,src_1c9b09a2be5f1cad8d5de2007d3a573841f2b3f307d445b391bf2cd30c7d5dcc; Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=c72c57d87d3a9582e8ea950f311509518a7ce0614669c2ebeb194a2bdb3ff5b6",
+                "network_provenance": "Reviewed original source locators: src_323153696b17d5343252bf850785c3b2b24dd00bffd32e0bef12e96c330420de,src_cd7c500b9c395a762772e8fe0e846e0261cfc8abb8b2828902e1f63706433f67,src_d7cd0fb837a90f3321105141b1b9a35ed70651068e1201e5ce7232e1075b436c,src_4eb73856cdf642affbac50de8f0d2fb6beef6e9d8285739903a86117adb8432d,src_d1a457afb5c963f048e6ec5c2102c3f799d273c8dc84d8c57a8ea52f20ea153c,src_08dc99d06069171409e21f53a3ad8cf6b7e82f0b6d85d4537a26de9c18471100,src_536210af59d174c576cfda82a9a3c48427e8237fb09f540bac8b961f8c2b72dc,src_6f452ead4ab1bf8aca218453d0fe8a94e70602134f6dce3f56d4c0fb5cd4f974,src_47afbd17b5f862cb1ef001a422fdd09420bb9fe366165e348e80d0f72c017c6c,src_1c9b09a2be5f1cad8d5de2007d3a573841f2b3f307d445b391bf2cd30c7d5dcc; Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=c72c57d87d3a9582e8ea950f311509518a7ce0614669c2ebeb194a2bdb3ff5b6",
+                "graph_timing_claim": "DECLARED_PRETREATMENT_FIXED"
+              },
+              "target": {
+                "kind": "FIXED_FULL_ASSIGNMENT_POLICY_MEAN",
+                "network_fingerprint": "0789a5ee55617a7b4e2a1da96c8382bd46b7b8ba43f1041e1bbac6af43573811",
+                "node_order": [
+                  "甲",
+                  "乙",
+                  "丙",
+                  "丁"
+                ],
+                "outcome": "下一季采用新技术记1，未采用记0",
+                "context": "下一季；四户同一交流网络",
+                "averaging_scope": "population_conditional_mean_given_W",
+                "authority": "TRUSTED_FIXTURE",
+                "query_resolution": "RESOLVED",
+                "assignment_law_fingerprint": null,
+                "exposure_fingerprint": null,
+                "node_id": null,
+                "arm": null,
+                "policy_assignment": [
+                  1,
+                  1,
+                  0,
+                  0
+                ],
+                "unit_weights": [
+                  "1/4",
+                  "1/4",
+                  "1/4",
+                  "1/4"
+                ],
+                "target_digest": "5e70214a2ae0aa672120a4b3eeb1eb2a8502f3ed7728dd631ee1d7e09726d1c4"
+              },
+              "sources": [
+                {
+                  "source_id": "source_83a67fc835b89471ae7bbf86090d0b00a60e8022eb9159dd080bca6ab7046fd5",
+                  "operator": "NODE_FULL_LAW",
+                  "provenance": "Reviewed original source locators: src_323153696b17d5343252bf850785c3b2b24dd00bffd32e0bef12e96c330420de,src_cd7c500b9c395a762772e8fe0e846e0261cfc8abb8b2828902e1f63706433f67,src_d7cd0fb837a90f3321105141b1b9a35ed70651068e1201e5ce7232e1075b436c,src_4eb73856cdf642affbac50de8f0d2fb6beef6e9d8285739903a86117adb8432d,src_d1a457afb5c963f048e6ec5c2102c3f799d273c8dc84d8c57a8ea52f20ea153c,src_08dc99d06069171409e21f53a3ad8cf6b7e82f0b6d85d4537a26de9c18471100,src_536210af59d174c576cfda82a9a3c48427e8237fb09f540bac8b961f8c2b72dc,src_6f452ead4ab1bf8aca218453d0fe8a94e70602134f6dce3f56d4c0fb5cd4f974,src_47afbd17b5f862cb1ef001a422fdd09420bb9fe366165e348e80d0f72c017c6c,src_1c9b09a2be5f1cad8d5de2007d3a573841f2b3f307d445b391bf2cd30c7d5dcc; Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=c72c57d87d3a9582e8ea950f311509518a7ce0614669c2ebeb194a2bdb3ff5b6",
+                  "admission": "ADMITTED",
+                  "availability": "SYMBOLIC_POPULATION_OPERATOR",
+                  "regime": "experimental",
+                  "shared_scope_digest": "cf6cbada861a109511970eb4440f3bdae45e6e47300a507efcf1e540a0a5e355",
+                  "protocol_digest": "13c9886e9ed96f28ef42e082c77ba8bfec194a8ab65a507d175197ed644b4a03",
+                  "node_order": [
+                    "甲",
+                    "乙",
+                    "丙",
+                    "丁"
+                  ],
+                  "outcome": "下一季采用新技术记1，未采用记0",
+                  "context": "下一季；四户同一交流网络",
+                  "outcome_nodes": [
+                    "甲",
+                    "乙",
+                    "丙",
+                    "丁"
+                  ],
+                  "assignment_cells": [],
+                  "exposure_fingerprint": null
+                }
+              ],
+              "assumptions": [
+                {
+                  "name": "known_assignment_law",
+                  "source": "demo_specification",
+                  "confirmed": true,
+                  "status": "ADMITTED",
+                  "evidence": [
+                    "Reviewed original source locators: src_323153696b17d5343252bf850785c3b2b24dd00bffd32e0bef12e96c330420de,src_cd7c500b9c395a762772e8fe0e846e0261cfc8abb8b2828902e1f63706433f67,src_d7cd0fb837a90f3321105141b1b9a35ed70651068e1201e5ce7232e1075b436c,src_4eb73856cdf642affbac50de8f0d2fb6beef6e9d8285739903a86117adb8432d,src_d1a457afb5c963f048e6ec5c2102c3f799d273c8dc84d8c57a8ea52f20ea153c; Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=c72c57d87d3a9582e8ea950f311509518a7ce0614669c2ebeb194a2bdb3ff5b6",
+                    "Independent synthetic protocol reviewer"
+                  ],
+                  "details": ""
+                },
+                {
+                  "name": "full_vector_randomization",
+                  "source": "demo_specification",
+                  "confirmed": true,
+                  "status": "ADMITTED",
+                  "evidence": [
+                    "Reviewed original source locators: src_323153696b17d5343252bf850785c3b2b24dd00bffd32e0bef12e96c330420de,src_cd7c500b9c395a762772e8fe0e846e0261cfc8abb8b2828902e1f63706433f67,src_d7cd0fb837a90f3321105141b1b9a35ed70651068e1201e5ce7232e1075b436c,src_4eb73856cdf642affbac50de8f0d2fb6beef6e9d8285739903a86117adb8432d,src_d1a457afb5c963f048e6ec5c2102c3f799d273c8dc84d8c57a8ea52f20ea153c; Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=c72c57d87d3a9582e8ea950f311509518a7ce0614669c2ebeb194a2bdb3ff5b6",
+                    "Independent synthetic protocol reviewer"
+                  ],
+                  "details": ""
+                },
+                {
+                  "name": "consistency",
+                  "source": "demo_specification",
+                  "confirmed": true,
+                  "status": "ADMITTED",
+                  "evidence": [
+                    "Reviewed original source locators: src_323153696b17d5343252bf850785c3b2b24dd00bffd32e0bef12e96c330420de,src_cd7c500b9c395a762772e8fe0e846e0261cfc8abb8b2828902e1f63706433f67,src_d7cd0fb837a90f3321105141b1b9a35ed70651068e1201e5ce7232e1075b436c,src_4eb73856cdf642affbac50de8f0d2fb6beef6e9d8285739903a86117adb8432d,src_d1a457afb5c963f048e6ec5c2102c3f799d273c8dc84d8c57a8ea52f20ea153c; Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=c72c57d87d3a9582e8ea950f311509518a7ce0614669c2ebeb194a2bdb3ff5b6",
+                    "Independent synthetic protocol reviewer"
+                  ],
+                  "details": ""
+                },
+                {
+                  "name": "fixed_pretreatment_network",
+                  "source": "demo_specification",
+                  "confirmed": true,
+                  "status": "ADMITTED",
+                  "evidence": [
+                    "Reviewed original source locators: src_323153696b17d5343252bf850785c3b2b24dd00bffd32e0bef12e96c330420de,src_cd7c500b9c395a762772e8fe0e846e0261cfc8abb8b2828902e1f63706433f67,src_d7cd0fb837a90f3321105141b1b9a35ed70651068e1201e5ce7232e1075b436c,src_4eb73856cdf642affbac50de8f0d2fb6beef6e9d8285739903a86117adb8432d,src_d1a457afb5c963f048e6ec5c2102c3f799d273c8dc84d8c57a8ea52f20ea153c; Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=c72c57d87d3a9582e8ea950f311509518a7ce0614669c2ebeb194a2bdb3ff5b6",
+                    "Independent synthetic protocol reviewer"
+                  ],
+                  "details": ""
+                },
+                {
+                  "name": "finite_conditional_first_moments",
+                  "source": "demo_specification",
+                  "confirmed": true,
+                  "status": "ADMITTED",
+                  "evidence": [
+                    "Reviewed original source locators: src_323153696b17d5343252bf850785c3b2b24dd00bffd32e0bef12e96c330420de,src_cd7c500b9c395a762772e8fe0e846e0261cfc8abb8b2828902e1f63706433f67,src_d7cd0fb837a90f3321105141b1b9a35ed70651068e1201e5ce7232e1075b436c,src_4eb73856cdf642affbac50de8f0d2fb6beef6e9d8285739903a86117adb8432d,src_d1a457afb5c963f048e6ec5c2102c3f799d273c8dc84d8c57a8ea52f20ea153c; Frozen hypothetical target and declared model independently stipulated; no real-world approval.; review=c72c57d87d3a9582e8ea950f311509518a7ce0614669c2ebeb194a2bdb3ff5b6",
+                    "Independent synthetic protocol reviewer"
+                  ],
+                  "details": ""
+                }
+              ],
+              "route_receipt": {
+                "version": "non-arm-network-inquiry-shadow-v1.7",
+                "study_digest": "29228d8110e0cc8d468a9e69410725ab81136b35042d7a000fd3a20ac919b896",
+                "study_declaration_digest": "33b7024f4fb18ff1bb9ec43bd09398072e0ebecd681ff74cf5357755c0c9eed7",
+                "assumption_evidence_digest": "a186b9c3d8ef14f2e1e0209d7081510d77326f76c049791950c20223f734ea8a",
+                "policy_assignment_probability": "1/16",
+                "target_digest": "5e70214a2ae0aa672120a4b3eeb1eb2a8502f3ed7728dd631ee1d7e09726d1c4",
+                "target_authority": "TRUSTED_FIXTURE",
+                "target_resolution": "RESOLVED",
+                "family_id": "randomized_full_assignment_policy_mean_candidate_v0",
+                "route_status": "THEOREM_BACKEND_UNAVAILABLE",
+                "target_match": "MATCHED",
+                "information_status": "SATISFIED",
+                "assumption_status": "ADMITTED",
+                "validity_status": "POSITIVE_UNDER_DECLARED_Q",
+                "backend_capability": "CANDIDATE_NOT_REGISTERED",
+                "required_observable": {
+                  "operator": "NODE_ASSIGNMENT_MEANS_FOR_POLICY",
+                  "network_fingerprint": "0789a5ee55617a7b4e2a1da96c8382bd46b7b8ba43f1041e1bbac6af43573811",
+                  "node_order": [
+                    "甲",
+                    "乙",
+                    "丙",
+                    "丁"
+                  ],
+                  "outcome": "下一季采用新技术记1，未采用记0",
+                  "context": "下一季；四户同一交流网络",
+                  "node_ids": [
+                    "甲",
+                    "乙",
+                    "丙",
+                    "丁"
+                  ],
+                  "arm_cell": null,
+                  "assignment_cell": [
+                    1,
+                    1,
+                    0,
+                    0
+                  ],
+                  "assignment_law_fingerprint": null,
+                  "exposure_fingerprint": null,
+                  "availability": "SYMBOLIC_POPULATION_OPERATOR"
+                },
+                "source_results": [
+                  {
+                    "source_id": "source_83a67fc835b89471ae7bbf86090d0b00a60e8022eb9159dd080bca6ab7046fd5",
+                    "source_digest": "8c5afe8aee68678200809bfa79dd22b3be8f12f1a76ef70ea100212a7fd93f2e",
+                    "information_status": "SATISFIED",
+                    "reason": null,
+                    "rule_id": "A4_NODE_FULL_LAW_TO_ASSIGNMENT_MEAN_V17"
+                  }
+                ],
+                "blockers": [
+                  "NO_REGISTERED_GENERAL_FIXED_POLICY_THEOREM_OR_VERIFIER"
+                ],
+                "warnings": [
+                  "A4_SATISFIED_DOES_NOT_AUTHORIZE_CAUSAL_IDENTIFICATION"
+                ],
+                "mathematical_identification_from_router": null,
+                "digest": "5e6f5b38cbb25deb16a67a2b5ea7405c396ff52333d927b15d983ab7856acd5a"
+              },
+              "selected_a4_source_id": "source_83a67fc835b89471ae7bbf86090d0b00a60e8022eb9159dd080bca6ab7046fd5",
+              "selected_a4_source_digest": "8c5afe8aee68678200809bfa79dd22b3be8f12f1a76ef70ea100212a7fd93f2e",
+              "a4_rule_id": "A4_NODE_FULL_LAW_TO_ASSIGNMENT_MEAN_V17",
+              "assignment_probability": "1/16",
+              "weighted_nodes": [
+                "甲",
+                "乙",
+                "丙",
+                "丁"
+              ],
+              "node_weights": [
+                "1/4",
+                "1/4",
+                "1/4",
+                "1/4"
+              ],
+              "required_observables": [
+                "E[Y_{甲}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)]",
+                "E[Y_{乙}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)]",
+                "E[Y_{丙}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)]",
+                "E[Y_{丁}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)]"
+              ],
+              "identified_functional": "1/4 * E[Y_{甲}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)] + 1/4 * E[Y_{乙}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)] + 1/4 * E[Y_{丙}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)] + 1/4 * E[Y_{丁}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)]",
+              "target_fingerprint": "aea430289964aa4636395eb193b4249e19e57183678b49e76bc8bc4203b09323",
+              "theorem_id": "R1B_RANDOMIZED_FULL_ASSIGNMENT_POLICY_POINT_V1",
+              "certificate_sha256": "14aa765cccc77c4d407d23d804fac010c12dc3a1f4eb4f0ac06249bf78933cbb",
+              "version": "randomized-network-fixed-full-assignment-policy-point-v1.9",
+              "status": "POINT",
+              "verification_status": "VERIFIED",
+              "estimation_request": null
+            }
+          ],
+          "policy_probabilities": [
+            "1/2",
+            "1/2"
+          ],
+          "target_fingerprint": "101ab75f5ec4f492d2b4ed442894259f555c425f812e21e86ec25cec02abd336",
+          "identified_functional": "1/2 * (1/4 * E[Y_{甲}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)] + 1/4 * E[Y_{乙}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)] + 1/4 * E[Y_{丙}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)] + 1/4 * E[Y_{丁}^obs | W=下一季；四户同一交流网络, T_vector=(0,0,1,1)]) + 1/2 * (1/4 * E[Y_{甲}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)] + 1/4 * E[Y_{乙}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)] + 1/4 * E[Y_{丙}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)] + 1/4 * E[Y_{丁}^obs | W=下一季；四户同一交流网络, T_vector=(1,1,0,0)])",
+          "certificate_sha256": "50bb36ea5a86d0e416727246a76cc8c24588ba601c916a4acf615a8741815507",
+          "theorem_id": "R1B_FINITE_SUPPORT_STOCHASTIC_POLICY_POINT_V1",
+          "version": "randomized-network-fixed-full-assignment-policy-point-v1.9",
+          "status": "POINT",
+          "verification_status": "VERIFIED",
+          "estimation_request": null
+        },
+        "attempted_routes": []
+      }
+    }
+  ],
+  "clarification_questions": [],
+  "evidence_status": "CURRENT_READING_NOT_PROVEN_SOURCE_ABSENCE",
+  "production_admission": false,
+  "estimation_handoff_allowed": false,
+  "query_id": "q1",
+  "remaining_query_ids": [],
+  "result_scope": "SELECTED_QUERY_ONLY",
+  "fact_family": "NETWORK_FINITE_POLICY_FACTS",
+  "plan_sha256": "29879e4c73b2e42349a687cb463ee8ab2a162dbc4639b08d6dc05fd182d12aca",
+  "attempts": [
+    {
+      "stage": "POLICY_COMPONENT",
+      "state": "POINT",
+      "reason_code": null
+    },
+    {
+      "stage": "POLICY_COMPONENT",
+      "state": "POINT",
+      "reason_code": null
+    },
+    {
+      "method": "R1B_FINITE_POLICY",
+      "state": "POINT",
+      "reason_code": null
+    }
+  ],
+  "primary_method": "R1B_FINITE_POLICY",
+  "partial_fallback_performed": false
+}

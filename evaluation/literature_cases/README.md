@@ -36,19 +36,19 @@ evaluation/literature_cases/
 | `LIT-NET-02` | 网络 | 疫苗 POINT；缺第一阶段排除 `NEEDS_INPUT`；反向 POINT |
 | `LIT-NET-03` | 网络 | PARTIAL `[3/7,4/7]`；缺模型 `NEEDS_INPUT`；额外限制 `ADAPTER_NOT_CONNECTED` |
 | `LIT-NET-04` | 网络 | PARTIAL `[1/5,1]`；缺同伴顺序 `NEEDS_INPUT`；单对象 POINT `1/5` |
-| `LIT-NET-05` | 网络 | 校园邀请 POINT（历史保存）；缺设计 `NEEDS_INPUT`（未运行）；反向 POINT（未运行） |
-| `LIT-NET-06` | 网络 | 示范农户 POINT（历史保存）；缺概率 `NEEDS_INPUT`（未运行）；换政策 POINT（未运行） |
-| `LIT-NET-07` | 网络 | 观察性 POINT（历史保存）；缺交换性 `NEEDS_INPUT`（未运行）；反向 POINT（未运行） |
+| `LIT-NET-05` | 网络 | 校园邀请 POINT；缺设计 `NEEDS_INPUT`；反向 POINT |
+| `LIT-NET-06` | 网络 | 示范农户 POINT；缺概率 `NEEDS_INPUT`；换政策 POINT |
+| `LIT-NET-07` | 网络 | 观察性 POINT（历史保存）；缺交换性 `NEEDS_INPUT`（holdout，未运行）；反向 POINT（holdout，未运行） |
 | `LIT-NET-08` | 网络 | Auto-G：三个版本均 `UNSUPPORTED`（holdout） |
 | `LIT-IV-01` | IV | LATE：三个版本均 `UNSUPPORTED` |
 | `LIT-IV-02` | IV | Balke–Pearl ATE 界限：三个版本均 `UNSUPPORTED`（holdout） |
 | `LIT-DAG-01` | DAG | 后门 POINT；缺图 `NEEDS_INPUT`；控制中介 `UNSUPPORTED` |
-| `LIT-DAG-02` | DAG | 前门 POINT（历史保存）；缺中介 `NEEDS_INPUT`（未运行）；加直接边 `UNSUPPORTED`（未运行） |
+| `LIT-DAG-02` | DAG | 前门 POINT；缺中介 `NEEDS_INPUT`；加直接边 `UNSUPPORTED`（holdout） |
 
 ## 说明
 
-- 前 4 个案例有完整结构化运行记录；
-- `LIT-NET-05/06/07`、`LIT-DAG-02` 的原题复用历史保存运行，改动版目前是参考/预期，标为 `NOT_RUN`；
+- `LIT-NET-01/02/03/04/05/06`、`LIT-DAG-01/02` 有完整结构化运行记录；
+- `LIT-NET-07` 是 holdout，改动版刻意未运行；
 - `LIT-NET-08`、`LIT-IV-02` 是 holdout，当前软件未支持，记录为 `UNSUPPORTED`；
 - 所有老师复核状态均为 `PENDING_TEACHER`。
 

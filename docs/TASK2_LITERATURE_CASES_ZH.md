@@ -28,14 +28,14 @@ evaluation/literature_cases/registry.json    案例登记
 | LIT-NET-02 | 网络 | Hudgens–Halloran (2008) | POINT | 缺第一阶段排除 `NEEDS_INPUT`；反向 POINT |
 | LIT-NET-03 | 网络 | Manski (2013) + 项目有限模型 | PARTIAL `[3/7,4/7]` | 缺模型 `NEEDS_INPUT`；额外限制 `ADAPTER_NOT_CONNECTED` |
 | LIT-NET-04 | 网络 | Manski (2013) + 项目均值顺序模型 | PARTIAL `[1/5,1]` | 缺同伴顺序 `NEEDS_INPUT`；单对象 POINT `1/5` |
-| LIT-NET-05 | 网络 | Paluck et al. (2016) / Aronow–Samii | POINT（历史保存） | 缺设计 `NEEDS_INPUT`（参考）；反向 POINT（参考） |
-| LIT-NET-06 | 网络 | Beaman et al. (2021) | POINT（历史保存） | 缺概率 `NEEDS_INPUT`（参考）；换政策 POINT（参考） |
-| LIT-NET-07 | 网络 | Forastiere et al. (2021) | POINT（历史保存） | 缺交换性 `NEEDS_INPUT`（参考）；反向 POINT（参考） |
+| LIT-NET-05 | 网络 | Paluck et al. (2016) / Aronow–Samii | POINT | 缺设计 `NEEDS_INPUT`；反向 POINT |
+| LIT-NET-06 | 网络 | Beaman et al. (2021) | POINT | 缺概率 `NEEDS_INPUT`；换政策 POINT |
+| LIT-NET-07 | 网络 | Forastiere et al. (2021) | POINT（holdout 历史保存） | 缺交换性 `NEEDS_INPUT`（holdout 未运行）；反向 POINT（holdout 未运行） |
 | LIT-NET-08 | 网络 | Tchetgen et al. (2021) | UNSUPPORTED | UNSUPPORTED；UNSUPPORTED |
 | LIT-IV-01 | IV | Imbens–Angrist (1994) | UNSUPPORTED | UNSUPPORTED；UNSUPPORTED |
 | LIT-IV-02 | IV | Balke–Pearl (1997) | UNSUPPORTED | UNSUPPORTED；UNSUPPORTED |
 | LIT-DAG-01 | DAG | Pearl (1995) 后门 | POINT | 缺图 `NEEDS_INPUT`；控制中介 `UNSUPPORTED` |
-| LIT-DAG-02 | DAG | Pearl (1995) 前门 | POINT（历史保存） | 缺中介 `NEEDS_INPUT`（参考）；加直接边 `UNSUPPORTED`（参考） |
+| LIT-DAG-02 | DAG | Pearl (1995) 前门 | POINT | 缺中介 `NEEDS_INPUT`；加直接边 `UNSUPPORTED`（holdout） |
 
 ## 4. Holdout
 
@@ -50,8 +50,8 @@ evaluation/literature_cases/registry.json    案例登记
 
 ## 5. 运行性质
 
-- `LIT-NET-01/02/03/04`、`LIT-DAG-01`：2026-11-08 结构化运行，`api_calls=0`，显式合成审核；
-- `LIT-NET-05/06/07`、`LIT-DAG-02`：原题复用 2026-11-04 demo 保存运行；改动版目前是参考答案/预期，标为 `NOT_RUN`；
+- `LIT-NET-01/02/03/04/05/06`、`LIT-DAG-01/02`：2026-11-08/09 结构化运行，`api_calls=0`，显式合成审核；
+- `LIT-NET-07`：holdout，原题保留历史保存运行，改动版刻意未运行；
 - `LIT-NET-08`、`LIT-IV-01/02`：当前软件无对应后端，全部 `UNSUPPORTED`，并保存能力检查；
 - 本库不声称真实 LLM 首答准确率。
 
@@ -80,4 +80,4 @@ evaluation/literature_cases/tools/run_lit_dag_01.py
 - sharp 只相对于声明的有限模型；
 - 合成案例不是论文数据复现；
 - 老师复核通过前不能标成正式验收；
-- 改动版 `NOT_RUN` 的案例目前不是完整运行验收。
+- `LIT-NET-07` 是 holdout，改动版未运行；最终评测时再跑。

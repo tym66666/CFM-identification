@@ -1,0 +1,614 @@
+{
+  "state": "NEEDS_INPUT",
+  "reason_code": "NETWORK_EFFECT_FACTS_INCOMPLETE",
+  "backend_called": false,
+  "independent_replay": false,
+  "mathematical_claim": null,
+  "certificate": null,
+  "answers": [],
+  "clarification_questions": [
+    "请补充原文中的设计或暴露字段：assignment.kind"
+  ],
+  "evidence_status": "CURRENT_READING_NOT_PROVEN_SOURCE_ABSENCE",
+  "production_admission": false,
+  "estimation_handoff_allowed": false,
+  "query_id": "q1",
+  "result_scope": "SELECTED_QUERY_ONLY",
+  "remaining_query_ids": [],
+  "fact_family": "NETWORK_RANDOMIZED_EFFECT_FACTS",
+  "request_sha256": "097f6802aac658cd446249528264090efc24dc6784ec05e50be77fac10363f8f",
+  "query_review": {
+    "version": "business-dispatch-review-1",
+    "binding_sha256": "c6cf8292413b8ae7ee09ed9db70e40c5dce3bf836c5451133cc3dd185489a399",
+    "reviewer": "Independent synthetic protocol reviewer",
+    "evidence": "Frozen hypothetical target and declared model independently stipulated; no real-world approval.",
+    "authority": "SYNTHETIC_TEST",
+    "decisions": {
+      "business_target_and_population": "ACCEPTED",
+      "research_structure": "ACCEPTED",
+      "source_entailment": "ACCEPTED"
+    }
+  },
+  "methods": [],
+  "exclusions": [],
+  "method_matching": "NOT_CHECKED_BEFORE_SCIENCE_REVIEW",
+  "facts": {
+    "version": "network-randomized-effect-reading-1",
+    "reference_context": "c905eaa5decaa",
+    "study": {
+      "source_ids": [
+        "src_3c18bb9005814601568919a30722539df279ddb8d896c38cfeb4a6a4de4a632f",
+        "src_842761b16307a7aafaa0ae49adc414223df5c371d3f4e1b72806e10996f8678b",
+        "src_fde9003b85c9e625d85de7b5a98168db10136954b8ef902c562c6f2f8ab25821"
+      ],
+      "nodes": [
+        "学生01",
+        "学生02",
+        "学生03",
+        "学生04",
+        "学生05",
+        "学生06",
+        "学生07",
+        "学生08",
+        "学生09",
+        "学生10",
+        "学生11",
+        "学生12"
+      ],
+      "edges": [
+        [
+          "学生01",
+          "学生02"
+        ],
+        [
+          "学生01",
+          "学生12"
+        ],
+        [
+          "学生02",
+          "学生03"
+        ],
+        [
+          "学生03",
+          "学生04"
+        ],
+        [
+          "学生04",
+          "学生05"
+        ],
+        [
+          "学生05",
+          "学生06"
+        ],
+        [
+          "学生06",
+          "学生07"
+        ],
+        [
+          "学生07",
+          "学生08"
+        ],
+        [
+          "学生08",
+          "学生09"
+        ],
+        [
+          "学生09",
+          "学生10"
+        ],
+        [
+          "学生10",
+          "学生11"
+        ],
+        [
+          "学生11",
+          "学生12"
+        ]
+      ],
+      "graph_kind": "SIMPLE_UNDIRECTED",
+      "edge_list_complete": true,
+      "treatment": "收到反冲突项目参与邀请记1，未收到邀请记0；邀请后是否实际出席不改变这个编码",
+      "outcome": "学年末是否报告佩戴支持反冲突的手环，佩戴记1，未佩戴记0",
+      "outcome_kind": "BINARY",
+      "context": "本学年末；同一所学校、同一结果定义和评价名单。"
+    },
+    "assignment": {
+      "source_ids": [
+        "src_f9cefa653a115362a63a977ffd7a83203d09f4464a56d5baeef2b2b99b95d110",
+        "src_3c18bb9005814601568919a30722539df279ddb8d896c38cfeb4a6a4de4a632f"
+      ],
+      "kind": "UNKNOWN",
+      "probabilities": null,
+      "fixed_count": null,
+      "groups": null,
+      "treated_quotas": null,
+      "clusters": null,
+      "cluster_probabilities": null,
+      "quota_profiles": null,
+      "profile_probabilities": null
+    },
+    "first_stage_exclusion": null,
+    "target": {
+      "source_ids": [
+        "src_a6ebc61b9dfac5bb8c9c3fa8985de26bb9dd906abde6f7650ac4e2e29da86c31",
+        "src_5e8e91ffe219a81ad23cc13280fc89f1f88f7f1fc2a2d625c431aa4a0d458dc3"
+      ],
+      "kind": "SPILLOVER_EFFECT",
+      "operation": "FIRST_MINUS_SECOND",
+      "first": {
+        "source_ids": [
+          "src_a6ebc61b9dfac5bb8c9c3fa8985de26bb9dd906abde6f7650ac4e2e29da86c31",
+          "src_a1e50b606d796a78527d9b7bdcd8045e1f6852bc2018a7a202c0bc769618193f",
+          "src_3c18bb9005814601568919a30722539df279ddb8d896c38cfeb4a6a4de4a632f"
+        ],
+        "own": 0,
+        "exposure": 1
+      },
+      "second": {
+        "source_ids": [
+          "src_a6ebc61b9dfac5bb8c9c3fa8985de26bb9dd906abde6f7650ac4e2e29da86c31",
+          "src_a1e50b606d796a78527d9b7bdcd8045e1f6852bc2018a7a202c0bc769618193f",
+          "src_3c18bb9005814601568919a30722539df279ddb8d896c38cfeb4a6a4de4a632f"
+        ],
+        "own": 0,
+        "exposure": 0
+      },
+      "population": [
+        "学生01",
+        "学生02",
+        "学生03",
+        "学生04",
+        "学生05",
+        "学生06",
+        "学生07",
+        "学生08",
+        "学生09",
+        "学生10",
+        "学生11",
+        "学生12"
+      ],
+      "aggregation": "EQUAL_MEAN",
+      "population_fixed_before_assignment": {
+        "source_ids": [
+          "src_5e8e91ffe219a81ad23cc13280fc89f1f88f7f1fc2a2d625c431aa4a0d458dc3"
+        ],
+        "value": true
+      },
+      "remaining_assignment": "ORIGINAL_DESIGN_CONDITIONAL",
+      "remaining_source_ids": [
+        "src_b6c609feaff45eab4ab432e963e6832972ed96ff02a0a811723ef6e363b7cb7a"
+      ],
+      "shared_outcome_and_context": {
+        "source_ids": [
+          "src_fde9003b85c9e625d85de7b5a98168db10136954b8ef902c562c6f2f8ab25821"
+        ],
+        "value": true
+      }
+    },
+    "exposure": {
+      "source_ids": [
+        "src_a1e50b606d796a78527d9b7bdcd8045e1f6852bc2018a7a202c0bc769618193f"
+      ],
+      "kind": "ANY_TREATED_NEIGHBOR",
+      "core_collaborators": null
+    },
+    "design_facts": {
+      "assignment_rule_available": {
+        "source_ids": [
+          "src_f9cefa653a115362a63a977ffd7a83203d09f4464a56d5baeef2b2b99b95d110"
+        ],
+        "value": true
+      },
+      "network_fixed_before_treatment": {
+        "source_ids": [
+          "src_842761b16307a7aafaa0ae49adc414223df5c371d3f4e1b72806e10996f8678b"
+        ],
+        "value": true
+      }
+    },
+    "scientific_statements": {
+      "assignment_outcome_independence": {
+        "status": "PROPOSED",
+        "source_ids": [
+          "src_afb3cbc5dd410f53bcd4f6c497fa532e00fe51a172384b389fea12edcf28ce48"
+        ]
+      },
+      "consistency": {
+        "status": "PROPOSED",
+        "source_ids": [
+          "src_afb3cbc5dd410f53bcd4f6c497fa532e00fe51a172384b389fea12edcf28ce48"
+        ]
+      },
+      "finite_conditional_means": {
+        "status": "PROPOSED",
+        "source_ids": [
+          "src_afb3cbc5dd410f53bcd4f6c497fa532e00fe51a172384b389fea12edcf28ce48"
+        ]
+      }
+    },
+    "assumption_choices": [],
+    "information": [
+      {
+        "source_ids": [
+          "src_eb1279b10ef56a2d67a2cc2720d55757ecf49bd42752cf1ec0f749e1831bd847",
+          "src_3c18bb9005814601568919a30722539df279ddb8d896c38cfeb4a6a4de4a632f"
+        ],
+        "operator": "NODE_FULL_LAW",
+        "availability": "SYMBOLIC_POPULATION_OPERATOR",
+        "outcome_nodes": [
+          "学生01",
+          "学生02",
+          "学生03",
+          "学生04",
+          "学生05",
+          "学生06",
+          "学生07",
+          "学生08",
+          "学生09",
+          "学生10",
+          "学生11",
+          "学生12"
+        ],
+        "arm_cells": [],
+        "data_description": []
+      }
+    ],
+    "additional_restrictions": [],
+    "unresolved": []
+  },
+  "reference_binding": {
+    "context": "c905eaa5decaa",
+    "context_sha256": "905eaa5decaa5e07a022f9ae2e7774087ecc72d58f9f81bac889407be07ebf52",
+    "aliases": {
+      "s0001": {
+        "source_id": "src_3c18bb9005814601568919a30722539df279ddb8d896c38cfeb4a6a4de4a632f",
+        "doc_id": "study",
+        "start": 0,
+        "end": 185,
+        "text": "本合成方案的完整研究名单按顺序为：学生01、学生02、学生03、学生04、学生05、学生06、学生07、学生08、学生09、学生10、学生11、学生12。收到反冲突项目的参与邀请记1，未收到邀请记0；邀请后是否实际出席不改变这个编码。结果为学年末是否报告佩戴支持反冲突的手环，佩戴记1，未佩戴记0。结果评价期间为本学年末，两端保持相同；没有另行指定的背景分层或条件筛选。",
+        "sha256": "08623c2702a06e97d3b0ee2de9c20ddaedb7a1fcfcdcd681570d642a4c5f2a53",
+        "document_sha256": "08623c2702a06e97d3b0ee2de9c20ddaedb7a1fcfcdcd681570d642a4c5f2a53"
+      },
+      "s0002": {
+        "source_id": "src_842761b16307a7aafaa0ae49adc414223df5c371d3f4e1b72806e10996f8678b",
+        "doc_id": "network",
+        "start": 0,
+        "end": 256,
+        "text": "关系在随机分配前登记并固定，为无向网络、无自身联系。以下是完整边表，没有其他边：[[\"学生01\", \"学生02\"], [\"学生01\", \"学生12\"], [\"学生02\", \"学生03\"], [\"学生03\", \"学生04\"], [\"学生04\", \"学生05\"], [\"学生05\", \"学生06\"], [\"学生06\", \"学生07\"], [\"学生07\", \"学生08\"], [\"学生08\", \"学生09\"], [\"学生09\", \"学生10\"], [\"学生10\", \"学生11\"], [\"学生11\", \"学生12\"]]",
+        "sha256": "245fe6c587852c51e57a56d0455f335ecfca2df8f44ae5f3da8c2dc9a6f083f5",
+        "document_sha256": "245fe6c587852c51e57a56d0455f335ecfca2df8f44ae5f3da8c2dc9a6f083f5"
+      },
+      "s0003": {
+        "source_id": "src_5e8e91ffe219a81ad23cc13280fc89f1f88f7f1fc2a2d625c431aa4a0d458dc3",
+        "doc_id": "population",
+        "start": 0,
+        "end": 43,
+        "text": "评价名单在随机分配前固定，为上述完整名单；逐人比较后等权平均，不按实际处理或结果筛选。",
+        "sha256": "4288e50ed2222891ed89f073179e8b91471e81019219221f29de06ceaeb5cdf8",
+        "document_sha256": "4288e50ed2222891ed89f073179e8b91471e81019219221f29de06ceaeb5cdf8"
+      },
+      "s0004": {
+        "source_id": "src_afb3cbc5dd410f53bcd4f6c497fa532e00fe51a172384b389fea12edcf28ce48",
+        "doc_id": "science",
+        "start": 0,
+        "end": 86,
+        "text": "本方案拟采用：完整随机安排与所有对象在各种完整安排下的潜在结果独立；实际观察结果对应实际完整安排；所需平均结果存在且有限。这是待负责人确认的研究前提，不是从一次记录中证明。",
+        "sha256": "f6afb29a09017e82e422b666a069ef1167f25f785c333918eb8719dda21e03aa",
+        "document_sha256": "f6afb29a09017e82e422b666a069ef1167f25f785c333918eb8719dda21e03aa"
+      },
+      "s0005": {
+        "source_id": "src_b6c609feaff45eab4ab432e963e6832972ed96ff02a0a811723ef6e363b7cb7a",
+        "doc_id": "remaining",
+        "start": 0,
+        "end": 82,
+        "text": "每个比较端只固定本人处理状态和题目要求的同伴状态，其余完整安排按本方案原随机抽取规则在该端条件下平均。不另外采用“本人和同伴状态相同就足以决定平均结果”的简化假设。",
+        "sha256": "e032e51969c46cf2e636189a4d45dce5ad8ec625a25b111831b7cbc1d31ba058",
+        "document_sha256": "e032e51969c46cf2e636189a4d45dce5ad8ec625a25b111831b7cbc1d31ba058"
+      },
+      "s0006": {
+        "source_id": "src_f9cefa653a115362a63a977ffd7a83203d09f4464a56d5baeef2b2b99b95d110",
+        "doc_id": "assignment",
+        "start": 0,
+        "end": 122,
+        "text": "本题只研究已经开展项目的一所学校，不比较学校是否开展项目。12名学生事先均有被邀请资格，但**邀请名单具体如何产生、每组抽取多少人、每份名单概率是否相同，材料没有说明**。因此不能默认“两组各独立抽2人”，也不能把未说明的名单规则补成均匀抽取。",
+        "sha256": "a5acb38825a94822ddc2cd9839ecfe2d3ca63254ecb8493a7b4da4c9210abefb",
+        "document_sha256": "a5acb38825a94822ddc2cd9839ecfe2d3ca63254ecb8493a7b4da4c9210abefb"
+      },
+      "s0007": {
+        "source_id": "src_a1e50b606d796a78527d9b7bdcd8045e1f6852bc2018a7a202c0bc769618193f",
+        "doc_id": "exposure",
+        "start": 0,
+        "end": 54,
+        "text": "使用上述固定朋友网络。至少一名朋友收到邀请记同伴状态1，没有任何朋友收到邀请记同伴状态0；不按过半人数分类。",
+        "sha256": "657b3990807c8a7ecf2ce4e99f958b6e2aa41cb7d8d6b2edd7fa8b8f8adc7c19",
+        "document_sha256": "657b3990807c8a7ecf2ce4e99f958b6e2aa41cb7d8d6b2edd7fa8b8f8adc7c19"
+      },
+      "s0008": {
+        "source_id": "src_eb1279b10ef56a2d67a2cc2720d55757ecf49bd42752cf1ec0f749e1831bd847",
+        "doc_id": "information",
+        "start": 0,
+        "end": 94,
+        "text": "理论识别允许使用完整12人名单中每人的总体条件平均结果，范围是本人未获邀、至少一名朋友获邀，以及本人未获邀、没有朋友获邀两种条件。该符号总体算子尚未填入数值，不是一次学年末调查的样本均值。",
+        "sha256": "5c54c8c198ccc9f8af66e90f9fb8696e284ecfb3357de1af3ca8ffc257fee4fa",
+        "document_sha256": "5c54c8c198ccc9f8af66e90f9fb8696e284ecfb3357de1af3ca8ffc257fee4fa"
+      },
+      "s0009": {
+        "source_id": "src_fde9003b85c9e625d85de7b5a98168db10136954b8ef902c562c6f2f8ab25821",
+        "doc_id": "context",
+        "start": 0,
+        "end": 23,
+        "text": "本学年末；同一所学校、同一结果定义和评价名单。",
+        "sha256": "fde0339c649864328e53af980aa5bae42c640d4fd6104e7bea233bee1e9c4a6f",
+        "document_sha256": "fde0339c649864328e53af980aa5bae42c640d4fd6104e7bea233bee1e9c4a6f"
+      },
+      "s0010": {
+        "source_id": "src_485c508942c68e071904823a6349156acd3dd9c4d4ed0dca9ceddf883807610b",
+        "doc_id": "business_question",
+        "start": 0,
+        "end": 80,
+        "text": "自己没有收到邀请时，至少一位朋友获邀相比没有朋友获邀，佩戴支持反冲突手环的概率会怎样变化？计算“至少一位朋友获邀”减“没有朋友获邀”，对全部12名学生等权评价。",
+        "sha256": "626ea2e21888de4e3697d9a47f79d6ef3e5c783d2e0e451790224adbc3f8e881",
+        "document_sha256": "626ea2e21888de4e3697d9a47f79d6ef3e5c783d2e0e451790224adbc3f8e881"
+      },
+      "s0011": {
+        "source_id": "src_a6ebc61b9dfac5bb8c9c3fa8985de26bb9dd906abde6f7650ac4e2e29da86c31",
+        "doc_id": "__question__",
+        "start": 0,
+        "end": 80,
+        "text": "自己没有收到邀请时，至少一位朋友获邀相比没有朋友获邀，佩戴支持反冲突手环的概率会怎样变化？计算“至少一位朋友获邀”减“没有朋友获邀”，对全部12名学生等权评价。",
+        "sha256": "626ea2e21888de4e3697d9a47f79d6ef3e5c783d2e0e451790224adbc3f8e881",
+        "document_sha256": "626ea2e21888de4e3697d9a47f79d6ef3e5c783d2e0e451790224adbc3f8e881"
+      }
+    }
+  },
+  "reading_candidate": {
+    "version": "network-randomized-effect-reading-1",
+    "reference_context": "c905eaa5decaa",
+    "study": {
+      "nodes": [
+        "学生01",
+        "学生02",
+        "学生03",
+        "学生04",
+        "学生05",
+        "学生06",
+        "学生07",
+        "学生08",
+        "学生09",
+        "学生10",
+        "学生11",
+        "学生12"
+      ],
+      "edges": [
+        [
+          "学生01",
+          "学生02"
+        ],
+        [
+          "学生01",
+          "学生12"
+        ],
+        [
+          "学生02",
+          "学生03"
+        ],
+        [
+          "学生03",
+          "学生04"
+        ],
+        [
+          "学生04",
+          "学生05"
+        ],
+        [
+          "学生05",
+          "学生06"
+        ],
+        [
+          "学生06",
+          "学生07"
+        ],
+        [
+          "学生07",
+          "学生08"
+        ],
+        [
+          "学生08",
+          "学生09"
+        ],
+        [
+          "学生09",
+          "学生10"
+        ],
+        [
+          "学生10",
+          "学生11"
+        ],
+        [
+          "学生11",
+          "学生12"
+        ]
+      ],
+      "graph_kind": "SIMPLE_UNDIRECTED",
+      "edge_list_complete": true,
+      "treatment": "收到反冲突项目参与邀请记1，未收到邀请记0；邀请后是否实际出席不改变这个编码",
+      "outcome": "学年末是否报告佩戴支持反冲突的手环，佩戴记1，未佩戴记0",
+      "outcome_kind": "BINARY",
+      "context": "本学年末；同一所学校、同一结果定义和评价名单。",
+      "source_ids": [
+        "s0001",
+        "s0002",
+        "s0009"
+      ]
+    },
+    "assignment": {
+      "kind": "UNKNOWN",
+      "probabilities": null,
+      "fixed_count": null,
+      "groups": null,
+      "treated_quotas": null,
+      "source_ids": [
+        "s0006",
+        "s0001"
+      ]
+    },
+    "exposure": {
+      "kind": "ANY_TREATED_NEIGHBOR",
+      "core_collaborators": null,
+      "source_ids": [
+        "s0007"
+      ]
+    },
+    "first_stage_exclusion": null,
+    "information": [
+      {
+        "operator": "NODE_FULL_LAW",
+        "availability": "SYMBOLIC_POPULATION_OPERATOR",
+        "outcome_nodes": [
+          "学生01",
+          "学生02",
+          "学生03",
+          "学生04",
+          "学生05",
+          "学生06",
+          "学生07",
+          "学生08",
+          "学生09",
+          "学生10",
+          "学生11",
+          "学生12"
+        ],
+        "source_ids": [
+          "s0008",
+          "s0001"
+        ],
+        "arm_cells": []
+      }
+    ],
+    "additional_restrictions": [],
+    "unresolved": [],
+    "target": {
+      "kind": "SPILLOVER_EFFECT",
+      "operation": "FIRST_MINUS_SECOND",
+      "first": {
+        "own": 0,
+        "exposure": 1,
+        "source_ids": [
+          "s0011",
+          "s0007",
+          "s0001"
+        ]
+      },
+      "second": {
+        "own": 0,
+        "exposure": 0,
+        "source_ids": [
+          "s0011",
+          "s0007",
+          "s0001"
+        ]
+      },
+      "population": [
+        "学生01",
+        "学生02",
+        "学生03",
+        "学生04",
+        "学生05",
+        "学生06",
+        "学生07",
+        "学生08",
+        "学生09",
+        "学生10",
+        "学生11",
+        "学生12"
+      ],
+      "aggregation": "EQUAL_MEAN",
+      "population_fixed_before_assignment": {
+        "value": true,
+        "source_ids": [
+          "s0003"
+        ]
+      },
+      "remaining_assignment": "ORIGINAL_DESIGN_CONDITIONAL",
+      "remaining_source_ids": [
+        "s0005"
+      ],
+      "shared_outcome_and_context": {
+        "value": true,
+        "source_ids": [
+          "s0009"
+        ]
+      },
+      "source_ids": [
+        "s0011",
+        "s0003"
+      ]
+    },
+    "design_facts": {
+      "assignment_rule_available": {
+        "value": true,
+        "source_ids": [
+          "s0006"
+        ]
+      },
+      "network_fixed_before_treatment": {
+        "value": true,
+        "source_ids": [
+          "s0002"
+        ]
+      }
+    },
+    "scientific_statements": {
+      "assignment_outcome_independence": {
+        "status": "PROPOSED",
+        "source_ids": [
+          "s0004"
+        ]
+      },
+      "consistency": {
+        "status": "PROPOSED",
+        "source_ids": [
+          "s0004"
+        ]
+      },
+      "finite_conditional_means": {
+        "status": "PROPOSED",
+        "source_ids": [
+          "s0004"
+        ]
+      }
+    }
+  },
+  "bundle": {
+    "case_id": "LIT-NET-05-missing_condition",
+    "documents": {
+      "study": "本合成方案的完整研究名单按顺序为：学生01、学生02、学生03、学生04、学生05、学生06、学生07、学生08、学生09、学生10、学生11、学生12。收到反冲突项目的参与邀请记1，未收到邀请记0；邀请后是否实际出席不改变这个编码。结果为学年末是否报告佩戴支持反冲突的手环，佩戴记1，未佩戴记0。结果评价期间为本学年末，两端保持相同；没有另行指定的背景分层或条件筛选。",
+      "network": "关系在随机分配前登记并固定，为无向网络、无自身联系。以下是完整边表，没有其他边：[[\"学生01\", \"学生02\"], [\"学生01\", \"学生12\"], [\"学生02\", \"学生03\"], [\"学生03\", \"学生04\"], [\"学生04\", \"学生05\"], [\"学生05\", \"学生06\"], [\"学生06\", \"学生07\"], [\"学生07\", \"学生08\"], [\"学生08\", \"学生09\"], [\"学生09\", \"学生10\"], [\"学生10\", \"学生11\"], [\"学生11\", \"学生12\"]]",
+      "population": "评价名单在随机分配前固定，为上述完整名单；逐人比较后等权平均，不按实际处理或结果筛选。",
+      "science": "本方案拟采用：完整随机安排与所有对象在各种完整安排下的潜在结果独立；实际观察结果对应实际完整安排；所需平均结果存在且有限。这是待负责人确认的研究前提，不是从一次记录中证明。",
+      "remaining": "每个比较端只固定本人处理状态和题目要求的同伴状态，其余完整安排按本方案原随机抽取规则在该端条件下平均。不另外采用“本人和同伴状态相同就足以决定平均结果”的简化假设。",
+      "assignment": "本题只研究已经开展项目的一所学校，不比较学校是否开展项目。12名学生事先均有被邀请资格，但**邀请名单具体如何产生、每组抽取多少人、每份名单概率是否相同，材料没有说明**。因此不能默认“两组各独立抽2人”，也不能把未说明的名单规则补成均匀抽取。",
+      "exposure": "使用上述固定朋友网络。至少一名朋友收到邀请记同伴状态1，没有任何朋友收到邀请记同伴状态0；不按过半人数分类。",
+      "information": "理论识别允许使用完整12人名单中每人的总体条件平均结果，范围是本人未获邀、至少一名朋友获邀，以及本人未获邀、没有朋友获邀两种条件。该符号总体算子尚未填入数值，不是一次学年末调查的样本均值。",
+      "context": "本学年末；同一所学校、同一结果定义和评价名单。",
+      "business_question": "自己没有收到邀请时，至少一位朋友获邀相比没有朋友获邀，佩戴支持反冲突手环的概率会怎样变化？计算“至少一位朋友获邀”减“没有朋友获邀”，对全部12名学生等权评价。"
+    },
+    "question": "自己没有收到邀请时，至少一位朋友获邀相比没有朋友获邀，佩戴支持反冲突手环的概率会怎样变化？计算“至少一位朋友获邀”减“没有朋友获邀”，对全部12名学生等权评价。"
+  },
+  "assumption_choices_review": {
+    "method": "R1A_COMPOSITION",
+    "required_conditions": [
+      "a4_operator_scope_and_provenance",
+      "consistency",
+      "finite_conditional_first_moments",
+      "fixed_pretreatment_network",
+      "full_vector_randomization",
+      "known_assignment_law"
+    ],
+    "missing": [],
+    "blocked": [],
+    "retained": [],
+    "scientific_approval": false
+  },
+  "unsupported_reasons": []
+}

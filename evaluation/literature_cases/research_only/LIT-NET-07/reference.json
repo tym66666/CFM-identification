@@ -148,14 +148,16 @@
       }
     },
     "missing_condition": {
-      "status": "NOT_RUN"
+      "status": "NOT_RUN",
+      "reason": "holdout; intentionally not run during development"
     },
     "changed_target": {
-      "status": "NOT_RUN"
+      "status": "NOT_RUN",
+      "reason": "holdout; intentionally not run during development"
     }
   },
   "review_status": "PENDING_TEACHER",
   "reviewer": "teacher",
   "holdout": true,
-  "notes": "Observational network adjustment template. Original actual is a saved demo run; variants are reference-only and not run."
+  "notes": "Holdout case. Original historical demo run is recorded; the two variants are deliberately not run during development and are kept for final evaluation."
 }

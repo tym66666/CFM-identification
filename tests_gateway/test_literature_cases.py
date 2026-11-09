@@ -74,6 +74,38 @@ class LiteratureCaseLibraryTest(unittest.TestCase):
                     text = manifest.read_text(encoding="utf8")
                     self.assertNotIn("POINT", text)
                     self.assertNotIn("PARTIAL", text)
+                    self.assertNotIn("UNSUPPORTED", text)
+
+    def _attachment_changed(self, original: Path, variant: Path) -> bool:
+        ignored = {"business_question.md", "submission_manifest.json", "data_dictionary.md"}
+        names = {p.name for p in original.iterdir() if p.is_file()} & {
+            p.name for p in variant.iterdir() if p.is_file()
+        }
+        for name in names - ignored:
+            a, b = original / name, variant / name
+            if a.is_file() and b.is_file() and a.read_bytes() != b.read_bytes():
+                return True
+        return False
+
+    def test_changed_variants_change_question_or_attachment(self):
+        for case in load_registry()["cases"]:
+            public = ROOT / case["public_directory"]
+            original = public / "original"
+            changed = public / "changed_target"
+            base = (original / "business_question.md").read_text(encoding="utf8")
+            text = (changed / "business_question.md").read_text(encoding="utf8")
+            self.assertTrue(
+                base.strip() != text.strip() or self._attachment_changed(original, changed),
+                f"{case['case_id']} changed variant did not change question or attachment",
+            )
+
+    def test_missing_variants_change_at_least_one_attachment(self):
+        for case in load_registry()["cases"]:
+            public = ROOT / case["public_directory"]
+            self.assertTrue(
+                self._attachment_changed(public / "original", public / "missing_condition"),
+                f"{case['case_id']} missing variant changed only the question",
+            )
 
 
 if __name__ == "__main__":
