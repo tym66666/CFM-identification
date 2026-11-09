@@ -1,35 +1,5 @@
 {
-  "entry": "DAG_CLASSICAL_FRONTDOOR",
   "state": "UNSUPPORTED",
-  "backend_called": true,
-  "certificate_replayed": false,
-  "review_recorded": true,
-  "production_admission": false,
-  "estimation_handoff_allowed": false,
-  "worksheet": {
-    "version": "dag-frontdoor-1",
-    "problem_sha256": "73da9a8dbfa2d037acffb8023e6b0148524e50e682cf368bdb03d5963a1c8f9a",
-    "is_approval": false,
-    "decisions": {
-      "target_and_variable_roles": "PENDING",
-      "complete_causal_graph_and_latents": "PENDING",
-      "recursive_scm_and_perfect_intervention": "PENDING",
-      "population_law_and_strict_positivity": "PENDING"
-    }
-  },
-  "review_authority": "SYNTHETIC_TEST",
   "reason_code": "SPECIFIED_VARIABLE_FAILS_FRONTDOOR",
-  "criterion_diagnostic": {
-    "candidate_checks": [
-      {
-        "frontdoor_variable": "焦油",
-        "conditions": {
-          "FD1": false,
-          "FD2": true,
-          "FD3": true
-        }
-      }
-    ],
-    "general_nonidentification_proved": false
-  }
+  "certificate_replayed": false
 }

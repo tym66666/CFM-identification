@@ -9,11 +9,7 @@
   "business_question_file": "business_question.md",
   "supporting_files": [
     "study_protocol.md",
-    "data_dictionary.md",
-    "source_study.md",
-    "source_features.md",
-    "source_information.md",
-    "source_science.md"
+    "data_dictionary.md"
   ],
   "heldout": true
 }

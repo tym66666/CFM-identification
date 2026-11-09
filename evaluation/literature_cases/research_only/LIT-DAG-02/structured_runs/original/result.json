@@ -1,23 +1,6 @@
 {
-  "entry": "DAG_CLASSICAL_FRONTDOOR",
   "state": "POINT",
-  "backend_called": true,
   "certificate_replayed": true,
-  "review_recorded": true,
-  "production_admission": false,
-  "estimation_handoff_allowed": false,
-  "worksheet": {
-    "version": "dag-frontdoor-1",
-    "problem_sha256": "c963818b80615cdcfd07a98b015af7d197355091bf1d7fe03659a2420456a9c4",
-    "is_approval": false,
-    "decisions": {
-      "target_and_variable_roles": "PENDING",
-      "complete_causal_graph_and_latents": "PENDING",
-      "recursive_scm_and_perfect_intervention": "PENDING",
-      "population_law_and_strict_positivity": "PENDING"
-    }
-  },
-  "review_authority": "SYNTHETIC_TEST",
   "certificate": {
     "version": "dag-frontdoor-1",
     "theorem": "CLASSICAL_SINGLE_VARIABLE_FRONTDOOR_SUFFICIENT",

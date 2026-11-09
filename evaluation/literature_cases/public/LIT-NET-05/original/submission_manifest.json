@@ -9,15 +9,7 @@
   "business_question_file": "business_question.md",
   "supporting_files": [
     "study_protocol.md",
-    "data_dictionary.md",
-    "source_study.md",
-    "source_network.md",
-    "source_population.md",
-    "source_science.md",
-    "source_remaining.md",
-    "source_assignment.md",
-    "source_exposure.md",
-    "source_information.md"
+    "data_dictionary.md"
   ],
   "heldout": false
 }

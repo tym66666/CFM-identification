@@ -4,328 +4,242 @@
   "saved_runs": [
     {
       "title": "真实网页验收 · POINT",
-      "result": {
-        "state": "POINT",
-        "reason_code": null,
-        "backend_called": true,
-        "independent_replay": true,
-        "mathematical_claim": {
-          "kind": "POINT",
-          "representation": "OBSERVED_DISTRIBUTION_FUNCTIONAL",
-          "target": {
-            "kind": "INTERVENTIONAL_DISTRIBUTION",
-            "treatment": "吸烟",
-            "outcome": "随访肺癌",
-            "context": "同一随访人群与随访期"
-          },
-          "functional": {
-            "operation": "CLASSICAL_FRONTDOOR",
-            "source_id": "dag_law_2f143184c579c17f7b7dbfe164090ef6607d86ad31bc004613082eef34306750",
-            "free_values": {
-              "intervention_value": {
-                "variable": "吸烟",
-                "domain": [
-                  0,
-                  1
-                ]
-              },
-              "outcome_value": {
-                "variable": "随访肺癌",
-                "domain": [
-                  0,
-                  1
-                ]
-              }
-            },
-            "expression": {
-              "operation": "SUM",
-              "bind": {
-                "variable": "焦油沉积",
-                "role": "mediator_value",
-                "domain": [
-                  0,
-                  1
-                ]
-              },
-              "summand": {
-                "operation": "PRODUCT",
-                "factors": [
-                  {
-                    "operation": "CONDITIONAL_PROBABILITY",
-                    "outcomes": [
-                      {
-                        "variable": "焦油沉积",
-                        "value_role": "mediator_value"
-                      }
-                    ],
-                    "given": [
-                      {
-                        "variable": "吸烟",
-                        "value_role": "intervention_value"
-                      }
-                    ]
-                  },
-                  {
-                    "operation": "SUM",
-                    "bind": {
-                      "variable": "吸烟",
-                      "role": "treatment_marginal_value",
-                      "domain": [
-                        0,
-                        1
-                      ]
-                    },
-                    "summand": {
-                      "operation": "PRODUCT",
-                      "factors": [
-                        {
-                          "operation": "CONDITIONAL_PROBABILITY",
-                          "outcomes": [
-                            {
-                              "variable": "随访肺癌",
-                              "value_role": "outcome_value"
-                            }
-                          ],
-                          "given": [
-                            {
-                              "variable": "吸烟",
-                              "value_role": "treatment_marginal_value"
-                            },
-                            {
-                              "variable": "焦油沉积",
-                              "value_role": "mediator_value"
-                            }
-                          ]
-                        },
-                        {
-                          "operation": "PROBABILITY",
-                          "outcomes": [
-                            {
-                              "variable": "吸烟",
-                              "value_role": "treatment_marginal_value"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          },
-          "numeric_value": null
+      "state": "POINT",
+      "independent_replay": true,
+      "mathematical_claim": {
+        "kind": "POINT",
+        "representation": "OBSERVED_DISTRIBUTION_FUNCTIONAL",
+        "target": {
+          "kind": "INTERVENTIONAL_DISTRIBUTION",
+          "treatment": "吸烟",
+          "outcome": "随访肺癌",
+          "context": "同一随访人群与随访期"
         },
-        "certificate": {
-          "version": "dag-frontdoor-1",
-          "theorem": "CLASSICAL_SINGLE_VARIABLE_FRONTDOOR_SUFFICIENT",
-          "claim_scope": "SUFFICIENT_POINT_ONLY_FOR_DECLARED_BINARY_SCM",
-          "status": "POINT",
-          "problem_sha256": "d9745a7da74a7955c9c8ec963bada611bb26d2fed3ab9b65c8010a3f66351e66",
-          "materials_sha256": "b287e78572c2d9b831a83cd275027a73457ea981e31724fefe07fb972cd7b90d",
-          "information_sha256": "9c499e13003c666cd4e336507eeb1ef3fc8adbf7fa71fa0af03d0d7c6f7f6091",
-          "target": {
-            "kind": "INTERVENTIONAL_DISTRIBUTION",
-            "treatment": "吸烟",
-            "outcome": "随访肺癌",
-            "context": "同一随访人群与随访期"
-          },
-          "frontdoor_variable": "焦油沉积",
-          "selection": {
-            "mode": "SEARCH_SINGLETON",
-            "requested": null
-          },
-          "conditions": {
-            "FD1": true,
-            "FD2": true,
-            "FD3": true
-          },
-          "graphical_trace": {
-            "FD1": {
-              "removed_node": "焦油沉积",
-              "reachable_without_node": [
-                "吸烟"
+        "functional": {
+          "operation": "CLASSICAL_FRONTDOOR",
+          "source_id": "dag_law_2f143184c579c17f7b7dbfe164090ef6607d86ad31bc004613082eef34306750",
+          "free_values": {
+            "intervention_value": {
+              "variable": "吸烟",
+              "domain": [
+                0,
+                1
               ]
             },
-            "FD2": {
-              "removed_outgoing_from": "吸烟",
-              "ancestral_nodes": [
-                "吸烟",
-                "潜在体质",
-                "焦油沉积"
-              ],
-              "moral_edges": [
-                [
-                  "吸烟",
-                  "潜在体质"
-                ]
-              ],
-              "reachable_after_conditioning": [
+            "outcome_value": {
+              "variable": "随访肺癌",
+              "domain": [
+                0,
+                1
+              ]
+            }
+          },
+          "expression": {
+            "operation": "SUM",
+            "bind": {
+              "variable": "焦油沉积",
+              "role": "mediator_value",
+              "domain": [
+                0,
+                1
+              ]
+            },
+            "summand": {
+              "operation": "PRODUCT",
+              "factors": [
+                {
+                  "operation": "CONDITIONAL_PROBABILITY",
+                  "outcomes": [
+                    {
+                      "variable": "焦油沉积",
+                      "value_role": "mediator_value"
+                    }
+                  ],
+                  "given": [
+                    {
+                      "variable": "吸烟",
+                      "value_role": "intervention_value"
+                    }
+                  ]
+                },
+                {
+                  "operation": "SUM",
+                  "bind": {
+                    "variable": "吸烟",
+                    "role": "treatment_marginal_value",
+                    "domain": [
+                      0,
+                      1
+                    ]
+                  },
+                  "summand": {
+                    "operation": "PRODUCT",
+                    "factors": [
+                      {
+                        "operation": "CONDITIONAL_PROBABILITY",
+                        "outcomes": [
+                          {
+                            "variable": "随访肺癌",
+                            "value_role": "outcome_value"
+                          }
+                        ],
+                        "given": [
+                          {
+                            "variable": "吸烟",
+                            "value_role": "treatment_marginal_value"
+                          },
+                          {
+                            "variable": "焦油沉积",
+                            "value_role": "mediator_value"
+                          }
+                        ]
+                      },
+                      {
+                        "operation": "PROBABILITY",
+                        "outcomes": [
+                          {
+                            "variable": "吸烟",
+                            "value_role": "treatment_marginal_value"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "numeric_value": null
+      },
+      "certificate": {
+        "version": "dag-frontdoor-1",
+        "theorem": "CLASSICAL_SINGLE_VARIABLE_FRONTDOOR_SUFFICIENT",
+        "claim_scope": "SUFFICIENT_POINT_ONLY_FOR_DECLARED_BINARY_SCM",
+        "status": "POINT",
+        "problem_sha256": "d9745a7da74a7955c9c8ec963bada611bb26d2fed3ab9b65c8010a3f66351e66",
+        "materials_sha256": "b287e78572c2d9b831a83cd275027a73457ea981e31724fefe07fb972cd7b90d",
+        "information_sha256": "9c499e13003c666cd4e336507eeb1ef3fc8adbf7fa71fa0af03d0d7c6f7f6091",
+        "target": {
+          "kind": "INTERVENTIONAL_DISTRIBUTION",
+          "treatment": "吸烟",
+          "outcome": "随访肺癌",
+          "context": "同一随访人群与随访期"
+        },
+        "frontdoor_variable": "焦油沉积",
+        "selection": {
+          "mode": "SEARCH_SINGLETON",
+          "requested": null
+        },
+        "conditions": {
+          "FD1": true,
+          "FD2": true,
+          "FD3": true
+        },
+        "graphical_trace": {
+          "FD1": {
+            "removed_node": "焦油沉积",
+            "reachable_without_node": [
+              "吸烟"
+            ]
+          },
+          "FD2": {
+            "removed_outgoing_from": "吸烟",
+            "ancestral_nodes": [
+              "吸烟",
+              "潜在体质",
+              "焦油沉积"
+            ],
+            "moral_edges": [
+              [
                 "吸烟",
                 "潜在体质"
               ]
-            },
-            "FD3": {
-              "removed_outgoing_from": "焦油沉积",
-              "ancestral_nodes": [
+            ],
+            "reachable_after_conditioning": [
+              "吸烟",
+              "潜在体质"
+            ]
+          },
+          "FD3": {
+            "removed_outgoing_from": "焦油沉积",
+            "ancestral_nodes": [
+              "吸烟",
+              "潜在体质",
+              "焦油沉积",
+              "随访肺癌"
+            ],
+            "moral_edges": [
+              [
                 "吸烟",
-                "潜在体质",
-                "焦油沉积",
-                "随访肺癌"
+                "潜在体质"
               ],
-              "moral_edges": [
-                [
-                  "吸烟",
-                  "潜在体质"
-                ],
-                [
-                  "吸烟",
-                  "焦油沉积"
-                ],
-                [
-                  "潜在体质",
-                  "随访肺癌"
-                ]
-              ],
-              "reachable_after_conditioning": [
+              [
+                "吸烟",
                 "焦油沉积"
+              ],
+              [
+                "潜在体质",
+                "随访肺癌"
+              ]
+            ],
+            "reachable_after_conditioning": [
+              "焦油沉积"
+            ]
+          }
+        },
+        "functional": {
+          "operation": "CLASSICAL_FRONTDOOR",
+          "source_id": "dag_law_2f143184c579c17f7b7dbfe164090ef6607d86ad31bc004613082eef34306750",
+          "free_values": {
+            "intervention_value": {
+              "variable": "吸烟",
+              "domain": [
+                0,
+                1
+              ]
+            },
+            "outcome_value": {
+              "variable": "随访肺癌",
+              "domain": [
+                0,
+                1
               ]
             }
           },
-          "functional": {
-            "operation": "CLASSICAL_FRONTDOOR",
-            "source_id": "dag_law_2f143184c579c17f7b7dbfe164090ef6607d86ad31bc004613082eef34306750",
-            "free_values": {
-              "intervention_value": {
-                "variable": "吸烟",
-                "domain": [
-                  0,
-                  1
-                ]
-              },
-              "outcome_value": {
-                "variable": "随访肺癌",
-                "domain": [
-                  0,
-                  1
-                ]
-              }
+          "expression": {
+            "operation": "SUM",
+            "bind": {
+              "variable": "焦油沉积",
+              "role": "mediator_value",
+              "domain": [
+                0,
+                1
+              ]
             },
-            "expression": {
-              "operation": "SUM",
-              "bind": {
-                "variable": "焦油沉积",
-                "role": "mediator_value",
-                "domain": [
-                  0,
-                  1
-                ]
-              },
-              "summand": {
-                "operation": "PRODUCT",
-                "factors": [
-                  {
-                    "operation": "CONDITIONAL_PROBABILITY",
-                    "outcomes": [
-                      {
-                        "variable": "焦油沉积",
-                        "value_role": "mediator_value"
-                      }
-                    ],
-                    "given": [
-                      {
-                        "variable": "吸烟",
-                        "value_role": "intervention_value"
-                      }
-                    ]
-                  },
-                  {
-                    "operation": "SUM",
-                    "bind": {
-                      "variable": "吸烟",
-                      "role": "treatment_marginal_value",
-                      "domain": [
-                        0,
-                        1
-                      ]
-                    },
-                    "summand": {
-                      "operation": "PRODUCT",
-                      "factors": [
-                        {
-                          "operation": "CONDITIONAL_PROBABILITY",
-                          "outcomes": [
-                            {
-                              "variable": "随访肺癌",
-                              "value_role": "outcome_value"
-                            }
-                          ],
-                          "given": [
-                            {
-                              "variable": "吸烟",
-                              "value_role": "treatment_marginal_value"
-                            },
-                            {
-                              "variable": "焦油沉积",
-                              "value_role": "mediator_value"
-                            }
-                          ]
-                        },
-                        {
-                          "operation": "PROBABILITY",
-                          "outcomes": [
-                            {
-                              "variable": "吸烟",
-                              "value_role": "treatment_marginal_value"
-                            }
-                          ]
-                        }
-                      ]
+            "summand": {
+              "operation": "PRODUCT",
+              "factors": [
+                {
+                  "operation": "CONDITIONAL_PROBABILITY",
+                  "outcomes": [
+                    {
+                      "variable": "焦油沉积",
+                      "value_role": "mediator_value"
                     }
-                  }
-                ]
-              }
-            }
-          },
-          "positivity": "DECLARED_STRICT_POSITIVE_OBSERVED_JOINT",
-          "numeric_value": null,
-          "certificate_sha256": "d97ef0998a4dfd16a1877ea0c6af3f04dffb321256316a89aa03637460d66929"
-        },
-        "answers": [
-          {
-            "method": "DAG_CLASSICAL_FRONTDOOR",
-            "mathematical_claim": {
-              "kind": "POINT",
-              "representation": "OBSERVED_DISTRIBUTION_FUNCTIONAL",
-              "target": {
-                "kind": "INTERVENTIONAL_DISTRIBUTION",
-                "treatment": "吸烟",
-                "outcome": "随访肺癌",
-                "context": "同一随访人群与随访期"
-              },
-              "functional": {
-                "operation": "CLASSICAL_FRONTDOOR",
-                "source_id": "dag_law_2f143184c579c17f7b7dbfe164090ef6607d86ad31bc004613082eef34306750",
-                "free_values": {
-                  "intervention_value": {
-                    "variable": "吸烟",
-                    "domain": [
-                      0,
-                      1
-                    ]
-                  },
-                  "outcome_value": {
-                    "variable": "随访肺癌",
-                    "domain": [
-                      0,
-                      1
-                    ]
-                  }
+                  ],
+                  "given": [
+                    {
+                      "variable": "吸烟",
+                      "value_role": "intervention_value"
+                    }
+                  ]
                 },
-                "expression": {
+                {
                   "operation": "SUM",
                   "bind": {
-                    "variable": "焦油沉积",
-                    "role": "mediator_value",
+                    "variable": "吸烟",
+                    "role": "treatment_marginal_value",
                     "domain": [
                       0,
                       1
@@ -338,456 +252,40 @@
                         "operation": "CONDITIONAL_PROBABILITY",
                         "outcomes": [
                           {
-                            "variable": "焦油沉积",
-                            "value_role": "mediator_value"
+                            "variable": "随访肺癌",
+                            "value_role": "outcome_value"
                           }
                         ],
                         "given": [
                           {
                             "variable": "吸烟",
-                            "value_role": "intervention_value"
+                            "value_role": "treatment_marginal_value"
+                          },
+                          {
+                            "variable": "焦油沉积",
+                            "value_role": "mediator_value"
                           }
                         ]
                       },
                       {
-                        "operation": "SUM",
-                        "bind": {
-                          "variable": "吸烟",
-                          "role": "treatment_marginal_value",
-                          "domain": [
-                            0,
-                            1
-                          ]
-                        },
-                        "summand": {
-                          "operation": "PRODUCT",
-                          "factors": [
-                            {
-                              "operation": "CONDITIONAL_PROBABILITY",
-                              "outcomes": [
-                                {
-                                  "variable": "随访肺癌",
-                                  "value_role": "outcome_value"
-                                }
-                              ],
-                              "given": [
-                                {
-                                  "variable": "吸烟",
-                                  "value_role": "treatment_marginal_value"
-                                },
-                                {
-                                  "variable": "焦油沉积",
-                                  "value_role": "mediator_value"
-                                }
-                              ]
-                            },
-                            {
-                              "operation": "PROBABILITY",
-                              "outcomes": [
-                                {
-                                  "variable": "吸烟",
-                                  "value_role": "treatment_marginal_value"
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      }
-                    ]
-                  }
-                }
-              },
-              "numeric_value": null
-            },
-            "certificate": {
-              "version": "dag-frontdoor-1",
-              "theorem": "CLASSICAL_SINGLE_VARIABLE_FRONTDOOR_SUFFICIENT",
-              "claim_scope": "SUFFICIENT_POINT_ONLY_FOR_DECLARED_BINARY_SCM",
-              "status": "POINT",
-              "problem_sha256": "d9745a7da74a7955c9c8ec963bada611bb26d2fed3ab9b65c8010a3f66351e66",
-              "materials_sha256": "b287e78572c2d9b831a83cd275027a73457ea981e31724fefe07fb972cd7b90d",
-              "information_sha256": "9c499e13003c666cd4e336507eeb1ef3fc8adbf7fa71fa0af03d0d7c6f7f6091",
-              "target": {
-                "kind": "INTERVENTIONAL_DISTRIBUTION",
-                "treatment": "吸烟",
-                "outcome": "随访肺癌",
-                "context": "同一随访人群与随访期"
-              },
-              "frontdoor_variable": "焦油沉积",
-              "selection": {
-                "mode": "SEARCH_SINGLETON",
-                "requested": null
-              },
-              "conditions": {
-                "FD1": true,
-                "FD2": true,
-                "FD3": true
-              },
-              "graphical_trace": {
-                "FD1": {
-                  "removed_node": "焦油沉积",
-                  "reachable_without_node": [
-                    "吸烟"
-                  ]
-                },
-                "FD2": {
-                  "removed_outgoing_from": "吸烟",
-                  "ancestral_nodes": [
-                    "吸烟",
-                    "潜在体质",
-                    "焦油沉积"
-                  ],
-                  "moral_edges": [
-                    [
-                      "吸烟",
-                      "潜在体质"
-                    ]
-                  ],
-                  "reachable_after_conditioning": [
-                    "吸烟",
-                    "潜在体质"
-                  ]
-                },
-                "FD3": {
-                  "removed_outgoing_from": "焦油沉积",
-                  "ancestral_nodes": [
-                    "吸烟",
-                    "潜在体质",
-                    "焦油沉积",
-                    "随访肺癌"
-                  ],
-                  "moral_edges": [
-                    [
-                      "吸烟",
-                      "潜在体质"
-                    ],
-                    [
-                      "吸烟",
-                      "焦油沉积"
-                    ],
-                    [
-                      "潜在体质",
-                      "随访肺癌"
-                    ]
-                  ],
-                  "reachable_after_conditioning": [
-                    "焦油沉积"
-                  ]
-                }
-              },
-              "functional": {
-                "operation": "CLASSICAL_FRONTDOOR",
-                "source_id": "dag_law_2f143184c579c17f7b7dbfe164090ef6607d86ad31bc004613082eef34306750",
-                "free_values": {
-                  "intervention_value": {
-                    "variable": "吸烟",
-                    "domain": [
-                      0,
-                      1
-                    ]
-                  },
-                  "outcome_value": {
-                    "variable": "随访肺癌",
-                    "domain": [
-                      0,
-                      1
-                    ]
-                  }
-                },
-                "expression": {
-                  "operation": "SUM",
-                  "bind": {
-                    "variable": "焦油沉积",
-                    "role": "mediator_value",
-                    "domain": [
-                      0,
-                      1
-                    ]
-                  },
-                  "summand": {
-                    "operation": "PRODUCT",
-                    "factors": [
-                      {
-                        "operation": "CONDITIONAL_PROBABILITY",
+                        "operation": "PROBABILITY",
                         "outcomes": [
                           {
-                            "variable": "焦油沉积",
-                            "value_role": "mediator_value"
-                          }
-                        ],
-                        "given": [
-                          {
                             "variable": "吸烟",
-                            "value_role": "intervention_value"
+                            "value_role": "treatment_marginal_value"
                           }
                         ]
-                      },
-                      {
-                        "operation": "SUM",
-                        "bind": {
-                          "variable": "吸烟",
-                          "role": "treatment_marginal_value",
-                          "domain": [
-                            0,
-                            1
-                          ]
-                        },
-                        "summand": {
-                          "operation": "PRODUCT",
-                          "factors": [
-                            {
-                              "operation": "CONDITIONAL_PROBABILITY",
-                              "outcomes": [
-                                {
-                                  "variable": "随访肺癌",
-                                  "value_role": "outcome_value"
-                                }
-                              ],
-                              "given": [
-                                {
-                                  "variable": "吸烟",
-                                  "value_role": "treatment_marginal_value"
-                                },
-                                {
-                                  "variable": "焦油沉积",
-                                  "value_role": "mediator_value"
-                                }
-                              ]
-                            },
-                            {
-                              "operation": "PROBABILITY",
-                              "outcomes": [
-                                {
-                                  "variable": "吸烟",
-                                  "value_role": "treatment_marginal_value"
-                                }
-                              ]
-                            }
-                          ]
-                        }
                       }
                     ]
                   }
                 }
-              },
-              "positivity": "DECLARED_STRICT_POSITIVE_OBSERVED_JOINT",
-              "numeric_value": null,
-              "certificate_sha256": "d97ef0998a4dfd16a1877ea0c6af3f04dffb321256316a89aa03637460d66929"
-            },
-            "independent_replay": true,
-            "query_view": {
-              "operation": "SELECT_FREE_INTERVENTION_ARGUMENT",
-              "target": {
-                "kind": "INTERVENTIONAL_DISTRIBUTION",
-                "treatment": "吸烟",
-                "outcome": "随访肺癌",
-                "context": "同一随访人群与随访期"
-              },
-              "requested_scope": "ALL_TREATMENT_VALUES",
-              "intervention_values": [
-                0,
-                1
-              ],
-              "outcome_values": [
-                0,
-                1
-              ],
-              "verified_kernel_domain": [
-                0,
-                1
-              ],
-              "kernel_claim_sha256": "45141ffde316b76774355a25af08073e6a547f9fb6144adbc71c8858976ca5f3",
-              "certificate_sha256": "ab9f93496e524bf2530943fb1e6218611083653c035795532f4aa7227ea4be8e",
-              "kernel_view_checked": true,
-              "numeric_value": null,
-              "scope_note": "Argument selection only. Original kernel and all bound sums are unchanged; source meaning needs independent review."
+              ]
             }
           }
-        ],
-        "primary_method": "DAG_CLASSICAL_FRONTDOOR",
-        "web_review_summary": {
-          "contract": "registered-web-review-1",
-          "plan_sha256": "08f0649f9b88b93b83d499b9403831cab453d068753b641ffc707f9ff49f8bd6",
-          "review_bindings": {
-            "plan": {
-              "identity": {
-                "version": "business-dispatch-review-1",
-                "binding_sha256": "08f0649f9b88b93b83d499b9403831cab453d068753b641ffc707f9ff49f8bd6"
-              },
-              "decisions": [
-                "complete_model_and_constraints_preserved",
-                "method_requests_and_projections_preserved",
-                "requested_intervention_values_and_kernel_view",
-                "selected_query_matches_native_target"
-              ]
-            },
-            "DAG_CLASSICAL_BACKDOOR.reading_review": {
-              "identity": {
-                "version": "dag-reading-review-1",
-                "bundle_sha256": "b287e78572c2d9b831a83cd275027a73457ea981e31724fefe07fb972cd7b90d",
-                "candidate_sha256": "3346c2d3bc7cb7f035e2c6508275f196bb5f9106aeb21b1df38a5c09abc502a9",
-                "problem_sha256": "76682a78a90dd0632cc07b87ab951c73ed2cf508a35442439d5f95301a567480"
-              },
-              "decisions": [
-                "relations_and_omissions",
-                "source_entailment_and_scope",
-                "target_meaning",
-                "variable_measurements_and_roles"
-              ]
-            },
-            "DAG_CLASSICAL_BACKDOOR.science_review": {
-              "identity": {
-                "version": "dag-backdoor-1",
-                "problem_sha256": "76682a78a90dd0632cc07b87ab951c73ed2cf508a35442439d5f95301a567480"
-              },
-              "decisions": [
-                "complete_causal_graph_and_latents",
-                "population_law_and_strict_positivity",
-                "recursive_scm_and_perfect_intervention",
-                "target_and_variable_roles"
-              ]
-            },
-            "DAG_ADJUSTMENT.reading_review": {
-              "identity": {
-                "version": "dag-reading-review-1",
-                "bundle_sha256": "b287e78572c2d9b831a83cd275027a73457ea981e31724fefe07fb972cd7b90d",
-                "candidate_sha256": "3346c2d3bc7cb7f035e2c6508275f196bb5f9106aeb21b1df38a5c09abc502a9",
-                "problem_sha256": "f74dd222e7b0de538a3f6a10f01bd7efc21667c15f87ea40e6e41a1841fe375a"
-              },
-              "decisions": [
-                "relations_and_omissions",
-                "source_entailment_and_scope",
-                "target_meaning",
-                "variable_measurements_and_roles"
-              ]
-            },
-            "DAG_ADJUSTMENT.science_review": {
-              "identity": {
-                "version": "dag-adjustment-1",
-                "problem_sha256": "f74dd222e7b0de538a3f6a10f01bd7efc21667c15f87ea40e6e41a1841fe375a"
-              },
-              "decisions": [
-                "complete_causal_graph_and_latents",
-                "population_law_and_strict_positivity",
-                "recursive_scm_and_perfect_intervention",
-                "target_and_variable_roles"
-              ]
-            },
-            "DAG_CLASSICAL_FRONTDOOR.reading_review": {
-              "identity": {
-                "version": "dag-frontdoor-reading-review-2",
-                "bundle_sha256": "b287e78572c2d9b831a83cd275027a73457ea981e31724fefe07fb972cd7b90d",
-                "candidate_sha256": "296f73aa7e215e933c9a0b608a1222e5e15127c74dd34c5b6502ba02ec8a07b0",
-                "problem_sha256": "d9745a7da74a7955c9c8ec963bada611bb26d2fed3ab9b65c8010a3f66351e66"
-              },
-              "decisions": [
-                "relations_and_omissions",
-                "requested_identification_roles",
-                "source_entailment_and_scope",
-                "target_meaning",
-                "variable_measurements_and_roles"
-              ]
-            },
-            "DAG_CLASSICAL_FRONTDOOR.science_review": {
-              "identity": {
-                "version": "dag-frontdoor-1",
-                "problem_sha256": "d9745a7da74a7955c9c8ec963bada611bb26d2fed3ab9b65c8010a3f66351e66"
-              },
-              "decisions": [
-                "complete_causal_graph_and_latents",
-                "population_law_and_strict_positivity",
-                "recursive_scm_and_perfect_intervention",
-                "target_and_variable_roles"
-              ]
-            }
-          },
-          "methods": [
-            "DAG_CLASSICAL_BACKDOOR",
-            "DAG_ADJUSTMENT",
-            "DAG_CLASSICAL_FRONTDOOR"
-          ],
-          "cards": [
-            {
-              "title": "要回答什么",
-              "lines": [
-                "设定“吸烟”，查看“随访肺癌”的干预分布",
-                "同一随访人群与随访期",
-                "干预取值：全部取值",
-                "这是变量间因果图，不是对象之间的关系网络。"
-              ]
-            },
-            {
-              "title": "本次需确认的条件",
-              "lines": [
-                "干预、结果和观察变量按本题定义",
-                "所列直接因果边完整，未观察共同原因也已明确列出",
-                "采用无反馈的结构因果模型、独立结构噪声及只改变指定变量的理想干预",
-                "可用所列观察变量的联合总体分布，且满足本方法要求的严格正支持",
-                "直接因果关系：潜在体质 → 吸烟；潜在体质 → 随访肺癌；吸烟 → 焦油沉积；焦油沉积 → 随访肺癌",
-                "未观察变量：潜在体质"
-              ]
-            },
-            {
-              "title": "依据什么信息",
-              "lines": [
-                "观察变量：吸烟、焦油沉积、随访肺癌",
-                "所述符号总体分布；未代入样本估计或数值。"
-              ]
-            }
-          ],
-          "compact_confirmation_available": true,
-          "needs_individual_attention": [],
-          "is_approval": false,
-          "confirmation_label": "确认采用上述条件并识别",
-          "condition_items": [
-            {
-              "key": "target_and_variable_roles",
-              "term": "Estimand",
-              "label": "目标与变量定义",
-              "category": "information",
-              "text": "干预、结果和观察变量按本题定义"
-            },
-            {
-              "key": "complete_causal_graph_and_latents",
-              "term": "Causal graph specification",
-              "label": "因果图与潜变量声明完整",
-              "category": "science",
-              "text": "所列直接因果边完整，未观察共同原因也已明确列出"
-            },
-            {
-              "key": "recursive_scm_and_perfect_intervention",
-              "term": "Acyclic SCM · Modular intervention",
-              "label": "无反馈结构模型、独立结构噪声与理想干预",
-              "category": "science",
-              "text": "采用无反馈的结构因果模型、独立结构噪声及只改变指定变量的理想干预"
-            },
-            {
-              "key": "population_law_and_strict_positivity",
-              "term": "Population law · Positivity",
-              "label": "总体联合分布与严格正支持",
-              "category": "information",
-              "text": "可用所列观察变量的联合总体分布，且满足本方法要求的严格正支持"
-            },
-            {
-              "key": null,
-              "text": "直接因果关系：潜在体质 → 吸烟；潜在体质 → 随访肺癌；吸烟 → 焦油沉积；焦油沉积 → 随访肺癌",
-              "term": "Causal graph",
-              "label": "本次声明的因果边",
-              "category": "information"
-            },
-            {
-              "key": null,
-              "text": "未观察变量：潜在体质",
-              "term": "Latent variables",
-              "label": "未观察变量：潜在体质",
-              "category": "information"
-            }
-          ],
-          "information_brief": [
-            "观察变量：吸烟、焦油沉积、随访肺癌",
-            "所述符号总体分布；未代入样本估计或数值。"
-          ]
-        }
+        },
+        "positivity": "DECLARED_STRICT_POSITIVE_OBSERVED_JOINT",
+        "numeric_value": null,
+        "certificate_sha256": "d97ef0998a4dfd16a1877ea0c6af3f04dffb321256316a89aa03637460d66929"
       }
     }
   ]
