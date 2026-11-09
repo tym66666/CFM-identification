@@ -29,7 +29,8 @@ from cfm_id_llm.dag_id_reading import declared_graph, make_request, parse, to_pr
 from cfm_id_llm.dag_reading import ReadingError, Scope
 from cfm_id_llm.providers.base import ProviderError
 from cfm_id.dag_backdoor_contract import DECISIONS
-from cfm_id.dag_id_route import DagGeneralIdRoute, GeneralIdProblem, GeneralIdReview, digest
+from cfm_id.dag_id_route import (DagGeneralIdRoute, GeneralIdProblem, GeneralIdReview,
+                                 UnresolvedResponse, digest)
 from cfm_id.research_route_workflow import run_route
 from cfm_id_bridge.scientific_binding import sha
 
@@ -182,14 +183,63 @@ def online_provider():
                                         json_mode=json_mode)
 
 
+# Answers the walkthrough's synthetic review gives to the kinds of undecided
+# items a reading produces. Each entry is a statement about the contract or the
+# mathematics, not about the world; anything the table cannot answer from the
+# contract itself is marked UNRESOLVED and stops the case. This is what keeps
+# the review from being a rubber stamp: every answer is written down next to
+# the item it answers, and the route refuses to run until the lists match.
+RATIONALES = (
+    ('取值域', '契约只要求变量有限离散，具体取值水平不进入识别式；'
+              '识别式读取的是声明过的观测联合总体分布。'),
+    ('随机分配', '识别不要求处理变量随机分配；通用 ID 算法的对象就是观察数据下的'
+                '干预分布，这正是它相对调整集方法的能力来源。'),
+    ('没有随机', '识别不要求处理变量随机分配；通用 ID 算法的对象就是观察数据下的'
+                '干预分布，这正是它相对调整集方法的能力来源。'),
+    ('测量记录', '该变量在读取中标记为 LATENT；契约明确允许未观测共同原因，'
+                '识别式的任何一项都不读取它的测量值。'),
+    ('定性印象', '该变量在读取中标记为 LATENT；契约明确允许未观测共同原因，'
+                '识别式的任何一项都不读取它的测量值。'),
+    ('联合分布', 'information 字段按数据说明声明为 FULL_JOINT_POPULATION_LAW，'
+                '识别式只读取该声明覆盖的观测变量分布。'),
+    ('观测记录', 'information 字段按数据说明声明为 FULL_JOINT_POPULATION_LAW，'
+                '识别式只读取该声明覆盖的观测变量分布。'),
+    # Restrictions the material states in words that the declared graph already
+    # carries: the solver computes from the confirmed graph, so such a line
+    # adds no mathematics, and the review says exactly that.
+    ('只通过', '识别式按研究者确认的图计算；处理变量的作用路径已由图表达，'
+              '该条不引入图之外的数学约束。'),
+    ('直接渠道', '识别式按研究者确认的图计算；处理变量的作用路径已由图表达，'
+                '该条不引入图之外的数学约束。'),
+    ('介于', '识别式按研究者确认的图计算；图已声明哪些变量在处理与结果之间，'
+            '该条不引入图之外的数学约束。'),
+)
+
+
+def _respond_to(text, table=RATIONALES):
+    matched = next((rationale for key, rationale in table if key in text), None)
+    return UnresolvedResponse(
+        item=text,
+        decision='RESOLVED' if matched else 'UNRESOLVED',
+        reason=matched or '该条无法从契约或数学本身回答，需要研究者补充材料。',
+    )
+
+
 def review_for(problem):
-    """A synthetic review record: this is a test path, not a research opinion."""
+    """A synthetic review record: this is a test path, not a research opinion.
+
+    Every undecided item and every unexpressed restriction gets an explicit
+    answer or an explicit refusal; the route rejects the review outright if
+    either list does not match the problem's own.
+    """
     return GeneralIdReview(
         version='dag-general-id-1', problem_sha256=digest(problem),
         reviewer='synthetic test reviewer',
         evidence='synthetic review used only by this walkthrough, not a research opinion',
         authority='SYNTHETIC_TEST',
         decisions={name: 'ACCEPTED' for name in DECISIONS},
+        unresolved_responses=[_respond_to(text) for text in problem.unresolved],
+        restriction_responses=[_respond_to(text) for text in problem.additional_restrictions],
     )
 
 
@@ -209,7 +259,17 @@ def confirmation(reading):
 
 
 def run_case(provider, case_id, case):
-    """Run one case and keep a record of it, including the cases that stop early."""
+    """Run one case and keep a record of it, including the cases that stop early.
+
+    Two calls at most: the first answer, then -- only when the first answer
+    failed a structural check -- one re-read whose user prompt carries the
+    validator's own message. Both answers are recorded. The re-read is the
+    "复查" column of the walkthrough table; it corrects form, never the
+    question, and it is not performed for stops that are legitimate outcomes
+    (a material with no causal structure, an open question for the researcher,
+    a verified non-identification) -- asking again there would just be
+    pressure to change an answer that was already right.
+    """
     record = {
         'case_id': case_id,
         'expected': case['expected'],
@@ -220,18 +280,67 @@ def run_case(provider, case_id, case):
                      'model': provider.model},
     }
     state = _run(provider, case_id, case, record)
+    trigger = _reread_trigger(state, record)
+    if trigger:
+        record['first_attempt'] = {
+            'state': state,
+            'reason_code': record.get('reason_code'),
+            'reading_rejected': record.get('reading_rejected'),
+            'reading_audit': record.get('reading_audit'),
+        }
+        feedback = ('你上一次的回答没有通过结构检查：{}。'
+                    '请重新阅读材料原文，修正该问题后给出完整回答；'
+                    '只有材料本身确实没有依据时才维持原判。'.format(trigger))
+        record['reread'] = {'performed': True, 'trigger': trigger,
+                            'feedback': feedback}
+        print('-- reread :', trigger)
+        state = _run(provider, case_id, case, record, feedback=feedback)
     record['observed'] = state
     record['as_expected'] = state == case['expected']
+    record.setdefault('reread', {'performed': False,
+                                 'reason': 'the run stopped before an answer was usable'})
+    record.setdefault('outcome', {'state': state, 'reason_code': record.get('reason_code')})
     save(record)
     return state
 
 
-def _run(provider, case_id, case, record):
+def _reread_trigger(state, record):
+    """The one-line reason for a re-read, or None when the first answer stands.
+
+    Only two kinds of stop mean the model misread the material's form: a
+    reading the parser rejected, and an information status the material's own
+    data note should have settled. Everything else is either a legitimate
+    result or a question only a researcher can answer.
+    """
+    if state == 'READING_REJECTED':
+        return record.get('reading_rejected')
+    if state == 'NEEDS_INPUT' and record.get('reason_code') == 'INFORMATION_IS_NOT_A_POPULATION_LAW':
+        return ('information 字段为 UNKNOWN。请重新检查数据说明部分，'
+                '判断材料是否声明了可用的完整观测联合总体分布；'
+                '材料没有这样的声明时才允许 UNKNOWN。')
+    return None
+
+
+def _run(provider, case_id, case, record, feedback=None):
     bundle = bundle_for(case_id, case)
     print('=' * 72)
-    print(case_id, '| expected:', case['expected'])
+    print(case_id, '| expected:', case['expected'],
+          '| re-read' if feedback else '| first answer')
 
     request = make_request(bundle)
+    if feedback:
+        request = dict(request, user=request['user'] + '\n\n' + feedback)
+    # Which prompt produced this answer, by digest rather than by copy: the
+    # record should be able to answer "same prompt as last time?" without
+    # carrying the whole text. The contract name ties it to
+    # cfm_id_llm/dag_id_reading.SYSTEM, which is this route's own reading
+    # contract, not the shared target-first Skill (see docs/DAG_ID_MATH_ZH.md 7).
+    answer_key = 'first_answer' if feedback is None else 'reread_answer'
+    record['prompt' if feedback is None else 'reread_prompt'] = {
+        'contract': 'dag-id-reading-1',
+        'system_sha256': sha(request['system']),
+        'system_characters': len(request['system']),
+        'user_characters': len(request['user'])}
     started = time.monotonic()
     try:
         wire = provider.generate_json(system_prompt=request['system'],
@@ -251,7 +360,7 @@ def _run(provider, case_id, case, record):
         record['transport'] = diagnostics(provider)
         return 'PROVIDER_ERROR'
     record['answer_seconds'] = round(time.monotonic() - started, 3)
-    record['first_answer'] = wire
+    record[answer_key] = wire
     record['transport'] = diagnostics(provider)
     print('answered : {:.1f}s, {} characters'.format(
         record['answer_seconds'], len(json.dumps(wire, ensure_ascii=False))))
@@ -299,10 +408,44 @@ def _run(provider, case_id, case, record):
 
     problem = GeneralIdProblem(**declared)
     record['problem'] = problem.model_dump(mode='json')
-    record['review'] = {'authority': 'SYNTHETIC_TEST',
+
+    # The comment above still holds for information and additional_restrictions:
+    # those stop here. Undecided items now travel to the review, which must
+    # answer each one explicitly; the answers are recorded below next to the
+    # items they answer.
+    route = DagGeneralIdRoute()
+    review = review_for(problem)
+    gate = run_route(route, problem, review=None, research_protocol_selected=False)
+    worksheet = gate.get('worksheet') or {}
+    questions = list(worksheet.get('clarification_questions') or [])
+    record['reading_audit'] = {
+        'state': gate['state'],
+        'reason_code': gate.get('reason_code'),
+        'information': problem.information,
+        'unresolved': list(problem.unresolved),
+        'additional_restrictions': list(problem.additional_restrictions),
+        'clarification_questions': questions,
+    }
+    print('gate     :', gate['state'], '|', gate.get('reason_code'))
+    for question in questions:
+        print('  ask    :', question)
+    if gate['state'] != 'REVIEW_REQUIRED':
+        record['reason_code'] = gate.get('reason_code')
+        return gate['state']
+
+    for response in review.unresolved_responses + review.restriction_responses:
+        print('  review : {} -> {}'.format(response.decision, response.item))
+        print('           {}'.format(response.reason))
+    record['review'] = {'authority': 'SYNTHETIC_TEST', 'human_review': False,
                         'note': 'synthetic review used only by this walkthrough, '
-                                'not a research opinion'}
-    result = run_route(DagGeneralIdRoute(), problem, review=review_for(problem),
+                                'not a research opinion',
+                        'unresolved_responses': [
+                            response.model_dump(mode='json')
+                            for response in review.unresolved_responses],
+                        'restriction_responses': [
+                            response.model_dump(mode='json')
+                            for response in review.restriction_responses]}
+    result = run_route(route, problem, review=review,
                        research_protocol_selected=True)
     print('state    :', result['state'], '|', result.get('reason_code'))
     print('replay   :', result['independent_replay'])
@@ -317,6 +460,20 @@ def _run(provider, case_id, case, record):
         print('evidence :', witness.get('means'),
               '| materialised:', witness.get('hedge_materialised'))
         record['witness'] = witness
+    native = result.get('native_result') or {}
+    # The review asked for four things per case: first answer, re-read, review
+    # result, and the final identification result. The fourth is this block. A
+    # re-read, when one happened, was already recorded by the caller; here it
+    # is only recorded as not performed rather than left to inference, because
+    # a second call is a different observation and is not merged into this one.
+    if feedback is None:
+        record['reread'] = {'performed': False,
+                            'reason': 'first answer used as-is; a re-read is a separate call'}
+    record['outcome'] = {'state': result['state'],
+                         'reason_code': result.get('reason_code'),
+                         'independent_replay': result['independent_replay'],
+                         'nonidentification_proved': native.get('nonidentification_proved',
+                                                                 False)}
     return result['state']
 
 

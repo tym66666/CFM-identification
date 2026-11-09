@@ -67,10 +67,15 @@ class DagIdProblem(BaseModel):
     context: str = ''
 
     def as_graph(self):
+        # Edge order is part of the graph's identity only for reproducibility:
+        # the trace records ``describe(g)``, which sorts edges, and the replay
+        # recomputes a topological order from those edges. Canonicalising here
+        # means the solver and the checker break ties the same way, so the two
+        # pi-products are comparable field by field.
         return {
             'nodes': list(self.nodes),
-            'directed': [tuple(e) for e in self.directed],
-            'bidirected': [tuple(e) for e in self.bidirected],
+            'directed': sorted((a, b) for a, b in self.directed),
+            'bidirected': sorted(tuple(sorted((a, b))) for a, b in self.bidirected),
         }
 
 

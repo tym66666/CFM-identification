@@ -18,6 +18,7 @@ the formula encodes the right distribution.
 """
 import itertools
 import random
+from types import SimpleNamespace
 
 from .dag_id_contract import Unavailable, fail
 
@@ -355,64 +356,256 @@ def _line_of(nodes, directed, bidirected, outcome, treatment):
     earlier one failed. Recomputing the order is what turns the trace from a
     narrative into an obligation -- a step that cites a rule which did not apply
     is rejected even when the numbers happen to agree.
+
+    The third part of the result is the data the rule derived (ancestors, the
+    widened set, the blocks, the container). The caller needs it to compute what
+    the step's children must be, which is how a missing step is caught.
     """
     V = set(nodes)
     Y, X = set(outcome), set(treatment)
     if not X:
-        return 1, {'empty_treatment': True}
+        return 1, {'empty_treatment': True}, {}
     an = _ancestors(nodes, directed, Y)
     if V - an:
-        return 2, {'dropped': sorted(V - an), 'ancestors_of_outcome': sorted(an)}
+        return (2, {'dropped': sorted(V - an), 'ancestors_of_outcome': sorted(an)},
+                {'ancestors': an})
     cut = [edge for edge in directed if edge[1] not in X]
     after = _ancestors(nodes, cut, Y)
     widened = (V - X) - after
     if widened:
-        return 3, {'added_to_treatment': sorted(widened),
-                   'ancestors_of_outcome_after_intervention': sorted(after)}
+        return (3, {'added_to_treatment': sorted(widened),
+                    'ancestors_of_outcome_after_intervention': sorted(after)},
+                {'widened': widened})
     rest = sorted(V - X)
     blocks = _components(rest, [edge for edge in bidirected
                                 if edge[0] in rest and edge[1] in rest])
     if len(blocks) > 1:
-        return 4, {'c_components_of_graph_minus_treatment':
-                   sorted([sorted(b) for b in blocks])}
+        return (4, {'c_components_of_graph_minus_treatment':
+                    sorted([sorted(b) for b in blocks])},
+                {'blocks': blocks})
     whole = _components(sorted(V), bidirected)
     if len(whole) == 1:
-        return 5, {'c_components_of_graph': [sorted(whole[0])],
-                   'surviving_component': sorted(blocks[0])}
+        return (5, {'c_components_of_graph': [sorted(whole[0])],
+                    'surviving_component': sorted(blocks[0])},
+                {'surviving': blocks[0]})
     if blocks[0] in set(whole):
-        return 6, {'component_equals_surviving_block': sorted(blocks[0])}
-    return 7, {'surviving_block': sorted(blocks[0])}
+        return (6, {'component_equals_surviving_block': sorted(blocks[0])},
+                {'surviving': blocks[0]})
+    container = next((block for block in whole if blocks[0] <= block), blocks[0])
+    return (7, {'surviving_block': sorted(blocks[0]),
+                'containing_component': sorted(container)},
+            {'surviving': blocks[0], 'container': container})
+
+
+def _subgraph(nodes, directed, bidirected, keep):
+    keep = set(keep)
+    return {
+        'nodes': [n for n in nodes if n in keep],
+        'directed': [(a, b) for a, b in directed if a in keep and b in keep],
+        'bidirected': [(a, b) for a, b in bidirected if a in keep and b in keep],
+    }
+
+
+def _order(nodes, directed, subset=None):
+    keep = set(nodes) if subset is None else set(subset)
+    indegree = {n: 0 for n in keep}
+    children = {n: [] for n in keep}
+    for a, b in directed:
+        if a in keep and b in keep:
+            children[a].append(b)
+            indegree[b] += 1
+    queue = [n for n in nodes if n in keep and indegree[n] == 0]
+    order = []
+    while queue:
+        node = queue.pop(0)
+        order.append(node)
+        for child in children[node]:
+            indegree[child] -= 1
+            if indegree[child] == 0:
+                queue.append(child)
+    if len(order) != len(keep):
+        fail('CHECK_BLOCKED', 'DIRECTED_CYCLE_NOT_RECURSIVE_MODEL')
+    return order
+
+
+def _step_graph(step):
+    graph = step.get('graph') or {}
+    return (list(graph.get('nodes') or []),
+            [tuple(edge) for edge in graph.get('directed') or []],
+            [tuple(edge) for edge in graph.get('bidirected') or []])
+
+
+def _expected_children(line, derived, nodes, directed, bidirected, outcome, treatment):
+    """The sub-problems the cited rule forces, computed from the rule alone."""
+    V, X = set(nodes), set(treatment)
+    same = {'nodes': list(nodes), 'directed': list(directed), 'bidirected': list(bidirected)}
+    if line in (1, 5, 6):
+        return []
+    if line == 2:
+        an = derived['ancestors']
+        return [dict(_subgraph(nodes, directed, bidirected, an),
+                     outcome=list(outcome), treatment=sorted(X & an))]
+    if line == 3:
+        return [dict(same, outcome=list(outcome), treatment=sorted(X | derived['widened']))]
+    if line == 4:
+        return [dict(same, outcome=sorted(block), treatment=sorted(V - block))
+                for block in derived['blocks']]
+    container = derived['container']
+    return [dict(_subgraph(nodes, directed, bidirected, container),
+                 outcome=list(outcome), treatment=sorted(X & container))]
+
+
+def _step_matches(step, expected):
+    nodes, directed, bidirected = _step_graph(step)
+    return (
+        sorted(nodes) == sorted(expected['nodes'])
+        and sorted(directed) == sorted(expected['directed'])
+        and sorted(bidirected) == sorted(expected['bidirected'])
+        and sorted(step.get('outcome') or []) == sorted(expected['outcome'])
+        and sorted(step.get('treatment') or []) == sorted(expected['treatment'])
+    )
+
+
+def _canonical(expr):
+    """A comparable form: sets sorted, product order kept."""
+    op = expr['operation']
+    if op == 'OBSERVED_JOINT':
+        return ('JOINT',)
+    if op == 'MARGINAL':
+        return ('MARGINAL', tuple(sorted(expr['keep'])), tuple(sorted(expr.get('scope') or [])),
+                _canonical(expr['of']))
+    if op == 'CONDITIONAL':
+        return ('CONDITIONAL', tuple(sorted(expr['outcome'])), tuple(sorted(expr['given'])),
+                _canonical(expr['of']))
+    if op == 'PRODUCT':
+        return ('PRODUCT', tuple(_canonical(operand) for operand in expr['operands']))
+    if op == 'SUM':
+        return ('SUM', tuple(sorted(expr['over'])), tuple(sorted(expr.get('scope') or [])),
+                _canonical(expr['operand']))
+    return ('UNKNOWN', op)
+
+
+def _rebuild(steps, children):
+    """Compose the expression the trace forces, without asking the solver.
+
+    This is the other half of "the derivation is complete": every rule says
+    exactly how the sub-problem's distribution is written in terms of its
+    children, so the trace determines one expression tree. If that tree is not
+    the certificate's ``functional``, the formula on the certificate did not come
+    from the steps next to it, whatever the numbers say.
+    """
+    def build(index, dist, added):
+        step = steps[index]
+        nodes, directed, bidirected = _step_graph(step)
+        V = set(nodes)
+        Y = set(step.get('outcome') or [])
+        X = set(step.get('treatment') or [])
+        line = step.get('line')
+        if line == 1:
+            return {'operation': 'SUM', 'over': sorted(V - Y), 'scope': sorted(V),
+                    'operand': dist}
+        if line == 2:
+            an = _ancestors(nodes, directed, Y)
+            inner = {'operation': 'MARGINAL', 'keep': sorted(an), 'scope': sorted(V),
+                     'of': dist}
+            return build(children[index][0], inner, added & an)
+        if line == 3:
+            widened = set(step.get('condition', {}).get('added_to_treatment') or [])
+            return build(children[index][0], dist, added | widened)
+        if line == 4:
+            return {
+                'operation': 'SUM', 'over': sorted(V - Y - X), 'scope': sorted(V),
+                'operand': {'operation': 'PRODUCT',
+                            'operands': [build(child, dist, added)
+                                         for child in children[index]]},
+            }
+        full_order = _order(nodes, directed)
+        if line == 6:
+            block = V - X
+            factors = []
+            for name in _order(nodes, directed, block):
+                given = [other for other in full_order[:full_order.index(name)]
+                         if other not in added]
+                factors.append({'operation': 'CONDITIONAL', 'outcome': [name],
+                                'given': sorted(given), 'of': dist})
+            return {'operation': 'SUM', 'over': sorted(block - Y), 'scope': sorted(V),
+                    'operand': {'operation': 'PRODUCT', 'operands': factors}}
+        if line == 7:
+            block = V - X
+            container = next((part for part in _components(list(nodes), bidirected)
+                              if block <= part), block)
+            factors = []
+            for name in _order(nodes, directed, container):
+                given = list(full_order[:full_order.index(name)])
+                factors.append({'operation': 'CONDITIONAL', 'outcome': [name],
+                                'given': given, 'of': dist})
+            return build(children[index][0],
+                         {'operation': 'PRODUCT', 'operands': factors}, added)
+        fail('CHECK_BLOCKED', 'STEP_CITES_NO_KNOWN_RULE')
+
+    return build(0, {'operation': 'OBSERVED_JOINT'}, frozenset())
 
 
 def check_derivation(certificate, problem):
     """Rebuild each step's premise from the graph the step claims to work on.
 
     Returns a report rather than raising: a failed step is a finding, and the
-    caller decides what to do with it. ``completed`` says whether every step was
-    checked; when it is False the derivation is unverified, which is not the
-    same as verified-and-wrong.
+    caller decides what to do with it. Three things are checked, and all three
+    are required:
+
+    * each step cites the rule that really applies to its own sub-problem;
+    * the steps form the tree those rules force -- the right number of children,
+      each child the exact sub-problem the parent's rule produces, ending in a
+      rule that returns a distribution. A truncated trace has a non-terminal
+      step with no children, and that is a failure, not a shorter proof;
+    * composing the tree gives back the certificate's functional.
     """
     steps = certificate.get('derivation') or []
     if not steps:
         return {'passed': False, 'completed': False, 'steps': [],
                 'reason': 'NO_DERIVATION_STEPS'}
 
-    findings, ok, completed = [], True, True
+    findings = []
+    ok, completed = True, True
+    children = [[] for _ in steps]
+
+    # The tree is recorded depth-first: a step at depth d is the child of the
+    # last step seen at depth d-1. A depth that skips a level breaks the chain.
+    stack = []
+    for index, step in enumerate(steps):
+        depth = step.get('depth')
+        if type(depth) is not int or depth < 0:
+            completed = False
+            findings.append({'depth': depth, 'problem': 'STEP_DEPTH_MISSING'})
+            continue
+        if depth == 0:
+            if index != 0:
+                ok = False
+                findings.append({'depth': 0, 'problem': 'SECOND_ROOT_STEP'})
+            stack = [index]
+            continue
+        if len(stack) < depth:
+            completed = False
+            findings.append({'depth': depth, 'problem': 'STEP_DEPTH_SKIPS_A_LEVEL'})
+            stack = stack[:depth] + [index]
+            continue
+        children[stack[depth - 1]].append(index)
+        stack = stack[:depth] + [index]
+
     first = steps[0]
-    if (sorted(first.get('graph', {}).get('nodes', [])) != sorted(problem.nodes)
+    nodes, directed, bidirected = _step_graph(first)
+    if (sorted(nodes) != sorted(problem.nodes)
             or sorted(first.get('outcome') or []) != sorted(problem.outcome)
             or sorted(first.get('treatment') or []) != [problem.treatment]):
         ok = False
         findings.append({'depth': 0, 'problem': 'FIRST_STEP_IS_NOT_THE_ASKED_PROBLEM'})
 
-    for step in steps:
-        graph = step.get('graph') or {}
-        nodes = list(graph.get('nodes') or [])
-        directed = [tuple(edge) for edge in graph.get('directed') or []]
-        bidirected = [tuple(edge) for edge in graph.get('bidirected') or []]
+    terminal = {1, 5, 6}
+    for index, step in enumerate(steps):
+        nodes, directed, bidirected = _step_graph(step)
         outcome, treatment = step.get('outcome') or [], step.get('treatment') or []
         try:
-            line, condition = _line_of(nodes, directed, bidirected, outcome, treatment)
+            line, condition, derived = _line_of(nodes, directed, bidirected, outcome, treatment)
         except Exception:  # noqa: BLE001 - an unreadable step is a finding too
             completed = False
             findings.append({'depth': step.get('depth'), 'problem': 'STEP_NOT_RECOMPUTABLE'})
@@ -428,7 +621,53 @@ def check_derivation(certificate, problem):
                 ok = False
                 findings.append({'depth': step.get('depth'), 'problem': 'WRONG_CONDITION',
                                  'key': key, 'stated': stated[key], 'recomputed': value})
+
+        expected = _expected_children(line, derived, nodes, directed, bidirected,
+                                      outcome, treatment)
+        actual = [steps[child] for child in children[index]]
+        if line in terminal and actual:
+            ok = False
+            findings.append({'depth': step.get('depth'), 'problem':
+                             'STEP_HAS_CHILDREN_BUT_ITS_RULE_RETURNS'})
+        elif line not in terminal and not actual:
+            ok = False
+            findings.append({'depth': step.get('depth'), 'problem':
+                             'STEP_HAS_NO_CHILDREN_BUT_ITS_RULE_RECURSES',
+                             'rule': step.get('rule')})
+        elif len(actual) != len(expected):
+            ok = False
+            findings.append({'depth': step.get('depth'), 'problem': 'WRONG_NUMBER_OF_CHILDREN',
+                             'stated': len(actual), 'required': len(expected)})
+        else:
+            unmatched = list(expected)
+            for child in actual:
+                match = next((want for want in unmatched if _step_matches(child, want)), None)
+                if match is None:
+                    ok = False
+                    findings.append({'depth': child.get('depth'),
+                                     'problem': 'CHILD_IS_NOT_THE_SUBPROBLEM_THIS_RULE_PRODUCES',
+                                     'outcome': child.get('outcome'),
+                                     'treatment': child.get('treatment')})
+                else:
+                    unmatched.remove(match)
+
+    formula_matches = False
+    reason = None
+    if ok and completed:
+        try:
+            rebuilt = _rebuild(steps, children)
+            formula_matches = _canonical(rebuilt) == _canonical(certificate['functional'])
+            if not formula_matches:
+                reason = 'FUNCTIONAL_IS_NOT_THE_ONE_THESE_STEPS_COMPOSE'
+        except Exception:  # noqa: BLE001 - an uninspectable functional is a finding
+            completed = False
+            reason = 'FUNCTIONAL_NOT_RECOMPUTABLE_FROM_STEPS'
+
+    if not formula_matches and reason is None:
+        reason = 'FUNCTIONAL_IS_NOT_THE_ONE_THESE_STEPS_COMPOSE'
+
     return {'passed': ok, 'completed': completed, 'steps': len(steps),
+            'formula_matches': formula_matches, 'reason': reason,
             'findings': findings}
 
 
@@ -474,7 +713,16 @@ def _free_variables(expr, bound=frozenset(), into=None):
     if op == 'OBSERVED_JOINT':
         return into
     if op == 'MARGINAL':
-        return _free_variables(expr['of'], bound, into)
+        # A marginal sums out (scope - keep); those variables are bound by this
+        # node just as surely as by a SUM. Without this the mixed-chain answer
+        # sum_a P(a) P(c | b, a) reads as a kernel on A even though the marginal
+        # removes it.
+        scope = expr.get('scope')
+        removed = set(scope) - set(expr['keep']) if scope is not None else None
+        inner = set()
+        _free_variables(expr['of'], bound, inner)
+        into |= inner - removed if removed is not None else inner
+        return into
     if op == 'CONDITIONAL':
         for name in list(expr['outcome']) + list(expr['given']):
             if name not in bound:
@@ -566,10 +814,16 @@ def replay(certificate, problem, seeds=(7, 11, 23), tolerance=TOLERANCE):
     derivation = check_derivation(certificate, problem)
     checks.append({
         'name': 'derivation_steps_recompute',
-        'passed': derivation['passed'],
-        'detail': '{} steps, {} findings'.format(
-            derivation.get('steps', 0), len(derivation.get('findings') or [])),
+        'passed': derivation['passed'] and derivation['completed'],
+        'detail': '{} steps, complete={}, {} findings'.format(
+            derivation.get('steps', 0), derivation.get('completed'),
+            len(derivation.get('findings') or [])),
         'findings': derivation.get('findings') or [],
+    })
+    checks.append({
+        'name': 'functional_follows_the_derivation',
+        'passed': derivation.get('formula_matches') is True,
+        'detail': derivation.get('reason') or 'the steps compose the certified formula',
     })
 
     graph = problem.as_graph()
@@ -796,7 +1050,18 @@ def check_failure(witness, problem=None):
             or not set(step_bidirected) <= {tuple(sorted(e)) for e in problem.bidirected}):
         return {'passed': False, 'completed': True,
                 'detail': 'evidence graph is not a sub-graph of the declared graph'}
-    treatment = {problem.treatment}
+    # Line 3 can widen the treatment before line 5 fires, so the sub-problem's
+    # own treatment and outcome are what the evidence has to be checked against;
+    # the declared ones belong to a problem this evidence is not about.
+    sub = SimpleNamespace(
+        nodes=step_nodes, directed=step_directed, bidirected=step_bidirected,
+        treatment=list(witness.get('treatment') or [problem.treatment]),
+        outcome=list(witness.get('outcome') or list(problem.outcome)),
+    )
+    if not set(sub.treatment) <= set(problem.nodes):
+        return {'passed': False, 'completed': True,
+                'detail': 'the evidence names a treatment that is not in the graph'}
+    treatment = set(sub.treatment)
     whole = _components(sorted(step_nodes), step_bidirected)
     rest = [node for node in step_nodes if node not in treatment]
     cut = _components(sorted(rest), [tuple(edge) for edge in step_bidirected
@@ -818,12 +1083,20 @@ def check_failure(witness, problem=None):
         'passed': True,
         'detail': 'line-5 condition reproduced independently; no uniform formula in this graph',
     }
-    if 'hedge' in witness:
-        hedge = check_hedge(witness['hedge'], problem)
-        out['hedge'] = hedge
-        out['passed'] = out['passed'] and hedge['passed']
-        if not hedge['passed']:
-            out['detail'] = 'the C-forest pair does not satisfy Definition 6'
-    elif witness.get('hedge_materialised') is True:
-        out.update(passed=False, detail='claimed a materialised hedge without the pair')
+    # A non-identification claim is a claim about a C-forest pair. The component
+    # condition alone says where the algorithm stopped, not why no formula
+    # exists, so a witness without the pair is an unfinished proof, not a
+    # checked one.
+    if 'hedge' not in witness:
+        return dict(out, passed=False, completed=True,
+                    detail='no C-forest pair attached: the component condition alone '
+                           'does not witness non-identification')
+    hedge = check_hedge(witness['hedge'], sub)
+    out['hedge'] = hedge
+    out['passed'] = out['passed'] and hedge['passed']
+    if not hedge['passed']:
+        out['detail'] = 'the C-forest pair does not satisfy Definition 6'
+    elif witness.get('hedge_materialised') is not True:
+        out['passed'] = False
+        out['detail'] = 'the pair checks out but the witness says it was not materialised'
     return out

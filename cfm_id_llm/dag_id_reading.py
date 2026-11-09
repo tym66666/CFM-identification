@@ -196,12 +196,26 @@ def declared_graph(reading):
                 bidirected=[list(pair) for pair in bidirected])
 
 
+INFORMATION_STATUS = {
+    'FULL_JOINT_POPULATION_LAW': 'FULL_JOINT_POPULATION_LAW',
+    'FINITE_SAMPLE': 'FINITE_SAMPLE',
+    'MARGINALS_ONLY': 'MARGINAL_STATISTICS',
+    'UNKNOWN': 'UNKNOWN',
+}
+
+
 def to_problem(reading, *, graph_source, materials_sha256, researcher_confirmed):
     """Assemble the business problem. Confirmation is the caller's statement.
 
     ``researcher_confirmed`` is deliberately a required argument rather than a
     value read from the material: a model reading a document cannot confirm that
     the graph is the right causal graph for the population.
+
+    Everything else the reading saw travels with the problem. The unresolved
+    items and the additional restrictions are carried as they were read, not
+    summarised and not dropped: ``dag_id_route.validate`` refuses to solve while
+    either is non-empty, so an incomplete material stops as NEEDS_INPUT instead
+    of being answered with a formula about a variable nobody defined.
     """
     graph = declared_graph(reading)
     treatment, outcome = reading.target.treatment, reading.target.outcome
@@ -228,4 +242,7 @@ def to_problem(reading, *, graph_source, materials_sha256, researcher_confirmed)
         graph_source=graph_source,
         materials_sha256=materials_sha256,
         context=reading.target.context or 'material-declared study population',
+        information=INFORMATION_STATUS[reading.information.kind],
+        unresolved=[note.text for note in reading.unresolved],
+        additional_restrictions=[note.text for note in reading.additional_restrictions],
     )

@@ -53,6 +53,10 @@ CONFOUNDED_CHAIN = (
     "X",
     ["Y"],
 )
+# A -> B -> C with A <-> C. Intervening on B, A is a confounder of B and C, so
+# the answer has to condition on A and sum it out. The plain MIDCHAIN case is
+# the same graph without the bidirected edge, and its answer must not change.
+CONFOUNDED_MIDCHAIN = (["A", "B", "C"], [("A", "B"), ("B", "C")], [("A", "C")], "B", ["C"])
 
 
 def problem(case, context=''):
@@ -443,11 +447,12 @@ class EvidenceTests(unittest.TestCase):
                          .format(sorted(imported & forbidden)))
 
     def test_numeric_check_catches_a_formula_that_is_structurally_valid(self):
-        """Only the sixth check can catch a formula that is well formed but wrong.
+        """A well-formed formula that is wrong must not survive on shape alone.
 
         Simulates the pre-fix line-6 defect: a conditional loses a variable it
-        must condition on. Digest and problem binding are re-sealed, so the
-        failure can only come from the numeric comparison.
+        must condition on. The digest is re-sealed so the certificate is
+        internally consistent. Two checks catch it now: the formula no longer
+        composes from its own steps, and the fresh SCM disagrees numerically.
         """
         from cfm_id_bridge.scientific_binding import sha
 
@@ -474,9 +479,10 @@ class EvidenceTests(unittest.TestCase):
         result = replay(certificate, p)
         self.assertFalse(result['passed'])
         failed = [c['name'] for c in result['checks'] if not c['passed']]
-        self.assertEqual(failed, ['numeric_agreement_with_fresh_scm'])
+        self.assertEqual(failed, ['functional_follows_the_derivation',
+                                  'numeric_agreement_with_fresh_scm'])
 
-    def test_replay_reports_the_nine_documented_checks(self):
+    def test_replay_reports_the_ten_documented_checks(self):
         p = problem(FRONTDOOR)
         checks = replay(identify(p), p)['checks']
         self.assertEqual([c['name'] for c in checks], [
@@ -484,9 +490,10 @@ class EvidenceTests(unittest.TestCase):
             'problem_binding', 'question_binding',
             'formula_reads_only_the_asked_variables',
             'derivation_steps_recompute',
+            'functional_follows_the_derivation',
             'expression_tree_well_formed',
             'numeric_agreement_with_fresh_scm'])
-        self.assertEqual(len(checks), 9)
+        self.assertEqual(len(checks), 10)
 
     def test_a_step_that_cites_the_wrong_rule_is_rejected(self):
         """Numbers can agree while the reason is invented. The trace is
@@ -621,6 +628,110 @@ class RandomisedGraphTests(unittest.TestCase):
                 else:
                     checked = check_failure(report['witness'], p)
                     self.assertTrue(checked['passed'], checked['detail'])
+
+
+class ReviewRoundTwoTests(unittest.TestCase):
+    """Regressions for the second review: proof completeness and the confounded chain.
+
+    Each test reproduces one reported defect and would have passed before the
+    fix. They are kept short on purpose: the request was a small number of
+    targeted regressions, not a wider matrix.
+    """
+
+    def test_a_truncated_derivation_is_rejected(self):
+        """Keeping only the first step used to leave every check green.
+
+        The digest is resealed, so the only thing wrong with the certificate is
+        that its proof stops early. That must fail: a formula that appears from
+        nowhere is not a derivation.
+        """
+        from cfm_id_bridge.scientific_binding import sha
+
+        p = problem(FRONTDOOR)
+        certificate = identify(p)
+        self.assertTrue(replay(certificate, p)['passed'])
+
+        cutoff = dict(certificate)
+        cutoff['derivation'] = certificate['derivation'][:1]
+        cutoff['certificate_sha256'] = sha(
+            {k: v for k, v in cutoff.items() if k != 'certificate_sha256'})
+
+        result = replay(cutoff, p)
+        self.assertFalse(result['passed'])
+        failed = [c['name'] for c in result['checks'] if not c['passed']]
+        self.assertIn('derivation_steps_recompute', failed)
+        self.assertIn('functional_follows_the_derivation', failed)
+        self.assertIn('NO_CHILDREN', str(result['checks'][6]['findings'][0]['problem']))
+
+    def test_a_missing_middle_step_is_rejected(self):
+        """A trace with a hole is not a shorter proof either."""
+        from cfm_id_bridge.scientific_binding import sha
+
+        p = problem(FRONTDOOR)
+        certificate = identify(p)
+        holed = dict(certificate)
+        holed['derivation'] = [step for index, step in enumerate(certificate['derivation'])
+                               if index != 2]
+        holed['certificate_sha256'] = sha(
+            {k: v for k, v in holed.items() if k != 'certificate_sha256'})
+
+        checks = {c['name']: c for c in replay(holed, p)['checks']}
+        self.assertFalse(checks['derivation_steps_recompute']['passed'])
+        self.assertFalse(checks['functional_follows_the_derivation']['passed'])
+
+    def test_the_formula_must_be_the_one_the_steps_compose(self):
+        """A correct formula attached to another graph's trace is rejected."""
+        from cfm_id_bridge.scientific_binding import sha
+
+        p = problem(FRONTDOOR)
+        certificate = identify(p)
+        other = identify(problem(MIDCHAIN))
+
+        swapped = dict(certificate)
+        swapped['derivation'] = other['derivation']
+        swapped['certificate_sha256'] = sha(
+            {k: v for k, v in swapped.items() if k != 'certificate_sha256'})
+
+        checks = {c['name']: c for c in replay(swapped, p)['checks']}
+        self.assertFalse(checks['derivation_steps_recompute']['passed'])
+        self.assertFalse(checks['functional_follows_the_derivation']['passed'])
+
+    def test_a_confounded_chain_conditions_on_the_confounder(self):
+        """A -> B -> C with A <-> C: the answer is sum_a P(c | b, a) P(a).
+
+        Line 3 adds A to the treatment because cutting the arrow into B leaves A
+        outside An(C). Dropping A from the conditioning set -- right for the
+        plain chain -- is wrong here: A and C share an unobserved cause, so
+        P(c | b) is not the target and the expression stops being a distribution
+        over C.
+        """
+        p = problem(CONFOUNDED_MIDCHAIN)
+        certificate = identify(p)
+        self.assertTrue(replay(certificate, p)['passed'],
+                        [c for c in replay(certificate, p)['checks'] if not c['passed']])
+
+        atoms = collect_atoms(certificate['functional'])
+        self.assertIn({'outcome': ['C'], 'given': ['A', 'B']}, atoms['conditional'])
+        self.assertEqual(certificate['positivity']['conditional_denominators'], [['A', 'B']])
+
+    def test_unverified_evidence_is_not_reported_as_proof(self):
+        """A witness that fails its own checks downgrades the answer.
+
+        Line 5 stopping is necessary for a hedge, not sufficient. When the pair
+        does not check out the run has stopped, and stopped is NO_FORMULA_YET --
+        never "proved not identifiable".
+        """
+        p = problem(BOWARC)
+        broken = identify_or_report(p)['witness']
+        broken.pop('hedge')          # the pair is the evidence; without it nothing is proved
+        broken['hedge_materialised'] = False
+
+        with mock.patch('cfm_id.dag_id_solver._witness', return_value=broken):
+            report = identify_or_report(p)
+        self.assertEqual(report['status'], 'NO_FORMULA_YET')
+        self.assertEqual(report['reason'], 'NONIDENTIFICATION_EVIDENCE_NOT_VERIFIED')
+        self.assertFalse(report['nonidentification_proved'])
+        self.assertFalse(report['evidence_report']['passed'])
 
 
 if __name__ == '__main__':

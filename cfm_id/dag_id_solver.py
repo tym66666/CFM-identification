@@ -145,6 +145,12 @@ def _witness(g, x, y, surviving):
         # evidence is about this graph, not the one the caller declared, so the
         # checker needs it to recompute the partition instead of guessing.
         'graph': describe(g),
+        # The treatment and outcome are recorded for the same reason: after
+        # line 3 the treatment set is not the declared one, and the hedge's
+        # "avoids the treatment" check has to use the set this sub-problem
+        # actually intervenes on.
+        'treatment': sorted(x),
+        'outcome': sorted(y),
         'theorem': 'SHPITSER_PEARL_2006_THEOREM_6',
         'c_components_of_graph': sorted([sorted(b) for b in c_components(g)]),
         'c_components_of_graph_minus_treatment': sorted(
@@ -163,6 +169,23 @@ def _fail_with_witness(state, reason, witness):
     error = Unavailable(state, reason)
     error.witness = witness
     raise error
+
+
+def _witness_is_on_the_trace(witness, trace):
+    """True when some recorded step is exactly the sub-problem the evidence is about."""
+    graph = witness.get('graph') or {}
+    nodes = sorted(graph.get('nodes') or [])
+    directed = sorted(tuple(edge) for edge in graph.get('directed') or [])
+    bidirected = sorted(tuple(edge) for edge in graph.get('bidirected') or [])
+    for step in trace:
+        seen = step.get('graph') or {}
+        if (sorted(seen.get('nodes') or []) == nodes
+                and sorted(tuple(edge) for edge in seen.get('directed') or []) == directed
+                and sorted(tuple(edge) for edge in seen.get('bidirected') or []) == bidirected
+                and sorted(step.get('treatment') or []) == sorted(witness.get('treatment') or [])
+                and sorted(step.get('outcome') or []) == sorted(witness.get('outcome') or [])):
+            return True
+    return False
 
 
 def _id(g, y, x, dist, trace, depth, added=frozenset()):
@@ -268,11 +291,9 @@ def _id(g, y, x, dist, trace, depth, added=frozenset()):
         )
         witness = _witness(g, x, y, S)
         # The stopping condition is necessary for a hedge, not sufficient as
-        # evidence. Until the pair passes its own checks the run has proved
-        # nothing, so it must not answer "not identifiable": that would be a
-        # claim without the proof the task asks for.
-        if not witness['hedge_materialised']:
-            _fail_with_witness('NO_FORMULA_YET', 'NO_IDENTIFICATION_FORMULA_DERIVED_YET', witness)
+        # evidence. The pair is therefore checked independently before the run
+        # is allowed to answer "not identifiable" (see ``identify``); this raise
+        # is only the transport of the evidence.
         _fail_with_witness('UNSUPPORTED', FAILED_REASON, witness)
 
     # Line 6: the surviving block is itself a C-component, so the chain rule
@@ -338,7 +359,15 @@ def _id(g, y, x, dist, trace, depth, added=frozenset()):
     )
     factors = []
     for v in topological_order(g, container):
-        prefix = [name for name in full_order[:full_order.index(v)] if name not in added]
+        # Unlike line 6, the pi-product here covers a container that may hold a
+        # variable line 3 added. Those variables are irrelevant to Y, but they
+        # are not irrelevant to the c-factor: A -> B -> C with A <-> C is the
+        # smallest case. Line 3 adds A, line 7 recurses into {A, C}, and the
+        # factor for C must condition on A, because A and C share an unobserved
+        # cause. The recursion then sums A out at line 2, which is what turns
+        # the answer into sum_a P(c | b, a) P(a). Dropping A here gives
+        # P(c | b), which is not the target.
+        prefix = list(full_order[:full_order.index(v)])
         factors.append({
             'operation': 'CONDITIONAL',
             'outcome': [v],
@@ -398,8 +427,31 @@ def identify(problem):
     try:
         expr = _id(g, y, x, {'operation': 'OBSERVED_JOINT'}, trace, 0)
     except Unavailable as error:
-        if error.state == 'UNSUPPORTED' and error.reason == FAILED_REASON:
-            error.witness = getattr(error, 'witness', None)
+        witness = getattr(error, 'witness', None)
+        if witness is None:
+            raise
+        # Stopping is not the same as proving. Line 5's condition is necessary
+        # for a hedge, not sufficient as evidence, so the pair is checked
+        # against the declared graph before the answer says "not identifiable".
+        # Until that check passes the honest state is NO_FORMULA_YET: the
+        # algorithm stopped, and nothing has been proved about the graph.
+        from .dag_id_verify import check_failure
+
+        report = check_failure(witness, p)
+        if not report.get('passed'):
+            downgraded = Unavailable('NO_FORMULA_YET',
+                                     'NONIDENTIFICATION_EVIDENCE_NOT_VERIFIED')
+            downgraded.witness = dict(witness, evidence_report=report)
+            raise downgraded
+        # The evidence describes the sub-problem the recursion reached. If that
+        # sub-problem never appears in the trace, the evidence is about a graph
+        # this run never visited, which is a defect, not a conclusion.
+        if not _witness_is_on_the_trace(witness, trace):
+            blocked = Unavailable('CHECK_BLOCKED', 'EVIDENCE_NOT_IN_DERIVATION')
+            blocked.witness = dict(witness, evidence_report=report)
+            raise blocked
+        error.evidence_checked = True
+        error.witness = dict(witness, evidence_report=report)
         raise
 
     cert = {
@@ -440,14 +492,20 @@ def identify_or_report(problem):
     try:
         return identify(problem)
     except Unavailable as error:
+        witness = getattr(error, 'witness', None)
         return {
             'status': error.state,
             'reason': error.reason,
-            'witness': getattr(error, 'witness', None),
+            'witness': witness,
+            # Only an evidence-checked UNSUPPORTED is a mathematical conclusion.
+            # A downgraded NO_FORMULA_YET keeps its witness so the failed checks
+            # can be read, but it claims nothing about the graph.
             'nonidentification_proved': bool(
-                getattr(error, 'witness', None)
-                and error.reason == FAILED_REASON
+                error.state == 'UNSUPPORTED'
+                and getattr(error, 'evidence_checked', False)
             ),
+            'evidence_report': (witness or {}).get('evidence_report')
+            if isinstance(witness, dict) else None,
         }
     except Exception as error:  # noqa: BLE001 - the boundary must not leak
         # Anything unexpected stops here instead of escaping as a raw traceback.

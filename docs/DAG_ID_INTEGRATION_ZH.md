@@ -70,6 +70,40 @@
 2. 是否让分派层在三条专用路线都失败时回落到通用 ID。这不仅是一处新增分支：失败结论的含义会从"这三种方法都不适用"变成"这张图上不存在统一公式"，是两个不同的断言，属于分派语义的变更。
 3. 导航索引如何登记这条新路线。 项目有 `MATH_AND_EVIDENCE_ZH.md` 约定的一致性检查，新增连接需要同步索引，这属于维护者对文献映射的组织方式。
 
+### 4.1 停止状态在共用入口被改写（建议改一行）
+
+`cfm_id/research_route_workflow.py` 只认四种停止状态：
+
+```python
+STOPS={'NEEDS_INPUT','REVIEW_REQUIRED','UNSUPPORTED','CHECK_BLOCKED'}
+```
+
+本路线有六种。`NO_FORMULA_YET`（停了但证据未通过）与 `RESOURCE_LIMIT`（超出规模上限）不在其中，进 `run_route` 会被读成"既不是停止也不是证明"，于是抛 `MISSING_TYPED_MATHEMATICAL_EVIDENCE`，最终显示为 `CHECK_BLOCKED`。用户看到的原因因此是错的：超限被说成请求格式有问题。
+
+本批不动这个文件，适配器的处理是保住真实原因，而不是伪造状态：
+
+```python
+SHARED_STOP_STATES = ('NEEDS_INPUT','REVIEW_REQUIRED','UNSUPPORTED','CHECK_BLOCKED')
+
+def _for_shared_entry(result):
+    state = result.get('state')
+    if state in SHARED_STOP_STATES or state == 'POINT':
+        return result
+    return dict(result, state='CHECK_BLOCKED', native_state=state,
+                reason_code='{}:{}'.format(state, result.get('reason_code')))
+```
+
+于是超限在共用入口显示为 `CHECK_BLOCKED | RESOURCE_LIMIT:MODEL_SIZE_OUT_OF_RANGE`，`native_state` 保留原值。原因准确了，但状态标签是被压扁的。
+
+要彻底对齐，需要把这两种状态加进 `STOPS`：
+
+```python
+STOPS={'NEEDS_INPUT','REVIEW_REQUIRED','UNSUPPORTED','CHECK_BLOCKED',
+       'RESOURCE_LIMIT','NO_FORMULA_YET'}
+```
+
+这一行是加法：现有路线从不返回这两个值，行为不变；`PROVED` 不变。它属于共用入口的语义，是否接受由维护者决定。改完之后适配器里的 `_for_shared_entry` 可以直接去掉。
+
 ## 5. 接入前还缺的输入
 
 - 研究者确认的变量因果图：任务书要求"图须经过研究者确认，合作关系网络不能直接当变量因果图"。现有测试图全部来自论文或仓库参考例，仅用于验证代码。

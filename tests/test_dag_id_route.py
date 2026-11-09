@@ -52,7 +52,9 @@ class PointTests(unittest.TestCase):
                 problem = GeneralIdProblem(
                     version='dag-general-id-1', model='RECURSIVE_SEMI_MARKOVIAN_DISCRETE',
                     treatment='X', outcome=['Y'], graph_status='RESEARCHER_CONFIRMED',
-                    graph_source='reference example', materials_sha256='0' * 64, **fields)
+                    graph_source='reference example', materials_sha256='0' * 64,
+                    information='FULL_JOINT_POPULATION_LAW',
+                    unresolved=[], additional_restrictions=[], **fields)
                 result = run_route(DagGeneralIdRoute(), problem,
                                    review=synthetic_review(problem), research_protocol_selected=True)
                 self.assertEqual(result['state'], 'POINT')
@@ -140,8 +142,14 @@ class RejectionTests(unittest.TestCase):
             update={'nodes': nodes, 'directed': [], 'bidirected': [],
                     'treatment': nodes[0], 'outcome': [nodes[1]]})
         result = prepare(problem)
-        self.assertEqual(result['state'], 'RESOURCE_LIMIT')
-        self.assertEqual(result['reason_code'], 'NODE_COUNT_OUT_OF_RANGE')
+        # The shared entry knows four stop states; RESOURCE_LIMIT is not one of
+        # them. Rather than let run_route rewrite the cause to
+        # MISSING_TYPED_MATHEMATICAL_EVIDENCE, the adapter keeps the native state
+        # in `native_state` and in the reason code, and says CHECK_BLOCKED -
+        # "the run stopped early" - in the envelope.
+        self.assertEqual(result['state'], 'CHECK_BLOCKED')
+        self.assertEqual(result['native_state'], 'RESOURCE_LIMIT')
+        self.assertEqual(result['reason_code'], 'RESOURCE_LIMIT:NODE_COUNT_OUT_OF_RANGE')
 
 
 class ReadingConfirmationGateTests(unittest.TestCase):
@@ -174,6 +182,104 @@ class ReadingConfirmationGateTests(unittest.TestCase):
     def test_one_relation_or_one_shared_cause_is_enough_to_proceed(self):
         self.assertEqual(self.confirmation(self._Reading([('X', 'Y')])), (True, None))
         self.assertEqual(self.confirmation(self._Reading([], [('X', 'Y')])), (True, None))
+
+
+class ReadingGateTests(unittest.TestCase):
+    """What the reading saw must reach the review, and it must be able to stop.
+
+    A sample table is not a population law: that stops before the review. An
+    undecided item or an unexpressed restriction is a question, not a blocker
+    -- but the review must answer every one of them item by item, and any
+    answer of "still open" stops the run. A review that accepts everything
+    without answering is refused.
+    """
+
+    def _problem(self, **changes):
+        return make_problem('mixed').model_copy(update=changes)
+
+    def test_prepare_carries_undecided_items_to_the_review(self):
+        problem = self._problem(unresolved=['门店表现口径尚未确定'])
+        prepared = prepare(problem)
+        self.assertEqual(prepared['state'], 'REVIEW_REQUIRED')
+        self.assertEqual(prepared['worksheet']['unresolved'], ['门店表现口径尚未确定'])
+
+    def test_a_review_must_address_every_undecided_item(self):
+        problem = self._problem(unresolved=['排班方式与自由度说法相反'])
+        result = run_route(DagGeneralIdRoute(), problem,
+                           review=synthetic_review(problem, respond=False),
+                           research_protocol_selected=True)
+        self.assertEqual(result['state'], 'CHECK_BLOCKED')
+        self.assertEqual(result['reason_code'],
+                         'UNRESOLVED_ITEMS_NEED_EXPLICIT_REVIEW_DECISIONS')
+        self.assertIsNone(result['certificate'])
+        self.assertFalse(result['backend_called'])
+
+    def test_an_item_the_review_cannot_answer_stops_the_run(self):
+        problem = self._problem(unresolved=['排班方式与自由度说法相反'])
+        result = run_route(DagGeneralIdRoute(), problem,
+                           review=synthetic_review(problem, unresolved=[
+                               '排班方式与自由度说法相反']),
+                           research_protocol_selected=True)
+        self.assertEqual(result['state'], 'NEEDS_INPUT')
+        self.assertEqual(result['reason_code'], 'UNRESOLVED_MATERIAL_ITEMS')
+        self.assertIsNone(result['certificate'])
+        self.assertFalse(result['backend_called'])
+
+    def test_an_item_answered_with_a_stated_reason_reaches_the_solver(self):
+        problem = self._problem(unresolved=['处理不是随机分配的'])
+        result = run_route(DagGeneralIdRoute(), problem,
+                           review=synthetic_review(problem),
+                           research_protocol_selected=True)
+        self.assertIn(result['state'], ('POINT', 'UNSUPPORTED', 'NO_FORMULA_YET',
+                                        'CHECK_BLOCKED'))
+        self.assertNotEqual(result.get('reason_code'), 'UNRESOLVED_MATERIAL_ITEMS')
+        self.assertTrue(result['backend_called'])
+
+    def test_a_sample_table_is_not_a_population_law(self):
+        problem = self._problem(information='FINITE_SAMPLE')
+        prepared = prepare(problem)
+        self.assertEqual(prepared['state'], 'NEEDS_INPUT')
+        self.assertEqual(prepared['reason_code'], 'INFORMATION_IS_NOT_A_POPULATION_LAW')
+
+    def test_unknown_information_status_is_refused(self):
+        problem = self._problem(information='UNKNOWN')
+        self.assertEqual(prepare(problem)['reason_code'], 'INFORMATION_IS_NOT_A_POPULATION_LAW')
+
+    def test_an_additional_restriction_reaches_the_review(self):
+        problem = self._problem(additional_restrictions=['只允许在门店层面解释，不跨门店外推'])
+        prepared = prepare(problem)
+        self.assertEqual(prepared['state'], 'REVIEW_REQUIRED')
+        self.assertEqual(prepared['worksheet']['additional_restrictions'],
+                         ['只允许在门店层面解释，不跨门店外推'])
+
+    def test_a_review_must_address_every_restriction_too(self):
+        problem = self._problem(additional_restrictions=['只允许在门店层面解释，不跨门店外推'])
+        result = run_route(DagGeneralIdRoute(), problem,
+                           review=synthetic_review(problem, respond=False),
+                           research_protocol_selected=True)
+        self.assertEqual(result['state'], 'CHECK_BLOCKED')
+        self.assertEqual(result['reason_code'],
+                         'ADDITIONAL_RESTRICTIONS_NEED_EXPLICIT_REVIEW_DECISIONS')
+        self.assertFalse(result['backend_called'])
+
+    def test_a_restriction_the_review_cannot_answer_stops_the_run(self):
+        problem = self._problem(additional_restrictions=['只允许在门店层面解释，不跨门店外推'])
+        result = run_route(DagGeneralIdRoute(), problem,
+                           review=synthetic_review(problem, restrictions=[
+                               '只允许在门店层面解释，不跨门店外推']),
+                           research_protocol_selected=True)
+        self.assertEqual(result['state'], 'NEEDS_INPUT')
+        self.assertEqual(result['reason_code'], 'ADDITIONAL_RESTRICTIONS_NOT_EXPRESSED')
+        self.assertIsNone(result['certificate'])
+        self.assertFalse(result['backend_called'])
+
+    def test_the_worksheet_carries_what_was_read(self):
+        problem = self._problem(unresolved=[], additional_restrictions=[],
+                                information='FULL_JOINT_POPULATION_LAW')
+        worksheet = prepare(problem)['worksheet']
+        self.assertEqual(worksheet['information'], 'FULL_JOINT_POPULATION_LAW')
+        self.assertEqual(worksheet['unresolved'], [])
+        self.assertEqual(worksheet['additional_restrictions'], [])
 
 
 if __name__ == '__main__':

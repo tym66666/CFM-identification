@@ -38,18 +38,44 @@ def make_problem(case='mixed'):
         treatment='X', outcome=['Y'],
         graph_status='RESEARCHER_CONFIRMED',
         graph_source='reference example shipped with the task 05 tests',
-        materials_sha256='0' * 64, **CASES[case],
+        materials_sha256='0' * 64,
+        information='FULL_JOINT_POPULATION_LAW',
+        unresolved=[], additional_restrictions=[],
+        **CASES[case],
     )
 
 
-def synthetic_review(problem, decisions=None, authority='SYNTHETIC_TEST'):
-    """A review record for tests only; never a claim that a researcher approved."""
+def synthetic_review(problem, decisions=None, authority='SYNTHETIC_TEST',
+                     unresolved=None, restrictions=None, respond=True):
+    """A review record for tests only; never a claim that a researcher approved.
+
+    ``unresolved`` / ``restrictions`` name which of the problem's open items
+    this synthetic review answers UNRESOLVED; every other item gets a fixture
+    RESOLVED answer, so a test can opt an item into blocking instead of every
+    review silently answering everything. ``respond=False`` produces a review
+    that answers nothing, the shape a rubber-stamp review has.
+    """
+    blocked_u = set(unresolved or ())
+    blocked_r = set(restrictions or ())
+    if respond:
+        responses = [dict(item=text,
+                          decision='UNRESOLVED' if text in blocked_u else 'RESOLVED',
+                          reason='fixture review answer, not a research opinion')
+                     for text in problem.unresolved]
+        restriction_responses = [dict(item=text,
+                                      decision='UNRESOLVED' if text in blocked_r else 'RESOLVED',
+                                      reason='fixture review answer, not a research opinion')
+                                 for text in problem.additional_restrictions]
+    else:
+        responses = restriction_responses = []
     return GeneralIdReview(
         version='dag-general-id-1', problem_sha256=digest(problem),
         reviewer='synthetic test reviewer',
         evidence='synthetic review used only by tests, not a research opinion',
         authority=authority,
         decisions=decisions or {name: 'ACCEPTED' for name in DECISIONS},
+        unresolved_responses=responses,
+        restriction_responses=restriction_responses,
     )
 
 
