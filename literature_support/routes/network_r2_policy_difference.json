@@ -9,11 +9,11 @@
     "single_endpoint_derivation_path": "../../docs/R2_VERIFIED_MEAN_SIGNATURE_POLICY_ZH.md",
     "duplicate_proof_in_catalog": false
   },
-  "literature_scope": {
+    "literature_scope": {
     "source_ids": [
       "aronow_samii2017_interference"
     ],
-    "role": "Existing catalog context for separating design, exposure mapping and estimand; not attribution of this weaker mean-sufficiency contract or software receipt to that paper.",
+    "role": "Aronow–Samii §4 Condition 1 restricts potential outcomes within an exposure class on the design support. The project separately derives each policy mean using conditional mean equality across all assignments with the same signature, positive support for the target signatures, and the required A4 means. The ordered difference then subtracts the two identified policy means.",
     "new_external_sources_reviewed": false
   },
   "implementation": [

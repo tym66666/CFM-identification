@@ -13,10 +13,11 @@
       "aronow_samii2017_interference",
       "hudgens_halloran2008_interference"
     ],
-    "role": "Randomization and fully specified treatment strategies are background; project policy functional derived under explicit support and A4.",
+    "role": "Bhadra–Schweinberger v2 Condition 1 and equation (3.2) provide the full-assignment identification argument under ignorability and consistency. Aronow–Samii and Hudgens–Halloran provide design and treatment-strategy context.",
     "limitations": [
-      "No source states the entire project certificate or arbitrary policy-kernel implementation.",
-      "Fixed-quota design does not support every complete policy."
+      "The project checks positive design probability for the specified assignment and A4 node-level conditional means for that assignment. The all-assignment positivity condition in the v3 comparison is broader than this support check.",
+      "A fixed-quota design can exclude the target assignment. The project contract separately specifies the certificate and finite-mixture requirements.",
+      "The project contract also lists Sävje. Its role relative to this mapping's source list remains to be reconciled."
     ]
   },
   "project_math_documents": [

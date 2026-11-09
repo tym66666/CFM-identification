@@ -240,6 +240,30 @@ class BoundedMathematicsTests(unittest.TestCase):
             cert=deepcopy(original);mutate(cert)
             with self.subTest(cert=mutations.index(mutate)):
                 self.assertFalse(replay(rehash(cert),inquiry=self.q,information=self.info))
+    def test_feasible_world_missing_claimed_lower_bound_is_rejected(self):
+        inquiry, information = model("star7", None)
+        original = solve(inquiry, information)
+        self.assertEqual(F(original["lower"]), F(3, 7))
+        self.assertTrue(replay(original, inquiry=inquiry, information=information))
+
+        changed = deepcopy(original)
+        center = next(row for row in changed["cells"] if row["cell"] == ["H", 1, 1])
+        self.assertIsNone(center["a4_value"])
+        self.assertEqual(F(center["lower_world"]), 0)
+        center["lower_world"] = "1/2"
+
+        # Recompute the digest so replay must check the witness itself.
+        changed.pop("certificate_sha256")
+        changed["certificate_sha256"] = sha(changed)
+
+        target_rows = [
+            row for row in changed["cells"] if row["cell"][1:] == [1, 1]
+        ]
+        self.assertEqual(len(target_rows), 7)
+        changed_value = sum(F(row["lower_world"]) for row in target_rows) / 7
+        self.assertEqual(changed_value, F(1, 2))
+        self.assertNotEqual(changed_value, F(changed["lower"]))
+        self.assertFalse(replay(changed, inquiry=inquiry, information=information))
 
     def test_invalid_rational_and_coercion_do_not_enter_contract(self):
         for value in (0.5,True,'nan','inf','1/0','2/4',' 1/2',None):
