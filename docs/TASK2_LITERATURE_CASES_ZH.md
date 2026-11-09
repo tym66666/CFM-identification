@@ -72,6 +72,20 @@ evaluation/literature_cases/tools/run_lit_net_04.py
 evaluation/literature_cases/tools/run_lit_dag_01.py
 ```
 
+
+## 6.5 LLM 评测底座
+
+```text
+evaluation/literature_cases/benchmark/cases.jsonl     36 条公开输入，不含答案
+evaluation/literature_cases/benchmark/schema.json     尝试记录字段
+evaluation/literature_cases/research_only/benchmark/references.jsonl  36 条参考答案索引
+evaluation/literature_cases/tools/export_benchmark.py 重新导出
+evaluation/literature_cases/tools/score_benchmark.py  对尝试记录评分
+```
+
+公开 JSONL 不含 `expected_status`、参考文件路径或证书；参考答案索引只在 `research_only/`。  
+API Key 只走环境变量，不写进仓库。
+
 ## 7. 边界
 
 - `UNSUPPORTED` 不是“已证明不可识别”；

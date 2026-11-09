@@ -17,7 +17,8 @@ evaluation/literature_cases/
       actual_outputs.json / structured_runs/
       run_record.md
       review_teacher.md
-  tools/
+  benchmark/            公开 JSONL 与评分 schema
+  tools/                导出、运行、校验、评分
   registry.json
   README.md
 ```

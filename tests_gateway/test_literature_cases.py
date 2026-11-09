@@ -59,6 +59,26 @@ class LiteratureCaseLibraryTest(unittest.TestCase):
         self.assertEqual(len(held), 4)
         self.assertGreaterEqual(len(held) * 3, len(cases))
 
+    def test_benchmark_has_36_public_rows_and_no_expected_status(self):
+        rows = [
+            json.loads(line)
+            for line in (CASES / "benchmark" / "cases.jsonl").read_text(encoding="utf8").splitlines()
+            if line.strip()
+        ]
+        self.assertEqual(len(rows), 36)
+        self.assertTrue(all("expected_status" not in row for row in rows))
+        self.assertTrue(all("reference_file" not in row for row in rows))
+
+    def test_benchmark_references_are_isolated_and_match_holdouts(self):
+        rows = [
+            json.loads(line)
+            for line in (CASES / "research_only" / "benchmark" / "references.jsonl").read_text(encoding="utf8").splitlines()
+            if line.strip()
+        ]
+        self.assertEqual(len(rows), 36)
+        held = {(r["case_id"], r["variant"]) for r in rows if r["holdout"]}
+        self.assertEqual(len(held), 12)  # 4 held-out cases x 3 variants
+
     def test_each_case_has_reference_and_review(self):
         for case in load_registry()["cases"]:
             research = ROOT / case["research_directory"]

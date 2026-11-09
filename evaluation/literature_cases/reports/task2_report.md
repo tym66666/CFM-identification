@@ -37,6 +37,13 @@
 
 均保存能力检查，没有伪造 IV/Auto-G 结果。
 
+## 2.5 LLM 评测底座
+
+- `benchmark/cases.jsonl`：36 条公开输入，不含答案；
+- `research_only/benchmark/references.jsonl`：36 条参考答案索引；
+- `tools/export_benchmark.py` / `score_benchmark.py`：导出与评分；
+- API Key 不进仓库，评分分开 development / holdout。
+
 ## 3. Holdout
 
 - `LIT-NET-07`
