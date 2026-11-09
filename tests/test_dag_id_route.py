@@ -177,11 +177,14 @@ class ReadingConfirmationGateTests(unittest.TestCase):
     def test_a_draft_without_any_relation_cannot_be_confirmed(self):
         confirmed, blocker = self.confirmation(self._Reading([]))
         self.assertFalse(confirmed)
-        self.assertEqual(blocker, 'NO_CAUSAL_STRUCTURE_READ')
+        self.assertEqual(blocker, 'INDEPENDENT_GRAPH_CONFIRMATION_REQUIRED')
 
-    def test_one_relation_or_one_shared_cause_is_enough_to_proceed(self):
-        self.assertEqual(self.confirmation(self._Reading([('X', 'Y')])), (True, None))
-        self.assertEqual(self.confirmation(self._Reading([], [('X', 'Y')])), (True, None))
+    def test_structure_alone_is_not_independent_confirmation(self):
+        reading = self._Reading([('X', 'Y')])
+        self.assertFalse(self.confirmation(reading)[0])
+        approved = dict(nodes=['X', 'Y'], directed=[['X', 'Y']], bidirected=[])
+        self.assertEqual(self.confirmation(reading, approved), (True, None))
+        self.assertFalse(self.confirmation(self._Reading([], [('X', 'Y')]), approved)[0])
 
 
 class ReadingGateTests(unittest.TestCase):

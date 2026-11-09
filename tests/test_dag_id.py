@@ -194,7 +194,8 @@ class IdentificationTests(unittest.TestCase):
         self.assertEqual(result['status'], 'UNSUPPORTED')
         self.assertEqual(result['reason'], 'NO_UNIFORM_IDENTIFICATION_FORMULA_IN_THIS_GRAPH')
         self.assertTrue(result['nonidentification_proved'])
-        self.assertTrue(check_failure(result['witness'])['passed'])
+        self.assertTrue(check_failure(result['witness'], p)['passed'])
+        self.assertFalse(check_failure(result['witness'])['passed'])
 
     def test_failure_is_not_confused_with_a_program_error(self):
         result = identify_or_report(problem(BOWARC))
@@ -580,10 +581,13 @@ class EvidenceTests(unittest.TestCase):
             (('Y',), frozenset({'X', 'M'})),     # P(y | x, m): x must be present
         })
 
-    def test_hedge_evidence_is_the_documented_thirteen_checks(self):
+    def test_hedge_evidence_checks_the_original_query_and_subgraphs(self):
         p = problem(BOWARC)
         result = check_failure(identify_or_report(p)['witness'], p)
-        self.assertEqual(len(result['hedge']['checks']), 13)
+        names = {c['name'] for c in result['hedge']['checks']}
+        self.assertTrue({'grown_intersects_original_treatment',
+                         'trimmed_forest.subgraph_of_original',
+                         'grown_forest.subgraph_of_original'} <= names)
         self.assertTrue(all(c['passed'] for c in result['hedge']['checks']))
 
 

@@ -437,6 +437,8 @@ def identify(problem):
         # algorithm stopped, and nothing has been proved about the graph.
         from .dag_id_verify import check_failure
 
+        witness = dict(witness, problem_sha256=sha(p), original_target={
+            'treatment': p.treatment, 'outcome': list(p.outcome), 'context': p.context})
         report = check_failure(witness, p)
         if not report.get('passed'):
             downgraded = Unavailable('NO_FORMULA_YET',

@@ -11,7 +11,11 @@ The expected outcome of every case is written down here before the model runs.
 The prompt asks for a reading, not for an answer; the identification result comes
 from the solver and is replayed by the independent checker.
 
-Each run writes one JSON record per case to dagid_runs/ (override with
+No graph or scientific condition is automatically approved. Without a separately
+supplied approved_graph and digest-bound review, the walkthrough stops for review.
+The historical narratives are not certified positive mathematical fixtures.
+
+Each run writes a uniquely named JSON record per case to outputs/dag_id_reading/ (override with
 CFM_ID_LLM_SAVE_DIR): the material as sent, the model's verbatim reply, the parsed
 reading, the final state and the transport diagnostics for that call. Those records
 are the de-identified input/output the review asked to keep locally. They are run
@@ -36,9 +40,9 @@ from cfm_id_bridge.scientific_binding import sha
 
 
 CASES = {
-    # Expected: POINT. The material names a mediator and says the unmeasured
-    # factor reaches both the treatment and the outcome, which is a front-door
-    # graph; the formula must keep the mediator and sum the treatment out.
+    # Historical input retained verbatim. Its common cause is M<->Y, NOT
+    # X<->Y, and it lacks a complete finite-model declaration/review. This is
+    # a reading/clarification exercise, not certified front-door acceptance.
     'frontdoor': dict(
         documents={
             'brief': (
@@ -56,10 +60,10 @@ CASES = {
             ),
         },
         question='强制给所有会员推送推荐活动后，会员当月是否复购的分布是什么？',
-        expected='POINT',
+        expected='REVIEW_REQUIRED',
     ),
-    # Expected: UNSUPPORTED. A direct arrow plus a shared unmeasured cause and no
-    # mediator at all: the bow arc. The evidence has to pass its own checks.
+    # Historical bow-shaped narrative; no independent review is supplied.
+    # The business amount is not silently converted to a finite variable.
     'unidentifiable': dict(
         documents={
             'brief': (
@@ -75,9 +79,9 @@ CASES = {
             ),
         },
         question='强制给所有用户发券后，下单金额的分布是什么？',
-        expected='UNSUPPORTED',
+        expected='REVIEW_REQUIRED',
     ),
-    # Expected: NEEDS_INPUT. The outcome measure is still being argued about and
+    # Unreviewed input. The outcome measure is still being argued about and
     # the material contradicts itself, so the run must ask instead of guessing.
     'missing_conditions': dict(
         documents={
@@ -90,7 +94,7 @@ CASES = {
             ),
         },
         question='把门店排班方式统一换成新方案后，门店表现会怎样？',
-        expected='NEEDS_INPUT',
+        expected='REVIEW_REQUIRED',
     ),
 }
 
@@ -101,7 +105,7 @@ def bundle_for(case_id, case):
 
 def save_directory():
     override = os.getenv('CFM_ID_LLM_SAVE_DIR')
-    return Path(override) if override else Path(__file__).resolve().parent.parent / 'dagid_runs'
+    return Path(override) if override else Path(__file__).resolve().parent.parent / 'outputs' / 'dag_id_reading'
 
 
 def save(record):
@@ -109,7 +113,8 @@ def save(record):
     directory = save_directory()
     try:
         directory.mkdir(parents=True, exist_ok=True)
-        path = directory / (record['case_id'] + '.json')
+        from uuid import uuid4
+        path = directory / (record['case_id'] + '_' + uuid4().hex[:12] + '.json')
         path.write_text(json.dumps(record, ensure_ascii=False, indent=2, default=str) + '\n',
                         encoding='utf-8')
     except (OSError, TypeError, ValueError) as error:
@@ -183,78 +188,42 @@ def online_provider():
                                         json_mode=json_mode)
 
 
-# Answers the walkthrough's synthetic review gives to the kinds of undecided
-# items a reading produces. Each entry is a statement about the contract or the
-# mathematics, not about the world; anything the table cannot answer from the
-# contract itself is marked UNRESOLVED and stops the case. This is what keeps
-# the review from being a rubber stamp: every answer is written down next to
-# the item it answers, and the route refuses to run until the lists match.
-RATIONALES = (
-    ('取值域', '契约只要求变量有限离散，具体取值水平不进入识别式；'
-              '识别式读取的是声明过的观测联合总体分布。'),
-    ('随机分配', '识别不要求处理变量随机分配；通用 ID 算法的对象就是观察数据下的'
-                '干预分布，这正是它相对调整集方法的能力来源。'),
-    ('没有随机', '识别不要求处理变量随机分配；通用 ID 算法的对象就是观察数据下的'
-                '干预分布，这正是它相对调整集方法的能力来源。'),
-    ('测量记录', '该变量在读取中标记为 LATENT；契约明确允许未观测共同原因，'
-                '识别式的任何一项都不读取它的测量值。'),
-    ('定性印象', '该变量在读取中标记为 LATENT；契约明确允许未观测共同原因，'
-                '识别式的任何一项都不读取它的测量值。'),
-    ('联合分布', 'information 字段按数据说明声明为 FULL_JOINT_POPULATION_LAW，'
-                '识别式只读取该声明覆盖的观测变量分布。'),
-    ('观测记录', 'information 字段按数据说明声明为 FULL_JOINT_POPULATION_LAW，'
-                '识别式只读取该声明覆盖的观测变量分布。'),
-    # Restrictions the material states in words that the declared graph already
-    # carries: the solver computes from the confirmed graph, so such a line
-    # adds no mathematics, and the review says exactly that.
-    ('只通过', '识别式按研究者确认的图计算；处理变量的作用路径已由图表达，'
-              '该条不引入图之外的数学约束。'),
-    ('直接渠道', '识别式按研究者确认的图计算；处理变量的作用路径已由图表达，'
-                '该条不引入图之外的数学约束。'),
-    ('介于', '识别式按研究者确认的图计算；图已声明哪些变量在处理与结果之间，'
-            '该条不引入图之外的数学约束。'),
-)
-
-
-def _respond_to(text, table=RATIONALES):
-    matched = next((rationale for key, rationale in table if key in text), None)
+def _respond_to(text):
+    """Compatibility helper: a note is never a scientific approval."""
     return UnresolvedResponse(
-        item=text,
-        decision='RESOLVED' if matched else 'UNRESOLVED',
-        reason=matched or '该条无法从契约或数学本身回答，需要研究者补充材料。',
-    )
+        item=text, decision='UNRESOLVED',
+        reason='需要独立审核者根据实际材料回应；程序不按关键词替研究者作决定。')
 
 
-def review_for(problem):
-    """A synthetic review record: this is a test path, not a research opinion.
+def review_for(problem, supplied_review=None):
+    """Accept only a separately supplied typed review; default stays pending.
 
-    Every undecided item and every unexpressed restriction gets an explicit
-    answer or an explicit refusal; the route rejects the review outright if
-    either list does not match the problem's own.
+    The route checks the exact problem digest and every scientific decision.
+    Synthetic callers may supply a frozen reference review, but the model's
+    answer is never the source of its own approval.
     """
+    if supplied_review is not None:
+        return GeneralIdReview.model_validate(supplied_review)
     return GeneralIdReview(
         version='dag-general-id-1', problem_sha256=digest(problem),
-        reviewer='synthetic test reviewer',
-        evidence='synthetic review used only by this walkthrough, not a research opinion',
-        authority='SYNTHETIC_TEST',
-        decisions={name: 'ACCEPTED' for name in DECISIONS},
+        reviewer='pending independent reviewer',
+        evidence='No independent scientific approval has been supplied for this candidate.',
+        authority='EXTERNAL_RESEARCH_REVIEW',
+        decisions={name: 'PENDING' for name in DECISIONS},
         unresolved_responses=[_respond_to(text) for text in problem.unresolved],
-        restriction_responses=[_respond_to(text) for text in problem.additional_restrictions],
-    )
+        restriction_responses=[_respond_to(text) for text in problem.additional_restrictions])
 
 
-def confirmation(reading):
-    """What the walkthrough may confirm, and what has to be asked first.
-
-    The reading is a draft. Confirming it means asserting that this graph is the
-    right causal graph for the population - a statement about the world, not
-    about the document. A draft that extracted no relation at all is asserting
-    that the population has no causal structure, which is the strongest claim of
-    all and the least likely to be supported; it cannot be rubber-stamped here.
-    """
+def confirmation(reading, approved_graph=None):
+    """Match an independently approved graph, including a genuinely empty graph."""
+    if approved_graph is None:
+        return False, 'INDEPENDENT_GRAPH_CONFIRMATION_REQUIRED'
     graph = declared_graph(reading)
-    if not graph['directed'] and not graph['bidirected']:
-        return False, 'NO_CAUSAL_STRUCTURE_READ'
+    def normal(g):
+        return (sorted(g['nodes']), sorted(tuple(e) for e in g['directed']),
+                sorted(tuple(sorted(e)) for e in g['bidirected']))
+    if normal(graph) != normal(approved_graph):
+        return False, 'READING_DIFFERS_FROM_APPROVED_GRAPH'
     return True, None
 
 
@@ -314,10 +283,6 @@ def _reread_trigger(state, record):
     """
     if state == 'READING_REJECTED':
         return record.get('reading_rejected')
-    if state == 'NEEDS_INPUT' and record.get('reason_code') == 'INFORMATION_IS_NOT_A_POPULATION_LAW':
-        return ('information 字段为 UNKNOWN。请重新检查数据说明部分，'
-                '判断材料是否声明了可用的完整观测联合总体分布；'
-                '材料没有这样的声明时才允许 UNKNOWN。')
     return None
 
 
@@ -384,15 +349,16 @@ def _run(provider, case_id, case, record, feedback=None):
     for note in reading.unresolved:
         print('unresolved:', note.text)
 
-    confirmable, blocker = confirmation(reading)
+    confirmable, blocker = confirmation(reading, case.get('approved_graph'))
     record['confirmation'] = {'confirmed': confirmable, 'blocker': blocker}
     if not confirmable:
         # Stopping here is the point of the gate: a draft nobody can confirm must
         # not be turned into a formula by the caller filling in the blanks.
-        print('confirm  : NEEDS_INPUT', blocker)
+        print('confirm  : REVIEW_REQUIRED', blocker)
+        record['reason_code'] = blocker
         for note in reading.unresolved:
             print('  ask    :', note.text)
-        return 'NEEDS_INPUT'
+        return 'REVIEW_REQUIRED'
 
     try:
         declared = to_problem(
@@ -414,7 +380,7 @@ def _run(provider, case_id, case, record, feedback=None):
     # answer each one explicitly; the answers are recorded below next to the
     # items they answer.
     route = DagGeneralIdRoute()
-    review = review_for(problem)
+    review = review_for(problem, case.get('review'))
     gate = run_route(route, problem, review=None, research_protocol_selected=False)
     worksheet = gate.get('worksheet') or {}
     questions = list(worksheet.get('clarification_questions') or [])
@@ -436,9 +402,10 @@ def _run(provider, case_id, case, record, feedback=None):
     for response in review.unresolved_responses + review.restriction_responses:
         print('  review : {} -> {}'.format(response.decision, response.item))
         print('           {}'.format(response.reason))
-    record['review'] = {'authority': 'SYNTHETIC_TEST', 'human_review': False,
-                        'note': 'synthetic review used only by this walkthrough, '
-                                'not a research opinion',
+    record['review'] = {'authority': review.authority, 'human_review': False,
+                        'note': 'Separately supplied review, or pending independent review; '
+                                'not inferred from the model response.',
+                        'decisions': dict(review.decisions),
                         'unresolved_responses': [
                             response.model_dump(mode='json')
                             for response in review.unresolved_responses],

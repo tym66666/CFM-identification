@@ -29,15 +29,16 @@
 | `cfm_id/dag_id_verify.py` | 独立验证器，不导入求解器 |
 | `cfm_id/dag_id_route.py` | 业务适配器：问题契约、审核契约、`prepare` / `submit`、`claim` / `replay` / `verify_claim` |
 | `tests/test_dag_id.py` | 数学层正负测试 |
-| `tests/test_dag_id_route.py` | 业务入口端到端测试 |
+| `tests/test_dag_id_route.py` | 显式研究问题/审核适配器测试 |
+| `tests/test_dag_id_admission.py` | 原目标证据、声明交接及独立审核的正负例 |
 | `examples/dag_id_demo.py` | 四张图的命令行演示，第三张同时打印三条专用路线的判定 |
 | `examples/dag_id_route_reference.py` | 业务入口的演示夹具与调用示例 |
 | `cfm_id_llm/dag_id_reading.py` | 读取接入：沿用 `dag_reading` 的类型，补一组 `common_causes` |
-| `examples/dag_id_llm_reading.py` | 真实模型走查：三个案例从业务描述跑到检查结果 |
+| `examples/dag_id_llm_reading.py` | 真实模型走查：保留三个原业务输入；默认待独立审核，不自动批准 |
 | `docs/DAG_ID_MATH_ZH.md` | 数学推导与验收对照 |
 | `docs/DAG_ID_INTEGRATION_ZH.md` | 本页 |
 
-除上述 13 个文件外，仓库中没有任何文件被修改、删除或重命名。读取接入按仓库既有组织方式放在 `cfm_id_llm/`，与前门路线的 `dag_frontdoor_reading.py` 同目录同命名。
+除上述 14 个文件外，仓库中没有任何文件被修改、删除或重命名。读取接入按仓库既有组织方式放在 `cfm_id_llm/`，与前门路线的 `dag_frontdoor_reading.py` 同目录同命名。
 
 ## 2. 为什么没有注册进共享登记
 
@@ -55,7 +56,7 @@
 - `graph_status` 不是 `RESEARCHER_CONFIRMED` → `NEEDS_INPUT / GRAPH_NOT_CONFIRMED_BY_RESEARCHER`，不进入求解器；
 - 审核有 `PENDING` → `REVIEW_REQUIRED`；有 `REJECTED` → `CHECK_BLOCKED`；同样不进入求解器；
 - 审核绑错题（摘要与当前问题不符）→ `STALE_GENERAL_ID_REVIEW`；
-- 不可识别的图 → `UNSUPPORTED` + C-forest 证据，证据必须能在当前图的子图上重算通过；
+- 不可识别的图 → `UNSUPPORTED` + C-forest 证据，证据必须直接针对原问题的图、干预及结果验证通过；
 - 递归停止但证据没过检查 → `NO_FORMULA_YET`，`nonidentification_proved` 为假，对外只能说"尚未给出识别式"；
 - 有环图 → `CHECK_BLOCKED / DIRECTED_CYCLE_NOT_RECURSIVE_MODEL`；超出节点上限 → `RESOURCE_LIMIT / NODE_COUNT_OUT_OF_RANGE`，节点数与双向边数之和超限 → `RESOURCE_LIMIT / MODEL_SIZE_OUT_OF_RANGE`。这三类不共用状态，也不抛异常。
 - 求解器内部出现未预期异常 → `CHECK_BLOCKED / INTERNAL_ERROR`，并带上异常类型；不会冒充"不可识别"。
@@ -113,8 +114,11 @@ STOPS={'NEEDS_INPUT','REVIEW_REQUIRED','UNSUPPORTED','CHECK_BLOCKED',
 
 任务书与仓库规则里几条容易越线的要求，逐条交代本批的实际状态：
 
-- LLM 是待审草稿，读取层只产出候选。 `cfm_id_llm/dag_id_reading.py` 读出的变量、关系、共同原因和目标都只是草稿，不带任何批准；`scope` 六项即使全填 `true` 也不是审核通过。草稿要变成可求解的问题，必须由调用方显式确认（`graph_status = RESEARCHER_CONFIRMED`），而示例脚本只在草稿读出了至少一条结构时才确认，空草稿一律返回 `NEEDS_INPUT` 并列出追问项。审核层仍逐条件记录 `PASS / PENDING / REJECTED`，任一 `PENDING` 阻断求解，任一 `REJECTED` 直接 `CHECK_BLOCKED`，没有"整体打个分就放行"的通道。
-- 缺项、拒绝、读取错误、覆盖缺口分开。 缺项是 `NEEDS_INPUT`，拒绝是 `CHECK_BLOCKED`，未预期异常是 `CHECK_BLOCKED / INTERNAL_ERROR`，规模超限是 `RESOURCE_LIMIT`，非识别证据成立是 `UNSUPPORTED`，证据没过检查是 `NO_FORMULA_YET`。读取层另外分出四种：模型返回不合 schema 或引用了不存在的材料编号是 `READING_REJECTED`，模型调用本身失败是 `PROVIDER_ERROR`，材料缺关键条件是 `NEEDS_INPUT / NO_CAUSAL_STRUCTURE_READ`，材料覆盖不全由 `unresolved` 逐条列出、不并入前几类。
-- 不碰 Estimation / Policy。 本批 13 个文件全部是新增，`git diff` 对既有文件为 0 行。不涉及估计器、策略学习、PFN 训练或历史下游代码。
+- LLM 是待审草稿。图中的边、scope、变量取值域、信息覆盖和正支持必须保留到审核。未知/否定不被自动改成满足，旧审核不能用于变更后的候选。示例只有收到独立 `approved_graph` 且与候选一致时才确认图；没有外部审核时保持PENDING。空图若独立批准可以表达，读到一条边本身不是批准依据。
+- 未定事项不按关键词自动解决；额外约束尚未表达进数学问题时不调用求解器。默认在线脚本用于读取与追问，不是自动认证。
+- 原因分别报告：材料缺项NEEDS_INPUT、未审核REVIEW_REQUIRED、明确拒绝CHECK_BLOCKED、覆盖不适用UNSUPPORTED、规模超限RESOURCE_LIMIT、非识别证据未获验证NO_FORMULA_YET。只有 `nonidentification_proved=true` 的特定UNSUPPORTED结果才是图下非识别结论；不能把任意UNSUPPORTED都解释成不可识别。后两类按4.1节在公共外层保留真实原因。
+- 不碰 Estimation / Policy。 本批 14 个文件全部是新增，`git diff` 对既有文件为 0 行。不涉及估计器、策略学习、PFN 训练或历史下游代码。
 - 公共语义无变化，因此没有提接口提案。 新增的是独立求解器与适配器，通过既有 `run_route` 调用，既有请求的入参与返回不变。真正会改变公共语义的三件事写在第 4 节，本批不做，也不预留改动说明。
-- 提交物干净。 13 个文件均为源码、测试与文档：没有密钥、没有个人运行环境、没有 checkpoint、没有原始 API 日志、没有生成目录。测试产物写到 `outputs/checks/`，该目录在 `.gitignore` 第 15 行，未进入暂存区。
+- 提交物干净。 14 个文件均为源码、测试与文档：没有密钥、没有个人运行环境、没有 checkpoint、没有原始 API 日志、没有生成目录。测试产物写到 `outputs/checks/`，该目录在 `.gitignore` 第 15 行，未进入暂存区。
+
+收尾后的数学依据、运行示例和已知限制见 [数学与验收说明](DAG_ID_MATH_ZH.md)。原作者提交保留，维护者修复另作提交。

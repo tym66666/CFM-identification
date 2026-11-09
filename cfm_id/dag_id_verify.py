@@ -21,6 +21,7 @@ import random
 from types import SimpleNamespace
 
 from .dag_id_contract import Unavailable, fail
+from cfm_id_bridge.scientific_binding import sha
 
 TOLERANCE = 1e-9
 DOMAIN = (0, 1)
@@ -595,6 +596,8 @@ def check_derivation(certificate, problem):
     first = steps[0]
     nodes, directed, bidirected = _step_graph(first)
     if (sorted(nodes) != sorted(problem.nodes)
+            or sorted(map(tuple, directed)) != sorted(map(tuple, problem.directed))
+            or sorted(tuple(sorted(e)) for e in bidirected) != sorted(tuple(sorted(e)) for e in problem.bidirected)
             or sorted(first.get('outcome') or []) != sorted(problem.outcome)
             or sorted(first.get('treatment') or []) != [problem.treatment]):
         ok = False
@@ -920,94 +923,101 @@ def _reaches(nodes, directed, roots):
 
 
 def _forest_report(forest, treatment):
-    nodes = set(forest.get('nodes') or [])
+    """Check a finite edge-subgraph; malformed endpoints are not forests."""
+    if not isinstance(forest, dict):
+        raise ValueError('forest object required')
+    listed = forest.get('nodes') or []
+    if not isinstance(listed, list) or any(type(v) is not str for v in listed):
+        raise ValueError('forest node list required')
+    nodes = set(listed)
     directed = [tuple(e) for e in forest.get('directed') or []]
     bidirected = [tuple(sorted(e)) for e in forest.get('bidirected') or []]
+    edges = directed + bidirected
+    well_formed = (len(nodes) == len(listed)
+                   and all(len(e) == 2 and e[0] != e[1] and set(e) <= nodes for e in edges)
+                   and len(set(directed)) == len(directed)
+                   and len(set(bidirected)) == len(bidirected))
+    if not well_formed:
+        raise ValueError('invalid forest nodes or edges')
     children = {}
     for a, b in directed:
         children.setdefault(a, []).append(b)
     leaves = {v for v in nodes if v not in children}
     return {
-        'non_empty': bool(nodes),
-        'nodes': sorted(nodes),
+        'non_empty': bool(nodes), 'nodes': sorted(nodes),
+        'directed': directed, 'bidirected': bidirected,
         'one_c_component': len(_connected(nodes, bidirected)) == 1 if nodes else False,
         'every_node_reaches_a_root': nodes == _reaches(nodes, directed, leaves),
         'at_most_one_child': all(len(c) <= 1 for c in children.values()),
-        'roots': sorted(leaves),
-        'avoids_treatment': not (nodes & set(treatment)),
+        'roots': sorted(leaves), 'avoids_treatment': not (nodes & treatment),
     }
 
 
 def check_hedge(hedge, problem=None):
-    """Check a C-forest pair from its own edge lists, not from the solver's verdict.
+    """Verify a hedge for this exact query, not just for a solver subproblem.
 
-    Definition 6 asks for two R-rooted C-forests, one nested in the other, the
-    trimmed one disjoint from the treatment, with the root set inside the
-    ancestors of the outcome once arrows into the treatment are cut.
+    Shpitser & Pearl (2006), Definition 6 / Theorem 4; Shpitser (2023),
+    Section 3. Both forests must be subgraphs of the declared ADMG. The large
+    forest intersects the actual intervention and the small one avoids it;
+    their common roots reach the outcome along paths avoiding intervention.
+    A subproblem hedge that does not meet these original-query conditions is
+    unverified here: a valid recursive reduction is NOT assumed.
     """
-    if not isinstance(hedge, dict):
-        return {'passed': False, 'detail': 'no hedge record'}
-    trimmed = _forest_report(hedge.get('trimmed_forest') or {}, problem.treatment if problem else [])
-    grown = _forest_report(hedge.get('grown_forest') or {}, problem.treatment if problem else [])
+    if not isinstance(hedge, dict) or problem is None:
+        return {'passed': False, 'detail': 'hedge and original problem required'}
+    try:
+        treatment = ({problem.treatment} if isinstance(problem.treatment, str)
+                     else set(problem.treatment))
+        declared = set(problem.nodes)
+        pd = {tuple(e) for e in problem.directed}
+        pb = {tuple(sorted(e)) for e in problem.bidirected}
+        if not treatment or not treatment <= declared or not set(problem.outcome) <= declared:
+            raise ValueError('invalid query')
+        trimmed = _forest_report(hedge.get('trimmed_forest') or {}, treatment)
+        grown = _forest_report(hedge.get('grown_forest') or {}, treatment)
+    except (TypeError, ValueError, KeyError, AttributeError):
+        return {'passed': False, 'detail': 'malformed hedge or query'}
     checks = []
     for name, report in (('trimmed_forest', trimmed), ('grown_forest', grown)):
         for key in ('non_empty', 'one_c_component', 'every_node_reaches_a_root', 'at_most_one_child'):
-            checks.append({'name': '{}.{}'.format(name, key), 'passed': report[key],
-                           'detail': report['nodes']})
-    trimmed_edges = {(tuple(e), 'directed') for e in (hedge.get('trimmed_forest') or {}).get('directed') or []}
-    grown_edges = {(tuple(e), 'directed') for e in (hedge.get('grown_forest') or {}).get('directed') or []}
-    checks.append({'name': 'trimmed_avoids_treatment', 'passed': trimmed['avoids_treatment'],
-                   'detail': trimmed['nodes']})
-    checks.append({'name': 'nested',
-                   'passed': set(trimmed['nodes']) <= set(grown['nodes']) and trimmed_edges <= grown_edges,
-                   'detail': {'trimmed': trimmed['nodes'], 'grown': grown['nodes']}})
-    # Definition 6 only asks for inclusion, but a pair of equal forests witnesses
-    # nothing: the intervention has to cut arrows in the part the hedge grew.
-    checks.append({'name': 'grown_strictly_contains_trimmed',
-                   'passed': set(grown['nodes']) > set(trimmed['nodes']),
-                   'detail': {'grown_minus_trimmed': sorted(set(grown['nodes']) - set(trimmed['nodes']))}})
-    checks.append({'name': 'same_root_set', 'passed': trimmed['roots'] == grown['roots'],
-                   'detail': {'trimmed': trimmed['roots'], 'grown': grown['roots']}})
-    if problem is not None:
-        # Recompute the ancestor set of the outcome with the intervention
-        # applied, from the declared graph only.
-        directed = [tuple(e) for e in problem.directed]
-        treatment = set(problem.treatment)
-        cut = [(a, b) for a, b in directed if b not in treatment]
-        reverse = {}
-        for a, b in cut:
-            reverse.setdefault(b, set()).add(a)
-        ancestors, stack = set(problem.outcome), list(problem.outcome)
-        while stack:
-            node = stack.pop()
-            for parent in reverse.get(node, ()):
-                if parent not in ancestors:
-                    ancestors.add(parent)
-                    stack.append(parent)
-        checks.append({'name': 'roots_in_ancestors_of_outcome_after_intervention',
-                       'passed': set(trimmed['roots']) <= ancestors,
-                       'detail': {'roots': trimmed['roots'], 'ancestors': sorted(ancestors)}})
-    return {
-        'passed': all(check['passed'] for check in checks),
-        'checks': checks,
-        'trimmed_forest': trimmed,
-        'grown_forest': grown,
-    }
+            checks.append({'name': name + '.' + key, 'passed': report[key]})
+        checks.append({'name': name + '.subgraph_of_original', 'passed':
+                       set(report['nodes']) <= declared and set(report['directed']) <= pd
+                       and set(report['bidirected']) <= pb})
+    small, large = set(trimmed['nodes']), set(grown['nodes'])
+    checks.extend([
+        {'name': 'trimmed_avoids_treatment', 'passed': trimmed['avoids_treatment']},
+        {'name': 'grown_intersects_original_treatment', 'passed': bool(large & treatment)},
+        {'name': 'nested', 'passed': small <= large
+         and set(trimmed['directed']) <= set(grown['directed'])
+         and set(trimmed['bidirected']) <= set(grown['bidirected'])},
+        {'name': 'grown_strictly_contains_trimmed', 'passed': large > small},
+        {'name': 'same_root_set', 'passed': trimmed['roots'] == grown['roots']},
+    ])
+    # Removing treatment vertices makes "path avoiding treatment" explicit.
+    cut = [(a, b) for a, b in pd if a not in treatment and b not in treatment]
+    ancestors = _reaches(declared - treatment, cut, set(problem.outcome) - treatment)
+    checks.append({'name': 'roots_in_ancestors_of_outcome_after_intervention',
+                   'passed': set(trimmed['roots']) <= ancestors})
+    return {'passed': all(c['passed'] for c in checks), 'checks': checks,
+            'trimmed_forest': trimmed, 'grown_forest': grown}
 
 
-def check_failure(witness, problem=None):
+def _check_failure(witness, problem=None):
     """Validate the structural evidence attached to a non-identification result.
 
     Without the problem there is nothing to check the evidence against: the
     component lists in the witness would be self-reported. The report says so
     instead of passing, because an unchecked witness is not a proof.
     """
-    if problem is None:
-        checked_against_graph = False
-    else:
-        checked_against_graph = True
-    if not witness:
-        return {'passed': False, 'detail': 'no witness attached'}
+    if problem is None or not isinstance(witness, dict):
+        return {'passed': False, 'completed': False, 'detail': 'original problem and witness required'}
+    checked_against_graph = True
+    if (witness.get('problem_sha256') != sha(problem)
+            or witness.get('original_target') != {
+                'treatment': problem.treatment, 'outcome': list(problem.outcome),
+                'context': problem.context}):
+        return {'passed': False, 'completed': True, 'detail': 'witness is not bound to the original query'}
     required = {
         'kind', 'theorem', 'c_components_of_graph',
         'c_components_of_graph_minus_treatment', 'surviving_component',
@@ -1028,14 +1038,6 @@ def check_failure(witness, problem=None):
     # Rebuild both component partitions from the declared graph. A witness that
     # describes a different graph -- the same shape, different edges -- reads as
     # perfectly consistent on its own, and this is where that is caught.
-    if not checked_against_graph:
-        out = {'passed': True, 'completed': False, 'checked_against_graph': False,
-               'detail': 'structural checks only; no graph was supplied to check the evidence against'}
-        if 'hedge' in witness:
-            hedge = check_hedge(witness['hedge'], None)
-            out['hedge'] = hedge
-            out['passed'] = hedge['passed']
-        return out
     step_graph = witness.get('graph') or {}
     if not step_graph:
         return {'passed': False, 'completed': False,
@@ -1091,7 +1093,9 @@ def check_failure(witness, problem=None):
         return dict(out, passed=False, completed=True,
                     detail='no C-forest pair attached: the component condition alone '
                            'does not witness non-identification')
-    hedge = check_hedge(witness['hedge'], sub)
+    # Verify the forests against the caller's query, never only against a
+    # treatment/outcome set chosen by the witness itself.
+    hedge = check_hedge(witness['hedge'], problem)
     out['hedge'] = hedge
     out['passed'] = out['passed'] and hedge['passed']
     if not hedge['passed']:
@@ -1100,3 +1104,11 @@ def check_failure(witness, problem=None):
         out['passed'] = False
         out['detail'] = 'the pair checks out but the witness says it was not materialised'
     return out
+
+
+def check_failure(witness, problem=None):
+    """Malformed or unbound evidence is a failed check, never an exception/pass."""
+    try:
+        return _check_failure(witness, problem)
+    except (TypeError, ValueError, KeyError, AttributeError, IndexError):
+        return {'passed': False, 'completed': False, 'detail': 'malformed failure evidence'}

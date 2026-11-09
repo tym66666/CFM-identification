@@ -38,9 +38,13 @@ class CommonCause(StrictRecord):
     source_ids: list[str] = Field(description='材料中明确说出两者受同一未观测因素影响的原文段落。')
 
 
+class GeneralIdVariable(Variable):
+    domain: Literal['BINARY', 'FINITE_DISCRETE', 'OTHER', 'UNKNOWN']
+
+
 class DagIdReading(StrictRecord):
     version: Literal['dag-id-reading-1']
-    variables: list[Variable]
+    variables: list[GeneralIdVariable]
     relations: list[Relation]
     common_causes: list[CommonCause] = Field(
         description='只列材料明确说出两者受同一未观测因素影响的变量对。仅相关、仅同时变化、'
@@ -243,6 +247,14 @@ def to_problem(reading, *, graph_source, materials_sha256, researcher_confirmed)
         materials_sha256=materials_sha256,
         context=reading.target.context or 'material-declared study population',
         information=INFORMATION_STATUS[reading.information.kind],
+        reading_declarations={
+            'variables': [v.model_dump() for v in reading.variables],
+            'scope': reading.scope.model_dump(),
+            'information_variables': list(reading.information.variables),
+            'information_source_ids': list(reading.information.source_ids),
+            'positivity': reading.information.positivity.model_dump(),
+            'candidate': reading.model_dump(),
+        },
         unresolved=[note.text for note in reading.unresolved],
         additional_restrictions=[note.text for note in reading.additional_restrictions],
     )

@@ -58,6 +58,38 @@ def _for_shared_entry(result):
                 reason_code='{}:{}'.format(state, reason) if reason else state)
 
 
+class ReadClaim(Record):
+    value: bool | None
+    source_ids: list[str]
+
+
+class ReadVariable(Record):
+    name: str
+    observation: Literal['OBSERVED', 'LATENT', 'UNKNOWN']
+    domain: Literal['BINARY', 'FINITE_DISCRETE', 'OTHER', 'UNKNOWN']
+    source_ids: list[str]
+
+
+SCOPE_DECLARATIONS = ('static_acyclic', 'graph_complete', 'latent_causes_accounted',
+                      'independent_errors', 'perfect_intervention',
+                      'no_between_unit_interference')
+
+
+class ReadingDeclarations(Record):
+    """Source-bound declarations, not a scientific approval.
+
+    The adapter fills these from the actual reading, never from route defaults.
+    The complete candidate also stays in the problem digest for provenance and
+    review; the model is not asked to fill this second representation.
+    """
+    variables: list[ReadVariable]
+    scope: dict[str, ReadClaim | None]
+    information_variables: list[str]
+    information_source_ids: list[str]
+    positivity: ReadClaim
+    candidate: dict
+
+
 class GeneralIdProblem(Record):
     """A declared graph plus the information the formula may use.
 
@@ -82,6 +114,7 @@ class GeneralIdProblem(Record):
     context: str = Field(min_length=3, max_length=4000)
     information: Literal['FULL_JOINT_POPULATION_LAW', 'FINITE_SAMPLE',
                          'MARGINAL_STATISTICS', 'UNKNOWN']
+    reading_declarations: ReadingDeclarations | None = None
     unresolved: list[str] = Field(
         description='材料本身的事实缺项、矛盾或未定项；交审核逐条回应，不自动放行。')
     additional_restrictions: list[str] = Field(
@@ -130,6 +163,74 @@ def _stop_with_items(state, reason, items):
     raise error
 
 
+def check_reading_declarations(problem):
+    """Known contradictions/missing declarations cannot be approved away.
+
+    Legacy directly constructed problems explicitly select the finite model
+    and still need an external review. A reading-based problem MUST carry the
+    declarations via to_problem; None is not used by the reading adapter.
+    """
+    d = problem.reading_declarations
+    if d is None:
+        return
+    candidate = d.candidate
+    variables = [v.model_dump() for v in d.variables]
+    scope = {k: v.model_dump() if v is not None else None for k, v in d.scope.items()}
+    ci = candidate.get('information') or {}
+    mapped_info = {'MARGINALS_ONLY': 'MARGINAL_STATISTICS'}.get(ci.get('kind'), ci.get('kind'))
+    target = candidate.get('target') or {}
+    observed = [v.name for v in d.variables if v.observation == 'OBSERVED']
+    direct = sorted((r['cause'], r['effect']) for r in candidate.get('relations', [])
+                    if r['kind'] == 'DIRECT_CAUSE')
+    common = sorted(tuple(sorted((r['first'], r['second'])))
+                    for r in candidate.get('common_causes', []))
+    if (candidate.get('variables') != variables or candidate.get('scope') != scope
+            or ci.get('variables') != d.information_variables
+            or ci.get('source_ids') != d.information_source_ids
+            or ci.get('positivity') != d.positivity.model_dump()
+            or mapped_info != problem.information
+            or observed != problem.nodes
+            or direct != sorted(map(tuple, problem.directed))
+            or common != sorted(tuple(sorted(e)) for e in problem.bidirected)
+            or target.get('kind') != 'INTERVENTIONAL_DISTRIBUTION'
+            or target.get('treatment') != problem.treatment
+            or [target.get('outcome')] != problem.outcome
+            or (target.get('context') or 'material-declared study population') != problem.context
+            or [n['text'] for n in candidate.get('unresolved', [])] != problem.unresolved
+            or [n['text'] for n in candidate.get('additional_restrictions', [])] != problem.additional_restrictions):
+        fail('CHECK_BLOCKED', 'READING_PROBLEM_MISMATCH')
+    if any(v.observation == 'UNKNOWN' for v in d.variables):
+        fail('NEEDS_INPUT', 'VARIABLE_OBSERVATION_UNKNOWN')
+    # Latent variables are projected into common causes and are not arguments
+    # of the observed law. The finite-domain gate applies to observed variables.
+    if any(v.domain not in ('BINARY', 'FINITE_DISCRETE')
+           for v in d.variables if v.observation == 'OBSERVED'):
+        fail('NEEDS_INPUT', 'FINITE_DISCRETE_DOMAIN_NOT_DECLARED')
+    if any(r['kind'] == 'UNCERTAIN' for r in candidate.get('relations', [])):
+        fail('NEEDS_INPUT', 'UNCERTAIN_CAUSAL_RELATION')
+    if candidate.get('adjustment') is not None:
+        fail('UNSUPPORTED', 'REQUESTED_ADJUSTMENT_NOT_SUPPORTED_BY_GENERAL_ID')
+    for name in SCOPE_DECLARATIONS:
+        claim = d.scope.get(name)
+        if claim is None or claim.value is None:
+            _stop_with_items('NEEDS_INPUT', 'SCOPE_DECLARATION_MISSING:' + name,
+                             ['请明确本研究是否采用条件：' + name])
+        if claim.value is False:
+            fail('UNSUPPORTED', 'DECLARED_SCOPE_NOT_SATISFIED:' + name)
+        if not claim.source_ids:
+            fail('CHECK_BLOCKED', 'SCOPE_SOURCE_MISSING:' + name)
+    if (len(set(d.information_variables)) != len(d.information_variables)
+            or set(d.information_variables) != set(problem.nodes)):
+        fail('NEEDS_INPUT', 'POPULATION_LAW_VARIABLE_COVERAGE_MISMATCH')
+    if d.positivity.value is None:
+        fail('NEEDS_INPUT', 'POSITIVITY_NOT_DECLARED')
+    if d.positivity.value is False:
+        fail('UNSUPPORTED', 'DECLARED_POSITIVITY_NOT_SATISFIED')
+    if not d.information_source_ids or not d.positivity.source_ids or any(
+            not v.source_ids for v in d.variables):
+        fail('CHECK_BLOCKED', 'DECLARATION_SOURCE_MISSING')
+
+
 def validate(problem):
     if isinstance(problem, dict):
         p = GeneralIdProblem.model_validate(problem)
@@ -153,6 +254,7 @@ def validate(problem):
         _stop_with_items('NEEDS_INPUT', 'INFORMATION_IS_NOT_A_POPULATION_LAW',
                          ['请明确可用的完整观测联合总体分布：' + p.information
                           + ' 不能替代总体联合分布。'])
+    check_reading_declarations(p)
     return p
 
 
@@ -195,6 +297,10 @@ def check_review(problem, review):
     if open_restrictions:
         _stop_with_items('NEEDS_INPUT', 'ADDITIONAL_RESTRICTIONS_NOT_EXPRESSED',
                          open_restrictions)
+    # An acknowledgment cannot insert a new mathematical restriction into
+    # this graph-only solver. Revise/bind an expressible problem separately.
+    if restrictions:
+        _stop_with_items('NEEDS_INPUT', 'ADDITIONAL_RESTRICTIONS_NOT_EXPRESSED', restrictions)
     if 'REJECTED' in r.decisions.values():
         fail('CHECK_BLOCKED', 'SCIENTIFIC_CONDITION_REJECTED')
     if 'PENDING' in r.decisions.values():
@@ -229,6 +335,8 @@ def prepare(problem):
             'treatment': p.treatment,
             'outcome': list(p.outcome),
             'information': p.information,
+            'reading_declarations': (p.reading_declarations.model_dump()
+                                     if p.reading_declarations is not None else None),
             'unresolved': list(p.unresolved),
             'additional_restrictions': list(p.additional_restrictions),
             'clarification_questions': [],
