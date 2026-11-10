@@ -62,13 +62,13 @@ holdout 范围是“开发 holdout”：不用于调材料；部分来源材料�
 .venv\Scripts\python -m unittest tests_gateway.test_literature_cases -v
 ```
 
-预期：
+实际结果：
 
-- `errors: []`；
-- 12 个案例；
-- 4 个 holdout；
-- public 无参考答案；
-- manifest 文件齐全。
+- `validate_cases.py`：`errors: []`；
+- 13 项任务 2 单元测试通过；
+- 全仓库 quick：`110 passed`；
+- 全仓库 chain：`1086 passed`；
+- 12 个案例、4 个 holdout、public 无参考答案。
 
 ## 5. 主要边界
 
@@ -84,4 +84,4 @@ holdout 范围是“开发 holdout”：不用于调材料；部分来源材料�
 1. 老师复核 12 个案例；
 2. 最终评测时再运行 `LIT-NET-07` 的 holdout；
 3. 真实 LLM 读取实验由任务 6 单独负责；
-4. 最终 PR 前再跑完整测试和安装检查。
+4. 最终 PR 前再跑 full 套件和安装检查；quick/chain 已通过。

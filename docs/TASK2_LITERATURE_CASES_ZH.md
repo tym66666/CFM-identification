@@ -62,7 +62,11 @@ evaluation/literature_cases/registry.json    案例登记
 ```powershell
 .venv\Scripts\python evaluation/literature_cases/tools/validate_cases.py
 .venv\Scripts\python -m unittest tests_gateway.test_literature_cases -v
+.venv\Scripts\python scripts/check_framework.py --suite quick --output outputs/final_quick_20261111
+.venv\Scripts\python scripts/check_framework.py --suite chain --output outputs/final_chain_20261111
 ```
+
+当前结果：`errors: []`、13 项任务 2 测试通过、quick 110 passed、chain 1086 passed。
 
 各结构化案例的运行脚本：
 

@@ -79,6 +79,40 @@ class LiteratureCaseLibraryTest(unittest.TestCase):
         held = {(r["case_id"], r["variant"]) for r in rows if r["holdout"]}
         self.assertEqual(len(held), 12)  # 4 held-out cases x 3 variants
 
+    def test_benchmark_matches_registry_status_and_holdout(self):
+        registry = load_registry()
+        expected = {
+            (c["case_id"], v["name"]): (v["expected_status"], bool(c["heldout"]))
+            for c in registry["cases"] for v in c["variants"]
+        }
+        refs = [
+            json.loads(line)
+            for line in (CASES / "research_only" / "benchmark" / "references.jsonl").read_text(encoding="utf8").splitlines()
+            if line.strip()
+        ]
+        self.assertEqual(len(refs), 36)
+        for row in refs:
+            key = (row["case_id"], row["variant"])
+            self.assertEqual((row["expected_status"], bool(row["holdout"])), expected[key], key)
+
+    def test_benchmark_public_files_exist(self):
+        rows = [
+            json.loads(line)
+            for line in (CASES / "benchmark" / "cases.jsonl").read_text(encoding="utf8").splitlines()
+            if line.strip()
+        ]
+        for row in rows:
+            for name in row["files"]:
+                self.assertTrue((ROOT / name).is_file(), name)
+
+    def test_public_manifest_holdout_matches_registry(self):
+        for case in load_registry()["cases"]:
+            for variant in case["variants"]:
+                manifest = json.loads(
+                    (ROOT / case["public_directory"] / variant["name"] / "submission_manifest.json").read_text(encoding="utf8")
+                )
+                self.assertEqual(bool(manifest.get("heldout")), bool(case["heldout"]), case["case_id"])
+
     def test_each_case_has_reference_and_review(self):
         for case in load_registry()["cases"]:
             research = ROOT / case["research_directory"]
