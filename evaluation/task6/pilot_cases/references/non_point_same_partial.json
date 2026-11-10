@@ -1,0 +1,32 @@
+{
+  "case_id": "T6-pilot-partial",
+  "expected_state": "PROVEN_NON_POINT",
+  "independently_reviewed": false,
+  "business_answer_prepared_before_model_response": null,
+  "expected_target": {
+    "assignment": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "unit_weights": [
+      "1/7",
+      "1/7",
+      "1/7",
+      "1/7",
+      "1/7",
+      "1/7",
+      "1/7"
+    ]
+  },
+  "expected_interval": [
+    "3/7",
+    "4/7"
+  ],
+  "mathematical_non_point_evidence": "已限定完整有限均值模型且sharp上下界严格不同；应由证书重放确认。",
+  "note": "与partial为同一业务和同一证书；端点严格不同支持非点识别，不能记为新的独立情境。"
+}

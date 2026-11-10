@@ -7,6 +7,25 @@ from evaluation.task6.scripts.score_experiment import score
 from evaluation.task6.scripts.fact_stage_ledger import run as fact_run
 
 class ScorerContract(unittest.TestCase):
+    def test_ledger_rejects_checkbox_only_positive(self):
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)
+            (p/'runs.json').write_text(json.dumps([dict(case_id='T6-N01-full',profile='prompt_only',repeat=1)]),encoding='utf8')
+            fact_run(p)
+            path=p/'fact_stage_template.csv'
+            with path.open(encoding='utf-8-sig',newline='') as f: rows=list(csv.DictReader(f))
+            row=rows[0]
+            for key in ('fact_call_attempted','fact_wire_valid','a4_scope_correct','a5_stance_correct',
+                        'source_claims_correct','original_target_preserved','missing_or_conflict_handled_correctly',
+                        'researcher_approval_independent','first_pass_full_chain_correct'):
+                row[key]='TRUE'
+            row.update(wrong_certification='FALSE',actual_final_status='POINT',
+                       reference_documentation='no execution artifact',reviewer_id='reviewer')
+            for key in ('fact_api_calls','reread_api_calls','retry_api_calls','fact_prompt_tokens','fact_completion_tokens'): row[key]='0'
+            with path.open('w',encoding='utf-8-sig',newline='') as f:
+                writer=csv.DictWriter(f,fieldnames=row);writer.writeheader();writer.writerows(rows)
+            with self.assertRaises(ValueError):fact_run(p,path)
+
     def test_missing_detection_not_dependent_on_other_review_items(self):
         with tempfile.TemporaryDirectory() as d:
             p = Path(d)

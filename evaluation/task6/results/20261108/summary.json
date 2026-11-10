@@ -1,0 +1,274 @@
+{
+  "first_pass": [
+    {
+      "case": "point",
+      "arm": "baseline",
+      "format": "PASS",
+      "semantic": "待完整审核",
+      "citation": "不充分：评价名单列出名称但字段未引用名单来源",
+      "review_gate": [
+        "CHECK_BLOCKED"
+      ],
+      "final_state": "NOT_EXECUTED",
+      "actual_result_verified": false,
+      "request_sha256": "66df7c70333516e882e2a77c3f14d4e1c4241d9a92b499bab34f4759b963483e",
+      "effective_system_sha256": "65b8c87a014db06005ba576f67f6aef94e60fd0db1157229499a76f5f16f7788",
+      "usage": {
+        "prompt_tokens": 5635,
+        "completion_tokens": 751,
+        "total_tokens": 6386
+      },
+      "provider_error": null
+    },
+    {
+      "case": "point",
+      "arm": "candidate",
+      "format": "PASS",
+      "semantic": "错误：科学条件填入变量因果图",
+      "citation": "待完整审核",
+      "review_gate": [
+        "CHECK_BLOCKED"
+      ],
+      "final_state": "NOT_EXECUTED",
+      "actual_result_verified": false,
+      "request_sha256": "1a5c36a840dce73d7f12a320e67c5ea7b8af56e98808059058a72719814a3acd",
+      "effective_system_sha256": "d8cb6fc16d76d8f2ca0b87b97d8b9284c6bbcc00f52c827b9f184057e4f47fc7",
+      "usage": {
+        "prompt_tokens": 5697,
+        "completion_tokens": 741,
+        "total_tokens": 6438
+      },
+      "provider_error": null
+    },
+    {
+      "case": "partial",
+      "arm": "baseline",
+      "format": "FAIL",
+      "semantic": "未测量",
+      "citation": "未测量",
+      "review_gate": [
+        "CALL_OR_PARSE_FAILED"
+      ],
+      "final_state": "NOT_EXECUTED",
+      "actual_result_verified": false,
+      "request_sha256": "6ed0e82de6b5b45689b602e9212b9914ffcd207c59b70b061ba5c61a1b44a10e",
+      "effective_system_sha256": "65b8c87a014db06005ba576f67f6aef94e60fd0db1157229499a76f5f16f7788",
+      "usage": {},
+      "provider_error": "ProviderError"
+    },
+    {
+      "case": "partial",
+      "arm": "candidate",
+      "format": "PASS",
+      "semantic": "错误：科学条件填入变量因果图",
+      "citation": "待完整审核",
+      "review_gate": [
+        "CHECK_BLOCKED"
+      ],
+      "final_state": "NOT_EXECUTED",
+      "actual_result_verified": false,
+      "request_sha256": "77d4534d505d7729b5bc2a120e1f58b587cce197cfc329adaaa7b87dd64fa81a",
+      "effective_system_sha256": "d8cb6fc16d76d8f2ca0b87b97d8b9284c6bbcc00f52c827b9f184057e4f47fc7",
+      "usage": {
+        "prompt_tokens": 6839,
+        "completion_tokens": 828,
+        "total_tokens": 7667
+      },
+      "provider_error": null
+    },
+    {
+      "case": "missing",
+      "arm": "baseline",
+      "format": "PASS",
+      "semantic": "待完整审核",
+      "citation": "不充分：目标值使用0/1编码但未引用编码来源",
+      "review_gate": [
+        "CHECK_BLOCKED"
+      ],
+      "final_state": "NOT_EXECUTED",
+      "actual_result_verified": false,
+      "request_sha256": "64550aac226ae151cedc06b54f4530ebda829de147264bf491f8cd2af8a0365a",
+      "effective_system_sha256": "65b8c87a014db06005ba576f67f6aef94e60fd0db1157229499a76f5f16f7788",
+      "usage": {
+        "prompt_tokens": 6716,
+        "completion_tokens": 772,
+        "total_tokens": 7488
+      },
+      "provider_error": null
+    },
+    {
+      "case": "missing",
+      "arm": "candidate",
+      "format": "PASS",
+      "semantic": "待完整审核",
+      "citation": "不充分：同伴暴露定义未被本字段引用支持",
+      "review_gate": [
+        "CHECK_BLOCKED"
+      ],
+      "final_state": "NOT_EXECUTED",
+      "actual_result_verified": false,
+      "request_sha256": "7cecabeb4daaf1d67d263eb71ac09643657f6a8d3239f8b3aff73fb5161fa112",
+      "effective_system_sha256": "d8cb6fc16d76d8f2ca0b87b97d8b9284c6bbcc00f52c827b9f184057e4f47fc7",
+      "usage": {
+        "prompt_tokens": 6772,
+        "completion_tokens": 869,
+        "total_tokens": 7641
+      },
+      "provider_error": null
+    },
+    {
+      "case": "conflict",
+      "arm": "baseline",
+      "format": "PASS",
+      "semantic": "错误：忽略未协调的反向政策",
+      "citation": "待完整审核",
+      "review_gate": [
+        "CHECK_BLOCKED"
+      ],
+      "final_state": "NOT_EXECUTED",
+      "actual_result_verified": false,
+      "request_sha256": "612c711aa118b56039f57a182c3d7cac6af82f2274e2cd4ddaf7aad694b44fc1",
+      "effective_system_sha256": "65b8c87a014db06005ba576f67f6aef94e60fd0db1157229499a76f5f16f7788",
+      "usage": {
+        "prompt_tokens": 6863,
+        "completion_tokens": 755,
+        "total_tokens": 7618
+      },
+      "provider_error": null
+    },
+    {
+      "case": "conflict",
+      "arm": "candidate",
+      "format": "PASS",
+      "semantic": "错误：忽略未协调的反向政策",
+      "citation": "待完整审核",
+      "review_gate": [
+        "CHECK_BLOCKED"
+      ],
+      "final_state": "NOT_EXECUTED",
+      "actual_result_verified": false,
+      "request_sha256": "4fe9ec497093f34d0cfc93a04d54a839a82a61e58fd9750f04ff1ba5d8941494",
+      "effective_system_sha256": "d8cb6fc16d76d8f2ca0b87b97d8b9284c6bbcc00f52c827b9f184057e4f47fc7",
+      "usage": {
+        "prompt_tokens": 6925,
+        "completion_tokens": 803,
+        "total_tokens": 7728
+      },
+      "provider_error": null
+    }
+  ],
+  "targeted_v2": [
+    {
+      "case": "point",
+      "arm": "candidate",
+      "api_attempted": true,
+      "model": "deepseek-v4-flash",
+      "project_request_sha256": "8c23cd59b55595a91dd212820828c8d44a50e80fc76c786a2ebda918aa45caec",
+      "effective_system_sha256": "77467ffce6b3a52a3d26185e21b4df24807817751d1a9da0277be6073312d647",
+      "addendum_loaded": true,
+      "response_received": true,
+      "format_valid": true,
+      "semantic_review": "NOT_YET_REVIEWED",
+      "citation_review": "NOT_YET_REVIEWED",
+      "final_state": "NOT_RUN",
+      "independent_replay": false,
+      "wire_state": "SEMANTIC_REVIEW_REQUIRED",
+      "reason_code": null,
+      "internal_binding_is_unmodified_request": false,
+      "usage": {
+        "prompt_tokens": 5765,
+        "completion_tokens": 829,
+        "total_tokens": 6594
+      },
+      "transport_calls": 1,
+      "provider_stage": "complete",
+      "provider_status": "json_object_received",
+      "actual_candidate_sha256": "fa54dd72570d1a52948d702e510ed7da91d83493750eb1941287396b88b1dd9f"
+    },
+    {
+      "case": "partial",
+      "arm": "candidate",
+      "api_attempted": true,
+      "model": "deepseek-v4-flash",
+      "project_request_sha256": "eebe74b0cc9dda95a22aa5aad53a95d9aaf87b7c82ada74304aa4e2ed62fd1d7",
+      "effective_system_sha256": "77467ffce6b3a52a3d26185e21b4df24807817751d1a9da0277be6073312d647",
+      "addendum_loaded": true,
+      "response_received": true,
+      "format_valid": true,
+      "semantic_review": "NOT_YET_REVIEWED",
+      "citation_review": "NOT_YET_REVIEWED",
+      "final_state": "NOT_RUN",
+      "independent_replay": false,
+      "wire_state": "SEMANTIC_REVIEW_REQUIRED",
+      "reason_code": null,
+      "internal_binding_is_unmodified_request": false,
+      "usage": {
+        "prompt_tokens": 6897,
+        "completion_tokens": 815,
+        "total_tokens": 7712
+      },
+      "transport_calls": 1,
+      "provider_stage": "complete",
+      "provider_status": "json_object_received",
+      "actual_candidate_sha256": "a5400e25683474d98b165d89cebba4a01a9b3074a1956000ab792c270f66620f"
+    },
+    {
+      "case": "conflict",
+      "arm": "candidate",
+      "api_attempted": true,
+      "model": "deepseek-v4-flash",
+      "project_request_sha256": "f35752be4f5c7b2081c2f967fdbda08d837b32ad4154b017581a7152abaa0d42",
+      "effective_system_sha256": "77467ffce6b3a52a3d26185e21b4df24807817751d1a9da0277be6073312d647",
+      "addendum_loaded": true,
+      "response_received": false,
+      "format_valid": false,
+      "semantic_review": "NOT_YET_REVIEWED",
+      "citation_review": "NOT_YET_REVIEWED",
+      "final_state": "NOT_RUN",
+      "independent_replay": false,
+      "wire_state": "CALL_OR_PARSE_FAILED",
+      "error_type": "ProviderError",
+      "error_code": "TIMEOUT",
+      "usage": {},
+      "transport_calls": 1,
+      "provider_stage": "transport",
+      "provider_status": "failed",
+      "actual_candidate_sha256": null
+    }
+  ],
+  "rereads": [
+    {
+      "stage": "REREAD_NOT_FIRST_PASS",
+      "api_attempted": true,
+      "response_received": false,
+      "request_sha256": "6d838beb25c430b75e005f6e606bd25a237a70c8fff5d459c351c2157265b076",
+      "format_valid": false,
+      "wire_state": "CALL_OR_PARSE_FAILED",
+      "error_type": "ProviderError",
+      "error_code": "TIMEOUT",
+      "usage": {},
+      "transport_calls": 1
+    },
+    {
+      "stage": "REREAD_NOT_FIRST_PASS",
+      "api_attempted": true,
+      "response_received": true,
+      "request_sha256": "6d838beb25c430b75e005f6e606bd25a237a70c8fff5d459c351c2157265b076",
+      "format_valid": true,
+      "wire_state": "REVIEW_REQUIRED",
+      "reason_code": "INDEPENDENT_READING_CHANGE_REVIEW_REQUIRED",
+      "usage": {
+        "prompt_tokens": 5907,
+        "completion_tokens": 758,
+        "total_tokens": 6665
+      },
+      "transport_calls": 1,
+      "format_note": "Reclassified using actual wire gate; change review remains required."
+    }
+  ],
+  "known_reported_tokens": 71937,
+  "failed_call_token_usage": "UNKNOWN",
+  "full_chain_model_results": "NONE",
+  "review_origin": "AI_ASSISTED_NOT_INDEPENDENT_HUMAN",
+  "candidate_prompt_binding": "EXPERIMENTAL_UNBOUND_TO_PROJECT_REQUEST_DO_NOT_EXECUTE"
+}

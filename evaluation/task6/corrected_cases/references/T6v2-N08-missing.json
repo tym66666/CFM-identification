@@ -1,0 +1,9 @@
+{
+  "case_id": "T6v2-N08-missing",
+  "historical_source": "T6-N08-changed",
+  "expected_state": "MISSING_STOP",
+  "issue": "历史分配机制尚未提供",
+  "clarification_answer_prepared": "历史试点为分层固定名额：甲乙一层、丙丁一层，每层等概率抽中一店。",
+  "reference_review": "AUTHOR_DRAFT_NOT_INDEPENDENTLY_CERTIFIED",
+  "warning": "该参考只指导追问，不证明相关科学条件或最终识别结果。"
+}

@@ -1,0 +1,14 @@
+{
+  "case_id": "T6-pilot-missing",
+  "expected_state": "MISSING_STOP",
+  "independently_reviewed": false,
+  "business_answer_prepared_before_model_response": "本研究明确约定：总体信息只有以上逐项列出的精确总体均值，不包含完整联合分布、其他总体信息或额外聚合均值；除前述随机化、一致性、固定网络、有限矩、全安排均值暴露充分性以及上述界限外，没有跨对象、跨情境的额外耦合限制。",
+  "clarification_keyword_groups": [
+    [
+      "信息",
+      "约束",
+      "耦合",
+      "范围"
+    ]
+  ]
+}

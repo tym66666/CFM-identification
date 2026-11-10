@@ -17,7 +17,7 @@ FIELDS=('run_key','case_id','profile','repeat','query_id','fact_call_attempted',
   'missing_or_conflict_handled_correctly','researcher_approval_independent',
   'first_pass_full_chain_correct','wrong_certification','actual_final_status',
   'fact_api_calls','reread_api_calls','retry_api_calls','fact_prompt_tokens','fact_completion_tokens',
-  'reference_documentation','reviewer_id','notes')
+  'reference_documentation','reviewer_id','notes','execution_result_path','reference_json_path','model_candidate_path')
 
 def expected(runs):
     rows=[]
@@ -73,6 +73,22 @@ def run(folder,ledger=None):
                 raise ValueError('Cannot mark mathematical full-chain success without fact evidence and independent scientific approvals')
             elif not r['actual_final_status'].strip() or not r['reference_documentation'].strip():
                 raise ValueError('Full-chain success requires a final status and documented execution/certificate evidence')
+            from evaluation.task6.scripts.verify_final import verify
+            paths=[Path(r.get(k,'')) for k in ('execution_result_path','reference_json_path','model_candidate_path')]
+            if any(not p.is_file() for p in paths):
+                raise ValueError('Full-chain success requires actual result, reference, and model-candidate files')
+            actual=json.loads(paths[0].read_text(encoding='utf8'))
+            reference=json.loads(paths[1].read_text(encoding='utf8'))
+            candidate=json.loads(paths[2].read_text(encoding='utf8'))
+            if not isinstance(candidate,dict) or not candidate:
+                raise ValueError('Actual model candidate is missing or invalid')
+            ledger_state=r['actual_final_status']
+            if ledger_state!='REVIEWED_MISSING_STOP' and actual.get('state')!=ledger_state:
+                raise ValueError('Ledger state does not match recorded project outcome')
+            if (actual.get('query_review') or {}).get('authority')=='SYNTHETIC_TEST':
+                raise ValueError('Synthetic reviews cannot support a real-model full-chain success')
+            if not verify(actual,reference)['execution_evidence_gate_passed']:
+                raise ValueError('Recorded execution does not satisfy expected outcome and replay evidence')
         if (r['first_pass_full_chain_correct'].upper()!='NOT_RUN'
             or r['wrong_certification'].upper()!='NOT_RUN') and not r['reviewer_id'].strip():
             raise ValueError('Every reviewed outcome requires reviewer_id')

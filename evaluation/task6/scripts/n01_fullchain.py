@@ -42,6 +42,11 @@ def session(d):
     while business_intake.restore() only accepts the envelope created by save().
     Never rebuild an intake from scratch: that changes request/binding SHA values.
     """
+    provenance = d / 'result.json'
+    if provenance.exists():
+        status = read(provenance)
+        if status.get('internal_binding_is_unmodified_request') is False:
+            raise ValueError('实验提示与项目请求绑定不一致，只能做读取对照，不能进入完整链路')
     path = d / 'intake_snapshot.json'
     value = read(path)
     if isinstance(value, dict) and value.get('kind') == 'BUSINESS_INTAKE_CHECKPOINT':

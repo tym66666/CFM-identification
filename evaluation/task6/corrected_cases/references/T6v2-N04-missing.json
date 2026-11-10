@@ -1,0 +1,9 @@
+{
+  "case_id": "T6v2-N04-missing",
+  "historical_source": "T6-N04-changed",
+  "expected_state": "MISSING_STOP",
+  "issue": "比较时乙自身处理状态尚未确定",
+  "clarification_answer_prepared": "本次比较中，乙自己保持不启用助手。",
+  "reference_review": "AUTHOR_DRAFT_NOT_INDEPENDENTLY_CERTIFIED",
+  "warning": "该参考只指导追问，不证明相关科学条件或最终识别结果。"
+}
