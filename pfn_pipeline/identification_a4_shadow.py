@@ -90,15 +90,20 @@ def _require_arm(task: TaskSpec):
 
 def _refs(task: TaskSpec):
     spec, net, contract, q = _require_arm(task)
+    exposure = {'network': net.semantic_fingerprint(),
+                'grouping': contract.grouping,
+                'core_collaborators': contract.core_collaborators}
+    # Preserve existing E1-E5 A4 identities. Extension metadata belongs in
+    # the fingerprint only when present; empty new fields must not invalidate
+    # previously reviewed sources and certificates.
+    if contract.exposure_weights is not None or contract.exposure_groups is not None:
+        exposure.update(exposure_weights=contract.exposure_weights,
+                        exposure_groups=contract.exposure_groups)
     return {
         'spec': spec_fingerprint(spec),
         'network': net.semantic_fingerprint(),
         'law': _sha(contract.design.model_dump(mode='json')),
-        'exposure': _sha({'network': net.semantic_fingerprint(),
-                          'grouping': contract.grouping,
-                          'core_collaborators': contract.core_collaborators,
-                          'exposure_weights': contract.exposure_weights,
-                          'exposure_groups': contract.exposure_groups}),
+        'exposure': _sha(exposure),
         'target': q.response_target_fingerprint,
         'node_order': tuple(net.node_ids),
         'outcome': q.outcome,
