@@ -1,0 +1,22 @@
+{
+  "case_id": "T6-pilot-point",
+  "expected_state": "POINT",
+  "independently_reviewed": false,
+  "business_answer_prepared_before_model_response": null,
+  "expected_target": {
+    "assignment": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "unit_weights": [
+      "1/5",
+      "1/5",
+      "1/5",
+      "1/5",
+      "1/5"
+    ]
+  }
+}

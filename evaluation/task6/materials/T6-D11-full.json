@@ -1,0 +1,19 @@
+{
+  "case_id": "T6-D11-full",
+  "business_question": "如果主动把广告投放A设为1，下一月销量Y的总体干预分布P(Y|do(A=1))是什么？不是只问观察条件分布P(Y|A=1)。",
+  "response_language": "zh",
+  "sources": [
+    {
+      "source_id": "protocol",
+      "kind": "STUDY_PROTOCOL",
+      "text": "变量因果图由研究者确认：客户偏好C→广告A，客户偏好C→销量Y，广告A→销量Y。三个变量均为二元；不表示门店间合作网络。",
+      "label": "研究方案声明（待独立审核）"
+    },
+    {
+      "source_id": "information",
+      "kind": "DATA_DICTIONARY",
+      "text": "完整观察总体联合分布P(C,A,Y)已知，需由数学模块独立判定图假设下是否识别。",
+      "label": "信息范围或变体记录"
+    }
+  ]
+}

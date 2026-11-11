@@ -11,6 +11,7 @@ from . import business_intake
 from .business_reading_config import ReadingConfig
 from .business_dispatch import prepare_reader, inspect_methods, execute
 from .business_case import prepare_case, execute_case
+from .intake_conflict_review import review_conflict
 
 
 def reading_config():

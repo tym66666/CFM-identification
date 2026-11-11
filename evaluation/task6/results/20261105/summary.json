@@ -1,0 +1,260 @@
+{
+  "scope": "Existing 96 A0 attempts plus one separate N01 fact call",
+  "model": "deepseek-v4-flash",
+  "git_head": "2ea5cedda46911b9e1287c0c3c5c5ab7734394fb",
+  "skill": {
+    "name": "causal-business-reading",
+    "resource": "resources/causal_business_reading/SKILL.md",
+    "sha256": "83eb3c4c7d8857d3329c23d65d9aa2324c89b8e2560b11490b24895e64e69125",
+    "loaded": true,
+    "mode": "prompt_injected_skill_no_remote_tools"
+  },
+  "groups": [
+    {
+      "split": "dev",
+      "profile": "prompt_only",
+      "attempted": 32,
+      "transport_calls": 32,
+      "responses": 32,
+      "parsed": 28,
+      "prompt_tokens": 126164,
+      "completion_tokens": 24922,
+      "repeats": [
+        {
+          "repeat": 1,
+          "attempted": 16,
+          "parsed": 14
+        },
+        {
+          "repeat": 2,
+          "attempted": 16,
+          "parsed": 14
+        }
+      ],
+      "semantic_accuracy": null,
+      "missing_detection_accuracy": null,
+      "first_pass_full_chain_accuracy": null,
+      "wrong_certification_rate": null
+    },
+    {
+      "split": "dev",
+      "profile": "prompt_plus_skill",
+      "attempted": 32,
+      "transport_calls": 32,
+      "responses": 32,
+      "parsed": 29,
+      "prompt_tokens": 167882,
+      "completion_tokens": 22367,
+      "repeats": [
+        {
+          "repeat": 1,
+          "attempted": 16,
+          "parsed": 15
+        },
+        {
+          "repeat": 2,
+          "attempted": 16,
+          "parsed": 14
+        }
+      ],
+      "semantic_accuracy": null,
+      "missing_detection_accuracy": null,
+      "first_pass_full_chain_accuracy": null,
+      "wrong_certification_rate": null
+    },
+    {
+      "split": "holdout",
+      "profile": "prompt_only",
+      "attempted": 16,
+      "transport_calls": 16,
+      "responses": 16,
+      "parsed": 13,
+      "prompt_tokens": 61906,
+      "completion_tokens": 13182,
+      "repeats": [
+        {
+          "repeat": 1,
+          "attempted": 8,
+          "parsed": 7
+        },
+        {
+          "repeat": 2,
+          "attempted": 8,
+          "parsed": 6
+        }
+      ],
+      "semantic_accuracy": null,
+      "missing_detection_accuracy": null,
+      "first_pass_full_chain_accuracy": null,
+      "wrong_certification_rate": null
+    },
+    {
+      "split": "holdout",
+      "profile": "prompt_plus_skill",
+      "attempted": 16,
+      "transport_calls": 16,
+      "responses": 16,
+      "parsed": 15,
+      "prompt_tokens": 83446,
+      "completion_tokens": 11862,
+      "repeats": [
+        {
+          "repeat": 1,
+          "attempted": 8,
+          "parsed": 8
+        },
+        {
+          "repeat": 2,
+          "attempted": 8,
+          "parsed": 7
+        }
+      ],
+      "semantic_accuracy": null,
+      "missing_detection_accuracy": null,
+      "first_pass_full_chain_accuracy": null,
+      "wrong_certification_rate": null
+    }
+  ],
+  "errors": [
+    {
+      "split": "dev",
+      "case_id": "T6-N04-full",
+      "profile": "prompt_only",
+      "repeat": 1,
+      "reason": "TARGET_FIRST_CONTRACT_REJECTED",
+      "state": "READING_RECHECK_REQUIRED"
+    },
+    {
+      "split": "dev",
+      "case_id": "T6-N01-full",
+      "profile": "prompt_plus_skill",
+      "repeat": 1,
+      "reason": "A0_INLINE_EVIDENCE_REJECTED",
+      "state": "READING_RECHECK_REQUIRED"
+    },
+    {
+      "split": "dev",
+      "case_id": "T6-N06-changed",
+      "profile": "prompt_only",
+      "repeat": 1,
+      "reason": "A0_INLINE_EVIDENCE_REJECTED",
+      "state": "READING_RECHECK_REQUIRED"
+    },
+    {
+      "split": "dev",
+      "case_id": "T6-N08-changed",
+      "profile": "prompt_plus_skill",
+      "repeat": 2,
+      "reason": "A0_INLINE_EVIDENCE_REJECTED",
+      "state": "READING_RECHECK_REQUIRED"
+    },
+    {
+      "split": "dev",
+      "case_id": "T6-N06-full",
+      "profile": "prompt_only",
+      "repeat": 2,
+      "reason": "COMPACT_SCHEMA_REJECTED",
+      "state": "READING_RECHECK_REQUIRED"
+    },
+    {
+      "split": "dev",
+      "case_id": "T6-N05-full",
+      "profile": "prompt_plus_skill",
+      "repeat": 2,
+      "reason": "TARGET_FIRST_CONTRACT_REJECTED",
+      "state": "READING_RECHECK_REQUIRED"
+    },
+    {
+      "split": "dev",
+      "case_id": "T6-N01-changed",
+      "profile": "prompt_only",
+      "repeat": 2,
+      "reason": "A0_INLINE_EVIDENCE_REJECTED",
+      "state": "READING_RECHECK_REQUIRED"
+    },
+    {
+      "split": "holdout",
+      "case_id": "T6-D11-changed",
+      "profile": "prompt_only",
+      "repeat": 1,
+      "reason": "COMPACT_SCHEMA_REJECTED",
+      "state": "READING_RECHECK_REQUIRED"
+    },
+    {
+      "split": "holdout",
+      "case_id": "T6-D12-full",
+      "profile": "prompt_plus_skill",
+      "repeat": 2,
+      "reason": "A0_SCHEMA_REJECTED",
+      "state": "READING_RECHECK_REQUIRED"
+    },
+    {
+      "split": "holdout",
+      "case_id": "T6-N10-changed",
+      "profile": "prompt_only",
+      "repeat": 2,
+      "reason": "TARGET_FIRST_CONTRACT_REJECTED",
+      "state": "READING_RECHECK_REQUIRED"
+    },
+    {
+      "split": "holdout",
+      "case_id": "T6-D11-full",
+      "profile": "prompt_only",
+      "repeat": 2,
+      "reason": "TARGET_FIRST_CONTRACT_REJECTED",
+      "state": "READING_RECHECK_REQUIRED"
+    }
+  ],
+  "review_status": {
+    "dev": {
+      "status": "AI_ASSISTED_PRELIMINARY_NOT_INDEPENDENT_HUMAN_REVIEW",
+      "rows": 512,
+      "reviewer_labels": {
+        "ChatGPT-assisted-source-audit": 411,
+        "": 101
+      },
+      "judgments": {
+        "PASS": 276,
+        "NOT_REVIEWED": 4,
+        "FAIL": 135,
+        "UNCERTAIN": 97
+      }
+    },
+    "holdout": {
+      "status": "AI_ASSISTED_PRELIMINARY_NOT_INDEPENDENT_HUMAN_REVIEW",
+      "rows": 256,
+      "reviewer_labels": {
+        "ChatGPT_preliminary_source_audit": 156,
+        "": 100
+      },
+      "judgments": {
+        "PASS": 110,
+        "FAIL": 46,
+        "UNCERTAIN": 84,
+        "NOT_REVIEWED": 16
+      }
+    }
+  },
+  "n01_chain": {
+    "state": "READING_RECHECK_REQUIRED",
+    "reason_code": "FACT_SOURCE_REVIEW_REJECTED",
+    "backend_called": false,
+    "certificate": null,
+    "independent_approval_verified": false,
+    "first_answer_preserved": true,
+    "manually_modified_candidate_exists": true,
+    "execution_result_exists": false,
+    "usage": {
+      "prompt_tokens": 13188,
+      "completion_tokens": 740,
+      "total_tokens": 13928
+    }
+  },
+  "integrity_issues": [
+    "dev: raw_response_saved=true but file absent: 7"
+  ],
+  "new_api_calls": 0,
+  "independent_reference_review": "PENDING",
+  "holdout_blindness": "NOT_PROVEN_BY_HASHES; existing holdout pre-review is now seen",
+  "configuration_recommendation": "KEEP_EXISTING_DEFAULT; insufficient independent semantic evidence"
+}

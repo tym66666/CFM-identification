@@ -1,0 +1,18 @@
+{
+  "case_id": "T6-pilot-conflict",
+  "expected_state": "CONFLICT_STOP",
+  "independently_reviewed": false,
+  "business_answer_prepared_before_model_response": "确认本次业务目标以原业务问题为准：全部网点使用AI；补充邮件中的全部不使用AI不作为本次目标。",
+  "clarification_keyword_groups": [
+    [
+      "冲突",
+      "矛盾",
+      "不一致"
+    ],
+    [
+      "使用",
+      "启用",
+      "政策"
+    ]
+  ]
+}

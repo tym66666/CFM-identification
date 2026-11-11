@@ -1,0 +1,31 @@
+{
+  "case_id": "T6-N08-full",
+  "scenario": "N08",
+  "domain": "network",
+  "split": "dev",
+  "variant": "full",
+  "change_type": null,
+  "expected_primary_kind": "FIXED_POLICY_VALUE",
+  "expected_operation": "NOT_APPLICABLE",
+  "expected_query_count": 1,
+  "reference_review_status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW",
+  "source_note": "下列参考是作者自拟测试口径，不是项目数学认证或独立审读结果。",
+  "manual_checks": [
+    "区分历史随机设计与固定目标政策",
+    "甲丙启用乙丁不启用",
+    "变体不能凭预算猜抽签"
+  ],
+  "expected_fact_warning": null,
+  "must_not_claim_point_from_a0": true,
+  "reference_semantics": {
+    "query_kinds": [
+      "FIXED_POLICY_VALUE"
+    ],
+    "first": "甲丙启用、乙丁不启用",
+    "second": "不适用",
+    "evaluation": "甲乙丙丁等权",
+    "time": "第4周",
+    "background": "未限定"
+  },
+  "evaluation_scope": "A0目标+字段/引用；A4/A5与全链路需额外真实事实读取和审核"
+}

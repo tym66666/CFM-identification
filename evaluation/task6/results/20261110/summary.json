@@ -1,0 +1,27 @@
+{
+  "scope": "fictional business cases; DeepSeek V4 Flash; Pydantic 2.14.2; AI review, not independent human sign-off",
+  "paired_first_attempts": {
+    "cases": ["point", "partial", "missing", "conflict"],
+    "attempts_per_configuration": 4,
+    "baseline_responses": 2,
+    "candidate_responses": 2,
+    "baseline_timeouts": 2,
+    "candidate_timeouts": 2,
+    "returned_format_passes": 4,
+    "reported_tokens_returned_calls": 30430,
+    "failed_call_usage": "unknown",
+    "candidate_profile": "target-first-skill-guarded-1",
+    "candidate_prompt_bound_to_request": true,
+    "improvement_established": false
+  },
+  "separate_retries_and_rereads": {
+    "point": {"first_attempt": "TIMEOUT", "result": "POINT", "model_fact_read": true, "project_replay": true, "fresh_saved_certificate_replay": true, "assignment_probability": "1/32", "review": "SYNTHETIC_TEST_BY_CODEX_AI"},
+    "partial": {"first_attempt": "SOURCE_CITATION_REJECTED", "result": "PARTIAL", "model_fact_read": true, "project_replay": true, "fresh_saved_certificate_replay": true, "sharp_interval": ["3/7", "4/7"], "review": "SYNTHETIC_TEST_BY_CODEX_AI", "proposed_assumption": "explicitly selected only for fictional research"},
+    "missing": {"first_fact_attempt": "SOURCE_REVIEW_REJECTED", "result_after_fact_rereads": "NEEDS_INPUT", "correct_topic": "information completeness and additional coupling constraints", "backend_called": false},
+    "conflict": {"candidate_first_answer": "CONFLICT_IGNORED", "candidate_reread": "CONFLICT_IGNORED", "baseline_retry": "CONFLICT_IGNORED_AND_REVIEW_REJECTED", "reviewer_intervention": "CLARIFICATION_REQUIRED", "reviewer_intervention_evidence_gate": "PASS", "model_generated_correct_clarification": false, "native_project_generated_clarification": true},
+    "T6v2-N03-conflict": {"baseline_single_attempt": "CONFLICT_IGNORED_AND_REVIEW_REJECTED", "reported_tokens": 6045}
+  },
+  "independent_review": "Submitter confirmed independent review in conversation; per-case sign-off record not supplied",
+  "qwen3.8-27b_conflict_pair": {"baseline": "TIMEOUT", "candidate": "TIMEOUT", "timeout_seconds_each": 120, "failed_call_usage": "unknown"},
+  "limitations": ["Failed call usage unknown", "No effective cross-model comparison", "Conflict identification requires source reviewer intervention", "Retries are not first-answer successes"]
+}

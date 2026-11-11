@@ -1,0 +1,55 @@
+# 任务6：LLM业务理解对照评测
+
+## 2026-11-10：负责人反馈复核
+
+最新进展和未完成事项见[负责人反馈复核报告](results/20261110/负责人反馈复核报告.md)。正式绑定的可选提示配置已在相同业务题上对照；点识别和部分识别经真实模型重试、虚构题审核及项目证书回放得到预期结果，缺条件复查得到正确追问。`corrected_cases/`区分原题的缺条件与冲突。提交者确认已独立审核，说明见[审核状态](results/20261110/审核状态说明.md)。以下较早记录仅反映对应日期，不能覆盖最新状态。
+
+## 2026-11-08：端到端试点
+
+参见[端到端试点报告](results/20261108/端到端试点报告.md)、[原题缺项与冲突复核](docs/原题缺项与冲突复核.md)和`pilot_cases/`。针对4个业务题进行了真实模型读取、实际字段拒绝、提示对照及单题重读；真实模型结果尚未进入事实读取、识别计算或证书重放，离线教学例不能计入真实模型全链路成绩。已发现的源引用、变量图角色和材料冲突错误均保留。
+
+`pilot_fullchain.py`记录真正发给模型的提示与哈希；旧版实验追加文本不在项目原请求绑定内，因此旧版候选只可用于读取对照。新版 `--candidate-version bound` 使用已注册的可选配置，提示纳入请求绑定，仍须逐级审核。`pilot_recheck.py`使用项目原生、绑定的重读机制；第二次重读输出停在变更审核。`verify_final.py`检查已记录的实际后端结果及证书摘要，**不会自己重放证书**。`fact_stage_ledger.py`不再允许仅凭勾选把正例计为成功。
+
+试点真实调用、审核原件存放在本地`outputs/task6_pilot_*`；提交时只包含脱敏汇总。试点参考尚未独立签审，模型和AI辅助核对不能伪装成人工认证。格式、语义、引用和最终结果分开报告，候选配置未替换默认配置。
+
+离线验证：`python -m unittest discover -s evaluation/task6/tests -v`。重新试跑需用户授权及环境变量`CFM_ID_LLM_API_KEY`，例如：
+
+```powershell
+python -m evaluation.task6.scripts.pilot_fullchain --output outputs/task6_new_pilot --model deepseek-v4-flash --base-url https://newapi.sufe.edu.cn/v1
+```
+
+该命令默认发送4题×2方案共8次A0请求；输出目录必须不存在。需要新版绑定候选时追加 `--candidate-version bound`。事实审核和数学执行可按`scripts/n01_fullchain.py`分步操作，不能把旧版实验提示伪装成项目已绑定请求。原始材料为自拟公开题，私有请求和答复不要提交。
+
+当前状态（2026-11-08）：已有12情境、24材料、开发集64次及留出集32次真实A0记录；完成离线收尾汇总。现有审阅记录包含AI辅助预审，尚无可核对的研究者独立审核记录。全链路验收状态以实际审核及执行记录为准。
+
+## 先看交付结果
+
+- [收尾报告](results/20261105/任务6收尾报告.md)：实验、分层指标、错误归因、调用成本及配置建议。
+- [机器汇总](results/20261105/summary.json)、[失败清单](results/20261105/failures.csv)。
+- [冻结配置](results/20261105/experiment_config.json)、[Skill快照](results/20261105/Skill_snapshot.md)、[受限证据哈希](results/20261105/evidence_hashes.json)。
+- [代码审查与待办](docs/任务6代码审查与待办.md)、[GitHub上传指南](docs/GitHub上传指南.md)、[提交说明草稿](docs/PR说明.md)。
+
+开发集格式通过：基线28/32、候选29/32；留出集：基线13/16、候选15/16。格式通过不代表语义或识别正确。开发集run 7的候选文件缺失，但已从对应快照单独恢复解析后的候选；该条仍保留在全部尝试的分母中，详情见代码审查。
+
+N01已有一次单独事实读取，后续停在FACT_SOURCE_REVIEW_REJECTED，未调用数学后端。保持默认配置，尚无足够证据支持修改默认。
+
+## 离线复现
+
+从仓库根目录运行，输出目录须不存在：
+
+```powershell
+python -m unittest discover -s evaluation/task6/tests -v
+python -m evaluation.task6.scripts.closeout --output outputs/task6_closeout_recheck
+```
+
+closeout只用标准库，读取本机outputs/task6_dev_final_002、task6_holdout_final_001、task6_n01_chain/full，不调用模型。公开包不含私有原始请求/回答，独立复算需获得受限原始输出。原始实验与审核文件均未覆盖。
+
+## 文件与验收
+
+materials为24份自拟业务输入；references为待独立审读的参考草稿；scripts为调用、评分、事实台账和离线收尾工具；tests为离线契约检查；results为本次公开汇总。单例链路工具为scripts/n01_fullchain.py，默认不执行调用；其fact-call子命令会联网，不属于本次离线收尾步骤。
+
+下一步由研究者审核参考和语义结果，并依据实际执行更新台账；人工修订回答应与首答分开统计。已查看的留出题不得再次称为全新未见题。
+
+历史工具用法见docs/初始工作包说明_历史版本.md，其中“未执行API”等描述是最初打包时状态，当前状态以本文件和收尾报告为准。两方案同时更改Prompt和Schema/解析合同，不声称测出Skill单因素净效应。不修改数学Core或科学审批规则。
+
+2026-11-06修复缺项评分及全链路未审核分母，并提供可重复的快照恢复脚本；详细口径见代码审查。

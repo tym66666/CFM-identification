@@ -1,0 +1,19 @@
+{
+  "case_id": "T6-N10-changed",
+  "business_question": "我们关心第8周：若四店全部启用助手，第8周订单数的等权平均是什么？",
+  "response_language": "zh",
+  "sources": [
+    {
+      "source_id": "protocol",
+      "kind": "STUDY_PROTOCOL",
+      "text": "研究对象是门店甲、乙、丙、丁，合作网络为甲—乙、乙—丙、丙—丁；处理T为是否启用。历史试点四店独立公平抽签。研究组在方案书中拟采用一致性、随机分配与潜在结果独立、结果均值有限三项科学条件；这些仍须由研究者独立批准。",
+      "label": "研究方案声明（待独立审核）"
+    },
+    {
+      "source_id": "information",
+      "kind": "DATA_DICTIONARY",
+      "text": "方案中一处写考核第8周，另一处签批文件写只考核第4周，现未决定以哪一个为准。",
+      "label": "信息范围或变体记录"
+    }
+  ]
+}

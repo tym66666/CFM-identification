@@ -1,0 +1,31 @@
+{
+  "case_id": "T6-N03-changed",
+  "scenario": "N03",
+  "domain": "network",
+  "split": "dev",
+  "variant": "changed",
+  "change_type": "missing_peer_condition",
+  "expected_primary_kind": "DIRECT_EFFECT",
+  "expected_operation": "FIRST_MINUS_SECOND",
+  "expected_query_count": 1,
+  "reference_review_status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW",
+  "source_note": "下列参考是作者自拟测试口径，不是项目数学认证或独立审读结果。",
+  "manual_checks": [
+    "自变量是乙本人T",
+    "甲丙同伴状态固定且不自动消失",
+    "变体的同伴条件未决定"
+  ],
+  "expected_fact_warning": "变体撤掉共同同伴状态；不可用不考虑邻居替换。",
+  "must_not_claim_point_from_a0": true,
+  "reference_semantics": {
+    "query_kinds": [
+      "DIRECT_EFFECT"
+    ],
+    "first": "乙本人启用，同伴甲丙都不启用",
+    "second": "乙本人不启用，同伴甲丙都不启用",
+    "evaluation": "乙",
+    "time": "第4周",
+    "background": "甲丙处理条件固定"
+  },
+  "evaluation_scope": "A0目标+字段/引用；A4/A5与全链路需额外真实事实读取和审核"
+}

@@ -1,0 +1,31 @@
+{
+  "case_id": "T6-pilot-partial",
+  "expected_state": "PARTIAL",
+  "independently_reviewed": false,
+  "business_answer_prepared_before_model_response": null,
+  "expected_target": {
+    "assignment": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "unit_weights": [
+      "1/7",
+      "1/7",
+      "1/7",
+      "1/7",
+      "1/7",
+      "1/7",
+      "1/7"
+    ]
+  },
+  "expected_interval": [
+    "3/7",
+    "4/7"
+  ],
+  "mathematical_non_point_evidence": "已限定完整有限均值模型且sharp上下界严格不同；应由证书重放确认。"
+}

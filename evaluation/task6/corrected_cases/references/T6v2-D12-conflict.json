@@ -1,0 +1,9 @@
+{
+  "case_id": "T6v2-D12-conflict",
+  "historical_source": "T6-D12-changed",
+  "expected_state": "CONFLICT_STOP",
+  "issue": "X→M是否成立以及观察总体联合分布均未确认",
+  "clarification_answer_prepared": "研究者确认促销X发生在接触M之前，变量图包含X→M；观察总体联合分布P(X,M,Y)可用。",
+  "reference_review": "AUTHOR_DRAFT_NOT_INDEPENDENTLY_CERTIFIED",
+  "warning": "该参考只指导追问，不证明相关科学条件或最终识别结果。"
+}

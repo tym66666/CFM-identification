@@ -1,0 +1,19 @@
+{
+  "case_id": "T6v2-D12-conflict",
+  "business_question": "把促销X设为0时，下一月续费Y的总体干预分布是什么？研究者问P(Y|do(X=0))。",
+  "response_language": "zh",
+  "sources": [
+    {
+      "source_id": "protocol",
+      "kind": "STUDY_PROTOCOL",
+      "text": "研究者确认变量图：促销X→接触M→续费Y；潜在共同原因U同时影响X与Y，以X↔Y表示未观测混杂。这里是变量图，不是门店合作网络。",
+      "label": "研究方案声明（待独立审核）"
+    },
+    {
+      "source_id": "information",
+      "kind": "DATA_DICTIONARY",
+      "text": "中介M是否发生在促销X之后还没有记录；因果箭头X→M是否成立尚未确认，观察总体分布也未被明确提供。",
+      "label": "信息范围或变体记录"
+    }
+  ]
+}

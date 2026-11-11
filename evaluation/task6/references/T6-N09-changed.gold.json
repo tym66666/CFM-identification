@@ -1,0 +1,32 @@
+{
+  "case_id": "T6-N09-changed",
+  "scenario": "N09",
+  "domain": "network",
+  "split": "holdout",
+  "variant": "changed",
+  "change_type": "conflicting_second_query",
+  "expected_primary_kind": "MULTI",
+  "expected_operation": "MIXED",
+  "expected_query_count": 2,
+  "reference_review_status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW",
+  "source_note": "下列参考是作者自拟测试口径，不是项目数学认证或独立审读结果。",
+  "manual_checks": [
+    "识别两个目标而非漏掉第二问",
+    "第一问固定政策均值",
+    "第二问方向按完整问句且不偷换"
+  ],
+  "expected_fact_warning": "两个query要独立保留；变体不能擅自挑一个方向。",
+  "must_not_claim_point_from_a0": true,
+  "reference_semantics": {
+    "query_kinds": [
+      "FIXED_POLICY_VALUE",
+      "TOTAL_EFFECT"
+    ],
+    "first": "Q1全部启用；Q2全启用",
+    "second": "Q1不适用；Q2全不启用",
+    "evaluation": "甲乙丙丁等权",
+    "time": "第4周",
+    "background": "两个独立目标"
+  },
+  "evaluation_scope": "A0目标+字段/引用；A4/A5与全链路需额外真实事实读取和审核"
+}

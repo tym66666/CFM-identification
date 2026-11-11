@@ -1,0 +1,31 @@
+{
+  "case_id": "T6-N07-full",
+  "scenario": "N07",
+  "domain": "network",
+  "split": "dev",
+  "variant": "full",
+  "change_type": null,
+  "expected_primary_kind": "SPILLOVER_EFFECT",
+  "expected_operation": "FIRST_MINUS_SECOND",
+  "expected_query_count": 1,
+  "reference_review_status": "AUTHOR_DRAFT_PENDING_INDEPENDENT_REVIEW",
+  "source_note": "下列参考是作者自拟测试口径，不是项目数学认证或独立审读结果。",
+  "manual_checks": [
+    "区分加权比例与人数",
+    "乙自己T=0保持不变",
+    "变体暴露口径冲突"
+  ],
+  "expected_fact_warning": null,
+  "must_not_claim_point_from_a0": true,
+  "reference_semantics": {
+    "query_kinds": [
+      "SPILLOVER_EFFECT"
+    ],
+    "first": "乙不启用，同伴加权比例1",
+    "second": "乙不启用，同伴加权比例0",
+    "evaluation": "乙",
+    "time": "第4周",
+    "background": "加权=(3T甲+T丙)/4"
+  },
+  "evaluation_scope": "A0目标+字段/引用；A4/A5与全链路需额外真实事实读取和审核"
+}

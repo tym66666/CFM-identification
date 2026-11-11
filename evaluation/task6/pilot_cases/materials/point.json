@@ -1,0 +1,49 @@
+{
+  "case_id": "T6-pilot-point",
+  "business_question": "如果这5个网点都使用AI助手，评价全部这些网点、每个网点权重相同，平均按时完成率能否由现有总体信息唯一确定？",
+  "sources": [
+    {
+      "source_id": "study",
+      "kind": "OTHER",
+      "text": "本周有5个服务网点，名单为中心、网点1、网点2、网点3、网点4。每个网点使用AI记1、不使用记0；结果是本周任务是否按时完成，完成记1、未完成记0。",
+      "label": null
+    },
+    {
+      "source_id": "network",
+      "kind": "OTHER",
+      "text": "合作网络为固定的处理前简单无向网络，完整边为中心—网点1、中心—网点2、中心—网点3、中心—网点4，没有其他边。",
+      "label": null
+    },
+    {
+      "source_id": "assignment",
+      "kind": "OTHER",
+      "text": "原试点每个网点各自独立以1/2概率使用AI，所有网点的抽签相互独立。",
+      "label": null
+    },
+    {
+      "source_id": "science",
+      "kind": "OTHER",
+      "text": "研究明确采用：已知上述完整分配律；完整处理向量与所有网点在所有完整安排下的潜在结果独立；一致性，即观察结果等于实际安排下的潜在结果；处理前固定网络；所需条件一阶矩有限。",
+      "label": null
+    },
+    {
+      "source_id": "information",
+      "kind": "OTHER",
+      "text": "已知每个网点的结果与完整处理向量的联合总体分布，作为符号总体信息；不是有限样本估计值。",
+      "label": null
+    },
+    {
+      "source_id": "exposure",
+      "kind": "OTHER",
+      "text": "同伴暴露定义为合作邻居中严格超过一半使用AI时为1，否则为0；平票为0，孤立节点为0。",
+      "label": null
+    },
+    {
+      "source_id": "sufficiency",
+      "kind": "OTHER",
+      "text": "研究不采用潜在结果均值只由自身处理和同伴暴露决定的限制。",
+      "label": null
+    }
+  ],
+  "response_language": "zh"
+}

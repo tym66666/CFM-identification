@@ -1,0 +1,31 @@
+{
+  "git_head": "2ea5cedda46911b9e1287c0c3c5c5ab7734394fb",
+  "model": "deepseek-v4-flash",
+  "profiles": {
+    "prompt_only": "target-first-operands-1",
+    "prompt_plus_skill": "target-first-skill-1"
+  },
+  "skill_manifest": {
+    "name": "causal-business-reading",
+    "resource": "resources/causal_business_reading/SKILL.md",
+    "sha256": "83eb3c4c7d8857d3329c23d65d9aa2324c89b8e2560b11490b24895e64e69125",
+    "loaded": true,
+    "mode": "prompt_injected_skill_no_remote_tools"
+  },
+  "original_reading_config": {
+    "version": "business-reading-config-1",
+    "reading_format": "compact",
+    "fact_format": "short_refs",
+    "assignment_semantics": "joint-assignment-law-1",
+    "target_summary_contract": "target-summary-3",
+    "a0_reference_contract": "compact-source-paragraphs-1",
+    "a0_response_contract": "target-first-skill-1",
+    "network_fact_contract": "network-shared-definitions-1"
+  },
+  "timeout": 300.0,
+  "max_tokens": 16384,
+  "thinking": "disabled",
+  "json_mode": true,
+  "repeats": 2,
+  "comparison_limitation": "Profiles use different system prompt AND schema/parser contract; not isolated causal Skill effect"
+}
