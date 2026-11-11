@@ -55,6 +55,8 @@
 
 结果：`1086 passed`。
 
+- full pytest：`3009 passed, 133 subtests passed`；此前 acceptance wrapper 失败仅因上游测试改名后 required node 仍是旧名字，已在本 PR 中修正。
+
 - 真实 LLM 首答/复查：未运行。任务书把 LLM 读取对照实验归任务 6；本 PR 只提供题库和评分底座。
 
 ## 未完成与边界

@@ -58,7 +58,8 @@ check_framework chain: 1086 passed
 - 4 个 holdout 是 development holdout，不是仓库历史盲测；
 - `LIT-NET-07` 改动版作为 holdout 未运行；
 - 全仓库 full 套件和安装/发布验收未跑；
-- 真实 LLM API 评测未跑，属于任务 6 / 后续统一评测。
+- 真实 LLM API 评测未跑，属于任务 6 / 后续统一评测；
+- CI 首次失败原因已定位：`evaluation/framework_acceptance.json` 引用了上游已改名的测试 `test_other_readers_do_not_silently_drop_explicit_conditions`；已改为 `test_single_policy_reader_preserves_explicit_conditions_for_native_review`。full pytest 本身为 `3009 passed, 133 subtests passed`。
 
 ## 7. push 前结论
 
