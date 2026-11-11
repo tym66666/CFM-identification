@@ -32,7 +32,7 @@
 
 ### 3.1 ① 不等概率固定名额
 
-恰选 `m` 个 treated，但各完整名单概率不等。两种等价表示：
+恰选 `m` 个 treated，但各完整名单概率不等。支持两种输入方式：任意合法完整名单概率表，以及更受限的单位权重乘积族。它们并不等价；后者可展开为概率表，任意概率表未必可写成单位权重乘积：
 
 \[
 q(A)=\begin{cases}
@@ -41,9 +41,11 @@ p_A, & A\in\mathcal A,\ \sum_{A\in\mathcal A}p_A=1,\ |A|=m,\\[4pt]
 \end{cases}
 \]
 
+例如四节点恰选两人时，乘积族必须满足 `q(ab)q(cd)=q(ac)q(bd)=q(ad)q(bc)`，任意名单概率表没有该限制。
+
 其余 `|A|\ne m` 的名单 `q=0`。**关键查找**：`\sum_A q(A)=1`；不在 `\mathcal A`（或权重为零组合）的名单概率严格为 0；条件于 `T_i=a` 后仅保留含/不含 `i` 的名单重新归一。
 
-### 3.2 ② 按平衡规则重随机化（Hájek 1964 rejective sampling）
+### 3.2 ② 按平衡规则重随机化（Morgan–Rubin 2012）
 
 设基础律 `q(A)` 与处理前平衡事件 `B(A)`（如各协变量 treated 与 untreated 均值差的绝对值不超过容差 `\delta`），重随机化后的律为拒绝抽样：
 
@@ -62,6 +64,8 @@ P_q(B)=\sum_{A}q(A)\,\mathbf1\{B(A)}>0.
 S_i(t)=\sum_{j\in N(i)}w_{ij}t_j \quad(\text{sum}),\qquad\text{或}\qquad
 S_i(t)=\frac{\sum_{j\in N(i)}w_{ij}t_j}{\sum_{j\in N(i)}w_{ij}} \quad(\text{proportion}).
 \]
+
+业务读取字段目前只接受每个邻居一个全局权重 `w_j`；原生数学对象另可表达逐边 `w_ij`。不能把原生接口的逐边能力宣称为已通过自然语言入口验收。
 
 proportion 模式下要求权重和非零（零权重节点该状态无定义）。状态是 `\mathbb Q` 上的精确值，不合并不同加权和。
 
@@ -85,16 +89,18 @@ S_i(t)=\Big(\sum_{j\in G_1}t_j,\ \dots,\ \sum_{j\in G_K}t_j\Big),
 
 ## 5. 四类目标
 
-对每个目标，`POINT` 仅当所需单元格全部正支持且必要假设已确认；否则返回 `UNSUPPORTED` 并给出阻断原因。
+以下是本次接入的目标与各路线所需支持。条件未审核、缺失和方法适用性失败由业务入口分别报告；原生路线的 `UNSUPPORTED` 不等于已证明目标不可识别。
 
 | 目标 | 数学定义 | 正支持条件 |
 |---|---|---|
-| `local_direct_mean` | `E_w[Y_i(1,s)-Y_i(0,s)]` | 每个评价节点 `(0,s)` 与 `(1,s)` 正支持 |
-| `peer_spillover_mean` | `E_w[Y_i(a,s')-Y_i(a,s)]` | 每个评价节点 `(a,s)` 与 `(a,s')` 正支持 |
-| `policy_mean` | `E_q[Y(\phi(A))]=\sum_A q(A)\,Y(\phi(A))` | 每个正概率名单都有响应 |
-| `policy_contrast` | `E_{q_1}[Y]-E_{q_2}[Y]` | 两个政策各自 `policy_mean` 均 POINT |
+| `local_direct_mean` | `sum_i omega_i [mu_i^q(1,s|w)-mu_i^q(0,s|w)]` | 每个非零权重评价节点的 `(0,s)` 与 `(1,s)` 正支持 |
+| `peer_spillover_mean` | `sum_i omega_i [mu_i^q(a,s_1|w)-mu_i^q(a,s_0|w)]` | 每个非零权重评价节点的两个暴露格正支持 |
+| `policy_mean` | `V(z|w)=sum_i omega_i E[Y_i(z)|W=w]` | R1b 要求完整政策 `q(z|w)>0`；R2 另需均值签名充分性及各目标签名正支持 |
+| `policy_contrast` | `V(z_1|w)-V(z_0|w)` | 两端分别满足所用路线条件，保持比较方向与共同评价范围 |
 
-其中 `\phi(A)` 是政策到评价单元的映射，`\omega_i` 为单元权重（默认等权、可归一化）。`policy_mean`/`policy_contrast` 是完整分配层面目标，与 arm-mean 的 `local_direct_mean`/`peer_spillover_mean` 分属不同泛函，不可互换充分性许可。
+其中 `omega_i` 是已审核的评价权重，和为 1。局部效应默认是按原设计 `q` 平均的 arm 均值之差；未采用额外充分性时不能把它写成只由 `(a,s)` 决定的潜在结果 `Y_i(a,s)`。固定政策 `z` 是要评价的安排，不是生成试验处理的分配律 `q`。
+
+有限政策混合另以明确给定的权重 `rho_k` 组合 `sum_k rho_k V(z_k|w)`；它不等于自动按试验律 `q` 平均，也不构成任意策略函数的识别。完整政策与 arm 目标的充分性条件不得互换。上述支持是各路线的充分条件；支持失败只说明该路线不能给出结论，不是一般非点识别证明。
 
 ## 6. A4/A5/A6 门禁（fail-closed）
 
@@ -126,6 +132,8 @@ S_i(t)=\Big(\sum_{j\in G_1}t_j,\ \dots,\ \sum_{j\in G_K}t_j\Big),
 - **识别什么**：设计标准化条件 arm 均值 `\mu_i^q(a,s)=E[Y_i^{obs}\mid T_i=a,S_i=s]`（`\pi_i(a,s)>0`）；直接/溢出效应为 arm mean 对比；政策值与两政策差值在已知完整分配律下（R1B），或显式采用均值签名充分性时经 R2。
 - **需要哪些条件**：`known_assignment_law`、`full_vector_randomization`、`consistency`、`fixed_pretreatment_network`、`finite_conditional_first_moments`、目标 arm 正支持；新设计精确支持依赖 `N\le 8` 全排列枚举。`exposure_sufficiency` **不是**设计标准化对比的条件（见 §1、§6）。
 - **已完成**：① 不等概率固定名额、② 重随机化、③ 加权暴露、④ 分组暴露，均接入正式流程——单臂证书（`rule.identify`）、批量 `identification_batch`（W/G 按节点可达状态并集，非矩形，不可达格 pad UNSUPPORTED）、组合 `identification_composition`（W/G 坐标解析 + 独立 oracle）、效应业务派单、扩展 R1A 路由（D1–D8）；新设计的政策均值/两政策差值走 R1B（固定政策值，含有限政策混合）与 R2（均值签名充分性，含两政策端点）。
-- **未完成**：`N>8` 解析推广（U1）；数值 PFN Estimation（U2）；R2 的 W/G 签名（U3，W/G 走 R1B/效应路线）；D4–D6 上 W/G 的独立分配质量（U4，部分完成：质量仍为全律镜像、暴露统计量独立）；默认优先 R2（U5）；任意 stochastic policy kernel、动态/未知图、多值或连续处理、R3 观测条件分解（U6）。详见缺项/限制表。
+- **未完成**：`N>8` 解析推广（U1）；数值 PFN Estimation（U2）；R2 的 W/G 签名（U3，W/G 走 R1B/效应路线）；默认优先 R2（U5）；任意 stochastic policy kernel、动态/未知图、多值或连续处理、R3 观测条件分解（U6）。详见缺项/限制表。
 
 本文件是受限的识别结果数学合同，不是关于真实业务假设成立、实证随机化协议可靠或具体效应大小的声明。
+
+维护者补充（2026-11-11）：D4–D6 的分配质量现由验证器分别从簇、组内配额和两阶段混合概率独立复算；故障注入测试要求共享求解计算被破坏后仍拒绝错误证书。已有业务入口验收使用固定读取样例，不能代替真实 LLM 或网页自然语言验收。

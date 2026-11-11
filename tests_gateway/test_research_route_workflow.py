@@ -91,10 +91,15 @@ class RouteWorkflowTests(unittest.TestCase):
         self.assertEqual(p.model_dump(),original)
 
     def test_capabilities_are_descriptive_not_autorouting(self):
-        self.assertEqual(len(capabilities()),4)
-        self.assertIn('DAG_CLASSICAL_FRONTDOOR',{x.route_id for x in capabilities()})
-        self.assertIn('DAG_ADJUSTMENT',{x.route_id for x in capabilities()})
-        self.assertEqual({x.model_family for x in capabilities()},{'STATIC_CAUSAL_DAG','FIXED_NETWORK_MEAN_ORDER'})
+        items=capabilities()
+        self.assertEqual({x.route_id for x in items},{'DAG_CLASSICAL_BACKDOOR','DAG_ADJUSTMENT',
+            'DAG_CLASSICAL_FRONTDOOR','MEAN_ORDER_D2_E1','BINARY_IV_LATE_ATE'})
+        self.assertEqual(len(items),len({x.route_id for x in items}))
+        self.assertEqual({x.model_family for x in items},
+            {'STATIC_CAUSAL_DAG','FIXED_NETWORK_MEAN_ORDER','BINARY_INSTRUMENTAL_VARIABLE'})
+        from cfm_id.research_route_catalog import inventory
+        self.assertFalse(inventory()['automatic_route_inference'])
+        self.assertFalse(inventory()['production_admission'])
 
 
 if __name__=='__main__':unittest.main()

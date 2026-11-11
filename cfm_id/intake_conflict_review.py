@@ -45,8 +45,11 @@ def review_conflict(value,query_id,*,field_review,conflict_review):
     ids=[x.source_id for x in r.sources]
     if len(ids)!=len(set(ids)) or any(x.source_id not in catalog or x.quote not in catalog[x.source_id]['text'] for x in r.sources):
         raise ValueError('CONFLICT_SOURCES_INVALID_OR_STALE')
-    if len({catalog[x.source_id]['doc_id'] for x in r.sources})<2:
-        raise ValueError('TWO_DISTINCT_CONFLICT_SOURCE_DOCUMENTS_REQUIRED')
+    # Distinct located statements may conflict within one document. Requiring
+    # separate documents incorrectly blocks that case; repeated quotes alone
+    # cannot serve as the two statements of the review.
+    if len({x.quote.strip() for x in r.sources})<2:
+        raise ValueError('TWO_DISTINCT_CONFLICT_STATEMENTS_REQUIRED')
     return dict(state='CLARIFICATION_REQUIRED',reason_code='REVIEWED_CONFLICT_IN_BUSINESS_MATERIALS',
         clarification_questions=['材料对目标政策或相关业务条件的表述存在冲突。请确认本次使用的安排或条件，并说明哪项表述不再适用？'],
         query_id=query_id,backend_called=False,independent_replay=False,mathematical_claim=None,certificate=None,

@@ -943,13 +943,13 @@
         "full_text_verified": false
       },
       "supports": [
-        "Rejective sampling: sample from a known law conditioned on an acceptance event B, i.e. the exact conditional law q(A)1{B(A)}/P_q(B) used here."
+        "Background on unequal-probability fixed-size rejective sampling; not a general covariate-balance theorem."
       ],
       "does_not_support": [
         "The project uses finite exact enumeration, not the paper's asymptotic theory; no asymptotic guarantee is claimed.",
         "No automatic approval of a business balance rule."
       ],
-      "project_use": "Conceptual source for feature ② exact rejective-sampling law; project derivation and enumeration are independent."
+      "project_use": "Background for the product-weight fixed-quota family; general balance conditioning is derived in the project and motivated by Morgan-Rubin (2012)."
     }
   ],
   "route_maps": [

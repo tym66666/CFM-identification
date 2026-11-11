@@ -178,14 +178,15 @@ def validate_components(assignment, exposure, nodes, edges):
         if any(Fraction(v) < 0 for v in assignment.unit_weights.values()):
             raise ValueError('INVALID_UNIT_WEIGHTS')
     if assignment.balance_covariates is not None or assignment.balance_tolerance is not None:
-        if (assignment.kind != 'RERANDOMIZED_BALANCED'
-                or assignment.balance_covariates is None or assignment.balance_tolerance is None
-                or not assignment.balance_covariates):
-            raise ValueError('BALANCE_RULE_REQUIRES_COVARIATES_AND_TOLERANCE')
-        tol = Fraction(assignment.balance_tolerance)
-        if tol < 0:
+        if assignment.kind != 'RERANDOMIZED_BALANCED':
+            raise ValueError('BALANCE_RULE_REQUIRES_RERANDOMIZED_DESIGN')
+        # A missing half of the declaration is a question for the user.
+        # Validate supplied values here; missing_assignment owns completeness.
+        if assignment.balance_tolerance is not None and Fraction(assignment.balance_tolerance) < 0:
             raise ValueError('INVALID_BALANCE_TOLERANCE')
-        for name, values in assignment.balance_covariates.items():
+        if assignment.balance_covariates is not None and not assignment.balance_covariates:
+            raise ValueError('BALANCE_COVARIATES_COMPLETE_NODE_SCOPE_REQUIRED')
+        for name, values in (assignment.balance_covariates or {}).items():
             if not str(name).strip() or not values or set(values) != set(nodes):
                 raise ValueError('BALANCE_COVARIATES_COMPLETE_NODE_SCOPE_REQUIRED')
     if exposure.core_collaborators is not None:

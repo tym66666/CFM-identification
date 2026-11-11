@@ -4,7 +4,7 @@ The references are fixed synthetic readings, not measurements of LLM accuracy.
 """
 from copy import deepcopy
 from fractions import Fraction
-from itertools import product
+from itertools import product, combinations
 from math import comb
 import json
 import pytest
@@ -35,6 +35,28 @@ def full_probability(design, z):
             if len({z[n] for n in members})!=1:return Fraction(0)
             result*=Fraction(p) if z[members[0]] else 1-Fraction(p)
         return result
+    if kind in ('UNEQUAL_PROBABILITY_FIXED_QUOTA','RERANDOMIZED_BALANCED'):
+        nodes=tuple(z);m=design['fixed_count']
+        law={}
+        for treated in combinations(nodes,m):
+            treated=frozenset(treated)
+            if design.get('unit_weights') is not None:
+                weight=Fraction(1)
+                for n in treated:weight*=Fraction(design['unit_weights'][n])
+            else:
+                weight=sum((Fraction(p) for members,p in zip(design['treated_sets'],design['set_probabilities'])
+                            if frozenset(members)==treated),Fraction(0))
+            if kind=='RERANDOMIZED_BALANCED':
+                rest=set(nodes)-treated
+                if not treated or not rest:weight=Fraction(0)
+                else:
+                    for values in design['balance_covariates'].values():
+                        delta=sum(Fraction(values[n]) for n in treated)/len(treated)-sum(Fraction(values[n]) for n in rest)/len(rest)
+                        if abs(delta)>Fraction(design['balance_tolerance']):weight=Fraction(0)
+            law[treated]=weight
+        total=sum(law.values(),Fraction(0))
+        assert total>0
+        return law.get(frozenset(n for n,v in z.items() if v),Fraction(0))/total
     def conditional(quotas):
         result=Fraction(1)
         for group,m in zip(design['groups'],quotas):
@@ -105,6 +127,20 @@ def test_parameter_gap_does_not_call_any_native_constructor(monkeypatch,design):
     monkeypatch.setattr(network_design_adapter,'make_arm',forbidden)
     r=dispatch.execute(s,'q1',**o,research_protocol_selected=True)
     assert r['state']=='NEEDS_INPUT' and not r['backend_called']
+
+
+@pytest.mark.parametrize('missing', ['balance_covariates', 'balance_tolerance'])
+def test_partial_balance_rule_is_missing_but_invalid_supplied_part_is_rejected(missing):
+    s,e,o,_=setup('D8','E4')
+    o['candidate']['assignment'][missing]=None
+    body=json.JSONDecoder().raw_decode(e['request']['user'])[0]
+    Draft202012Validator(body['output_schema']).validate(o['candidate'])
+    result=dispatch.execute(s,'q1',**o,research_protocol_selected=True)
+    assert result['state']=='NEEDS_INPUT' and not result['backend_called']
+    if missing=='balance_covariates':o['candidate']['assignment']['balance_tolerance']='-1'
+    else:o['candidate']['assignment']['balance_covariates']={}
+    result=dispatch.execute(s,'q1',**o,research_protocol_selected=True)
+    assert result['state']=='CHECK_BLOCKED' and not result['backend_called']
 
 
 @pytest.mark.parametrize('family',['effect','policy','contrast'])

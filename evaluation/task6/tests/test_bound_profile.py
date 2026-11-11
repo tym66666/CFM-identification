@@ -6,6 +6,12 @@ from evaluation.task6.scripts.pilot_fullchain import case
 
 
 class BoundProfileTests(unittest.TestCase):
+    def test_new_pilot_defaults_to_bound_profile_without_changing_product_default(self):
+        from inspect import signature
+        from evaluation.task6.scripts.pilot_fullchain import run
+        self.assertEqual(signature(run).parameters['candidate_version'].default,'bound')
+        self.assertEqual(project.reading_config().a0_response_contract,'target-first-skill-1')
+
     def test_opt_in_profile_in_request_and_stale_prompt_rejected(self):
         config=project.reading_config().model_dump(mode='json')
         self.assertEqual(config['a0_response_contract'],'target-first-skill-1')

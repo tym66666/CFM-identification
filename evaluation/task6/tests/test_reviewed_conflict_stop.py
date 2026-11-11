@@ -11,6 +11,25 @@ from evaluation.task6.scripts.verify_final import verify
 
 
 class ConflictStopTests(unittest.TestCase):
+    def test_distinct_statements_in_one_document_can_trigger_reviewed_stop(self):
+        field='queries.q1.semantics.first_arrangement'
+        review={'authority':'SYNTHETIC_TEST','decisions':{field:{'value_state':'REJECTED'}}}
+        conflict={'query_id':'q1','field':field,'authority':'SYNTHETIC_TEST','reviewer':'Reviewer',
+                  'reason':'The same document gives conflicting treatment arrangements.',
+                  'sources':[{'source_id':'s1','quote':'all enabled'}, {'source_id':'s2','quote':'all disabled'}]}
+        snapshot=SimpleNamespace(model_dump=lambda **kw:{'id':'case'})
+        catalog={'s1':{'doc_id':'memo','text':'all enabled'},'s2':{'doc_id':'memo','text':'all disabled; all enabled'}}
+        with patch.object(intake_conflict_review.business_intake,'_checked',return_value=snapshot), \
+             patch.object(intake_conflict_review,'sources',return_value=catalog), \
+             patch.object(intake_conflict_review.business_field_review,'submit',return_value={'state':'CHECK_BLOCKED','reason_code':'DISPATCH_REVIEW_REJECTED'}):
+            result=intake_conflict_review.review_conflict(snapshot,'q1',field_review=review,conflict_review=conflict)
+            self.assertEqual(result['state'],'CLARIFICATION_REQUIRED')
+            self.assertFalse(result['scientific_approval'])
+            self.assertFalse(result['backend_called'])
+            conflict['sources'][1]['quote']='all enabled'
+            with self.assertRaisesRegex(ValueError,'DISTINCT_CONFLICT_STATEMENTS'):
+                intake_conflict_review.review_conflict(snapshot,'q1',field_review=review,conflict_review=conflict)
+
     def test_reviewer_intervention_requires_real_rejection_and_does_not_certify(self):
         case=BusinessCase.model_validate(json.loads((stop.ROOT/'pilot_cases/materials/conflict.json').read_text(encoding='utf8')))
         review={'authority':'SYNTHETIC_TEST','reviewer':'Review test',

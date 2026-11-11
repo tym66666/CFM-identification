@@ -44,7 +44,7 @@ def case(name):
     return json.loads(path.read_text(encoding='utf8'))
 
 
-def run(out, model, base_url, timeout=120, cases=None, arms=None, candidate_version='v1'):
+def run(out, model, base_url, timeout=120, cases=None, arms=None, candidate_version='bound'):
     out=Path(out);out.mkdir(parents=True,exist_ok=False)
     private=out/'private';private.mkdir()
     config=project.reading_config().model_dump(mode='json')
@@ -86,8 +86,8 @@ def run(out, model, base_url, timeout=120, cases=None, arms=None, candidate_vers
                 candidate=p.generate_json(system_prompt=effective,user_prompt=request['user_prompt'])
                 save(folder/'model_candidate.json',candidate)
                 row['response_received']=True
-                # Candidate-arm prompts are not the project's bound request. Do not
-                # submit them as if the project had bound the modified prompt.
+                # Historical v1/v2 addenda are for inspection only. The bound
+                # candidate profile can continue after the normal review gates.
                 s=business_intake.receive_candidate(s,candidate,request_sha256=request['request_sha256'])
                 inspected=business_intake.inspect(s)
                 save(folder/'inspection.json',inspected)
@@ -124,7 +124,7 @@ if __name__=='__main__':
     parser.add_argument('--cases',nargs='+',choices=['point','partial','missing','conflict']+
         ['T6v2-'+case+'-'+variant for case in ('N03','N04','N08','D12') for variant in ('missing','conflict')])
     parser.add_argument('--arms',nargs='+',choices=['baseline','candidate'])
-    parser.add_argument('--candidate-version',choices=['v1','v2','bound'],default='v1')
+    parser.add_argument('--candidate-version',choices=['v1','v2','bound'],default='bound')
     parser.add_argument('--timeout',type=float,default=120)
     parser.add_argument('--key-stdin',action='store_true',help='Read a key from stdin without storing it')
     args=parser.parse_args()

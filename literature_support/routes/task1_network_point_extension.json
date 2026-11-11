@@ -15,7 +15,7 @@
       "morgan_rubin2012_rerandomization",
       "hajek1964_rejective_sampling"
     ],
-    "role": "Assignment-design / exposure-mapping / estimand separation (Aronow-Samii); rerandomization as conditioning on a pre-treatment balance event (Morgan-Rubin); exact rejective-sampling law q_B(A)=q(A)1{B(A)}/P_q(B) (Hájek). None of these titles is imported as a project theorem verbatim.",
+    "role": "Assignment / exposure / estimand separation (Aronow-Samii); pre-treatment balance rerandomization (Morgan-Rubin); fixed-size unequal-probability sampling background (Hajek). The conditioning identity and finite enumeration are project derivations, not verbatim imported theorems.",
     "limitations": [
       "Task-1 design/exposure labels and their 4-feature extensions are not source taxonomies.",
       "The project's exact full-assignment enumeration (N<=8) is not the source papers' asymptotic theory.",
@@ -92,24 +92,25 @@
       "examples_and_business_case": "completed",
       "code_entry_and_extension_rules": "completed",
       "literature_support": "completed",
-      "independent_verifier": "partial",
+      "independent_verifier": "completed_for_declared_finite_contracts",
       "analytic_support_for_N_gt_8_task1_designs": "not_completed",
       "numeric_pfn_estimation": "not_completed_out_of_scope",
       "r2_mean_signature_for_weighted_grouped": "not_completed_not_required",
-      "independent_assignment_mass_for_D4_D6_weighted_grouped": "partial",
+      "independent_assignment_mass_for_D4_D6_weighted_grouped": "completed",
       "default_primary_method_prefers_R2": "not_completed_existing_selection"
     },
     "not_yet_supported": [
       "analytic conditional count law for N>8 task-1 designs",
       "numeric PFN estimation (task requires identification only)",
       "R2 mean-signature sufficiency for weighted/grouped exposures (R2 is an E1-E5 signature route; W/G uses R1B/effect routes)",
-      "independent assignment-mass recomputation for weighted/grouped exposure on D4-D6 (exposure statistic is independent; mass still mirrors the declared full law)",
       "dispatcher does not prefer R2 when both R1B and R2 are available (R2 is planned and independently executable, but the existing first-success selection returns R1B)",
-      "arbitrary stochastic policy kernels, dynamic/unknown graphs, multi-valued or continuous treatment, R3 observational conditional decomposition"
+      "arbitrary stochastic policy kernels, dynamic/unknown graphs, multi-valued or continuous treatment, R3 observational conditional decomposition",
+      "Business reading accepts global neighbor weights, not general per-edge w_ij.",
+      "New design/exposure real-LLM and browser natural-language acceptance remains pending."
     ]
   },
   "path_base": "source repository root",
-  "audit_date": "2026-11-09",
-  "verification_evidence": "Documentation, implementation and test pointers checked against the current source; Task-1 native/composition/business-dispatch tests pass, and the D1-D8 x E1-E5 x four-family reference passes 160/160. No new theorem imported from the cited literature; the project derivation is independent.",
+  "audit_date": "2026-11-11",
+  "verification_evidence": "See named offline tests, including independent partition-law fault injection and replay. Business fixtures are not real LLM results. No new source theorem is imported verbatim.",
   "production_admission": false
 }

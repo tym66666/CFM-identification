@@ -14,9 +14,9 @@ its own code, so a defect in the proposer's ``assignment_probability`` /
   ``weights``; grouped exposure: recompute per-group treated counts directly
   from ``groups``; E1-E5: verifier-owned ``classify``.
 
-It never calls ``SupportEngine``. Base D1-D6 assignment laws fall back to the
-declared full law only as a test cross-check; their production independence is
-provided by the dedicated combinatorial verifiers in ``randomized_network_arm``.
+It never calls ``SupportEngine`` or the producer's assignment-law methods.
+D1-D6 masses are reconstructed from their declared probabilities and partitions,
+including when weighted/grouped exposures use this finite verifier.
 """
 from __future__ import annotations
 
@@ -32,7 +32,8 @@ from .exposure import ExposureSpec
 from .exposure_extensions import GroupedExposureSpec, WeightedExposureSpec
 from ..schemas import (
     HeterogeneousBernoulliDesignV1, CompleteRandomizationDesignV1,
-    TwoGroupFixedQuotaDesignV1)
+    TwoGroupFixedQuotaDesignV1, ClusterBernoulliDesignV24,
+    MultiGroupFixedQuotaDesignV25, TwoStageQuotaMixtureDesignV27)
 
 
 def _network_parts(network):
@@ -142,7 +143,7 @@ def _independent_rerandomized_mass(design, treated, nodes):
 
 
 def _assignment_mass(design, treatment, nodes, network):
-    """q(t) recomputed from declared fields; independent for task-1 and D1-D3."""
+    """q(t) recomputed from declared fields, independently for D1-D8."""
     inner = design.design if isinstance(design, AssignmentSpec) else design
     if isinstance(inner, (UnequalProbabilityFixedQuotaDesign, RerandomizedBalancedDesign)):
         treated = frozenset(n for n in nodes if treatment[n])
@@ -151,9 +152,7 @@ def _assignment_mass(design, treatment, nodes, network):
         return _independent_rerandomized_mass(inner, treated, nodes)
     if isinstance(inner, Mapping):
         return Fraction(inner.get(frozenset(n for n in nodes if treatment[n]), Fraction(0)))
-    # Base D1-D3: recompute the declared law from its primitive fields, never by
-    # calling the proposer's assignment_probability. D4-D6 fall back to the
-    # declared full law (test cross-check only, see the module note).
+    # Reconstruct each supported law from its primitive declarations.
     if isinstance(inner, HeterogeneousBernoulliDesignV1):
         if set(inner.propensities) != set(nodes):
             raise ValueError("Bernoulli design must declare one propensity per fixed node")
@@ -177,14 +176,40 @@ def _assignment_mass(design, treatment, nodes, network):
         if c0 != m0 or c1 != m1:
             return Fraction(0)
         return Fraction(1, comb(len(g0), m0) * comb(len(g1), m1))
-    # Base D4-D6: mirror the declared full law (test cross-check only).
-    if isinstance(design, AssignmentSpec):
-        return design.full_assignment_probability(network, treatment)
-    if hasattr(design, "full_assignment_probability"):
-        return design.full_assignment_probability(network, treatment)
-    if hasattr(design, "assignment_probability"):
-        return design.assignment_probability(treatment)
-    raise TypeError("design must expose complete assignment probabilities")
+    if isinstance(inner, ClusterBernoulliDesignV24):
+        groups = inner.clusters
+    elif isinstance(inner, (MultiGroupFixedQuotaDesignV25, TwoStageQuotaMixtureDesignV27)):
+        groups = inner.groups
+    else:
+        raise TypeError("assignment law has no independent verification contract")
+    flat = [n for group in groups for n in group]
+    if len(flat) != len(nodes) or set(flat) != set(nodes):
+        raise ValueError("design groups must partition exactly the fixed network")
+    if isinstance(inner, ClusterBernoulliDesignV24):
+        mass = Fraction(1)
+        for group, raw in zip(groups, inner.cluster_probabilities):
+            levels = {treatment[n] for n in group}
+            if len(levels) != 1:
+                return Fraction(0)
+            p = Fraction(raw)
+            mass *= p if next(iter(levels)) else 1 - p
+        return mass
+    counts = tuple(sum(treatment[n] for n in group) for group in groups)
+    if isinstance(inner, MultiGroupFixedQuotaDesignV25):
+        profiles = (inner.treated_quotas,)
+        probabilities = (Fraction(1),)
+    else:
+        profiles = inner.quota_profiles
+        probabilities = tuple(Fraction(p) for p in inner.profile_probabilities)
+    mass = Fraction(0)
+    for quotas, probability in zip(profiles, probabilities):
+        if counts != tuple(quotas):
+            continue
+        conditional_mass = probability
+        for group, quota in zip(groups, quotas):
+            conditional_mass /= comb(len(group), quota)
+        mass += conditional_mass
+    return mass
 
 
 def _exposure_state(exposure, treatment, node_id, nbrs):
