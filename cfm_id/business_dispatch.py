@@ -131,7 +131,7 @@ def _fact_request(bundle, binding, reader_id, reference_format, query, contexts,
         request=attach(request,reviewed_intent,binding)
         # One selected intent instead of duplicate canonical policy aliases.
         focus=dict(query_id=query['query_id'],reviewed_intent_sha256=reviewed_intent['intent_sha256'])
-    method_instruction = ('只读取资格、参加、结果、总体信息及科学声明，不计算识别结论。\n' if reader_id == 'BINARY_IV_FACTS' else '原文仍以 source_catalog 为准。不要混入其他子问题，也不要判断识别定理是否成立。\n' if network else
+    method_instruction = ('原文仍以 source_catalog 为准。不要混入其他子问题，也不要判断识别定理是否成立。\n' if network else
                           '原文仍以 source_catalog 为准。不要混入其他子问题，也不要判断后门、调整或前门是否成立。\n')
     request['user'] += ('\n\n本次只读取下面选定子问题。以下定位信息及此前助手提问均不是可引用事实来源；'
                         + method_instruction
@@ -218,18 +218,17 @@ def prepare_reader(intake, query_id, *, query_review=None, reading_revision=None
         if network and dag:
             return dict(out, state='ADAPTER_NOT_CONNECTED', reason_code='COMBINED_OR_AMBIGUOUS_GRAPH_REPRESENTATIONS',
                         scope_note='Both descriptions are retained. This bridge does not compose unit networks and variable DAGs.')
-        iv_target = not network and query['target']['kind'] in ('LATE', 'ATE')
-        if not network and not dag and not iv_target:
+        if not network and not dag:
             return dict(out, state='NEEDS_INPUT', reason_code='RESEARCH_STRUCTURE_NOT_ESTABLISHED',
                         clarification_questions=['材料中的关系指变量之间的因果影响，还是对象之间的相互影响？请核对研究对象与关系说明。'])
         assignment_family = draft['shared_draft']['information_design']['assignment_family']
-        binding = capabilities.reader_for('BINARY_IV_CANDIDATE' if iv_target else ('UNIT_NETWORK' if network else 'VARIABLE_DAG'), query['target']['kind'],
+        binding = capabilities.reader_for('UNIT_NETWORK' if network else 'VARIABLE_DAG', query['target']['kind'],
                                           assignment_family=assignment_family)
         if network and binding is None:
             return dict(out, state='ADAPTER_NOT_CONNECTED', reason_code=(
                 'OBSERVATIONAL_NETWORK_TARGET_NOT_CONNECTED' if assignment_family=='OBSERVATIONAL'
                 else 'NETWORK_TARGET_NOT_CONNECTED_TO_FIXED_POLICY_MEAN'))
-        if (network or iv_target) and s.fact_format != 'short_refs':
+        if network and s.fact_format != 'short_refs':
             return dict(out, state='ADAPTER_NOT_CONNECTED', reason_code='NETWORK_BRIDGE_REQUIRES_SHORT_FACT_READING')
         if dag and binding is None:
             return dict(out, state='ADAPTER_NOT_CONNECTED', reason_code='TARGET_NOT_CONNECTED_TO_DAG_DISTRIBUTION_CONTRACT')

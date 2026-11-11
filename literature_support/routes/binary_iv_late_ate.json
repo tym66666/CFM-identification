@@ -1,8 +1,8 @@
 {
   "schema_version": "literature-support-route-1",
   "route_id": "BINARY_IV_LATE_ATE",
-  "updated_on": "2026-11-09",
-  "development_status": "REGISTERED_REVIEWED_BUSINESS_RESEARCH_BRIDGE",
+  "updated_on": "2026-11-11",
+  "development_status": "REGISTERED_STRUCTURED_RESEARCH_ONLY",
   "route_registered": true,
   "production_admission": false,
   "estimation_handoff_allowed": false,
@@ -21,14 +21,11 @@
     "cfm_id/iv_route_contract.py",
     "cfm_id/iv_research.py",
     "cfm_id/iv_research_adapter.py",
-    "cfm_id_llm/iv_reading.py",
-    "cfm_id/iv_business_dispatch.py",
-    "cfm_id_llm/iv_fact_reading.py"
+    "cfm_id_llm/iv_reading.py"
   ],
   "tests": [
     "tests/test_iv_task4.py",
-    "tests_gateway/test_iv_research_route.py",
-    "tests_gateway/test_iv_business.py"
+    "tests_gateway/test_iv_research_route.py"
   ],
   "verification_obligations": [
     "Negative and positive Wald effects within [-1,1]",
@@ -40,9 +37,11 @@
   ],
   "business_interface": {
     "implementation": [
-      "cfm_id/iv_business_dispatch.py",
-      "cfm_id_llm/iv_fact_reading.py"
+      "cfm_id_llm/iv_reading.py"
     ],
+    "input": "EXPLICIT_STRUCTURED_CANDIDATE",
+    "automatic_business_entry": false,
+    "web_entry": false,
     "reading_and_science_reviews_separate": true,
     "source_catalog_required": true,
     "automatically_approves_assumptions": false,
@@ -52,7 +51,7 @@
     "No non-binary instrument, treatment or outcome support",
     "No automatic scientific assumption discovery or proof",
     "No estimation or policy handoff",
-    "Only reviewed binary IV candidate targets; unsupported structures/extra restrictions block execution; no automatic route fallback."
+    "No free-text automatic IV dispatch or IV web workflow; treatment contrast is fixed to Y(1)-Y(0). Only the explicit structured research interface is released."
   ],
   "runtime_coverage_authority": "cfm_id.capability_registry.inventory",
   "verification_evidence": {

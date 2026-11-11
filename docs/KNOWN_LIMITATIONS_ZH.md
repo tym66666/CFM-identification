@@ -21,3 +21,8 @@
 历史证据仍见[共同定义读取](SHARED_DEFINITION_ACCEPTANCE_ZH.md)、[均值顺序读取](MEAN_ORDER_READING_CONTRACT_ZH.md)、[R3 签名验收](R3_SIGNATURE_ENTRY_ACCEPTANCE_ZH.md)、[设计／暴露验收](NETWORK_DESIGN_LIVE_ACCEPTANCE_ZH.md)。这些记录描述各自日期、配置和材料，分母不同，不合并计算。
 
 下一阶段优先固定跨模型、未参与调试的完整业务评测，并按错误影响划分：目标／信息／科学条件的关键误读、说明性引用、传输失败和程序异常。只有可复现接口矛盾、审核绕过或数学错误立即修复；模型偶发失败作为限制保留，不为单题不断加长 Prompt。
+
+
+## 二元 IV 研究接口（2026-11-11）
+
+已接纳二元 Z/D/Y 的 LATE 与 sharp ATE 界限、独立重放及分别绑定的读取/科学审核。仅通过显式结构化研究接口调用；IV 自动业务分派与网页尚未开放，不将所有 ATE 自动解释为 IV。目标固定为 Y(1)-Y(0)，不自动交给估计/策略。详见 [开发范围](IV_DEVELOPMENT_ZH.md) 与 [运行说明](IV_ACCEPTANCE_ZH.md)。

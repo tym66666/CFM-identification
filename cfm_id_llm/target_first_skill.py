@@ -35,7 +35,6 @@ KIND = Field('kind', '按实际比较的安排范围选择目标类别，而非�
     '本人和同伴状态都变化、其余安排按设计条件平均是LOCAL_TOTAL_EFFECT。'
     'TOTAL_EFFECT要求两份完整政策的均值差；不能仅因原文叫总效应或total effect就选它。'
     '单份完整政策的均值是FIXED_POLICY_VALUE；其他目标按Schema保留，不强行改成完整政策。'
-    'LATE表示因获得资格才参加者的参加效应；ATE表示全体的参加效应，资格与实际参加不得混为一项。'
     '类别不是识别证明；缺失或未决定的比较内容仍保留未知。',section='query',shape='enum')
 REVIEW_RULES={x.name:x for x in (RULE,PEER,AGGREGATION,KIND)}
 

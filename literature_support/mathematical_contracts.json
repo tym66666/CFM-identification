@@ -265,9 +265,7 @@
       "native_route_ids": [
         "BINARY_IV_LATE_ATE"
       ],
-      "business_method_ids": [
-        "BINARY_IV_LATE_ATE"
-      ],
+      "business_method_ids": [],
       "mathematical_documents": [
         "docs/IV_MATH_ZH.md"
       ],

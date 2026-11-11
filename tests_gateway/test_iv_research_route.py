@@ -24,7 +24,7 @@ def review(p):
 def test_iv_route_is_registered_and_inventory_visible():
     reg=resolve('BINARY_IV_LATE_ATE')
     assert reg.problem_type is IVProblem
-    assert reg.business_entry=='cfm_id.iv_business_dispatch'
+    assert reg.business_entry is None
     assert any(r.capability.route_id=='BINARY_IV_LATE_ATE' for r in registrations())
     assert all(row['route_id']!='IV' for row in inventory()['planned_routes'])
 
@@ -76,3 +76,13 @@ def test_ate_route_uses_its_own_target_and_review_scope():
     assert out['state'] in ('POINT','PARTIAL')
     assert out['certificate_replayed'] is True
     assert out['certificate']['target']['kind']=='ATE'
+
+
+def test_iv_is_registered_for_explicit_research_not_automatic_business():
+    from cfm_id import capability_registry as registry
+    data = registry.inventory()
+    route = next(r for r in data['formal_research_adapters'] if r['route_id'] == 'BINARY_IV_LATE_ATE')
+    assert route['business_entry'] is None
+    assert registry.reader_for('BINARY_IV_CANDIDATE', 'ATE') is None
+    assert registry.reader_for('BINARY_IV_CANDIDATE', 'LATE') is None
+    assert not any(b.reader_id == 'BINARY_IV_FACTS' for b in registry.business_bindings())
