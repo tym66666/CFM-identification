@@ -273,7 +273,7 @@
       "doi": "10.1214/16-AOAS1005",
       "urls": {
         "doi": "https://doi.org/10.1214/16-AOAS1005",
-        "author_manuscript": "https://arxiv.org/pdf/1305.6156",
+        "author_manuscript": "https://arxiv.org/pdf/1305.6156v4",
         "author_institution_page": "https://isps.yale.edu/resource/estimating-average-causal-effects-under-general-interference-with-application-to-a-social"
       },
       "read_scope": {
@@ -282,7 +282,8 @@
         "inspected": [
           "Sections 3–4: assignment design, exposure probability and estimand",
           "Conditions 1–2: exposure specification and consistency",
-          "Section 8: misspecified exposures and weighted potential-outcome interpretation"
+          "Section 8: misspecified exposures and weighted potential-outcome interpretation",
+          "任务 7 补核 arXiv:1305.6156v4：§3 的设计、暴露与目标分离；§4 Conditions 1–2；§8 Condition 7、Proposition 8.1 与式 (16)。式 (16) 给出暴露映射错设时，按设计条件概率加权的潜在结果解释。"
         ],
         "not_inspected": [
           "Complete empirical replication",
@@ -361,10 +362,11 @@
         "versioned_manuscript": "https://arxiv.org/abs/2103.06471v2"
       },
       "read_scope": {
-        "level": "abstract_and_metadata",
+        "level": "selected_full_text_sections",
         "read_on": "2026-10-23",
         "inspected": [
-          "Author abstract and manuscript history"
+          "Author abstract and manuscript history",
+          "任务 7 补核 arXiv:2103.06471v2 的 §4.2–4.3，重点为 Definition 1 及其前后的讨论。给定暴露的期望潜在结果按实验设计平均，允许同一暴露类别内的潜在结果不同。"
         ],
         "not_inspected": [
           "Full article and all propositions"
@@ -376,7 +378,7 @@
       ],
       "does_not_support": [
         "Defining E1 does not establish all-assignment mean sufficiency.",
-        "No contribution to the algebraic sharpness proof is claimed from abstract-only reading."
+        "The reviewed sections support a design-averaged exposure target. They do not establish the project's sharp bounds."
       ],
       "project_use": "Explicit distinction between exposure definitions and independent scientific approval of A5."
     },
@@ -468,13 +470,15 @@
       "doi": "10.48550/arXiv.2508.06808",
       "urls": {
         "versioned_manuscript": "https://arxiv.org/abs/2508.06808v2",
-        "html": "https://arxiv.org/html/2508.06808v2"
+        "html": "https://arxiv.org/html/2508.06808v2",
+        "comparison_manuscript": "https://arxiv.org/html/2508.06808v3"
       },
       "read_scope": {
         "level": "selected_full_text_sections",
         "read_on": "2026-10-31",
         "inspected": [
-          "Abstract and table of contents; end of section 3.3; sections 4.1–4.2; section 7 headings"
+          "Abstract and table of contents; end of section 3.3; sections 4.1–4.2; section 7 headings",
+          "任务 7 补核 v2 的 Conditions 1–2 和式 (3.1)–(3.2)：完整向量可忽略性、条件可忽略性，以及固定图下由潜在结果转到观测条件结果的论证。另对照 v3 §4.3 的式 (4.1)–(4.2) 和 Condition 3，分别记录其全安排正支持表述。"
         ],
         "not_inspected": [
           "All proofs, supplements and author software; no full-paper verification claimed."
@@ -489,7 +493,7 @@
         "没有提供本项目 R/D/E 编号、A0–A6 流程或六人分工。",
         "综述中的识别表述不免除具体目标的支持条件；不证明当前软件覆盖。"
       ],
-      "project_use": "恢复旧交接 B01 的概念来源；本次只核对所列部分。"
+      "project_use": "恢复旧交接 B01 的概念来源；本次只核对所列部分。任务 7 以 v2 为主版本，v3 仅作正支持条件对照。R1b 只要求指定目标安排有正支持，并另行检查 A4 总体信息。"
     },
     {
       "id": "halloran_hudgens2016_review",
@@ -546,7 +550,8 @@
         "level": "selected_full_text_sections",
         "read_on": "2026-10-31",
         "inspected": [
-          "Abstract, introduction, section 4.2.1 (stratified interference)"
+          "Abstract, introduction, section 4.2.1 (stratified interference)",
+          "任务 7 补核 §2.1 的组间无干扰设定，以及 §3.1 式 (1) 后的 individual average potential outcome 定义：给定本人处理后，按分配策略对组内其余安排取条件平均。"
         ],
         "not_inspected": [
           "All proofs, supplements and author software; no full-paper verification claimed."
@@ -583,10 +588,12 @@
         "level": "selected_full_text_sections",
         "read_on": "2026-10-31",
         "inspected": [
-          "Author-version section 2 headings; sections 2.4–2.5, Assumption 3 and Theorem 1; final-paper metadata inherited from handoff"
+          "Author-version section 2 headings; sections 2.4–2.5, Assumption 3 and Theorem 1; final-paper metadata inherited from handoff",
+          "任务 7 补核 2018 年作者稿 v4：§2.2 Assumption 2 的邻域潜在结果限制，以及 §2.4–2.5 Assumption 3、Theorem 1 和式 (7) 的局部联合处理无混杂与协变量标准化。"
         ],
         "not_inspected": [
-          "All proofs, supplements and author software; no full-paper verification claimed."
+          "All proofs, supplements and author software; no full-paper verification claimed.",
+          "任务 7 尚未核对 V_g 的精确定义、相关协变量层内的正支持条件及附录证明。"
         ],
         "full_text_verified": false
       },

@@ -7,16 +7,17 @@
     "R1A_COMPOSITION"
   ],
   "runtime_coverage_authority": "cfm_id.capability_registry.inventory",
-  "literature_scope": {
+    "literature_scope": {
     "source_ids": [
       "aronow_samii2017_interference",
       "savje_exposure_definitions",
       "hudgens_halloran2008_interference"
     ],
-    "role": "Design/exposure/estimand separation and design-standardized contrasts; exact project permission follows its own proof.",
+    "role": "Aronow–Samii §8 Proposition 8.1 and equation (16), and Sävje v2 §4.3 Definition 1, support averaging potential outcomes over assignments conditional on exposure under the design. Hudgens–Halloran §3.1 gives a related average conditional on own treatment under a group assignment strategy.",
     "limitations": [
-      "Project R1a labels and all D×E combinations are not source taxonomies.",
-      "Project arm mean does not assume exposure sufficiency."
+      "Hudgens–Halloran §2.1 assumes no interference between groups. The project specializes the design-averaging idea to a node and arm in a fixed pretreatment network.",
+      "The project arm mean allows potential outcomes to differ within the arm. The project contract specifies the target and support requirements for each case.",
+      "R1a and the D/E identifiers are project labels. The cited passages do not establish software coverage."
     ]
   },
   "project_math_documents": [

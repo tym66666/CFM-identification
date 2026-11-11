@@ -7,16 +7,17 @@
     "R3_MEAN_SIGNATURE"
   ],
   "runtime_coverage_authority": "cfm_id.capability_registry.inventory",
-  "literature_scope": {
+   "literature_scope": {
     "source_ids": [
       "bhadra_schweinberger2026_review",
       "forastiere_airoldi_mealli2021_network",
       "savje_exposure_definitions"
     ],
-    "role": "Conditional ignorability versus local exposure adjustment; project full-vector/signature contracts are separately proved.",
+    "role": "Bhadra–Schweinberger v2 Condition 2 provides context for full-vector conditional exchangeability. Forastiere et al. author manuscript v4 Assumptions 2–3 and Theorem 1 provide a comparison with local joint-treatment adjustment. Sävje distinguishes exposure definitions from response assumptions.",
     "limitations": [
-      "Forastiere local adjusted targets are not identical to full-policy means.",
-      "Full-vector exchangeability, mean sufficiency and support each need their own review."
+      "The project derives its fixed-policy formulas under full-vector conditional exchangeability. Full uses positive support for the target assignment. Signature additionally requires all-assignment mean sufficiency and positive support for each positive-weight node's target signature.",
+      "Forastiere et al. identify a covariate-standardized local exposure response. Their assumptions and target do not directly establish either project fixed-policy formula.",
+      "Task 7 independently recomputed a representative Full case. For Signature, Task 7 reviewed the mathematical contract and native selection branch. A corresponding new runtime check remains pending."
     ]
   },
   "project_math_documents": [
