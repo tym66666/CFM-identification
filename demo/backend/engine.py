@@ -477,11 +477,11 @@ class Engine:
                 # not retry transport, repair the reading, or overturn a valid
                 # adverse audit. Preserve both replies and all current evidence.
                 code=str(exc)
-                self.save(run,stage+'_validation',dict(valid=False,code=code))
+                self.save(run,stage+'_validation',dict(valid=False,code=code,details=getattr(exc,'details',{})))
                 if code=='READING_AUDIT_PERMISSION_INVALID' or run.automatic_audit_repairs>=1:raise
                 run.automatic_audit_repairs+=1
                 repair=deepcopy(request);body=json.loads(repair['user_prompt'])
-                body['audit_contract_feedback']=dict(code=code,previous_response=raw,
+                body['audit_contract_feedback']=dict(code=code,details=getattr(exc,'details',{}),previous_response=raw,
                     instruction='上次复核输出不符合本次合同。原材料和待审候选未变；请重新核对并按output_schema提交完整复核。不能因格式修复默认通过，不得改业务候选或批准科学条件。')
                 repair['user_prompt']=json.dumps(body,ensure_ascii=False)
                 self.event(run,'REVIEWING_READING','后台复核的回复格式有误，正在进行一次格式复查；业务材料保持不变')

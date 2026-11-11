@@ -13,7 +13,7 @@ from .schemas import BusinessCase, SemanticClaim
 # A cardinal must be the object of a selection/allocation expression. A number
 # elsewhere in a document (sample size, budget, realized count) is insufficient.
 _NUMBER = r"(?:[0-9]+|[零一二两三四五六七八九十百千万]+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|twenty)"
-_UNIT = r"(?:个(?:人|窗口|站点|单位)?|名|人|家|店|组|位|所|间|条|座|站|池|支|个团队)"
+_UNIT = r"(?:个(?:人|窗口|站点|单位)?|名|人|家|户|店|组|位|所|间|条|座|站|池|支|个团队)"
 _COUNT = rf"(?P<count>{_NUMBER})\s*{_UNIT}"
 _SELECT = r"(?:抽取|抽出|抽选|抽中|选取|选出|选定|选择|挑选|抽|选)"
 _RANDOM = re.compile(r"随机|均匀|等概率|抽签|抓阄|random(?:ly|ization|isation)?|uniformly|lotter", re.I)
@@ -81,6 +81,13 @@ _INDEPENDENT = re.compile(
     r"\b(?:independently|independent bernoulli|independent coin)\b", re.I)
 _SENTENCE_BREAK = re.compile(r"[。！？!?\n]|\.(?:\s|$)")
 _CLAUSE_BREAK = re.compile(r"[，,；;]")
+# A distinction between historical assignment and future-policy weights is not
+# a denial of historical randomization. Match only the complete disclaimer;
+# neither this clause alone nor a negated historical draw supplies evidence.
+_FUTURE_POLICY_DISCLAIMER = re.compile(
+    r"^(?:这(?:一|个)?(?:规则|概率|分配规则)?|它)?(?:不是|并非)"
+    r"未来(?:的)?(?:[零一二两三四五六七八九十0-9]+个)?"
+    r"(?:方案|政策)(?:之间)?的(?:抽签概率|选择概率|实施概率|混合权重)[。.]?$")
 _COUNT_USAGE = re.compile(rf"(?:启用|开通|使用|用)\s*{_NUMBER}\s*{_UNIT}", re.I)
 # A declared untreated remainder is compatible with a fixed treated count.
 # Remove only its negated treatment verb for the negated-design check; later
@@ -99,7 +106,8 @@ def _sentence_state(text: str) -> bool | None:
     """True: affirmative design declaration; False: conflicting/ambiguous."""
     text = _normalize(text)
     clauses = [s.strip() for s in _CLAUSE_BREAK.split(text) if s.strip()]
-    relevant = [s for s in clauses if _RELEVANT.search(s) or _COUNT_USAGE.search(s)]
+    relevant = [s for s in clauses if not _FUTURE_POLICY_DISCLAIMER.fullmatch(s)
+                and (_RELEVANT.search(s) or _COUNT_USAGE.search(s))]
     if not relevant:
         return None
     # A leading "if/undecided" can qualify a later comma-separated design.

@@ -113,7 +113,12 @@ def test_real_additional_restriction_does_not_trigger_a_blind_reread(tmp_path,mo
     engine,run=reading_fixture(tmp_path,monkeypatch)
     original=engine.call;facts=[]
     def reply(run,request,stage):
-        if stage.startswith('reading_audit_'):return {'scientific_approval':False,'findings':[]}
+        if stage.startswith('reading_audit_'):
+            body=json.loads(request['user_prompt'])
+            return dict(scientific_approval=False,findings=[dict(kind='EXTRA_CONDITION',field=path,
+                reason='本测试显式复核真实额外条件，不能作为重复说明删除。',question=None,
+                source_ids=list(body['source_catalog'])[:1])
+                for path in body.get('required_finding_fields',[])])
         raw=original(run,request,stage)
         raw['additional_restrictions']=[dict(text='额外要求全部对象的总体均值相等。',
             source_ids=raw['scientific_statements']['consistency']['source_ids'])]

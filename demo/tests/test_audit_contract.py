@@ -27,6 +27,63 @@ def test_current_contract_derives_status_without_asking_user_to_repair_model():
     assert audit.check(answer(unclear),{'f':{}},{'s':{}},require_current=True)['verdict']=='NEEDS_CLARIFICATION'
     assert audit.check(answer(unclear,issue()),{'f':{}},{'s':{}},require_current=True)['verdict']=='READING_ERROR'
 
+
+def review_contract_fixture(candidate, raw_fields):
+    from types import SimpleNamespace
+    run=SimpleNamespace(review_kind='source',review_sheets={'source':dict(
+        fields=raw_fields,source_catalog={'s':'完整原文，包含本题总体信息和条件。'})},
+        review_templates={'source':dict(decisions={p:'PENDING' for p in raw_fields})},
+        submission=dict(candidate=candidate),entry=None)
+    request,fields,sources=audit.request(run)
+    return json.loads(request['user_prompt']),fields,sources
+
+
+def test_whole_reading_match_is_not_a_scientific_closure_assertion():
+    body,fields,sources=review_contract_fixture({}, {
+        '':dict(scope='WHOLE_READING_COMPLETENESS_NOT_A_SHARED_CITATION'),
+        '/closure':dict(candidate=dict(value=True,source_ids=['s']))})
+    match=dict(kind='MATCH',field='source:',reason='逐项核对原文，未发现遗漏。',question=None,source_ids=[])
+    jsonschema.validate(answer(match),body['output_schema'])
+    assert audit.check(answer(match),fields,sources,require_current=True)['verdict']=='PASS'
+    # A root error must locate the omitted/misread source. A real closure claim
+    # is still a claim even when the reviewer calls it a whole-reading match.
+    for changed in (dict(match,kind='READING_ERROR'),dict(match,field='source:/closure')):
+        with pytest.raises(jsonschema.ValidationError):jsonschema.validate(answer(changed),body['output_schema'])
+        with pytest.raises(audit.AuditContractError) as exc:audit.check(answer(changed),fields,sources,require_current=True)
+        assert exc.value.details['field']==changed['field']
+
+
+def test_residuals_require_explicit_judgment_without_automatic_deduplication():
+    candidate=dict(closure=dict(value=True,source_ids=['s']),
+        additional_restrictions=[dict(text='同句也包含另一项实际限制。',source_ids=['s'])])
+    before=deepcopy(candidate)
+    body,fields,sources=review_contract_fixture(candidate,{
+        '/closure':dict(candidate=candidate['closure']),
+        '/additional_restrictions/0':dict(candidate=candidate['additional_restrictions'][0])})
+    path='source:/additional_restrictions/0';schema=body['output_schema']
+    assert fields[path]['ownership_check']['related_typed_fields']==['/closure']
+    with pytest.raises(jsonschema.ValidationError):jsonschema.validate(answer(),schema)
+    with pytest.raises(audit.AuditContractError) as exc:audit.check(answer(),fields,sources,require_current=True)
+    assert exc.value.details['fields']==[path]
+    match=dict(kind='EXTRA_CONDITION',field=path,reason='另有真实限制，共用出处不等于重复。',question=None,source_ids=['source:s'])
+    for kind,expected in [('EXTRA_CONDITION','PASS'),('ALREADY_REPRESENTED','READING_ERROR'),('NOT_A_CONDITION','READING_ERROR')]:
+        response=answer(dict(match,kind=kind));jsonschema.validate(response,schema)
+        assert audit.check(response,fields,sources,require_current=True)['verdict']==expected
+    with pytest.raises(ValueError):audit.check(answer(dict(match,kind='MATCH')),fields,sources,require_current=True)
+    with pytest.raises(ValueError):audit.check(answer(match,match),fields,sources,require_current=True)
+    first=audit.check(answer(dict(match,kind='ALREADY_REPRESENTED')),fields,sources,require_current=True)
+    request=dict(system_prompt=audit.SYSTEM,user_prompt=json.dumps(body))
+    focused,disputed=audit.focused_request(request,fields,first)
+    focused_body=json.loads(focused['user_prompt'])
+    assert 'required_finding_fields' not in focused_body
+    assert 'ALREADY_REPRESENTED' not in focused_body['fields'][path]['ownership_check']['rule']
+    for matches in (False,True):
+        response=focused_answer(path,'source:s',matches=matches)
+        jsonschema.validate(response,focused_body['output_schema'])
+        result=audit.check_focused(response,disputed,sources)
+        assert result['verdict']==('PASS' if matches else 'READING_ERROR')
+    assert candidate==before  # The checked scientific adapter still owns admission.
+
 @pytest.mark.parametrize('bad',[
     issue(question='请确认系统是否读对'),issue('NEEDS_CLARIFICATION'),
     {**issue(),'source_ids':['missing']},{**issue(),'field':'missing'},

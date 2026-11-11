@@ -133,11 +133,15 @@ def field_constraints(paths,*,request):
     if body.get('shared_definition_contract',{}).get('version')!=PROFILE:raise ValueError('SHARED_DEFINITION_REQUEST_REQUIRED')
     rows=[dict(field_path=p,description=EVIDENCE_RULE) for p in paths]
     for path in paths:
-        if path in ('','/additional_restrictions') or path.startswith('/information'):
+        # Rechecks locate list items (and their children), not just the list.
+        # Supply the same public ownership rule without forwarding private
+        # reviewer prose or a replacement value to the model.
+        residual=path in ('','/additional_restrictions') or path.startswith('/additional_restrictions/')
+        if residual or path=='/information' or path.startswith('/information/'):
             rows.append(dict(field_path=path,description=DATA_DESCRIPTION_RULE))
-        if path in ('','/additional_restrictions'):
+        if residual:
             rows.append(dict(field_path=path,description=RESTRICTION_RULE))
-        if path in ('','/unresolved'):
+        if path in ('','/unresolved') or path.startswith('/unresolved/'):
             rows.append(dict(field_path=path,description=GAPS))
     return rows
 

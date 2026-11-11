@@ -69,6 +69,35 @@ def test_old_profile_keeps_record_local_evidence_and_new_rechecks_keep_contract(
     rules=contract_for_entry(e).public_constraints(e,['/information'])
     assert any(shared.EVIDENCE_RULE==r['description'] for r in rules)
 
+
+@pytest.mark.parametrize('family',['mean','contrast'])
+def test_located_residual_recheck_keeps_public_role_rules_not_private_answers(family):
+    from cfm_id.fact_reading_revision import prepare_recheck
+    s,e,o=setup(family,True)
+    o['candidate']['additional_restrictions']=[dict(text='逐对象界限已列明。',
+        source_ids=o['candidate']['bounded_model']['source_ids'])]
+    before=deepcopy(o['candidate']);path='/additional_restrictions/0'
+    sheet=prepare_recheck(s,'q1',**o)['feedback_worksheet']
+    feedback=dict(version=sheet['version'],binding_sha256=sheet['binding_sha256'],
+        authority=sheet['expected_authority'],reviewer='Private reviewer',
+        evidence='Private feedback for a located source comparison.',
+        issues=[dict(field_path=path,kind='OMITTED_OR_MISREAD',
+            source_ids=[next(iter(sheet['source_catalog']))],
+            reason='PRIVATE_ANSWER_MUST_NOT_BE_FORWARDED')])
+    revised=prepare_recheck(s,'q1',**o,feedback=feedback)
+    assert revised['state']=='READY_TO_READ'
+    user=revised['request']['user']
+    assert shared.RESTRICTION_RULE in user and 'PRIVATE_ANSWER_MUST_NOT_BE_FORWARDED' not in user
+    contract=contract_for_entry(e)
+    for p in [path,path+'/text']:
+        rules=contract.public_constraints(e,[p])
+        assert any(r['description']==shared.RESTRICTION_RULE for r in rules)
+    rules=contract.public_constraints(e,['/unresolved/0'])
+    assert any(r['description']==shared.GAPS for r in rules)
+    rules=contract.public_constraints(e,['/additional_restrictions_other/0'])
+    assert not any(r['description']==shared.RESTRICTION_RULE for r in rules)
+    assert revised['bundle']==e['bundle'] and o['candidate']==before
+
 def test_explicit_network_evidence_and_distribution_labels_are_lossless():
     from jsonschema import Draft202012Validator
     s,e,o=setup('mean',False);old=deepcopy(o['candidate']);raw=deepcopy(old)
