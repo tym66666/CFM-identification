@@ -823,6 +823,66 @@
         "不为 A0–A6 编号或本项目证书提供外部正确性证明。"
       ],
       "project_use": "为项目 Problem/Information/Assumptions/Result 分离补方法论支撑。"
+    },
+    {
+      "id": "imbens_angrist1994",
+      "title": "Identification and Estimation of Local Average Treatment Effects",
+      "authors": [
+        "Guido Imbens",
+        "Joshua Angrist"
+      ],
+      "year": 1994,
+      "urls": {
+        "source": "https://www.nber.org/papers/t0118"
+      },
+      "read_scope": {
+        "level": "bibliography_and_abstract",
+        "read_on": "2026-11-09",
+        "full_text_verified": false,
+        "inspected": [
+          "Bibliographic entry and abstract; project finite-model derivation documented separately."
+        ],
+        "not_inspected": [
+          "Complete published proof audit; do not claim full-paper verification."
+        ]
+      },
+      "supports": [
+        "Classical IV target and response-type model attribution."
+      ],
+      "does_not_support": [
+        "Automatic scientific approval or independent correctness of project implementation."
+      ],
+      "project_use": "Binary IV finite-model contract; see docs/IV_MATH_ZH.md."
+    },
+    {
+      "id": "balke_pearl1997",
+      "title": "Bounds on Treatment Effects From Studies With Imperfect Compliance",
+      "authors": [
+        "Alexander Balke",
+        "Judea Pearl"
+      ],
+      "year": 1997,
+      "urls": {
+        "source": "https://ftp.cs.ucla.edu/pub/stat_ser/r199-jasa.pdf"
+      },
+      "read_scope": {
+        "level": "bibliography_and_abstract",
+        "read_on": "2026-11-09",
+        "full_text_verified": false,
+        "inspected": [
+          "Bibliographic entry and abstract; project finite-model derivation documented separately."
+        ],
+        "not_inspected": [
+          "Complete published proof audit; do not claim full-paper verification."
+        ]
+      },
+      "supports": [
+        "Classical IV target and response-type model attribution."
+      ],
+      "does_not_support": [
+        "Automatic scientific approval or independent correctness of project implementation."
+      ],
+      "project_use": "Binary IV finite-model contract; see docs/IV_MATH_ZH.md."
     }
   ],
   "route_maps": [
@@ -883,6 +943,11 @@
     {
       "route_id": "R3_EXPOSURE_ADJUSTED_EFFECTS",
       "file": "routes/network_r3_exposure.json",
+      "runtime_status_is_not_declared_here": true
+    },
+    {
+      "route_id": "BINARY_IV_LATE_ATE",
+      "file": "routes/binary_iv_late_ate.json",
       "runtime_status_is_not_declared_here": true
     }
   ],

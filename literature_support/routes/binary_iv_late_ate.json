@@ -1,0 +1,77 @@
+{
+  "schema_version": "literature-support-route-1",
+  "route_id": "BINARY_IV_LATE_ATE",
+  "updated_on": "2026-11-09",
+  "development_status": "REGISTERED_REVIEWED_BUSINESS_RESEARCH_BRIDGE",
+  "route_registered": true,
+  "production_admission": false,
+  "estimation_handoff_allowed": false,
+  "theorem": {
+    "attribution": "Binary instrumental-variable potential-response-type model; Wald ratio for complier LATE under instrument independence, exclusion and monotonicity; sharp ATE bounds from the finite response-type linear program.",
+    "scope": "Binary instrument Z, binary treatment D, binary outcome Y, complete P(D,Y|Z) population law. Scientific assumptions require separate source-bound review.",
+    "derivation_path": "../../docs/IV_MATH_ZH.md"
+  },
+  "implementation": [
+    "cfm_id/iv_types.py",
+    "cfm_id/iv_contract.py",
+    "cfm_id/iv_late_solver.py",
+    "cfm_id/iv_late_verify.py",
+    "cfm_id/iv_ate_solver.py",
+    "cfm_id/iv_ate_verify.py",
+    "cfm_id/iv_route_contract.py",
+    "cfm_id/iv_research.py",
+    "cfm_id/iv_research_adapter.py",
+    "cfm_id_llm/iv_reading.py",
+    "cfm_id/iv_business_dispatch.py",
+    "cfm_id_llm/iv_fact_reading.py"
+  ],
+  "tests": [
+    "tests/test_iv_task4.py",
+    "tests_gateway/test_iv_research_route.py",
+    "tests_gateway/test_iv_business.py"
+  ],
+  "verification_obligations": [
+    "Negative and positive Wald effects within [-1,1]",
+    "Monotone latent-type compatibility before LATE point output",
+    "Separate reading and scientific reviews bound to the complete problem hash",
+    "ATE lower/upper primal feasibility, dual feasibility and strong duality",
+    "Independent verifier does not import the solver LP builder",
+    "Missing inputs, rejected/pending reviews, incompatibility and numerical failures remain distinct"
+  ],
+  "business_interface": {
+    "implementation": [
+      "cfm_id/iv_business_dispatch.py",
+      "cfm_id_llm/iv_fact_reading.py"
+    ],
+    "reading_and_science_reviews_separate": true,
+    "source_catalog_required": true,
+    "automatically_approves_assumptions": false,
+    "reviewer_identity_authenticated": false
+  },
+  "limits": [
+    "No non-binary instrument, treatment or outcome support",
+    "No automatic scientific assumption discovery or proof",
+    "No estimation or policy handoff",
+    "Only reviewed binary IV candidate targets; unsupported structures/extra restrictions block execution; no automatic route fallback."
+  ],
+  "runtime_coverage_authority": "cfm_id.capability_registry.inventory",
+  "verification_evidence": {
+    "llm_accuracy_measured": false,
+    "real_human_review_performed": false,
+    "note": "Synthetic regression is not live business acceptance; see dated external execution evidence."
+  },
+  "mapping": [
+    {
+      "source_id": "imbens_angrist1994",
+      "locator": "LATE identification theorem; binary-instrument specialization",
+      "url": "https://www.nber.org/papers/t0118",
+      "claim": "Wald identifies the complier contrast under independent instrument, exclusion, monotonicity and positive complier mass."
+    },
+    {
+      "source_id": "balke_pearl1997",
+      "locator": "Section 2: finite response functions and linear programming; Section 3 bounds",
+      "url": "https://ftp.cs.ucla.edu/pub/stat_ser/r199-jasa.pdf",
+      "claim": "Finite response types encode the declared binary-IV model; optimizing the treatment contrast gives sharp model bounds."
+    }
+  ]
+}

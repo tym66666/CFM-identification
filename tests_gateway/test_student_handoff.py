@@ -24,13 +24,13 @@ def test_recommended_entry_uses_one_config_without_changing_legacy_defaults(monk
 
 def test_all_five_reader_families_have_one_component_owner():
     # Keep the historical test node ID used by the acceptance manifest.
-    # The supported set now includes three additional reader families.
+    # The supported set includes the registered binary IV reader.
     rows = registry.registrations()
     assert {r.reader_id for r in rows} == {
         'NETWORK_FIXED_POLICY_FACTS', 'NETWORK_POLICY_CONTRAST_FACTS',
         'NETWORK_RANDOMIZED_EFFECT_FACTS', 'NETWORK_OBSERVATIONAL_POLICY_FACTS',
         'VARIABLE_DAG_FACTS', 'NETWORK_RANDOMIZED_ARM_FACTS',
-        'NETWORK_FINITE_POLICY_FACTS', 'NETWORK_OBSERVATIONAL_EFFECT_FACTS'}
+        'NETWORK_FINITE_POLICY_FACTS', 'NETWORK_OBSERVATIONAL_EFFECT_FACTS', 'BINARY_IV_FACTS'}
     from cfm_id.capability_registry import business_bindings
     assert {r.reader_id for r in rows} == {b.reader_id for b in business_bindings()}
     assert len({(r.reader_id, r.profile) for r in rows}) == len(rows)

@@ -18,7 +18,6 @@ def inventory():
         implemented_routes=[r.describe() for r in registrations()],separate_entries=separate,
         planned_routes=[
             dict(route_id='DAG_SET_OR_CONDITIONAL_FRONTDOOR',status='NOT_IMPLEMENTED',callable_here=False),
-            dict(route_id='IV',status='NO_REGISTERED_CONTRACT_IN_THIS_ENTRY',callable_here=False),
             dict(route_id='GENERAL_GRAPHICAL_ID',status='NO_REGISTERED_CONTRACT_IN_THIS_ENTRY',callable_here=False)],
         result_contract=dict(
             proved_states=['POINT','PARTIAL','INCOMPATIBLE'],

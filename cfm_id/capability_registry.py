@@ -38,6 +38,7 @@ class BusinessBinding:
 
 def business_bindings():
     # Static imports only. Caller text can never choose an import or function.
+    from . import iv_business_dispatch as iv, iv_late_solver, iv_late_verify, iv_ate_solver, iv_ate_verify
     from . import network_policy_dispatch as mean, network_contrast_dispatch as contrast
     from . import network_bounded_dispatch as bounded, dag_method_dispatch as dag
     from . import network_effect_dispatch as effects
@@ -54,6 +55,11 @@ def business_bindings():
     from pfn_pipeline.identification_composition import identify_verified_linear_target,replay_verified_composition
     dag_routes = {r.capability.route_id: r for r in registrations()}
     bindings = (
+        BusinessBinding(iv.FAMILY, "BINARY_IV_CANDIDATE", ("LATE", "ATE"),
+            "Binary IV candidate only; missing instrument or unsupported model never establishes identification.",
+            (MethodBinding(iv.METHOD, (iv.METHOD,), (iv_late_solver.identify_late, iv_ate_solver.solve_ate_bounds),
+                (iv_late_verify.verify_late_result, iv_ate_verify.verify_ate_result)),),
+            iv.inspect_methods, iv.native_reviews_from_json, iv._execute_plan),
         BusinessBinding(mean.FAMILY, 'UNIT_NETWORK', ('FIXED_POLICY_VALUE',),
             'One complete fixed policy, declared evaluation population and equal mean; native scope checks remain required.',
             (MethodBinding(mean.R1B, (mean.R1B,), (r1b.identify_verified_fixed_policy,), (r1b.replay_verified_fixed_policy,)),
@@ -240,6 +246,8 @@ def registrations():
     from .dag_adjustment_adapter import DagAdjustmentRoute
     from .dag_frontdoor_adapter import DagFrontdoorRoute
     from .dag_frontdoor_contract import FrontdoorProblem,FrontdoorReview
+    from .iv_route_contract import IVProblem,IVReview
+    from .iv_research_adapter import BinaryIVRoute
     from .dag_backdoor_contract import BackdoorProblem,BackdoorReview
     from .dag_adjustment_contract import AdjustmentProblem,AdjustmentReview
     from .mean_order_contract import MeanOrderProblem,ReviewedMeanOrder
@@ -256,6 +264,9 @@ def registrations():
         Registration(DagFrontdoorRoute,FrontdoorProblem,FrontdoorReview,'dag-frontdoor-1',
             'EXTERNAL_DECLARATIVE_RESEARCH_OR_SYNTHETIC_TEST','PER_CONDITION_ACCEPTED_PENDING_REJECTED',
             ('POINT',),'evaluation.dag_business_workflow'),
+        Registration(BinaryIVRoute,IVProblem,IVReview,'binary-iv-research-1',
+            'SEPARATE_SOURCE_READING_AND_SCIENTIFIC_REVIEW','PER_CONDITION_ACCEPTED_PENDING_REJECTED',
+            ('POINT','PARTIAL','INCOMPATIBLE'),'cfm_id.iv_business_dispatch'),
     )
 
 def separate_entries():

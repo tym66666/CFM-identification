@@ -39,7 +39,7 @@ def test_native_catalog_agrees_with_core_replay_and_common_connection_is_explici
     assert research_route_catalog.registrations is registry.registrations
     assert research_route_catalog.separate_entries is registry.separate_entries
     assert {r.capability.route_id for r in registry.registrations()} == {
-        'MEAN_ORDER_D2_E1', 'DAG_CLASSICAL_BACKDOOR', 'DAG_ADJUSTMENT', 'DAG_CLASSICAL_FRONTDOOR'}
+        'MEAN_ORDER_D2_E1', 'DAG_CLASSICAL_BACKDOOR', 'DAG_ADJUSTMENT', 'DAG_CLASSICAL_FRONTDOOR', 'BINARY_IV_LATE_ATE'}
     assert not data['creates_reviews'] and not data['automatic_fallback']
 
 

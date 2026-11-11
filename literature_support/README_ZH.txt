@@ -1,7 +1,7 @@
 文献支撑与数学合同导航
-维护更新：2026-10-31；各文献的实际阅读日期和范围仍见原卡片
+维护更新：2026-11-09；各文献的实际阅读日期和范围仍见原卡片
 
-这里保存可核查的文献卡片和研究追溯关系，不存放下载的论文原文。现补充网络综述、R1/R3 来源与分类导航，并保留有限 D2/E1 mean-box、政策差值、均值顺序、静态 DAG 后门/调整/前门的研究映射。IV和一般ID文献仅为学生任务预研，不代表新增运行能力；全项目文献审查仍未完成。
+这里保存可核查的文献卡片和研究追溯关系，不存放下载的论文原文。现补充网络综述、R1/R3 来源与分类导航，并保留有限 D2/E1 mean-box、政策差值、均值顺序、静态 DAG 后门/调整/前门的研究映射。二元 IV 已登记 BINARY_IV_LATE_ATE 研究路线，并接入现有业务读取、独立审核及证书重放流程；当前已有合成回归，真实模型调用与人工业务验收仍待完成。一般 ID 仍属预研；全项目文献审查仍未完成。IV 来源卡片保留实际阅读范围，尚未完成的原定理正文核对不得写成已完成。
 
 当前职责：文献卡只维护外部依据与阅读范围；mathematical_contracts.json 链接项目数学合同和对应实现，不参与运行。当前可调用能力以 cfm_id.capability_registry.inventory() 为准，路线 JSON 中带日期的研究状态是历史信息。详情见 ../docs/MATH_AND_EVIDENCE_ZH.md。本轮补齐所有已登记路线的导航，不声称已经完成全部文献综述。
 
@@ -17,6 +17,7 @@
 
 8. mathematical_contracts.json：所有已登记路线的项目数学文档和实现位置。routes/network_r2_policy_difference.json 说明已有 R2 恒等式有向相减的依据；不能将背景文献误写为该组合的逐字定理或新数学发现。
 9. routes/network_r1a.json、network_r1b.json、network_r3_policy.json、network_r3_standardization.json、network_r3_exposure.json：本次补齐原缺少映射的五个条目。文献背景与项目特化证明分别标记；不能把 Forastiere 的局部调整目标等同全部 R3。
+10. routes/binary_iv_late_ate.json：二元 IV 的 LATE 与 ATE 文献映射、实现位置和验证义务；直接推导见 ../docs/IV_MATH_ZH.md，业务运行及记录要求见 ../docs/IV_ACCEPTANCE_ZH.md。能力登记和合成回归不证明科学假设，也不代表真实业务验收已完成。
 
 必须保留的几个区别
 - 名刊发表信息与数学适用性是两件事。Manski (1990) 属于 American Economic Review 的 Papers and Proceedings，不省略这一文章类型。

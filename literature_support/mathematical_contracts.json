@@ -100,7 +100,9 @@
       "native_route_ids": [
         "R3_P_STANDARDIZED_EFFECTS"
       ],
-      "business_method_ids": ["R3_P_STANDARDIZED_EFFECTS"],
+      "business_method_ids": [
+        "R3_P_STANDARDIZED_EFFECTS"
+      ],
       "mathematical_documents": [
         "docs/NETWORK_R3_OBSERVATIONAL_STANDARDIZED_EFFECTS_ZH.md",
         "docs/R3_OBSERVATIONAL_CORRELATED_MIXTURE_A4_ZH.md"
@@ -119,7 +121,10 @@
         "R3_EXPOSURE_ADJUSTED_EFFECTS",
         "R3_NODEWISE_EXPOSURE_ADJUSTED_EFFECTS"
       ],
-      "business_method_ids": ["R3_EXPOSURE_ADJUSTED_EFFECTS", "R3_NODEWISE_EXPOSURE_ADJUSTED_EFFECTS"],
+      "business_method_ids": [
+        "R3_EXPOSURE_ADJUSTED_EFFECTS",
+        "R3_NODEWISE_EXPOSURE_ADJUSTED_EFFECTS"
+      ],
       "mathematical_documents": [
         "docs/R3_EXPOSURE_ADJUSTED_G_FORMULA_POSTRELEASE_P2_ZH.md",
         "docs/R3_NODEWISE_NEIGHBOR_COVARIATE_ADJUSTMENT_ZH.md",
@@ -253,6 +258,27 @@
       ],
       "literature_maps": [
         "literature_support/routes/dag_classical_frontdoor.json"
+      ]
+    },
+    {
+      "name": "二元工具变量LATE与ATE响应类型模型",
+      "native_route_ids": [
+        "BINARY_IV_LATE_ATE"
+      ],
+      "business_method_ids": [
+        "BINARY_IV_LATE_ATE"
+      ],
+      "mathematical_documents": [
+        "docs/IV_MATH_ZH.md"
+      ],
+      "implementation_files": [
+        "cfm_id/iv_late_solver.py",
+        "cfm_id/iv_late_verify.py",
+        "cfm_id/iv_ate_solver.py",
+        "cfm_id/iv_ate_verify.py"
+      ],
+      "literature_maps": [
+        "literature_support/routes/binary_iv_late_ate.json"
       ]
     }
   ],

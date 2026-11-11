@@ -16,7 +16,7 @@ from tests_gateway.test_compact_evidence_slots import contrast_raw
 from tests_gateway.test_business_field_review import sheet, record, submit
 from tests_gateway.test_intake_stop_review import uncertain, reviewed
 
-EFFECTS = {'DIRECT_EFFECT', 'SPILLOVER_EFFECT', 'LOCAL_TOTAL_EFFECT', 'TOTAL_EFFECT', 'ATE', 'CATE'}
+EFFECTS = {'DIRECT_EFFECT', 'SPILLOVER_EFFECT', 'LOCAL_TOTAL_EFFECT', 'TOTAL_EFFECT', 'ATE', 'CATE', 'LATE'}
 LEVELS = {'NETWORK_DESIGN_STANDARDIZED_ARM_MEAN', 'FIXED_POLICY_VALUE',
           'STOCHASTIC_POLICY_VALUE', 'POLICY_OPTIMIZATION', 'INTERVENTIONAL_DISTRIBUTION'}
 OPS = ('INTERVENTION_MINUS_COMPARATOR', 'COMPARATOR_MINUS_INTERVENTION',

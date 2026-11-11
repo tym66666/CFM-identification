@@ -15,6 +15,7 @@ from examples.dag_backdoor_reference import make_problem as backdoor_problem, sy
 from examples.dag_adjustment_reference import make_problem as adjustment_problem, synthetic_review as adjustment_review
 from examples.mean_order_fixture import make_problem as mean_problem, synthetic_review as mean_review
 from examples.dag_frontdoor_reference import make_problem as frontdoor_problem, synthetic_review as frontdoor_review
+from examples.iv_research_fixture import make_problem as iv_problem, synthetic_review as iv_review
 
 
 def inputs():
@@ -23,6 +24,7 @@ def inputs():
         ('DAG_ADJUSTMENT', adjustment_problem(), adjustment_review, 'cfm_id.dag_adjustment'),
         ('MEAN_ORDER_D2_E1', mean_problem(), mean_review, 'cfm_id.mean_order'),
         ('DAG_CLASSICAL_FRONTDOOR', frontdoor_problem(), frontdoor_review, 'cfm_id.dag_frontdoor'),
+        ('BINARY_IV_LATE_ATE', iv_problem(), iv_review, 'cfm_id.iv_research'),
     ]
 
 
@@ -56,7 +58,7 @@ class RegisteredEntryTests(unittest.TestCase):
         # A caller mutating a displayed catalog cannot change the registered scope.
         value['implemented_routes'].clear()
         value['separate_entries'][0]['route_ids'].append('INJECTED')
-        self.assertEqual(len(inventory()['implemented_routes']), 4)
+        self.assertEqual(len(inventory()['implemented_routes']), 5)
         self.assertEqual(routes['DAG_CLASSICAL_FRONTDOOR']['business_entry'],'evaluation.dag_business_workflow')
         self.assertNotIn('INJECTED', inventory()['separate_entries'][0]['route_ids'])
 
@@ -125,6 +127,10 @@ class RegisteredEntryTests(unittest.TestCase):
                         candidate['decisions'][next(iter(candidate['decisions']))] = decision
                         self.assert_stopped(run_registered_route(route, problem, review=candidate,
                                                                  research_protocol_selected=True), state)
+                elif route.startswith('BINARY_IV'):
+                    candidate=deepcopy(review)
+                    candidate['science_review']['decisions'][next(iter(candidate['science_review']['decisions']))]='PENDING'
+                    self.assert_stopped(run_registered_route(route, problem, review=candidate, research_protocol_selected=True),'REVIEW_REQUIRED')
                 else:
                     for field, value in [('synthetic_fixture', False), ('synthetic_fixture', 1),
                                          ('reviewed_target_direction_population', False)]:
@@ -143,6 +149,8 @@ class RegisteredEntryTests(unittest.TestCase):
                 self.assertNotIn('private-payload', json.dumps(result))
                 if route.startswith('DAG_'):
                     problem.nodes.append(10)
+                elif route.startswith('BINARY_IV'):
+                    problem.cells.append(problem.cells[0])
                 else:
                     problem.first.append(1)
                 self.assert_stopped(run_registered_route(route, problem, review=review,

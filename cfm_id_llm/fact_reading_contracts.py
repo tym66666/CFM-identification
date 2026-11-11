@@ -218,7 +218,12 @@ def registrations():
         contextual_parse=effects.parse, contextual_constraints=effects.field_constraints)
         for profile,module,model in effects.variants())
     from .network_extended_reading import contracts as extended_contracts
-    return (r3, r3_signature, r3_definitions, *policies, *contrasts, dag_contract, *local, *extended_contracts())
+    from . import iv_fact_reading as iv
+    iv_contract = FactReadingContract(reader_id=iv.FAMILY, reference_format='short_refs',
+        version_field='iv_fact_contract', wire_version=iv.VERSION, make_request=iv.make_request,
+        parse=iv.parse, reference_catalog=iv.reference_catalog, model=iv.IVFactReading,
+        documents=iv.documents, target_context=None)
+    return (r3, r3_signature, r3_definitions, *policies, *contrasts, dag_contract, *local, *extended_contracts(), iv_contract)
 
 
 def _family(reader_id):

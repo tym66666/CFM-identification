@@ -128,7 +128,9 @@
     "tests_gateway/test_reviewed_intent_handoff.py",
     "tests_gateway/test_target_first_native_compatibility.py",
     "tests_gateway/test_shared_fact_definitions.py",
-    "tests_gateway/test_local_total_effect.py"
+    "tests_gateway/test_local_total_effect.py",
+    "tests_gateway/test_iv_business.py",
+    "tests_gateway/test_iv_research_route.py"
   ],
   "common_obligations": [
     {
@@ -2997,6 +2999,17 @@
         "tests_gateway/test_local_total_effect.py::test_total_missing_conditions_or_changed_target_never_execute[finite_sample]",
         "tests_gateway/test_local_total_effect.py::test_total_missing_conditions_or_changed_target_never_execute[pending_science]",
         "tests_gateway/test_local_total_effect.py::test_total_missing_conditions_or_changed_target_never_execute[stale_direction]"
+      ]
+    },
+    {
+      "id": "IV01",
+      "title": "二元IV业务入口、来源审核、科学条件和独立重放",
+      "nodes": [
+        "tests_gateway/test_iv_business.py::test_recommended_intake_to_reviewed_iv",
+        "tests_gateway/test_iv_business.py::test_missing_source_science_and_changed_input_cannot_reuse_approval",
+        "tests_gateway/test_iv_business.py::test_extra_restrictions_sample_law_and_target_switch_stop",
+        "tests_gateway/test_iv_business.py::test_fact_recheck_uses_registered_request_and_preserves_original",
+        "tests_gateway/test_iv_research_route.py::test_ate_route_uses_its_own_target_and_review_scope"
       ]
     }
   ]
