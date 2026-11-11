@@ -1,0 +1,21 @@
+{
+  "case_id": "LIT-NET-01",
+  "variant": "changed_target",
+  "paper_id": "aronow_samii2017_interference",
+  "title": "AI 经营助手试点：反向比较同伴效应",
+  "synthetic": true,
+  "gold_oracle_location": "OUTSIDE_PUBLIC_CASE_DIRECTORY",
+  "llm_access_scope": "PUBLIC_CASE_FILES_ONLY",
+  "business_question_file": "business_question.md",
+  "supporting_files": [
+    "study_protocol.md",
+    "data_dictionary.md",
+    "sample_note.md",
+    "units.csv",
+    "network_edges.csv",
+    "design_probabilities.csv",
+    "treatment_summary.csv"
+  ],
+  "heldout": false,
+  "notes": "评价名单、网络、设计和总体信息与原始版本相同；只把溢出效应的比较方向反过来。"
+}

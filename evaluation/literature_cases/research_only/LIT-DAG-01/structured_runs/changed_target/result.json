@@ -1,0 +1,27 @@
+{
+  "expected_state": "UNSUPPORTED",
+  "final_state": "UNSUPPORTED",
+  "passed": true,
+  "score": {
+    "passed": true,
+    "structure": true,
+    "fields": {
+      "version": true,
+      "variables": true,
+      "relations": true,
+      "target": true,
+      "scope": true,
+      "information": true,
+      "adjustment": true,
+      "additional_restrictions": true
+    },
+    "citation_coverage": true
+  },
+  "result": {
+    "state": "UNSUPPORTED",
+    "reason_code": "ADJUSTMENT_CONTAINS_TREATMENT_DESCENDANT",
+    "independent_replay": false,
+    "mathematical_claim": null,
+    "certificate": null
+  }
+}

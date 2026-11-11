@@ -1,0 +1,17 @@
+{
+  "case_id": "LIT-IV-02",
+  "variant": "changed_target",
+  "paper_id": "balke_pearl1997_bounds",
+  "title": "改回 LATE",
+  "synthetic": true,
+  "gold_oracle_location": "OUTSIDE_PUBLIC_CASE_DIRECTORY",
+  "llm_access_scope": "PUBLIC_CASE_FILES_ONLY",
+  "business_question_file": "business_question.md",
+  "supporting_files": [
+    "study_protocol.md",
+    "data_dictionary.md",
+    "observed_joint_counts.csv"
+  ],
+  "heldout": true,
+  "notes": "当前仓库没有 IV/ATE bounds 后端；不是论文数据复现。"
+}

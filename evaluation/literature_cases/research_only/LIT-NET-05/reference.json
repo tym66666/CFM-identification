@@ -1,0 +1,78 @@
+{
+  "case_id": "LIT-NET-05",
+  "paper_id": "paluck2016_aronow_samii2017",
+  "paper": {
+    "authors": [
+      "Elizabeth Levy Paluck",
+      "Hana Shepherd",
+      "Peter M. Aronow",
+      "Cyrus Samii"
+    ],
+    "year": 2016,
+    "title": "Changing climates of conflict / Estimating Average Causal Effects Under General Interference",
+    "venue": "PNAS 2016; Annals of Applied Statistics 2017",
+    "doi": "10.1073/pnas.1514483113; 10.1214/16-AOAS1005"
+  },
+  "paper_reference": {
+    "paper_question": "学校反冲突项目的邀请是否通过朋友网络产生溢出效应？邀请与实际出席如何区分？",
+    "target": "本人未获邀时，至少一位朋友获邀减没有朋友获邀，佩戴手环概率之差；全部12人等权。",
+    "source_location": "Paluck et al. (2016) PNAS, DOI 10.1073/pnas.1514483113; Aronow & Samii (2017) §8 Eq. (16), Corollary 8.1, §10.",
+    "formula": "tau = (1/12) sum_i [ mu_i(0,S_i=1) - mu_i(0,S_i=0) ], S_i=1 iff at least one friend is invited.",
+    "conditions": [
+      "Two groups of six; each group independently draws exactly two invitations uniformly.",
+      "Invitation is the treatment; actual attendance is not substituted.",
+      "Friend network fixed before randomization.",
+      "Design-weighted conditional averaging over remaining invitations.",
+      "Positivity for the two friend-invitation states."
+    ],
+    "what_paper_supports": [
+      "Invitation and attendance are distinct.",
+      "Design-weighted spillover effects under network interference.",
+      "The same school is analyzed; schools are not compared."
+    ],
+    "what_paper_does_not_support": [
+      "No claim that invitation equals actual attendance.",
+      "No replication of the 56-school field experiment.",
+      "No direct import of Table 2 values."
+    ]
+  },
+  "software_expected": {
+    "original": {
+      "status": "POINT"
+    },
+    "missing_condition": {
+      "status": "NEEDS_INPUT",
+      "reason": "The invitation-list generation law is omitted; the system stops with NETWORK_EFFECT_FACTS_INCOMPLETE."
+    },
+    "changed_target": {
+      "status": "POINT",
+      "reason": "Reverse comparison; expected sign is flipped."
+    }
+  },
+  "actual_run": {
+    "method": "LOCAL_STRUCTURED_NETWORK_RUN_NO_LLM",
+    "provenance": "2026-11-09 local structured run through notification/design/exposure entry with explicit synthetic reviews; api_calls=0.",
+    "original": {
+      "state": "POINT",
+      "independent_replay": true,
+      "target_fingerprint": "24af38176ece01bc86ab4ec91c32b99376b27ba03d5aa23e10bf4199bb389a1e",
+      "output_file": "structured_runs/original/result.json"
+    },
+    "missing_condition": {
+      "state": "NEEDS_INPUT",
+      "reason_code": "NETWORK_EFFECT_FACTS_INCOMPLETE",
+      "output_file": "structured_runs/missing_condition/result.json"
+    },
+    "changed_target": {
+      "state": "POINT",
+      "independent_replay": true,
+      "target_fingerprint": "cfed596a9516b59cbef896edbb8da11ca01053633059f2f8e7d2dcb4a6add0ef",
+      "output_file": "structured_runs/changed_target/result.json"
+    },
+    "note": "All three variants were run locally; no LLM call."
+  },
+  "review_status": "PENDING_TEACHER",
+  "reviewer": "teacher",
+  "holdout": false,
+  "notes": "Campus invitation spillover template. Original actual is a saved demo run; variants are reference-only and not run."
+}

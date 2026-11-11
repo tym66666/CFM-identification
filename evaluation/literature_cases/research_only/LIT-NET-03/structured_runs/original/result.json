@@ -1,0 +1,467 @@
+{
+  "state": "PARTIAL",
+  "reason_code": null,
+  "independent_replay": true,
+  "query_id": "q1",
+  "result_scope": "SELECTED_QUERY_ONLY",
+  "mathematical_claim": {
+    "kind": "PARTIAL",
+    "representation": "EXACT_IDENTIFIED_INTERVAL",
+    "target": {
+      "kind": "FIXED_FULL_ASSIGNMENT_POLICY_MEAN",
+      "node_order": [
+        "中心",
+        "网点1",
+        "网点2",
+        "网点3",
+        "网点4",
+        "网点5",
+        "网点6"
+      ],
+      "assignment": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "unit_weights": [
+        "1/7",
+        "1/7",
+        "1/7",
+        "1/7",
+        "1/7",
+        "1/7",
+        "1/7"
+      ],
+      "treatment": "使用AI",
+      "outcome": "本周任务是否按时完成",
+      "context": "本周服务网点"
+    },
+    "target_sha256": "fd50019f12c0745ebbf72721697ffc043042c1ebc88fbbdba2c234780f64dd01",
+    "interval": [
+      "3/7",
+      "4/7"
+    ],
+    "width": "1/7",
+    "sharp": true,
+    "informative": true,
+    "logical_range": [
+      "0",
+      "1"
+    ],
+    "numeric_value": null
+  },
+  "certificate": {
+    "version": "bounded-policy-mean-1",
+    "theorem": "FINITE_SIGNATURE_MEAN_BOX",
+    "input_sha256": "dd82cca6264465e60f6c6441406220eb387d89d4fa581c1a7b141fa364c59424",
+    "target_sha256": "fd50019f12c0745ebbf72721697ffc043042c1ebc88fbbdba2c234780f64dd01",
+    "status": "PARTIAL",
+    "lower": "3/7",
+    "upper": "4/7",
+    "width": "1/7",
+    "logical_range": [
+      "0",
+      "1"
+    ],
+    "informative": true,
+    "sharp": true,
+    "model_scope": "SIGNATURE_MEANS_AND_NODE_BOUNDS_ONLY",
+    "cells": [
+      {
+        "cell": [
+          "中心",
+          0,
+          0
+        ],
+        "support": "4/7",
+        "a4_value": "1/2",
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "中心",
+          0,
+          1
+        ],
+        "support": "0",
+        "a4_value": null,
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "中心",
+          1,
+          0
+        ],
+        "support": "3/7",
+        "a4_value": null,
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "中心",
+          1,
+          1
+        ],
+        "support": "0",
+        "a4_value": null,
+        "lower_world": "0",
+        "upper_world": "1"
+      },
+      {
+        "cell": [
+          "网点1",
+          0,
+          0
+        ],
+        "support": "2/7",
+        "a4_value": null,
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "网点1",
+          0,
+          1
+        ],
+        "support": "2/7",
+        "a4_value": null,
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "网点1",
+          1,
+          0
+        ],
+        "support": "2/7",
+        "a4_value": null,
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "网点1",
+          1,
+          1
+        ],
+        "support": "1/7",
+        "a4_value": "1/2",
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "网点2",
+          0,
+          0
+        ],
+        "support": "2/7",
+        "a4_value": null,
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "网点2",
+          0,
+          1
+        ],
+        "support": "2/7",
+        "a4_value": null,
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "网点2",
+          1,
+          0
+        ],
+        "support": "2/7",
+        "a4_value": null,
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "网点2",
+          1,
+          1
+        ],
+        "support": "1/7",
+        "a4_value": "1/2",
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "网点3",
+          0,
+          0
+        ],
+        "support": "2/7",
+        "a4_value": null,
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "网点3",
+          0,
+          1
+        ],
+        "support": "2/7",
+        "a4_value": null,
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "网点3",
+          1,
+          0
+        ],
+        "support": "2/7",
+        "a4_value": null,
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "网点3",
+          1,
+          1
+        ],
+        "support": "1/7",
+        "a4_value": "1/2",
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "网点4",
+          0,
+          0
+        ],
+        "support": "2/7",
+        "a4_value": null,
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "网点4",
+          0,
+          1
+        ],
+        "support": "2/7",
+        "a4_value": null,
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "网点4",
+          1,
+          0
+        ],
+        "support": "2/7",
+        "a4_value": null,
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "网点4",
+          1,
+          1
+        ],
+        "support": "1/7",
+        "a4_value": "1/2",
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "网点5",
+          0,
+          0
+        ],
+        "support": "2/7",
+        "a4_value": null,
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "网点5",
+          0,
+          1
+        ],
+        "support": "2/7",
+        "a4_value": null,
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "网点5",
+          1,
+          0
+        ],
+        "support": "2/7",
+        "a4_value": null,
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "网点5",
+          1,
+          1
+        ],
+        "support": "1/7",
+        "a4_value": "1/2",
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "网点6",
+          0,
+          0
+        ],
+        "support": "2/7",
+        "a4_value": null,
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "网点6",
+          0,
+          1
+        ],
+        "support": "2/7",
+        "a4_value": null,
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "网点6",
+          1,
+          0
+        ],
+        "support": "2/7",
+        "a4_value": null,
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      },
+      {
+        "cell": [
+          "网点6",
+          1,
+          1
+        ],
+        "support": "1/7",
+        "a4_value": "1/2",
+        "lower_world": "1/2",
+        "upper_world": "1/2"
+      }
+    ],
+    "bound_terms": [
+      {
+        "cell": [
+          "中心",
+          1,
+          1
+        ],
+        "coefficient": "1/7",
+        "basis": "MEAN_BOUNDS",
+        "lower": "0",
+        "upper": "1"
+      },
+      {
+        "cell": [
+          "网点1",
+          1,
+          1
+        ],
+        "coefficient": "1/7",
+        "basis": "A4_EQUALITY",
+        "lower": "1/2",
+        "upper": "1/2"
+      },
+      {
+        "cell": [
+          "网点2",
+          1,
+          1
+        ],
+        "coefficient": "1/7",
+        "basis": "A4_EQUALITY",
+        "lower": "1/2",
+        "upper": "1/2"
+      },
+      {
+        "cell": [
+          "网点3",
+          1,
+          1
+        ],
+        "coefficient": "1/7",
+        "basis": "A4_EQUALITY",
+        "lower": "1/2",
+        "upper": "1/2"
+      },
+      {
+        "cell": [
+          "网点4",
+          1,
+          1
+        ],
+        "coefficient": "1/7",
+        "basis": "A4_EQUALITY",
+        "lower": "1/2",
+        "upper": "1/2"
+      },
+      {
+        "cell": [
+          "网点5",
+          1,
+          1
+        ],
+        "coefficient": "1/7",
+        "basis": "A4_EQUALITY",
+        "lower": "1/2",
+        "upper": "1/2"
+      },
+      {
+        "cell": [
+          "网点6",
+          1,
+          1
+        ],
+        "coefficient": "1/7",
+        "basis": "A4_EQUALITY",
+        "lower": "1/2",
+        "upper": "1/2"
+      }
+    ],
+    "realization": "BERNOULLI_PER_NODE_SIGNATURE",
+    "production_admission": false,
+    "estimation_handoff_allowed": false,
+    "certificate_sha256": "53c323501d0983775640d8d68a802083e66dcd16c30cc70d1fa27f0aa5701fbf"
+  }
+}

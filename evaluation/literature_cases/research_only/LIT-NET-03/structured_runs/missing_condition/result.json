@@ -1,0 +1,9 @@
+{
+  "state": "NEEDS_INPUT",
+  "reason_code": "BOUNDED_MODEL_DECLARATIONS_INCOMPLETE",
+  "independent_replay": false,
+  "query_id": "q1",
+  "result_scope": "SELECTED_QUERY_ONLY",
+  "mathematical_claim": null,
+  "certificate": null
+}

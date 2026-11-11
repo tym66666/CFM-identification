@@ -1,0 +1,45 @@
+{
+  "api_calls": 0,
+  "synthetic_reviews": true,
+  "rows": [
+    {
+      "variant": "original",
+      "plan_state": "REVIEW_REQUIRED",
+      "final_state": "PARTIAL",
+      "reason": null,
+      "independent_replay": true,
+      "interval": [
+        "1/5",
+        "1"
+      ],
+      "sharp": true,
+      "width": "4/5",
+      "target_sha256": "0bebb0c454b05ffcdee6585fff43e1d211154fa0ba9d70d716240cece56e2d84"
+    },
+    {
+      "variant": "missing_condition",
+      "plan_state": "NEEDS_INPUT",
+      "final_state": "NEEDS_INPUT",
+      "reason": "MEAN_ORDER_DECLARATIONS_NOT_READY",
+      "independent_replay": false,
+      "interval": null,
+      "sharp": null,
+      "width": null,
+      "target_sha256": null
+    },
+    {
+      "variant": "changed_target",
+      "plan_state": "REVIEW_REQUIRED",
+      "final_state": "POINT",
+      "reason": null,
+      "independent_replay": true,
+      "interval": [
+        "1/5",
+        "1/5"
+      ],
+      "sharp": true,
+      "width": "0",
+      "target_sha256": "6ca050195bc0cb9a98865155ac901e0580ff6c14cc24c087e942fbd3643313af"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "case_id": "LIT-NET-02",
+  "variant": "original",
+  "paper_id": "hudgens_halloran2008_interference",
+  "title": "疫苗试验：别人接种能保护没有接种的我吗？",
+  "synthetic": true,
+  "gold_oracle_location": "OUTSIDE_PUBLIC_CASE_DIRECTORY",
+  "llm_access_scope": "PUBLIC_CASE_FILES_ONLY",
+  "business_question_file": "business_question.md",
+  "supporting_files": [
+    "study_protocol.md",
+    "data_dictionary.md",
+    "units.csv",
+    "network_edges.csv",
+    "assignment_profiles.csv"
+  ],
+  "heldout": false,
+  "notes": "两阶段疫苗设计的 8 人合成改编，不是 Hudgens-Halloran 论文数据复现。"
+}

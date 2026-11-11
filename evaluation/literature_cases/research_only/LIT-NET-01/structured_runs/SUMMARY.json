@@ -1,0 +1,84 @@
+{
+  "api_calls": 0,
+  "synthetic_reviews": true,
+  "rows": [
+    {
+      "variant": "original",
+      "state": "ALL_QUERIES_IDENTIFIED",
+      "results": [
+        {
+          "query_id": "q1",
+          "state": "POINT",
+          "replay": true
+        },
+        {
+          "query_id": "q2",
+          "state": "POINT",
+          "replay": true
+        },
+        {
+          "query_id": "q3",
+          "state": "POINT",
+          "replay": true
+        }
+      ],
+      "plans": [
+        {
+          "query_id": "q1",
+          "state": "REVIEW_REQUIRED",
+          "reason": null
+        },
+        {
+          "query_id": "q2",
+          "state": "REVIEW_REQUIRED",
+          "reason": null
+        },
+        {
+          "query_id": "q3",
+          "state": "REVIEW_REQUIRED",
+          "reason": null
+        }
+      ]
+    },
+    {
+      "variant": "missing_condition",
+      "state": "NEEDS_INPUT",
+      "results": [],
+      "plans": [
+        {
+          "query_id": "q1",
+          "state": "NEEDS_INPUT",
+          "reason": "NETWORK_EFFECT_FACTS_INCOMPLETE"
+        },
+        {
+          "query_id": "q2",
+          "state": "NEEDS_INPUT",
+          "reason": "NETWORK_EFFECT_FACTS_INCOMPLETE"
+        },
+        {
+          "query_id": "q3",
+          "state": "NEEDS_INPUT",
+          "reason": "NETWORK_EFFECT_FACTS_INCOMPLETE"
+        }
+      ]
+    },
+    {
+      "variant": "changed_target",
+      "state": "ALL_QUERIES_IDENTIFIED",
+      "results": [
+        {
+          "query_id": "q1",
+          "state": "POINT",
+          "replay": true
+        }
+      ],
+      "plans": [
+        {
+          "query_id": "q1",
+          "state": "REVIEW_REQUIRED",
+          "reason": null
+        }
+      ]
+    }
+  ]
+}

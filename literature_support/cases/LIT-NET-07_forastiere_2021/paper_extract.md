@@ -1,0 +1,74 @@
+# 原文摘录与边界：Forastiere et al. (2021)
+
+## 1. 本案例实际用到的原文位置
+
+- 作者公开稿 arXiv:1609.06245，定理 1、式 (7)：观察性网络中的本人/邻居协变量调整结构。
+- 项目 demo 的有限单对象改编说明。
+- 未逐页核对论文全部模拟、估计和 ADRF 证明。
+
+## 2. 案例目标
+
+四名学生，甲只有乙一个朋友。甲不参加，比较：
+
+- 至少一位朋友参加；
+- 朋友都不参加。
+
+按两个背景层各 1/2 加权：
+
+- 甲自身学习困难 \(X_甲\)；
+- 朋友中学习困难人数。
+
+目标：
+
+\[
+\tau
+=
+\frac{1}{2}
+\left[
+\bar\mu_甲(0,S=1\mid X_甲=0,\text{friend }X=0)
+-
+\bar\mu_甲(0,S=0\mid X_甲=0,\text{friend }X=0)
+\right]
++
+\frac{1}{2}
+\left[
+\bar\mu_甲(0,S=1\mid X_甲=1,\text{friend }X=1)
+-
+\bar\mu_甲(0,S=0\mid X_甲=1,\text{friend }X=1)
+\right].
+\]
+
+## 3. 关键边界
+
+- 参加不是随机抽签；
+- 需要给定背景后的条件交换性/均值充分性；
+- 只评价甲，不是全体四人的平均；
+- 合成数据不是 Add Health 复现。
+
+## 4. 不支撑
+
+- 不支撑没有交换性时用调整公式；
+- 不支撑把单对象有限结果外推到论文总体；
+- 不支撑把朋友参加当作随机处理。
+
+## 4.5 实际摘录
+
+Assumption 3（Unconfoundedness of Individual and Neighborhood Treatment）：
+
+> \(Y_i(z,g)\perp (Z_i,G_i)\mid X_i\) for \(z\in\{0,1\}\), \(g\in\mathcal{G}_i\).
+
+Theorem 1（Identification of ADRF）：
+
+> Under Assumptions 1–3,  
+> \[
+> \mathbb{E}[Y_i(z,g)\mid i\in V_g]
+> =
+> \sum_x \mathbb{E}[Y_i\mid Z_i=z,G_i=g,X_i=x,i\in V_g]\,P(X_i=x\mid i\in V_g).
+> \]
+> 即式 (7)。
+
+本案例只借用“本人/邻居协变量调整”的结构，做单对象有限均值版本；不是论文整体 ADRF 或 Add Health 复现。
+
+## 5. 阅读级别
+
+`selected_sections_and_demo_alignment`，不是 `full_text_verified`。

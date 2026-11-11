@@ -1,0 +1,5 @@
+{
+  "state": "NEEDS_INPUT",
+  "reason_code": "CAUSAL_GRAPH_NOT_DECLARED",
+  "certificate_replayed": false
+}

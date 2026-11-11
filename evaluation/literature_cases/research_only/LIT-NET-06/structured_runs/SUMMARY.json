@@ -1,0 +1,30 @@
+{
+  "api_calls": 0,
+  "synthetic_reviews": true,
+  "rows": [
+    {
+      "variant": "original",
+      "plan_state": "REVIEW_REQUIRED",
+      "final_state": "POINT",
+      "reason": null,
+      "independent_replay": true,
+      "target_fingerprint": "16cc9b1369a4d9f92427aa5f9e23b13cda6060f881ba5f2101d73bb342453736"
+    },
+    {
+      "variant": "missing_condition",
+      "plan_state": "NEEDS_INPUT",
+      "final_state": "NEEDS_INPUT",
+      "reason": "EXTENDED_NETWORK_FACTS_INCOMPLETE",
+      "independent_replay": false,
+      "target_fingerprint": null
+    },
+    {
+      "variant": "changed_target",
+      "plan_state": "REVIEW_REQUIRED",
+      "final_state": "POINT",
+      "reason": null,
+      "independent_replay": true,
+      "target_fingerprint": "101ab75f5ec4f492d2b4ed442894259f555c425f812e21e86ec25cec02abd336"
+    }
+  ]
+}

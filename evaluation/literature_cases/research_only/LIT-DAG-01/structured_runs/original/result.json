@@ -1,0 +1,123 @@
+{
+  "expected_state": "POINT",
+  "final_state": "POINT",
+  "passed": true,
+  "score": {
+    "passed": true,
+    "structure": true,
+    "fields": {
+      "version": true,
+      "variables": true,
+      "relations": true,
+      "target": true,
+      "scope": true,
+      "information": true,
+      "adjustment": true,
+      "additional_restrictions": true
+    },
+    "citation_coverage": true
+  },
+  "result": {
+    "state": "POINT",
+    "reason_code": null,
+    "independent_replay": true,
+    "mathematical_claim": {
+      "kind": "POINT",
+      "representation": "OBSERVED_DISTRIBUTION_FUNCTIONAL",
+      "target": {
+        "kind": "INTERVENTIONAL_DISTRIBUTION",
+        "treatment": "参加培训",
+        "outcome": "业绩达标",
+        "context": "本季度销售团队"
+      },
+      "functional": {
+        "operation": "BACKDOOR_ADJUSTMENT",
+        "source_id": "dag_law_14db77a160b959d1eccaaf110f031ad2c8842ccd4c56869fc0a24f784973b5ae",
+        "outcome": "业绩达标",
+        "treatment": "参加培训",
+        "sum_over": [
+          "资深员工"
+        ],
+        "conditional": {
+          "outcomes": [
+            "业绩达标"
+          ],
+          "given": [
+            "参加培训",
+            "资深员工"
+          ]
+        },
+        "marginal": {
+          "variables": [
+            "资深员工"
+          ]
+        },
+        "empty_marginal_is_one": true
+      },
+      "numeric_value": null
+    },
+    "certificate": {
+      "version": "dag-backdoor-1",
+      "theorem": "CLASSICAL_BACKDOOR_SUFFICIENT",
+      "status": "POINT",
+      "problem_sha256": "3927701c8c386c02c2b72a9ab04c4af240ad6851f76bce855117338db81970dd",
+      "information_sha256": "c6a895902a86ace09e38d5c54c2543d9ca80ba14c7ada2692714d498177a700c",
+      "target": {
+        "kind": "INTERVENTIONAL_DISTRIBUTION",
+        "treatment": "参加培训",
+        "outcome": "业绩达标",
+        "context": "本季度销售团队"
+      },
+      "adjustment": [
+        "资深员工"
+      ],
+      "functional": {
+        "operation": "BACKDOOR_ADJUSTMENT",
+        "source_id": "dag_law_14db77a160b959d1eccaaf110f031ad2c8842ccd4c56869fc0a24f784973b5ae",
+        "outcome": "业绩达标",
+        "treatment": "参加培训",
+        "sum_over": [
+          "资深员工"
+        ],
+        "conditional": {
+          "outcomes": [
+            "业绩达标"
+          ],
+          "given": [
+            "参加培训",
+            "资深员工"
+          ]
+        },
+        "marginal": {
+          "variables": [
+            "资深员工"
+          ]
+        },
+        "empty_marginal_is_one": true
+      },
+      "graphical_trace": {
+        "ancestral_nodes": [
+          "业绩达标",
+          "参加培训",
+          "资深员工"
+        ],
+        "moral_edges": [
+          [
+            "业绩达标",
+            "资深员工"
+          ],
+          [
+            "参加培训",
+            "资深员工"
+          ]
+        ],
+        "reachable_after_conditioning": [
+          "参加培训"
+        ]
+      },
+      "positivity": "DECLARED_STRICT_POSITIVE_OBSERVED_JOINT",
+      "numeric_value": null,
+      "certificate_sha256": "2d1d9c24e6ab5bb6689e85b01c2cb684a3e9c9f5289d4e11aa6cb0e5879f6b9d"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "expected_state": "NEEDS_INPUT",
+  "final_state": "NEEDS_INPUT",
+  "passed": true,
+  "score": {
+    "passed": true,
+    "structure": true,
+    "fields": {
+      "version": true,
+      "variables": true,
+      "relations": true,
+      "target": true,
+      "scope": true,
+      "information": true,
+      "adjustment": true,
+      "additional_restrictions": true
+    },
+    "citation_coverage": true
+  },
+  "result": {
+    "state": "NEEDS_INPUT",
+    "reason_code": "MISSING_OR_AMBIGUOUS_DAG_DECLARATIONS",
+    "independent_replay": false,
+    "mathematical_claim": null,
+    "certificate": null
+  }
+}

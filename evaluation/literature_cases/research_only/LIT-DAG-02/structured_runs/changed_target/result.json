@@ -1,0 +1,5 @@
+{
+  "state": "UNSUPPORTED",
+  "reason_code": "SPECIFIED_VARIABLE_FAILS_FRONTDOOR",
+  "certificate_replayed": false
+}

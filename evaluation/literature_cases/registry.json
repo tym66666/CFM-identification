@@ -1,0 +1,382 @@
+{
+  "version": "literature-cases-0.1.0",
+  "cases": [
+    {
+      "case_id": "LIT-NET-01",
+      "paper_id": "aronow_samii2017_interference",
+      "family": "NETWORK",
+      "title": "AI 经营助手试点：直接效应、同伴效应与局部总效应",
+      "public_directory": "evaluation/literature_cases/public/LIT-NET-01",
+      "research_directory": "evaluation/literature_cases/research_only/LIT-NET-01",
+      "variants": [
+        {
+          "name": "original",
+          "expected_status": "POINT",
+          "actual_status": "POINT",
+          "actual_source": "structured_runs/original (2026-11-08, no LLM)"
+        },
+        {
+          "name": "missing_condition",
+          "expected_status": "NEEDS_INPUT",
+          "actual_status": "NEEDS_INPUT",
+          "actual_source": "structured_runs/missing_condition (2026-11-08, no LLM)"
+        },
+        {
+          "name": "changed_target",
+          "expected_status": "POINT_REVERSED_SIGN",
+          "actual_status": "POINT",
+          "actual_source": "structured_runs/changed_target (2026-11-08, no LLM)"
+        }
+      ],
+      "heldout": false,
+      "review_status": "PENDING_TEACHER",
+      "status": "PILOT_RUN_COMPLETE"
+    },
+    {
+      "case_id": "LIT-IV-01",
+      "paper_id": "imbens_angrist1994_late",
+      "family": "IV",
+      "title": "培训资格抽签：实际参加者的局部平均效应",
+      "public_directory": "evaluation/literature_cases/public/LIT-IV-01",
+      "research_directory": "evaluation/literature_cases/research_only/LIT-IV-01",
+      "variants": [
+        {
+          "name": "original",
+          "expected_status": "UNSUPPORTED",
+          "actual_status": "UNSUPPORTED",
+          "actual_source": "capability_check.json (2026-11-08)"
+        },
+        {
+          "name": "missing_condition",
+          "expected_status": "UNSUPPORTED",
+          "actual_status": "UNSUPPORTED",
+          "actual_source": "capability_check.json (2026-11-08)"
+        },
+        {
+          "name": "changed_target",
+          "expected_status": "UNSUPPORTED",
+          "actual_status": "UNSUPPORTED",
+          "actual_source": "capability_check.json (2026-11-08)"
+        }
+      ],
+      "heldout": false,
+      "review_status": "PENDING_TEACHER",
+      "status": "PILOT_UNSUPPORTED_RECORDED"
+    },
+    {
+      "case_id": "LIT-DAG-01",
+      "paper_id": "pearl1995_backdoor",
+      "family": "DAG",
+      "title": "培训、业绩与资深员工：后门调整",
+      "public_directory": "evaluation/literature_cases/public/LIT-DAG-01",
+      "research_directory": "evaluation/literature_cases/research_only/LIT-DAG-01",
+      "variants": [
+        {
+          "name": "original",
+          "expected_status": "POINT",
+          "actual_status": "POINT",
+          "actual_source": "structured_runs/original (2026-11-08, no LLM)"
+        },
+        {
+          "name": "missing_condition",
+          "expected_status": "NEEDS_INPUT",
+          "actual_status": "NEEDS_INPUT",
+          "actual_source": "structured_runs/missing_condition (2026-11-08, no LLM)"
+        },
+        {
+          "name": "changed_target",
+          "expected_status": "UNSUPPORTED",
+          "actual_status": "UNSUPPORTED",
+          "actual_source": "structured_runs/changed_target (2026-11-08, no LLM)"
+        }
+      ],
+      "heldout": false,
+      "review_status": "PENDING_TEACHER",
+      "status": "PILOT_RUN_COMPLETE"
+    },
+    {
+      "case_id": "LIT-NET-02",
+      "paper_id": "hudgens_halloran2008_interference",
+      "family": "NETWORK",
+      "title": "疫苗试验：别人接种能保护没有接种的我吗？",
+      "public_directory": "evaluation/literature_cases/public/LIT-NET-02",
+      "research_directory": "evaluation/literature_cases/research_only/LIT-NET-02",
+      "variants": [
+        {
+          "name": "original",
+          "expected_status": "POINT",
+          "actual_status": "POINT",
+          "actual_source": "structured_runs/original (2026-11-08, no LLM)"
+        },
+        {
+          "name": "missing_condition",
+          "expected_status": "NEEDS_INPUT",
+          "actual_status": "NEEDS_INPUT",
+          "actual_source": "structured_runs/missing_condition (2026-11-08, no LLM)"
+        },
+        {
+          "name": "changed_target",
+          "expected_status": "POINT_REVERSED_SIGN",
+          "actual_status": "POINT",
+          "actual_source": "structured_runs/changed_target (2026-11-08, no LLM)"
+        }
+      ],
+      "heldout": false,
+      "review_status": "PENDING_TEACHER",
+      "status": "PILOT_RUN_COMPLETE"
+    },
+    {
+      "case_id": "LIT-NET-03",
+      "paper_id": "manski2013_social_interactions",
+      "family": "NETWORK",
+      "title": "七网点全网推广：平均按时完成率能确定到什么范围？",
+      "public_directory": "evaluation/literature_cases/public/LIT-NET-03",
+      "research_directory": "evaluation/literature_cases/research_only/LIT-NET-03",
+      "variants": [
+        {
+          "name": "original",
+          "expected_status": "PARTIAL",
+          "actual_status": "PARTIAL",
+          "actual_source": "structured_runs/original (2026-11-08, no LLM)"
+        },
+        {
+          "name": "missing_condition",
+          "expected_status": "NEEDS_INPUT",
+          "actual_status": "NEEDS_INPUT",
+          "actual_source": "structured_runs/missing_condition (2026-11-08, no LLM)"
+        },
+        {
+          "name": "changed_target",
+          "expected_status": "ADAPTER_NOT_CONNECTED",
+          "actual_status": "ADAPTER_NOT_CONNECTED",
+          "actual_source": "structured_runs/changed_target (2026-11-08, no LLM)"
+        }
+      ],
+      "heldout": false,
+      "review_status": "PENDING_TEACHER",
+      "status": "PILOT_RUN_COMPLETE"
+    },
+    {
+      "case_id": "LIT-NET-04",
+      "paper_id": "manski2013_social_interactions",
+      "family": "NETWORK",
+      "title": "四店均值顺序：全用相对全不用，差值能确定到什么范围？",
+      "public_directory": "evaluation/literature_cases/public/LIT-NET-04",
+      "research_directory": "evaluation/literature_cases/research_only/LIT-NET-04",
+      "variants": [
+        {
+          "name": "original",
+          "expected_status": "PARTIAL",
+          "actual_status": "PARTIAL",
+          "actual_source": "structured_runs/original (2026-11-08, no LLM)"
+        },
+        {
+          "name": "missing_condition",
+          "expected_status": "NEEDS_INPUT",
+          "actual_status": "NEEDS_INPUT",
+          "actual_source": "structured_runs/missing_condition (2026-11-08, no LLM)"
+        },
+        {
+          "name": "changed_target",
+          "expected_status": "POINT",
+          "actual_status": "POINT",
+          "actual_source": "structured_runs/changed_target (2026-11-08, no LLM)"
+        }
+      ],
+      "heldout": false,
+      "review_status": "PENDING_TEACHER",
+      "status": "PILOT_RUN_COMPLETE"
+    },
+    {
+      "case_id": "LIT-NET-05",
+      "paper_id": "paluck2016_aronow_samii2017",
+      "family": "NETWORK",
+      "title": "朋友被邀请，会改变我的行为吗？",
+      "public_directory": "evaluation/literature_cases/public/LIT-NET-05",
+      "research_directory": "evaluation/literature_cases/research_only/LIT-NET-05",
+      "variants": [
+        {
+          "name": "original",
+          "expected_status": "POINT",
+          "actual_status": "POINT",
+          "actual_source": "structured_runs/original (2026-11-09, no LLM)"
+        },
+        {
+          "name": "missing_condition",
+          "expected_status": "NEEDS_INPUT",
+          "actual_status": "NEEDS_INPUT",
+          "actual_source": "structured_runs/missing_condition (2026-11-09, no LLM)"
+        },
+        {
+          "name": "changed_target",
+          "expected_status": "POINT",
+          "actual_status": "POINT",
+          "actual_source": "structured_runs/changed_target (2026-11-09, no LLM)"
+        }
+      ],
+      "heldout": false,
+      "review_status": "PENDING_TEACHER",
+      "status": "PILOT_RUN_COMPLETE"
+    },
+    {
+      "case_id": "LIT-NET-06",
+      "paper_id": "beaman2021_seed",
+      "family": "NETWORK",
+      "title": "按两份名单抽签培训，整体采用率会是多少？",
+      "public_directory": "evaluation/literature_cases/public/LIT-NET-06",
+      "research_directory": "evaluation/literature_cases/research_only/LIT-NET-06",
+      "variants": [
+        {
+          "name": "original",
+          "expected_status": "POINT",
+          "actual_status": "POINT",
+          "actual_source": "structured_runs/original (2026-11-09, no LLM)"
+        },
+        {
+          "name": "missing_condition",
+          "expected_status": "NEEDS_INPUT",
+          "actual_status": "NEEDS_INPUT",
+          "actual_source": "structured_runs/missing_condition (2026-11-09, no LLM)"
+        },
+        {
+          "name": "changed_target",
+          "expected_status": "POINT",
+          "actual_status": "POINT",
+          "actual_source": "structured_runs/changed_target (2026-11-09, no LLM)"
+        }
+      ],
+      "heldout": false,
+      "review_status": "PENDING_TEACHER",
+      "status": "PILOT_RUN_COMPLETE"
+    },
+    {
+      "case_id": "LIT-NET-07",
+      "paper_id": "forastiere2021_network",
+      "family": "NETWORK",
+      "title": "朋友参加学习活动，会影响我的成绩吗？",
+      "public_directory": "evaluation/literature_cases/public/LIT-NET-07",
+      "research_directory": "evaluation/literature_cases/research_only/LIT-NET-07",
+      "variants": [
+        {
+          "name": "original",
+          "expected_status": "POINT",
+          "actual_status": "POINT",
+          "actual_source": "actual_outputs.json (saved demo run)"
+        },
+        {
+          "name": "missing_condition",
+          "expected_status": "NEEDS_INPUT",
+          "actual_status": "NOT_RUN",
+          "actual_source": null
+        },
+        {
+          "name": "changed_target",
+          "expected_status": "POINT",
+          "actual_status": "NOT_RUN",
+          "actual_source": null
+        }
+      ],
+      "heldout": true,
+      "review_status": "PENDING_TEACHER",
+      "status": "PILOT_RUN_COMPLETE",
+      "holdout_scope": "DEVELOPMENT_HOLDOUT_NOT_BLIND_TO_REPO_HISTORY"
+    },
+    {
+      "case_id": "LIT-DAG-02",
+      "paper_id": "pearl1995_frontdoor",
+      "family": "DAG",
+      "title": "存在未观测共同原因，还能研究吸烟的作用吗？",
+      "public_directory": "evaluation/literature_cases/public/LIT-DAG-02",
+      "research_directory": "evaluation/literature_cases/research_only/LIT-DAG-02",
+      "variants": [
+        {
+          "name": "original",
+          "expected_status": "POINT",
+          "actual_status": "POINT",
+          "actual_source": "structured_runs/original (2026-11-09, no LLM)"
+        },
+        {
+          "name": "missing_condition",
+          "expected_status": "NEEDS_INPUT",
+          "actual_status": "NEEDS_INPUT",
+          "actual_source": "structured_runs/missing_condition (2026-11-09, no LLM)"
+        },
+        {
+          "name": "changed_target",
+          "expected_status": "UNSUPPORTED",
+          "actual_status": "UNSUPPORTED",
+          "actual_source": "structured_runs/changed_target (2026-11-09, no LLM)"
+        }
+      ],
+      "heldout": true,
+      "review_status": "PENDING_TEACHER",
+      "status": "PILOT_RUN_COMPLETE",
+      "holdout_scope": "DEVELOPMENT_HOLDOUT_NOT_BLIND_TO_REPO_HISTORY"
+    },
+    {
+      "case_id": "LIT-NET-08",
+      "paper_id": "tchetgen_fulcher_shpitser2021_autog",
+      "family": "NETWORK",
+      "title": "Auto-G 网络干预案例",
+      "public_directory": "evaluation/literature_cases/public/LIT-NET-08",
+      "research_directory": "evaluation/literature_cases/research_only/LIT-NET-08",
+      "variants": [
+        {
+          "name": "original",
+          "expected_status": "UNSUPPORTED",
+          "actual_status": "UNSUPPORTED",
+          "actual_source": "capability_check.json (2026-11-08)"
+        },
+        {
+          "name": "missing_condition",
+          "expected_status": "UNSUPPORTED",
+          "actual_status": "UNSUPPORTED",
+          "actual_source": "capability_check.json (2026-11-08)"
+        },
+        {
+          "name": "changed_target",
+          "expected_status": "UNSUPPORTED",
+          "actual_status": "UNSUPPORTED",
+          "actual_source": "capability_check.json (2026-11-08)"
+        }
+      ],
+      "heldout": true,
+      "review_status": "PENDING_TEACHER",
+      "status": "PILOT_UNSUPPORTED_RECORDED",
+      "holdout_scope": "DEVELOPMENT_HOLDOUT_NOT_BLIND_TO_REPO_HISTORY"
+    },
+    {
+      "case_id": "LIT-IV-02",
+      "paper_id": "balke_pearl1997_bounds",
+      "family": "IV",
+      "title": "Balke–Pearl ATE 界限案例",
+      "public_directory": "evaluation/literature_cases/public/LIT-IV-02",
+      "research_directory": "evaluation/literature_cases/research_only/LIT-IV-02",
+      "variants": [
+        {
+          "name": "original",
+          "expected_status": "UNSUPPORTED",
+          "actual_status": "UNSUPPORTED",
+          "actual_source": "capability_check.json (2026-11-08)"
+        },
+        {
+          "name": "missing_condition",
+          "expected_status": "UNSUPPORTED",
+          "actual_status": "UNSUPPORTED",
+          "actual_source": "capability_check.json (2026-11-08)"
+        },
+        {
+          "name": "changed_target",
+          "expected_status": "UNSUPPORTED",
+          "actual_status": "UNSUPPORTED",
+          "actual_source": "capability_check.json (2026-11-08)"
+        }
+      ],
+      "heldout": true,
+      "review_status": "PENDING_TEACHER",
+      "status": "PILOT_UNSUPPORTED_RECORDED",
+      "holdout_scope": "DEVELOPMENT_HOLDOUT_NOT_BLIND_TO_REPO_HISTORY"
+    }
+  ],
+  "holdout_policy": "Development holdout only: references frozen and not used for tuning. Some source materials already appear in demo history; not blind against repository history."
+}

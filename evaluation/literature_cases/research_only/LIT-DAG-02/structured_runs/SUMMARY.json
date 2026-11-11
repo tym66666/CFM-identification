@@ -1,0 +1,24 @@
+{
+  "api_calls": 0,
+  "synthetic_reviews": true,
+  "rows": [
+    {
+      "variant": "original",
+      "state": "POINT",
+      "reason": null,
+      "independent_replay": true
+    },
+    {
+      "variant": "missing_condition",
+      "state": "NEEDS_INPUT",
+      "reason": "CAUSAL_GRAPH_NOT_DECLARED",
+      "independent_replay": false
+    },
+    {
+      "variant": "changed_target",
+      "state": "UNSUPPORTED",
+      "reason": "SPECIFIED_VARIABLE_FAILS_FRONTDOOR",
+      "independent_replay": false
+    }
+  ]
+}

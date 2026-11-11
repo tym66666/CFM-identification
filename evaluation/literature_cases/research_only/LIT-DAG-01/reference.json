@@ -1,0 +1,126 @@
+{
+  "case_id": "LIT-DAG-01",
+  "paper_id": "pearl1995_backdoor",
+  "paper": {
+    "author": "Judea Pearl",
+    "year": 1995,
+    "title": "Causal Diagrams for Empirical Research",
+    "venue": "Biometrika",
+    "volume": "82",
+    "issue": "4",
+    "pages": "669-688",
+    "doi": "10.1093/biomet/82.4.669",
+    "version_checked": "Author public copy, https://bayes.cs.ucla.edu/R218-B.pdf"
+  },
+  "paper_reference": {
+    "paper_question": "在给定的因果图和一个观测变量集合 Z 下，什么时候可以从观测分布识别干预分布 p(y|do(x))？",
+    "target": "p(y|do(X=x)) for the declared binary treatment and outcome.",
+    "source_location": "Pearl (1995), §3.1, Definition 3 and Theorem 1, Eq. (6), pp. 674-675.",
+    "formula": "If Z satisfies the back-door criterion relative to (X,Y), then p(y|do(x)) = sum_z p(y|x,z) p(z).",
+    "conditions": [
+      "The causal diagram is a DAG with the declared direct edges.",
+      "Z contains no descendant of X.",
+      "Z blocks every path between X and Y that contains an arrow into X.",
+      "The observed joint distribution is available and strictly positive on the declared binary domain.",
+      "The intervention sets X=x and leaves the other structural mechanisms unchanged."
+    ],
+    "what_paper_supports": [
+      "The graphical back-door criterion is sufficient for identifying the interventional distribution.",
+      "The adjustment formula sums over Z and weights by p(z), not by the treatment-group distribution of Z.",
+      "A set that includes a descendant of X does not satisfy the criterion."
+    ],
+    "what_paper_does_not_support": [
+      "It does not provide a complete general graph-ID algorithm.",
+      "It does not identify the target when no back-door set exists.",
+      "It does not turn an object collaboration network into a variable causal graph.",
+      "It does not make the synthetic business graph a medical fact claim."
+    ]
+  },
+  "available_information_a4": {
+    "variables": "All three variables are observed: Z=资深员工, X=参加培训, Y=业绩达标, binary.",
+    "population": "A complete symbolic population joint distribution over the observed binary variables, not a finite sample.",
+    "positivity": "Every joint binary cell is strictly positive.",
+    "graph": "Static acyclic graph with direct edges Z->X, Z->Y, X->Y; no other direct edges; no unobserved common causes."
+  },
+  "scientific_assumptions_a5": {
+    "status": "PROPOSED_AND_REQUIRES_INDEPENDENT_REVIEW",
+    "items": [
+      "Static acyclic structural causal model.",
+      "The declared graph lists all direct causal edges and all common causes.",
+      "Structural-equation errors are independent.",
+      "The intervention sets only the treatment and leaves other mechanisms unchanged.",
+      "No unit-level network interference."
+    ],
+    "not_adopted": [
+      "No general graph-ID completeness claim.",
+      "No front-door or other ID formula beyond the back-door theorem.",
+      "No empirical medical claim."
+    ]
+  },
+  "software_expected": {
+    "original": {
+      "status": "POINT",
+      "reason": "The current DAG back-door adapter can identify the interventional distribution with adjustment set {资深员工}."
+    },
+    "missing_condition": {
+      "status": "NEEDS_INPUT",
+      "reason": "The declaration that the graph lists all common causes / is complete is missing, so the back-door conditions cannot be confirmed."
+    },
+    "changed_target": {
+      "status": "UNSUPPORTED",
+      "reason": "The requested adjustment includes a post-treatment descendant of X, so it fails the back-door criterion."
+    }
+  },
+  "actual_run": {
+    "method": "LOCAL_STRUCTURED_DAG_RUN_NO_LLM",
+    "provenance": "2026-11-08 local structured run through the existing DAG business/back-door entry with explicit synthetic reviews; api_calls=0.",
+    "original": {
+      "state": "POINT",
+      "independent_replay": true,
+      "adjustment": [
+        "资深员工"
+      ],
+      "functional": {
+        "operation": "BACKDOOR_ADJUSTMENT",
+        "source_id": "dag_law_14db77a160b959d1eccaaf110f031ad2c8842ccd4c56869fc0a24f784973b5ae",
+        "outcome": "业绩达标",
+        "treatment": "参加培训",
+        "sum_over": [
+          "资深员工"
+        ],
+        "conditional": {
+          "outcomes": [
+            "业绩达标"
+          ],
+          "given": [
+            "参加培训",
+            "资深员工"
+          ]
+        },
+        "marginal": {
+          "variables": [
+            "资深员工"
+          ]
+        },
+        "empty_marginal_is_one": true
+      },
+      "problem_sha256": "3927701c8c386c02c2b72a9ab04c4af240ad6851f76bce855117338db81970dd",
+      "certificate_sha256": "2d1d9c24e6ab5bb6689e85b01c2cb684a3e9c9f5289d4e11aa6cb0e5879f6b9d",
+      "output_file": "structured_runs/original/result.json"
+    },
+    "missing_condition": {
+      "state": "NEEDS_INPUT",
+      "reason_code": "MISSING_OR_AMBIGUOUS_DAG_DECLARATIONS",
+      "output_file": "structured_runs/missing_condition/result.json"
+    },
+    "changed_target": {
+      "state": "UNSUPPORTED",
+      "reason_code": "ADJUSTMENT_CONTAINS_TREATMENT_DESCENDANT",
+      "output_file": "structured_runs/changed_target/result.json"
+    }
+  },
+  "review_status": "PENDING_TEACHER",
+  "reviewer": "teacher (to be completed)",
+  "holdout": false,
+  "notes": "DAG template. The original is POINT with adjustment {资深员工}; missing graph completeness is NEEDS_INPUT; controlling the post-treatment mediator is UNSUPPORTED. Paper reference and software result are recorded separately."
+}

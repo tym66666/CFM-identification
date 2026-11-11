@@ -1,0 +1,15 @@
+{
+  "case_id": "LIT-NET-06",
+  "variant": "missing_condition",
+  "paper_id": "beaman2021_seed",
+  "title": "按两份名单抽签培训，整体采用率会是多少？",
+  "synthetic": true,
+  "gold_oracle_location": "OUTSIDE_PUBLIC_CASE_DIRECTORY",
+  "llm_access_scope": "PUBLIC_CASE_FILES_ONLY",
+  "business_question_file": "business_question.md",
+  "supporting_files": [
+    "study_protocol.md",
+    "data_dictionary.md"
+  ],
+  "heldout": false
+}

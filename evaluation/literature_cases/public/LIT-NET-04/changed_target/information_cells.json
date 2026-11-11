@@ -1,0 +1,50 @@
+[
+  {
+    "node": "甲店",
+    "own": 1,
+    "exposure": 0,
+    "value": "3/5"
+  },
+  {
+    "node": "甲店",
+    "own": 0,
+    "exposure": 1,
+    "value": "2/5"
+  },
+  {
+    "node": "乙店",
+    "own": 1,
+    "exposure": 0,
+    "value": "3/5"
+  },
+  {
+    "node": "乙店",
+    "own": 0,
+    "exposure": 1,
+    "value": "2/5"
+  },
+  {
+    "node": "丙店",
+    "own": 1,
+    "exposure": 0,
+    "value": "3/5"
+  },
+  {
+    "node": "丙店",
+    "own": 0,
+    "exposure": 1,
+    "value": "2/5"
+  },
+  {
+    "node": "丁店",
+    "own": 1,
+    "exposure": 0,
+    "value": "3/5"
+  },
+  {
+    "node": "丁店",
+    "own": 0,
+    "exposure": 1,
+    "value": "2/5"
+  }
+]

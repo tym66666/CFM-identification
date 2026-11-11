@@ -1,0 +1,74 @@
+{
+  "case_id": "LIT-DAG-02",
+  "paper_id": "pearl1995_frontdoor",
+  "paper": {
+    "author": "Judea Pearl",
+    "year": 1995,
+    "title": "Causal Diagrams for Empirical Research",
+    "venue": "Biometrika",
+    "volume": "82",
+    "issue": "4",
+    "pages": "669-688",
+    "doi": "10.1093/biomet/82.4.669"
+  },
+  "paper_reference": {
+    "paper_question": "存在未观测共同原因时，什么图结构允许通过观测中介识别干预分布？",
+    "target": "p(肺癌 | do(吸烟=x))。",
+    "source_location": "Pearl (1995), §3.2 front-door criterion, Theorem 2, Eq. (9), pp. 675-677.",
+    "formula": "p(y|do(x)) = sum_z p(z|x) sum_{x'} p(y|x',z) p(x').",
+    "conditions": [
+      "Mediator Z intercepts all directed paths from X to Y.",
+      "No unblocked back-door path from X to Z.",
+      "All back-door paths from Z to Y are blocked by X.",
+      "Observed joint distribution is available and positive.",
+      "No direct X->Y edge."
+    ],
+    "what_paper_supports": [
+      "Front-door identification with an observed mediator.",
+      "The inner x' sum is distinct from the outer intervention x.",
+      "The three graphical conditions are required."
+    ],
+    "what_paper_does_not_support": [
+      "No front-door formula when mediator completeness fails.",
+      "No general graph-ID completeness.",
+      "No medical fact claim from the synthetic graph."
+    ]
+  },
+  "software_expected": {
+    "original": {
+      "status": "POINT"
+    },
+    "missing_condition": {
+      "status": "NEEDS_INPUT",
+      "reason": "Mediator completeness/direct-edge status is unconfirmed."
+    },
+    "changed_target": {
+      "status": "UNSUPPORTED",
+      "reason": "Adding a direct X->Y edge breaks the front-door conditions; no connected method."
+    }
+  },
+  "actual_run": {
+    "method": "LOCAL_STRUCTURED_FRONTDOOR_RUN_NO_LLM",
+    "provenance": "2026-11-09 local native front-door run with explicit synthetic reviews; api_calls=0.",
+    "original": {
+      "state": "POINT",
+      "independent_replay": true,
+      "output_file": "structured_runs/original/result.json"
+    },
+    "missing_condition": {
+      "state": "NEEDS_INPUT",
+      "reason_code": "CAUSAL_GRAPH_NOT_DECLARED",
+      "output_file": "structured_runs/missing_condition/result.json"
+    },
+    "changed_target": {
+      "state": "UNSUPPORTED",
+      "reason_code": "SPECIFIED_VARIABLE_FAILS_FRONTDOOR",
+      "output_file": "structured_runs/changed_target/result.json"
+    },
+    "note": "All three variants were run locally; no LLM call."
+  },
+  "review_status": "PENDING_TEACHER",
+  "reviewer": "teacher",
+  "holdout": true,
+  "notes": "Front-door template. Original actual is a saved demo run; variants are reference-only and not run."
+}

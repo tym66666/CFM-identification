@@ -1,0 +1,523 @@
+{
+  "case_id": "LIT-NET-03",
+  "paper_id": "manski2013_social_interactions",
+  "paper": {
+    "author": "Charles F. Manski",
+    "year": 2013,
+    "title": "Identification of Treatment Response with Social Interactions",
+    "venue": "Econometrics Journal",
+    "volume": "16",
+    "pages": "S1-S23",
+    "doi": "10.1111/j.1368-423X.2012.00368.x",
+    "version_checked": "Author public copy, treatment-effects.com/Manski-2013.pdf; selected sections"
+  },
+  "paper_reference": {
+    "paper_question": "在社会互动和干扰下，处理反应在什么条件下可以点识别，什么时候只能得到部分识别？",
+    "target": "项目自建有限模型中的七网点全网政策均值：七个网点全部使用AI时，等权平均按时完成率。",
+    "source_location": "Manski (2013) is background for partial identification and effective-treatment modeling: §2.1, §3.1 (pp. S8-S9), §3.2 (pp. S9-S10), §5.1-§5.2 (pp. S19-S20). The numeric [3/7,4/7] is NOT from this paper.",
+    "formula": "Target = (1/7) * sum_{i=1}^7 mu_i. Known: six leaf nodes have mu_i=1/2 in the full-assignment cell (own=1, exposure=1); the center has mu_center=1/2 in the cell (own=0, exposure=0), while mu_center in the full-assignment cell is only bounded in [0,1]. Therefore the equal-weight policy mean is bounded by (6*(1/2)+0)/7 = 3/7 and (6*(1/2)+1)/7 = 4/7.",
+    "conditions": [
+      "Complete finite mean model: only the listed exact population signature means are known.",
+      "No full joint distribution and no extra aggregate means are provided.",
+      "Each unit's mean lies in [0,1] under every complete binary assignment.",
+      "Mean sufficiency: each unit's potential-outcome mean depends only on own treatment and the strict-majority peer exposure.",
+      "Known assignment law: uniform fixed quota of 3 out of 7.",
+      "Consistency, randomization independence, fixed pre-treatment network, finite first moments.",
+      "No additional cross-unit or cross-context coupling constraints."
+    ],
+    "sharpness_argument": "The six leaf means contribute 3/7 total. The center mean can reach 0 and 1 within its declared bound, so the lower endpoint 3/7 and upper endpoint 4/7 are attainable. The interval is sharp relative to the declared finite mean model.",
+    "what_paper_supports": [
+      "Partial identification and the distinction between identified and unidentified effective treatments.",
+      "Additional shape restrictions can narrow an identified set.",
+      "Interference can be modeled through effective treatments."
+    ],
+    "what_paper_does_not_support": [
+      "It does not supply the numeric [3/7,4/7] interval.",
+      "It does not prove this project's finite mean-box sharpness result.",
+      "It does not automatically authorize monotonicity or other extra restrictions."
+    ]
+  },
+  "available_information_a4": {
+    "population": "Seven sites: 中心, 网点1-网点6, equal weight 1/7.",
+    "network": "Fixed star: center connected to six leaves; no leaf-to-leaf edges.",
+    "assignment": "Original pilot: uniform fixed quota of exactly 3 treated sites.",
+    "information": "Seven exact population signature means: center (own=0, exposure=0)=1/2; each leaf (own=1, exposure=1)=1/2. Each unit's mean is bounded in [0,1].",
+    "complete_model": "Only the listed means are known; no full joint law or extra aggregate means."
+  },
+  "scientific_assumptions_a5": {
+    "status": "PROPOSED_AND_REQUIRES_INDEPENDENT_REVIEW",
+    "items": [
+      "Mean sufficiency: potential-outcome mean depends only on own treatment and strict-majority peer exposure, for all binary assignments.",
+      "Known uniform fixed-quota assignment law.",
+      "Consistency.",
+      "Randomization independence.",
+      "Fixed pre-treatment network.",
+      "Finite first moments.",
+      "No additional coupling restrictions."
+    ],
+    "not_adopted": [
+      "No extra monotonicity in the original case.",
+      "No full joint distribution.",
+      "No claim that the interval is informative for every possible real network."
+    ]
+  },
+  "software_expected": {
+    "original": {
+      "status": "PARTIAL",
+      "interval": [
+        "3/7",
+        "4/7"
+      ],
+      "sharp": true,
+      "reason": "The current bounded-policy adapter supports the complete finite mean model and certifies the sharp interval."
+    },
+    "missing_condition": {
+      "status": "NEEDS_INPUT",
+      "reason": "The complete-model declarations are removed; the system cannot certify sharpness."
+    },
+    "changed_target": {
+      "status": "ADAPTER_NOT_CONNECTED",
+      "reason": "The extra own-treatment monotonicity is an additional coupling restriction; the current bounded-policy adapter does not process it."
+    }
+  },
+  "actual_run": {
+    "method": "LOCAL_STRUCTURED_BOUNDED_POLICY_RUN_NO_LLM",
+    "provenance": "2026-11-08 local structured run through the existing bounded-policy business entry with explicit synthetic reviews; api_calls=0.",
+    "original": {
+      "state": "PARTIAL",
+      "independent_replay": true,
+      "interval": [
+        "3/7",
+        "4/7"
+      ],
+      "width": "1/7",
+      "sharp": true,
+      "target_sha256": "fd50019f12c0745ebbf72721697ffc043042c1ebc88fbbdba2c234780f64dd01",
+      "certificate": {
+        "version": "bounded-policy-mean-1",
+        "theorem": "FINITE_SIGNATURE_MEAN_BOX",
+        "input_sha256": "0abbcf2eae0efa084d7eb775a4b87274cf502478363720d5c066c465327290a8",
+        "target_sha256": "fd50019f12c0745ebbf72721697ffc043042c1ebc88fbbdba2c234780f64dd01",
+        "status": "PARTIAL",
+        "lower": "3/7",
+        "upper": "4/7",
+        "width": "1/7",
+        "logical_range": [
+          "0",
+          "1"
+        ],
+        "informative": true,
+        "sharp": true,
+        "model_scope": "SIGNATURE_MEANS_AND_NODE_BOUNDS_ONLY",
+        "cells": [
+          {
+            "cell": [
+              "中心",
+              0,
+              0
+            ],
+            "support": "4/7",
+            "a4_value": "1/2",
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "中心",
+              0,
+              1
+            ],
+            "support": "0",
+            "a4_value": null,
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "中心",
+              1,
+              0
+            ],
+            "support": "3/7",
+            "a4_value": null,
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "中心",
+              1,
+              1
+            ],
+            "support": "0",
+            "a4_value": null,
+            "lower_world": "0",
+            "upper_world": "1"
+          },
+          {
+            "cell": [
+              "网点1",
+              0,
+              0
+            ],
+            "support": "2/7",
+            "a4_value": null,
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "网点1",
+              0,
+              1
+            ],
+            "support": "2/7",
+            "a4_value": null,
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "网点1",
+              1,
+              0
+            ],
+            "support": "2/7",
+            "a4_value": null,
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "网点1",
+              1,
+              1
+            ],
+            "support": "1/7",
+            "a4_value": "1/2",
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "网点2",
+              0,
+              0
+            ],
+            "support": "2/7",
+            "a4_value": null,
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "网点2",
+              0,
+              1
+            ],
+            "support": "2/7",
+            "a4_value": null,
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "网点2",
+              1,
+              0
+            ],
+            "support": "2/7",
+            "a4_value": null,
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "网点2",
+              1,
+              1
+            ],
+            "support": "1/7",
+            "a4_value": "1/2",
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "网点3",
+              0,
+              0
+            ],
+            "support": "2/7",
+            "a4_value": null,
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "网点3",
+              0,
+              1
+            ],
+            "support": "2/7",
+            "a4_value": null,
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "网点3",
+              1,
+              0
+            ],
+            "support": "2/7",
+            "a4_value": null,
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "网点3",
+              1,
+              1
+            ],
+            "support": "1/7",
+            "a4_value": "1/2",
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "网点4",
+              0,
+              0
+            ],
+            "support": "2/7",
+            "a4_value": null,
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "网点4",
+              0,
+              1
+            ],
+            "support": "2/7",
+            "a4_value": null,
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "网点4",
+              1,
+              0
+            ],
+            "support": "2/7",
+            "a4_value": null,
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "网点4",
+              1,
+              1
+            ],
+            "support": "1/7",
+            "a4_value": "1/2",
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "网点5",
+              0,
+              0
+            ],
+            "support": "2/7",
+            "a4_value": null,
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "网点5",
+              0,
+              1
+            ],
+            "support": "2/7",
+            "a4_value": null,
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "网点5",
+              1,
+              0
+            ],
+            "support": "2/7",
+            "a4_value": null,
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "网点5",
+              1,
+              1
+            ],
+            "support": "1/7",
+            "a4_value": "1/2",
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "网点6",
+              0,
+              0
+            ],
+            "support": "2/7",
+            "a4_value": null,
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "网点6",
+              0,
+              1
+            ],
+            "support": "2/7",
+            "a4_value": null,
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "网点6",
+              1,
+              0
+            ],
+            "support": "2/7",
+            "a4_value": null,
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          },
+          {
+            "cell": [
+              "网点6",
+              1,
+              1
+            ],
+            "support": "1/7",
+            "a4_value": "1/2",
+            "lower_world": "1/2",
+            "upper_world": "1/2"
+          }
+        ],
+        "bound_terms": [
+          {
+            "cell": [
+              "中心",
+              1,
+              1
+            ],
+            "coefficient": "1/7",
+            "basis": "MEAN_BOUNDS",
+            "lower": "0",
+            "upper": "1"
+          },
+          {
+            "cell": [
+              "网点1",
+              1,
+              1
+            ],
+            "coefficient": "1/7",
+            "basis": "A4_EQUALITY",
+            "lower": "1/2",
+            "upper": "1/2"
+          },
+          {
+            "cell": [
+              "网点2",
+              1,
+              1
+            ],
+            "coefficient": "1/7",
+            "basis": "A4_EQUALITY",
+            "lower": "1/2",
+            "upper": "1/2"
+          },
+          {
+            "cell": [
+              "网点3",
+              1,
+              1
+            ],
+            "coefficient": "1/7",
+            "basis": "A4_EQUALITY",
+            "lower": "1/2",
+            "upper": "1/2"
+          },
+          {
+            "cell": [
+              "网点4",
+              1,
+              1
+            ],
+            "coefficient": "1/7",
+            "basis": "A4_EQUALITY",
+            "lower": "1/2",
+            "upper": "1/2"
+          },
+          {
+            "cell": [
+              "网点5",
+              1,
+              1
+            ],
+            "coefficient": "1/7",
+            "basis": "A4_EQUALITY",
+            "lower": "1/2",
+            "upper": "1/2"
+          },
+          {
+            "cell": [
+              "网点6",
+              1,
+              1
+            ],
+            "coefficient": "1/7",
+            "basis": "A4_EQUALITY",
+            "lower": "1/2",
+            "upper": "1/2"
+          }
+        ],
+        "realization": "BERNOULLI_PER_NODE_SIGNATURE",
+        "production_admission": false,
+        "estimation_handoff_allowed": false,
+        "certificate_sha256": "a8e25da5bbecab2fe7aba640e27b6ba2764d516544d4c2fc23be7d1b1fb90eca"
+      },
+      "output_file": "structured_runs/original/result.json"
+    },
+    "missing_condition": {
+      "state": "NEEDS_INPUT",
+      "reason_code": "BOUNDED_MODEL_DECLARATIONS_INCOMPLETE",
+      "output_file": "structured_runs/missing_condition/result.json"
+    },
+    "changed_target": {
+      "state": "ADAPTER_NOT_CONNECTED",
+      "reason_code": "ADDITIONAL_INFORMATION_OR_RESTRICTIONS_REQUIRE_SEPARATE_ADAPTER",
+      "output_file": "structured_runs/changed_target/result.json"
+    }
+  },
+  "review_status": "PENDING_TEACHER",
+  "reviewer": "teacher (to be completed)",
+  "holdout": false,
+  "notes": "PARTIAL template. The [3/7,4/7] interval is a project finite-model result, not a Manski (2013) numeric answer. Missing complete-model scope is NEEDS_INPUT; extra monotonicity is ADAPTER_NOT_CONNECTED."
+}

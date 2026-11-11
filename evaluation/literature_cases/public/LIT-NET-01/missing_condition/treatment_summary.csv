@@ -1,0 +1,2 @@
+n_treated,n_control,design
+33,27,INDEPENDENT_BERNOULLI_1_2

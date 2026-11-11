@@ -1,0 +1,15 @@
+{
+  "case_id": "LIT-DAG-02",
+  "variant": "changed_target",
+  "paper_id": "pearl1995_frontdoor",
+  "title": "存在未观测共同原因，还能研究吸烟的作用吗？",
+  "synthetic": true,
+  "gold_oracle_location": "OUTSIDE_PUBLIC_CASE_DIRECTORY",
+  "llm_access_scope": "PUBLIC_CASE_FILES_ONLY",
+  "business_question_file": "business_question.md",
+  "supporting_files": [
+    "study_protocol.md",
+    "data_dictionary.md"
+  ],
+  "heldout": true
+}

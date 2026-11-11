@@ -1,0 +1,33 @@
+{
+  "api_calls": 0,
+  "synthetic_reviews": true,
+  "rows": [
+    {
+      "variant": "original",
+      "plan_state": "REVIEW_REQUIRED",
+      "final_state": "POINT",
+      "reason": null,
+      "independent_replay": true,
+      "target_fingerprint": "24af38176ece01bc86ab4ec91c32b99376b27ba03d5aa23e10bf4199bb389a1e",
+      "expression_prefix": "-1/12*E[Y_学生01^obs | W, T_学生01=0, S_学生01=0] + 1/12*E[Y_学生01^obs | W, T_学生01=0, S_学生01=1] - 1/12*E[Y_学生02^obs | W, T_学生02=0, S_学生02=0] + 1/12*E[Y_学生02^obs | W, T"
+    },
+    {
+      "variant": "missing_condition",
+      "plan_state": "NEEDS_INPUT",
+      "final_state": "NEEDS_INPUT",
+      "reason": "NETWORK_EFFECT_FACTS_INCOMPLETE",
+      "independent_replay": false,
+      "target_fingerprint": null,
+      "expression_prefix": ""
+    },
+    {
+      "variant": "changed_target",
+      "plan_state": "REVIEW_REQUIRED",
+      "final_state": "POINT",
+      "reason": null,
+      "independent_replay": true,
+      "target_fingerprint": "cfed596a9516b59cbef896edbb8da11ca01053633059f2f8e7d2dcb4a6add0ef",
+      "expression_prefix": "1/12*E[Y_学生01^obs | W, T_学生01=0, S_学生01=0] - 1/12*E[Y_学生01^obs | W, T_学生01=0, S_学生01=1] + 1/12*E[Y_学生02^obs | W, T_学生02=0, S_学生02=0] - 1/12*E[Y_学生02^obs | W, T_"
+    }
+  ]
+}

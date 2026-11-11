@@ -1,0 +1,9 @@
+{
+  "state": "ADAPTER_NOT_CONNECTED",
+  "reason_code": "ADDITIONAL_INFORMATION_OR_RESTRICTIONS_REQUIRE_SEPARATE_ADAPTER",
+  "independent_replay": false,
+  "query_id": "q1",
+  "result_scope": "SELECTED_QUERY_ONLY",
+  "mathematical_claim": null,
+  "certificate": null
+}

@@ -1,0 +1,17 @@
+{
+  "checked_on": "2026-11-08",
+  "code_version": "992fdf9598b1b18a16aaa5887490174f6b6e5868",
+  "api_calls": 0,
+  "route_catalog_version": "research-route-catalog-2",
+  "auto_g_registered": false,
+  "auto_g_status": "NOT_REGISTERED_IN_THIS_ENTRY",
+  "implemented_route_ids": [
+    "DAG_CLASSICAL_BACKDOOR",
+    "DAG_ADJUSTMENT",
+    "MEAN_ORDER_D2_E1",
+    "DAG_CLASSICAL_FRONTDOOR"
+  ],
+  "system_status": "UNSUPPORTED",
+  "reason": "The repository has no registered Auto-G or network joint-law identification backend. It must not route this case to the existing R1/R2/R3 network POINT entries.",
+  "boundary": "UNSUPPORTED is not a proof of non-identification. The paper gives an Auto-G route; the software has not implemented it."
+}

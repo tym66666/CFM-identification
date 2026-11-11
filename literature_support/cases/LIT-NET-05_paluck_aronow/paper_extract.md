@@ -1,0 +1,56 @@
+# 原文摘录与边界：Paluck et al. (2016) / Aronow–Samii (2017)
+
+## 1. 本案例实际用到的原文位置
+
+- Paluck et al. (2016), PNAS, DOI 10.1073/pnas.1514483113：反冲突项目、同伴网络传播、邀请与出席的区别。
+- Aronow & Samii (2017), §8 式 (16)、Corollary 8.1：设计加权条件平均与两暴露条件之差。
+- Aronow & Samii (2017), §10：手环结果和间接暴露的讨论。
+
+## 2. 关键边界
+
+1. **邀请不是出席**：本案例的处理编码是“是否收到邀请”，不是“是否实际参加”。
+2. **不比较学校是否开展项目**：所有对象都在已经开展项目的同一所学校。
+3. **设计加权目标**：其余安排按原两阶段/分组抽签规则条件平均，不是把其他学生固定成某个完整名单。
+4. **合成数据**：12 名学生、朋友边和手环结果都是自拟，不是论文 56 所学校数据。
+
+## 3. 案例目标
+
+\[
+\tau
+=
+\frac{1}{12}\sum_{i=1}^{12}
+\left[
+\bar\mu_i(0,S_i=1)-\bar\mu_i(0,S_i=0)
+\right],
+\]
+
+其中：
+
+- 本人未获邀（\(T_i=0\)）；
+- \(S_i=1\)：至少一位朋友获邀；
+- \(S_i=0\)：没有朋友获邀；
+- 全部 12 人等权。
+
+## 4. 不支撑
+
+- 不支撑把邀请效应解释为实际出席效应；
+- 不支撑把合成结果当作论文表 2 的复现；
+- 不支撑把其他学校的比较直接迁移到本案例。
+
+## 4.5 实际摘录
+
+Abstract：
+
+> “An experiment tested these theories by randomizing an anticonflict intervention across 56 schools with 24,191 students... randomly selected seed groups of 20–32 students... disciplinary reports of student conflict at treatment schools were reduced by 30% over 1 year.”
+
+Methods：
+
+> “Twenty-four percent of seed students did not accept our invitation... we used a conservative intention-to-treat approach that counts noncompliers as directly treated seeds.”
+
+Methods 还明确列出四类暴露：控制学校、无朋友是 seed、有朋友是 non-referent seed、有朋友是 social-referent seed；并说明用已知暴露概率做 IPW。
+
+本案例只借用“邀请/暴露”结构，不复制 56 所学校数据、30% 效应或 IPW 估计。
+
+## 5. 阅读级别
+
+`selected_full_text_sections`。已核对 PNAS 113(3):566–571 的 Abstract、Methods and Materials、Results 相关段落；未逐页核对 SI Appendix 和全部回归表，也没有重新证明 Aronow–Samii 的定理。

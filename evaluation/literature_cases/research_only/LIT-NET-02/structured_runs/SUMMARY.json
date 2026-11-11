@@ -1,0 +1,33 @@
+{
+  "api_calls": 0,
+  "synthetic_reviews": true,
+  "rows": [
+    {
+      "variant": "original",
+      "plan_state": "REVIEW_REQUIRED",
+      "final_state": "POINT",
+      "reason": null,
+      "independent_replay": true,
+      "target_fingerprint": "472bf8f954149ce7aab364d1316551324f9258a2dc82b403861f1330c33b80ce",
+      "expression_prefix": "-1/8*E[Y_甲1^obs | W, T_甲1=0, S_甲1=1] + 1/8*E[Y_甲1^obs | W, T_甲1=0, S_甲1=3] - 1/8*E[Y_甲2^obs | W, T_甲2=0, S_甲2=1] + 1/8*E[Y_甲2^obs | W, T_甲2=0, S_甲2=3] - 1/8*E[Y"
+    },
+    {
+      "variant": "missing_condition",
+      "plan_state": "NEEDS_INPUT",
+      "final_state": "NEEDS_INPUT",
+      "reason": "NETWORK_EFFECT_FACTS_INCOMPLETE",
+      "independent_replay": false,
+      "target_fingerprint": null,
+      "expression_prefix": ""
+    },
+    {
+      "variant": "changed_target",
+      "plan_state": "REVIEW_REQUIRED",
+      "final_state": "POINT",
+      "reason": null,
+      "independent_replay": true,
+      "target_fingerprint": "be8cfc68924f2882c10af7647b9af78344a66b5258b58d72916e860eeddb2846",
+      "expression_prefix": "1/8*E[Y_甲1^obs | W, T_甲1=0, S_甲1=1] - 1/8*E[Y_甲1^obs | W, T_甲1=0, S_甲1=3] + 1/8*E[Y_甲2^obs | W, T_甲2=0, S_甲2=1] - 1/8*E[Y_甲2^obs | W, T_甲2=0, S_甲2=3] + 1/8*E[Y_"
+    }
+  ]
+}

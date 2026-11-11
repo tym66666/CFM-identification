@@ -1,0 +1,62 @@
+{
+  "case_id": "LIT-NET-08",
+  "paper_id": "tchetgen_fulcher_shpitser2021_autog",
+  "paper": {
+    "authors": [
+      "Eric J. Tchetgen Tchetgen",
+      "Isabel R. Fulcher",
+      "Ilya Shpitser"
+    ],
+    "year": 2021,
+    "title": "Auto-G-Computation of Causal Effects on a Network",
+    "venue": "Journal of the American Statistical Association",
+    "volume": "116",
+    "issue": "534",
+    "pages": "833-844"
+  },
+  "paper_reference": {
+    "paper_question": "网络干扰下，如何利用网络联合分布和图结构计算干预效应？",
+    "target": "指定干预下的网络结果分布或平均结果。",
+    "source_location": "Tchetgen Tchetgen, Fulcher & Shpitser (2021), Auto-G; project literature card and route note only.",
+    "formula": "Auto-G computation over the network joint law and a declared chain-graph decomposition; not reproduced in this case package.",
+    "conditions": [
+      "Declared observed network joint law.",
+      "Declared network graph/decomposition.",
+      "Intervention target and support conditions.",
+      "No substitution by independent-unit or existing R1/R2/R3 POINT methods."
+    ],
+    "what_paper_supports": [
+      "Network dependence must be modeled explicitly.",
+      "Auto-G is a dedicated network identification/estimation route."
+    ],
+    "what_paper_does_not_support": [
+      "It does not mean the current software has an Auto-G backend.",
+      "It does not make the four-node synthetic case a paper replication.",
+      "It does not justify routing the case to R1/R2/R3."
+    ]
+  },
+  "software_expected": {
+    "original": {
+      "status": "UNSUPPORTED",
+      "reason": "No registered Auto-G/network joint-law backend."
+    },
+    "missing_condition": {
+      "status": "UNSUPPORTED",
+      "reason": "No Auto-G backend; additionally only finite sample is provided."
+    },
+    "changed_target": {
+      "status": "UNSUPPORTED",
+      "reason": "No Auto-G backend; changing to a fixed policy mean does not create support."
+    }
+  },
+  "actual_run": {
+    "method": "CAPABILITY_CATALOG_CHECK_ONLY",
+    "source": "capability_check.json",
+    "system_status": "UNSUPPORTED",
+    "note": "No Auto-G business run was attempted because there is no Auto-G reader/backend."
+  },
+  "review_status": "PENDING_TEACHER",
+  "reviewer": "teacher",
+  "holdout": true,
+  "notes": "Holdout candidate. Paper route is recorded separately from software status. UNSUPPORTED is not non-identification."
+}

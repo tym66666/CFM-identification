@@ -1,0 +1,39 @@
+# 原文摘录与边界：Tchetgen Tchetgen et al. (2021)
+
+## 1. 本案例实际核对范围
+
+- 题录、摘要和项目文献卡/路线说明。
+- 未逐页核对 Auto-G 算法、chain graph 分解、估计和证明。
+
+## 2. 论文关注
+
+网络上的因果效应不能按独立对象处理。论文提出 Auto-G 计算，用网络联合分布和图结构计算干预分布。
+
+## 3. 本案例的合成设置
+
+- 四个节点的小网络；
+- 处理 \(X\)、结果 \(Y\)；
+- 声明观测网络联合分布；
+- 目标：指定干预下的结果分布/平均结果。
+
+这是教学用合成案例，不是论文数据。
+
+## 4. 不支撑
+
+- 不支撑当前软件已实现 Auto-G；
+- 不支撑把本案例接到 R1/R2/R3 的现有网络 POINT 路线；
+- 不支撑从四节点外推到真实网络。
+
+## 4.5 实际摘录
+
+Abstract：
+
+> “In this paper, we develop new statistical methods for causal inference based on a single realization of a network of connected units for which neither assumption (i) nor (ii) holds... arbitrary forms of interference... and long range dependence...”
+
+§3.1 把网络数据写成 chain graph；auto-G-computation 在该 chain graph 上计算干预分布。论文的识别/估计依赖网络联合律和 chain graph 结构，不是把节点当独立对象。
+
+本案例只记录这条路线和“当前软件未实现”，不声称复现 Auto-G 的算法、证明或模拟。
+
+## 5. 阅读级别
+
+`selected_full_text_sections`。已核对 arXiv:1709.01577v3 的 Abstract、§3.1 chain graph 和 auto-G-computation algorithm 相关段落；不是 `full_text_verified`。

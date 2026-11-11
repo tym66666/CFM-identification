@@ -1,0 +1,1303 @@
+{
+  "state": "ALL_QUERIES_IDENTIFIED",
+  "all_queries_identified": true,
+  "all_queries_point_identified": true,
+  "expected_query_ids": [
+    "q1"
+  ],
+  "identified_query_ids": [
+    "q1"
+  ],
+  "unresolved_query_ids": [],
+  "point_identified_query_ids": [
+    "q1"
+  ],
+  "partially_identified_query_ids": [],
+  "result_scope": "WHOLE_BUSINESS_CASE",
+  "mathematical_claim": null,
+  "certificate": null,
+  "results": [
+    {
+      "query_id": "q1",
+      "result": {
+        "state": "POINT",
+        "reason_code": null,
+        "independent_replay": true,
+        "query_id": "q1",
+        "result_scope": "SELECTED_QUERY_ONLY",
+        "mathematical_claim": {
+          "kind": "POINT",
+          "representation": "DESIGN_STANDARDIZED_EFFECT_OBSERVED_FUNCTIONAL",
+          "target": {
+            "kind": "SPILLOVER_EFFECT",
+            "node_order": [
+              "node-0",
+              "node-1",
+              "node-2",
+              "node-3",
+              "node-4",
+              "node-5",
+              "node-6",
+              "node-7",
+              "node-8",
+              "node-9",
+              "node-10",
+              "node-11",
+              "node-12",
+              "node-13",
+              "node-14",
+              "node-15",
+              "node-16",
+              "node-17",
+              "node-18",
+              "node-19",
+              "node-20",
+              "node-21",
+              "node-22",
+              "node-23",
+              "node-24",
+              "node-25",
+              "node-26",
+              "node-27",
+              "node-28",
+              "node-29",
+              "node-30",
+              "node-31",
+              "node-32",
+              "node-33",
+              "node-34",
+              "node-35",
+              "node-36",
+              "node-37",
+              "node-38",
+              "node-39",
+              "node-40",
+              "node-41",
+              "node-42",
+              "node-43",
+              "node-44",
+              "node-45",
+              "node-46",
+              "node-47",
+              "node-48",
+              "node-49",
+              "node-50",
+              "node-51",
+              "node-52",
+              "node-53",
+              "node-54",
+              "node-55",
+              "node-56",
+              "node-57",
+              "node-58",
+              "node-59"
+            ],
+            "evaluation_population": [
+              "node-0",
+              "node-1",
+              "node-2",
+              "node-3",
+              "node-4",
+              "node-5",
+              "node-6",
+              "node-7",
+              "node-8",
+              "node-9",
+              "node-10",
+              "node-11",
+              "node-12",
+              "node-13",
+              "node-14",
+              "node-15",
+              "node-16",
+              "node-17",
+              "node-18",
+              "node-19",
+              "node-20",
+              "node-21",
+              "node-22",
+              "node-23",
+              "node-24",
+              "node-25",
+              "node-26",
+              "node-27",
+              "node-28",
+              "node-29",
+              "node-30",
+              "node-31",
+              "node-32",
+              "node-33",
+              "node-34",
+              "node-35",
+              "node-36",
+              "node-37",
+              "node-38",
+              "node-39",
+              "node-40",
+              "node-41",
+              "node-42",
+              "node-43",
+              "node-44",
+              "node-45",
+              "node-46",
+              "node-47",
+              "node-48",
+              "node-49",
+              "node-50",
+              "node-51",
+              "node-52",
+              "node-53",
+              "node-54",
+              "node-55",
+              "node-56",
+              "node-57",
+              "node-58",
+              "node-59"
+            ],
+            "unit_weights": [
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60",
+              "1/60"
+            ],
+            "first": [
+              1,
+              0
+            ],
+            "second": [
+              1,
+              1
+            ],
+            "operation": "FIRST_MINUS_SECOND",
+            "remaining_assignment": "ORIGINAL_DESIGN_CONDITIONAL",
+            "assignment": {
+              "kind": "INDEPENDENT_BERNOULLI",
+              "probabilities": {
+                "node-0": "1/2",
+                "node-1": "1/2",
+                "node-2": "1/2",
+                "node-3": "1/2",
+                "node-4": "1/2",
+                "node-5": "1/2",
+                "node-6": "1/2",
+                "node-7": "1/2",
+                "node-8": "1/2",
+                "node-9": "1/2",
+                "node-10": "1/2",
+                "node-11": "1/2",
+                "node-12": "1/2",
+                "node-13": "1/2",
+                "node-14": "1/2",
+                "node-15": "1/2",
+                "node-16": "1/2",
+                "node-17": "1/2",
+                "node-18": "1/2",
+                "node-19": "1/2",
+                "node-20": "1/2",
+                "node-21": "1/2",
+                "node-22": "1/2",
+                "node-23": "1/2",
+                "node-24": "1/2",
+                "node-25": "1/2",
+                "node-26": "1/2",
+                "node-27": "1/2",
+                "node-28": "1/2",
+                "node-29": "1/2",
+                "node-30": "1/2",
+                "node-31": "1/2",
+                "node-32": "1/2",
+                "node-33": "1/2",
+                "node-34": "1/2",
+                "node-35": "1/2",
+                "node-36": "1/2",
+                "node-37": "1/2",
+                "node-38": "1/2",
+                "node-39": "1/2",
+                "node-40": "1/2",
+                "node-41": "1/2",
+                "node-42": "1/2",
+                "node-43": "1/2",
+                "node-44": "1/2",
+                "node-45": "1/2",
+                "node-46": "1/2",
+                "node-47": "1/2",
+                "node-48": "1/2",
+                "node-49": "1/2",
+                "node-50": "1/2",
+                "node-51": "1/2",
+                "node-52": "1/2",
+                "node-53": "1/2",
+                "node-54": "1/2",
+                "node-55": "1/2",
+                "node-56": "1/2",
+                "node-57": "1/2",
+                "node-58": "1/2",
+                "node-59": "1/2"
+              }
+            },
+            "exposure": "STRICT_MAJORITY_TIES_LOW",
+            "treatment": "本期启用AI经营助手；T_i=1表示启用，T_i=0表示不启用",
+            "outcome": "本期经营表现评分，连续数值，评分越高表示表现越好",
+            "context": "同一试点期、同一处理前网络与20项特征背景，结果为本期经营表现评分。",
+            "native_symbol_mapping": {
+              "treatment": "treatment",
+              "outcome": "outcome",
+              "context": "W"
+            }
+          },
+          "target_fingerprint": "58385584627f0a9ab71eb4b70067753d27446095015939dc716979203910d8c1",
+          "expression": "1/60*E[Y_node-0^obs | W, T_node-0=1, S_node-0=0] - 1/60*E[Y_node-0^obs | W, T_node-0=1, S_node-0=1] + 1/60*E[Y_node-1^obs | W, T_node-1=1, S_node-1=0] - 1/60*E[Y_node-1^obs | W, T_node-1=1, S_node-1=1] + 1/60*E[Y_node-2^obs | W, T_node-2=1, S_node-2=0] - 1/60*E[Y_node-2^obs | W, T_node-2=1, S_node-2=1] + 1/60*E[Y_node-3^obs | W, T_node-3=1, S_node-3=0] - 1/60*E[Y_node-3^obs | W, T_node-3=1, S_node-3=1] + 1/60*E[Y_node-4^obs | W, T_node-4=1, S_node-4=0] - 1/60*E[Y_node-4^obs | W, T_node-4=1, S_node-4=1] + 1/60*E[Y_node-5^obs | W, T_node-5=1, S_node-5=0] - 1/60*E[Y_node-5^obs | W, T_node-5=1, S_node-5=1] + 1/60*E[Y_node-6^obs | W, T_node-6=1, S_node-6=0] - 1/60*E[Y_node-6^obs | W, T_node-6=1, S_node-6=1] + 1/60*E[Y_node-7^obs | W, T_node-7=1, S_node-7=0] - 1/60*E[Y_node-7^obs | W, T_node-7=1, S_node-7=1] + 1/60*E[Y_node-8^obs | W, T_node-8=1, S_node-8=0] - 1/60*E[Y_node-8^obs | W, T_node-8=1, S_node-8=1] + 1/60*E[Y_node-9^obs | W, T_node-9=1, S_node-9=0] - 1/60*E[Y_node-9^obs | W, T_node-9=1, S_node-9=1] + 1/60*E[Y_node-10^obs | W, T_node-10=1, S_node-10=0] - 1/60*E[Y_node-10^obs | W, T_node-10=1, S_node-10=1] + 1/60*E[Y_node-11^obs | W, T_node-11=1, S_node-11=0] - 1/60*E[Y_node-11^obs | W, T_node-11=1, S_node-11=1] + 1/60*E[Y_node-12^obs | W, T_node-12=1, S_node-12=0] - 1/60*E[Y_node-12^obs | W, T_node-12=1, S_node-12=1] + 1/60*E[Y_node-13^obs | W, T_node-13=1, S_node-13=0] - 1/60*E[Y_node-13^obs | W, T_node-13=1, S_node-13=1] + 1/60*E[Y_node-14^obs | W, T_node-14=1, S_node-14=0] - 1/60*E[Y_node-14^obs | W, T_node-14=1, S_node-14=1] + 1/60*E[Y_node-15^obs | W, T_node-15=1, S_node-15=0] - 1/60*E[Y_node-15^obs | W, T_node-15=1, S_node-15=1] + 1/60*E[Y_node-16^obs | W, T_node-16=1, S_node-16=0] - 1/60*E[Y_node-16^obs | W, T_node-16=1, S_node-16=1] + 1/60*E[Y_node-17^obs | W, T_node-17=1, S_node-17=0] - 1/60*E[Y_node-17^obs | W, T_node-17=1, S_node-17=1] + 1/60*E[Y_node-18^obs | W, T_node-18=1, S_node-18=0] - 1/60*E[Y_node-18^obs | W, T_node-18=1, S_node-18=1] + 1/60*E[Y_node-19^obs | W, T_node-19=1, S_node-19=0] - 1/60*E[Y_node-19^obs | W, T_node-19=1, S_node-19=1] + 1/60*E[Y_node-20^obs | W, T_node-20=1, S_node-20=0] - 1/60*E[Y_node-20^obs | W, T_node-20=1, S_node-20=1] + 1/60*E[Y_node-21^obs | W, T_node-21=1, S_node-21=0] - 1/60*E[Y_node-21^obs | W, T_node-21=1, S_node-21=1] + 1/60*E[Y_node-22^obs | W, T_node-22=1, S_node-22=0] - 1/60*E[Y_node-22^obs | W, T_node-22=1, S_node-22=1] + 1/60*E[Y_node-23^obs | W, T_node-23=1, S_node-23=0] - 1/60*E[Y_node-23^obs | W, T_node-23=1, S_node-23=1] + 1/60*E[Y_node-24^obs | W, T_node-24=1, S_node-24=0] - 1/60*E[Y_node-24^obs | W, T_node-24=1, S_node-24=1] + 1/60*E[Y_node-25^obs | W, T_node-25=1, S_node-25=0] - 1/60*E[Y_node-25^obs | W, T_node-25=1, S_node-25=1] + 1/60*E[Y_node-26^obs | W, T_node-26=1, S_node-26=0] - 1/60*E[Y_node-26^obs | W, T_node-26=1, S_node-26=1] + 1/60*E[Y_node-27^obs | W, T_node-27=1, S_node-27=0] - 1/60*E[Y_node-27^obs | W, T_node-27=1, S_node-27=1] + 1/60*E[Y_node-28^obs | W, T_node-28=1, S_node-28=0] - 1/60*E[Y_node-28^obs | W, T_node-28=1, S_node-28=1] + 1/60*E[Y_node-29^obs | W, T_node-29=1, S_node-29=0] - 1/60*E[Y_node-29^obs | W, T_node-29=1, S_node-29=1] + 1/60*E[Y_node-30^obs | W, T_node-30=1, S_node-30=0] - 1/60*E[Y_node-30^obs | W, T_node-30=1, S_node-30=1] + 1/60*E[Y_node-31^obs | W, T_node-31=1, S_node-31=0] - 1/60*E[Y_node-31^obs | W, T_node-31=1, S_node-31=1] + 1/60*E[Y_node-32^obs | W, T_node-32=1, S_node-32=0] - 1/60*E[Y_node-32^obs | W, T_node-32=1, S_node-32=1] + 1/60*E[Y_node-33^obs | W, T_node-33=1, S_node-33=0] - 1/60*E[Y_node-33^obs | W, T_node-33=1, S_node-33=1] + 1/60*E[Y_node-34^obs | W, T_node-34=1, S_node-34=0] - 1/60*E[Y_node-34^obs | W, T_node-34=1, S_node-34=1] + 1/60*E[Y_node-35^obs | W, T_node-35=1, S_node-35=0] - 1/60*E[Y_node-35^obs | W, T_node-35=1, S_node-35=1] + 1/60*E[Y_node-36^obs | W, T_node-36=1, S_node-36=0] - 1/60*E[Y_node-36^obs | W, T_node-36=1, S_node-36=1] + 1/60*E[Y_node-37^obs | W, T_node-37=1, S_node-37=0] - 1/60*E[Y_node-37^obs | W, T_node-37=1, S_node-37=1] + 1/60*E[Y_node-38^obs | W, T_node-38=1, S_node-38=0] - 1/60*E[Y_node-38^obs | W, T_node-38=1, S_node-38=1] + 1/60*E[Y_node-39^obs | W, T_node-39=1, S_node-39=0] - 1/60*E[Y_node-39^obs | W, T_node-39=1, S_node-39=1] + 1/60*E[Y_node-40^obs | W, T_node-40=1, S_node-40=0] - 1/60*E[Y_node-40^obs | W, T_node-40=1, S_node-40=1] + 1/60*E[Y_node-41^obs | W, T_node-41=1, S_node-41=0] - 1/60*E[Y_node-41^obs | W, T_node-41=1, S_node-41=1] + 1/60*E[Y_node-42^obs | W, T_node-42=1, S_node-42=0] - 1/60*E[Y_node-42^obs | W, T_node-42=1, S_node-42=1] + 1/60*E[Y_node-43^obs | W, T_node-43=1, S_node-43=0] - 1/60*E[Y_node-43^obs | W, T_node-43=1, S_node-43=1] + 1/60*E[Y_node-44^obs | W, T_node-44=1, S_node-44=0] - 1/60*E[Y_node-44^obs | W, T_node-44=1, S_node-44=1] + 1/60*E[Y_node-45^obs | W, T_node-45=1, S_node-45=0] - 1/60*E[Y_node-45^obs | W, T_node-45=1, S_node-45=1] + 1/60*E[Y_node-46^obs | W, T_node-46=1, S_node-46=0] - 1/60*E[Y_node-46^obs | W, T_node-46=1, S_node-46=1] + 1/60*E[Y_node-47^obs | W, T_node-47=1, S_node-47=0] - 1/60*E[Y_node-47^obs | W, T_node-47=1, S_node-47=1] + 1/60*E[Y_node-48^obs | W, T_node-48=1, S_node-48=0] - 1/60*E[Y_node-48^obs | W, T_node-48=1, S_node-48=1] + 1/60*E[Y_node-49^obs | W, T_node-49=1, S_node-49=0] - 1/60*E[Y_node-49^obs | W, T_node-49=1, S_node-49=1] + 1/60*E[Y_node-50^obs | W, T_node-50=1, S_node-50=0] - 1/60*E[Y_node-50^obs | W, T_node-50=1, S_node-50=1] + 1/60*E[Y_node-51^obs | W, T_node-51=1, S_node-51=0] - 1/60*E[Y_node-51^obs | W, T_node-51=1, S_node-51=1] + 1/60*E[Y_node-52^obs | W, T_node-52=1, S_node-52=0] - 1/60*E[Y_node-52^obs | W, T_node-52=1, S_node-52=1] + 1/60*E[Y_node-53^obs | W, T_node-53=1, S_node-53=0] - 1/60*E[Y_node-53^obs | W, T_node-53=1, S_node-53=1] + 1/60*E[Y_node-54^obs | W, T_node-54=1, S_node-54=0] - 1/60*E[Y_node-54^obs | W, T_node-54=1, S_node-54=1] + 1/60*E[Y_node-55^obs | W, T_node-55=1, S_node-55=0] - 1/60*E[Y_node-55^obs | W, T_node-55=1, S_node-55=1] + 1/60*E[Y_node-56^obs | W, T_node-56=1, S_node-56=0] - 1/60*E[Y_node-56^obs | W, T_node-56=1, S_node-56=1] + 1/60*E[Y_node-57^obs | W, T_node-57=1, S_node-57=0] - 1/60*E[Y_node-57^obs | W, T_node-57=1, S_node-57=1] + 1/60*E[Y_node-58^obs | W, T_node-58=1, S_node-58=0] - 1/60*E[Y_node-58^obs | W, T_node-58=1, S_node-58=1] + 1/60*E[Y_node-59^obs | W, T_node-59=1, S_node-59=0] - 1/60*E[Y_node-59^obs | W, T_node-59=1, S_node-59=1]",
+          "numeric_value": null
+        },
+        "certificate": {
+          "verification_status": "VERIFIED",
+          "query_count": 1,
+          "source_batch_sha256": "ad3f16ce6c29aa0642e4ac35303f35566cf3bd49e935bd0abbafafa92d5342e3",
+          "bundle_sha256": "6c807c6f3d585bef8601adfcb6c48406b8a2783dec73e5291a34b12e28ad8b00",
+          "results": [
+            {
+              "status": "POINT",
+              "verification_status": "VERIFIED",
+              "kind": "SPILLOVER",
+              "term_count": 120,
+              "identified_functional": "1/60*E[Y_node-0^obs | W, T_node-0=1, S_node-0=0] - 1/60*E[Y_node-0^obs | W, T_node-0=1, S_node-0=1] + 1/60*E[Y_node-1^obs | W, T_node-1=1, S_node-1=0] - 1/60*E[Y_node-1^obs | W, T_node-1=1, S_node-1=1] + 1/60*E[Y_node-2^obs | W, T_node-2=1, S_node-2=0] - 1/60*E[Y_node-2^obs | W, T_node-2=1, S_node-2=1] + 1/60*E[Y_node-3^obs | W, T_node-3=1, S_node-3=0] - 1/60*E[Y_node-3^obs | W, T_node-3=1, S_node-3=1] + 1/60*E[Y_node-4^obs | W, T_node-4=1, S_node-4=0] - 1/60*E[Y_node-4^obs | W, T_node-4=1, S_node-4=1] + 1/60*E[Y_node-5^obs | W, T_node-5=1, S_node-5=0] - 1/60*E[Y_node-5^obs | W, T_node-5=1, S_node-5=1] + 1/60*E[Y_node-6^obs | W, T_node-6=1, S_node-6=0] - 1/60*E[Y_node-6^obs | W, T_node-6=1, S_node-6=1] + 1/60*E[Y_node-7^obs | W, T_node-7=1, S_node-7=0] - 1/60*E[Y_node-7^obs | W, T_node-7=1, S_node-7=1] + 1/60*E[Y_node-8^obs | W, T_node-8=1, S_node-8=0] - 1/60*E[Y_node-8^obs | W, T_node-8=1, S_node-8=1] + 1/60*E[Y_node-9^obs | W, T_node-9=1, S_node-9=0] - 1/60*E[Y_node-9^obs | W, T_node-9=1, S_node-9=1] + 1/60*E[Y_node-10^obs | W, T_node-10=1, S_node-10=0] - 1/60*E[Y_node-10^obs | W, T_node-10=1, S_node-10=1] + 1/60*E[Y_node-11^obs | W, T_node-11=1, S_node-11=0] - 1/60*E[Y_node-11^obs | W, T_node-11=1, S_node-11=1] + 1/60*E[Y_node-12^obs | W, T_node-12=1, S_node-12=0] - 1/60*E[Y_node-12^obs | W, T_node-12=1, S_node-12=1] + 1/60*E[Y_node-13^obs | W, T_node-13=1, S_node-13=0] - 1/60*E[Y_node-13^obs | W, T_node-13=1, S_node-13=1] + 1/60*E[Y_node-14^obs | W, T_node-14=1, S_node-14=0] - 1/60*E[Y_node-14^obs | W, T_node-14=1, S_node-14=1] + 1/60*E[Y_node-15^obs | W, T_node-15=1, S_node-15=0] - 1/60*E[Y_node-15^obs | W, T_node-15=1, S_node-15=1] + 1/60*E[Y_node-16^obs | W, T_node-16=1, S_node-16=0] - 1/60*E[Y_node-16^obs | W, T_node-16=1, S_node-16=1] + 1/60*E[Y_node-17^obs | W, T_node-17=1, S_node-17=0] - 1/60*E[Y_node-17^obs | W, T_node-17=1, S_node-17=1] + 1/60*E[Y_node-18^obs | W, T_node-18=1, S_node-18=0] - 1/60*E[Y_node-18^obs | W, T_node-18=1, S_node-18=1] + 1/60*E[Y_node-19^obs | W, T_node-19=1, S_node-19=0] - 1/60*E[Y_node-19^obs | W, T_node-19=1, S_node-19=1] + 1/60*E[Y_node-20^obs | W, T_node-20=1, S_node-20=0] - 1/60*E[Y_node-20^obs | W, T_node-20=1, S_node-20=1] + 1/60*E[Y_node-21^obs | W, T_node-21=1, S_node-21=0] - 1/60*E[Y_node-21^obs | W, T_node-21=1, S_node-21=1] + 1/60*E[Y_node-22^obs | W, T_node-22=1, S_node-22=0] - 1/60*E[Y_node-22^obs | W, T_node-22=1, S_node-22=1] + 1/60*E[Y_node-23^obs | W, T_node-23=1, S_node-23=0] - 1/60*E[Y_node-23^obs | W, T_node-23=1, S_node-23=1] + 1/60*E[Y_node-24^obs | W, T_node-24=1, S_node-24=0] - 1/60*E[Y_node-24^obs | W, T_node-24=1, S_node-24=1] + 1/60*E[Y_node-25^obs | W, T_node-25=1, S_node-25=0] - 1/60*E[Y_node-25^obs | W, T_node-25=1, S_node-25=1] + 1/60*E[Y_node-26^obs | W, T_node-26=1, S_node-26=0] - 1/60*E[Y_node-26^obs | W, T_node-26=1, S_node-26=1] + 1/60*E[Y_node-27^obs | W, T_node-27=1, S_node-27=0] - 1/60*E[Y_node-27^obs | W, T_node-27=1, S_node-27=1] + 1/60*E[Y_node-28^obs | W, T_node-28=1, S_node-28=0] - 1/60*E[Y_node-28^obs | W, T_node-28=1, S_node-28=1] + 1/60*E[Y_node-29^obs | W, T_node-29=1, S_node-29=0] - 1/60*E[Y_node-29^obs | W, T_node-29=1, S_node-29=1] + 1/60*E[Y_node-30^obs | W, T_node-30=1, S_node-30=0] - 1/60*E[Y_node-30^obs | W, T_node-30=1, S_node-30=1] + 1/60*E[Y_node-31^obs | W, T_node-31=1, S_node-31=0] - 1/60*E[Y_node-31^obs | W, T_node-31=1, S_node-31=1] + 1/60*E[Y_node-32^obs | W, T_node-32=1, S_node-32=0] - 1/60*E[Y_node-32^obs | W, T_node-32=1, S_node-32=1] + 1/60*E[Y_node-33^obs | W, T_node-33=1, S_node-33=0] - 1/60*E[Y_node-33^obs | W, T_node-33=1, S_node-33=1] + 1/60*E[Y_node-34^obs | W, T_node-34=1, S_node-34=0] - 1/60*E[Y_node-34^obs | W, T_node-34=1, S_node-34=1] + 1/60*E[Y_node-35^obs | W, T_node-35=1, S_node-35=0] - 1/60*E[Y_node-35^obs | W, T_node-35=1, S_node-35=1] + 1/60*E[Y_node-36^obs | W, T_node-36=1, S_node-36=0] - 1/60*E[Y_node-36^obs | W, T_node-36=1, S_node-36=1] + 1/60*E[Y_node-37^obs | W, T_node-37=1, S_node-37=0] - 1/60*E[Y_node-37^obs | W, T_node-37=1, S_node-37=1] + 1/60*E[Y_node-38^obs | W, T_node-38=1, S_node-38=0] - 1/60*E[Y_node-38^obs | W, T_node-38=1, S_node-38=1] + 1/60*E[Y_node-39^obs | W, T_node-39=1, S_node-39=0] - 1/60*E[Y_node-39^obs | W, T_node-39=1, S_node-39=1] + 1/60*E[Y_node-40^obs | W, T_node-40=1, S_node-40=0] - 1/60*E[Y_node-40^obs | W, T_node-40=1, S_node-40=1] + 1/60*E[Y_node-41^obs | W, T_node-41=1, S_node-41=0] - 1/60*E[Y_node-41^obs | W, T_node-41=1, S_node-41=1] + 1/60*E[Y_node-42^obs | W, T_node-42=1, S_node-42=0] - 1/60*E[Y_node-42^obs | W, T_node-42=1, S_node-42=1] + 1/60*E[Y_node-43^obs | W, T_node-43=1, S_node-43=0] - 1/60*E[Y_node-43^obs | W, T_node-43=1, S_node-43=1] + 1/60*E[Y_node-44^obs | W, T_node-44=1, S_node-44=0] - 1/60*E[Y_node-44^obs | W, T_node-44=1, S_node-44=1] + 1/60*E[Y_node-45^obs | W, T_node-45=1, S_node-45=0] - 1/60*E[Y_node-45^obs | W, T_node-45=1, S_node-45=1] + 1/60*E[Y_node-46^obs | W, T_node-46=1, S_node-46=0] - 1/60*E[Y_node-46^obs | W, T_node-46=1, S_node-46=1] + 1/60*E[Y_node-47^obs | W, T_node-47=1, S_node-47=0] - 1/60*E[Y_node-47^obs | W, T_node-47=1, S_node-47=1] + 1/60*E[Y_node-48^obs | W, T_node-48=1, S_node-48=0] - 1/60*E[Y_node-48^obs | W, T_node-48=1, S_node-48=1] + 1/60*E[Y_node-49^obs | W, T_node-49=1, S_node-49=0] - 1/60*E[Y_node-49^obs | W, T_node-49=1, S_node-49=1] + 1/60*E[Y_node-50^obs | W, T_node-50=1, S_node-50=0] - 1/60*E[Y_node-50^obs | W, T_node-50=1, S_node-50=1] + 1/60*E[Y_node-51^obs | W, T_node-51=1, S_node-51=0] - 1/60*E[Y_node-51^obs | W, T_node-51=1, S_node-51=1] + 1/60*E[Y_node-52^obs | W, T_node-52=1, S_node-52=0] - 1/60*E[Y_node-52^obs | W, T_node-52=1, S_node-52=1] + 1/60*E[Y_node-53^obs | W, T_node-53=1, S_node-53=0] - 1/60*E[Y_node-53^obs | W, T_node-53=1, S_node-53=1] + 1/60*E[Y_node-54^obs | W, T_node-54=1, S_node-54=0] - 1/60*E[Y_node-54^obs | W, T_node-54=1, S_node-54=1] + 1/60*E[Y_node-55^obs | W, T_node-55=1, S_node-55=0] - 1/60*E[Y_node-55^obs | W, T_node-55=1, S_node-55=1] + 1/60*E[Y_node-56^obs | W, T_node-56=1, S_node-56=0] - 1/60*E[Y_node-56^obs | W, T_node-56=1, S_node-56=1] + 1/60*E[Y_node-57^obs | W, T_node-57=1, S_node-57=0] - 1/60*E[Y_node-57^obs | W, T_node-57=1, S_node-57=1] + 1/60*E[Y_node-58^obs | W, T_node-58=1, S_node-58=0] - 1/60*E[Y_node-58^obs | W, T_node-58=1, S_node-58=1] + 1/60*E[Y_node-59^obs | W, T_node-59=1, S_node-59=0] - 1/60*E[Y_node-59^obs | W, T_node-59=1, S_node-59=1]",
+              "target_fingerprint": "58385584627f0a9ab71eb4b70067753d27446095015939dc716979203910d8c1",
+              "source_batch_sha256": "ad3f16ce6c29aa0642e4ac35303f35566cf3bd49e935bd0abbafafa92d5342e3",
+              "a4_source_id": "reviewed_effect_source_0",
+              "constituent_arms": [
+                {
+                  "node_id": "node-0",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "feb03b7a25d68400357e1293d1e3b6b1da31460325eb1ce19861ae4891eabd98"
+                },
+                {
+                  "node_id": "node-0",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "25c9bd398295375ff551f60a2666585bdecc7bcbef48985707c60470a3b9cb35"
+                },
+                {
+                  "node_id": "node-1",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "43a00d4ae6564270d0bb53272f3e3cb3c3a8347842bbe0602fb3ff926f9675e9"
+                },
+                {
+                  "node_id": "node-1",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "3757cf034a7dab09c9b91f492d7088fc29db95951e4cd01221bf4c04f9b61e5f"
+                },
+                {
+                  "node_id": "node-2",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "1/4",
+                  "arm_target_fingerprint": "96da64b4af6b385d3324a01bc967fa8fccfe1c0d9a4c2fd5dbd4390a0073ab19"
+                },
+                {
+                  "node_id": "node-2",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "1/4",
+                  "arm_target_fingerprint": "04a576e17e1a9b51418b2de0b89626c39ce0bc8e5cf0dca170f35875efd59444"
+                },
+                {
+                  "node_id": "node-3",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "c192319b2c0c5e5e7a55a051cfaea439b170527cf7e9d86334d8e0923106428d"
+                },
+                {
+                  "node_id": "node-3",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "0c14b199b483e2f5206be22345d5c6574c0eff0f21535199a5b722e5c7ea07f8"
+                },
+                {
+                  "node_id": "node-4",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "7e13b0ed72528245f4a4b617fc9c01ab26ea9cf596aa584d3389e989e68f1d19"
+                },
+                {
+                  "node_id": "node-4",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "533bc6d769171d312c85c8eca641156145e0c99005add7c2ed93e88027679716"
+                },
+                {
+                  "node_id": "node-5",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "51a1ec42d0fd013cd79e520cb6abe2047783062118f224cce51b4c8d1e0616e1"
+                },
+                {
+                  "node_id": "node-5",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "8e5016e21811f179f705aa459932059fcb1bca1523920a18bfa06ecbdac33340"
+                },
+                {
+                  "node_id": "node-6",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "c67f177f51ce10edcd54c7eded9be9fb509f312950febf33e92d13de181d9a4e"
+                },
+                {
+                  "node_id": "node-6",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "bdc079c2d20f812ef2979d590a5a18022a329381c82d4729601952013e3dad72"
+                },
+                {
+                  "node_id": "node-7",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "459e724c4bd1eddb1c3fee6fc7a3682ac2756f3c579413eb7352c32f0c7515ac"
+                },
+                {
+                  "node_id": "node-7",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "b3eaeaa24989fd0f48108f8e8ec13ad62ad2f52ba709bbedbaeff2b2a2c409a6"
+                },
+                {
+                  "node_id": "node-8",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "5ec5520a8315205105529ba1e6a5d0111ce910c96388e51d34a44965cf203a2e"
+                },
+                {
+                  "node_id": "node-8",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "c9d885128173b976ac2c5588b4b3e68999696d3f961f9519c930c132ea4906f3"
+                },
+                {
+                  "node_id": "node-9",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "cfc936c73b8fdbf5ea179ed8d7593945f9a56c3ad87ebcf9cf0f5497b2a86050"
+                },
+                {
+                  "node_id": "node-9",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "dce7c8fd05c32b7da73be8301bf04530a1c329eb1d7c177fe5614bad2578d1ec"
+                },
+                {
+                  "node_id": "node-10",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "abebada32315a75bb4d4ff16544039afc2c9a3efe383fb33e0d78a38cb014771"
+                },
+                {
+                  "node_id": "node-10",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "d7924ee686de951461bb00a088af21a091b16b2220e4059a633122febfc28055"
+                },
+                {
+                  "node_id": "node-11",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "394961df061fa1225dff66180267c3be895c4acaaf1956694da544375fa949c3"
+                },
+                {
+                  "node_id": "node-11",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "8e8435d18a81dd9fc98d1c48815a335849a4dc753b472479fa6dabbe1600bad6"
+                },
+                {
+                  "node_id": "node-12",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "301207aa75908b9832287da69dfb5ed09ba42dc710fd2d275f714ebd529f248f"
+                },
+                {
+                  "node_id": "node-12",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "74abd4f7104be6acf5bb42f3c93d21666c75dc756882f76b598878c2c89015da"
+                },
+                {
+                  "node_id": "node-13",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "f0330856cfa0487bc82ecb719178da3684f3c31a800509702d3b8115b574ebc2"
+                },
+                {
+                  "node_id": "node-13",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "636e1f939109b6a1c2bc7d105aa29838df5d72141126714a26ce55d7b829304a"
+                },
+                {
+                  "node_id": "node-14",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "c30c13ca546bbfaba60a42ac17dc29c6b8cf5f95c357f012e5bc5f698619013d"
+                },
+                {
+                  "node_id": "node-14",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "506273508846daee03154f283e52da19685c48edf85a352c1a756c7d3a8a1a65"
+                },
+                {
+                  "node_id": "node-15",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "7945cacd12c3059690da46ade7b5bfa24b720049f73151a43cdba89714a057ca"
+                },
+                {
+                  "node_id": "node-15",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "f4aef69256f15576b97d916d5d6a4499eb637b5f9eaed8f5612b77b9b15af19d"
+                },
+                {
+                  "node_id": "node-16",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "1/4",
+                  "arm_target_fingerprint": "ccca96e074e8e1afa746fb64773b257b82105505a6bd59a95bcdbe8cdf110575"
+                },
+                {
+                  "node_id": "node-16",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "1/4",
+                  "arm_target_fingerprint": "0707ba684e762d464984c7a8d01dd5af69a05d11ce6935624508d95afaa41605"
+                },
+                {
+                  "node_id": "node-17",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "23cbf753e520fc73ab46e1604ac63458c694361ea4987c2c6b09c7f414f35d70"
+                },
+                {
+                  "node_id": "node-17",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "f9b2552c7ccf45b8fd6161975ae6bd2a4c9edabc035b93907071b1c786747757"
+                },
+                {
+                  "node_id": "node-18",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "5c0cab3ba64a46af14a659d8865c66cc2c10f7832c295be55cad20677c7cdb15"
+                },
+                {
+                  "node_id": "node-18",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "207e5ade34e15d86850402af73985efbc1aacf2a8eab8b442c17bb42cdbb107d"
+                },
+                {
+                  "node_id": "node-19",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "7fb3e459670999866c63c3eb4dda55068ca561aea225d60ab3eb56720975b77d"
+                },
+                {
+                  "node_id": "node-19",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "30b51f66a12637b242c74dd60d56fa6bdb72459d57314d41b80d4fe22f9feac8"
+                },
+                {
+                  "node_id": "node-20",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "1daf58c96cd7fd5beca17f33a6774b7034545fafae240cd870b4af021d553e5c"
+                },
+                {
+                  "node_id": "node-20",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "2cfedc11ea8efe6ddefa4d9665a31fa0db64dc0298ea04984b746aa33be24bd6"
+                },
+                {
+                  "node_id": "node-21",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "69a6aba95ac744cac82dddc36efd3984b4d1020f6cb7ab67a02e704e8c9df07c"
+                },
+                {
+                  "node_id": "node-21",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "891648a237ea8cce7732c259c6deec0b27819e371072fe0f60e333f6ecca9b6e"
+                },
+                {
+                  "node_id": "node-22",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "27fe2d141657829d090fc9d4e35885b0bc1673222a636fb80f72da57b2de4680"
+                },
+                {
+                  "node_id": "node-22",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "d0de42b93bb4161db4386a9fb6920d83f683234cca084ae098a3f04a53be9efd"
+                },
+                {
+                  "node_id": "node-23",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "1/4",
+                  "arm_target_fingerprint": "291f632c38ae1595546b3efa60117f4498e4642bbcec7a402bc172e755cf7121"
+                },
+                {
+                  "node_id": "node-23",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "1/4",
+                  "arm_target_fingerprint": "0bf93b561ccdedb09c3913391b1a518a177b5208f0d25df3ca874d7ae97a27c4"
+                },
+                {
+                  "node_id": "node-24",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "c641652f20d26385a4c0d58c6c12da04d5af0587103e4b7888febce7ef4cc8f1"
+                },
+                {
+                  "node_id": "node-24",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "12df37e5ce0e9461537a5c52a5ac61eb3425eebd67b2d9a1b51141491a2f58c7"
+                },
+                {
+                  "node_id": "node-25",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "f8446b6d8400a4fb171593667de81bafa4498db6dbb86f8ef37b95aed7b4ea43"
+                },
+                {
+                  "node_id": "node-25",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "e31d1458505e00fed0b3f809db5b1933b19da9a0caa4acee5d74826b96e363d4"
+                },
+                {
+                  "node_id": "node-26",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "1/4",
+                  "arm_target_fingerprint": "d6594853fcc5a64df9673760b614eb3bedeb703ae90a580bb1caf7f76cf6d7c2"
+                },
+                {
+                  "node_id": "node-26",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "1/4",
+                  "arm_target_fingerprint": "9db2061b8c4baec8d199fe034409a892089523a40c7ba7355a3fa59ebf209def"
+                },
+                {
+                  "node_id": "node-27",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "a0638270c69ba7cd5b5179b81ccbf3ec0f0e0fdf8ff05226be3c2069b30d2e01"
+                },
+                {
+                  "node_id": "node-27",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "bdfe44aa752ebfeed39335cbb158f499f24c0905538cb14b50febd1440b84783"
+                },
+                {
+                  "node_id": "node-28",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "097ab506ede916ec29f8e2ad8bb4dfa64bca7ae19edf664177acab3ef1b47612"
+                },
+                {
+                  "node_id": "node-28",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "2d2446b73170f858558b400ac9c787b4de4eb5522540f1c222b7d05e93815bc2"
+                },
+                {
+                  "node_id": "node-29",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "969fb2064a943b645c01a0304680ed762e6b21ff54de2f0a353c327459e311c8"
+                },
+                {
+                  "node_id": "node-29",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "88dfd90d9e1a28ad5e92a4be9606a19ad42957af82a0978f645919c687adc09e"
+                },
+                {
+                  "node_id": "node-30",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "2266d2a8ccd907c615658d343463970f9c55218c30c8c8dd34d7e7925632e389"
+                },
+                {
+                  "node_id": "node-30",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "9b1e067596a77c32030988b6e1c8de04859232b0c980f9a94ab830fa6c3c637e"
+                },
+                {
+                  "node_id": "node-31",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "6d7d12a634c924b1ce06b5ebd4f1a96290545acdf884fab96dfeb55c68816444"
+                },
+                {
+                  "node_id": "node-31",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "318dde5a420722c664ff1228cb72ed476325fc3e96c749d05eaa86cd0f069f02"
+                },
+                {
+                  "node_id": "node-32",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "04b10e3520e0b0165b77f5346184f761cb23ea8e563b2570395a6aa5099e959d"
+                },
+                {
+                  "node_id": "node-32",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "00fb8b903b4f48d6538aad82b37b39d74c7c417c497afda5746f5e7888f1add0"
+                },
+                {
+                  "node_id": "node-33",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "6ff807014d3116216f18ddb2b41a7a851423b6ba4e83643a3dce7c9d448409c4"
+                },
+                {
+                  "node_id": "node-33",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "6fd1727779a79f95c63a6d337f7172c9fbb42a0f0d6b4257418df31d47c1ef55"
+                },
+                {
+                  "node_id": "node-34",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "1/4",
+                  "arm_target_fingerprint": "29bd62c2a6b45d44e17b075111cc4eb0e61e88aab6acdce8337cd1c374509958"
+                },
+                {
+                  "node_id": "node-34",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "1/4",
+                  "arm_target_fingerprint": "a9f9eca72f939aa9c6ea3dc55e142572c7911b94d4cae7bda19bf27233bf9ec7"
+                },
+                {
+                  "node_id": "node-35",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "8789c4989e435092cd125365a91fe8ab5d2c5dc568f1b3263772dd854d560838"
+                },
+                {
+                  "node_id": "node-35",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "526dbbff81e259b0f5fa86c484a4d47d91df85e1e809508422e624bbb350729c"
+                },
+                {
+                  "node_id": "node-36",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "1504c1a4b5b6d1843919a49aca8fc103f34ea4d23df72a8fb8e330daa0ce0664"
+                },
+                {
+                  "node_id": "node-36",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "b1e4b48e8213df5cdb0c85f8ddc12a4c6323d51893799bfda32bbed1a739b63f"
+                },
+                {
+                  "node_id": "node-37",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "d5cc8233a588e2e1a2097858cc3d7c23911af59d5fe2a0c3a9cbbc10ae211727"
+                },
+                {
+                  "node_id": "node-37",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "6348c90bab2969cd23408d54044a72e3565e9b4a36461bd5407f8aa24a9a0ff2"
+                },
+                {
+                  "node_id": "node-38",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "eeffa85e71d3c927ddf8436e54e391d77359e2bb21510c13bc3583a43b143d47"
+                },
+                {
+                  "node_id": "node-38",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "9ff3cbea1f2ef46f44008cf01db095ee5c43320522ddb9c5b2e18b15daa06843"
+                },
+                {
+                  "node_id": "node-39",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "1/4",
+                  "arm_target_fingerprint": "00d27db73d8fdc1a2c658fb8fd2d1ef0c395fcfa2f83800470cfe42f68d6de4c"
+                },
+                {
+                  "node_id": "node-39",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "1/4",
+                  "arm_target_fingerprint": "c82dd604d37068e17afee5ca8a08246c4ccaffd60ecfb3a87b7eeae872af8987"
+                },
+                {
+                  "node_id": "node-40",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "8c1b4ccbe70490ecbac499889ea3183477dd1381a29fe8f857cbd16a5b333f28"
+                },
+                {
+                  "node_id": "node-40",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "b99583c6cf813b5d0d3c4d1dc18c753b14f21c88af57e8e18283e8ea5f00cfd7"
+                },
+                {
+                  "node_id": "node-41",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "030ae3e74fd82cd40fe976680ebe85022af394f3ebc38bce117f04c531c0a616"
+                },
+                {
+                  "node_id": "node-41",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "a60c2672ccf6761070eb3724a8623a41c826599784ea9ec3110da877ae38b138"
+                },
+                {
+                  "node_id": "node-42",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "1/4",
+                  "arm_target_fingerprint": "f4079aed19c303b97c5df95d109e01baee63883c55ffcc500bea8409868f57e9"
+                },
+                {
+                  "node_id": "node-42",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "1/4",
+                  "arm_target_fingerprint": "96c208042ebaced8234ab117fcfe8417cd72be0c69782a8cbdb63bc349975ef5"
+                },
+                {
+                  "node_id": "node-43",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "4691e2cc8fe4368553a06464459bc2161d530c115996a9f3673cefdedcce07e7"
+                },
+                {
+                  "node_id": "node-43",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "760f47633c37e69aa6ce7d74fbf53c5d6a1558f1a3159d77c03578dffbb8fb5e"
+                },
+                {
+                  "node_id": "node-44",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "f91ef57761854918ba671b012ed185a5b671b895b47cd0b6ffb2c0dd625cf848"
+                },
+                {
+                  "node_id": "node-44",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "d1700caeafa78945650ffd9fe989d3a7f1506e321e2005e84a27a2e1203249fc"
+                },
+                {
+                  "node_id": "node-45",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "5e6f9dfe04d5679c5d85f72caa7253f09b43dd5cd2e885aa3f2f05887bbc1af5"
+                },
+                {
+                  "node_id": "node-45",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "8c452c47eef83b766780901ed34baf4fd2f4f21991d084b8fc7f0d9b8c4f92d4"
+                },
+                {
+                  "node_id": "node-46",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "d73e6b149cf026c14a256bfff261787a524e071c251ebf8bc8f57079ddcfb94d"
+                },
+                {
+                  "node_id": "node-46",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "888b7bd738abc4b2cc23f40e78be2583d0e0e63b176a2a261d16535fa25d41c5"
+                },
+                {
+                  "node_id": "node-47",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "4117ebdb3bed8d69378b7804768816475db69278d2db304ecd9cc9da7caf8eeb"
+                },
+                {
+                  "node_id": "node-47",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "483f9311c13df141c677073a63a5c26cdd8279fcabb4b526d072c22f80d83d20"
+                },
+                {
+                  "node_id": "node-48",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "7e0523f22f871f106f305a77b8af31627bf4b36e6f3196cbe73d4551c102e398"
+                },
+                {
+                  "node_id": "node-48",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "dd5c416bd0c17885c0a19baffaff97d2762bb2e6e641399991a9c2a8b07081fd"
+                },
+                {
+                  "node_id": "node-49",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "f8c69d3f41f0e5cf6436633c92123906965f7b4e4a380848337b3aba104f6982"
+                },
+                {
+                  "node_id": "node-49",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "9024c352ab66dae0bd96dff64ca1a4dc90fa6164e1258d8cd6ea62490e1df50f"
+                },
+                {
+                  "node_id": "node-50",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "cb33caacc122dfaa2186a10b0d97410af57e887ee4c084432d895e88d9735299"
+                },
+                {
+                  "node_id": "node-50",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "607f98d9cf23b45ef0c91f4e9ac4108075a3e681f7724abac08b977caca53cc1"
+                },
+                {
+                  "node_id": "node-51",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "734fc4e20d7beef3b8e0fffd357c4ed102be458271cd123790433edc4ce23a1e"
+                },
+                {
+                  "node_id": "node-51",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "a13c3615a5fe5a03d87ee8316f775884b227c833ac2a8944de11966dbeb36d9c"
+                },
+                {
+                  "node_id": "node-52",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "b1059c455c0d0bf937ebe081e001d42d3353d9f93cb4cc4d573c82a2a7682f1d"
+                },
+                {
+                  "node_id": "node-52",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "995c7c0438308ef5e765b9268c16cdb22bc14a7921be92c644d301da1e8b9b0c"
+                },
+                {
+                  "node_id": "node-53",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "ace46e2914260f1c51dd6fcb39d74a8221ee3e45e11d0653d9319f85f375447a"
+                },
+                {
+                  "node_id": "node-53",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "f39a7bb4b4bfb04dd63d5d9048cccc54123fdaf154f099f8c4e409d6c46ee860"
+                },
+                {
+                  "node_id": "node-54",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "1/4",
+                  "arm_target_fingerprint": "ac014d85f90252451fa6b7b96dc33a7266c4b71026e43c8da1aba9baa4f4059e"
+                },
+                {
+                  "node_id": "node-54",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "1/4",
+                  "arm_target_fingerprint": "2fea784f70c5f9808b2cfdc580e6e470a3797b8310441fdb06d80a51ac491992"
+                },
+                {
+                  "node_id": "node-55",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "9e1a9af0239136f920e0a1eddddea13a3d16fc777a558c3efd00078813caf999"
+                },
+                {
+                  "node_id": "node-55",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "3ad82cd22a3031af2fcda5c4dff5e90f6961996cd2470ec03ba4a4ce951c8bbd"
+                },
+                {
+                  "node_id": "node-56",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "e9a0a07edc280057af91cc38eeaf958e50a98d8e1011899da1da019e003459df"
+                },
+                {
+                  "node_id": "node-56",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "4a55b8a89e32ba1bcc186d9d7c170a4c6c61a885ca633e5712a6c8cff0da5607"
+                },
+                {
+                  "node_id": "node-57",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "21a89d4aa41b81e480f09038468ad9cce10a8f4ea6d80baedd6ca6d1bea13f5f"
+                },
+                {
+                  "node_id": "node-57",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "31e497b8447316f40055de61ab4e4a430890c607f9bde5e1d6dc673672c9e3cf"
+                },
+                {
+                  "node_id": "node-58",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "c13d734808400cf7e6209d451a0500e5747ae72f729059ec86a783ae6beaa633"
+                },
+                {
+                  "node_id": "node-58",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "56e5924bceb146b6611db6ec55b1bd8f02cb6a8ec6c3942fa0e739f089dc437f"
+                },
+                {
+                  "node_id": "node-59",
+                  "own_treatment": 1,
+                  "exposure_state": 0,
+                  "coefficient": "1/60",
+                  "joint_support": "11/32",
+                  "arm_target_fingerprint": "9179b7a9f955c4a6673689ffaf42d0c06a77e5495bc3d838e0aa3ed26eb736fb"
+                },
+                {
+                  "node_id": "node-59",
+                  "own_treatment": 1,
+                  "exposure_state": 1,
+                  "coefficient": "-1/60",
+                  "joint_support": "5/32",
+                  "arm_target_fingerprint": "26900db775be973a02559bb16f6fdc16facba52f9eb9f290b46de47fd6978649"
+                }
+              ],
+              "a4_rule_id": "A4_DIRECT_NODE_ARM_V1",
+              "assumptions_used": [
+                "consistency",
+                "finite_conditional_first_moments",
+                "fixed_pretreatment_network",
+                "full_vector_randomization",
+                "known_assignment_law"
+              ],
+              "validity_note": "All nonzero constituent arms must have verified positive q-support; all refer to the same W/q/g; a reviewed population observable must supply every conditional arm mean.",
+              "certificate_sha256": "830402eea88ba1df61c5d07b40fb9da0192b5eb8683145c04b6520eb089cf5a2",
+              "estimation_request": null
+            }
+          ],
+          "estimation_request": null
+        }
+      }
+    }
+  ]
+}

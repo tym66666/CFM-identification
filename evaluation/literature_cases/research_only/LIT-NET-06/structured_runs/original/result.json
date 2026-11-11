@@ -1,0 +1,92 @@
+{
+  "state": "POINT",
+  "reason_code": null,
+  "independent_replay": true,
+  "query_id": "q1",
+  "result_scope": "SELECTED_QUERY_ONLY",
+  "mathematical_claim": {
+    "kind": "POINT",
+    "representation": "NATIVE_NETWORK_OBSERVED_FUNCTIONAL",
+    "target": {
+      "node_order": [
+        "甲",
+        "乙",
+        "丙",
+        "丁"
+      ],
+      "population": [
+        "甲",
+        "乙",
+        "丙",
+        "丁"
+      ],
+      "unit_weights": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "treatment": "接受示范培训记1，未接受记0",
+      "outcome": "下一季采用新技术记1，未采用记0",
+      "context": "下一季；四户同一交流网络",
+      "kind": "FINITE_POLICY_MEAN",
+      "policies": [
+        {
+          "assignment": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "weight": "1/2"
+        },
+        {
+          "assignment": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "weight": "1/2"
+        }
+      ]
+    },
+    "target_fingerprint": "16cc9b1369a4d9f92427aa5f9e23b13cda6060f881ba5f2101d73bb342453736",
+    "expression": "1/2 * (1/4 * E[Y_{甲}^obs | W=下一季；四户同一交流网络, T_vector=(0,1,0,1)] + 1/4 * E[Y_{乙}^obs | W=下一季；四户同一交流网络, T_vector=(0,1,0,1)] + 1/4 * E[Y_{丙}^obs | W=下一季；四户同一交流网络, T_vector=(0,1,0,1)] + 1/4 * E[Y_{丁}^obs | W=下一季；四户同一交流网络, T_vector=(0,1,0,1)]) + 1/2 * (1/4 * E[Y_{甲}^obs | W=下一季；四户同一交流网络, T_vector=(1,0,1,0)] + 1/4 * E[Y_{乙}^obs | W=下一季；四户同一交流网络, T_vector=(1,0,1,0)] + 1/4 * E[Y_{丙}^obs | W=下一季；四户同一交流网络, T_vector=(1,0,1,0)] + 1/4 * E[Y_{丁}^obs | W=下一季；四户同一交流网络, T_vector=(1,0,1,0)])",
+    "numeric_value": null
+  },
+  "certificate": {
+    "theorem_id": "R1B_FINITE_SUPPORT_STOCHASTIC_POLICY_POINT_V1",
+    "status": "POINT",
+    "verification_status": "VERIFIED",
+    "target_fingerprint": "16cc9b1369a4d9f92427aa5f9e23b13cda6060f881ba5f2101d73bb342453736",
+    "policy_support": [
+      {
+        "assignment": [
+          0,
+          1,
+          0,
+          1
+        ],
+        "policy_probability": "1/2",
+        "experimental_assignment_probability": "1/16",
+        "fixed_policy_certificate": "503e9b503c5b21e6f43b720f97dd309b450a0626ffb45e800b0e14d1588c4c9f"
+      },
+      {
+        "assignment": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "policy_probability": "1/2",
+        "experimental_assignment_probability": "1/16",
+        "fixed_policy_certificate": "3b0d52332942d2a1539d5d1b57fc8eb5fb3ede038f1e7ba516aecece2496d511"
+      }
+    ],
+    "identified_functional": "1/2 * (1/4 * E[Y_{甲}^obs | W=下一季；四户同一交流网络, T_vector=(0,1,0,1)] + 1/4 * E[Y_{乙}^obs | W=下一季；四户同一交流网络, T_vector=(0,1,0,1)] + 1/4 * E[Y_{丙}^obs | W=下一季；四户同一交流网络, T_vector=(0,1,0,1)] + 1/4 * E[Y_{丁}^obs | W=下一季；四户同一交流网络, T_vector=(0,1,0,1)]) + 1/2 * (1/4 * E[Y_{甲}^obs | W=下一季；四户同一交流网络, T_vector=(1,0,1,0)] + 1/4 * E[Y_{乙}^obs | W=下一季；四户同一交流网络, T_vector=(1,0,1,0)] + 1/4 * E[Y_{丙}^obs | W=下一季；四户同一交流网络, T_vector=(1,0,1,0)] + 1/4 * E[Y_{丁}^obs | W=下一季；四户同一交流网络, T_vector=(1,0,1,0)])",
+    "certificate_sha256": "876add234f9163e565620781c99738f345e280e342bbd082b5d182e934ac6762",
+    "estimation_request": null,
+    "warning": "Finite mixture of full-assignment population means; no PFN value is estimated"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "case_id": "LIT-NET-04",
+  "variant": "changed_target",
+  "paper_id": "manski2013_social_interactions",
+  "title": "四店均值顺序：全用相对全不用，差值能确定到什么范围？",
+  "synthetic": true,
+  "gold_oracle_location": "OUTSIDE_PUBLIC_CASE_DIRECTORY",
+  "llm_access_scope": "PUBLIC_CASE_FILES_ONLY",
+  "business_question_file": "business_question.md",
+  "supporting_files": [
+    "study_protocol.md",
+    "information.md",
+    "bounds.md",
+    "orders.md",
+    "model.md",
+    "data_dictionary.md",
+    "units.csv",
+    "network_edges.csv",
+    "design.csv",
+    "information_cells.json"
+  ],
+  "heldout": false,
+  "notes": "项目自建有限均值顺序模型；不是 Manski (2013) 的数值答案。"
+}

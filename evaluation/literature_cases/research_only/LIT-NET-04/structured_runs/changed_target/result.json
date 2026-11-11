@@ -1,0 +1,247 @@
+{
+  "state": "POINT",
+  "reason_code": null,
+  "independent_replay": true,
+  "query_id": "q1",
+  "result_scope": "SELECTED_QUERY_ONLY",
+  "mathematical_claim": {
+    "kind": "POINT",
+    "representation": "EXACT_IDENTIFIED_INTERVAL",
+    "target": {
+      "kind": "FIXED_FULL_ASSIGNMENT_POLICY_CONTRAST",
+      "node_order": [
+        "甲店",
+        "乙店",
+        "丙店",
+        "丁店"
+      ],
+      "unit_weights": [
+        "1",
+        "0",
+        "0",
+        "0"
+      ],
+      "treatment": "启用AI排班工具",
+      "outcome": "考核周是否每天准时开门",
+      "context": "同一考核周的四家门店",
+      "first": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "second": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "operation": "first_minus_second"
+    },
+    "target_sha256": "6ca050195bc0cb9a98865155ac901e0580ff6c14cc24c087e942fbd3643313af",
+    "interval": [
+      "1/5",
+      "1/5"
+    ],
+    "width": "0",
+    "sharp": true,
+    "baseline_bounds_only_range": [
+      "-1",
+      "1"
+    ],
+    "informative_relative_to_bounds_only": true,
+    "sharp_relative_to_reviewed_model": "SIGNATURE_MEANS_NODE_BOUNDS_AND_DECLARED_ORDERS_ONLY",
+    "numeric_value": "1/5"
+  },
+  "certificate": {
+    "version": "mean-order-d2-e1-1",
+    "theorem": "FINITE_MEAN_ORDER_PRIMAL_DUAL",
+    "input_sha256": "3ffa25b8481cf98306f458199ba2f3e778139a1af56f88a12796752994af3bf0",
+    "model_scope": "SIGNATURE_MEANS_NODE_BOUNDS_AND_DECLARED_ORDERS_ONLY",
+    "scientific_approval": false,
+    "production_admission": false,
+    "estimation_handoff_allowed": false,
+    "status": "POINT",
+    "lower": "1/5",
+    "upper": "1/5",
+    "width": "0",
+    "baseline_bounds_only_range": [
+      "-1",
+      "1"
+    ],
+    "informative_relative_to_bounds_only": true,
+    "sharp": true,
+    "cells": [
+      {
+        "cell": [
+          "甲店",
+          0,
+          0
+        ],
+        "support": "0",
+        "lower_world": "0",
+        "upper_world": "0"
+      },
+      {
+        "cell": [
+          "甲店",
+          0,
+          1
+        ],
+        "support": "1/2",
+        "lower_world": "2/5",
+        "upper_world": "2/5"
+      },
+      {
+        "cell": [
+          "甲店",
+          1,
+          0
+        ],
+        "support": "1/2",
+        "lower_world": "3/5",
+        "upper_world": "3/5"
+      },
+      {
+        "cell": [
+          "甲店",
+          1,
+          1
+        ],
+        "support": "0",
+        "lower_world": "3/5",
+        "upper_world": "3/5"
+      },
+      {
+        "cell": [
+          "乙店",
+          0,
+          0
+        ],
+        "support": "0",
+        "lower_world": "0",
+        "upper_world": "0"
+      },
+      {
+        "cell": [
+          "乙店",
+          0,
+          1
+        ],
+        "support": "1/2",
+        "lower_world": "2/5",
+        "upper_world": "2/5"
+      },
+      {
+        "cell": [
+          "乙店",
+          1,
+          0
+        ],
+        "support": "1/2",
+        "lower_world": "3/5",
+        "upper_world": "3/5"
+      },
+      {
+        "cell": [
+          "乙店",
+          1,
+          1
+        ],
+        "support": "0",
+        "lower_world": "3/5",
+        "upper_world": "3/5"
+      },
+      {
+        "cell": [
+          "丙店",
+          0,
+          0
+        ],
+        "support": "0",
+        "lower_world": "0",
+        "upper_world": "0"
+      },
+      {
+        "cell": [
+          "丙店",
+          0,
+          1
+        ],
+        "support": "1/2",
+        "lower_world": "2/5",
+        "upper_world": "2/5"
+      },
+      {
+        "cell": [
+          "丙店",
+          1,
+          0
+        ],
+        "support": "1/2",
+        "lower_world": "3/5",
+        "upper_world": "3/5"
+      },
+      {
+        "cell": [
+          "丙店",
+          1,
+          1
+        ],
+        "support": "0",
+        "lower_world": "3/5",
+        "upper_world": "3/5"
+      },
+      {
+        "cell": [
+          "丁店",
+          0,
+          0
+        ],
+        "support": "0",
+        "lower_world": "0",
+        "upper_world": "0"
+      },
+      {
+        "cell": [
+          "丁店",
+          0,
+          1
+        ],
+        "support": "1/2",
+        "lower_world": "2/5",
+        "upper_world": "2/5"
+      },
+      {
+        "cell": [
+          "丁店",
+          1,
+          0
+        ],
+        "support": "1/2",
+        "lower_world": "3/5",
+        "upper_world": "3/5"
+      },
+      {
+        "cell": [
+          "丁店",
+          1,
+          1
+        ],
+        "support": "0",
+        "lower_world": "3/5",
+        "upper_world": "3/5"
+      }
+    ],
+    "lower_dual": {
+      "a4_upper:[\"甲店\",0,1]": "1",
+      "a4_lower:[\"甲店\",1,0]": "1"
+    },
+    "upper_dual": {
+      "a4_lower:[\"甲店\",0,1]": "1",
+      "a4_upper:[\"甲店\",1,0]": "1"
+    },
+    "realization": "COMMON_UNIFORM_PER_NODE",
+    "certificate_sha256": "3ceb9fa015b7d04730017db0ac6d1ce7ece732b7bdc07768ab06c3b771e56708"
+  }
+}

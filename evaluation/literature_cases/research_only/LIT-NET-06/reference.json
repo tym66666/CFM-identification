@@ -1,0 +1,77 @@
+{
+  "case_id": "LIT-NET-06",
+  "paper_id": "beaman2021_seed",
+  "paper": {
+    "authors": [
+      "Lori Beaman",
+      "Ariel BenYishay",
+      "Jeremy Magruder",
+      "A. Mushfiq Mobarak"
+    ],
+    "year": 2021,
+    "title": "Can Network Theory-Based Targeting Increase Technology Adoption?",
+    "venue": "American Economic Review",
+    "doi": "10.1257/aer.20200295"
+  },
+  "paper_reference": {
+    "paper_question": "通过示范农户和网络传播促进技术采用，如何评估培训名单/政策？",
+    "target": "四户在“培训甲丙”和“培训乙丁”各1/2的随机政策下的平均采用率；四户等权。",
+    "source_location": "Beaman et al. (2021) AER, DOI 10.1257/aer.20200295; project demo alignment only.",
+    "formula": "Target = (1/4) sum_i [ (1/2) mu_i(A) + (1/2) mu_i(B) ], A={甲,丙}, B={乙,丁}.",
+    "conditions": [
+      "Two complete policy lists with known probabilities 1/2 each.",
+      "Full treatment vector randomized independently of potential outcomes.",
+      "Consistency.",
+      "Fixed pre-treatment network.",
+      "Finite first moments."
+    ],
+    "what_paper_supports": [
+      "Seed-farmer training and network diffusion as business context.",
+      "Policy/list comparisons need an explicit evaluation population and weights."
+    ],
+    "what_paper_does_not_support": [
+      "No replication of the paper's diffusion model or optimal seeding.",
+      "No claim that the synthetic 1/2 policy is optimal.",
+      "No extrapolation from four households."
+    ]
+  },
+  "software_expected": {
+    "original": {
+      "status": "POINT"
+    },
+    "missing_condition": {
+      "status": "NEEDS_INPUT",
+      "reason": "The two policy probabilities are omitted; the system stops with EXTENDED_NETWORK_FACTS_INCOMPLETE."
+    },
+    "changed_target": {
+      "status": "POINT",
+      "reason": "New pair of complete policies; requires fresh target binding."
+    }
+  },
+  "actual_run": {
+    "method": "LOCAL_STRUCTURED_FINITE_POLICY_RUN_NO_LLM",
+    "provenance": "2026-11-09 local structured run through the extended network finite-policy entry with explicit synthetic reviews; api_calls=0.",
+    "original": {
+      "state": "POINT",
+      "independent_replay": true,
+      "target_fingerprint": "16cc9b1369a4d9f92427aa5f9e23b13cda6060f881ba5f2101d73bb342453736",
+      "output_file": "structured_runs/original/result.json"
+    },
+    "missing_condition": {
+      "state": "NEEDS_INPUT",
+      "reason_code": "EXTENDED_NETWORK_FACTS_INCOMPLETE",
+      "output_file": "structured_runs/missing_condition/result.json"
+    },
+    "changed_target": {
+      "state": "POINT",
+      "independent_replay": true,
+      "target_fingerprint": "101ab75f5ec4f492d2b4ed442894259f555c425f812e21e86ec25cec02abd336",
+      "output_file": "structured_runs/changed_target/result.json"
+    },
+    "note": "All three variants were run locally; no LLM call."
+  },
+  "review_status": "PENDING_TEACHER",
+  "reviewer": "teacher",
+  "holdout": false,
+  "notes": "Seed-policy finite policy mean template. Original actual is a saved demo run; variants are reference-only and not run."
+}

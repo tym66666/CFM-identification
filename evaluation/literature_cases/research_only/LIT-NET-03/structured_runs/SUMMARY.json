@@ -1,0 +1,42 @@
+{
+  "api_calls": 0,
+  "synthetic_reviews": true,
+  "rows": [
+    {
+      "variant": "original",
+      "plan_state": "REVIEW_REQUIRED",
+      "final_state": "PARTIAL",
+      "reason": null,
+      "independent_replay": true,
+      "interval": [
+        "3/7",
+        "4/7"
+      ],
+      "sharp": true,
+      "width": "1/7",
+      "target_sha256": "fd50019f12c0745ebbf72721697ffc043042c1ebc88fbbdba2c234780f64dd01"
+    },
+    {
+      "variant": "missing_condition",
+      "plan_state": "NEEDS_INPUT",
+      "final_state": "NEEDS_INPUT",
+      "reason": "BOUNDED_MODEL_DECLARATIONS_INCOMPLETE",
+      "independent_replay": false,
+      "interval": null,
+      "sharp": null,
+      "width": null,
+      "target_sha256": null
+    },
+    {
+      "variant": "changed_target",
+      "plan_state": "ADAPTER_NOT_CONNECTED",
+      "final_state": "ADAPTER_NOT_CONNECTED",
+      "reason": "ADDITIONAL_INFORMATION_OR_RESTRICTIONS_REQUIRE_SEPARATE_ADAPTER",
+      "independent_replay": false,
+      "interval": null,
+      "sharp": null,
+      "width": null,
+      "target_sha256": null
+    }
+  ]
+}
