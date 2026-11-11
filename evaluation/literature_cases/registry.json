@@ -13,24 +13,31 @@
           "name": "original",
           "expected_status": "POINT",
           "actual_status": "POINT",
-          "actual_source": "structured_runs/original (2026-11-08, no LLM)"
+          "actual_source": "structured_runs/original (2026-11-08, no LLM)",
+          "expected_query_count": 3,
+          "expected_runtime_state": "POINT"
         },
         {
           "name": "missing_condition",
           "expected_status": "NEEDS_INPUT",
           "actual_status": "NEEDS_INPUT",
-          "actual_source": "structured_runs/missing_condition (2026-11-08, no LLM)"
+          "actual_source": "structured_runs/missing_condition (2026-11-08, no LLM)",
+          "expected_query_count": 3,
+          "expected_runtime_state": "NEEDS_INPUT"
         },
         {
           "name": "changed_target",
           "expected_status": "POINT_REVERSED_SIGN",
           "actual_status": "POINT",
-          "actual_source": "structured_runs/changed_target (2026-11-08, no LLM)"
+          "actual_source": "structured_runs/changed_target (2026-11-08, no LLM)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "POINT"
         }
       ],
       "heldout": false,
       "review_status": "PENDING_TEACHER",
-      "status": "PILOT_RUN_COMPLETE"
+      "status": "PILOT_RUN_COMPLETE",
+      "reference_scope": "Hand-authored historical fixture or historical capability check; not live LLM evidence"
     },
     {
       "case_id": "LIT-IV-01",
@@ -44,24 +51,32 @@
           "name": "original",
           "expected_status": "UNSUPPORTED",
           "actual_status": "UNSUPPORTED",
-          "actual_source": "capability_check.json (2026-11-08)"
+          "actual_source": "capability_check.json (2026-11-08)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "UNSUPPORTED"
         },
         {
           "name": "missing_condition",
           "expected_status": "UNSUPPORTED",
           "actual_status": "UNSUPPORTED",
-          "actual_source": "capability_check.json (2026-11-08)"
+          "actual_source": "capability_check.json (2026-11-08)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "UNSUPPORTED"
         },
         {
           "name": "changed_target",
           "expected_status": "UNSUPPORTED",
           "actual_status": "UNSUPPORTED",
-          "actual_source": "capability_check.json (2026-11-08)"
+          "actual_source": "capability_check.json (2026-11-08)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "UNSUPPORTED"
         }
       ],
       "heldout": false,
       "review_status": "PENDING_TEACHER",
-      "status": "PILOT_UNSUPPORTED_RECORDED"
+      "status": "PILOT_UNSUPPORTED_RECORDED",
+      "reference_scope": "Hand-authored historical fixture or historical capability check; not live LLM evidence",
+      "current_scope_note": "A limited binary-IV research backend now exists. These public cases are not connected to the current automatic web route; sample counts are not an exact population law. UNSUPPORTED is entry coverage, not an IV impossibility proof."
     },
     {
       "case_id": "LIT-DAG-01",
@@ -75,24 +90,32 @@
           "name": "original",
           "expected_status": "POINT",
           "actual_status": "POINT",
-          "actual_source": "structured_runs/original (2026-11-08, no LLM)"
+          "actual_source": "structured_runs/original (2026-11-08, no LLM)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "POINT"
         },
         {
           "name": "missing_condition",
           "expected_status": "NEEDS_INPUT",
           "actual_status": "NEEDS_INPUT",
-          "actual_source": "structured_runs/missing_condition (2026-11-08, no LLM)"
+          "actual_source": "structured_runs/missing_condition (2026-11-08, no LLM)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "NEEDS_INPUT"
         },
         {
           "name": "changed_target",
           "expected_status": "UNSUPPORTED",
           "actual_status": "UNSUPPORTED",
-          "actual_source": "structured_runs/changed_target (2026-11-08, no LLM)"
+          "actual_source": "structured_runs/changed_target (2026-11-08, no LLM)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "UNSUPPORTED",
+          "current_scope_note": "Interventional total outcome distribution, not a direct effect. The requested adjustment on the mediator is invalid; the causal target is identifiable using another admissible adjustment. Do not infer nonidentifiability."
         }
       ],
       "heldout": false,
       "review_status": "PENDING_TEACHER",
-      "status": "PILOT_RUN_COMPLETE"
+      "status": "PILOT_RUN_COMPLETE",
+      "reference_scope": "Hand-authored historical fixture or historical capability check; not live LLM evidence"
     },
     {
       "case_id": "LIT-NET-02",
@@ -106,24 +129,31 @@
           "name": "original",
           "expected_status": "POINT",
           "actual_status": "POINT",
-          "actual_source": "structured_runs/original (2026-11-08, no LLM)"
+          "actual_source": "structured_runs/original (2026-11-08, no LLM)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "POINT"
         },
         {
           "name": "missing_condition",
           "expected_status": "NEEDS_INPUT",
           "actual_status": "NEEDS_INPUT",
-          "actual_source": "structured_runs/missing_condition (2026-11-08, no LLM)"
+          "actual_source": "structured_runs/missing_condition (2026-11-08, no LLM)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "NEEDS_INPUT"
         },
         {
           "name": "changed_target",
           "expected_status": "POINT_REVERSED_SIGN",
           "actual_status": "POINT",
-          "actual_source": "structured_runs/changed_target (2026-11-08, no LLM)"
+          "actual_source": "structured_runs/changed_target (2026-11-08, no LLM)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "POINT"
         }
       ],
       "heldout": false,
       "review_status": "PENDING_TEACHER",
-      "status": "PILOT_RUN_COMPLETE"
+      "status": "PILOT_RUN_COMPLETE",
+      "reference_scope": "Hand-authored historical fixture or historical capability check; not live LLM evidence"
     },
     {
       "case_id": "LIT-NET-03",
@@ -137,24 +167,31 @@
           "name": "original",
           "expected_status": "PARTIAL",
           "actual_status": "PARTIAL",
-          "actual_source": "structured_runs/original (2026-11-08, no LLM)"
+          "actual_source": "structured_runs/original (2026-11-08, no LLM)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "PARTIAL"
         },
         {
           "name": "missing_condition",
           "expected_status": "NEEDS_INPUT",
           "actual_status": "NEEDS_INPUT",
-          "actual_source": "structured_runs/missing_condition (2026-11-08, no LLM)"
+          "actual_source": "structured_runs/missing_condition (2026-11-08, no LLM)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "NEEDS_INPUT"
         },
         {
           "name": "changed_target",
           "expected_status": "ADAPTER_NOT_CONNECTED",
           "actual_status": "ADAPTER_NOT_CONNECTED",
-          "actual_source": "structured_runs/changed_target (2026-11-08, no LLM)"
+          "actual_source": "structured_runs/changed_target (2026-11-08, no LLM)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "UNSUPPORTED"
         }
       ],
       "heldout": false,
       "review_status": "PENDING_TEACHER",
-      "status": "PILOT_RUN_COMPLETE"
+      "status": "PILOT_RUN_COMPLETE",
+      "reference_scope": "Hand-authored historical fixture or historical capability check; not live LLM evidence"
     },
     {
       "case_id": "LIT-NET-04",
@@ -168,24 +205,31 @@
           "name": "original",
           "expected_status": "PARTIAL",
           "actual_status": "PARTIAL",
-          "actual_source": "structured_runs/original (2026-11-08, no LLM)"
+          "actual_source": "structured_runs/original (2026-11-08, no LLM)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "PARTIAL"
         },
         {
           "name": "missing_condition",
           "expected_status": "NEEDS_INPUT",
           "actual_status": "NEEDS_INPUT",
-          "actual_source": "structured_runs/missing_condition (2026-11-08, no LLM)"
+          "actual_source": "structured_runs/missing_condition (2026-11-08, no LLM)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "NEEDS_INPUT"
         },
         {
           "name": "changed_target",
           "expected_status": "POINT",
           "actual_status": "POINT",
-          "actual_source": "structured_runs/changed_target (2026-11-08, no LLM)"
+          "actual_source": "structured_runs/changed_target (2026-11-08, no LLM)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "POINT"
         }
       ],
       "heldout": false,
       "review_status": "PENDING_TEACHER",
-      "status": "PILOT_RUN_COMPLETE"
+      "status": "PILOT_RUN_COMPLETE",
+      "reference_scope": "Hand-authored historical fixture or historical capability check; not live LLM evidence"
     },
     {
       "case_id": "LIT-NET-05",
@@ -199,24 +243,31 @@
           "name": "original",
           "expected_status": "POINT",
           "actual_status": "POINT",
-          "actual_source": "structured_runs/original (2026-11-09, no LLM)"
+          "actual_source": "structured_runs/original (2026-11-09, no LLM)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "POINT"
         },
         {
           "name": "missing_condition",
           "expected_status": "NEEDS_INPUT",
           "actual_status": "NEEDS_INPUT",
-          "actual_source": "structured_runs/missing_condition (2026-11-09, no LLM)"
+          "actual_source": "structured_runs/missing_condition (2026-11-09, no LLM)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "NEEDS_INPUT"
         },
         {
           "name": "changed_target",
           "expected_status": "POINT",
           "actual_status": "POINT",
-          "actual_source": "structured_runs/changed_target (2026-11-09, no LLM)"
+          "actual_source": "structured_runs/changed_target (2026-11-09, no LLM)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "POINT"
         }
       ],
       "heldout": false,
       "review_status": "PENDING_TEACHER",
-      "status": "PILOT_RUN_COMPLETE"
+      "status": "PILOT_RUN_COMPLETE",
+      "reference_scope": "Hand-authored historical fixture or historical capability check; not live LLM evidence"
     },
     {
       "case_id": "LIT-NET-06",
@@ -230,24 +281,31 @@
           "name": "original",
           "expected_status": "POINT",
           "actual_status": "POINT",
-          "actual_source": "structured_runs/original (2026-11-09, no LLM)"
+          "actual_source": "structured_runs/original (2026-11-09, no LLM)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "POINT"
         },
         {
           "name": "missing_condition",
           "expected_status": "NEEDS_INPUT",
           "actual_status": "NEEDS_INPUT",
-          "actual_source": "structured_runs/missing_condition (2026-11-09, no LLM)"
+          "actual_source": "structured_runs/missing_condition (2026-11-09, no LLM)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "NEEDS_INPUT"
         },
         {
           "name": "changed_target",
           "expected_status": "POINT",
           "actual_status": "POINT",
-          "actual_source": "structured_runs/changed_target (2026-11-09, no LLM)"
+          "actual_source": "structured_runs/changed_target (2026-11-09, no LLM)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "POINT"
         }
       ],
       "heldout": false,
       "review_status": "PENDING_TEACHER",
-      "status": "PILOT_RUN_COMPLETE"
+      "status": "PILOT_RUN_COMPLETE",
+      "reference_scope": "Hand-authored historical fixture or historical capability check; not live LLM evidence"
     },
     {
       "case_id": "LIT-NET-07",
@@ -261,25 +319,33 @@
           "name": "original",
           "expected_status": "POINT",
           "actual_status": "POINT",
-          "actual_source": "actual_outputs.json (saved demo run)"
+          "actual_source": "actual_outputs.json (saved demo run)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "POINT"
         },
         {
           "name": "missing_condition",
           "expected_status": "NEEDS_INPUT",
           "actual_status": "NOT_RUN",
-          "actual_source": null
+          "actual_source": null,
+          "expected_query_count": 1,
+          "expected_runtime_state": "NEEDS_INPUT",
+          "current_scope_note": "Exchangeability is explicitly NOT ADOPTED, not missing. Do not invent approval; stop reason must preserve rejection."
         },
         {
           "name": "changed_target",
           "expected_status": "POINT",
           "actual_status": "NOT_RUN",
-          "actual_source": null
+          "actual_source": null,
+          "expected_query_count": 1,
+          "expected_runtime_state": "POINT"
         }
       ],
       "heldout": true,
       "review_status": "PENDING_TEACHER",
       "status": "PILOT_RUN_COMPLETE",
-      "holdout_scope": "DEVELOPMENT_HOLDOUT_NOT_BLIND_TO_REPO_HISTORY"
+      "holdout_scope": "DEVELOPMENT_HOLDOUT_NOT_BLIND_TO_REPO_HISTORY",
+      "reference_scope": "Hand-authored historical fixture or historical capability check; not live LLM evidence"
     },
     {
       "case_id": "LIT-DAG-02",
@@ -293,25 +359,32 @@
           "name": "original",
           "expected_status": "POINT",
           "actual_status": "POINT",
-          "actual_source": "structured_runs/original (2026-11-09, no LLM)"
+          "actual_source": "structured_runs/original (2026-11-09, no LLM)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "POINT"
         },
         {
           "name": "missing_condition",
           "expected_status": "NEEDS_INPUT",
           "actual_status": "NEEDS_INPUT",
-          "actual_source": "structured_runs/missing_condition (2026-11-09, no LLM)"
+          "actual_source": "structured_runs/missing_condition (2026-11-09, no LLM)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "NEEDS_INPUT"
         },
         {
           "name": "changed_target",
           "expected_status": "UNSUPPORTED",
           "actual_status": "UNSUPPORTED",
-          "actual_source": "structured_runs/changed_target (2026-11-09, no LLM)"
+          "actual_source": "structured_runs/changed_target (2026-11-09, no LLM)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "UNSUPPORTED"
         }
       ],
       "heldout": true,
       "review_status": "PENDING_TEACHER",
       "status": "PILOT_RUN_COMPLETE",
-      "holdout_scope": "DEVELOPMENT_HOLDOUT_NOT_BLIND_TO_REPO_HISTORY"
+      "holdout_scope": "DEVELOPMENT_HOLDOUT_NOT_BLIND_TO_REPO_HISTORY",
+      "reference_scope": "Hand-authored historical fixture or historical capability check; not live LLM evidence"
     },
     {
       "case_id": "LIT-NET-08",
@@ -325,25 +398,32 @@
           "name": "original",
           "expected_status": "UNSUPPORTED",
           "actual_status": "UNSUPPORTED",
-          "actual_source": "capability_check.json (2026-11-08)"
+          "actual_source": "capability_check.json (2026-11-08)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "UNSUPPORTED"
         },
         {
           "name": "missing_condition",
           "expected_status": "UNSUPPORTED",
           "actual_status": "UNSUPPORTED",
-          "actual_source": "capability_check.json (2026-11-08)"
+          "actual_source": "capability_check.json (2026-11-08)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "UNSUPPORTED"
         },
         {
           "name": "changed_target",
           "expected_status": "UNSUPPORTED",
           "actual_status": "UNSUPPORTED",
-          "actual_source": "capability_check.json (2026-11-08)"
+          "actual_source": "capability_check.json (2026-11-08)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "UNSUPPORTED"
         }
       ],
       "heldout": true,
       "review_status": "PENDING_TEACHER",
       "status": "PILOT_UNSUPPORTED_RECORDED",
-      "holdout_scope": "DEVELOPMENT_HOLDOUT_NOT_BLIND_TO_REPO_HISTORY"
+      "holdout_scope": "DEVELOPMENT_HOLDOUT_NOT_BLIND_TO_REPO_HISTORY",
+      "reference_scope": "Hand-authored historical fixture or historical capability check; not live LLM evidence"
     },
     {
       "case_id": "LIT-IV-02",
@@ -357,25 +437,33 @@
           "name": "original",
           "expected_status": "UNSUPPORTED",
           "actual_status": "UNSUPPORTED",
-          "actual_source": "capability_check.json (2026-11-08)"
+          "actual_source": "capability_check.json (2026-11-08)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "UNSUPPORTED"
         },
         {
           "name": "missing_condition",
           "expected_status": "UNSUPPORTED",
           "actual_status": "UNSUPPORTED",
-          "actual_source": "capability_check.json (2026-11-08)"
+          "actual_source": "capability_check.json (2026-11-08)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "UNSUPPORTED"
         },
         {
           "name": "changed_target",
           "expected_status": "UNSUPPORTED",
           "actual_status": "UNSUPPORTED",
-          "actual_source": "capability_check.json (2026-11-08)"
+          "actual_source": "capability_check.json (2026-11-08)",
+          "expected_query_count": 1,
+          "expected_runtime_state": "UNSUPPORTED"
         }
       ],
       "heldout": true,
       "review_status": "PENDING_TEACHER",
       "status": "PILOT_UNSUPPORTED_RECORDED",
-      "holdout_scope": "DEVELOPMENT_HOLDOUT_NOT_BLIND_TO_REPO_HISTORY"
+      "holdout_scope": "DEVELOPMENT_HOLDOUT_NOT_BLIND_TO_REPO_HISTORY",
+      "reference_scope": "Hand-authored historical fixture or historical capability check; not live LLM evidence",
+      "current_scope_note": "A limited binary-IV research backend now exists. These public cases are not connected to the current automatic web route; sample counts are not an exact population law. UNSUPPORTED is entry coverage, not an IV impossibility proof."
     }
   ],
   "holdout_policy": "Development holdout only: references frozen and not used for tuning. Some source materials already appear in demo history; not blind against repository history."

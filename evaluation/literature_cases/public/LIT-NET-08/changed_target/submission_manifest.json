@@ -14,5 +14,18 @@
     "network_edges.csv"
   ],
   "heldout": true,
-  "notes": "当前仓库没有 Auto-G 后端；不是论文数据复现。"
+  "notes": "当前仓库没有 Auto-G 后端；不是论文数据复现。",
+  "network_upload": {
+    "nodes_file": "units.csv",
+    "edges_file": "network_edges.csv",
+    "declaration": {
+      "kind": "UNDIRECTED",
+      "completeness": "COMPLETE",
+      "description": "网络为处理前固定的无向简单网络，完整边为甲—乙、乙—丙、丙—丁、丁—甲、甲—丙，没有其他边。"
+    },
+    "declaration_source": {
+      "file": "study_protocol.md",
+      "quote": "网络为处理前固定的无向简单网络，完整边为甲—乙、乙—丙、丙—丁、丁—甲、甲—丙，没有其他边。"
+    }
+  }
 }

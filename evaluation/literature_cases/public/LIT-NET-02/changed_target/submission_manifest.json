@@ -15,5 +15,18 @@
     "assignment_profiles.csv"
   ],
   "heldout": false,
-  "notes": "名单、网络、两阶段设计和总体信息与原始版本相同；只把同伴接种人数的比较方向反过来。"
+  "notes": "名单、网络、两阶段设计和总体信息与原始版本相同；只把同伴接种人数的比较方向反过来。",
+  "network_upload": {
+    "nodes_file": "units.csv",
+    "edges_file": "network_edges.csv",
+    "declaration": {
+      "kind": "UNDIRECTED",
+      "completeness": "COMPLETE",
+      "description": "关系在随机分配前登记并固定，为无向网络、无自身联系。`network_edges.csv` 给出全部 12 条边：组内完全图，组间没有边。每人的同伴状态是全部邻居中实际接种的人数，取精确人数。"
+    },
+    "declaration_source": {
+      "file": "study_protocol.md",
+      "quote": "关系在随机分配前登记并固定，为无向网络、无自身联系。`network_edges.csv` 给出全部 12 条边：组内完全图，组间没有边。每人的同伴状态是全部邻居中实际接种的人数，取精确人数。"
+    }
+  }
 }

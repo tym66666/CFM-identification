@@ -6,6 +6,7 @@ under research_only and must not be sent to a model.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 
@@ -33,6 +34,9 @@ def main(argv=None) -> int:
             folder = ROOT / case["public_directory"] / variant["name"]
             manifest = read_json(folder / "submission_manifest.json")
             files = ["business_question.md", *manifest.get("supporting_files", [])]
+            split_dag = case["case_id"] == "LIT-DAG-01" and variant["name"] != "changed_target"
+            target_ids = (["do_0", "do_1"] if split_dag else
+                          ["direct", "spillover", "local_total"] if variant["expected_query_count"] == 3 else ["target"])
             public_rows.append({
                 "case_id": case["case_id"],
                 "variant": variant["name"],
@@ -47,6 +51,13 @@ def main(argv=None) -> int:
                 "case_id": case["case_id"],
                 "variant": variant["name"],
                 "expected_status": variant["expected_status"],
+                "expected_runtime_state": variant["expected_runtime_state"],
+                "expected_query_count": variant["expected_query_count"],
+                "allowed_query_counts": [1, 2] if split_dag else [variant["expected_query_count"]],
+                "required_target_ids": target_ids,
+                "current_scope_note": variant.get("current_scope_note", case.get("current_scope_note", "")),
+                "input_sha256": {name: hashlib.sha256((folder / name).read_bytes()).hexdigest() for name in files},
+                "expected_interval": read_json(ROOT / case["research_directory"] / "reference.json").get("software_expected", {}).get(variant["name"], {}).get("interval"),
                 "actual_status": variant["actual_status"],
                 "reference_file": str((ROOT / case["research_directory"] / "reference.json").relative_to(ROOT)).replace("\\", "/"),
                 "run_record": str((ROOT / case["research_directory"] / "run_record.md").relative_to(ROOT)).replace("\\", "/"),

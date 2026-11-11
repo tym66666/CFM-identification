@@ -17,5 +17,18 @@
     "treatment_summary.csv"
   ],
   "heldout": false,
-  "notes": "评价名单、网络、设计和总体信息与原始版本相同；只把溢出效应的比较方向反过来。"
+  "notes": "评价名单、网络、设计和总体信息与原始版本相同；只把溢出效应的比较方向反过来。",
+  "network_upload": {
+    "nodes_file": "units.csv",
+    "edges_file": "network_edges.csv",
+    "declaration": {
+      "kind": "UNDIRECTED",
+      "completeness": "COMPLETE",
+      "description": "合作关系使用所提供的处理前固定网络。`network_edges.csv` 给出全部 120 条无向边，此外没有其他边。全部节点度数在 3 到 5 之间，没有孤立节点。"
+    },
+    "declaration_source": {
+      "file": "study_protocol.md",
+      "quote": "合作关系使用所提供的处理前固定网络。`network_edges.csv` 给出全部 120 条无向边，此外没有其他边。全部节点度数在 3 到 5 之间，没有孤立节点。"
+    }
+  }
 }

@@ -14,7 +14,7 @@ from examples.dag_business_reference import _case, assess
 
 ROOT = Path(__file__).resolve().parents[3]
 CASE = ROOT / "evaluation" / "literature_cases" / "public" / "LIT-DAG-01"
-OUT = ROOT / "evaluation" / "literature_cases" / "research_only" / "LIT-DAG-01" / "structured_runs"
+OUT = None  # Explicit new destination required; never overwrite submitted evidence.
 
 
 def write_json(path: Path, value) -> None:
@@ -62,7 +62,7 @@ def variants() -> dict[str, dict]:
 
 
 def run_variant(name: str, case: dict) -> dict:
-    write_public(name, case)
+    if OUT is None: raise ValueError("REFERENCE_FIXTURE_OUTPUT_REQUIRED")
     result = assess(case, case["reference"])
     folder = OUT / name
     folder.mkdir(parents=True, exist_ok=True)
@@ -82,11 +82,15 @@ def run_variant(name: str, case: dict) -> dict:
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--variant", choices=["original", "missing_condition", "changed_target", "all"], default="all")
+    from . import reference_fixture
+    reference_fixture.arguments(parser)
     args = parser.parse_args(argv)
+    global OUT
+    OUT = reference_fixture.output(args, ROOT)
     data = variants()
     names = list(data) if args.variant == "all" else [args.variant]
     rows = [run_variant(name, data[name]) for name in names]
-    summary = dict(api_calls=0, synthetic_reviews=True, rows=rows)
+    summary = dict(evidence_kind="HAND_AUTHORED_REFERENCE_FIXTURE", automatic_business_reading=False, api_calls=0, synthetic_reviews=True, rows=rows)
     OUT.mkdir(parents=True, exist_ok=True)
     write_json(OUT / "SUMMARY.json", summary)
     print(json.dumps(summary, ensure_ascii=False, indent=2))

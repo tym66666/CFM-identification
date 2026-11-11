@@ -23,7 +23,7 @@ from examples.business_dispatch_reference import approve
 
 ROOT = Path(__file__).resolve().parents[3]
 CASE = ROOT / "evaluation" / "literature_cases" / "public" / "LIT-NET-01"
-OUT = ROOT / "evaluation" / "literature_cases" / "research_only" / "LIT-NET-01" / "structured_runs"
+OUT = None  # Explicit new destination required; never overwrite submitted evidence.
 
 
 def read_text(path: Path) -> str:
@@ -277,6 +277,7 @@ def approval_records(plan: dict) -> dict:
 
 
 def run_variant(variant: str) -> dict:
+    if OUT is None: raise ValueError("REFERENCE_FIXTURE_OUTPUT_REQUIRED")
     data = load_variant(variant)
     docs = data["docs"]
     case = BusinessCase(
@@ -333,10 +334,14 @@ def run_variant(variant: str) -> dict:
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--variant", choices=["original", "missing_condition", "changed_target", "all"], default="all")
+    from . import reference_fixture
+    reference_fixture.arguments(parser)
     args = parser.parse_args(argv)
+    global OUT
+    OUT = reference_fixture.output(args, ROOT)
     variants = ["original", "missing_condition", "changed_target"] if args.variant == "all" else [args.variant]
     rows = [run_variant(v) for v in variants]
-    summary = dict(api_calls=0, synthetic_reviews=True, rows=rows)
+    summary = dict(evidence_kind="HAND_AUTHORED_REFERENCE_FIXTURE", automatic_business_reading=False, api_calls=0, synthetic_reviews=True, rows=rows)
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "SUMMARY.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf8")
     print(json.dumps(summary, ensure_ascii=False, indent=2))

@@ -12,7 +12,7 @@ from examples.dag_frontdoor_reference import synthetic_review
 
 
 ROOT = Path(__file__).resolve().parents[3]
-OUT = ROOT / "evaluation" / "literature_cases" / "research_only" / "LIT-DAG-02" / "structured_runs"
+OUT = None  # Explicit new destination required; never overwrite submitted evidence.
 
 NODES = ["体质", "吸烟", "焦油", "肺癌"]
 BASE_EDGES = [["体质", "吸烟"], ["体质", "肺癌"], ["吸烟", "焦油"], ["焦油", "肺癌"]]
@@ -51,6 +51,7 @@ def problem(*, graph_status="DECLARED", edges=None) -> FrontdoorProblem:
 
 
 def run_variant(name: str) -> dict:
+    if OUT is None: raise ValueError("REFERENCE_FIXTURE_OUTPUT_REQUIRED")
     if name == "original":
         p = problem()
     elif name == "missing_condition":
@@ -71,10 +72,14 @@ def run_variant(name: str) -> dict:
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--variant", choices=["original", "missing_condition", "changed_target", "all"], default="all")
+    from . import reference_fixture
+    reference_fixture.arguments(parser)
     args = parser.parse_args(argv)
+    global OUT
+    OUT = reference_fixture.output(args, ROOT)
     names = ["original", "missing_condition", "changed_target"] if args.variant == "all" else [args.variant]
     rows = [run_variant(n) for n in names]
-    summary = dict(api_calls=0, synthetic_reviews=True, rows=rows)
+    summary = dict(evidence_kind="HAND_AUTHORED_REFERENCE_FIXTURE", automatic_business_reading=False, api_calls=0, synthetic_reviews=True, rows=rows)
     OUT.mkdir(parents=True, exist_ok=True)
     write_json(OUT / "SUMMARY.json", summary)
     print(json.dumps(summary, ensure_ascii=False, indent=2))

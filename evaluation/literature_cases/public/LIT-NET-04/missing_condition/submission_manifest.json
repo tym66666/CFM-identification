@@ -20,5 +20,18 @@
     "information_cells.json"
   ],
   "heldout": false,
-  "notes": "项目自建有限均值顺序模型；不是 Manski (2013) 的数值答案。"
+  "notes": "项目自建有限均值顺序模型；不是 Manski (2013) 的数值答案。",
+  "network_upload": {
+    "nodes_file": "units.csv",
+    "edges_file": "network_edges.csv",
+    "declaration": {
+      "kind": "UNDIRECTED",
+      "completeness": "COMPLETE",
+      "description": "门店之间存在合作和信息交流，结果可能受相邻店安排影响。网络为处理前固定的简单无向网络，完整合作边为甲店—乙店、甲店—丙店、甲店—丁店、乙店—丙店、乙店—丁店、丙店—丁店，没有其他边；没有列出合作边的店是孤立点。"
+    },
+    "declaration_source": {
+      "file": "study_protocol.md",
+      "quote": "门店之间存在合作和信息交流，结果可能受相邻店安排影响。网络为处理前固定的简单无向网络，完整合作边为甲店—乙店、甲店—丙店、甲店—丁店、乙店—丙店、乙店—丁店、丙店—丁店，没有其他边；没有列出合作边的店是孤立点。"
+    }
+  }
 }

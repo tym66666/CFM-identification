@@ -14,7 +14,7 @@ from .provider import PROVIDERS, make_provider, generate
 
 project, intake, dispatch = identification_modules()
 from cfm_id import business_field_review
-from cfm_id_llm.document_intake import create_intake, AttachmentRequestV07
+from cfm_id_llm.document_intake import create_intake, AttachmentRequestV07, MAX_ATTACHMENTS
 from .review_summary import summarize
 from . import capabilities
 
@@ -203,7 +203,7 @@ class Engine:
     def _start(self, run, payload, *, preview_only=False):
         self.event(run,'PREPARING','读取业务原文与上传材料')
         uploads=payload.get('files',[])
-        if not isinstance(uploads,list) or len(uploads)>10:raise ValueError('AT_MOST_TEN_UPLOADS')
+        if not isinstance(uploads,list) or len(uploads)>MAX_ATTACHMENTS:raise ValueError('AT_MOST_TEN_UPLOADS')
         folder=self.storage/run.id/'uploads';folder.mkdir(parents=True,exist_ok=True)
         requests=[]; total=0; network_paths={}; table_path=None
         for i,item in enumerate(uploads):

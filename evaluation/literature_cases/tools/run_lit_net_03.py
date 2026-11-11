@@ -16,7 +16,7 @@ from examples import network_bounded_dispatch_reference as b
 
 ROOT = Path(__file__).resolve().parents[3]
 CASE = ROOT / "evaluation" / "literature_cases" / "public" / "LIT-NET-03"
-OUT = ROOT / "evaluation" / "literature_cases" / "research_only" / "LIT-NET-03" / "structured_runs"
+OUT = None  # Explicit new destination required; never overwrite submitted evidence.
 
 NODES = ["中心"] + [f"网点{i}" for i in range(1, 7)]
 EDGES = [["中心", n] for n in NODES[1:]]
@@ -74,9 +74,9 @@ def write_public(variant: str, case, cells: list[dict], extra: bool) -> None:
 
 
 def run_variant(variant: str, **kwargs) -> dict:
+    if OUT is None: raise ValueError("REFERENCE_FIXTURE_OUTPUT_REQUIRED")
     case, cells = b.case(**kwargs)
     s, entry, options, plan = b.setup(**kwargs)
-    write_public(variant, case, cells, extra=bool(kwargs.get("extra")))
     if plan["state"] == "REVIEW_REQUIRED":
         result = dispatch.execute(s, "q1", **options, **b.approval_records(plan))
     else:
@@ -103,7 +103,11 @@ def run_variant(variant: str, **kwargs) -> dict:
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--variant", choices=["original", "missing_condition", "changed_target", "all"], default="all")
+    from . import reference_fixture
+    reference_fixture.arguments(parser)
     args = parser.parse_args(argv)
+    global OUT
+    OUT = reference_fixture.output(args, ROOT)
     data = {
         "original": {},
         "missing_condition": {"missing_scope": True},
@@ -111,7 +115,7 @@ def main(argv=None) -> int:
     }
     names = list(data) if args.variant == "all" else [args.variant]
     rows = [run_variant(n, **data[n]) for n in names]
-    summary = dict(api_calls=0, synthetic_reviews=True, rows=rows)
+    summary = dict(evidence_kind="HAND_AUTHORED_REFERENCE_FIXTURE", automatic_business_reading=False, api_calls=0, synthetic_reviews=True, rows=rows)
     OUT.mkdir(parents=True, exist_ok=True)
     write_json(OUT / "SUMMARY.json", summary)
     print(json.dumps(summary, ensure_ascii=False, indent=2))

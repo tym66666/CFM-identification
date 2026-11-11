@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path
 
 
@@ -23,6 +24,10 @@ def main(argv=None) -> int:
     parser.add_argument("--family", required=True)
     parser.add_argument("--title", required=True)
     args = parser.parse_args(argv)
+    if not re.fullmatch(r"LIT-[A-Z]+-[0-9]+", args.case_id):
+        raise ValueError("INVALID_CASE_ID")
+    if any((CASES / section / args.case_id).exists() for section in ("public", "research_only")):
+        raise ValueError("CASE_ALREADY_EXISTS")
 
     examples = json.loads(DEMO.read_text(encoding="utf8"))
     example = next(x for x in examples if x["id"] == args.demo_id)

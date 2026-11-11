@@ -12,26 +12,164 @@
     "contract_passed",
     "query_count",
     "semantic_passed",
-    "expected_decision_passed"
+    "input_sha256",
+    "query_results",
+    "semantic_review"
   ],
   "properties": {
-    "case_id": {"type": "string"},
-    "variant": {"enum": ["original", "missing_condition", "changed_target"]},
-    "run_id": {"type": "string"},
-    "model": {"type": "string"},
-    "prompt_version": {"type": "string"},
-    "transport_complete": {"type": "boolean"},
-    "contract_passed": {"type": "boolean"},
-    "query_count": {"type": "integer", "minimum": 0},
-    "semantic_passed": {"type": ["boolean", "null"]},
-    "expected_decision_passed": {"type": ["boolean", "null"]},
-    "point_present": {"type": ["boolean", "null"]},
-    "point_replay_passed": {"type": ["boolean", "null"]},
-    "status": {"type": ["string", "null"]},
-    "latency_seconds": {"type": ["number", "null"], "minimum": 0},
-    "tokens": {"type": ["integer", "null"], "minimum": 0},
-    "cost_usd": {"type": ["number", "null"], "minimum": 0},
-    "notes": {"type": "string"}
+    "case_id": {
+      "type": "string"
+    },
+    "variant": {
+      "enum": [
+        "original",
+        "missing_condition",
+        "changed_target"
+      ]
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "prompt_version": {
+      "type": "string"
+    },
+    "transport_complete": {
+      "type": "boolean"
+    },
+    "contract_passed": {
+      "type": "boolean"
+    },
+    "query_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "semantic_passed": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "expected_decision_passed": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "point_present": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "point_replay_passed": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "latency_seconds": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "tokens": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "cost_usd": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "notes": {
+      "type": "string"
+    },
+    "input_sha256": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "query_results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "query_id",
+          "result"
+        ],
+        "properties": {
+          "query_id": {
+            "type": "string"
+          },
+          "result": {
+            "type": "object"
+          },
+          "stop_reason_reviewed": {
+            "type": "boolean"
+          },
+          "stop_reason_evidence": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "semantic_review": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "reviewer": {
+          "type": "string"
+        },
+        "evidence": {
+          "type": "string"
+        },
+        "query_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "input_sha256": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "candidate_repaired": {
+          "type": "boolean"
+        },
+        "target_coverage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "description": "Recorded execution evidence plus a separate semantic review. Legacy flags alone cannot pass."
 }

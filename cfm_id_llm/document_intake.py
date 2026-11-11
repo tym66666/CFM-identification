@@ -19,7 +19,7 @@ from pydantic import Field
 
 from .schemas import BusinessCase, SourceDocument, SourceKind, StrictModel
 
-MAX_ATTACHMENTS = 8
+MAX_ATTACHMENTS = 10
 MAX_FILE_BYTES = 8 * 1024 * 1024
 MAX_TOTAL_BYTES = 20 * 1024 * 1024
 MAX_SOURCE_CHARS = 11000

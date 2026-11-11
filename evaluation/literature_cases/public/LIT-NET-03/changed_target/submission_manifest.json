@@ -19,5 +19,18 @@
     "information_cells.json"
   ],
   "heldout": false,
-  "notes": "项目自建有限均值模型；不是 Manski (2013) 的数值答案。"
+  "notes": "项目自建有限均值模型；不是 Manski (2013) 的数值答案。",
+  "network_upload": {
+    "nodes_file": "units.csv",
+    "edges_file": "network_edges.csv",
+    "declaration": {
+      "kind": "UNDIRECTED",
+      "completeness": "COMPLETE",
+      "description": "合作网络为固定的处理前简单无向网络，完整边为中心—网点1、中心—网点2、中心—网点3、中心—网点4、中心—网点5、中心—网点6，没有其他边。"
+    },
+    "declaration_source": {
+      "file": "study_protocol.md",
+      "quote": "合作网络为固定的处理前简单无向网络，完整边为中心—网点1、中心—网点2、中心—网点3、中心—网点4、中心—网点5、中心—网点6，没有其他边。"
+    }
+  }
 }

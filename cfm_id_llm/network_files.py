@@ -165,9 +165,9 @@ def load_network(nodes_path, edges_path, declaration):
     if not isinstance(desc, str) or not 3 <= len(desc.strip()) <= 2000:
         fail('NETWORK_DESCRIPTION_REQUIRED', '请简短说明关系代表什么、来自哪段时间；不清楚的直接注明。')
     nh, nr, nf = _table(nodes_path); eh, er, ef = _table(edges_path)
-    ni = _column(nh, {'node_id', 'id', '对象编号', '门店编号', '节点编号'})
-    si = _column(eh, {'source', 'from', '对象1', '对象一', '起点'})
-    ti = _column(eh, {'target', 'to', '对象2', '对象二', '终点'})
+    ni = _column(nh, {'node_id', 'unit_id', 'id', '对象编号', '门店编号', '节点编号'})
+    si = _column(eh, {'source', 'unit_a', 'from', '对象1', '对象一', '起点'})
+    ti = _column(eh, {'target', 'unit_b', 'to', '对象2', '对象二', '终点'})
     if len(eh) != 2 or si == ti:
         fail('NETWORK_EDGE_ATTRIBUTES_UNSUPPORTED', '关系表目前仅接受两列对象编号；权重、方向、时间或其他属性不能被忽略。请保留原文件并明确研究所用的关系定义。')
     nodes = tuple(_id(row[ni], i) for i, row in nr)
