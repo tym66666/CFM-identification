@@ -1,0 +1,115 @@
+{
+  "schema_version": "literature-support-route-1",
+  "route_id": "TASK1_NETWORK_POINT_EXTENSION",
+  "document_role": "LITERATURE_CONTEXT_AND_PROJECT_DERIVATION_MAP_NOT_NEW_THEOREM",
+  "native_route_ids": [
+    "R1A_RANDOMIZED_ARM",
+    "R1A_COMPOSITION",
+    "R1B_FULL_ASSIGNMENT",
+    "R2_MEAN_SIGNATURE"
+  ],
+  "runtime_coverage_authority": "cfm_id.capability_registry.inventory",
+  "literature_scope": {
+    "source_ids": [
+      "aronow_samii2017_interference",
+      "morgan_rubin2012_rerandomization",
+      "hajek1964_rejective_sampling"
+    ],
+    "role": "Assignment-design / exposure-mapping / estimand separation (Aronow-Samii); rerandomization as conditioning on a pre-treatment balance event (Morgan-Rubin); exact rejective-sampling law q_B(A)=q(A)1{B(A)}/P_q(B) (Hájek). None of these titles is imported as a project theorem verbatim.",
+    "limitations": [
+      "Task-1 design/exposure labels and their 4-feature extensions are not source taxonomies.",
+      "The project's exact full-assignment enumeration (N<=8) is not the source papers' asymptotic theory.",
+      "Exposure sufficiency is NOT a condition for the design-standardized arm mean; it is a separate interpretation upgrade."
+    ]
+  },
+  "project_math_documents": [
+    "docs/TASK1_POINT_EXTENSION_MATH_ZH.md",
+    "docs/TASK1_LIMITATIONS_ZH.md",
+    "docs/task1_combination_lookup.md"
+  ],
+  "implementation": [
+    "pfn_pipeline/_internal/identification/randomized_arm_family/assignment_extensions.py",
+    "pfn_pipeline/_internal/identification/randomized_arm_family/exposure_extensions.py",
+    "pfn_pipeline/_internal/identification/randomized_arm_family/support_verifier.py",
+    "pfn_pipeline/_internal/identification/randomized_arm_family/rule.py",
+    "pfn_pipeline/_internal/identification/randomized_network_arm.py",
+    "pfn_pipeline/_internal/identification/schemas.py",
+    "pfn_pipeline/identification.py",
+    "pfn_pipeline/identification_policy_r1b.py",
+    "pfn_pipeline/identification_policy_r2.py",
+    "pfn_pipeline/identification_batch.py",
+    "pfn_pipeline/identification_composition.py",
+    "cfm_id/network_design_adapter.py",
+    "cfm_id/network_effect_dispatch.py",
+    "cfm_id_llm/network_design_reading.py",
+    "cfm_id_llm/network_policy_reading.py",
+    "cfm_id_llm/network_effect_reading.py",
+    "examples/task1_business_case_reference.py",
+    "examples/task1_weighted_grouped_business_case.py",
+    "examples/task1_public_entry_evidence.py"
+  ],
+  "tests": [
+    "tests/test_task1_assignment_extensions.py",
+    "tests/test_task1_supportengine_integration.py",
+    "tests/test_task1_exposure_support.py",
+    "tests/test_task1_backend_integration.py",
+    "tests/test_task1_verifier_independence.py",
+    "tests/test_task1_weighted_grouped_certificate.py",
+    "tests/test_task1_rule_entry.py",
+    "tests/test_task1_targets.py",
+    "tests/test_task1_combination_lookup.py",
+    "tests/test_task1_policy_r2.py",
+    "tests_gateway/test_task1_business_case.py",
+    "tests_gateway/test_task1_weighted_grouped_business_case.py",
+    "tests_gateway/test_task1_policy_r2_business.py",
+    "tests_gateway/test_task1_extended_routes.py",
+    "tests_gateway/test_task1_public_entry_evidence.py",
+    "tests_gateway/test_task1_network_design_reading.py"
+  ],
+  "identification_statement": {
+    "identified": "Design-standardized conditional arm mean mu_i^q(a,s)=E[Y_i^obs | T_i=a, S_i=s] whenever pi_i(a,s)>0; direct/spillover effects are contrasts of these arm means; fixed-policy value and two-policy difference are identified under the known full assignment law (R1B) or, when mean-signature sufficiency is explicitly adopted, via the mean-signature route (R2). Features ① unequal fixed quota, ② rerandomization, ③ weighted exposure, ④ grouped exposure are all wired to the single-arm, batch, composition and business-dispatch paths (D1-D8), and both R1B and R2 reach the new designs.",
+    "conditions": [
+      "known_assignment_law (the original declared design q)",
+      "full_vector_randomization",
+      "consistency",
+      "fixed_pretreatment_network",
+      "finite_conditional_first_moments",
+      "target arm positive support (pi_i(a,s) > 0)",
+      "task-1 exact support uses full-assignment enumeration, N<=8"
+    ],
+    "exposure_sufficiency_note": "exposure_sufficiency is NOT required for the design-standardized contrast; adopting it only upgrades the interpretation to a causal effect of exposure (recorded as interpretation=causal_effect_under_exposure_sufficiency vs design_standardized_contrast).",
+    "task1_status": {
+      "unequal_probability_fixed_quota": "completed",
+      "rerandomized_balanced": "completed",
+      "weighted_exposure": "completed",
+      "grouped_exposure": "completed",
+      "local_direct_mean": "completed",
+      "peer_spillover_mean": "completed",
+      "policy_mean": "completed",
+      "policy_contrast": "completed",
+      "combination_lookup": "completed",
+      "proofs_and_docs": "completed",
+      "examples_and_business_case": "completed",
+      "code_entry_and_extension_rules": "completed",
+      "literature_support": "completed",
+      "independent_verifier": "partial",
+      "analytic_support_for_N_gt_8_task1_designs": "not_completed",
+      "numeric_pfn_estimation": "not_completed_out_of_scope",
+      "r2_mean_signature_for_weighted_grouped": "not_completed_not_required",
+      "independent_assignment_mass_for_D4_D6_weighted_grouped": "partial",
+      "default_primary_method_prefers_R2": "not_completed_existing_selection"
+    },
+    "not_yet_supported": [
+      "analytic conditional count law for N>8 task-1 designs",
+      "numeric PFN estimation (task requires identification only)",
+      "R2 mean-signature sufficiency for weighted/grouped exposures (R2 is an E1-E5 signature route; W/G uses R1B/effect routes)",
+      "independent assignment-mass recomputation for weighted/grouped exposure on D4-D6 (exposure statistic is independent; mass still mirrors the declared full law)",
+      "dispatcher does not prefer R2 when both R1B and R2 are available (R2 is planned and independently executable, but the existing first-success selection returns R1B)",
+      "arbitrary stochastic policy kernels, dynamic/unknown graphs, multi-valued or continuous treatment, R3 observational conditional decomposition"
+    ]
+  },
+  "path_base": "source repository root",
+  "audit_date": "2026-11-09",
+  "verification_evidence": "Documentation, implementation and test pointers checked against the current source; Task-1 native/composition/business-dispatch tests pass, and the D1-D8 x E1-E5 x four-family reference passes 160/160. No new theorem imported from the cited literature; the project derivation is independent.",
+  "production_admission": false
+}

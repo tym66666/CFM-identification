@@ -15,12 +15,14 @@ from __future__ import annotations
 
 from dataclasses import dataclass, asdict
 from fractions import Fraction
+from itertools import combinations
 from math import comb
 from typing import Literal
 
 from ._internal.identification.schemas import (
     Assumption, CompleteRandomizationDesignV1, TwoGroupFixedQuotaDesignV1,
     HeterogeneousBernoulliDesignV1, ClusterBernoulliDesignV24, MultiGroupFixedQuotaDesignV25, TwoStageQuotaMixtureDesignV27,
+    UnequalProbabilityFixedQuotaDesignV1, RerandomizedBalancedDesignV1,
 )
 from ._internal.identification.randomized_arm_family import AssignmentSpec
 from ._internal.identification.randomized_arm_family.two_stage_verifier import original_assignment_mass
@@ -54,11 +56,73 @@ class R1bPolicyUnavailable(ValueError):
         super().__init__(f'{reason_code}: {message}' if message else reason_code)
 
 
+def _independent_unequal_q(design, treated, nodes) -> Fraction:
+    """Independent q(A) from declared unequal-fixed-quota fields."""
+    treated = frozenset(treated)
+    if len(treated) != design.m:
+        return Fraction(0)
+    if design.unit_weights is not None:
+        weights = {n: Fraction(design.unit_weights[n]) for n in nodes}
+        normalizer = Fraction(0)
+        for combo in combinations(nodes, design.m):
+            term = Fraction(1)
+            for node in combo:
+                term *= weights[node]
+            normalizer += term
+        if normalizer == 0:
+            return Fraction(0)
+        numerator = Fraction(1)
+        for node in treated:
+            numerator *= weights[node]
+        return numerator / normalizer
+    for members, prob in zip(design.treated_sets, design.set_probabilities):
+        if frozenset(members) == treated:
+            return Fraction(prob)
+    return Fraction(0)
+
+
+def _balance_ok(rule, treated, nodes) -> bool:
+    """Independent absolute-mean-difference balance event from raw covariate values."""
+    treated = set(treated)
+    untreated = set(nodes) - treated
+    if not treated or not untreated:
+        return False
+    for values in rule.covariates.values():
+        if set(values) != set(nodes):
+            raise R1bPolicyUnavailable('BALANCE_COVARIATE_SCOPE_MISMATCH')
+        tm = sum((Fraction(values[n]) for n in treated), Fraction(0)) / len(treated)
+        um = sum((Fraction(values[n]) for n in untreated), Fraction(0)) / len(untreated)
+        if abs(tm - um) > Fraction(rule.tolerance):
+            return False
+    return True
+
+
+def _independent_rerandomized_q(design, treated, nodes) -> Fraction:
+    """Independent q_B(A)=q(A)1{B(A)}/P_q(B) from declared base law and balance rule."""
+    base = design.base_design
+    treated = frozenset(treated)
+    if len(treated) != base.m or not _balance_ok(design.balance_rule, treated, nodes):
+        return Fraction(0)
+    normalizer = Fraction(0)
+    for combo in combinations(nodes, base.m):
+        combo_set = frozenset(combo)
+        if _balance_ok(design.balance_rule, combo_set, nodes):
+            normalizer += _independent_unequal_q(base, combo_set, nodes)
+    if normalizer == 0:
+        return Fraction(0)
+    return _independent_unequal_q(base, treated, nodes) / normalizer
+
+
 def _independent_q(study: NetworkStudyContextV17, z: tuple[int, ...]) -> Fraction:
     """Independent full-vector design check (not an invocation of AssignmentSpec)."""
     design = study.design()
     if design is None or len(z) != len(study.node_order):
         raise R1bPolicyUnavailable('EXPERIMENTAL_ASSIGNMENT_LAW_UNRESOLVED')
+    if isinstance(design, (UnequalProbabilityFixedQuotaDesignV1, RerandomizedBalancedDesignV1)):
+        treated = frozenset(n for n, t in zip(study.node_order, z) if t)
+        if isinstance(design, UnequalProbabilityFixedQuotaDesignV1):
+            return _independent_unequal_q(design, treated, study.node_order)
+        return _independent_rerandomized_q(design, treated, study.node_order)
     if isinstance(design, ClusterBernoulliDesignV24):
         assignments=dict(zip(study.node_order,z))
         mass=Fraction(1)

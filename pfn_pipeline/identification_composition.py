@@ -25,9 +25,13 @@ from .identification_a4_shadow import A4SourceV1, _refs
 from ._internal.identification.schemas import IdentificationSpec
 from ._internal.identification.randomized_network_arm import (
     REQUIRED, arm_target_fingerprint, spec_fingerprint, GROUP_E3,
+    exposure_object, queried_exposure_state, exposure_state_str, W_G_GROUPINGS,
 )
 from ._internal.identification.randomized_arm_family import AssignmentSpec, ExposureSpec, SupportEngine
 from ._internal.identification.schemas import HeterogeneousBernoulliDesignV1
+from ._internal.identification.schemas import UnequalProbabilityFixedQuotaDesignV1, RerandomizedBalancedDesignV1
+from ._internal.identification.randomized_arm_family.assignment import as_design_dataclass
+from ._internal.identification.randomized_arm_family.support_verifier import verify_joint_support as _verify_joint_support
 from .identification import identify, replay_population_identification
 
 __all__ = [
@@ -73,7 +77,8 @@ def _hash(value: dict) -> str:
 class ArmLinearTerm:
     node_id: str
     own_treatment: int
-    exposure_state: int
+    # int for E1-E5; canonical string coordinate for weighted/grouped exposure.
+    exposure_state: int | str
     coefficient: Fraction | int | str
 
     def __post_init__(self):
@@ -81,12 +86,14 @@ class ArmLinearTerm:
             raise ValueError('An explicit nonempty node ID is required')
         if type(self.own_treatment) is not int or self.own_treatment not in (0, 1):
             raise ValueError('own_treatment must be 0 or 1')
-        if type(self.exposure_state) is not int or self.exposure_state < 0:
-            raise ValueError('exposure_state must be a nonnegative integer')
+        if isinstance(self.exposure_state, bool) or not (
+                (type(self.exposure_state) is int and self.exposure_state >= 0)
+                or (isinstance(self.exposure_state, str) and self.exposure_state.strip())):
+            raise ValueError('exposure_state must be a nonnegative integer or canonical exposure string')
         object.__setattr__(self, 'coefficient', _fraction(self.coefficient, field='coefficient'))
 
     @property
-    def coordinates(self) -> tuple[str, int, int]:
+    def coordinates(self) -> tuple[str, int, int | str]:
         return self.node_id, self.own_treatment, self.exposure_state
 
     def json_payload(self) -> dict:
@@ -99,8 +106,8 @@ class _CompositionRecipe:
     """Immutable declared query; named effects are independently reconstructed."""
     kind: Literal['CUSTOM_LINEAR', 'DIRECT', 'SPILLOVER', 'TOTAL']
     node_weights: tuple[tuple[str, Fraction], ...] = ()
-    reference_exposure: int | None = None
-    comparison_exposure: int | None = None
+    reference_exposure: int | str | None = None
+    comparison_exposure: int | str | None = None
     spillover_own_treatment: int = 1
     supplied_terms: tuple[ArmLinearTerm, ...] = ()
     cohort_authority: str | None = None
@@ -204,10 +211,25 @@ def _check_batch_envelope(batch: BatchIdentificationResult) -> None:
     net, contract = spec.network_exposure, spec.randomized_network_arm_theorem_contract
     if net is None or contract is None or tuple(net.node_ids) != batch.node_ids:
         raise CompositionUnavailable('SOURCE_BATCH_NETWORK_MISMATCH')
-    exposure_spec = ExposureSpec(contract.grouping, contract.core_collaborators)
-    expected_states = (tuple(range(net.max_degree() + 1))
-                       if contract.grouping == "exact_treated_neighbor_count"
-                       else exposure_spec.states)
+    if contract.grouping in W_G_GROUPINGS:
+        # Weighted/grouped state axis is the union of reachable canonical states
+        # across nodes (non-integer coordinates). Rebuild it from the independent
+        # oracle, never from the batch's own declared axis.
+        exposure = exposure_object(contract)
+        engine = AssignmentSpec(contract.design)
+        engine._validate_network(net)
+        reachable = set()
+        for node in net.node_ids:
+            oracle = _verify_joint_support(network=net, design=engine,
+                exposure=exposure, node_id=node, proposed={})["oracle"]
+            reachable.update(exposure_state_str(exposure, s)
+                             for (a, s), p in oracle.items() if p)
+        expected_states = tuple(sorted(reachable, key=str))
+    else:
+        exposure_spec = ExposureSpec(contract.grouping, contract.core_collaborators)
+        expected_states = (tuple(range(net.max_degree() + 1))
+                           if contract.grouping == "exact_treated_neighbor_count"
+                           else exposure_spec.states)
     if batch.exposure_states != expected_states:
         raise CompositionUnavailable('SOURCE_BATCH_EXPOSURE_STATES_MISMATCH')
     source_digest=spec_fingerprint(spec)
@@ -244,21 +266,39 @@ def _check_term_support(batch: BatchIdentificationResult, term: ArmLinearTerm,
     """
     spec=IdentificationSpec.model_validate(batch.template.identification_spec)
     net, contract=spec.network_exposure,spec.randomized_network_arm_theorem_contract
-    grouping=ExposureSpec(contract.grouping,contract.core_collaborators)
     a,s,node=term.own_treatment,term.exposure_state,term.node_id
-    reference=(frozenset(contract.core_collaborators[node])
-               if contract.grouping==GROUP_E3 else None)
     engine=AssignmentSpec(contract.design)
     engine._validate_network(net)
-    law=engine.conditional_neighbor_count_law(net,node,a,reference_nodes=reference)
-    produced=SupportEngine.from_count_law(law,grouping,s).joint_probability
-    neighbor_counts=None
-    if isinstance(contract.design,HeterogeneousBernoulliDesignV1):
-        from ._internal.identification.randomized_arm_family.assignment import neighbor_set
-        members=neighbor_set(net,node) if reference is None else set(reference)
-        neighbor_counts=_independent_count_masses(contract.design,members)
-    independently=_support_comparison(contract.design,net,node,a,(s,),
-                                      contract.grouping,reference,neighbor_counts)[s]
+    if contract.grouping in W_G_GROUPINGS:
+        # Weighted/grouped exposures use a canonical string coordinate; parse it
+        # back to the exact hashable state the support map is keyed by.
+        exposure=exposure_object(contract)
+        state=queried_exposure_state(exposure,s)
+        joint=SupportEngine.joint_support(network=net, assignment=engine, exposure=exposure, node_id=node)
+        produced=joint.get((a,state), Fraction(0))
+        oracle=_verify_joint_support(network=net, design=engine,
+            exposure=exposure, node_id=node, proposed={})["oracle"]
+        independently=oracle.get((a,state), Fraction(0))
+    else:
+        grouping=ExposureSpec(contract.grouping,contract.core_collaborators)
+        reference=(frozenset(contract.core_collaborators[node])
+                   if contract.grouping==GROUP_E3 else None)
+        if isinstance(contract.design, (UnequalProbabilityFixedQuotaDesignV1, RerandomizedBalancedDesignV1)):
+            joint=SupportEngine.joint_support(network=net, assignment=engine, exposure=grouping, node_id=node)
+            produced=joint.get((a,s), Fraction(0))
+            oracle=_verify_joint_support(network=net, design=as_design_dataclass(contract.design),
+                exposure=grouping, node_id=node, proposed={})["oracle"]
+            independently=oracle.get((a,s), Fraction(0))
+        else:
+            law=engine.conditional_neighbor_count_law(net,node,a,reference_nodes=reference)
+            produced=SupportEngine.from_count_law(law,grouping,s).joint_probability
+            neighbor_counts=None
+            if isinstance(contract.design,HeterogeneousBernoulliDesignV1):
+                from ._internal.identification.randomized_arm_family.assignment import neighbor_set
+                members=neighbor_set(net,node) if reference is None else set(reference)
+                neighbor_counts=_independent_count_masses(contract.design,members)
+            independently=_support_comparison(contract.design,net,node,a,(s,),
+                                              contract.grouping,reference,neighbor_counts)[s]
     if produced!=independently or str(produced)!=cell['joint_support']:
         raise CompositionUnavailable('SOURCE_ARM_SUPPORT_INDEPENDENT_REPLAY_MISMATCH',str(term.coordinates))
     if cell['target_fingerprint'] != arm_target_fingerprint(net,contract,node,a,s):
@@ -334,8 +374,11 @@ def _terms_from_recipe(recipe: _CompositionRecipe) -> tuple[ArmLinearTerm, ...]:
     if recipe.kind not in _EFFECTS or recipe.supplied_terms:
         raise ValueError('Unknown or malformed named causal contrast')
     sr, sc = recipe.reference_exposure, recipe.comparison_exposure
-    if type(sr) is not int or type(sc) is not int:
-        raise ValueError('Explicit integer reference and comparison exposures are required')
+    def _exposure_ok(value):
+        return ((type(value) is int and value >= 0)
+                or (isinstance(value, str) and value.strip()))
+    if not _exposure_ok(sr) or not _exposure_ok(sc):
+        raise ValueError('Explicit integer or canonical exposure reference and comparison are required')
     if recipe.kind == 'DIRECT' and sr != sc:
         raise CompositionUnavailable('DIRECT_EXPOSURE_LABEL_MISMATCH',
             'DIRECT holds exposure fixed; reference and comparison must be equal')
@@ -481,7 +524,7 @@ def identify_verified_linear_target(batch: BatchIdentificationResult, a4_source:
 
 def identify_verified_node_effect(batch: BatchIdentificationResult, a4_source: A4SourceV1,
                                   *, node_id: str, kind: str,
-                                  reference_exposure: int, comparison_exposure: int,
+                                  reference_exposure: int | str, comparison_exposure: int | str,
                                   spillover_own_treatment: int = 1) -> VerifiedCompositionV18:
     """One node: DIRECT=(1,s0)-(0,s0); SPILLOVER=(a,s1)-(a,s0);
     TOTAL=(1,s1)-(0,s0). D2/D3 contrasts are *design-standardized*.
@@ -496,7 +539,7 @@ def identify_verified_node_effect(batch: BatchIdentificationResult, a4_source: A
 def identify_verified_group_effect(batch: BatchIdentificationResult, a4_source: A4SourceV1,
                                    *, kind: str,
                                    node_weights: Mapping[str, Fraction | int | str],
-                                   reference_exposure: int, comparison_exposure: int,
+                                   reference_exposure: int | str, comparison_exposure: int | str,
                                    cohort_authority: str, cohort_evidence: str,
                                    spillover_own_treatment: int = 1) -> VerifiedCompositionV18:
     """Pre-declared subgroup mean of design-standardized effects.
@@ -543,8 +586,8 @@ class EffectQueryV18:
     """
     kind: Literal['DIRECT', 'SPILLOVER', 'TOTAL']
     node_weights: tuple[tuple[str, Fraction | int | str], ...]
-    reference_exposure: int
-    comparison_exposure: int
+    reference_exposure: int | str
+    comparison_exposure: int | str
     spillover_own_treatment: int = 1
     cohort_authority: str | None = None
     cohort_evidence: str | None = None

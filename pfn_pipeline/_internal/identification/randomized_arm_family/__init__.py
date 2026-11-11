@@ -8,5 +8,13 @@ remain authoritative.
 from .assignment import AssignmentSpec, NeighborCountLaw
 from .exposure import ExposureSpec
 from .support import ArmSupportEvidence, SupportEngine
+from .assignment_extensions import (
+    CovariateBalanceRule, RerandomizedBalancedDesign, UnequalProbabilityFixedQuotaDesign,
+)
+from .exposure_extensions import GroupedExposureSpec, WeightedExposureSpec
 
-__all__ = ["AssignmentSpec", "NeighborCountLaw", "ExposureSpec", "ArmSupportEvidence", "SupportEngine"]
+__all__ = [
+    "AssignmentSpec", "NeighborCountLaw", "ExposureSpec", "ArmSupportEvidence", "SupportEngine",
+    "UnequalProbabilityFixedQuotaDesign", "RerandomizedBalancedDesign", "CovariateBalanceRule",
+    "WeightedExposureSpec", "GroupedExposureSpec",
+]

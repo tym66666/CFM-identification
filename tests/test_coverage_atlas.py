@@ -8,8 +8,8 @@ from examples.build_supervisor_dashboard import snapshot,generate
 class SupervisorCoverageAtlasTests(unittest.TestCase):
     def test_metadata_counts_from_implemented_types_not_paper_labels(self):
         x=snapshot()
-        self.assertEqual(x['counts'],dict(mechanisms=4,routes=10,design=6,exposure=5,topology_shapes=9,
-                            design_exposure_cells=30,premise_names=11))
+        self.assertEqual(x['counts'],dict(mechanisms=4,routes=10,design=8,exposure=5,topology_shapes=9,
+                            design_exposure_cells=40,premise_names=11))
         self.assertEqual(len(x['scenarios']),16)
         self.assertEqual(len(x['topologies']),9)
         self.assertIn('NOT empirical business coverage',x['caveat'])

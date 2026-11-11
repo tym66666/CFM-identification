@@ -19,6 +19,8 @@ DESIGNS=[
  dict(id='D4',title='簇级 Bernoulli',family='ClusterBernoulliDesignV24',business='门店/班级整体随机',priority='高',notes='簇内全同一 treatment，部分 spillover arms 必定零支持'),
  dict(id='D5',title='多组固定配额',family='MultiGroupFixedQuotaDesignV25',business='多部门独立试用名额',priority='高',notes='可处理 3–64 个处理前非空分组'),
  dict(id='D6',title='两阶段配额混合',family='TwoStageQuotaMixtureDesignV27',business='先随机饱和度，再组内配额',priority='中',notes='第一阶段 quota profile 可相关；必须额外接受无直接结果效应 A5'),
+ dict(id='D7',title='不等概率固定配额',family='UnequalProbabilityFixedQuotaDesign',business='按已知名单概率抽固定名额',priority='中',notes='各完整名单概率不等或按对象权重归一；精确支持用全排列枚举（N≤8）'),
+ dict(id='D8',title='重随机化平衡',family='RerandomizedBalancedDesign',business='先抽固定名额再按平衡规则重抽样',priority='中',notes='拒绝抽样 q_B(A)=q(A)1{B(A)}/P_q(B)；精确支持用全排列枚举（N≤8）'),
 ]
 EXPOSURES=[
  dict(id='E1',title='邻居严格多数',grouping='strict_majority_ties_low',business='多数同事启用 AI',notes='阈值型；不是自动的充分性假设'),

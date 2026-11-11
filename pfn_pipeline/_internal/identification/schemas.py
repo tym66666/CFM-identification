@@ -1821,14 +1821,151 @@ class ClusterBernoulliDesignV24(StrictModel):
         return self
 
 
+class UnequalProbabilityFixedQuotaDesignV1(StrictModel):
+    """Exactly ``m`` treated nodes with an arbitrary declared size-m set law.
+
+    Provide either the complete legal-set law (``treated_sets`` paired with
+    ``set_probabilities``) or non-negative ``unit_weights``; with weights the
+    law is q(A) = prod(i in A, w_i) / sum(|B|=m) prod(j in B, w_j). Exact
+    rational strings only. Exact support for this design is computed by
+    full-assignment enumeration, so N must stay within that engine's limit.
+    """
+    kind: Literal["unequal_probability_fixed_quota_binary_v1"] = "unequal_probability_fixed_quota_binary_v1"
+    nodes: tuple[str, ...]
+    m: StrictInt = Field(ge=0)
+    treated_sets: tuple[tuple[str, ...], ...] | None = None
+    set_probabilities: tuple[str, ...] | None = None
+    unit_weights: dict[str, str] | None = None
+
+    @model_validator(mode="after")
+    def canonical_unequal_law(self):
+        nodes = self.nodes
+        if (not nodes or any(not isinstance(n, str) or not n.strip() for n in nodes)
+                or len(set(nodes)) != len(nodes)):
+            raise ValueError("unequal fixed-quota nodes must be unique nonempty strings")
+        if not 0 <= self.m <= len(nodes):
+            raise ValueError("unequal fixed-quota m must lie in [0, N]")
+        law = self.treated_sets is not None
+        weights = self.unit_weights is not None
+        if law == weights:
+            raise ValueError("provide exactly one of (treated_sets,set_probabilities) or unit_weights")
+        if weights:
+            normalized = {}
+            for node, raw in self.unit_weights.items():
+                if not isinstance(node, str) or not node.strip():
+                    raise ValueError("unit-weight node IDs must be nonempty strings")
+                try:
+                    w = Fraction(raw)
+                except (ValueError, TypeError, ZeroDivisionError, OverflowError) as exc:
+                    raise ValueError("unit weights must be finite rational strings") from exc
+                if w < 0:
+                    raise ValueError("unit weights must be non-negative")
+                normalized[node] = str(w)
+            if set(normalized) != set(nodes):
+                raise ValueError("unit_weights must cover precisely all nodes")
+            self.unit_weights = dict(sorted(normalized.items()))
+            return self
+        if not self.treated_sets or len(self.treated_sets) != len(self.set_probabilities):
+            raise ValueError("treated_sets and set_probabilities must be nonempty and aligned")
+        paired = []
+        total = Fraction(0)
+        for treated, raw in zip(self.treated_sets, self.set_probabilities):
+            t = tuple(sorted(treated))
+            if len(t) != self.m or len(set(t)) != len(t) or not set(t) <= set(nodes):
+                raise ValueError("every treated set must be a distinct size-m subset of the nodes")
+            try:
+                p = Fraction(raw)
+            except (ValueError, TypeError, ZeroDivisionError, OverflowError) as exc:
+                raise ValueError("set probabilities must be finite rational strings") from exc
+            if not 0 <= p <= 1:
+                raise ValueError("set probabilities must lie in [0,1]")
+            paired.append((t, str(p)))
+            total += p
+        if len({t for t, _ in paired}) != len(paired):
+            raise ValueError("treated sets must be distinct")
+        if total != 1:
+            raise ValueError("set probabilities must sum exactly to 1")
+        paired.sort()
+        self.treated_sets = tuple(t for t, _ in paired)
+        self.set_probabilities = tuple(p for _, p in paired)
+        return self
+
+
+class CovariateBalanceRuleV1(StrictModel):
+    """Serializable absolute-mean-difference balance rule for rerandomization."""
+    metric: Literal["absolute_mean_difference"] = "absolute_mean_difference"
+    tolerance: str
+    covariates: dict[str, dict[str, str]]
+
+    @model_validator(mode="after")
+    def canonical_balance(self):
+        if self.metric != "absolute_mean_difference":
+            raise ValueError("only absolute_mean_difference balance is supported")
+        try:
+            tol = Fraction(self.tolerance)
+        except (ValueError, TypeError, ZeroDivisionError, OverflowError) as exc:
+            raise ValueError("balance tolerance must be a finite rational string") from exc
+        if tol < 0:
+            raise ValueError("balance tolerance must be non-negative")
+        if not self.covariates:
+            raise ValueError("at least one balance covariate is required")
+        normalized = {}
+        for name, values in self.covariates.items():
+            if not isinstance(name, str) or not name.strip():
+                raise ValueError("balance covariate names must be nonempty strings")
+            if not values:
+                raise ValueError("each balance covariate must map every node to a value")
+            row = {}
+            for node, raw in values.items():
+                if not isinstance(node, str) or not node.strip():
+                    raise ValueError("balance covariate node IDs must be nonempty strings")
+                try:
+                    v = Fraction(raw)
+                except (ValueError, TypeError, ZeroDivisionError, OverflowError) as exc:
+                    raise ValueError("balance covariate values must be finite rational strings") from exc
+                row[node] = str(v)
+            normalized[name] = dict(sorted(row.items()))
+        node_sets = {frozenset(row) for row in normalized.values()}
+        if len(node_sets) != 1:
+            raise ValueError("every balance covariate must cover precisely the same node set")
+        self.covariates = dict(sorted(normalized.items()))
+        self.tolerance = str(tol)
+        return self
+
+
+class RerandomizedBalancedDesignV1(StrictModel):
+    """Base fixed-quota law conditioned on a pre-treatment balance event B(A).
+
+    Rejective sampling q_B(A)=q(A)1{B(A)}/P_q(B) (Hajek 1964). The base law is
+    an unequal fixed-quota law; the balance event is an absolute covariate
+    mean-difference rule. Exact support is computed by full-assignment
+    enumeration within the engine's limit.
+    """
+    kind: Literal["rerandomized_balanced_binary_v1"] = "rerandomized_balanced_binary_v1"
+    base_design: UnequalProbabilityFixedQuotaDesignV1
+    balance_rule: CovariateBalanceRuleV1
+
+    @model_validator(mode="after")
+    def check_balance_node_scope(self):
+        rule_nodes = set(next(iter(self.balance_rule.covariates.values())))
+        base_nodes = set(self.base_design.nodes)
+        if rule_nodes != base_nodes:
+            raise ValueError(
+                "balance covariates must match the base design nodes exactly; "
+                f"extra={sorted(rule_nodes - base_nodes)!r}, "
+                f"missing={sorted(base_nodes - rule_nodes)!r}")
+        return self
+
+
 class RandomizedNetworkArmMeanContractV1(StrictModel):
     """A single-node/single-arm population target, no estimator implied."""
     version: Literal["randomized-network-arm-mean-theorem-v1"] = "randomized-network-arm-mean-theorem-v1"
-    design: CompleteRandomizationDesignV1 | TwoGroupFixedQuotaDesignV1 | MultiGroupFixedQuotaDesignV25 | HeterogeneousBernoulliDesignV1 | ClusterBernoulliDesignV24 | TwoStageQuotaMixtureDesignV27
+    design: CompleteRandomizationDesignV1 | TwoGroupFixedQuotaDesignV1 | MultiGroupFixedQuotaDesignV25 | HeterogeneousBernoulliDesignV1 | ClusterBernoulliDesignV24 | TwoStageQuotaMixtureDesignV27 | UnequalProbabilityFixedQuotaDesignV1 | RerandomizedBalancedDesignV1
     grouping: Literal[
         "strict_majority_ties_low", "three_level_treated_neighbor_fraction",
         "pretreatment_core_collaborator_majority",
         "exact_treated_neighbor_count", "any_treated_neighbor",
+        "weighted_exposure_sum", "weighted_exposure_proportion", "grouped_exposure",
     ] = "strict_majority_ties_low"
     # E3 only: complete pre-treatment map i -> C_i, with nonempty C_i subset
     # of actual neighbors.  Omit when None to preserve old E1/E2 serialized
@@ -1836,6 +1973,12 @@ class RandomizedNetworkArmMeanContractV1(StrictModel):
     core_collaborators: dict[str, tuple[str, ...]] | None = Field(
         default=None, exclude_if=lambda value: value is None,
     )
+    # Weighted/grouped exposure declarations (Task 1). Omitted for E1-E5 so
+    # their serialized contracts and fingerprints stay byte-for-byte identical.
+    exposure_weights: dict[str, str] | None = Field(
+        default=None, exclude_if=lambda value: value is None)
+    exposure_groups: dict[str, tuple[str, ...]] | None = Field(
+        default=None, exclude_if=lambda value: value is None)
     target: Literal["design_standardized_conditional_arm_mean"] = "design_standardized_conditional_arm_mean"
     information: Literal["node_conditional_arm_mean_of_experimental_law"] = (
         "node_conditional_arm_mean_of_experimental_law"
@@ -1853,6 +1996,18 @@ class RandomizedNetworkArmMeanContractV1(StrictModel):
                     raise ValueError("E3 core collaborator sets must be nonempty with no duplicates")
         elif self.core_collaborators is not None:
             raise ValueError("core_collaborators is only permitted for E3")
+        if self.grouping in ("weighted_exposure_sum", "weighted_exposure_proportion"):
+            if not self.exposure_weights:
+                raise ValueError("weighted exposure requires exposure_weights")
+            if self.exposure_groups is not None:
+                raise ValueError("exposure_groups is only permitted for grouped exposure")
+        elif self.grouping == "grouped_exposure":
+            if not self.exposure_groups:
+                raise ValueError("grouped exposure requires exposure_groups")
+            if self.exposure_weights is not None:
+                raise ValueError("exposure_weights is only permitted for weighted exposure")
+        elif self.exposure_weights is not None or self.exposure_groups is not None:
+            raise ValueError("exposure_weights/exposure_groups are only permitted for weighted/grouped exposure")
         return self
 
 
@@ -2160,12 +2315,12 @@ class RandomizedNetworkArmMeanProgram(StrictModel):
     )
     node_id: str
     own_treatment_value: Literal[0, 1]
-    exposure_value: StrictInt = Field(ge=0)
+    exposure_value: int | str
     treatment: str
     outcome: str
     target_fingerprint: str
     network_fingerprint: str
-    assignment_kind: Literal["complete_randomization", "two_group_fixed_quotas", "heterogeneous_bernoulli", "cluster_bernoulli", "multi_group_fixed_quotas", "two_stage_quota_mixture"] = "complete_randomization"
+    assignment_kind: Literal["complete_randomization", "two_group_fixed_quotas", "heterogeneous_bernoulli", "cluster_bernoulli", "multi_group_fixed_quotas", "two_stage_quota_mixture", "unequal_probability_fixed_quota", "rerandomized_balanced"] = "complete_randomization"
     treated_quota: StrictInt | None = Field(default=None, ge=0)
     # Only populated for D3; the complete group allocation is bound to the
     # target fingerprint and is part of the target kernel, not merely support.
@@ -2183,12 +2338,22 @@ class RandomizedNetworkArmMeanProgram(StrictModel):
     two_stage_group_node_ids: tuple[tuple[str,...], ...] | None = Field(default=None, exclude_if=lambda value: value is None)
     two_stage_quota_profiles: tuple[tuple[StrictInt,...], ...] | None = Field(default=None, exclude_if=lambda value: value is None)
     two_stage_profile_probabilities: tuple[str,...] | None = Field(default=None, exclude_if=lambda value: value is None)
+    # Task-1 designs (unequal fixed quota / rerandomized balance) carry their
+    # complete serializable law; exact support comes from full-assignment
+    # enumeration and the design is part of the bound target fingerprint.
+    extended_design: UnequalProbabilityFixedQuotaDesignV1 | RerandomizedBalancedDesignV1 | None = Field(
+        default=None, exclude_if=lambda value: value is None)
+    exposure_weights: dict[str, str] | None = Field(default=None, exclude_if=lambda value: value is None)
+    exposure_groups: dict[str, tuple[str, ...]] | None = Field(default=None, exclude_if=lambda value: value is None)
     grouping: Literal[
         "K_i>floor(degree_i/2);ties=0",
         "3K<d:low;d<=3K<2d:medium;3K>=2d:high;d>0",
         "K_i(C_i)>floor(|C_i|/2);ties=0;C_i fixed pretreatment",
         "S_i=K_i;exact treated one-hop neighbor count",
         "S_i=1{K_i>0};any treated one-hop neighbor",
+        "S_i=sum_j w_ij T_j;fixed weighted sum",
+        "S_i=sum_j w_ij T_j/sum_j w_ij;fixed weighted proportion",
+        "S_i=(K_i(G_1),...,K_i(G_K));fixed grouped counts",
     ] = "K_i>floor(degree_i/2);ties=0"
     # Explicitly expose the E3 query's reference set.  For previous E1/E2
     # records this field is absent, preserving serialized proof artifacts.
@@ -2204,13 +2369,26 @@ class RandomizedNetworkArmMeanProgram(StrictModel):
 
     @model_validator(mode="after")
     def ensure_assignment_fields_are_consistent(self):
-        if self.grouping not in {
-            "3K<d:low;d<=3K<2d:medium;3K>=2d:high;d>0",
-            "S_i=K_i;exact treated one-hop neighbor count",
-        } and self.exposure_value > 1:
-            raise ValueError("binary exposure grouping permits only exposure 0/1")
-        if self.grouping == "3K<d:low;d<=3K<2d:medium;3K>=2d:high;d>0" and self.exposure_value > 2:
-            raise ValueError("three-level exposure permits only 0/1/2")
+        e2 = "3K<d:low;d<=3K<2d:medium;3K>=2d:high;d>0"
+        e4 = "S_i=K_i;exact treated one-hop neighbor count"
+        weighted = ("S_i=sum_j w_ij T_j;fixed weighted sum",
+                    "S_i=sum_j w_ij T_j/sum_j w_ij;fixed weighted proportion")
+        grouped = "S_i=(K_i(G_1),...,K_i(G_K));fixed grouped counts"
+        if isinstance(self.exposure_value, int):
+            if self.exposure_value < 0:
+                raise ValueError("exposure value must be non-negative")
+            if self.grouping not in {e2, e4} and self.exposure_value > 1:
+                raise ValueError("binary exposure grouping permits only exposure 0/1")
+            if self.grouping == e2 and self.exposure_value > 2:
+                raise ValueError("three-level exposure permits only 0/1/2")
+        if self.grouping in weighted:
+            if not self.exposure_weights:
+                raise ValueError("weighted program requires exposure_weights")
+        elif self.grouping == grouped:
+            if not self.exposure_groups:
+                raise ValueError("grouped program requires exposure_groups")
+        elif self.exposure_weights is not None or self.exposure_groups is not None:
+            raise ValueError("exposure_weights/exposure_groups only permitted for weighted/grouped grouping")
         if self.grouping == "K_i(C_i)>floor(|C_i|/2);ties=0;C_i fixed pretreatment":
             if not self.core_neighbor_ids or len(set(self.core_neighbor_ids)) != len(self.core_neighbor_ids):
                 raise ValueError("E3 program requires unique, nonempty core_neighbor_ids")
@@ -2234,6 +2412,21 @@ class RandomizedNetworkArmMeanProgram(StrictModel):
             return self
         elif any(v is not None for v in d6_fields):
             raise ValueError("Only D6 may have two-stage profile fields")
+        extended_kinds = ("unequal_probability_fixed_quota", "rerandomized_balanced")
+        if self.assignment_kind in extended_kinds:
+            if self.extended_design is None:
+                raise ValueError("extended assignment kinds require an extended_design")
+            expected = ("unequal_probability_fixed_quota"
+                        if self.assignment_kind == "unequal_probability_fixed_quota"
+                        else "rerandomized_balanced")
+            got = ("unequal_probability_fixed_quota"
+                   if isinstance(self.extended_design, UnequalProbabilityFixedQuotaDesignV1)
+                   else "rerandomized_balanced")
+            if got != expected:
+                raise ValueError("extended_design must match the declared assignment_kind")
+            return self
+        if self.extended_design is not None:
+            raise ValueError("extended_design is only permitted for task-1 assignment kinds")
         if self.assignment_kind == "multi_group_fixed_quotas":
             if (self.multi_group_node_ids is None or self.multi_group_treated_quotas is None
                 or not 3 <= len(self.multi_group_node_ids) <= 64

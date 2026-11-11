@@ -13,12 +13,35 @@ NATIVE_DESIGNS = {
     'CLUSTER_BERNOULLI': 'cluster_bernoulli_binary_v2_4',
     'MULTI_GROUP_FIXED_QUOTA': 'multi_group_fixed_quota_binary_v2_5',
     'TWO_STAGE_QUOTA_MIXTURE': 'two_stage_quota_mixture_binary_v2_7',
+    'UNEQUAL_PROBABILITY_FIXED_QUOTA': 'unequal_probability_fixed_quota_binary_v1',
+    'RERANDOMIZED_BALANCED': 'rerandomized_balanced_binary_v1',
 }
 
 
-def design_payload(assignment):
-    if assignment.kind not in NATIVE_DESIGNS or any(
-            getattr(assignment, name) is None for name in fields.DESIGN_FIELDS[assignment.kind]):
+def design_payload(assignment, *, nodes=None):
+    if assignment.kind not in NATIVE_DESIGNS:
+        raise ValueError('COMPLETE_SUPPORTED_DESIGN_REQUIRED')
+    if assignment.kind in ('UNEQUAL_PROBABILITY_FIXED_QUOTA', 'RERANDOMIZED_BALANCED'):
+        if nodes is None:
+            raise ValueError('TASK1_DESIGN_REQUIRES_NODE_ORDER')
+        law = assignment.treated_sets is not None and assignment.set_probabilities is not None
+        weights = assignment.unit_weights is not None
+        if not (law ^ weights):
+            raise ValueError('COMPLETE_SUPPORTED_DESIGN_REQUIRED')
+        base = dict(kind='unequal_probability_fixed_quota_binary_v1',
+                    nodes=tuple(nodes), m=assignment.fixed_count,
+                    treated_sets=(tuple(tuple(s) for s in assignment.treated_sets)
+                                  if assignment.treated_sets is not None else None),
+                    set_probabilities=(tuple(assignment.set_probabilities)
+                                       if assignment.set_probabilities is not None else None),
+                    unit_weights=(dict(assignment.unit_weights)
+                                  if assignment.unit_weights is not None else None))
+        if assignment.kind == 'UNEQUAL_PROBABILITY_FIXED_QUOTA':
+            return base
+        return dict(kind=NATIVE_DESIGNS[assignment.kind], base_design=base,
+                    balance_rule=dict(tolerance=assignment.balance_tolerance,
+                                      covariates=dict(assignment.balance_covariates)))
+    if any(getattr(assignment, name) is None for name in fields.DESIGN_FIELDS[assignment.kind]):
         raise ValueError('COMPLETE_SUPPORTED_DESIGN_REQUIRED')
     result = dict(kind=NATIVE_DESIGNS[assignment.kind])
     aliases = {'probabilities':'propensities', 'fixed_count':'m'}
@@ -31,9 +54,23 @@ def design_payload(assignment):
 
 
 def exposure_payload(exposure):
-    grouping = fields.EXPOSURE_GROUPS[exposure.kind]
+    """Reviewed exposure record -> native constructor kwargs.
+
+    E1-E5 -> {grouping, core_collaborators}; Task-1 weighted/grouped exposures
+    carry their exact weights+mode or groups, and the grouping label selects the
+    exact enumeration path in the native constructor.
+    """
     cores = exposure.core_collaborators
-    return dict(grouping=grouping, core_collaborators=None if cores is None else {n:tuple(v) for n,v in cores.items()})
+    if exposure.kind == 'WEIGHTED_EXPOSURE':
+        grouping = ('weighted_exposure_sum' if exposure.mode == 'sum'
+                    else 'weighted_exposure_proportion')
+        return dict(grouping=grouping, core_collaborators=None,
+                    exposure_weights=dict(exposure.weights))
+    if exposure.kind == 'GROUPED_EXPOSURE':
+        return dict(grouping='grouped_exposure', core_collaborators=None,
+                    exposure_groups={k: tuple(v) for k, v in exposure.groups.items()})
+    return dict(grouping=fields.EXPOSURE_GROUPS[exposure.kind],
+                core_collaborators=None if cores is None else {n: tuple(v) for n, v in cores.items()})
 
 
 def component_gaps(c, *, local_effect=False):
@@ -70,6 +107,34 @@ def extra_science(c):
     return (fields.D6_CONDITION,) if c.assignment.kind == 'TWO_STAGE_QUOTA_MIXTURE' else ()
 
 
+def task1_design(assignment, network):
+    """Build the serializable task-1 design object from reviewed business fields.
+
+    The network supplies the complete node ordering; the review layer has
+    already validated treated-set alignment, unit-weight scope and balance-rule
+    completeness. Constructs the native pydantic design for exact enumeration.
+    """
+    from pfn_pipeline._internal.identification.schemas import (
+        UnequalProbabilityFixedQuotaDesignV1, RerandomizedBalancedDesignV1, CovariateBalanceRuleV1)
+    nodes = tuple(network.node_ids)
+    if assignment.kind == 'UNEQUAL_PROBABILITY_FIXED_QUOTA':
+        return UnequalProbabilityFixedQuotaDesignV1(
+            nodes=nodes, m=assignment.fixed_count,
+            treated_sets=tuple(tuple(s) for s in assignment.treated_sets) if assignment.treated_sets is not None else None,
+            set_probabilities=tuple(assignment.set_probabilities) if assignment.set_probabilities is not None else None,
+            unit_weights=dict(assignment.unit_weights) if assignment.unit_weights is not None else None)
+    if assignment.kind == 'RERANDOMIZED_BALANCED':
+        base = UnequalProbabilityFixedQuotaDesignV1(
+            nodes=nodes, m=assignment.fixed_count,
+            treated_sets=tuple(tuple(s) for s in assignment.treated_sets) if assignment.treated_sets is not None else None,
+            set_probabilities=tuple(assignment.set_probabilities) if assignment.set_probabilities is not None else None,
+            unit_weights=dict(assignment.unit_weights) if assignment.unit_weights is not None else None)
+        rule = CovariateBalanceRuleV1(
+            tolerance=assignment.balance_tolerance, covariates=assignment.balance_covariates)
+        return RerandomizedBalancedDesignV1(base_design=base, balance_rule=rule)
+    raise ValueError('TASK1_DESIGN_KIND_REQUIRED')
+
+
 def make_arm(c, network, *, source, evidence, authority='SYNTHETIC_TEST'):
     if authority not in ('SYNTHETIC_TEST', 'EXTERNAL_RESEARCH_REVIEW'):
         raise ValueError('EXPLICIT_RESEARCH_AUTHORITY_REQUIRED')
@@ -82,10 +147,21 @@ def make_arm(c, network, *, source, evidence, authority='SYNTHETIC_TEST'):
         'CLUSTER_BERNOULLI': native.make_cluster_bernoulli_arm_task,
         'MULTI_GROUP_FIXED_QUOTA': native.make_multi_group_quota_arm_task,
         'TWO_STAGE_QUOTA_MIXTURE': native.make_two_stage_quota_arm_task,
+        'UNEQUAL_PROBABILITY_FIXED_QUOTA': native.make_unequal_probability_fixed_quota_arm_task,
+        'RERANDOMIZED_BALANCED': native.make_rerandomized_balanced_arm_task,
     }
-    design = design_payload(c.assignment); design.pop('kind')
     signature = exposure_payload(c.exposure)
     grouping = signature.pop('grouping')
+    exposure_definition = 'strict_majority' if grouping == 'strict_majority_ties_low' else grouping
+    if c.assignment.kind in ('UNEQUAL_PROBABILITY_FIXED_QUOTA', 'RERANDOMIZED_BALANCED'):
+        design = task1_design(c.assignment, network)
+        return makers[c.assignment.kind](network, design=design, **signature,
+            node_id=c.target.population[0], own_treatment_value=c.target.first.own,
+            exposure_value=c.target.first.exposure, exposure_definition=exposure_definition,
+            source=source, evidence=evidence, admitted=True, synthetic=synthetic,
+            query_authority='TRUSTED_FIXTURE' if synthetic else 'HUMAN_CONFIRMED',
+            outcome_kind='continuous' if c.study.outcome_kind=='COUNT' else c.study.outcome_kind.lower())
+    design = design_payload(c.assignment); design.pop('kind')
     if c.assignment.kind == 'TWO_STAGE_QUOTA_MIXTURE':
         if c.first_stage_exclusion is None or c.first_stage_exclusion.status not in ('ADOPTED','PROPOSED'):
             raise ValueError('REVIEWABLE_D6_EXCLUSION_REQUIRED')
@@ -94,7 +170,7 @@ def make_arm(c, network, *, source, evidence, authority='SYNTHETIC_TEST'):
     return makers[c.assignment.kind](network, **design, **signature,
         node_id=c.target.population[0], own_treatment_value=c.target.first.own,
         exposure_value=c.target.first.exposure,
-        exposure_definition='strict_majority' if grouping=='strict_majority_ties_low' else grouping,
+        exposure_definition=exposure_definition,
         source=source, evidence=evidence, admitted=True, synthetic=synthetic,
         query_authority='TRUSTED_FIXTURE' if synthetic else 'HUMAN_CONFIRMED',
         outcome_kind='continuous' if c.study.outcome_kind=='COUNT' else c.study.outcome_kind.lower())

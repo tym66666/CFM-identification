@@ -1,6 +1,6 @@
 {
   "schema_version": "literature-support-catalog-1",
-  "updated_on": "2026-10-31",
+  "updated_on": "2026-11-11",
   "scope": "Selected source cards, classification provenance and project-to-literature mappings. Includes new planning sources for IV and ID, which do not declare executable capabilities. Full literature review and theorem audits remain incomplete.",
   "project_wide_literature_review_complete": false,
   "contains_downloaded_articles": false,
@@ -883,6 +883,73 @@
         "Automatic scientific approval or independent correctness of project implementation."
       ],
       "project_use": "Binary IV finite-model contract; see docs/IV_MATH_ZH.md."
+    },
+    {
+      "id": "morgan_rubin2012_rerandomization",
+      "title": "Rerandomization to Improve Covariate Balance in Experiments",
+      "authors": [
+        "Kari Lock Morgan",
+        "Donald B. Rubin"
+      ],
+      "year": 2012,
+      "venue": "Annals of Statistics 40(2):1263–1282",
+      "article_type": "Journal research article",
+      "doi": "10.1214/12-AOS1008",
+      "urls": {
+        "doi": "https://doi.org/10.1214/12-AOS1008"
+      },
+      "read_scope": {
+        "level": "metadata_and_indexed_abstract",
+        "read_on": "2026-11-07",
+        "inspected": [
+          "Task-2 PDF anchor and standard bibliographic metadata; rerandomization / rejective-sampling concept"
+        ],
+        "not_inspected": [
+          "Full article and all proofs; no full-text verification claimed."
+        ],
+        "full_text_verified": false
+      },
+      "supports": [
+        "Rerandomization: conditioning a known assignment law on a pre-treatment covariate-balance event."
+      ],
+      "does_not_support": [
+        "No project theorem is imported verbatim; q_B(A)=q(A)1{B(A)}/P_q(B) and its exact enumeration are an independent project derivation.",
+        "No automatic approval of a business balance rule or its tolerance."
+      ],
+      "project_use": "Conceptual source for feature ② (rerandomization); docs/TASK1_POINT_EXTENSION_MATH_ZH.md gives the independent derivation; implementation in randomized_arm_family/assignment_extensions.py."
+    },
+    {
+      "id": "hajek1964_rejective_sampling",
+      "title": "Asymptotic Theory of Rejective Sampling with Varying Probabilities from a Finite Population",
+      "authors": [
+        "Jaroslav Hájek"
+      ],
+      "year": 1964,
+      "venue": "Annals of Mathematical Statistics 35(4):1491–1523",
+      "article_type": "Journal research article",
+      "doi": "10.1214/aoms/1177700375",
+      "urls": {
+        "doi": "https://doi.org/10.1214/aoms/1177700375"
+      },
+      "read_scope": {
+        "level": "metadata_and_indexed_abstract",
+        "read_on": "2026-11-07",
+        "inspected": [
+          "Task-2 PDF anchor and standard bibliographic metadata; rejective-sampling concept"
+        ],
+        "not_inspected": [
+          "Full article and all asymptotic proofs; no full-text verification claimed."
+        ],
+        "full_text_verified": false
+      },
+      "supports": [
+        "Rejective sampling: sample from a known law conditioned on an acceptance event B, i.e. the exact conditional law q(A)1{B(A)}/P_q(B) used here."
+      ],
+      "does_not_support": [
+        "The project uses finite exact enumeration, not the paper's asymptotic theory; no asymptotic guarantee is claimed.",
+        "No automatic approval of a business balance rule."
+      ],
+      "project_use": "Conceptual source for feature ② exact rejective-sampling law; project derivation and enumeration are independent."
     }
   ],
   "route_maps": [
@@ -948,6 +1015,11 @@
     {
       "route_id": "BINARY_IV_LATE_ATE",
       "file": "routes/binary_iv_late_ate.json",
+      "runtime_status_is_not_declared_here": true
+    },
+    {
+      "route_id": "TASK1_NETWORK_POINT_EXTENSION",
+      "file": "routes/task1_network_point_extension.json",
       "runtime_status_is_not_declared_here": true
     }
   ],

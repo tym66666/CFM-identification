@@ -54,6 +54,12 @@ def target_coordinates(c):
         native_symbol_mapping=dict(treatment='treatment',outcome='outcome',context='W'))
     if c.exposure.core_collaborators is not None:
         result['core_collaborators']=deepcopy(c.exposure.core_collaborators)
+    if c.exposure.weights is not None:
+        result['exposure_weights']=deepcopy(c.exposure.weights)
+    if c.exposure.mode is not None:
+        result['exposure_mode']=c.exposure.mode
+    if c.exposure.groups is not None:
+        result['exposure_groups']=deepcopy(c.exposure.groups)
     if c.study.outcome_kind=='COUNT':
         result['outcome_domain_embedding']=dict(business_kind='COUNT',native_kind='continuous',
             scope='LOCAL_POINT_MEAN_ONLY',distributional_continuity_assumed=False,

@@ -52,7 +52,7 @@
 | `capability_registry` | 当前数学能力与可调用入口的唯一运行登记 |
 | `method_requirements`、`method_diagnostics`及`contrast_diagnostics`/`effect_diagnostics`/`observational_diagnostics` | 从原生工作表、审核、执行记录生成[方法诊断](METHOD_DIAGNOSTICS_ZH.md)；已接政策均值、有向差值、局部直接/同伴效应、R3观察性固定背景政策，专用模块只适配证据形状，不新增数学能力或审核许可 |
 | `network_*_dispatch`、`dag_method_dispatch` | 业务适配器；将审核后的事实交给已有数学合同，不能把这些文件当 solver |
-| `network_design_adapter` | 已审 D1–D6/E1–E5 参数到现有原生构造器的共同转换；不推断设计、不计算支持、不自动批准条件 |
+| `network_design_adapter` | 已审 D1–D6/E1–E5 参数到现有原生构造器的共同转换；Task 1 另接 D7 不等概率固定名额 / D8 重随机化平衡（`task1_design` + `make_arm` 路由）；不推断设计、不计算支持、不自动批准条件 |
 | `bounded_policy_contract/solver/verify`、`bounded_contrast_contract/solver/verify`、`mean_order_contract/solver/verify` | 正式有限数学模型与独立验证，属于 Core |
 | `dag_backdoor_contract/solver/verify`、`dag_adjustment_contract/solver/verify`、`dag_frontdoor_contract/solver/verify` | DAG 数学合同与独立验证，属于 Core |
 | `workflows/` | 专门研究流程与既有证书的组合；`legacy_network/` 保持旧运行接口 |
@@ -70,3 +70,7 @@
 完整要求见[扩展维护规则](EXTENSION_MAINTENANCE_ZH.md)、[读取配套](FACT_READING_REGISTRY_ZH.md)、[数学与证据](MATH_AND_EVIDENCE_ZH.md)。已知未完成项单独记录在[限制清单](KNOWN_LIMITATIONS_ZH.md)，不隐藏在目录说明中。
 
 随机化设计/暴露的接入样板见[设计与暴露入口](NETWORK_DESIGN_EXPOSURE_ENTRY_ZH.md)：字段规则统一在 `cfm_id_llm/network_design_reading.py`，独立科学声明仍进入各目标适配器的审核。已有 D/E 的四类目标无需学生再复制一套读取、审核和求解流程。
+
+## Task 1（网络拓展 / POINT 拓展）
+
+四项新功能（① 不等概率固定名额 D7、② 按平衡规则重随机化 D8、③ 固定权重暴露、④ 分组暴露）与四类目标（`local_direct_mean` / `peer_spillover_mean` / `policy_mean` / `policy_contrast`）的数学实现、组合查找表、证明与业务案例，见 [Task 1 数学合同](TASK1_POINT_EXTENSION_MATH_ZH.md) 与 [缺项限制表](TASK1_LIMITATIONS_ZH.md)。实际完成状态（已完成/部分完成/未完成）逐项列于缺项限制表；加权/分组暴露已完成正式流程接入（单臂/批量/组合证书 + 效应派单 + 扩展 R1A 路由，D1–D8），政策均值/两政策差值 R1B 与 R2（签名充分性）均已完成新设计接入。未完成项：N>8 解析支持、PFN 估计、R2 的 W/G 签名、D4–D6 上 W/G 的独立分配质量（部分完成）、默认优先 R2，见该表 U1–U6。

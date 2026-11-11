@@ -7,7 +7,7 @@
   "project_wide_literature_review_complete": false,
   "entries": [
     {
-      "name": "随机化局部均值与线性组合",
+      "name": "随机化局部均值与线性组合（含 Task 1 网络拓展：不等概率固定名额/重随机化/加权/分组暴露 + 四类目标）",
       "native_route_ids": [
         "R1A_RANDOMIZED_ARM",
         "R1A_COMPOSITION"
@@ -18,14 +18,24 @@
       ],
       "mathematical_documents": [
         "docs/ABSTRACTION_RANDOMIZED_ARM_ZH.md",
-        "docs/R1A_VERIFIED_TARGET_COMPOSITION_ZH.md"
+        "docs/R1A_VERIFIED_TARGET_COMPOSITION_ZH.md",
+        "docs/TASK1_POINT_EXTENSION_MATH_ZH.md",
+        "docs/TASK1_LIMITATIONS_ZH.md",
+        "docs/task1_combination_lookup.md"
       ],
       "implementation_files": [
         "pfn_pipeline/_internal/identification/randomized_network_arm.py",
-        "pfn_pipeline/identification_composition.py"
+        "pfn_pipeline/identification_composition.py",
+        "pfn_pipeline/_internal/identification/randomized_arm_family/assignment_extensions.py",
+        "pfn_pipeline/_internal/identification/randomized_arm_family/exposure_extensions.py",
+        "pfn_pipeline/_internal/identification/randomized_arm_family/support_verifier.py",
+        "pfn_pipeline/_internal/identification/randomized_arm_family/rule.py",
+        "pfn_pipeline/identification.py",
+        "cfm_id/network_design_adapter.py"
       ],
       "literature_maps": [
-        "literature_support/routes/network_r1a.json"
+        "literature_support/routes/network_r1a.json",
+        "literature_support/routes/task1_network_point_extension.json"
       ]
     },
     {

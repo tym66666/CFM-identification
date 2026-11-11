@@ -96,7 +96,9 @@ def _refs(task: TaskSpec):
         'law': _sha(contract.design.model_dump(mode='json')),
         'exposure': _sha({'network': net.semantic_fingerprint(),
                           'grouping': contract.grouping,
-                          'core_collaborators': contract.core_collaborators}),
+                          'core_collaborators': contract.core_collaborators,
+                          'exposure_weights': contract.exposure_weights,
+                          'exposure_groups': contract.exposure_groups}),
         'target': q.response_target_fingerprint,
         'node_order': tuple(net.node_ids),
         'outcome': q.outcome,
@@ -122,7 +124,7 @@ class A4SourceV1:
     outcome_averaging: str
     outcome_nodes: tuple[str, ...]
     exposure_fingerprint: str | None = None
-    arm_cells: tuple[tuple[str, int, int], ...] = ()
+    arm_cells: tuple[tuple[str, int, int | str], ...] = ()
     assignment_cells: tuple[tuple[int, ...], ...] = ()
 
     def __post_init__(self):
@@ -147,7 +149,8 @@ class A4SourceV1:
                 or any(not isinstance(c, tuple) or len(c) != 3
                        or c[0] not in self.outcome_nodes
                        or type(c[1]) is not int or c[1] not in (0, 1)
-                       or type(c[2]) is not int or c[2] < 0
+                       or not ((type(c[2]) is int and c[2] >= 0)
+                               or (isinstance(c[2], str) and c[2].strip() and not isinstance(c[2], bool)))
                        for c in self.arm_cells)):
                 raise ValueError('Invalid or duplicate arm cells')
         elif self.operator == 'ASSIGNMENT_NODE_MEANS':
@@ -165,7 +168,7 @@ class A4SourceV1:
 def declare_a4_source(task: TaskSpec, *, source_id: str, operator: str,
                       provenance: str, admission: str, availability: str,
                       outcome_nodes: tuple[str, ...], node_order: tuple[str, ...],
-                      arm_cells: tuple[tuple[str, int, int], ...] = (),
+                      arm_cells: tuple[tuple[str, int, int | str], ...] = (),
                       assignment_cells: tuple[tuple[int, ...], ...] = (),
                       regime: str = 'experimental') -> A4SourceV1:
     """Versioned *explicit declaration* from a reviewed source, not a truth detector.

@@ -98,3 +98,7 @@ R3观察性完整政策的记录适配位于`observational_diagnostics`：完整
 
 
 来源审核扩展见[事实来源合同](FACT_SOURCE_REVIEW_ZH.md)。新增事实字段要说明其归属、未知状态、直接引用及显式定义依赖；整份材料完整性另审，不能靠只展示已填字段证明无遗漏。格式模型由 `fact_wire_models` 按已有请求/解析配对选择；各 short_refs 事实家族均消费 `fact_reading_contracts` 为其登记的格式模型，不能另建不一致的宽松模型。`source_review` 为显式调用参数；下游审核必须绑定原答和该记录。新来源规则不自动补写候选，不得把来源审核升级为科学批准。
+
+## Task 1（网络拓展 / POINT 拓展）
+
+四项功能（不等概率固定名额 D7、重随机化 D8、加权暴露、分组暴露）与四类目标按「新数学方法 / 已有能力接入」义务交付：数学合同见 [Task 1 数学合同](TASK1_POINT_EXTENSION_MATH_ZH.md)，缺项/限制见 [缺项限制表](TASK1_LIMITATIONS_ZH.md)，组合表由 `examples/generate_task1_combination_lookup.py` 可复现生成，业务案例见 `examples/task1_business_case_reference.py`（D7/D8 × E1）与 `examples/task1_weighted_grouped_business_case.py`（W/G 暴露）。实际完成状态（已完成/部分完成/未完成）逐项列于缺项限制表；加权/分组暴露已完成正式流程接入（单臂/批量/组合证书 + 效应派单 + 扩展 R1A 路由），政策均值/两政策差值 R1B 与 R2（签名充分性）均已完成新设计接入。未完成项见该表 U1–U6，不得把 N>8 精确支持、PFN 估计、R2 的 W/G 签名或 D4–D6 的独立分配质量当作已完成能力登记。

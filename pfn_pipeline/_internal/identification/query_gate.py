@@ -42,16 +42,24 @@ def query_semantics_implementation_gaps(query: QuerySpec) -> list[str]:
             "treated_core_collaborator_count_1hop": (0, 1),
             "treated_neighbor_count_1hop_exact": "nonnegative_integer",
             "any_treated_neighbor_1hop": (0, 1),
+            "weighted_exposure_sum": "exact_rational",
+            "weighted_exposure_proportion": "exact_rational",
+            "grouped_exposure": "group_counts",
         }
         allowed_states = possible_exposures.get(query.reference_exposure_definition)
         if allowed_states is None:
             gaps.append("randomized-network arm requires a supported declared exposure definition")
+        if allowed_states in ("exact_rational", "group_counts"):
+            value_ok = isinstance(query.exposure_value, str)
+        elif allowed_states == "nonnegative_integer":
+            value_ok = isinstance(query.exposure_value, int) and query.exposure_value >= 0
+        elif allowed_states is not None:
+            value_ok = isinstance(query.exposure_value, int) and query.exposure_value in allowed_states
+        else:
+            value_ok = False
         if (not query.target_node_id or
             type(query.own_treatment_value) is not int or query.own_treatment_value not in (0, 1) or
-            type(query.exposure_value) is not int or
-            allowed_states is None or
-            (query.exposure_value not in allowed_states if allowed_states != "nonnegative_integer"
-             else query.exposure_value < 0) or
+            not value_ok or
             not query.response_target_fingerprint or query.conditioning_variables or
             query.policy_description is not None or query.policy_fingerprint is not None):
             gaps.append("An explicit node, binary own treatment, valid exposure arm, and bound target are required; no policy or subgroup query")

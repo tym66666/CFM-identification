@@ -7,7 +7,7 @@ from copy import deepcopy
 from fractions import Fraction
 import json
 from typing import Literal
-from pydantic import Field, StrictInt, model_validator
+from pydantic import Field, StrictInt, StrictStr, model_validator
 from .network_policy_reading import Record, Cited, Declaration, Study, Assignment, Exposure, FirstStageExclusion, Note, documents, DataDescription, DATA_DESCRIPTION_RULE
 from . import network_design_reading as components
 from .network_statement_reading import DesignFacts, SelectedScienceStatements
@@ -48,7 +48,7 @@ CITATION_GROUPS = {
                      'remaining_source_ids': ['remaining_assignment']},
     'LocalArm': {'source_ids': ['own','exposure']},
     'Declaration': {'source_ids': ['value']},
-    'Exposure': {'source_ids': ['kind','core_collaborators']},
+    'Exposure': {'source_ids': ['kind','core_collaborators','weights','mode','groups']},
     'FirstStageExclusion': {'source_ids': ['status']},
     'SelectedStatement': {'source_ids': ['status']},
     'AssumptionChoice': {'source_ids': ['condition', 'status', 'scope']},
@@ -60,7 +60,8 @@ CITATION_GROUPS = {
 
 class LocalArm(Cited):
     own: StrictInt | None
-    exposure: StrictInt | None
+    # int for E1-E5; canonical string coordinate for weighted/grouped exposure.
+    exposure: StrictInt | StrictStr | None
 
 
 class EffectTarget(Cited):
@@ -79,7 +80,7 @@ class EffectTarget(Cited):
 class ArmCell(Record):
     node: str
     own: StrictInt
-    exposure: StrictInt
+    exposure: StrictInt | StrictStr
 
 
 class EffectInformation(Cited):
@@ -185,7 +186,8 @@ def parse(bundle, raw, *, binding):
     if t.population is not None and (not set(t.population)<=set(nodes) or len(set(t.population))!=len(t.population)):
         raise ValueError('INVALID_EVALUATION_POPULATION')
     for arm in (t.first,t.second):
-        if arm.own is not None and arm.own not in (0,1) or arm.exposure is not None and arm.exposure<0:
+        if (arm.own is not None and arm.own not in (0,1)
+                or (type(arm.exposure) is int and arm.exposure<0)):
             raise ValueError('INVALID_LOCAL_ARM')
         if arm.exposure is not None:
             for node in t.population or []:
@@ -195,7 +197,9 @@ def parse(bundle, raw, *, binding):
         if not set(source.outcome_nodes)<=set(nodes) or len(set(source.outcome_nodes))!=len(source.outcome_nodes):
             raise ValueError('INVALID_A4_NODE_SCOPE')
         cells=[(v.node,v.own,v.exposure) for v in source.arm_cells]
-        if len(set(cells))!=len(cells) or any(n not in source.outcome_nodes or a not in (0,1) or e<0 for n,a,e in cells):
+        if (len(set(cells))!=len(cells)
+                or any(n not in source.outcome_nodes or a not in (0,1)
+                       or (type(e) is int and e<0) for n,a,e in cells)):
             raise ValueError('INVALID_A4_ARM_CELLS')
         for cell in source.arm_cells:
             components.validate_exposure_coordinate(c.exposure, cell.node, cell.exposure, edges)

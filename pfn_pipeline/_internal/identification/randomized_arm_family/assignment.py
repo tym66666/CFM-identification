@@ -16,10 +16,45 @@ from ..schemas import (
     HeterogeneousBernoulliDesignV1,
     NetworkExposureSpec,
     TwoGroupFixedQuotaDesignV1, ClusterBernoulliDesignV24, MultiGroupFixedQuotaDesignV25, TwoStageQuotaMixtureDesignV27,
+    UnequalProbabilityFixedQuotaDesignV1, RerandomizedBalancedDesignV1, CovariateBalanceRuleV1,
+)
+
+from .assignment_extensions import (
+    RerandomizedBalancedDesign, UnequalProbabilityFixedQuotaDesign, CovariateBalanceRule,
 )
 
 AssignmentDesign = (CompleteRandomizationDesignV1 | TwoGroupFixedQuotaDesignV1
-                    | HeterogeneousBernoulliDesignV1 | ClusterBernoulliDesignV24 | MultiGroupFixedQuotaDesignV25 | TwoStageQuotaMixtureDesignV27)
+                    | HeterogeneousBernoulliDesignV1 | ClusterBernoulliDesignV24 | MultiGroupFixedQuotaDesignV25 | TwoStageQuotaMixtureDesignV27
+                    | UnequalProbabilityFixedQuotaDesign | RerandomizedBalancedDesign)
+
+
+def as_design_dataclass(design):
+    """Convert a serializable task-1 wire design to its exact dataclass twin.
+
+    The wire types carry JSON-serializable treated sets / weights / balance
+    covariates; the exact-support engine operates on the frozen dataclasses.
+    Passing any other design returns it unchanged.
+    """
+    if isinstance(design, UnequalProbabilityFixedQuotaDesignV1):
+        if design.unit_weights is not None:
+            return UnequalProbabilityFixedQuotaDesign(
+                nodes=design.nodes, m=design.m,
+                unit_weights={n: Fraction(w) for n, w in design.unit_weights.items()})
+        return UnequalProbabilityFixedQuotaDesign(
+            nodes=design.nodes, m=design.m,
+            assignment_probabilities={frozenset(s): Fraction(p)
+                                      for s, p in zip(design.treated_sets, design.set_probabilities)})
+    if isinstance(design, RerandomizedBalancedDesignV1):
+        base = as_design_dataclass(design.base_design)
+        rule = CovariateBalanceRule(
+            covariates={name: {n: Fraction(v) for n, v in values.items()}
+                        for name, values in design.balance_rule.covariates.items()},
+            tolerance=Fraction(design.balance_rule.tolerance),
+            metric=design.balance_rule.metric)
+        return RerandomizedBalancedDesign(
+            base_design=base, balance_rule=rule,
+            balance_description=f"absolute pre-treatment covariate mean differences <= {design.balance_rule.tolerance}")
+    return design
 
 
 def _choose(n: int, k: int) -> int:
@@ -213,13 +248,27 @@ class AssignmentSpec:
     design: AssignmentDesign
 
     def __post_init__(self) -> None:
+        if isinstance(self.design, (UnequalProbabilityFixedQuotaDesignV1, RerandomizedBalancedDesignV1)):
+            object.__setattr__(self, "design", as_design_dataclass(self.design))
         if not isinstance(self.design, (CompleteRandomizationDesignV1, TwoGroupFixedQuotaDesignV1,
                                         HeterogeneousBernoulliDesignV1, ClusterBernoulliDesignV24,
-                                        MultiGroupFixedQuotaDesignV25, TwoStageQuotaMixtureDesignV27)):
-            raise TypeError("AssignmentSpec supports only typed D1/D2/D3/D4/D5/D6 designs")
+                                        MultiGroupFixedQuotaDesignV25, TwoStageQuotaMixtureDesignV27,
+                                        UnequalProbabilityFixedQuotaDesign, RerandomizedBalancedDesign)):
+            raise TypeError("AssignmentSpec supports only typed D1-D6 and task-1 designs")
+
+    @property
+    def has_analytic_count_law(self) -> bool:
+        """True when the design exposes an analytic neighbor-count law (typed D1-D6)."""
+        return not isinstance(self.design, (UnequalProbabilityFixedQuotaDesign, RerandomizedBalancedDesign))
 
     def _validate_network(self, network: NetworkExposureSpec) -> None:
         """The internal adapter must not silently reinterpret a quota design."""
+        if isinstance(self.design, (UnequalProbabilityFixedQuotaDesign, RerandomizedBalancedDesign)):
+            nodes = (self.design.nodes if isinstance(self.design, UnequalProbabilityFixedQuotaDesign)
+                     else self.design.base_design.nodes)
+            if set(nodes) != set(network.node_ids):
+                raise ValueError("task-1 assignment design nodes must match the network nodes exactly")
+            return
         if isinstance(self.design, CompleteRandomizationDesignV1):
             if self.design.m > len(network.node_ids):
                 raise ValueError("complete-randomization quota exceeds network size")
@@ -255,6 +304,8 @@ class AssignmentSpec:
             raise ValueError("full treatment vector must contain exactly the network node ids")
         if any(type(value) is not int or value not in (0, 1) for value in treatments.values()):
             raise ValueError("full treatment vector must be binary integers")
+        if isinstance(self.design, (UnequalProbabilityFixedQuotaDesign, RerandomizedBalancedDesign)):
+            return self.design.assignment_probability(treatments)
         if isinstance(self.design, CompleteRandomizationDesignV1):
             if sum(treatments.values()) != self.design.m:
                 return Fraction(0)
@@ -302,6 +353,10 @@ class AssignmentSpec:
         reference_nodes: frozenset[str] | None = None,
     ) -> NeighborCountLaw:
         self._validate_network(network)
+        if isinstance(self.design, (UnequalProbabilityFixedQuotaDesign, RerandomizedBalancedDesign)):
+            raise NotImplementedError(
+                "task-1 designs have no analytic neighbor-count law; "
+                "use SupportEngine.joint_support (exact enumeration)")
         if node_id not in network.node_ids:
             raise ValueError("queried node must be in the network")
         if type(own_treatment_value) is not int or own_treatment_value not in (0, 1):

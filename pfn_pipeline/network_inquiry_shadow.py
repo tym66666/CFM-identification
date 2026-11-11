@@ -23,6 +23,7 @@ from ._internal.identification.schemas import (
     Assumption, AssumptionStatus, NetworkExposureSpec,
     CompleteRandomizationDesignV1, TwoGroupFixedQuotaDesignV1,
     HeterogeneousBernoulliDesignV1, ClusterBernoulliDesignV24, MultiGroupFixedQuotaDesignV25, TwoStageQuotaMixtureDesignV27,
+    UnequalProbabilityFixedQuotaDesignV1, RerandomizedBalancedDesignV1,
 )
 from ._internal.identification.randomized_arm_family import AssignmentSpec
 from ._internal.identification.randomized_network_arm import REQUIRED
@@ -41,6 +42,8 @@ _DESIGNS = {
     'cluster_bernoulli_binary_v2_4': ClusterBernoulliDesignV24,
     'multi_group_fixed_quota_binary_v2_5': MultiGroupFixedQuotaDesignV25,
     'two_stage_quota_mixture_binary_v2_7': TwoStageQuotaMixtureDesignV27,
+    'unequal_probability_fixed_quota_binary_v1': UnequalProbabilityFixedQuotaDesignV1,
+    'rerandomized_balanced_binary_v1': RerandomizedBalancedDesignV1,
 }
 _OPERATORS = {'ASSIGNMENT_NODE_MEANS', 'NODE_FULL_LAW', 'FULL_JOINT_LAW',
               'NODE_ARM_MEANS', 'PAIRWISE_MARGINALS'}

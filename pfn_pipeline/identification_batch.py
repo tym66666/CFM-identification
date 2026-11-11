@@ -19,15 +19,22 @@ from ._internal.identification.randomized_network_arm import arm_a4_information_
 from ._internal.identification.schemas import (
     CompleteRandomizationDesignV1, HeterogeneousBernoulliDesignV1,
     IdentificationSpec, TwoGroupFixedQuotaDesignV1, ClusterBernoulliDesignV24, MultiGroupFixedQuotaDesignV25, TwoStageQuotaMixtureDesignV27,
+    UnequalProbabilityFixedQuotaDesignV1, RerandomizedBalancedDesignV1,
 )
 from ._internal.identification.randomized_arm_family import AssignmentSpec, ExposureSpec, SupportEngine
+from ._internal.identification.randomized_arm_family.assignment import as_design_dataclass
+from ._internal.identification.randomized_arm_family.assignment_extensions import MAX_EXACT_ENUMERATION_N
+from ._internal.identification.randomized_arm_family.support_verifier import verify_joint_support as _verify_joint_support
 from ._internal.identification.randomized_network_arm import (
     GROUP_E1, GROUP_E2, GROUP_E3, GROUP_E4, GROUP_E5,
     MAX_BERNOULLI_DP_CELLS, MAX_TWO_GROUP_CONVOLUTION_CELLS,
     _group_neighbor_counts, _verify_joint_support_independently,
     _verify_two_group_joint_support_independently, _verify_multi_group_joint_support_independently, _verifier_matches_exposure,
     arm_target_fingerprint, spec_fingerprint,
+    exposure_object, exposure_state_str, W_G_GROUPINGS,
 )
+from ._internal.identification.randomized_arm_family.exposure_extensions import (
+    WeightedExposureSpec, GroupedExposureSpec)
 from ._internal.identification.randomized_arm_family.cluster_verifier import verify_cluster_joint_support
 from ._internal.identification.randomized_arm_family.two_stage_verifier import independent_joint_support as _verify_d6_joint_support
 from .identification import identify, replay_handoff, replay_population_identification, make_heterogeneous_bernoulli_arm_task
@@ -147,12 +154,89 @@ def _support_comparison(design, network, node: str, a: int, states: tuple[int, .
             for s in states}
 
 
+def _compute_wg(template, anchor, spec, network, contract, assignment, nodes) -> BatchIdentificationResult:
+    """Batch over a weighted/grouped (W/G) exposure.
+
+    W/G exposure states are per-node and non-integer (exact rationals / grouped
+    tuples). The batch state axis is the union of the nodes' reachable states,
+    serialized to the same canonical strings the wire query uses; a per-node
+    unreachable cell is explicitly UNSUPPORTED (never POINT). Every cell is
+    checked against the independent enumeration oracle.
+    """
+    exposure = exposure_object(contract)
+    node_data = {}
+    all_states = set()
+    for node in nodes:
+        joint = SupportEngine.joint_support(
+            network=network, assignment=assignment, exposure=exposure, node_id=node)
+        oracle = _verify_joint_support(
+            network=network, design=assignment,
+            exposure=exposure, node_id=node, proposed={})["oracle"]
+        produced = {}
+        for (a, s), p in joint.items():
+            key = exposure_state_str(exposure, s)
+            produced[(a, key)] = p
+            if p:
+                all_states.add(key)
+        independent = {(a, exposure_state_str(exposure, s)): p for (a, s), p in oracle.items()}
+        node_data[node] = (produced, independent)
+    states = tuple(sorted(all_states, key=str))
+    if any(arm_a4_information_reason(spec, node_id=node, a=a, s=s) is not None
+           for node in nodes for a in (0, 1) for s in states):
+        raise ValueError('BATCH_A4_ARM_COVERAGE_INCOMPLETE')
+    support_rows, status_rows, reason_rows, fp_rows = [], [], [], []
+    for node in nodes:
+        produced, independent = node_data[node]
+        sr, tr, rr, fr = [], [], [], []
+        for a in (0, 1):
+            arm_support, arm_status, arm_reason, arm_fps = [], [], [], []
+            for s in states:
+                calculated = produced.get((a, s), Fraction(0))
+                if independent.get((a, s), Fraction(0)) != calculated:
+                    raise ValueError(f'Independent batch support mismatch at {(node, a, s)}')
+                arm_support.append(str(calculated))
+                arm_status.append('POINT' if calculated > 0 else 'UNSUPPORTED')
+                arm_reason.append(None if calculated > 0 else 'ZERO_ARM_SUPPORT')
+                arm_fps.append(arm_target_fingerprint(network, contract, node, a, s))
+            sr.append(tuple(arm_support)); tr.append(tuple(arm_status))
+            rr.append(tuple(arm_reason)); fr.append(tuple(arm_fps))
+        if sum((Fraction(v) for t in sr for v in t), Fraction(0)) != 1:
+            raise ValueError('Joint arm probabilities do not sum to one for node ' + node)
+        support_rows.append(tuple(sr)); status_rows.append(tuple(tr))
+        reason_rows.append(tuple(rr)); fp_rows.append(tuple(fr))
+    support = tuple(support_rows); statuses = tuple(status_rows)
+    reasons = tuple(reason_rows); fingerprints = tuple(fp_rows)
+    source = spec_fingerprint(spec)
+    content = {'version': _VERSION, 'source_spec_sha256': source,
+               'node_ids': nodes, 'exposure_states': states,
+               'joint_support': support, 'arm_status': statuses,
+               'arm_reason': reasons, 'target_fingerprints': fingerprints}
+    coverage = ('ALL_POINT_IDENTIFIED' if all(s == 'POINT' for n in statuses
+                                              for arm in n for s in arm)
+                else 'SOME_ARMS_UNSUPPORTED')
+    return BatchIdentificationResult(
+        template=template, anchor=anchor, node_ids=nodes, exposure_states=states,
+        population_joint_support=support, arm_status=statuses, arm_reason=reasons,
+        target_fingerprints=fingerprints, source_spec_sha256=source,
+        batch_sha256=_digest(content), coverage_status=coverage)
+
+
 def _compute(template: TaskSpec, anchor: IdentificationResult) -> BatchIdentificationResult:
     spec = IdentificationSpec.model_validate(template.identification_spec)
     network = spec.network_exposure
     contract = spec.randomized_network_arm_theorem_contract
     if template.estimand != 'NETWORK_RANDOMIZED_ARM_MEAN' or network is None or contract is None:
         raise ValueError('Batch requires the typed randomized-network single-arm family')
+    assignment = AssignmentSpec(contract.design)
+    assignment._validate_network(network)
+    # The anchor is independently verified before entering this function; E3
+    # core collaborators were checked by its canonical theorem contract.
+    nodes = tuple(network.node_ids)
+    if isinstance(contract.design, (UnequalProbabilityFixedQuotaDesignV1, RerandomizedBalancedDesignV1)):
+        if len(nodes) > MAX_EXACT_ENUMERATION_N:
+            raise ValueError('RANDOMIZED_NETWORK_RESOURCE_LIMIT: task-1 design enumeration')
+    if contract.grouping in W_G_GROUPINGS:
+        return _compute_wg(template, anchor, spec, network, contract, assignment, nodes)
     # Batch certificate claims all POINT cells are identifiable. A single
     # node-arm A4 declaration cannot authorize the entire N-by-arm batch.
     # Conservative check includes zero/undefined cells too, because the
@@ -164,12 +248,7 @@ def _compute(template: TaskSpec, anchor: IdentificationResult) -> BatchIdentific
     if any(arm_a4_information_reason(spec, node_id=node, a=a, s=s) is not None
            for node in network.node_ids for a in (0, 1) for s in node_states(node)):
         raise ValueError('BATCH_A4_ARM_COVERAGE_INCOMPLETE')
-    assignment, exposure = AssignmentSpec(contract.design), ExposureSpec(contract.grouping,
-                                                                       contract.core_collaborators)
-    assignment._validate_network(network)
-    # The anchor is independently verified before entering this function; E3
-    # core collaborators were checked by its canonical theorem contract.
-    nodes = tuple(network.node_ids)
+    exposure = ExposureSpec(contract.grouping, contract.core_collaborators)
     if contract.grouping == GROUP_E4:
         # Batch has a rectangular public tensor; individual node degree varies.
         # Pad impossible coordinates explicitly as UNSUPPORTED (never POINT).
@@ -228,12 +307,22 @@ def _compute(template: TaskSpec, anchor: IdentificationResult) -> BatchIdentific
             fp_rows.append(tuple(tuple(arm_target_fingerprint(network, contract, node, a, s)
                                        for s in states) for a in (0, 1)))
             continue
+        joint_support = None
+        support_oracle = None
+        if isinstance(contract.design, (UnequalProbabilityFixedQuotaDesignV1, RerandomizedBalancedDesignV1)):
+            joint_support = SupportEngine.joint_support(
+                network=network, assignment=assignment, exposure=exposure, node_id=node)
+            support_oracle = _verify_joint_support(
+                network=network, design=as_design_dataclass(contract.design), exposure=exposure,
+                node_id=node, proposed={})["oracle"]
         sr, tr, rr, fr = [], [], [], []
         for a in (0, 1):
             # Exact binomial closed form for equal neighbor propensities. This
             # saves a quadratic Fraction DP on dense ER networks; the replay
             # independently multiplies Bernoulli generating polynomials.
-            if (isinstance(contract.design, HeterogeneousBernoulliDesignV1)
+            if joint_support is not None:
+                law = None
+            elif (isinstance(contract.design, HeterogeneousBernoulliDesignV1)
                     and iid_neighbors_p is not None):
                 from ._internal.identification.randomized_arm_family.assignment import NeighborCountLaw
                 p = iid_neighbors_p
@@ -243,8 +332,11 @@ def _compute(template: TaskSpec, anchor: IdentificationResult) -> BatchIdentific
                                        tuple(Fraction(0) for _ in range(degree+1)), degree)
             else:
                 law = assignment.conditional_neighbor_count_law(network, node, a, reference_nodes=neighbors)
-            independently = _support_comparison(contract.design, network, node, a, states,
-                                                contract.grouping, neighbors, independent_counts)
+            if support_oracle is not None:
+                independently = {s: support_oracle.get((a, s), Fraction(0)) for s in states}
+            else:
+                independently = _support_comparison(contract.design, network, node, a, states,
+                                                    contract.grouping, neighbors, independent_counts)
             arm_support, arm_status, arm_reason, arm_fps = [], [], [], []
             for s in states:
                 if contract.grouping == GROUP_E4 and s > degree:
@@ -255,7 +347,8 @@ def _compute(template: TaskSpec, anchor: IdentificationResult) -> BatchIdentific
                     arm_reason.append('EXPOSURE_STATE_OUTSIDE_NODE_DEGREE')
                     arm_fps.append(arm_target_fingerprint(network,contract,node,a,s))
                     continue
-                calculated = SupportEngine.from_count_law(law, exposure, s).joint_probability
+                calculated = (joint_support.get((a, s), Fraction(0)) if joint_support is not None
+                              else SupportEngine.from_count_law(law, exposure, s).joint_probability)
                 if independently[s] != calculated:
                     raise ValueError(f'Independent batch support mismatch at {(node, a, s)}')
                 arm_support.append(str(calculated))

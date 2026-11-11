@@ -46,7 +46,7 @@ class Study(Cited):
 
 class Assignment(Cited):
     model_config = ConfigDict(json_schema_extra=assignment_schema)
-    kind: Literal['INDEPENDENT_BERNOULLI', 'UNIFORM_FIXED_QUOTA', 'TWO_GROUP_FIXED_QUOTA', 'CLUSTER_BERNOULLI', 'MULTI_GROUP_FIXED_QUOTA', 'TWO_STAGE_QUOTA_MIXTURE', 'OTHER', 'UNKNOWN']
+    kind: Literal['INDEPENDENT_BERNOULLI', 'UNIFORM_FIXED_QUOTA', 'TWO_GROUP_FIXED_QUOTA', 'CLUSTER_BERNOULLI', 'MULTI_GROUP_FIXED_QUOTA', 'TWO_STAGE_QUOTA_MIXTURE', 'UNEQUAL_PROBABILITY_FIXED_QUOTA', 'RERANDOMIZED_BALANCED', 'OTHER', 'UNKNOWN']
     probabilities: dict[str,str] | None = Field(description=PROBABILITIES_DESCRIPTION)
     fixed_count: StrictInt | None
     groups: list[list[str]] | None = None
@@ -55,6 +55,11 @@ class Assignment(Cited):
     cluster_probabilities: list[str] | None = None
     quota_profiles: list[list[StrictInt]] | None = None
     profile_probabilities: list[str] | None = None
+    treated_sets: list[list[str]] | None = None
+    set_probabilities: list[str] | None = None
+    unit_weights: dict[str,str] | None = None
+    balance_covariates: dict[str,dict[str,str]] | None = None
+    balance_tolerance: str | None = None
 
     @model_validator(mode='after')
     def field_ownership(self):
@@ -78,8 +83,13 @@ class Assumptions(Record):
 
 
 class Exposure(Cited):
-    kind: Literal['STRICT_MAJORITY_TIES_LOW', 'THREE_LEVEL_TREATED_NEIGHBOR_FRACTION', 'PRETREATMENT_CORE_COLLABORATOR_MAJORITY', 'EXACT_TREATED_NEIGHBOR_COUNT', 'ANY_TREATED_NEIGHBOR', 'NONE', 'OTHER', 'UNKNOWN']
+    kind: Literal['STRICT_MAJORITY_TIES_LOW', 'THREE_LEVEL_TREATED_NEIGHBOR_FRACTION', 'PRETREATMENT_CORE_COLLABORATOR_MAJORITY', 'EXACT_TREATED_NEIGHBOR_COUNT', 'ANY_TREATED_NEIGHBOR', 'WEIGHTED_EXPOSURE', 'GROUPED_EXPOSURE', 'NONE', 'OTHER', 'UNKNOWN']
     core_collaborators: dict[str,list[str]] | None = None
+    # Fixed-weight exposure: nonnegative neighbour weights and an exact mode.
+    weights: dict[str,str] | None = None
+    mode: Literal['sum', 'proportion'] | None = None
+    # Grouped exposure: per-group treated-neighbour counts, stable labels.
+    groups: dict[str,list[str]] | None = None
 
 
 class FirstStageExclusion(Cited):

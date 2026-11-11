@@ -22,6 +22,9 @@ BASE_CONDITIONS = ('known_assignment_law','full_vector_randomization','consisten
 READING_DECISIONS = ('target_policy_population_and_weights','network_assignment_and_variable_meaning',
                      'all_information_and_restrictions_preserved','source_entailment')
 R2_SCIENCE_DECISIONS = ('mean_sufficiency_all_assignments_and_weighted_nodes',)
+# R2's mean-signature route conditions on an E1-E5 grouping; weighted/grouped
+# exposures are not (yet) a signature family for that route.
+R2_SIGNATURE_KINDS = frozenset(design_fields.EXPOSURE_GROUPS) - {'WEIGHTED_EXPOSURE','GROUPED_EXPOSURE'}
 
 
 def target_coordinates(c):
@@ -158,7 +161,7 @@ def inspect_methods(entry, raw, *, note_review=None, information_evidence_review
             usable.append(i)
         indices = {R1B:[i for i in usable if c.information[i].operator!='NODE_SIGNATURE_MEANS']}
         sf = c.mean_sufficiency
-        r2_condition = (c.exposure.kind in design_fields.EXPOSURE_GROUPS
+        r2_condition = (c.exposure.kind in R2_SIGNATURE_KINDS
             and not design_fields.missing_exposure(c.exposure,c.study.nodes) and bool(c.exposure.source_ids)
             and sf.value is True and sf.scope=='ALL_BINARY_ASSIGNMENTS' and bool(sf.source_ids)
             and set(c.target.population)<=set(sf.covered_nodes))
@@ -214,7 +217,7 @@ def _compile(plan, row, records, authority):
         admit_mean_signature_sufficiency,declare_signature_population_source)
     c = NetworkPolicyReading.model_validate(plan['facts'])
     provenance = lambda ids: 'Reviewed original source locators: '+','.join(ids)
-    design = design_adapter.design_payload(c.assignment)
+    design = design_adapter.design_payload(c.assignment, nodes=tuple(c.study.nodes))
     # Target identity must not change merely because q, A4 or A5 changes.
     graph_identity=dict(nodes=c.study.nodes,edges=sorted(sorted(e) for e in c.study.edges),context=c.study.context)
     st = declare_network_study(network_id='network_'+sha(graph_identity),

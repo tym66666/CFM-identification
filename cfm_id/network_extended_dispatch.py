@@ -110,7 +110,9 @@ def inspect_methods(entry,raw,*,note_review=None):
             if not c.exposure.source_ids:missing.append('请提供同伴状态定义的来源。')
             arms=[t.first] if family==reading.ARM else [t.first,t.second]
             if any(a.own is None or a.exposure is None or not a.source_ids for a in arms):missing.append('请明确本人处理和同伴状态的取值及各端来源。')
-            if any(a.own not in (0,1,None) or (a.exposure is not None and a.exposure<0) for a in arms):raise ValueError('INVALID_ARM_COORDINATES')
+            if any(a.own not in (0,1,None)
+                   or (type(a.exposure) is int and a.exposure<0)
+                   for a in arms):raise ValueError('INVALID_ARM_COORDINATES')
             if family==reading.ARM:
                 if t.population and len(t.population)!=1:blocked.append('NATIVE_SINGLE_ARM_REQUIRES_ONE_EVALUATION_NODE')
                 require(t.population_fixed_before_assignment,'评价对象在抽签前固定')
@@ -253,7 +255,7 @@ def _native_inputs(plan,row,pair):
         node_order=tuple(c.study.nodes),undirected_edges=tuple(tuple(e) for e in c.study.edges),
         treatment_variable=c.study.treatment,outcome_variable=c.study.outcome,outcome_kind='continuous' if c.study.outcome_kind=='COUNT' else c.study.outcome_kind.lower(),
         context_reference=context,observation_regime='observational' if isobs else 'experimental',
-        assignment_design=None if isobs else design.design_payload(c.assignment),
+        assignment_design=None if isobs else design.design_payload(c.assignment, nodes=tuple(c.study.nodes)),
         protocol_provenance=provenance(c.regime.source_ids if isobs else c.assignment.source_ids),network_provenance=provenance(c.study.source_ids),graph_timing_claim='DECLARED_PRETREATMENT_FIXED')
     kwargs=dict(source_id='source_'+sha(s.model_dump()),provenance=provenance(s.source_ids),admission='ADMITTED',availability=s.availability)
     if not isobs:

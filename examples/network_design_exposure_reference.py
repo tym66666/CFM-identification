@@ -25,6 +25,12 @@ DESIGNS = {
  'D5': dict(kind='MULTI_GROUP_FIXED_QUOTA',probabilities=None,fixed_count=None,groups=GROUPS,treated_quotas=[1,1,1]),
  'D6': dict(kind='TWO_STAGE_QUOTA_MIXTURE',probabilities=None,fixed_count=None,groups=GROUPS,
             quota_profiles=[[1,1,1],[0,2,1]],profile_probabilities=['1/3','2/3']),
+ 'D7': dict(kind='UNEQUAL_PROBABILITY_FIXED_QUOTA',probabilities=None,fixed_count=3,
+            unit_weights={'甲店':'2','乙店':'1','丙店':'1','丁店':'1','戊店':'1','己店':'1'}),
+ 'D8': dict(kind='RERANDOMIZED_BALANCED',probabilities=None,fixed_count=3,
+            unit_weights=dict.fromkeys(NODES,'1'),
+            balance_covariates={'x':{'甲店':'0','乙店':'0','丙店':'0','丁店':'1','戊店':'1','己店':'1'}},
+            balance_tolerance='1/2'),
 }
 DESIGN_TEXT = {
  'D1':'原试点六家门店分别独立抽签，甲、乙、丙、丁、戊、己店的启用概率依次为三分之一、二分之一、三分之二、四分之一、四分之三、五分之二。',
@@ -33,6 +39,8 @@ DESIGN_TEXT = {
  'D4':'原试点的固定簇为甲乙、丙丁、戊己。三簇整体启用的概率依次为三分之一、二分之一、三分之二；否则整簇不启用，不同簇独立抽签。',
  'D5':'原试点的固定组为甲乙、丙丁、戊己，每组均匀抽取一店启用，各组抽取独立。',
  'D6':'原试点的处理前固定组为甲乙、丙丁、戊己。先抽取两种名额方案之一：以三分之一概率给三组分配一、一、一的名额，以三分之二概率分配零、二、一的名额。给定方案后，各组独立、均匀抽取规定数量门店启用。',
+ 'D7':'原试点从六家门店恰好抽取三家启用，但各门店入选权重不等：甲店权重为二，其余门店权重为一；每个三店名单的概率按其成员权重乘积归一，重要门店因此有更高入选机会。',
+ 'D8':'原试点先从六家门店均匀抽取三家，再检查处理前特征是否平衡：若启用三家与未启用三家的处理前特征均值差超过二分之一，则重新抽取，直到满足平衡为止。',
 }
 EXPOSURES = {
  'E1':('STRICT_MAJORITY_TIES_LOW',1,'严格超过一半合作店启用记1，其余记0；平票和无合作店也记0。','合作店严格过半启用','合作店至多一半启用'),
@@ -94,7 +102,7 @@ def a0_reference(case,data):
         semantics.update(neighbor_exposure=goal,standardization_distribution=claim(docs['remaining'],'remaining'),policy_assignment='NOT_APPLICABLE')
     else:semantics['policy_assignment']=goal
     families=dict(D1='INDEPENDENT_BERNOULLI',D2='COMPLETE_RANDOMIZATION',D3='STRATIFIED_FIXED_QUOTAS',
-        D4='CLUSTER_RANDOMIZATION',D5='STRATIFIED_FIXED_QUOTAS',D6='OTHER')
+        D4='CLUSTER_RANDOMIZATION',D5='STRATIFIED_FIXED_QUOTAS',D6='OTHER',D7='OTHER',D8='OTHER')
     common=dict(analysis_unit=claim('门店','study'),treatment=claim('启用AI排班助手','study'),
         outcome=claim('考核周顾客平均等待分钟数','study'),assignment_family=families[data['design']],
         assignment_law=claim(docs['assignment'],'assignment'),unit_network=claim(docs['network'],'network'),

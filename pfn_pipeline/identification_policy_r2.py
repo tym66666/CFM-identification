@@ -18,8 +18,11 @@ from typing import Literal
 from ._internal.identification.schemas import (
     Assumption, AssumptionStatus, CompleteRandomizationDesignV1,
     TwoGroupFixedQuotaDesignV1, MultiGroupFixedQuotaDesignV25, HeterogeneousBernoulliDesignV1, ClusterBernoulliDesignV24, TwoStageQuotaMixtureDesignV27,
+    UnequalProbabilityFixedQuotaDesignV1, RerandomizedBalancedDesignV1,
 )
 from ._internal.identification.randomized_arm_family import AssignmentSpec, ExposureSpec, SupportEngine
+from ._internal.identification.randomized_arm_family.assignment_extensions import MAX_EXACT_ENUMERATION_N
+from ._internal.identification.randomized_arm_family.support_verifier import verify_joint_support as _verify_task1_joint_support
 from ._internal.identification.randomized_arm_family.two_stage_verifier import independent_joint_support as _verify_d6_joint_support
 from ._internal.identification.randomized_arm_family.two_stage_a5 import profile_exclusion_reason
 from ._internal.identification.randomized_arm_family.assignment import neighbor_set
@@ -351,6 +354,9 @@ def _validate_study_target(study, target, signature, sufficiency):
         raise R2PolicyUnavailable('SUFFICIENCY_NODE_COVERAGE_INCOMPLETE')
     if len(study.node_order)>MAX_N or max(study.network().degree_map().values())>MAX_DEGREE:
         raise R2PolicyUnavailable('NETWORK_OUTSIDE_CERTIFIED_SOFTWARE_DOMAIN')
+    if (isinstance(study.design(), (UnequalProbabilityFixedQuotaDesignV1, RerandomizedBalancedDesignV1))
+            and len(study.node_order) > MAX_EXACT_ENUMERATION_N):
+        raise R2PolicyUnavailable('TASK1_EXACT_ENUMERATION_LIMIT')
     net=study.network()
     if signature.grouping=='pretreatment_core_collaborator_majority':
         if tuple(node for node,_ in signature.core_collaborators)!=study.node_order:
@@ -368,6 +374,14 @@ def _validate_study_target(study, target, signature, sufficiency):
 
 
 def _independent_support(net, design, signature, node, a, s, reference):
+    if isinstance(design, (UnequalProbabilityFixedQuotaDesignV1, RerandomizedBalancedDesignV1)):
+        # Task-1 designs have no analytic count law: recompute q(t) and S_i(t)
+        # from the declared fields with the independent enumeration oracle.
+        core = dict(signature.core_collaborators) if signature.core_collaborators else None
+        report = _verify_task1_joint_support(
+            network=net, design=AssignmentSpec(design),
+            exposure=ExposureSpec(signature.grouping, core), node_id=node, proposed={})
+        return report['oracle'].get((a, s), Fraction(0))
     if isinstance(design,CompleteRandomizationDesignV1):
         degree=len(reference) if reference is not None else net.degree_map()[node]
         return _verify_joint_support_independently(len(net.node_ids),design.m,degree,a,s,
@@ -476,8 +490,13 @@ def _solve(study: NetworkStudyContextV17, target: TargetSemanticsV15,
         if key is not None and key in iid_verified_cache:
             q_arm=iid_verified_cache[key]
         else:
-            q_arm=SupportEngine.evaluate(network=net,assignment=assignment,exposure=exposure,
-                    node_id=node,own_treatment_value=a,exposure_value=s).joint_probability
+            if assignment.has_analytic_count_law:
+                q_arm=SupportEngine.evaluate(network=net,assignment=assignment,exposure=exposure,
+                        node_id=node,own_treatment_value=a,exposure_value=s).joint_probability
+            else:
+                # Task-1 designs: exact full-assignment enumeration (N<=8).
+                q_arm=SupportEngine.joint_support(network=net,assignment=assignment,
+                        exposure=exposure,node_id=node).get((a,s),Fraction(0))
             q_independent=_independent_support(net,design,signature,node,a,s,reference)
             if q_arm!=q_independent:
                 raise R2PolicyUnavailable('INDEPENDENT_SIGNATURE_SUPPORT_MISMATCH',node)
