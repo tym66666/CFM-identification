@@ -2069,7 +2069,7 @@
         "tests_gateway/test_query_conditioning_contract.py::test_fact_recheck_preserves_context_and_requires_new_full_review",
         "tests_gateway/test_query_conditioning_contract.py::test_a0_recheck_exposes_owned_field_and_changed_condition_invalidates_review",
         "tests_gateway/test_query_conditioning_contract.py::test_two_queries_keep_distinct_conditions_and_cannot_swap_reviews",
-        "tests_gateway/test_query_conditioning_contract.py::test_other_readers_do_not_silently_drop_explicit_conditions",
+        "tests_gateway/test_query_conditioning_contract.py::test_single_policy_reader_preserves_explicit_conditions_for_native_review",
         "tests_gateway/test_query_conditioning_contract.py::test_omitted_optional_information_claim_is_unknown_not_an_exception[local-role-ownership-4]",
         "tests_gateway/test_query_conditioning_contract.py::test_omitted_optional_information_claim_is_unknown_not_an_exception[query-conditioning-1]",
         "tests_gateway/test_query_conditioning_contract.py::test_unconditioned_nonlocal_targets_still_reach_native_result[point]",
