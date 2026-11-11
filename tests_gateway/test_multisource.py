@@ -13,7 +13,7 @@ from zipfile import ZipFile
 
 from cfm_id_llm.audit import DraftEvidenceError, fingerprint_business_case
 from cfm_id_llm.document_intake import (
-    AttachmentError, AttachmentRequestV07, IntakeReportV07, create_intake)
+    AttachmentError, AttachmentRequestV07, IntakeReportV07, create_intake, MAX_ATTACHMENTS)
 from cfm_id_llm.formulator import ProblemFormulator, DraftValidationError
 from cfm_id_llm.multisource_intake_cli import _load_manifest
 from cfm_id_llm.multisource_normalization import (
@@ -149,10 +149,10 @@ class MultiDocumentTests(unittest.TestCase):
             self.assertIn('COLUMN_LIMIT_REACHED',intake.attachments[0].warnings)
             self.assertNotIn('field65',intake.case.sources[0].text)
 
-    def test_more_than_eight_attachments_rejected(self):
+    def test_above_shared_attachment_limit_rejected(self):
         with self.assertRaises(AttachmentError):
             create_intake(case_id='c',business_question='测量一组实验对销售影响吗？',
-                          attachments=[AttachmentRequestV07(path=str(FIX/'collaboration_edges.csv'))]*9)
+                          attachments=[AttachmentRequestV07(path=str(FIX/'collaboration_edges.csv'))]*(MAX_ATTACHMENTS + 1))
 
     def test_unsupported_types_rejected(self):
         with tempfile.TemporaryDirectory() as d:
