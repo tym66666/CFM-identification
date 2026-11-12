@@ -51,8 +51,8 @@ EXPOSURE_KINDS = frozenset({'E1', 'E2', 'E3', 'E4', 'E5'})
 EXPOSURE_SPECS = {
     'E1': ('strict_majority_ties_low', None),
     'E2': ('three_level_treated_neighbor_fraction', None),
-    'E3': ('exact_treated_neighbor_count', None),
-    'E4': ('pretreatment_core_collaborator_majority', 'core_collaborators'),
+    'E3': ('pretreatment_core_collaborator_majority', 'core_collaborators'),
+    'E4': ('exact_treated_neighbor_count', None),
     'E5': ('any_treated_neighbor', None),
 }
 
@@ -61,7 +61,7 @@ EXPOSURE_SPECS = {
 
 
 def solve(inquiry, information, *, design_kind='D2', exposure_kind='E1',
-          full_evidence=False):
+    ):
     """Generalized policy-mean interval for any DESIGN×EXPOSURE combination.
 
     Parameters
@@ -129,16 +129,8 @@ def solve(inquiry, information, *, design_kind='D2', exposure_kind='E1',
         if weights[n] and probabilities[cell] > 0 and cell not in known:
             fail('NEEDS_INPUT', 'SUPPORTED_TARGET_A4_MEAN_MISSING')
 
-    # ── 7. Full-evidence path: bridge to mean_order_solver ─────────────
-    if full_evidence:
-        from .dxe_mean_order_bridge import solve_with_full_evidence
-        return solve_with_full_evidence(
-            st, target, known, bounds, policy, weights,
-            cells, probabilities, exposure, exposure_kind, design_kind,
-            inquiry=inquiry, information=information,
-        )
 
-    # ── 8. Lightweight path: per-cell bound composition ────────────────
+    # ── 7. Lightweight path: per-cell bound composition ────────────────
     # 提取当前政策对应的所有目标单元格
     target_cells = set(
         cell for _, cell in _target_cells(
@@ -401,9 +393,10 @@ def _extract_core_collaborators(inquiry, st, neighbors):
     dict[str, list[str]]
         Mapping node -> list of core collaborator node IDs.
     """
-    if hasattr(inquiry, 'core_collaborators') and inquiry.core_collaborators:
-        return {
-            n: inquiry.core_collaborators.get(n, list(neighbors[n]))
-            for n in st.node_order
-        }
-    return {n: list(neighbors[n]) for n in st.node_order}
+if not hasattr(inquiry, 'core_collaborators') or not inquiry.core_collaborators:
+    raise ValueError("MISSING_CORE_COLLABORATORS: 核心伙伴名单缺失，拒绝默认补齐")
+
+return {
+    n: inquiry.core_collaborators.get(n, list(neighbors[n]))
+    for n in st.node_order
+}
