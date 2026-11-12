@@ -257,11 +257,3 @@ $$\text{upper} = \max_{m \in \mathcal{M}} \sum_i w_i \cdot (m(c_i^{(1)}) - m(c_i
 3. **可行性**：每个 $\mathcal{M}_i$ 是紧多面体（box 约束保证有界，顺序约束只增加 facet）
 4. **可达性**：端点因 $\mathcal{M}_i$ 的紧性可达；对偶乘子提供证明
 5. **sharp 性**：锚点枚举保证顶点被找到（不存在非顶点使目标函数严格更优而未发现）
-
-### 唯一需要补充的资料
-
-- `bounded_policy_contract.py` 中的 `ExactMean`, `NodeBounds`, `StrictRecord` 等类型
-- `bounded_contrast_contract.py` 中的 `VERSION`, `validate_pair`
-- `bounded_policy_verify.py` 中的 `replay()` 函数
-
-这些在已提供的 14 个文件中被 import 但未提供源码。如需理解完整接口需要它们。
