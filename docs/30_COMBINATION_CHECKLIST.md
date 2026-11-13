@@ -22,33 +22,33 @@
 |---|------|---------|----------------|----------------|-----------|-----------|---------|
 | 1 | D1_E1 | ✅ POINT 已验证 (test_a4: 186) | ✅ 可推广 | ✅ 可推广 | N/A (E1) | N/A (D1) | 参数化 solver 通过 |
 | 2 | D1_E2 | ✅ POINT 已验证 (test_a4: 186) | ✅ 可推广 | ✅ 可推广 | ⚠ 需处理 | N/A (D1) | 孤立点检查 + 三值暴露枚举 |
-| 3 | D1_E3 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | N/A | N/A (D1) | degree+1 值暴露枚举 |
-| 4 | D1_E4 | ⬜ 未完成 | ✅ 可推广 | ✅ 可推广 | N/A (E4) | N/A (D1) | core_collaborators 元数据 |
+| 3 | D1_E3 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | N/A | N/A (D1) | core_collaborators 元数据（必需） |
+| 4 | D1_E4 | ⬜ 未完成 | ✅ 可推广 | ✅ 可推广 | N/A (E4) | N/A (D1) | degree+1 值暴露枚举 |
 | 5 | D1_E5 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | N/A (E5) | N/A (D1) | 简单二元暴露枚举 |
 | 6 | D2_E1 | ✅ POINT 已验证 (原有 D2/E1) | ✅ **已完成的基准** | ✅ **已完成的基准** | N/A (E1) | N/A (D2) | 无需额外修改 |
 | 7 | D2_E2 | ✅ POINT 已验证 (test_a4: 186) | ✅ 可推广 | ✅ 可推广 | ⚠ 需处理 | N/A (D2) | 孤立点检查 |
-| 8 | D2_E3 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | N/A | N/A (D2) | degree+1 值暴露枚举 + comb 公式 |
-| 9 | D2_E4 | ⬜ 未完成 | ✅ 可推广 | ✅ 可推广 | N/A (E4) | N/A (D2) | core_collaborators 元数据 |
+| 8 | D2_E3 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | N/A | N/A (D2) | core_collaborators 元数据（必需） |
+| 9 | D2_E4 | ✅ D2+E4 已完成样板验证 (task3) | ✅ E4 exact_count 已实现 | ✅ E4 exact_count 已实现 | N/A (E4) | N/A (D2) | degree+1 值暴露枚举 + exact_count (非多数) |
 | 10 | D2_E5 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | N/A (E5) | N/A (D2) | 简单二元暴露枚举 |
 | 11 | D3_E1 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | N/A (E1) | N/A (D3) | TwoGroup 支持 + SupportEngine |
 | 12 | D3_E2 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | ⚠ 需处理 | N/A (D3) | 孤立点检查 + TwoGroup 支持 |
-| 13 | D3_E3 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | N/A | N/A (D3) | degree+1 值暴露枚举 |
-| 14 | D3_E4 | ✅ 已通过真实求界 | ✅ 已跑通 (run_d2_e4_demo.py) | ✅ 已跑通 | N/A | N/A | 参数化 solver 接入并阻断 |
+| 13 | D3_E3 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | N/A | N/A (D3) | core_collaborators 元数据（必需） |
+| 14 | D3_E4 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | N/A | N/A (D3) | degree+1 值暴露枚举 |
 | 15 | D3_E5 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | N/A (E5) | N/A (D3) | 简单二元暴露枚举 |
 | 16 | D4_E1 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | N/A (E1) | N/A (D4) | ClusterBernoulli 支持 |
 | 17 | D4_E2 | ⬜ 未完成 | ⚠ 二阶暴露组合 | ⚠ 二阶暴露组合 | ⚠ 需处理 | N/A (D4) | 簇化 + 三分位；求解器需处理权重 |
-| 18 | D4_E3 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | N/A | N/A (D4) | ClusterBernoulli 支持 |
-| 19 | D4_E4 | ⬜ 未完成 | ✅ 可推广 | ✅ 可推广 | N/A (E4) | N/A (D4) | core_collaborators 元数据 |
+| 18 | D4_E3 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | N/A | N/A (D4) | core_collaborators 元数据（必需） |
+| 19 | D4_E4 | ⬜ 未完成 | ✅ 可推广 | ✅ 可推广 | N/A (E4) | N/A (D4) | degree+1 值暴露枚举 |
 | 20 | D4_E5 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | N/A (E5) | N/A (D4) | ClusterBernoulli 支持 |
 | 21 | D5_E1 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | N/A (E1) | N/A (D5) | MultiGroup 支持 |
 | 22 | D5_E2 | ⬜ 未完成 | ⚠ 二阶暴露组合 | ⚠ 二阶暴露组合 | ⚠ 需处理 | N/A (D5) | 多组 + 三分位 |
-| 23 | D5_E3 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | N/A | N/A (D5) | MultiGroup 支持 |
-| 24 | D5_E4 | ⬜ 未完成 | ✅ 可推广 | ✅ 可推广 | N/A (E4) | N/A (D5) | core_collaborators 元数据 |
+| 23 | D5_E3 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | N/A | N/A (D5) | core_collaborators 元数据（必需） |
+| 24 | D5_E4 | ⬜ 未完成 | ✅ 可推广 | ✅ 可推广 | N/A (E4) | N/A (D5) | degree+1 值暴露枚举 |
 | 25 | D5_E5 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | N/A (E5) | N/A (D5) | MultiGroup 支持 |
 | 26 | D6_E1 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | N/A (E1) | ⚠ A5 准入先决 | 先运行 two_stage_a5.py 检查 |
 | 27 | D6_E2 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | ⚠ 需处理 | ⚠ A5 准入先决 | 先检查 + 孤立点处理 |
-| 28 | D6_E3 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | N/A | ⚠ A5 准入先决 | 先运行 two_stage_a5.py |
-| 29 | D6_E4 | ⬜ 未完成 | ✅ 可推广 | ✅ 可推广 | N/A (E4) | ⚠ A5 准入先决 | 先检查 + core_collaborators |
+| 28 | D6_E3 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | N/A | ⚠ A5 准入先决 | core_collaborators 元数据（必需） |
+| 29 | D6_E4 | ⬜ 未完成 | ✅ 可推广 | ✅ 可推广 | N/A (E4) | ⚠ A5 准入先决 | degree+1 值暴露枚举 |
 | 30 | D6_E5 | ⬜ 未完成 | ✅ 可取 | ✅ 可取 | N/A (E5) | ⚠ A5 准入先决 | 先运行 two_stage_a5.py |
 
 ---
@@ -112,11 +112,11 @@
 16. D6_E1（先运行 two_stage_a5.py 检查）
 17. D6_E5（两阶段 × 至少一个）
 18. D6_E3（两阶段 × 精确计数）
-19. D6_E4（两阶段 × 核心合作者多数）
+19. D6_E3（两阶段 × 核心合作者多数）
 20. D6_E2（两阶段 × 三分位）
 
-### Phase D：E4 core_collaborators 所有组合
-21-25. {D1,D3,D4,D5,D6} × E4（core_collaborators 元数据）
+### Phase D：E3 core_collaborators 所有组合
+21-25. {D1,D2,D3,D4,D5,D6} × E3（需要 core_collaborators 元数据）
 
 ---
 
