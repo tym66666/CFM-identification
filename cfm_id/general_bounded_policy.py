@@ -6,14 +6,14 @@ routing derived from the inquiry's design and exposure specifications.
 """
 from copy import deepcopy
 
-from cfm_id_bridge.scientific_binding import sha
-from . import question_bound_assignment as ids
-from .intent_submission import _context_snapshot, submit as submit_point
-from .bounded_policy_contract import (
+from _crypto import _sha
+from cfm_id import question_bound_assignment as ids
+from cfm_id.intent_submission import _context_snapshot, submit as submit_point
+from cfm_id.bounded_policy_contract import (
     VERSION, BoundedMeanInformation, ReviewedBoundedPolicy,
     BoundedPolicyUnavailable, validate_model,
 )
-from .general_bounded_policy_solver import solve
+from cfm_id.general_bounded_policy_solver import solve
 
 # Detect design/exposure kind from the inquiry.
 def _resolve_design_kind(inquiry):
@@ -68,10 +68,10 @@ def worksheet(bundle, raw, *, query_id, packet, context, information):
     if query_id not in bundle['question_slots']:
         raise ValueError('CURRENT_QUERY_REQUIRED')
     inquiry = context.core_port.bindings[query_id].inquiry
-    return dict(version=VERSION, query_id=query_id, bundle_sha256=sha(bundle),
-        reading_sha256=sha(raw), context_sha256=sha(_context_snapshot(context)),
-        packet_sha256=sha(packet), inquiry_sha256=sha(inquiry),
-        information_sha256=sha(information))
+    return dict(version=VERSION, query_id=query_id, bundle_sha256=_sha(bundle),
+        reading_sha256=_sha(raw), context_sha256=_sha(_context_snapshot(context)),
+        packet_sha256=_sha(packet), inquiry_sha256=_sha(inquiry),
+        information_sha256=_sha(information))
 
 
 def _state(out, qid, state, reason):
@@ -163,7 +163,7 @@ def submit(bundle, raw, *, query_id, packet=None, context=None, information=None
     route = _make_route(inquiry)
     out['bounded_certificate_replayed'] = True
     out['bounded_result'] = certificate
-    out['bounded_review_receipt'] = dict(expected, review_sha256=sha(reviewed),
+    out['bounded_review_receipt'] = dict(expected, review_sha256=_sha(reviewed),
         approval_kind='SEPARATE_SYNTHETIC_ASSERTION_NOT_IDENTITY_AUTHENTICATION')
     _result_row(out, query_id, dict(query_id=query_id, status=certificate['status'],
         route=route, identified_interval=[certificate['lower'], certificate['upper']],
@@ -183,5 +183,5 @@ def submit(bundle, raw, *, query_id, packet=None, context=None, information=None
 
 def _replay(certificate, inquiry, information):
     """Verify the certificate is self-consistent. Uses bounded_policy_verify.replay."""
-    from .bounded_policy_verify import replay
+    from cfm_id.bounded_policy_verify import replay
     return replay(certificate, inquiry=inquiry, information=information)

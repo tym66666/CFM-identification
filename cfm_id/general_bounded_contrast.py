@@ -6,14 +6,14 @@ with D/E-aware routing.
 from copy import deepcopy
 from typing import Literal
 from pydantic import field_validator
-from cfm_id_bridge.scientific_binding import sha
-from . import fixed_comparison as comparison
-from . import question_bound_assignment as ids
-from .assignment_review import validate_assignment_review
-from .intent_submission import _context_snapshot, _validate_policy
-from .bounded_policy_contract import StrictRecord, Hash, Text, BoundedPolicyUnavailable, fail
-from .bounded_contrast_contract import VERSION, SIDES, validate_pair, target_coordinates
-from .general_bounded_contrast_solver import solve, analyze
+from _crypto import _sha
+from cfm_id import fixed_comparison as comparison
+from cfm_id import question_bound_assignment as ids
+from cfm_id.assignment_review import validate_assignment_review
+from cfm_id.intent_submission import _context_snapshot, _validate_policy
+from cfm_id.bounded_policy_contract import StrictRecord, Hash, Text, BoundedPolicyUnavailable, fail
+from cfm_id.bounded_contrast_contract import VERSION, SIDES, validate_pair, target_coordinates
+from cfm_id.general_bounded_contrast_solver import solve, analyze
 
 
 def _resolve_design_kind(inquiry):
@@ -101,10 +101,10 @@ def worksheet(bundle, raw, *, query_id, packet, context, information):
     validate_pair(inquiries, information)
     if targets[query_id] != target_coordinates(inquiries):
         fail('CHECK_BLOCKED', 'ACTUAL_COMPARISON_AND_REVIEWED_TARGETS_DIFFER')
-    return dict(version=VERSION, query_id=query_id, bundle_sha256=sha(bundle),
-        reading_sha256=sha(raw), ordered_target_sha256=sha(targets[query_id]),
-        endpoint_bindings_sha256=sha({s:dict(packet=packet[s],context=_context_snapshot(context[s])) for s in SIDES}),
-        information_sha256=sha(information))
+    return dict(version=VERSION, query_id=query_id, bundle_sha256=_sha(bundle),
+        reading_sha256=_sha(raw), ordered_target_sha256=_sha(targets[query_id]),
+        endpoint_bindings_sha256=_sha({s:dict(packet=packet[s],context=_context_snapshot(context[s])) for s in SIDES}),
+        information_sha256=_sha(information))
 
 
 def prepare(bundle, raw, *, query_id, packet=None, context=None, information=None):
@@ -200,5 +200,5 @@ def submit(bundle, raw, *, query_id, packet=None, context=None, information=None
 
 def _replay(certificate, inquiries, information):
     """Verify the certificate is self-consistent."""
-    from .bounded_contrast_verify import replay
+    from cfm_id.bounded_contrast_verify import replay
     return replay(certificate, inquiries=inquiries, information=information)
